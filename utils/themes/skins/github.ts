@@ -3,17 +3,17 @@
  */
 import { lighten, darken } from 'polished'
 
-const primaryColor = 'rgba(68, 181, 99, 0.8)'
+const primaryColor = '#000000'
 
-const bannerBg = '#FAFBFC'
-const contentBg = '#f8f8f8'
-const contentBoxBg = '#FFFFFF'
+const bannerBg = '#fff'
+const contentBg = '#fff'
+const contentBoxBg = '#fff'
 const fontColor = primaryColor
 const sidebarBg = '#23292E'
 const markdownFont = '#9eb8bd'
 
-const descText = '#b5b5b5'
-const threadTitle = '#7b7878'
+const descText = '#666'
+const threadTitle = '#333333'
 // const primaryMate = 'orange'
 
 const github = {
@@ -91,7 +91,7 @@ const github = {
     articleLink: descText,
     articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
-    extraInfo: descText,
+    extraInfo: '#8590a6', // descText,
     articleSpliter: '#dee8ea',
 
     // like github
@@ -280,7 +280,7 @@ const github = {
   },
   tags: {
     dotOpacity: 0.4,
-    text: '#949494',
+    text: descText,
   },
   tagger: {
     text: '#d2a05f',
@@ -351,7 +351,7 @@ const github = {
   avatar: {
     opacity: 1,
     quote: '#217470',
-    fallbackBg: '#074857',
+    fallbackBg: '#F5F5F5',
     shadow: '0px 0px 4px 0px rgb(0 0 0 / 50%) inset',
     quoteShadow: '0px 0px 3px 0px rgb(0 0 0 / 30%) inset',
   },

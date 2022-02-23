@@ -15,9 +15,9 @@ export const BottomLine = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 65%;
+  width: 95%;
   height: 1px;
-  background: #014454;
+  background: #eae9e9; // to-theme
 `
 export const Title = styled.div`
   font-size: 16px;

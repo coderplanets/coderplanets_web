@@ -14,7 +14,8 @@ export const Brief = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const Title = styled.div`
-  font-size: 15.5px;
+  font-size: 15px;
+  font-weight: 600;
   color: ${theme('thread.articleTitle')};
   text-decoration: none;
   @media (max-width: 1450px) {

@@ -21,14 +21,18 @@ export const MainWrapper = styled.div<{ thread: TThread }>`
 
   border-radius: 6px;
 
-  padding-top: ${({ thread }) =>
-    includes(thread, values(CARD_THREAD)) ? '13px' : '16px'};
+  margin-top: 12px;
+  /* padding-top: ${({ thread }) =>
+    includes(thread, values(CARD_THREAD)) ? '13px' : '16px'}; */
   padding-left: ${({ thread }) =>
     includes(thread, values(CARD_THREAD)) ? '15px' : '25px'};
   padding-right: ${({ thread }) =>
     includes(thread, values(CARD_THREAD)) ? 0 : '24px'};
   margin-right: ${({ thread }) =>
     includes(thread, values(CARD_THREAD)) ? '35px' : '42px'};
+
+  padding-right: 60px;
+  border-right: 1px solid #eae9e9;
 
   ${css.media.mobile`
      padding: 10px 15px;

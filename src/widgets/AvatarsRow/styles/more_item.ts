@@ -12,7 +12,7 @@ const BaseAvatarItem = styled.li<{ size: string }>`
   position: relative;
   width: ${({ size }) => getAvatarSize(size)};
   opacity: 1;
-  z-index: 1;
+  z-index: 0;
   &:hover {
     opacity: 1;
   }
@@ -26,7 +26,7 @@ export const Wrapper = styled(BaseAvatarItem)`
 
 type TNumbersMore = { size: string; total: number }
 export const NumbersMore = styled(AvatarsMore)<TNumbersMore>`
-  background: #123d4c;
+  background-color: #f5f5f5; // to-theme
   color: ${theme('thread.articleTitle')};
   height: ${({ size }) => getAvatarSize(size)};
   width: ${({ total }) => getMoreTextWidth(total)};

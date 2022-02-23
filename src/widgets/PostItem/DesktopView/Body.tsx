@@ -101,7 +101,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
       </Extra>
 
       <DigestSentence
-        top={3}
+        top={2}
         right={140}
         onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}
       >

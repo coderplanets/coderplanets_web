@@ -20,6 +20,7 @@ export const Wrapper = styled.article<TWrapper>`
   padding-bottom: ${({ c11n }) => (c11n.contentDivider ? '14px' : '8px')};
   border-bottom: ${({ c11n }) => (c11n.contentDivider ? '1px solid' : '0')};
   border-bottom-color: ${theme('thread.articleDivider')};
+  margin-bottom: 10px;
 
   transition: all 0.2s;
 `

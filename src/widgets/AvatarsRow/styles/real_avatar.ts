@@ -66,5 +66,5 @@ export const AvatarsMore = styled.span<TAvatarsMore>`
 `
 export const AvatarFallback = styled(ImgFallback)`
   border: 1px solid;
-  border-color: #113744;
+  border-color: #f5f5f5; // to-theme
 `

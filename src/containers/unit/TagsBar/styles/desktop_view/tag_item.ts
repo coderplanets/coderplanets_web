@@ -20,7 +20,7 @@ export const Wrapper = styled.div<TTag>`
   background: ${({ $active }) => (!$active ? 'transparent' : '#0e303d')};
 
   &:hover {
-    background: #06303b;
+    background: #f5f5f5; // to-theme
     cursor: pointer;
   }
 `

@@ -14,10 +14,8 @@ export const Extra = styled.li`
   position: relative;
   ${css.flex('align-end')};
   color: ${theme('thread.extraInfo')};
-
+  margin-top: 3px;
   font-size: 12px;
-  height: 24px;
-  /* border: 1px solid tomato; */
 `
 export const LeftPart = styled.div`
   ${css.flex('align-center')};
@@ -28,7 +26,6 @@ export const CommunityLabel = styled.div`
   padding-left: 14px;
   position: relative;
   font-weight: bold;
-  opacity: 0.8;
   text-decoration: none;
 
   &:hover {
@@ -36,8 +33,6 @@ export const CommunityLabel = styled.div`
     text-decoration: underline;
     cursor: pointer;
   }
-
-  transition: opacity 0.2s;
 
   &:before {
     content: '';
@@ -62,7 +57,6 @@ export const AuthorName = styled.a<{ darker: boolean }>`
   display: block;
   color: ${theme('thread.extraInfo')};
   font-size: 13px;
-  opacity: ${({ darker }) => (darker ? 0.75 : 0.9)};
   margin-bottom: 1px;
 
   text-decoration: none;
@@ -72,13 +66,9 @@ export const AuthorName = styled.a<{ darker: boolean }>`
     text-decoration: underline;
     cursor: pointer;
   }
-
-  transition: opacity 0.2s;
 `
 export const PublishTime = styled.div`
   font-size: 12px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
 `
 export const Dot = styled(DotDivider)`
   background-color: ${theme('thread.articleDigest')};
@@ -86,12 +76,9 @@ export const Dot = styled(DotDivider)`
 `
 export const ItemWrapper = styled.div`
   ${css.flex('align-center')};
-  opacity: 0.7;
-  transition: opacity 0.2s;
 `
 export const ViewsIcon = styled(ViewedSVG)`
   fill: ${theme('thread.extraInfo')};
   ${css.size(12)};
-  opacity: 0.6;
   margin-right: 3px;
 `

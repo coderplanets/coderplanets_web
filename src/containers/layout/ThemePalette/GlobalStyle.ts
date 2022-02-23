@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   ${normalize};
   html {
     background-color: ${theme('htmlBg')};
+    -webkit-font-smoothing: antialiased;
   }
   body {
     ${css.media.mobile`
