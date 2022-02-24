@@ -7,7 +7,7 @@ export const BaseBanner = styled.nav`
   ${css.flexColumn('justify-center')};
 
   position: relative;
-  min-height: 128px;
+  min-height: 112px;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
 

@@ -27,6 +27,7 @@ import {
   NoteWrapper,
   TagsBarWrapper,
   StickyWrapper,
+  CommunityNoteWrapper,
   PublishWrapper,
 } from '../styles/classic_layout'
 
@@ -46,6 +47,9 @@ const ClassicLayout: FC<TProps> = ({
 }) => {
   return (
     <Sticky offsetTop={50}>
+      <CommunityNoteWrapper>
+        关于 CoderPlanets 的各种建议，吐槽等请发布到这里
+      </CommunityNoteWrapper>
       <StickyWrapper>
         <PublishWrapper show={showCommunityBadge}>
           {community.raw !== 'blackhole' ? (

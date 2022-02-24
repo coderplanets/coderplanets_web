@@ -16,6 +16,14 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const StickyWrapper = styled.div`
   ${css.flexColumn()};
 `
+export const CommunityNoteWrapper = styled.div`
+  font-size: 13px;
+  color: ${theme('thread.articleDigest')};
+  padding: 15px 20px;
+  padding-top: 0;
+  margin-bottom: 8px;
+`
+
 export const PublishWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   width: 160px;

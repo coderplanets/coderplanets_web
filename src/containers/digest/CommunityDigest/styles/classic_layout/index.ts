@@ -12,7 +12,7 @@ const getMinHeight = (noSocial, isMobile) => {
     return noSocial ? '112px' : '140px'
   }
 
-  return noSocial ? '128px' : '150px'
+  return noSocial ? '112px' : '150px'
 }
 
 type TWrapper = {
@@ -28,7 +28,7 @@ export const Wrapper = styled(BaseBanner)<TWrapper>`
 `
 export const InnerWrapper = styled.div<TWrapper>`
   ${css.flex('justify-center')};
-  padding-top: 20px;
+  padding-top: 14px;
   min-height: ${({ descExpand, noSocial, isMobile }) =>
     descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
   width: 100%;
@@ -77,6 +77,7 @@ export const TabBarWrapper = styled.div`
 export const CommunityBaseInfo = styled.div`
   ${css.flex('justify-between')};
   width: 100%;
+  padding-top: 20px;
   // 60 是经典布局为缩小帖子列表"视觉宽度"手动缩小的值
   padding-right: 60px;
 

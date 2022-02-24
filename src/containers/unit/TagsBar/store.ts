@@ -57,7 +57,7 @@ const TagsBar = T.model('TagsBar', {
         }
 
         default: {
-          return 5
+          return 3
         }
       }
     },

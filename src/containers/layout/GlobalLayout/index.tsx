@@ -77,12 +77,12 @@ const GlobalLayoutContainer: FC<TProps> = ({
                 onScrollDirectionChange={onPageScrollDirhange}
                 autoHide
               >
-                <Header
+                {/* <Header
                   metric={metric}
                   c11n={c11n}
                   accountInfo={accountInfo}
                   community={curCommunity}
-                />
+                /> */}
                 <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                   {childrenWithProps(children, { metric })}
                 </BodyWrapper>

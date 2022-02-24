@@ -59,12 +59,12 @@ const ClassicLayout: FC<TProps> = ({
         <BannerContentWrapper descExpand={descExpand}>
           <CommunityBaseInfo>
             <CommunityBrief community={community} descExpand={descExpand} />
-            <CommunityStatesPad
+            {/* <CommunityStatesPad
               community={community}
               onShowEditorList={onShowEditorList}
               onShowSubscriberList={onShowSubscriberList}
               realtimeVisitors={realtimeVisitors}
-            />
+            /> */}
           </CommunityBaseInfo>
           <TabBarWrapper>
             <TabBar
