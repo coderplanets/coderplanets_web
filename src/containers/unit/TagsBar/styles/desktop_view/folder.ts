@@ -28,6 +28,7 @@ export const ArrowIcon = styled(ArrowSVG)<{ $isOpen: boolean }>`
 `
 export const Title = styled.div`
   ${css.flex('align-center')};
+  margin-left: 7px;
 `
 export const FolderTitle = styled.div`
   color: ${theme('tags.text')};

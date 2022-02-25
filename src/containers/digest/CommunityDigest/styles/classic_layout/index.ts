@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
+import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import { pixelAdd } from '@/utils/dom'
 import { WIDTH } from '@/utils/css/metric'
@@ -9,10 +10,10 @@ import { BaseBanner } from '../index'
 
 const getMinHeight = (noSocial, isMobile) => {
   if (isMobile) {
-    return noSocial ? '112px' : '140px'
+    return noSocial ? '108px' : '140px'
   }
 
-  return noSocial ? '112px' : '150px'
+  return noSocial ? '108px' : '150px'
 }
 
 type TWrapper = {
@@ -28,7 +29,7 @@ export const Wrapper = styled(BaseBanner)<TWrapper>`
 `
 export const InnerWrapper = styled.div<TWrapper>`
   ${css.flex('justify-center')};
-  padding-top: 14px;
+  padding-top: 10px;
   min-height: ${({ descExpand, noSocial, isMobile }) =>
     descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
   width: 100%;
@@ -84,4 +85,11 @@ export const CommunityBaseInfo = styled.div`
   ${css.media.mobile`
     padding-right: 0;
   `};
+`
+
+export const TmpPart = styled.div`
+  color: ${theme('thread.articleDigest')};
+  margin-right: 18px;
+  font-weight: 600;
+  margin-top: 0;
 `

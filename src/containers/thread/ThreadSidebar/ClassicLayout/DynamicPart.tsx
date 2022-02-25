@@ -12,6 +12,7 @@ import type { TThread, TCommunity } from '@/spec'
 
 import { buildLog } from '@/utils/logger'
 import { send } from '@/utils/helper'
+import { mockUsers } from '@/utils/mock'
 import { EVENT } from '@/constant'
 
 import Sticky from '@/widgets/Sticky'
@@ -27,6 +28,10 @@ import {
   NoteWrapper,
   TagsBarWrapper,
   StickyWrapper,
+  CommunityJoinersTitle,
+  CommunityJoinersNum,
+  CommunityJoinersWrapper,
+  JoinerAvatar,
   CommunityNoteWrapper,
   PublishWrapper,
 } from '../styles/classic_layout'
@@ -47,8 +52,18 @@ const ClassicLayout: FC<TProps> = ({
 }) => {
   return (
     <Sticky offsetTop={50}>
+      <CommunityJoinersTitle>
+        参与者
+        <CommunityJoinersNum>3829</CommunityJoinersNum>
+      </CommunityJoinersTitle>
+      <CommunityJoinersWrapper>
+        {mockUsers(5).map((user) => (
+          <JoinerAvatar key={user.id} src={user.avatar} />
+        ))}
+      </CommunityJoinersWrapper>
       <CommunityNoteWrapper>
-        关于 CoderPlanets 的各种建议，吐槽等请发布到这里
+        关于 CoderPlanets 的各种建议，吐槽等请发布到这里 关于 CoderPlanets
+        的各种建议，吐槽等请发布到这里
       </CommunityNoteWrapper>
       <StickyWrapper>
         <PublishWrapper show={showCommunityBadge}>

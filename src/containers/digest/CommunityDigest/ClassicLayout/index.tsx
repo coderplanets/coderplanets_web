@@ -16,6 +16,7 @@ import {
   InnerWrapper,
   BannerContentWrapper,
   CommunityBaseInfo,
+  TmpPart,
   TabBarWrapper,
 } from '../styles/classic_layout'
 
@@ -59,6 +60,7 @@ const ClassicLayout: FC<TProps> = ({
         <BannerContentWrapper descExpand={descExpand}>
           <CommunityBaseInfo>
             <CommunityBrief community={community} descExpand={descExpand} />
+            <TmpPart>登入 / 注册</TmpPart>
             {/* <CommunityStatesPad
               community={community}
               onShowEditorList={onShowEditorList}
