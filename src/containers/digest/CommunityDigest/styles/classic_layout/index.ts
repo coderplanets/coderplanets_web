@@ -86,10 +86,3 @@ export const CommunityBaseInfo = styled.div`
     padding-right: 0;
   `};
 `
-
-export const TmpPart = styled.div`
-  color: ${theme('thread.articleDigest')};
-  margin-right: 18px;
-  font-weight: 600;
-  margin-top: 0;
-`

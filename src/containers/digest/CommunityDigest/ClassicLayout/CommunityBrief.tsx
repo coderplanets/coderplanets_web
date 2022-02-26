@@ -9,6 +9,7 @@ import { HCN, NON_FILL_COMMUNITY } from '@/constant'
 // import SocialList from '../SocialList'
 
 import CommunityJoinSign from '@/widgets/CommunityJoinSign'
+
 import {
   Wrapper,
   Logo,

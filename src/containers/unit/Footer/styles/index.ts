@@ -14,7 +14,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     includes(metric, [METRIC.ARTICLE, METRIC.WORKS_ARTICLE])
       ? 'start'
       : 'center'};
-  margin-top: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? '50px' : '80px')};
+  margin-top: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? '30px' : '50px')};
   ${({ metric }) => css.fitPageWidth(metric)};
+  padding-top: 20px;
+  background: #f5f5f5;
 `
 export const Holder = 1

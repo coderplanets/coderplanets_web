@@ -9,7 +9,7 @@ import {
   InnerBtnWrapper,
   ButtonWrapper,
   FilterIcon,
-} from './styles/filter_button'
+} from './styles/cat_filter_button'
 
 const FilterPanel = dynamic(() => import('./FilterPanel'), {
   /* eslint-disable react/display-name */
@@ -23,18 +23,18 @@ type TProps = {
   onSelect: (filter: TArticleFilter) => void
 }
 
-const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
+const CatFilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
   return (
     <Wrapper>
-      显示
+      类别
       <Tooltip
-        placement="bottom-start"
+        placement="bottom-end"
         trigger="click"
         hideOnClick={false}
         content={
           FilterPanel && (
             <FilterPanel
-              thread={thread}
+              thread="ArticleCat"
               onSelect={onSelect}
               activeFilter={activeFilter}
             />
@@ -52,4 +52,4 @@ const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
   )
 }
 
-export default memo(FilterButton)
+export default memo(CatFilterButton)

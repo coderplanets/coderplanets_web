@@ -9,7 +9,7 @@ const Wrapper = styled.div<{ metric: TMetric }>`
   /*  TODO:  remove footer.bottomBg key */
   /* background: ${theme('footer.bottomBg')}; */
   border-top: 1px solid;
-  border-top-color: #02394a;
+  border-top-color: #e1e1e1; // to-theme
   width: 100%;
   padding-top: 18px;
   padding-bottom: 30px;

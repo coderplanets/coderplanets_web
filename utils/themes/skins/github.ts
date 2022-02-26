@@ -274,8 +274,8 @@ const github = {
     hoverBg: '#eee',
   },
   popover: {
-    bg: '#f9fcfc',
-    borderColor: '#51abb2',
+    bg: '#fff',
+    borderColor: '#e9e9ea',
     boxShadow: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {

@@ -9,6 +9,7 @@ import ArrowSVG from '@/icons/ArrowSolid'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.extraInfo')};
+  margin-right: -8px;
 `
 export const InnerBtnWrapper = styled.div`
   ${css.flex('align-center')};

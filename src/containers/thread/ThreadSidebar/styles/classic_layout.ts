@@ -34,10 +34,12 @@ export const CommunityJoinersNum = styled.div`
   padding: 0 6px;
   border-radius: 5px;
 `
-export const CommunityJoinersWrapper = styled.div`
+export const CommunityJoinersWrapper = styled.div<TActive>`
   ${css.flex()};
   flex-wrap: wrap;
-  margin-bottom: 15px;
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
+  margin-bottom: ${({ show }) => (show ? '15px' : 0)};
+  height: ${({ show }) => (show ? 'auto' : 0)};
 `
 export const JoinerAvatar = styled(Img)`
   ${css.circle(30)};
@@ -70,9 +72,7 @@ export const NoteWrapper = styled.div`
   border-bottom: 1px solid;
   border-bottom-color: #003b49;
 `
-export const BadgeWrapper = styled.div<TActive>`
-  display: ${({ show }) => (show ? 'block' : 'none')};
-`
+
 export const TagsBarWrapper = styled.div`
   margin-top: 25px;
   max-width: 160px;
