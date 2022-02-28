@@ -3,15 +3,20 @@ import styled from 'styled-components'
 import type { TActive } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
 import Img from '@/Img'
+import Input from '@/widgets/Input'
 
 export const Wrapper = styled.div`
-  ${css.flex('align-start')};
+  ${css.flex('align-center')};
   width: 100%;
+  margin-bottom: 6px;
+`
+export const Inputer = styled(Input)`
+  height: 30px;
 `
 export const MainFilterWrapper = styled.div`
   ${css.flex('align-center')};
-  flex-grow: 1;
 `
 export const FilterPanelWrapper = styled.div`
   ${css.flex()};

@@ -13,11 +13,13 @@ import { buildLog } from '@/utils/logger'
 // import { useViewing } from '@/hooks'
 
 import { LavaLampLoading } from '@/widgets/dynamic'
+import { SpaceGrow } from '@/widgets/Common'
 
+import SearchBox from './SearchBox'
 import FilterButton from './FilterButton'
 import CatFilterButton from './CatFilterButton'
 import SelectedFilters from './SelectedFilters'
-import FilterResult from './FilterResult'
+// import FilterResult from './FilterResult'
 
 import { Wrapper, MainFilterWrapper } from './styles'
 
@@ -44,6 +46,11 @@ const ArticlesFilter: FC<TProps> = ({
 
   return (
     <Wrapper>
+      <SearchBox />
+      <SpaceGrow />
+      {resState === TYPE.RES_STATE.LOADING && (
+        <LavaLampLoading top={2} right={28} />
+      )}
       <MainFilterWrapper>
         <FilterButton
           thread={THREAD.POST}
@@ -52,10 +59,6 @@ const ArticlesFilter: FC<TProps> = ({
         />
         <SelectedFilters onSelect={onSelect} activeFilter={activeFilter} />
       </MainFilterWrapper>
-
-      {resState === TYPE.RES_STATE.LOADING && (
-        <LavaLampLoading top={2} right={28} />
-      )}
       <CatFilterButton
         thread={THREAD.POST}
         onSelect={onSelect}

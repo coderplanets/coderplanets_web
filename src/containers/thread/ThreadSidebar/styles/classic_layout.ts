@@ -20,8 +20,9 @@ export const StickyWrapper = styled.div`
 export const CommunityJoinersTitle = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
-  font-size: 13px;
-  margin-bottom: 15px;
+  font-size: 14px;
+  margin-top: -2px;
+  margin-bottom: 16px;
   font-weight: 600;
 `
 export const CommunityJoinersNum = styled.div`

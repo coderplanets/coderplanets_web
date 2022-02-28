@@ -26,7 +26,7 @@ type TProps = {
 const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
   return (
     <Wrapper>
-      显示
+      排序
       <Tooltip
         placement="bottom-start"
         trigger="click"

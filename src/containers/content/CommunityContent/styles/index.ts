@@ -21,7 +21,7 @@ export const BaseWrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const BaseInnerWrapper = styled.div`
   color: ${theme('font')};
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
   padding-top: 0;
 
   ${css.media.mobile`
