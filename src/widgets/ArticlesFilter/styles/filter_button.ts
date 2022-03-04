@@ -9,12 +9,14 @@ import ArrowSVG from '@/icons/ArrowSimple'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.extraInfo')};
+  font-size: 13px;
 `
 export const InnerBtnWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 2px;
   color: ${theme('thread.extraInfo')};
   font-weight: 550;
+  font-size: 13px;
 
   &:hover {
     cursor: pointer;

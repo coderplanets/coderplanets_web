@@ -11,11 +11,13 @@ export const Wrapper = styled.div`
   cursor: pointer;
 `
 export const SearchIcon = styled(SearchSVG)`
-  ${css.size(14)};
+  ${css.size(15)};
   fill: ${theme('thread.extraInfo')};
   margin-right: 8px;
+  margin-top: -1px;
 `
 export const Text = styled.div`
   color: ${theme('thread.extraInfo')};
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 400;
 `
