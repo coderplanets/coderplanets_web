@@ -20,6 +20,7 @@ export const UserBase = styled.div`
   flex-grow: 1;
 `
 export const Nickname = styled.div`
+  color: ${theme('thread.articleTitle')};
   font-size: 15px;
   ${css.cutRest('150px')};
 
@@ -31,10 +32,11 @@ export const AuthorTag = styled.div`
   font-size: 11px;
   margin-bottom: 2px;
   padding: 0 8px;
+  padding-top: 2px;
   margin-left: 10px;
-  background: #023c4a;
+  background: #c8eeff; // to-theme
   border-radius: 5px;
-  color: ${theme('button.primary')};
+  color: ${theme('thread.articleTitle')};
 
   ${css.media.mobile`
     margin-left: 5px;

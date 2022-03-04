@@ -11,7 +11,7 @@ export const Wrapper = styled.div<{ visible: boolean }>`
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   width: calc(100% - 220px);
   height: 60px;
-  background: #072a36;
+  background: #fff; // to-theme
   border-bottom: 1px solid;
   border-bottom-color: ${theme('drawer.divider')};
   z-index: 5;

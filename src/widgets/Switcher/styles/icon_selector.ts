@@ -29,13 +29,13 @@ export const Tabs = styled.div`
   z-index: 2;
   border: 1px solid;
   border-color: transparent;
-  background-color: #002b35;
+  background-color: #f5f5f5; // to-theme
 
   ${Wrapper}:hover & {
-    border-color: #003b4a;
+    border-color: #f5f5f5; // to-theme
   }
   ${AccessZone}:hover & {
-    border-color: #003b4a;
+    border-color: #f5f5f5; // to-theme
   }
   transition: all 0.2s;
 `
@@ -73,15 +73,15 @@ export const Slider = styled.span<{ index: number }>`
   position: absolute;
   width: ${width};
   height: ${height};
-  background-color: #0b3546;
+  background-color: #ebe9e9; // to-theme
   z-index: 0;
   border-radius: 6px;
 
   ${Wrapper}:hover & {
-    background-color: #0f3f52;
+    background-color: #ebe9e9; // to-theme
   }
   ${AccessZone}:hover & {
-    background-color: #0f3f52;
+    background-color: #ebe9e9; // to-theme
   }
 
   transition: 0.25s ease-out;

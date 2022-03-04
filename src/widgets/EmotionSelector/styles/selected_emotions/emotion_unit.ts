@@ -14,7 +14,7 @@ export const Wrapper = styled.div<TActive>`
   background: ${({ $active }) => ($active ? '#00333D' : 'transparent')};
 
   &:hover {
-    background: #023c4a;
+    background: #f5f5f5; // to-theme
   }
 `
 

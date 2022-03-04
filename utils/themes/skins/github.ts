@@ -158,13 +158,13 @@ const github = {
     title: 'grey',
     username: '#7FA7AC',
     number: '#efbc60',
-    floor: '#b1b1b1',
+    floor: '#8590a6',
     reply: '#93b3b5',
     replyBg: '#f3f3f3',
     placeholder: '#C0D9DA',
     filter: 'grey',
     filterActive: primaryColor,
-    action: '#a7a7a7',
+    action: '#8590a6',
     // mention text displayed in article
     mentionText: '#91a4b5',
     mentionTextBg: '#fcffdb',
@@ -174,8 +174,8 @@ const github = {
     mentionActiveBg: darken(0.1, '#F9FCFC'),
     mentionShadow: '0px 2px 10px 1px rgba(235, 235, 235, 1)',
 
-    indentLine: '#035163',
-    indentActive: '#4b6669',
+    indentLine: '#d5d5d5',
+    indentActive: descText,
   },
   editor: {
     title: '#7ea9ad',

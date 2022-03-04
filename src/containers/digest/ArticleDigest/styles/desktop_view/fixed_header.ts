@@ -27,7 +27,7 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center')};
-  background: #002a34; // ${theme('header.bg')};
+  background: #fff; // to-theme
   width: 100%;
   height: 48px;
   ${({ metric }) => css.fitPageWidth(metric)};

@@ -19,7 +19,7 @@ export const TopArea = styled.div<{ showShare: boolean }>`
   top: 0;
   left: 34px;
   display: block;
-  background: #002a34;
+  background: #f5f5f5; // to-theme
   border-bottom-left-radius: 15px;
   box-shadow: ${theme('drawer.shadow')};
   ${css.flexColumn('align-both')}
