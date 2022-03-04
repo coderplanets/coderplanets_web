@@ -132,7 +132,7 @@ const github = {
     desc: descText,
     font: primaryColor,
     bg: contentBg,
-    shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
+    shadow: '-4px 3px 10px 0px rgb(143 143 143 / 27%)',
     closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
     markdownHelperBg: '#F9FCFC',
     accountBg: '#FFFFFF',
