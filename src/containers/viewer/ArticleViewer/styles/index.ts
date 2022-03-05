@@ -5,8 +5,8 @@ import type { TTestable } from '@/spec'
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
-  padding: 32px 100px;
-  padding-right: 105px;
+  padding: 32px 140px;
+  padding-right: 145px;
 `
 export const CommentsWrapper = styled.div`
   min-height: 400px;

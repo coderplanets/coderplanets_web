@@ -10,7 +10,7 @@ import type { TRootStore, TCommunity, TThread, TArticle, TWorks } from '@/spec'
 import { TYPE, ARTICLE_THREAD, THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
-import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
+import { lockPage, unlockPage } from '@/utils/dom'
 import { Global, plural } from '@/utils/helper'
 import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
 import { User } from '@/model'
@@ -169,7 +169,6 @@ const DrawerStore = T.model('DrawerStore', {
       slf.type = type
       slf.options = merge(defaultOptions, options)
       lockPage()
-      toggleGlobalBlur(true)
 
       if (slf.isMobile) {
         slf.canBeClose = false
@@ -196,7 +195,6 @@ const DrawerStore = T.model('DrawerStore', {
       slf.type = null
 
       unlockPage()
-      toggleGlobalBlur(false)
     },
 
     resetViewing(): void {

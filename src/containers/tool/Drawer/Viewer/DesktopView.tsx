@@ -1,5 +1,7 @@
 import { Fragment, FC, ReactNode, memo } from 'react'
 
+import { ANCHOR } from '@/constant'
+
 import type { TSwipeOption, TArticleNavi } from '../spec'
 import AddOn from '../AddOn'
 
@@ -27,7 +29,11 @@ const DesktopView: FC<TProps> = ({
 }) => {
   return (
     <Fragment>
-      <DrawerOverlay visible={visible} onClick={() => closeDrawer()} />
+      <DrawerOverlay
+        visible={visible}
+        onClick={() => closeDrawer()}
+        className={ANCHOR.GLOBAL_BLUR_CLASS}
+      />
       <DrawerWrapper
         testid={testid}
         visible={visible}

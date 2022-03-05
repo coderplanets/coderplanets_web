@@ -9,11 +9,11 @@ import dynamic from 'next/dynamic'
 import { isMobile } from 'react-device-detect'
 
 import type { TSEO, TMetric } from '@/spec'
-import { ANCHOR, SIZE, C11N, BODY_SCROLLER } from '@/constant'
+import { SIZE, C11N, BODY_SCROLLER } from '@/constant'
 import { bond } from '@/utils/mobx'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-import Header from '@/widgets/Header'
+// import Header from '@/widgets/Header'
 
 // import Header from '@/containers/unit/Header'
 // import ModeLine from '@/containers/unit/ModeLine'
@@ -53,7 +53,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // load debug graph
   useInit(store, { isMobile })
 
-  const { sidebarPin, c11n, curCommunity, accountInfo } = store
+  const { sidebarPin, c11n } = store
   const { bannerLayout } = c11n
 
   return (
@@ -64,10 +64,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
           <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
             {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
             <Addon />
-            <ContentWrapper
-              offsetLeft={sidebarPin}
-              className={ANCHOR.GLOBAL_BLUR_CLASS}
-            >
+            <ContentWrapper offsetLeft={sidebarPin}>
               <CustomScroller
                 instanceKey={BODY_SCROLLER}
                 direction="vertical"

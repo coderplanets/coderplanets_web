@@ -105,7 +105,8 @@ export const getTransform = (
   options: Options,
 ): string => {
   if (!mobile) {
-    return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)' // fromRight
+    // return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)' // fromRight
+    return visible ? 'translate(0px, 0px)' : 'translate(65px, 0px)' // fromRight
   }
 
   switch (options.direction) {

@@ -301,7 +301,7 @@ const github = {
     bg: contentBoxBg,
     border: primaryColor,
     innerSelectBg: '#e4eeed45',
-    subPanel: '#00313d',
+    subPanel: '#F5F5F5',
     subPanelShadow: 'drop-shadow(3px 3px 6px #002a34)',
   },
   form: {

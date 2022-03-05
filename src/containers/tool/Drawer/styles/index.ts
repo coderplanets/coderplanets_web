@@ -23,9 +23,14 @@ export const DrawerOverlay = styled.div<TActive>`
   position: fixed;
   height: 100%;
   right: 0;
-  z-index: ${css.zIndex.drawerOverlay};
   top: 0;
+  z-index: ${css.zIndex.drawerOverlay};
+  /* z-index: ${({ visible }) => (visible ? css.zIndex.drawerOverlay : -1)}; */
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+  background: ${({ visible }) =>
+    visible ? '#000' : 'transparent'}; // to-theme
+  opacity: ${({ visible }) => (visible ? 0.5 : 0)};
+  transition: opacity 0.2s linear;
 `
 // see https://stackoverflow.com/questions/60079950/when-do-i-use-attrs-vs-passing-props-directly-with-styled-components
 
@@ -54,8 +59,6 @@ export const DrawerWrapper = styled.div.attrs(
 
   color: ${theme('drawer.font')};
   box-sizing: border-box;
-  transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  will-change: transform;
   font-family: Roboto, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 0px;
@@ -65,9 +68,7 @@ export const DrawerWrapper = styled.div.attrs(
 
   min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
   max-width: 1000px;
-  /* transform: ${({ visible, mobile, swipeUpY, swipeDownY, options }) =>
-    getTransform(visible, mobile, swipeUpY, swipeDownY, options)}; */
-  z-index: ${css.zIndex.drawer};
+  z-index: ${({ visible }) => (visible ? css.zIndex.drawer : -1)};
   /* 
    * if the screen width > maxContent, then use display instead of visibility
    * otherwise the Drawer will show up from screen edge
@@ -76,7 +77,11 @@ export const DrawerWrapper = styled.div.attrs(
    * 屏幕最边缘滑出
    *
   */
-  display: ${({ visible }) => (visible ? 'flex' : 'none')};
+  /* display: ${({ visible }) => (visible ? 'flex' : 'none')}; */
+
+  transition: transform 550ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  will-change: transform;
+
   ${css.media.maxContent`
     visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   `};
