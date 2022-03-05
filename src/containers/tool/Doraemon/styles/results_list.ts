@@ -23,7 +23,6 @@ export const AddOn = styled.div`
   width: 25px;
 `
 export const PageOverlay = styled.div<TActive>`
-  //  background-color: rgba(0, 0, 0, 0.4);
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -84,9 +83,8 @@ export const InputBar = styled.input`
   height: 100%;
   width: auto;
   outline: none;
-  font-weight: 200;
   color: ${theme('shell.searchInput')};
-  font-size: 1.6rem;
+  font-size: 18px;
   max-height: none;
   background-color: transparent;
   padding: 0 20px 0px 20px;
@@ -101,7 +99,7 @@ export const ContentWrapper = styled.div`
 `
 export const Title = styled.div`
   color: ${theme('shell.title')};
-  font-size: 1.1rem;
+  font-size: 18px;
   > a {
     color: ${theme('shell.link')};
   }
@@ -113,7 +111,7 @@ export const Title = styled.div`
 `
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
-  font-size: 0.9rem;
+  font-size: 14px;
 
   ${css.cutRest('400px')};
 `
@@ -122,12 +120,12 @@ export const Hint = styled.div`
   margin-top: 10px;
   margin-right: 15px;
   width: 30px;
-  font-size: 1.1rem;
+  font-size: 13px;
 `
 export const HintEnter = styled(Img)`
   color: ${theme('shell.desc')};
   margin-top: 10px;
-  margin-right: 1.5em;
+  margin-right: 15px;
   ${css.size(30)};
   transform: rotateX(180deg);
   fill: ${theme('shell.desc')};

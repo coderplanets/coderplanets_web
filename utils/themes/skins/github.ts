@@ -252,14 +252,14 @@ const github = {
     bg: darken(0.05, contentBoxBg),
   },
   shell: {
-    link: '#bbb9b7',
-    searchInput: '#bbb9b7',
-    searchIcon: '#bbb9b7',
-    barBg: '#F0F0F0',
-    border: darken(0.05, '#F0F0F0'),
-    title: '#949494',
-    desc: '#bbb9b7',
-    activeBg: '#e6e6e6',
+    link: descText,
+    searchInput: descText,
+    searchIcon: lighten(0.1, descText),
+    barBg: contentBoxBg,
+    border: '#f3f3f3',
+    title: threadTitle,
+    desc: descText,
+    activeBg: '#F5F5F5',
   },
   button: {
     primary: primaryColor,
@@ -341,7 +341,7 @@ const github = {
     hoverBg: '#FAFBFC',
   },
   searchHighlight: {
-    doramonFg: 'orange',
+    doramonFg: '#03a9f4',
     doramonBg: 'transparent',
   },
   tooltip: {

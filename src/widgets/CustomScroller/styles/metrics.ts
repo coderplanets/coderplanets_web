@@ -1,6 +1,6 @@
 import { SIZE } from '@/constant'
 
-const ShadowBgColor = '#022029'
+const ShadowBgColor = '#ededed' // to-theme
 
 const horizontalShadowBg = (type: string): string => {
   switch (type) {

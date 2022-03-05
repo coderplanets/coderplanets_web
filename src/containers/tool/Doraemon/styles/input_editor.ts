@@ -23,9 +23,8 @@ export const InputBar = styled.input.attrs(({ testid }: TTestable) => ({
     'Lucida Grande', 'Segoe UI', Noto Sans, sans-serif;
   width: auto;
   outline: none;
-  font-weight: 200;
   color: ${theme('shell.searchInput')};
-  font-size: 1.4rem;
+  font-size: 20px;
   background-color: transparent;
   padding: 0 20px 0px 20px;
   border: 0;

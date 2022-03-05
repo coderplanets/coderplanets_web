@@ -23,10 +23,11 @@ export const Info = styled.div`
 `
 
 export const Title = styled.div`
-  font-size: 1rem;
+  font-size: 15px;
   color: ${theme('shell.title')};
 `
 
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
+  font-size: 14px;
 `
