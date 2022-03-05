@@ -121,7 +121,7 @@ export const hideDoraemonBarRecover = (): void => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
-    document.getElementById('whereCallShowDoraemon').click()
+    document.getElementById('whereCallShowDoraemon')?.click()
   }
 }
 
