@@ -73,15 +73,15 @@ export const Slider = styled.span<{ index: number }>`
   position: absolute;
   width: ${width};
   height: ${height};
-  background-color: #ebe9e9; // to-theme
+  background-color: #fff; // to-theme
   z-index: 0;
   border-radius: 6px;
 
   ${Wrapper}:hover & {
-    background-color: #ebe9e9; // to-theme
+    background-color: #fff; // to-theme
   }
   ${AccessZone}:hover & {
-    background-color: #ebe9e9; // to-theme
+    background-color: #fff; // to-theme
   }
 
   transition: 0.25s ease-out;

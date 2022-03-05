@@ -30,7 +30,7 @@ export const SlipBar = styled.span<TSlipBar>`
   position: absolute;
   ${css.flex('justify-center')};
   width: ${({ width }) => width};
-  bottom: 0;
+  bottom: 1px;
   left: 0;
   height: ${({ slipHeight }) => slipHeight};
 
@@ -40,9 +40,9 @@ export const SlipBar = styled.span<TSlipBar>`
 type TRealBar = { width: string }
 export const RealBar = styled.span<TRealBar>`
   width: ${({ width }) => width};
-  height: 1px;
+  height: 2px;
   /* border-radius: 3px; */
-  background: #3d4349; // to-theme
+  background: #d3d5d7; // to-theme
 `
 // transform: ${({ active }) =>
 //     active ? 'translate3d(0,0,0);' : 'translate3d(0, 150%, 0);'};

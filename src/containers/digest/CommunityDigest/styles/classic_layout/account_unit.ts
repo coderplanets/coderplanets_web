@@ -22,8 +22,7 @@ export const Avatar = styled(Img)`
 export const SubscribeButton = styled(Button)`
   margin-right: 18px;
   border-radius: 10px;
-  padding: 2px 15px;
-  opacity: 0.8;
+  padding: 1px 12px;
 `
 export const NotifyIcon = styled(NotifySVG)`
   fill: ${theme('thread.articleDigest')};

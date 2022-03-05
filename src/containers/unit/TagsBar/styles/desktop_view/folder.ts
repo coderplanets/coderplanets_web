@@ -31,8 +31,7 @@ export const Title = styled.div`
   margin-left: 7px;
 `
 export const FolderTitle = styled.div`
-  color: ${theme('tags.text')};
-  opacity: 0.5;
+  color: ${theme('thread.extraInfo')};
   margin-left: 4px;
   font-size: 14px;
   margin-right: 8px;
@@ -78,13 +77,13 @@ export const SubToggle = styled.div`
   }
 `
 export const SubToggleTitle = styled.div`
-  color: ${theme('tags.text')};
+  color: ${theme('thread.extraInfo')};
   font-size: 12px;
   margin-left: 10px;
   padding: 2px;
   border-radius: 5px;
 `
 export const SubTogglePrefixIcon = styled(MoreSVG)`
-  fill: ${theme('tags.text')};
+  fill: ${theme('thread.extraInfo')};
   ${css.size(13)};
 `
