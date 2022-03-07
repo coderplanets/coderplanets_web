@@ -6,10 +6,11 @@ import type { TArticleNavi } from '../spec'
 
 import {
   Wrapper,
-  SwitchBlock,
-  ArticleWrapper,
-  IndexDesc,
-  ArticleTitle,
+  LeftSwitchBlock,
+  RightSwitchBlock,
+  IndexWrapper,
+  LeftIndexWrapper,
+  RightIndexWrapper,
 } from '../styles/add_on/article_navi'
 
 import { naviToArticle } from '../logic'
@@ -22,38 +23,36 @@ type TProps = {
 const ArticleNavi: FC<TProps> = ({ articleNavi }) => {
   // console.log('-- type: ', type)
   return (
-    <Wrapper show>
+    <Wrapper>
       {articleNavi?.previous && (
-        <SwitchBlock>
+        <LeftSwitchBlock>
           <IconButton
-            path="shape/previous-article.svg"
+            path="shape/arrow-simple.svg"
             size={23}
             mRight={0}
             mLeft={2}
             onClick={() => naviToArticle(articleNavi.previous)}
             dimWhenIdle
           />
-          <ArticleWrapper onClick={() => naviToArticle(articleNavi.previous)}>
-            <IndexDesc>上一篇</IndexDesc>
-            <ArticleTitle>{articleNavi.previous.title}</ArticleTitle>
-          </ArticleWrapper>
-        </SwitchBlock>
+          <IndexWrapper onClick={() => naviToArticle(articleNavi.previous)}>
+            <LeftIndexWrapper>上一篇</LeftIndexWrapper>
+          </IndexWrapper>
+        </LeftSwitchBlock>
       )}
       {articleNavi?.next && (
-        <SwitchBlock>
+        <RightSwitchBlock>
           <IconButton
-            path="shape/next-article.svg"
+            path="shape/arrow-simple.svg"
             size={23}
-            mTop={10}
-            mRight={6}
+            mTop={2}
+            mRight={4}
             onClick={() => naviToArticle(articleNavi.next)}
             dimWhenIdle
           />
-          <ArticleWrapper onClick={() => naviToArticle(articleNavi.next)} next>
-            <IndexDesc>下一篇</IndexDesc>
-            <ArticleTitle>{articleNavi.next.title}</ArticleTitle>
-          </ArticleWrapper>
-        </SwitchBlock>
+          <IndexWrapper onClick={() => naviToArticle(articleNavi.next)}>
+            <RightIndexWrapper>下一篇</RightIndexWrapper>
+          </IndexWrapper>
+        </RightSwitchBlock>
       )}
     </Wrapper>
   )
