@@ -44,6 +44,7 @@ export const closeDrawer = (): void => {
 }
 
 export const naviToArticle = (article: TArticle): void => {
+  store.markPreviewHomeURLIfNeed()
   previewArticle(article)
   send(EVENT.RELOAD_ARTICLE)
 }
