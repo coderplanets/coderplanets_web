@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import css, { theme } from '@/utils/css'
-import animate from '@/utils/animations'
+import css, { theme, animate } from '@/utils/css'
 
 import UploadIcon from '@/icons/ImgUpload'
 import TurboSVG from '@/icons/Turbo'

@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import css, { theme } from '@/utils/css'
-import animate from '@/utils/animations'
+import css, { theme, animate } from '@/utils/css'
 import CloseCrossSVG from '@/icons/CloseCross'
 
 // display: ${props => (props.show ? 'block' : 'none')};

@@ -136,7 +136,6 @@ export {
 
 // helpers
 export { toast, toastBarColor } from './toast'
-export { default as animate } from './animations'
 export { default as css } from './css'
 export { WIDTH } from './css/metric'
 export { default as BStore } from './bstore'
