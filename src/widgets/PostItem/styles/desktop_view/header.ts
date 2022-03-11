@@ -29,7 +29,10 @@ export const Title = styled.div`
   }
 
   &:hover {
-    ${css.threadTitleHover()};
+    color: ${theme('thread.articleDigest')};
+    text-decoration: underline;
+    text-decoration-color: ${theme('thread.articleDigest')};
+    cursor: pointer;
   }
 
   transition: color 0.2s;
