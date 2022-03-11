@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import type { TSIZE_TSM } from '@/spec'
 
 import HashTagSVG from '@/SvgIcons/HashTagSVG'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { getIconSize, getTitleSize } from './metric'
 

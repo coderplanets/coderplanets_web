@@ -45,4 +45,5 @@ const css = {
 }
 
 export { theme } from '../themes'
+export { WIDTH } from './metric'
 export default css

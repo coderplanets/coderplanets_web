@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 const MarkDownStyle = styled.div`
   @font-face {

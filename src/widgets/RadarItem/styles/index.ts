@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TRadar, TC11N } from '@/spec'
-import css from '@/utils/css'
-import { theme } from '@/utils/themes'
+import css, { theme } from '@/utils/css'
 
 import { getOpacity } from './metric'
 

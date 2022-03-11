@@ -4,8 +4,7 @@ import type { TTestable, TSpace, TSIZE_SM } from '@/spec'
 
 import Img from '@/Img'
 import ThunderSVG from '@/icons/Thunder'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { getFontSize } from './metric'
 

@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import { BaseBar } from './index'
 
 export const Wrapper = styled(BaseBar)`

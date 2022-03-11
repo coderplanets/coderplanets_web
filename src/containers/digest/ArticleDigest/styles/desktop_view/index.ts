@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric } from '@/spec'
-import css from '@/utils/css'
-import { theme } from '@/utils/themes'
-import { WIDTH } from '@/utils/css/metric'
+import css, { theme, WIDTH } from '@/utils/css'
 
 import { getDigestHeight } from './metric'
 

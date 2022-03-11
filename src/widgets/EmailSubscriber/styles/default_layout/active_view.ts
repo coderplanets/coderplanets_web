@@ -4,8 +4,7 @@ import Img from '@/Img'
 import Button from '@/widgets/Buttons/Button'
 import Input from '@/widgets/Input'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};

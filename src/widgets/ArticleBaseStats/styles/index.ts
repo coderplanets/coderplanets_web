@@ -5,8 +5,7 @@ import type { TTestable } from '@/spec'
 import ViewSVGIcon from '@/icons/View'
 import CommentSVGIcon from '@/icons/Comment'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,

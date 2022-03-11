@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric, TActive, TThread } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import Img from '@/Img'
 
 import { getFixStickerOffset, getFixStickerAlign } from './metric'

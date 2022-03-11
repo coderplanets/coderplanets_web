@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import { contains } from 'ramda'
 
 import type { TActive } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import type { TDrawer, TSwipe } from '../spec'
 import {

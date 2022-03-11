@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import Button from '@/widgets/Buttons/Button'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import ArrowSVG from '@/icons/ArrowSimple'
 

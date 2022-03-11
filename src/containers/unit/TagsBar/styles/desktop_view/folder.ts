@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import { TActive } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import ArrowSVG from '@/icons/ArrowSimple'
 import MoreSVG from '@/icons/MoreL'
 

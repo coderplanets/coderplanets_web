@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TSIZE_SM, TActive } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 

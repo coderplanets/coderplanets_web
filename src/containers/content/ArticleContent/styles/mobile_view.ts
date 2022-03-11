@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import css from '@/utils/css'
-import { WIDTH } from '@/utils/css/metric'
+import css, { WIDTH } from '@/utils/css'
 
 export const Wrapper = styled.article.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,

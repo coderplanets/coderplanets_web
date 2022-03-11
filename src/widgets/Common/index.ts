@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TSpace } from '@/spec'
-import { theme } from '@/utils/themes'
+import { theme } from '@/utils/css'
 
 export const Br = styled.div<TSpace>`
   margin-top: ${({ top }) => `${top || 0}px`};

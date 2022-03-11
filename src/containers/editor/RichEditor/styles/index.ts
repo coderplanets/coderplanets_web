@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import css from '@/utils/css'
-import { theme } from '@/utils/themes'
+import css, { theme } from '@/utils/css'
 
 import { getWidth, getMinHeight } from './metric'
 

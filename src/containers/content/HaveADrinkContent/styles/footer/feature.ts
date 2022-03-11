@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import InfoSVG from '@/icons/Info'
 import SettingSVG from '@/icons/Setting'

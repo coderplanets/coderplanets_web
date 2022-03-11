@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import EditPenSVG from '@/icons/EditPen'
 
 export const Wrapper = styled.div<{ first: boolean }>`

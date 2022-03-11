@@ -1,7 +1,7 @@
 import type { TSIZE } from '@/spec'
 import { SIZE } from '@/constant'
 
-import { theme } from '@/utils/themes'
+import { theme } from '@/utils/css'
 
 export const getFontSize = (size: TSIZE): string => {
   switch (size) {

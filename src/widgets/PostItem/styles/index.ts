@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TPost, TC11N } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { getOpacity } from './metrics'
 

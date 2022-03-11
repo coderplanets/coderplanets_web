@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import type { TActive } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
+
+import Img from '@/Img'
 
 export const Wrapper = styled.div`
   width: 132px;

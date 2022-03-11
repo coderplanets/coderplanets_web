@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import IconText from '@/widgets/IconText'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export { Icon } from './label'
 

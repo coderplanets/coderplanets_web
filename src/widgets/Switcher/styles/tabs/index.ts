@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 import css from '@/utils/css'
-// import { theme } from '@/utils/themes'
 
 type TSlipBar = {
   slipHeight: string

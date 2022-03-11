@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-// import { theme } from '@/utils/themes'
-
 export const Wrapper = styled.div``
 
 export const CommentsWrapper = styled.div`

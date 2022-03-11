@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
-
+import css, { theme } from '@/utils/css'
 import WipSVG from '@/icons/Wip'
 
 export const Wrapper = styled.div`

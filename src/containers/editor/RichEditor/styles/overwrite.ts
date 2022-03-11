@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { theme } from '@/utils/themes'
+import { theme } from '@/utils/css'
 
 const mateColor = '#30B1AC'
 const linkColor = '#30B1AC'
