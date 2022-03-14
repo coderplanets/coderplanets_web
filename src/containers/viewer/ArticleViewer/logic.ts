@@ -7,6 +7,7 @@ import { EVENT, ERR, BLOG_TAB } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { errRescue, authWarn } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
+import { scrollDrawerToTop } from '@/utils/dom'
 import { matchArticleUpvotes, matchArticles } from '@/utils/macros'
 
 import S from './schema'
@@ -111,6 +112,7 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.RELOAD_ARTICLE),
     action: () => {
+      scrollDrawerToTop()
       markLoading(true)
       loadArticle()
     },
