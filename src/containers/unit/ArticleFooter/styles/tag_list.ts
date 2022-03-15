@@ -28,7 +28,7 @@ export const Dot = styled(HashTagSVG)<{ color: string }>`
 `
 export const Title = styled.div`
   font-size: 12px;
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
 
   ${Wrapper}:hover & {
     color: ${theme('thread.articleTitle')};

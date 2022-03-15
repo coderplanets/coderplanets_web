@@ -46,8 +46,7 @@ export const Wrapper = styled.div<TWrapper>`
 `
 type TIcon = { size: number; $dimWhenIdle: boolean } & TSpace & TActive
 export const Icon = styled(Img)<TIcon>`
-  fill: ${({ $active }) =>
-    $active ? '#00a59b' : theme('thread.articleDigest')};
+  fill: ${({ $active }) => ($active ? '#00a59b' : theme('thread.extraInfo'))};
   ${({ size }) => css.size(size)};
 
   opacity: ${({ $dimWhenIdle }) => ($dimWhenIdle ? 0.7 : 1)};
@@ -117,8 +116,7 @@ export const getIcon = (type: string): FC<TIcon> => {
 
 export const getStyledIcon = (comp: FC): FC<TIcon> => {
   return styled(comp)<TIcon>`
-    fill: ${({ $active }) =>
-      $active ? '#00a59b' : theme('thread.articleDigest')};
+    fill: ${({ $active }) => ($active ? '#00a59b' : theme('thread.extraInfo'))};
     ${({ size }) => css.size(size)};
 
     opacity: ${({ $dimWhenIdle }) => ($dimWhenIdle ? 0.7 : 1)};
@@ -134,7 +132,7 @@ export const getStyledIcon = (comp: FC): FC<TIcon> => {
 }
 
 export const Hint = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   text-align: center;
   min-width: 80px;
   padding: 5px;

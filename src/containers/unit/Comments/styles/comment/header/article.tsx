@@ -33,9 +33,9 @@ export const AuthorTag = styled.div`
   padding: 0 8px;
   padding-top: 2px;
   margin-left: 10px;
-  background: #c8eeff; // to-theme
+  background-color: rgba(0, 179, 126, 0.1); // to-theme
+  color: #056d4e; // to-theme
   border-radius: 5px;
-  color: ${theme('thread.articleTitle')};
 
   ${css.media.mobile`
     margin-left: 5px;

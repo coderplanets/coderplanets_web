@@ -13,7 +13,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('align-center')};
 `
 export const ViewsIcon = styled(ViewSVGIcon)`
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
   ${css.size(14)};
   transition: fill 0.25s;
 `
@@ -21,7 +21,7 @@ export const CommentWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const CommentIcon = styled(CommentSVGIcon)`
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
   ${css.size(14)};
   transition: fill 0.25s;
 
@@ -33,7 +33,7 @@ export const CommentIcon = styled(CommentSVGIcon)`
   transition: fill 0.2s;
 `
 export const Count = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-size: 15px;
   margin-left: 5px;
 `

@@ -21,15 +21,15 @@ const icon = `
 `
 const CC = styled(CCSVG)`
   ${icon};
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
 `
 const CCForbid = styled(CCForbidSVG)`
   ${icon};
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
 `
 const CCApprove = styled(CCApproveSVG)`
   ${icon};
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
 `
 
 export const Icon = {
@@ -40,7 +40,7 @@ export const Icon = {
 
 export const Text = styled.div`
   font-size: 13px;
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   margin-left: 6px;
 
   ${Wrapper}:hover & {

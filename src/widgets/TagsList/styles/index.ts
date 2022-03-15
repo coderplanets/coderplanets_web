@@ -18,7 +18,7 @@ export const Tag = styled.div`
   min-width: 40px;
 `
 export const Title = styled.div<{ size: TSIZE_TSM }>`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-size: ${({ size }) => getTitleSize(size)};
   margin-left: 3px;
   word-break: keep-all;
@@ -26,7 +26,7 @@ export const Title = styled.div<{ size: TSIZE_TSM }>`
   letter-spacing: 0.06em;
 `
 export const More = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-weight: bold;
   cursor: pointer;
   margin-top: -3px;

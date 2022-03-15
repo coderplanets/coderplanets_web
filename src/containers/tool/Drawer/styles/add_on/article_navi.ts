@@ -71,11 +71,11 @@ export const IndexWrapper = styled.div`
 `
 export const LeftIndexWrapper = styled(IndexWrapper)`
   position: absolute;
-  left: 30px;
+  left: 32px;
   top: 32px;
 `
 export const RightIndexWrapper = styled(IndexWrapper)`
   position: absolute;
-  left: 29px;
+  left: 31px;
   top: 32px;
 `

@@ -27,7 +27,7 @@ export const ReferNum = styled.span`
 `
 export const Text = styled.div<TActive>`
   color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+    active ? theme('thread.articleTitle') : theme('thread.extraInfo')};
   font-size: 13px;
 
   ${Item}:hover & {
