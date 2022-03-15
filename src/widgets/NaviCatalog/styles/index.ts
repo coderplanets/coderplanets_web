@@ -24,7 +24,7 @@ export const Item = styled.div<TItem>`
   font-size: 14px;
   border-bottom: ${({ withDivider }) => (withDivider ? '1px solid' : 'none')};
   border-bottom-color: ${({ withDivider }) =>
-    withDivider ? '#094354' : 'none'};
+    withDivider ? '#EFEEEE' : 'none'}; // to-theme
 
   padding: ${({ withDivider }) => (withDivider ? '8px 6px' : '6px')};
 

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
-// import ArrowSVG from '@/icons/ArrowSimple'
+import ArrowSVG from '@/icons/ArrowSimple'
 
 import { Wrapper as AddonWrapper } from './index'
 
@@ -37,38 +37,45 @@ const SwitchBlock = styled.div`
     opacity: 1;
     cursor: pointer;
   }
+
+  transition: opacity 0.3s;
 `
 export const LeftSwitchBlock = styled(SwitchBlock)`
   left: 0;
 `
+export const LeftArrow = styled(ArrowSVG)`
+  ${css.size(28)};
+  fill: ${theme('thread.extraInfo')};
+`
 export const RightSwitchBlock = styled(SwitchBlock)`
-  left: 750px;
+  left: 780px;
+`
+export const RightArrow = styled(LeftArrow)`
+  transform: rotate(180deg);
 `
 export const IndexWrapper = styled.div`
   position: absolute;
   width: 100px;
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
+  font-size: 12px;
 
   opacity: 0;
+
   ${SwitchBlock}:hover & {
     opacity: 1;
     cursor: pointer;
   }
 
   transition: opacity 0.2s;
+  transition-delay: 0.3s;
 `
 export const LeftIndexWrapper = styled(IndexWrapper)`
   position: absolute;
-  left: 27px;
-  top: 30px;
+  left: 30px;
+  top: 32px;
 `
 export const RightIndexWrapper = styled(IndexWrapper)`
   position: absolute;
-  left: 27px;
-  top: 30px;
-`
-export const IndexDesc = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 13px;
-  margin-bottom: 2px;
+  left: 29px;
+  top: 32px;
 `

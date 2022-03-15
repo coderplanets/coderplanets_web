@@ -11,7 +11,6 @@ export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
   padding-top: 30px;
-  background: #06262f;
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
   width: 100%;

@@ -22,5 +22,5 @@ export const getCountColor = ($active: boolean, count: number): string => {
   if (count === 0) return '#4f7478'
   if (count >= 5) return theme('thread.articleTitle')
 
-  return theme('thread.articleDigest')
+  return theme('thread.extraInfo')
 }

@@ -12,7 +12,7 @@ export const ItemWrapper = styled.div<{ withDivider: boolean }>`
   ${css.flexColumn()};
   border-bottom: ${({ withDivider }) => (withDivider ? '1px solid' : 'none')};
   border-bottom-color: ${({ withDivider }) =>
-    withDivider ? '#094354' : 'none'};
+    withDivider ? '#EFEEEE' : 'none'}; // to-theme
   margin-bottom: 10px;
 
   :last-child {

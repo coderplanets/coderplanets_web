@@ -1,13 +1,13 @@
 import { FC, memo } from 'react'
 
-import IconButton from '@/widgets/Buttons/IconButton'
-
 import type { TArticleNavi } from '../spec'
 
 import {
   Wrapper,
   LeftSwitchBlock,
+  LeftArrow,
   RightSwitchBlock,
+  RightArrow,
   IndexWrapper,
   LeftIndexWrapper,
   RightIndexWrapper,
@@ -25,31 +25,17 @@ const ArticleNavi: FC<TProps> = ({ articleNavi }) => {
   return (
     <Wrapper>
       {articleNavi?.previous && (
-        <LeftSwitchBlock>
-          <IconButton
-            path="shape/arrow-simple.svg"
-            size={23}
-            mRight={0}
-            mLeft={2}
-            onClick={() => naviToArticle(articleNavi.previous)}
-            dimWhenIdle
-          />
-          <IndexWrapper onClick={() => naviToArticle(articleNavi.previous)}>
+        <LeftSwitchBlock onClick={() => naviToArticle(articleNavi.previous)}>
+          <LeftArrow />
+          <IndexWrapper>
             <LeftIndexWrapper>上一篇</LeftIndexWrapper>
           </IndexWrapper>
         </LeftSwitchBlock>
       )}
       {articleNavi?.next && (
-        <RightSwitchBlock>
-          <IconButton
-            path="shape/arrow-simple.svg"
-            size={23}
-            mTop={2}
-            mRight={4}
-            onClick={() => naviToArticle(articleNavi.next)}
-            dimWhenIdle
-          />
-          <IndexWrapper onClick={() => naviToArticle(articleNavi.next)}>
+        <RightSwitchBlock onClick={() => naviToArticle(articleNavi.next)}>
+          <RightArrow />
+          <IndexWrapper>
             <RightIndexWrapper>下一篇</RightIndexWrapper>
           </IndexWrapper>
         </RightSwitchBlock>

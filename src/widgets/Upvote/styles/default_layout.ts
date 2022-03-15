@@ -16,7 +16,7 @@ export const DescWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const Text = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-size: 14px;
   margin-left: 4px;
 `
