@@ -14,7 +14,7 @@ import Tooltip from '@/widgets/Tooltip'
 
 import Setter from './Setter'
 
-import { Wrapper, Tag, HashSign, Title, More } from './styles'
+import { Wrapper, Tag, DotSign, Title, More } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TagsList:index')
@@ -24,7 +24,7 @@ const FullList = ({ items, mLeft, size }) => {
     <Wrapper mLeft={mLeft}>
       {sortByColor(items).map((tag) => (
         <Tag key={tag.title}>
-          <HashSign color={tag.color} size={size} />
+          <DotSign color={tag.color} size={size} />
           <Title size={size}>{Trans(tag.title)}</Title>
         </Tag>
       ))}
@@ -60,7 +60,7 @@ const TagsList: FC<TProps> = ({
           .slice(0, max)
           .map((tag) => (
             <Tag key={tag.title}>
-              <HashSign color={tag.color} size={size} />
+              <DotSign color={tag.color} size={size} />
               <Title size={size}>{Trans(tag.title)}</Title>
             </Tag>
           ))}

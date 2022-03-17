@@ -28,7 +28,7 @@ const CatFilter: FC<TProps> = ({ activeFilter, onSelect }) => (
       active={activeFilter.length === FILTER.LEAST_WORDS}
       onClick={() => onSelect({ length: FILTER.LEAST_WORDS })}
     >
-      Bug
+      Bug 缺陷
     </SelectItem>
     <SelectItem
       active={activeFilter.length === FILTER.LEAST_WORDS}

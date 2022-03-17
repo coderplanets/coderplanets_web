@@ -52,7 +52,6 @@ export const LinkIcon = styled(LinkSVG)`
   left: -5px;
   ${css.size(12)};
 `
-export const TagListWrapper = styled.div``
 
 export const Participants = styled.div`
   margin-top: 2px;

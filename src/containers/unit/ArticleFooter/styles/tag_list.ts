@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
-import HashTagSVG from '@/SvgIcons/HashTagSVG'
 
 export const Wrapper = styled.article`
   ${css.flex('justify-start', 'align-center')};
@@ -15,11 +14,10 @@ export const Tag = styled.div`
   margin-right: 12px;
   cursor: pointer;
 `
-export const Dot = styled(HashTagSVG)<{ color: string }>`
-  ${css.size(13)};
-  fill: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
-  margin-right: 5px;
-  transform: rotate(18deg);
+export const Dot = styled.div<{ color: string }>`
+  ${css.circle(10)};
+  background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
+  margin-right: 8px;
   filter: saturate(0.8);
 
   ${Wrapper}:hover & {
@@ -31,7 +29,7 @@ export const Title = styled.div`
   color: ${theme('thread.extraInfo')};
 
   ${Wrapper}:hover & {
-    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
   }
 
   transition: all 0.2s;

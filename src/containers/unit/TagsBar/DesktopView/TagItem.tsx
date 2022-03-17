@@ -9,8 +9,8 @@ import { Trans } from '@/utils/i18n'
 
 import {
   Wrapper,
-  HashWrapper,
-  HashSign,
+  DotWrapper,
+  DotSign,
   Tag,
   Title,
   RawWrapper,
@@ -26,11 +26,11 @@ type TProps = {
 const TagItem: FC<TProps> = ({ tag, active, onSelect }) => {
   return (
     <Wrapper $active={active}>
-      <HashWrapper>
-        <HashSign color={tag.color} $active={active} />
-      </HashWrapper>
+      <DotWrapper>
+        <DotSign color={tag.color} $active={active} />
+      </DotWrapper>
       <Tag $active={active} color={tag.color} onClick={() => onSelect(tag)}>
-        <Title>{cutRest(Trans(tag.title), 10)}</Title>
+        <Title color={tag.color}>{cutRest(Trans(tag.title), 10)}</Title>
         <RawWrapper $active={active}>
           {/* <DotDivider radius={2} space={6} /> */}
           <Raw>{tag.raw}</Raw>

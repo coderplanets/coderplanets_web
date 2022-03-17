@@ -21,7 +21,10 @@ export const Avatar = styled(Img)`
 export const SubscribeButton = styled(Button)`
   margin-right: 18px;
   border-radius: 10px;
-  padding: 1px 12px;
+  padding: 0 12px;
+`
+export const SubText = styled.div`
+  font-size: 12px;
 `
 export const NotifyIcon = styled(NotifySVG)`
   fill: ${theme('thread.articleDigest')};

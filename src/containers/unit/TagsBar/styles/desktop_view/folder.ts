@@ -67,11 +67,11 @@ export const Content = styled.div<{ $isOpen: boolean }>`
 export const SubToggle = styled.div`
   ${css.flex('align-center')};
   margin-top: 5px;
-  margin-left: 1px;
-  opacity: 0.6;
+  margin-left: 3px;
+  opacity: 0.8;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.1;
     cursor: pointer;
   }
 `

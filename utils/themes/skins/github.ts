@@ -42,7 +42,7 @@ const github = {
   link: 'orange',
   main: '#7DC0C5',
   bodyBg: contentBg,
-  selectionBg: 'tomato',
+  selectionBg: '#FFFEDE',
   baseColor: {
     red: '#ca5f4d',
     orange: '#ad735c',

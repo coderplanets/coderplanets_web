@@ -5,6 +5,7 @@ import {
   Avatar,
   NotifyIcon,
   SubscribeButton,
+  SubText,
   // SearchIcon,
 } from '../styles/classic_layout/account_unit'
 import { mockUsers } from '@/utils/mock'
@@ -15,7 +16,7 @@ const AccountUnit: FC = () => {
   return (
     <Wrapper>
       <SubscribeButton type="primary" ghost size="small">
-        订阅
+        <SubText>订阅</SubText>
       </SubscribeButton>
 
       <NotifyIcon />

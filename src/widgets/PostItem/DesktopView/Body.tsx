@@ -13,8 +13,7 @@ import DigestSentence from '@/widgets/DigestSentence'
 // import CommunityCard from '@/widgets/Cards/CommunityCard'
 // import UserCard from '@/widgets/Cards/UserCard'
 import Tooltip from '@/widgets/Tooltip'
-
-// import ActiveBadge from './ActiveBadge'
+import GTDBadge from '@/widgets/GTDBadge'
 
 import {
   Wrapper,
@@ -27,6 +26,7 @@ import {
   AuthorName,
   ItemWrapper,
   ViewsIcon,
+  GTDBadgeWrapper,
 } from '../styles/desktop_view/body'
 
 const CommunityCard = dynamic(() => import('@/widgets/Cards/CommunityCard'), {
@@ -98,6 +98,9 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
         <SpaceGrow />
 
         <ActiveBadge item={item} />
+        <GTDBadgeWrapper>
+          <GTDBadge />
+        </GTDBadgeWrapper>
       </Extra>
 
       <DigestSentence

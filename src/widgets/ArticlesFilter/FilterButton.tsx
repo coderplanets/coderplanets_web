@@ -28,7 +28,7 @@ const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
     <Wrapper>
       排序
       <Tooltip
-        placement="bottom-start"
+        placement="bottom"
         trigger="click"
         hideOnClick={false}
         content={
