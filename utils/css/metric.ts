@@ -16,8 +16,8 @@ export const mediaBreakPoints = {
 // CONTENT: 内容宽度
 export const WIDTH = {
   COMMUNITY: {
-    PAGE: '1460px',
-    CONTENT: '1024px',
+    PAGE: '1600px',
+    CONTENT: '1120px',
     CONTENT_OFFSET: '34px',
     LAPTOP_M_PADDING: '0',
   },

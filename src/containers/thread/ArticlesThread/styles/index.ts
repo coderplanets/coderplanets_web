@@ -26,11 +26,10 @@ export const MainWrapper = styled.div<{ thread: TThread }>`
   padding-left: ${({ thread }) =>
     includes(thread, values(CARD_THREAD)) ? '15px' : '25px'};
   padding-right: ${({ thread }) =>
-    includes(thread, values(CARD_THREAD)) ? 0 : '24px'};
+    includes(thread, values(CARD_THREAD)) ? 0 : '80px'};
   margin-right: ${({ thread }) =>
-    includes(thread, values(CARD_THREAD)) ? '35px' : '42px'};
+    includes(thread, values(CARD_THREAD)) ? '35px' : '65px'};
 
-  padding-right: 60px;
   border-right: 1px solid #eae9e9;
 
   ${css.media.mobile`

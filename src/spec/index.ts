@@ -71,6 +71,8 @@ export type {
   TEditMode,
   TOnlineStatus,
   TModelineType,
+  TGtdType,
+  TGtdState,
 } from './utils'
 
 export type { TGQLError } from './graphql'
