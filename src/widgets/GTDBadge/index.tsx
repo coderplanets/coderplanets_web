@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TGtdType, TGtdState } from '@/spec'
+import type { TSpace, TGtdType, TGtdState } from '@/spec'
 import { GTD_TYPE, GTD_STATE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -22,15 +22,16 @@ export type TProps = {
   testid?: string
   type?: TGtdType
   state?: TGtdState
-}
+} & TSpace
 
 const GTDBadge: FC<TProps> = ({
   testid = 'gtd-badge',
-  type = null,
-  state = null,
+  type = GTD_TYPE.DEFAULT,
+  state = GTD_STATE.DEFAULT,
+  ...restProps
 }) => {
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testid={testid} {...restProps}>
       {type && <State state={state} type={type} />}
       {type && <Label type={type} />}
     </Wrapper>
