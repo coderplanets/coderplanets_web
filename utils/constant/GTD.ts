@@ -2,7 +2,7 @@ import type { TGtdType, TGtdState } from '@/spec'
 
 export const GTD_TYPE = {
   FEATURE: 'FEATURE' as TGtdType,
-  BUG: 'BUT' as TGtdType,
+  BUG: 'BUG' as TGtdType,
   DEFAULT: null as TGtdType,
 }
 

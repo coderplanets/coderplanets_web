@@ -26,8 +26,8 @@ export type TProps = {
 
 const GTDBadge: FC<TProps> = ({
   testid = 'gtd-badge',
-  type = GTD_TYPE.FEATURE,
-  state = GTD_STATE.TODO,
+  type = null,
+  state = null,
 }) => {
   return (
     <Wrapper testid={testid}>

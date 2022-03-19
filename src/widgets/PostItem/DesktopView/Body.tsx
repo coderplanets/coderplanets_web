@@ -99,7 +99,10 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
 
         <ActiveBadge item={item} />
         <GTDBadgeWrapper>
-          <GTDBadge />
+          {item.id === '239' && <GTDBadge type="FEATURE" />}
+          {item.id === '231' && <GTDBadge type="BUG" />}
+          {item.id === '227' && <GTDBadge type="BUG" state="TODO" />}
+          {item.id === '228' && <GTDBadge type="FEATURE" state="WIP" />}
         </GTDBadgeWrapper>
       </Extra>
 
