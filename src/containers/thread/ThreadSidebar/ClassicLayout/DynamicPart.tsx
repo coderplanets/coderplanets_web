@@ -6,12 +6,13 @@
  *
  */
 
-import { FC, memo } from 'react'
+import { FC, Fragment, memo } from 'react'
 
 import type { TThread, TCommunity } from '@/spec'
 
 import { buildLog } from '@/utils/logger'
 import { send } from '@/utils/helper'
+import { mockUsers } from '@/utils/mock'
 import { EVENT } from '@/constant'
 
 import Sticky from '@/widgets/Sticky'
@@ -23,10 +24,14 @@ import TagsBar from '@/containers/unit/TagsBar'
 // import PromotionList from '@/widgets/PromotionList'
 
 import {
-  BadgeWrapper,
   NoteWrapper,
   TagsBarWrapper,
   StickyWrapper,
+  CommunityJoinersTitle,
+  CommunityJoinersNum,
+  CommunityJoinersWrapper,
+  JoinerAvatar,
+  CommunityNoteWrapper,
   PublishWrapper,
 } from '../styles/classic_layout'
 
@@ -46,6 +51,27 @@ const ClassicLayout: FC<TProps> = ({
 }) => {
   return (
     <Sticky offsetTop={50}>
+      <Fragment>
+        {showCommunityBadge && (
+          <CommunityJoinersTitle>
+            参与者
+            <CommunityJoinersNum>3829</CommunityJoinersNum>
+          </CommunityJoinersTitle>
+        )}
+
+        <CommunityJoinersWrapper show={showCommunityBadge}>
+          {mockUsers(5).map((user) => (
+            <JoinerAvatar key={user.id} src={user.avatar} noLazy />
+          ))}
+        </CommunityJoinersWrapper>
+        {showCommunityBadge && (
+          <CommunityNoteWrapper>
+            关于 CoderPlanets 的各种建议，吐槽等请发布到这里 关于 CoderPlanets
+            的各种建议，吐槽等请发布到这里
+          </CommunityNoteWrapper>
+        )}
+      </Fragment>
+
       <StickyWrapper>
         <PublishWrapper show={showCommunityBadge}>
           {community.raw !== 'blackhole' ? (
@@ -56,9 +82,8 @@ const ClassicLayout: FC<TProps> = ({
             </NoteWrapper>
           )}
         </PublishWrapper>
-        <BadgeWrapper show={!showCommunityBadge}>
-          <CommunityJoinBadge />
-        </BadgeWrapper>
+
+        {!showCommunityBadge && <CommunityJoinBadge />}
         <TagsBarWrapper>
           <TagsBar onSelect={() => send(EVENT.REFRESH_ARTICLES)} />
         </TagsBarWrapper>

@@ -13,8 +13,7 @@ import DigestSentence from '@/widgets/DigestSentence'
 // import CommunityCard from '@/widgets/Cards/CommunityCard'
 // import UserCard from '@/widgets/Cards/UserCard'
 import Tooltip from '@/widgets/Tooltip'
-
-// import ActiveBadge from './ActiveBadge'
+import GTDBadge from '@/widgets/GTDBadge'
 
 import {
   Wrapper,
@@ -27,6 +26,7 @@ import {
   AuthorName,
   ItemWrapper,
   ViewsIcon,
+  GTDBadgeWrapper,
 } from '../styles/desktop_view/body'
 
 const CommunityCard = dynamic(() => import('@/widgets/Cards/CommunityCard'), {
@@ -98,10 +98,16 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
         <SpaceGrow />
 
         <ActiveBadge item={item} />
+        <GTDBadgeWrapper>
+          {item.id === '239' && <GTDBadge type="FEATURE" />}
+          {item.id === '231' && <GTDBadge type="BUG" />}
+          {item.id === '227' && <GTDBadge type="BUG" state="TODO" />}
+          {item.id === '228' && <GTDBadge type="FEATURE" state="WIP" />}
+        </GTDBadgeWrapper>
       </Extra>
 
       <DigestSentence
-        top={3}
+        top={2}
         right={140}
         onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}
       >

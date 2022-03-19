@@ -37,14 +37,14 @@ const CommunityJoinBadgeContainer: FC<TProps> = ({
       <Title>{title}</Title>
       <Desc>{desc}</Desc>
 
-      <FollowButton
+      {/* <FollowButton
         size="tiny"
         followText="加 入"
         followingText="已加入"
         hasFollowed={viewerHasSubscribed}
         // onFollow={() => subscribe(community.id)}
         // onUndoFollow={() => unSubscribe(community.id)}
-      />
+      /> */}
 
       <BottomLine />
     </Wrapper>

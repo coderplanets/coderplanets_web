@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 import type { TMetric } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import ArrowLink from '@/widgets/Buttons/ArrowLink'
 
 // import { getPadding } from '../../metrics'
@@ -12,7 +11,6 @@ export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
   padding-top: 30px;
-  background: #06262f;
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
   width: 100%;

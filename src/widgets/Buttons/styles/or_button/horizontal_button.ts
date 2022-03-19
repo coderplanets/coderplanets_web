@@ -2,8 +2,7 @@ import styled from 'styled-components'
 // import { lighten } from 'polished'
 
 import type { TButton, TSIZE } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { Wrapper as BaseBtnWrapper } from '../button'
 import { OrSignBase } from './index'

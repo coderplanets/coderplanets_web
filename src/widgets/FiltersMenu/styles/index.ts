@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -13,7 +12,7 @@ export const ItemWrapper = styled.div<{ withDivider: boolean }>`
   ${css.flexColumn()};
   border-bottom: ${({ withDivider }) => (withDivider ? '1px solid' : 'none')};
   border-bottom-color: ${({ withDivider }) =>
-    withDivider ? '#094354' : 'none'};
+    withDivider ? '#EFEEEE' : 'none'}; // to-theme
   margin-bottom: 10px;
 
   :last-child {

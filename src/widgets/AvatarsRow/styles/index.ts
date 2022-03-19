@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { getAvatarSize, getUlMarginRight } from './metric'
 import type { TAvatarSize } from '../spec'
@@ -26,9 +25,9 @@ type TAvatarsMore = { size: TAvatarSize; total: number }
 export const AvatarsMore = styled.span<TAvatarsMore>`
   ${css.flex('align-both')};
   font-size: 14px;
-  border-color: #113744;
+  border-color: #f5f5f5; // to-theme
   color: ${theme('thread.articleTitle')};
-  background-color: #113744;
+  background-color: #f5f5f5; // to-theme
   border-radius: 100px 100px 100px 100px;
   font-family: sans-serif;
   font-weight: ${({ total }) => (total >= 1000 ? 600 : 200)};

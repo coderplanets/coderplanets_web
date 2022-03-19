@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import LinkSVG from '@/icons/Link'
 
 export const Wrapper = styled.div`
@@ -26,7 +25,10 @@ export const Title = styled.a`
   word-break: break-all;
 
   &:hover {
-    ${css.threadTitleHover()};
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+    text-decoration-color: ${theme('thread.articleDigest')};
+    cursor: pointer;
   }
 
   transition: color 0.1s;

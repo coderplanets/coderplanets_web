@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import ImgFallback from '@/widgets/ImgFallback'
 import { getLiSize, getAvatarSize } from './metric'
@@ -66,5 +65,5 @@ export const AvatarsMore = styled.span<TAvatarsMore>`
 `
 export const AvatarFallback = styled(ImgFallback)`
   border: 1px solid;
-  border-color: #113744;
+  border-color: #f5f5f5; // to-theme
 `

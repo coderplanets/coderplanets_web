@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import type { TC11NLayout, TMetric } from '@/spec'
 import { C11N } from '@/constant'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 type TWrapper = { metric: TMetric; layout: TC11NLayout }
 export const Wrapper = styled.div<TWrapper>`

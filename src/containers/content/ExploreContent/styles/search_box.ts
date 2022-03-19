@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 // import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -14,14 +13,15 @@ export const InputWrapper = styled.div`
   ${css.flex('align-center')};
   border-radius: 20px;
   padding: 10px 18px;
-  background-color: #0b2631;
+  background-color: #fafafa; // to-theme
   margin-bottom: 8px;
   opacity: 0.8;
-  border: 1px solid #1e6184;
+  border: 1px solid;
+  border-color: #e6e6e6;
   &:hover {
-    background-color: #0b2631;
+    background-color: #fff;
     opacity: 1;
-    border: 1px solid #327faf;
+    border-color: ${theme('button.primary')};
   }
 
   transition: all 0.25s ease-in;

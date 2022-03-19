@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import css from '@/utils/css'
-import { WIDTH } from '@/utils/css/metric'
+import css, { WIDTH } from '@/utils/css'
 
 import { BaseWrapper, BaseInnerWrapper, BaseContentWrapper } from './index'
 

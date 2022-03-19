@@ -10,7 +10,7 @@ import type { TRootStore, TCommunity, TThread, TArticle, TWorks } from '@/spec'
 import { TYPE, ARTICLE_THREAD, THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
-import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
+import { lockPage, unlockPage } from '@/utils/dom'
 import { Global, plural } from '@/utils/helper'
 import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
 import { User } from '@/model'
@@ -33,7 +33,9 @@ const Options = T.model('Options', {
 const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
 
-  previousHref: T.maybeNull(T.string),
+  previousURL: T.maybeNull(T.string),
+  // auchor href in case user navi articles in drawers
+  previousHomeURL: T.maybeNull(T.string),
   // only works for mobile view
   options: T.optional(Options, defaultOptions),
   swipeDownAviliable: T.optional(T.boolean, true),
@@ -169,7 +171,6 @@ const DrawerStore = T.model('DrawerStore', {
       slf.type = type
       slf.options = merge(defaultOptions, options)
       lockPage()
-      toggleGlobalBlur(true)
 
       if (slf.isMobile) {
         slf.canBeClose = false
@@ -196,7 +197,6 @@ const DrawerStore = T.model('DrawerStore', {
       slf.type = null
 
       unlockPage()
-      toggleGlobalBlur(false)
     },
 
     resetViewing(): void {
@@ -204,11 +204,17 @@ const DrawerStore = T.model('DrawerStore', {
       return root.resetViewing()
     },
 
+    // if the user has navi article inside the drawer, let's say /post/2 -> /post/3
+    // then after close the drawer, the url should be /topic, not /post/3
+    markPreviewHomeURLIfNeed(): void {
+      if (!self.previousHomeURL) self.previousHomeURL = self.previousURL
+    },
+
     markPreviewURLIfNeed(article: TArticle): void {
       const { id, title, meta } = article
 
       if (!id || !contains(self.type, ARTICLE_VIEWER_TYPES)) return
-      self.previousHref = Global.location.href
+      self.previousURL = Global.location.href
 
       const thread = meta.thread.toLowerCase()
       const nextURL = `${Global.location.origin}/${thread}/${id}`
@@ -217,7 +223,12 @@ const DrawerStore = T.model('DrawerStore', {
 
     restorePreviousURLIfNeed(): void {
       if (!contains(self.type, ARTICLE_VIEWER_TYPES)) return
-      Global.history.replaceState(null, 'new-title', self.previousHref)
+
+      const targetHref = self.previousHomeURL || self.previousURL
+
+      Global.history.replaceState(null, 'new-title', targetHref)
+
+      self.previousHomeURL = null
     },
 
     resetSwipeAviliable(): void {

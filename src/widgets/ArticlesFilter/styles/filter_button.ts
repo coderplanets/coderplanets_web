@@ -1,31 +1,37 @@
 import styled from 'styled-components'
 
 import Button from '@/widgets/Buttons/Button'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
-import ArrowSVG from '@/icons/ArrowSolid'
+import ArrowSVG from '@/icons/ArrowSimple'
 
 export const Wrapper = styled.div`
-  ${css.flex()};
+  ${css.flex('align-center')};
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
 `
 export const InnerBtnWrapper = styled.div`
   ${css.flex('align-center')};
+  margin-left: 2px;
+  color: ${theme('thread.articleDigest')};
+  font-weight: 550;
+  font-size: 13px;
 
   &:hover {
     cursor: pointer;
+    color: ${theme('thread.articleTitle')};
   }
+  transition: color 0.2s;
 `
 export const ButtonWrapper = styled(Button)`
-  color: #196781;
   border: none;
 `
 export const FilterIcon = styled(ArrowSVG)`
-  fill: #196781;
-  ${css.size(12)};
-  transform: rotate(90deg);
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(14)};
+  transform: rotate(-90deg);
   margin-left: 5px;
   ${InnerBtnWrapper}:hover & {
-    fill: ${theme('banner.title')};
+    fill: ${theme('thread.articleDigest')};
   }
 `

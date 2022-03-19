@@ -1,6 +1,5 @@
 import styled, { css, keyframes, CSSProp } from 'styled-components'
 
-// import { theme } from '@/utils/themes'
 // import css from '@/utils/css'
 // see example: https://codepen.io/HugoGiraudel/pen/BHEwo
 

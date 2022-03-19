@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div<{ visible: boolean }>`
   ${css.flex('align-center', 'justify-between')};
   position: fixed;
   top: ${({ visible }) => (visible ? 0 : '-60px;')};
   opacity: ${({ visible }) => (visible ? 1 : 0)};
-  width: calc(100% - 220px);
+  width: calc(100% - 200px);
+  margin-left: -50px;
   height: 60px;
-  background: #072a36;
+  background: #fff; // to-theme
   border-bottom: 1px solid;
   border-bottom-color: ${theme('drawer.divider')};
   z-index: 5;

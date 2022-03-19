@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import type { TActive } from '@/spec'
 import Img from '@/Img'
 import HashTagSVG from '@/icons/HashTag'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { TagsWrapper } from './index'
 
@@ -20,7 +19,7 @@ export const Wrapper = styled.div<TTag>`
   background: ${({ $active }) => (!$active ? 'transparent' : '#0e303d')};
 
   &:hover {
-    background: #06303b;
+    background: #f5f5f5; // to-theme
     cursor: pointer;
   }
 `
@@ -30,15 +29,16 @@ export const AllTagIcon = styled(Img)`
   ${css.size(14)};
   transform: rotate(17deg);
 `
-export const HashWrapper = styled.div`
+export const DotWrapper = styled.div`
   ${css.size(15)};
   margin-right: 6px;
+  margin-left: 2px;
 `
 type THashSign = TActive & { color: string }
-export const HashSign = styled(HashTagSVG)<THashSign>`
-  fill: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
-  ${css.size(12)};
-  margin-top: 2px;
+export const DotSign = styled.div<THashSign>`
+  ${css.circle(10)};
+  background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
+  margin-top: 3px;
   margin-right: 10px;
   opacity: ${({ $active }) => ($active ? 0.9 : theme('tags.dotOpacity'))};
 
@@ -46,7 +46,6 @@ export const HashSign = styled(HashTagSVG)<THashSign>`
     opacity: 0.9;
   }
 
-  transform: rotate(18deg);
   transition: filter 0.1s;
 `
 export const Tag = styled.div<TTag>`
@@ -65,8 +64,16 @@ export const Tag = styled.div<TTag>`
 
   transition: all 0.1s;
 `
-export const Title = styled.div`
+export const Title = styled.div<THashSign>`
   letter-spacing: 1px;
+  font-weight: 400;
+  color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
+  filter: saturate(0);
+
+  ${Wrapper}:hover & {
+    font-weight: 500;
+    filter: saturate(1);
+  }
 `
 export const RawWrapper = styled.div<TActive>`
   ${css.flex('align-center')};

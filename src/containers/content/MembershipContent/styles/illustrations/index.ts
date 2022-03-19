@@ -1,8 +1,7 @@
 import styled, { css as styledCss } from 'styled-components'
 
 import type { TActive } from '@/spec'
-import css from '@/utils/css'
-import animate from '@/utils/animations'
+import css, { animate } from '@/utils/css'
 import Img from '@/Img'
 
 export const Wrapper = styled.div<TActive>`

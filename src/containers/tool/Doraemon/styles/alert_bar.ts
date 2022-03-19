@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import { BaseBar } from './index'
 
 export const Wrapper = styled(BaseBar)`
@@ -23,10 +22,11 @@ export const Info = styled.div`
 `
 
 export const Title = styled.div`
-  font-size: 1rem;
+  font-size: 15px;
   color: ${theme('shell.title')};
 `
 
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
+  font-size: 14px;
 `

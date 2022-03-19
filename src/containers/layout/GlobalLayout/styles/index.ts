@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import type { TMetric } from '@/spec'
 import { C11N } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 // background: #3b5456;
 export const Wrapper = styled.div`

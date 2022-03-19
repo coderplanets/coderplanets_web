@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
@@ -28,7 +27,7 @@ export const ReferNum = styled.span`
 `
 export const Text = styled.div<TActive>`
   color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+    active ? theme('thread.articleTitle') : theme('thread.extraInfo')};
   font-size: 13px;
 
   ${Item}:hover & {

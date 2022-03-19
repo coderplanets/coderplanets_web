@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const BaseBanner = styled.nav`
   ${css.flexColumn('justify-center')};
 
   position: relative;
-  min-height: 128px;
+  min-height: 108px;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
 

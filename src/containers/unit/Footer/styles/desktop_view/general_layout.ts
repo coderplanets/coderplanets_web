@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export { NoLinkItem } from './article_layout'
 export { HeartCrabIcon } from './home_layout'

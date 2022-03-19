@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme, WIDTH } from '@/utils/css'
 import { pixelAdd } from '@/utils/dom'
-import { WIDTH } from '@/utils/css/metric'
 
 type TPos = {
   noBorder: boolean

@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
@@ -28,11 +27,11 @@ export const PublishWrapper = styled.div`
   ${css.flex('align-center')}
 `
 export const PublishHint = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-size: 12px;
 `
 export const PubDate = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.extraInfo')};
   font-size: 13px;
   margin-left: 4px;
   margin-top: -1px;

@@ -4,8 +4,7 @@ import type { TTestable, TSpace, TSIZE_SM } from '@/spec'
 
 import Img from '@/Img'
 import ThunderSVG from '@/icons/Thunder'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { getFontSize } from './metric'
 
@@ -35,7 +34,7 @@ export const Text = styled.div<{ lineClamp: number }>`
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
-  line-height: 1.65;
+  line-height: 1.62;
   letter-spacing: 0.5px;
 `
 
@@ -46,7 +45,7 @@ export const FixedHintWrapper = styled(HintWrapper)`
   position: absolute;
   right: 0;
   top: 22px;
-  background: #0e303d;
+  /* background: #0e303d; */
 
   &:before {
     content: '...';
@@ -78,11 +77,12 @@ export const HintText = styled.div`
 export const PreviewWrapper = styled.div`
   display: inline-flex;
   opacity: 0;
-  margin-left: 4px;
+  padding-left: 6px;
   align-items: center;
+  background: ${theme('bodyBg')};
 
   ${Wrapper}:hover & {
-    opacity: 0.8;
+    opacity: 1;
   }
   transition: opacity 0.1s;
 `

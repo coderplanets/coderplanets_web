@@ -4,8 +4,7 @@ import type { TUpvoteLayout, TActive } from '@/spec'
 import { UPVOTE_LAYOUT } from '@/constant'
 
 import UpvoteIcon from '@/icons/Upvote'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import {
   getIconSize,
@@ -164,7 +163,7 @@ export const IconShadow = styled.div<{ type: TUpvoteLayout }>`
   width: ${({ type }) => getIconShadowSize(type)};
   height: ${({ type }) => getIconShadowSize(type)};
   border-radius: 100%;
-  background: #0f4052;
+  background: #f5f5f5; // to-theme
   z-index: -1;
   opacity: 0;
 
@@ -204,15 +203,18 @@ export const UpIcon = styled(UpvoteIcon)<TUpIcon>`
   width: ${({ type }) => getIconSize(type)};
   height: ${({ type }) => getIconSize(type)};
 
+  opacity: ${({ count }) => (count === 0 ? 0.6 : 1)};
+
   transform: scale(1, 0.8);
   margin-top: 1px;
+
   &:hover {
-    fill: #139b9d;
+    fill: ${theme('thread.articleTitle')};
     cursor: pointer;
   }
 
   ${IconWrapper}:hover & {
-    fill: #139b9d;
+    fill: ${theme('thread.articleTitle')};
     cursor: pointer;
   }
 

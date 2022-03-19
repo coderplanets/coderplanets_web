@@ -182,3 +182,6 @@ export type TModelineType =
   | 'collect'
   | 'search'
   | 'more'
+
+export type TGtdType = 'BUG' | 'FEATURE' | null
+export type TGtdState = 'TODO' | 'WIP' | 'DONE' | null

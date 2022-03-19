@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import css from '@/utils/css'
-// import { theme } from '@/utils/themes'
 
 export const ArticlesWrapper = styled.div<{ hasContentBg: boolean }>`
   margin-top: 10px;

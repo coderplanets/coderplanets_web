@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import css from '@/utils/css'
-import { theme } from '@/utils/themes'
-// import { WIDTH } from '@/utils/css/metric'
+import css, { theme } from '@/utils/css'
 import Img from '@/Img'
 
 export const Main = styled.div<{ metric: TMetric }>`

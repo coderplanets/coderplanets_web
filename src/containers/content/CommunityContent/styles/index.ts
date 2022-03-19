@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const BaseWrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -21,7 +20,7 @@ export const BaseWrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const BaseInnerWrapper = styled.div`
   color: ${theme('font')};
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
   padding-top: 0;
 
   ${css.media.mobile`

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import CollectionSVG from '@/icons/CollectionBookmark'
 
 export const Wrapper = styled.div`
@@ -25,7 +24,7 @@ export const CollectWrapper = styled.div`
 `
 export const CollectIcon = styled(CollectionSVG)`
   ${css.size(16)};
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
 
   ${CollectWrapper}:hover & {
     fill: #129497;
@@ -34,7 +33,7 @@ export const CollectIcon = styled(CollectionSVG)`
 `
 export const CollectText = styled.div`
   font-size: 14px;
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   margin-top: 1px;
   margin-left: 4px;
 

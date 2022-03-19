@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import css from '@/utils/css'
-// import animate from '@/utils/animations'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};

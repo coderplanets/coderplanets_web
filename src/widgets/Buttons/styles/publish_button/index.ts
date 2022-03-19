@@ -13,4 +13,11 @@ export const Wrapper = styled.div`
 export const PubButton = styled(Button)`
   ${css.flex('justify-between')};
   width: 100%;
+
+  border: none;
+  font-weight: 600;
+  background: #3b434a; // to-theme
+  color: #fff; // to-theme
+  height: 36px;
+  border-radius: 15px;
 `

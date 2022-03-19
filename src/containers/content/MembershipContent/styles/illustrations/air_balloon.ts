@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-// import { theme } from '@/utils/themes'
 
 import type { TTestable } from '@/spec'
 

@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TSIZE_SM, TActive } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 
@@ -68,10 +67,10 @@ export const Label = styled.span<TLabel>`
   ${css.flex('align-center')};
   white-space: nowrap;
   color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+    active ? theme('thread.articleTitle') : '#878b8f'}; // to-theme
   margin-bottom: ${({ bottomSpace }) => `${bottomSpace}px`};
 
-  opacity: ${({ active }) => (active ? 1 : 0.9)};
+  font-weight: ${({ active }) => (active ? 600 : 400)};
 
   &:hover {
     color: ${theme('thread.articleTitle')};

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import EditPenSVG from '@/icons/EditPen'
 
@@ -16,5 +15,5 @@ export const Title = styled.div`
 `
 export const EditIcon = styled(EditPenSVG)`
   ${css.size(16)};
-  fill: ${theme('button.fg')};
+  fill: #fff; // to-theme
 `

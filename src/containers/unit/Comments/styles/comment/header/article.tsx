@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export { HeaderBaseInfo, BaseInfo, FloorNum } from './index'
 
@@ -20,6 +19,7 @@ export const UserBase = styled.div`
   flex-grow: 1;
 `
 export const Nickname = styled.div`
+  color: ${theme('thread.articleTitle')};
   font-size: 15px;
   ${css.cutRest('150px')};
 
@@ -31,10 +31,11 @@ export const AuthorTag = styled.div`
   font-size: 11px;
   margin-bottom: 2px;
   padding: 0 8px;
+  padding-top: 2px;
   margin-left: 10px;
-  background: #023c4a;
+  background-color: rgba(0, 179, 126, 0.1); // to-theme
+  color: #056d4e; // to-theme
   border-radius: 5px;
-  color: ${theme('button.primary')};
 
   ${css.media.mobile`
     margin-left: 5px;

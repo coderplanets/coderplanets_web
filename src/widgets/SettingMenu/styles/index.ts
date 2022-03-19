@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import type { TTestable, TActive } from '@/spec'
 
 // import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 type TWrapper = TTestable & { width: number }
 

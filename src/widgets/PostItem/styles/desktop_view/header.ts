@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import LinkSVG from '@/icons/Link'
 
 export const Wrapper = styled.div`
@@ -14,7 +13,8 @@ export const Brief = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const Title = styled.div`
-  font-size: 15.5px;
+  font-size: 15px;
+  font-weight: 600;
   color: ${theme('thread.articleTitle')};
   text-decoration: none;
   @media (max-width: 1450px) {
@@ -28,7 +28,10 @@ export const Title = styled.div`
   }
 
   &:hover {
-    ${css.threadTitleHover()};
+    color: ${theme('thread.articleDigest')};
+    text-decoration: underline;
+    text-decoration-color: ${theme('thread.articleDigest')};
+    cursor: pointer;
   }
 
   transition: color 0.2s;
@@ -49,7 +52,6 @@ export const LinkIcon = styled(LinkSVG)`
   left: -5px;
   ${css.size(12)};
 `
-export const TagListWrapper = styled.div``
 
 export const Participants = styled.div`
   margin-top: 2px;

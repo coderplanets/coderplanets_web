@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import Img from '@/Img'
 
 import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
@@ -13,7 +12,7 @@ export const Wrapper = styled.div<{ descExpand: boolean }>`
 `
 export const LogoWrapper = styled.div`
   position: relative;
-  width: 38px;
+  width: 20px;
   margin-top: -6px;
 
   ${css.media.mobile`
@@ -22,7 +21,7 @@ export const LogoWrapper = styled.div`
   `};
 `
 export const Logo = styled(CommunityFaceLogo)`
-  ${css.size(36)};
+  ${css.size(20)};
   border-radius: 5px;
 
   ${css.media.mobile`
@@ -46,8 +45,12 @@ export const TitleWrapper = styled.div`
 export const Title = styled.div<{ descExpand: boolean }>`
   ${css.flex('align-center')};
   font-size: ${({ descExpand }) => (descExpand ? '18px' : '16px')};
-  margin-bottom: 3px;
-  color: ${theme('banner.title')};
+  color: ${theme('thread.articleTitle')};
+  margin-right: 10px;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  color: #333;
 `
 export const TitleText = styled.span`
   margin-right: 10px;

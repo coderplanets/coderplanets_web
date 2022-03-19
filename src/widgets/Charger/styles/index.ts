@@ -2,8 +2,7 @@ import styled, { css as styledCss, keyframes } from 'styled-components'
 
 import type { TTestable } from '@/spec'
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 const DURATION = '2.5s'
 const load = keyframes`

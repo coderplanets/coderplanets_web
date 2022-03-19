@@ -121,7 +121,7 @@ export const hideDoraemonBarRecover = (): void => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
-    document.getElementById('whereCallShowDoraemon').click()
+    document.getElementById('whereCallShowDoraemon')?.click()
   }
 }
 
@@ -139,7 +139,8 @@ export const toggleGlobalBlur = (visible: boolean): void => {
     for (let index = 0; index < blurableEls.length; index += 1) {
       const el = blurableEls[index] as HTMLElement
 
-      !visible ? (el.style.filter = '') : (el.style.filter = 'blur(2px)')
+      // !visible ? (el.style.filter = '') : (el.style.filter = 'blur(2px)')
+      !visible ? (el.style.filter = '') : (el.style.filter = 'brightness(0.6)')
     }
   }
 }

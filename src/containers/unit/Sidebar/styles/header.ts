@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import Input from '@/widgets/Input'
 import Img from '@/Img'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   margin-top: 14px;

@@ -15,7 +15,6 @@ import {
   LinkIcon,
   Brief,
   Title,
-  TagListWrapper,
   Participants,
 } from '../styles/desktop_view/header'
 
@@ -47,9 +46,7 @@ const Header: FC<TProps> = ({ item }) => {
           </TitleLink>
         )}
 
-        <TagListWrapper>
-          <TagsList items={item.articleTags} />
-        </TagListWrapper>
+        <TagsList items={item.articleTags} mLeft={12} />
       </Brief>
       <Participants>
         <AvatarsRow

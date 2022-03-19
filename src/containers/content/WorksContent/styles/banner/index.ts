@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import css from '@/utils/css'
-import { theme } from '@/utils/themes'
-import { WIDTH } from '@/utils/css/metric'
+import css, { theme, WIDTH } from '@/utils/css'
 
 export const Wrapper = styled.div`
   position: relative;

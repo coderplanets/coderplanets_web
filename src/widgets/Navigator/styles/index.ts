@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import type { TActive, TC11NLayout } from '@/spec'
 import { C11N } from '@/constant'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
-import animate from '@/utils/animations'
+import css, { theme, animate } from '@/utils/css'
 import SiteLogo from '@/icons/CPLogo' // TODO:
 // import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 

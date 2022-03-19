@@ -5,10 +5,11 @@ import type { TCommunity } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { HCN, NON_FILL_COMMUNITY } from '@/constant'
 
-import ExpandTexts from '../ExpandTexts'
+// import ExpandTexts from '../ExpandTexts'
 // import SocialList from '../SocialList'
 
 import CommunityJoinSign from '@/widgets/CommunityJoinSign'
+
 import {
   Wrapper,
   Logo,
@@ -56,7 +57,7 @@ const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
           </Title>
         </TitleWrapper>
         {/* <Desc>{community.desc}</Desc> */}
-        <ExpandTexts descExpand={descExpand} desc={community.desc} />
+        {/* <ExpandTexts descExpand={descExpand} desc={community.desc} /> */}
         {/* {community.raw !== HCN && <SocialList />} */}
       </CommunityInfo>
     </Wrapper>

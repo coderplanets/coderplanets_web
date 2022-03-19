@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 const Wrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center', 'justify-between')};
   /*  TODO:  remove footer.bottomBg key */
   /* background: ${theme('footer.bottomBg')}; */
   border-top: 1px solid;
-  border-top-color: #02394a;
+  border-top-color: #e1e1e1; // to-theme
   width: 100%;
   padding-top: 18px;
   padding-bottom: 30px;

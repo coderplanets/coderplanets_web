@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
 const BaseCard = styled.div`
@@ -13,7 +12,7 @@ const BaseCard = styled.div`
   width: 268px;
   height: 150px;
   margin-left: 25px;
-  background: #0c3442; // ${theme('content.cardBg')};
+  background: #fafafa; // ${theme('content.cardBg')};
   border: 1px solid;
   border-color: ${theme('content.cardBorder')};
   border-radius: 8px;
@@ -23,8 +22,9 @@ export const Wrapper = styled(BaseCard)`
 
   &:hover {
     cursor: pointer;
-    border: 1px solid #327faf;
-    box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15); /* same with the popover */
+    border: 1px solid;
+    border-color: #000000;
+    /* box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15); same with the popover */
   }
 
   transition: all 0.2s;

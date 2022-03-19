@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import CommentSVG from '@/icons/Comment'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-end')};

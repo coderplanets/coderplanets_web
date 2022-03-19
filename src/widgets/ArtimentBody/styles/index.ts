@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import { theme } from '@/utils/themes'
+import { theme } from '@/utils/css'
 // import css from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -107,5 +107,5 @@ export const Body = styled.div<TBody>`
   -webkit-box-orient: vertical;
 `
 export const HTML = styled.div`
-  color: #7b9091; // ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
 `

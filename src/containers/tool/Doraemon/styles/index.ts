@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const PageOverlay = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -15,14 +14,17 @@ export const PageOverlay = styled.div.attrs(({ testid }: TTestable) => ({
   top: 0;
   z-index: ${css.zIndex.doraemonOverlay};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
+  background: ${({ visible }) =>
+    visible ? '#000' : 'transparent'}; // to-theme
+  opacity: ${({ visible }) => (visible ? 0.5 : 0)};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable & TActive>`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
-  box-shadow: 0px 4px 11px 8px rgba(0, 0, 0, 0.2),
-    0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 4px 11px 8px rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1); */
   width: 45vw;
   max-width: 550px;
   position: fixed;

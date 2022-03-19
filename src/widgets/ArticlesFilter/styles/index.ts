@@ -1,27 +1,39 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
+
 import Img from '@/Img'
+import Input from '@/widgets/Input'
 
 export const Wrapper = styled.div`
-  ${css.flex('align-start')};
+  ${css.flex('align-center')};
   width: 100%;
+  margin-bottom: 6px;
+`
+export const Inputer = styled(Input)`
+  height: 30px;
 `
 export const MainFilterWrapper = styled.div`
   ${css.flex('align-center')};
-  flex-grow: 1;
 `
 export const FilterPanelWrapper = styled.div`
   ${css.flex()};
-  min-width: 200px;
-  padding: 12px;
+  min-width: 120px;
+  padding: 6px;
+`
+export const CatPanelWrapper = styled(FilterPanelWrapper)`
+  justify-content: flex-end;
 `
 export const ColumnWrapper = styled.div`
   ${css.flexColumn('align-center')};
   min-width: 60px;
   margin-right: 22px;
+`
+export const CatColumnWrapper = styled.div`
+  ${css.flexColumn('align-end')};
+  width: 100%;
+  margin-right: 0;
 `
 export const SelectLabel = styled.div`
   ${css.flex('align-center')};
@@ -50,14 +62,25 @@ export const LeftAlignWrapper = styled.div<{ offset: string }>`
   margin-left: ${({ offset }) => offset || 0};
 `
 export const SelectItem = styled.div<TActive>`
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  color: ${({ active }) => (active ? theme('font') : theme('banner.desc'))};
+  font-size: 14px;
+  text-align: right;
+  padding: 5px 6px;
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  background-color: ${({ active }) =>
+    active ? '#f5f5f5' : 'transparent'}; // to-theme
+  color: ${({ active }) =>
+    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  font-weight: ${({ active }) => (active ? 600 : 450)};
   position: relative;
+
   &:hover {
     cursor: pointer;
-    color: ${theme('font')};
+    color: ${theme('thread.articleTitle')};
+    background-color: #f5f5f5;
   }
+
   &:before {
     content: '*';
     color: ${theme('banner.title')};

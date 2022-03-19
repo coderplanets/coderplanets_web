@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import type { TTestable, TSpace } from '@/spec'
 
 import EnterSVG from '@/icons/Enter'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 type TWrapper = TSpace & TTestable
 

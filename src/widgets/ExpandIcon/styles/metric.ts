@@ -1,4 +1,4 @@
-import { theme } from '@/utils/themes'
+import { theme } from '@/utils/css'
 import { SIZE } from '@/constant'
 
 import type { TTheme } from '@/spec'

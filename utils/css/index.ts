@@ -3,9 +3,6 @@
  * common styles used in styled-component
  *
  */
-import { css as styledCss, CSSProp } from 'styled-components'
-
-import { theme } from '../themes'
 
 import { mediaBreakPoints } from './metric'
 import { media, fitContentWidth, fitStickerWidth, fitPageWidth } from './media'
@@ -30,15 +27,6 @@ const cutRest = (width = '100px'): string => `
   text-overflow: ellipsis;
 `
 
-const threadTitleHover = (): CSSProp => {
-  return styledCss`
-    color: ${theme('thread.articleTitle')};
-    text-decoration: underline;
-    text-decoration-color: ${theme('thread.articleDigest')};
-    cursor: pointer;
-  `
-}
-
 const css = {
   cutRest,
   circle,
@@ -54,7 +42,11 @@ const css = {
   fitContentWidth,
   fitStickerWidth,
   fitPageWidth,
-  threadTitleHover,
 }
+
+export { theme } from '../themes'
+export { WIDTH } from './metric'
+
+export { default as animate } from './animations'
 
 export default css

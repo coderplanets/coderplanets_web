@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-// import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
-  background: #00313e;
+  background: #f5f5f5; // to-theme
   min-height: 30px;
   height: auto;
   border-radius: 10px;
@@ -15,7 +14,7 @@ export const Wrapper = styled.div`
   &:hover {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     cursor: pointer;
-    border-color: #00424f;
+    border-color: ${theme('thread.articleDigest')};
   }
 
   ${css.media.mobile`

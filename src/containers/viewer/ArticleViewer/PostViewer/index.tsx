@@ -16,7 +16,7 @@ import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
 
-import { Wrapper, BodyWrapper, Title } from '../styles/post_viewer'
+import { Wrapper, BodyWrapper, Title, SubTitle } from '../styles/post_viewer'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
@@ -37,7 +37,10 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
       <FixedHeader article={article} visible={fixedHeaderVisible} />
       <Wrapper>
         <Header article={article} />
-        <Title>{article.title}</Title>
+        <Title>
+          {article.title}
+          <SubTitle>#{article.id}</SubTitle>
+        </Title>
         <ArticleInfo article={article} />
         <ViewportTracker onEnter={hideFixedHeader} onLeave={showFixedHeader} />
 

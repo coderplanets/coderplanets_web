@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 import Img from '@/Img'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -11,7 +10,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('justify-between')};
   border-top: 1px solid;
   border-bottom: 3px solid;
-  border-color: #004250;
+  border-color: #ebebeb; // to-theme
   padding: 26px 5px;
   padding-bottom: 32px;
 

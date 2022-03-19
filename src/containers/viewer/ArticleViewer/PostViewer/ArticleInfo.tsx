@@ -6,6 +6,7 @@ import { addCollection } from '@/utils/helper'
 import DotDivider from '@/widgets/DotDivider'
 import Upvote from '@/widgets/Upvote'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
+import GTDBadge from '@/widgets/GTDBadge'
 
 import {
   Wrapper,
@@ -27,6 +28,14 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <BaseWrapper>
+        {article.id === '239' && <GTDBadge type="FEATURE" right={15} />}
+        {article.id === '231' && <GTDBadge type="BUG" right={15} />}
+        {article.id === '227' && (
+          <GTDBadge type="BUG" state="TODO" right={15} />
+        )}
+        {article.id === '228' && (
+          <GTDBadge type="FEATURE" state="WIP" right={15} />
+        )}
         <ArticleBaseStats article={article} container="drawer" />
         <DotDivider space={10} />
         <CollectWrapper onClick={() => addCollection()}>

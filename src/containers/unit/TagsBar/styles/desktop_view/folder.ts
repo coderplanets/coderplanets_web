@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import { TActive } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import ArrowSVG from '@/icons/ArrowSimple'
 import MoreSVG from '@/icons/MoreL'
 
@@ -28,10 +27,10 @@ export const ArrowIcon = styled(ArrowSVG)<{ $isOpen: boolean }>`
 `
 export const Title = styled.div`
   ${css.flex('align-center')};
+  margin-left: 7px;
 `
 export const FolderTitle = styled.div`
-  color: ${theme('tags.text')};
-  opacity: 0.5;
+  color: ${theme('thread.extraInfo')};
   margin-left: 4px;
   font-size: 14px;
   margin-right: 8px;
@@ -68,22 +67,22 @@ export const Content = styled.div<{ $isOpen: boolean }>`
 export const SubToggle = styled.div`
   ${css.flex('align-center')};
   margin-top: 5px;
-  margin-left: 1px;
-  opacity: 0.6;
+  margin-left: 3px;
+  opacity: 0.8;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.1;
     cursor: pointer;
   }
 `
 export const SubToggleTitle = styled.div`
-  color: ${theme('tags.text')};
+  color: ${theme('thread.extraInfo')};
   font-size: 12px;
   margin-left: 10px;
   padding: 2px;
   border-radius: 5px;
 `
 export const SubTogglePrefixIcon = styled(MoreSVG)`
-  fill: ${theme('tags.text')};
+  fill: ${theme('thread.extraInfo')};
   ${css.size(13)};
 `

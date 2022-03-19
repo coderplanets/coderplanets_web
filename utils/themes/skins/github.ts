@@ -3,17 +3,17 @@
  */
 import { lighten, darken } from 'polished'
 
-const primaryColor = 'rgba(68, 181, 99, 0.8)'
+const primaryColor = '#000000'
 
-const bannerBg = '#FAFBFC'
-const contentBg = '#f8f8f8'
-const contentBoxBg = '#FFFFFF'
+const bannerBg = '#fff'
+const contentBg = '#fff'
+const contentBoxBg = '#fff'
 const fontColor = primaryColor
 const sidebarBg = '#23292E'
 const markdownFont = '#9eb8bd'
 
-const descText = '#b5b5b5'
-const threadTitle = '#7b7878'
+const descText = '#666'
+const threadTitle = '#333333'
 // const primaryMate = 'orange'
 
 const github = {
@@ -42,7 +42,7 @@ const github = {
   link: 'orange',
   main: '#7DC0C5',
   bodyBg: contentBg,
-  selectionBg: 'tomato',
+  selectionBg: '#FFFEDE',
   baseColor: {
     red: '#ca5f4d',
     orange: '#ad735c',
@@ -91,7 +91,7 @@ const github = {
     articleLink: descText,
     articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
-    extraInfo: descText,
+    extraInfo: '#8590a6', // descText,
     articleSpliter: '#dee8ea',
 
     // like github
@@ -132,7 +132,7 @@ const github = {
     desc: descText,
     font: primaryColor,
     bg: contentBg,
-    shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
+    shadow: '-4px 3px 10px 0px rgb(143 143 143 / 27%)',
     closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
     markdownHelperBg: '#F9FCFC',
     accountBg: '#FFFFFF',
@@ -158,13 +158,13 @@ const github = {
     title: 'grey',
     username: '#7FA7AC',
     number: '#efbc60',
-    floor: '#b1b1b1',
+    floor: '#8590a6',
     reply: '#93b3b5',
     replyBg: '#f3f3f3',
     placeholder: '#C0D9DA',
     filter: 'grey',
     filterActive: primaryColor,
-    action: '#a7a7a7',
+    action: '#8590a6',
     // mention text displayed in article
     mentionText: '#91a4b5',
     mentionTextBg: '#fcffdb',
@@ -174,8 +174,8 @@ const github = {
     mentionActiveBg: darken(0.1, '#F9FCFC'),
     mentionShadow: '0px 2px 10px 1px rgba(235, 235, 235, 1)',
 
-    indentLine: '#035163',
-    indentActive: '#4b6669',
+    indentLine: '#d5d5d5',
+    indentActive: descText,
   },
   editor: {
     title: '#7ea9ad',
@@ -252,14 +252,14 @@ const github = {
     bg: darken(0.05, contentBoxBg),
   },
   shell: {
-    link: '#bbb9b7',
-    searchInput: '#bbb9b7',
-    searchIcon: '#bbb9b7',
-    barBg: '#F0F0F0',
-    border: darken(0.05, '#F0F0F0'),
-    title: '#949494',
-    desc: '#bbb9b7',
-    activeBg: '#e6e6e6',
+    link: descText,
+    searchInput: descText,
+    searchIcon: lighten(0.1, descText),
+    barBg: contentBoxBg,
+    border: '#f3f3f3',
+    title: threadTitle,
+    desc: descText,
+    activeBg: '#F5F5F5',
   },
   button: {
     primary: primaryColor,
@@ -274,13 +274,13 @@ const github = {
     hoverBg: '#eee',
   },
   popover: {
-    bg: '#f9fcfc',
-    borderColor: '#51abb2',
+    bg: '#fff',
+    borderColor: '#e9e9ea',
     boxShadow: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.4,
-    text: '#949494',
+    dotOpacity: 0.7,
+    text: descText,
   },
   tagger: {
     text: '#d2a05f',
@@ -301,7 +301,7 @@ const github = {
     bg: contentBoxBg,
     border: primaryColor,
     innerSelectBg: '#e4eeed45',
-    subPanel: '#00313d',
+    subPanel: '#F5F5F5',
     subPanelShadow: 'drop-shadow(3px 3px 6px #002a34)',
   },
   form: {
@@ -341,7 +341,7 @@ const github = {
     hoverBg: '#FAFBFC',
   },
   searchHighlight: {
-    doramonFg: 'orange',
+    doramonFg: '#03a9f4',
     doramonBg: 'transparent',
   },
   tooltip: {
@@ -351,7 +351,7 @@ const github = {
   avatar: {
     opacity: 1,
     quote: '#217470',
-    fallbackBg: '#074857',
+    fallbackBg: '#F5F5F5',
     shadow: '0px 0px 4px 0px rgb(0 0 0 / 50%) inset',
     quoteShadow: '0px 0px 3px 0px rgb(0 0 0 / 30%) inset',
   },

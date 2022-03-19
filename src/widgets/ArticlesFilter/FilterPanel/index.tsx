@@ -9,13 +9,14 @@ import SortFilter from './SortFilter'
 import RepoSortFilter from './RepoSortFilter'
 import LengthFilter from './LengthFilter'
 import ViewedFilter from './ViewedFilter'
+import CatFilter from './CatFilter'
 
-import { FilterPanelWrapper } from '../styles'
+import { FilterPanelWrapper, CatPanelWrapper } from '../styles'
 
 type TProps = {
   activeFilter: TArticleFilter
   onSelect: (filter: TArticleFilter) => void
-  thread: TThread
+  thread: TThread | 'ArticleCat'
 }
 
 const FilterPanel: FC<TProps> = ({ thread, activeFilter, onSelect }) => {
@@ -58,11 +59,9 @@ const FilterPanel: FC<TProps> = ({ thread, activeFilter, onSelect }) => {
 
     default:
       return (
-        <FilterPanelWrapper>
-          <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
-        </FilterPanelWrapper>
+        <CatPanelWrapper>
+          <CatFilter activeFilter={activeFilter} onSelect={onSelect} />
+        </CatPanelWrapper>
       )
   }
 }

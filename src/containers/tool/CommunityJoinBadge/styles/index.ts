@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 // import Img from '@/Img'
-import { theme } from '@/utils/themes'
+import { theme } from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -15,9 +15,9 @@ export const BottomLine = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 65%;
+  width: 95%;
   height: 1px;
-  background: #014454;
+  background: #eae9e9; // to-theme
 `
 export const Title = styled.div`
   font-size: 16px;

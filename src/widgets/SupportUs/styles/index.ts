@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable, TMetric } from '@/spec'
 
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import Img from '@/Img'
 import Button from '@/widgets/Buttons/Button'
 

@@ -7,9 +7,10 @@ import { send } from '@/utils/helper'
 
 import TabBar from '@/widgets/TabBar'
 import ViewportTracker from '@/widgets/ViewportTracker'
-import CommunityStatesPad from '@/widgets/CommunityStatesPad'
+// import CommunityStatesPad from '@/widgets/CommunityStatesPad'
 
 import CommunityBrief from './CommunityBrief'
+import AccountUnit from './AccountUnit'
 
 import {
   Wrapper,
@@ -19,7 +20,7 @@ import {
   TabBarWrapper,
 } from '../styles/classic_layout'
 
-import { onShowEditorList, onShowSubscriberList, setViewport } from '../logic'
+import { setViewport } from '../logic'
 
 // 没有各种外链接，打赏信息等的官方社区
 // const NON_STANDARD_COMMUNITIES = [HCN, 'feedback']
@@ -59,12 +60,13 @@ const ClassicLayout: FC<TProps> = ({
         <BannerContentWrapper descExpand={descExpand}>
           <CommunityBaseInfo>
             <CommunityBrief community={community} descExpand={descExpand} />
-            <CommunityStatesPad
+            <AccountUnit />
+            {/* <CommunityStatesPad
               community={community}
               onShowEditorList={onShowEditorList}
               onShowSubscriberList={onShowSubscriberList}
               realtimeVisitors={realtimeVisitors}
-            />
+            /> */}
           </CommunityBaseInfo>
           <TabBarWrapper>
             <TabBar

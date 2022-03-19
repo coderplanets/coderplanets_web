@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric, TActive, TThread } from '@/spec'
-import { theme } from '@/utils/themes'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import Img from '@/Img'
 
 import { getFixStickerOffset, getFixStickerAlign } from './metric'
@@ -27,7 +26,7 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center')};
-  background: #002a34; // ${theme('header.bg')};
+  background: #fff; // to-theme
   width: 100%;
   height: 48px;
   ${({ metric }) => css.fitPageWidth(metric)};
