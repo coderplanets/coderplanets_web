@@ -57,6 +57,12 @@ module.exports = {
     const actions = [
       {
         type: 'add',
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/index.ts`,
+        templateFile: './container/hooks.tsx.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
         path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/logic.ts`,
         templateFile: './container/logic.ts.hbs',
         abortOnFail: true,
