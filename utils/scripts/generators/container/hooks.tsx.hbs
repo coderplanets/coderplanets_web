@@ -4,7 +4,8 @@
 */ 
 
 import { FC } from 'react' 
-import { buildLog } from '@/utils/logger' 
+
+// import { buildLog } from '@/utils/logger' 
 import { bond } from '@/utils/mobx'
 
 {{#if wantI18n}}
@@ -15,10 +16,11 @@ import type { TStore } from './store'
 import { Wrapper } from './styles' 
 import { useInit } from './logic' /* eslint-disable-next-line */ 
 
-const log = buildLog('C:{{properCase name}}') 
+// const log = buildLog('C:{{properCase name}}') 
 
 type TProps = {
-  {{camelCase name}}?: TStore testid: string 
+  {{camelCase name}}?: TStore 
+  testid: string 
 } 
 
 const {{properCase name}}Container: FC<TProps> = ({{preCurly ''}}{{camelCase name}}: store, testid, {{afterCurly ''}}) => { 
@@ -29,7 +31,7 @@ const {{properCase name}}Container: FC<TProps> = ({{preCurly ''}}{{camelCase nam
   {{/if}}
 
   return (
-    <Wrapper testid='{testid}'>
+    <Wrapper testid={testid}>
       <h2>{{properCase name}} hooks container!</h2>
       <div>impress me!</div>
     </Wrapper>

@@ -57,7 +57,7 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/index.ts`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/index.tsx`,
         templateFile: './container/hooks.tsx.hbs',
         abortOnFail: true,
       },
