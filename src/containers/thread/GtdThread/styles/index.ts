@@ -14,11 +14,11 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   width: 100%;
   min-height: 500px;
   padding: 10px 25px;
-  padding-top: 50px;
+  padding-top: 40px;
 `
 export const Column = styled.div`
   ${css.flexColumn('align-start')};
-  width: 28%;
+  width: 29%;
   min-height: 70vh;
   /* border: 1px solid; */
   /* border-color: ${theme('thread.extraInfo')}; */
@@ -27,7 +27,6 @@ export const Header = styled.div`
   border-bottom: 2px solid;
   border-bottom-color: #d3d5d7;
   padding-bottom: 22px;
-  margin-bottom: 18px;
   width: 100%;
 `
 export const Title = styled.div`
@@ -43,17 +42,17 @@ export const Label = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
   font-weight: 500;
-  margin-right: 8px;
+  margin-right: 10px;
 `
 export const TODOIcon = styled(GtdTodoSVG)`
-  ${css.size(13)};
+  ${css.size(12)};
   fill: ${theme('thread.extraInfo')};
 `
 export const WipIcon = styled(GtdWipSVG)`
-  ${css.size(13)};
+  ${css.size(12)};
   fill: ${theme('thread.extraInfo')};
 `
 export const DoneIcon = styled(GtdDoneSVG)`
-  ${css.size(13)};
+  ${css.size(12)};
   fill: ${theme('thread.extraInfo')};
 `

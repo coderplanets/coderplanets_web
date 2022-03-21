@@ -7,7 +7,10 @@ import { FC } from 'react'
 
 // import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
+import { getRandomInt } from '@/utils/helper'
 
+import { SpaceGrow } from '@/widgets/Common'
+import IconButton from '@/widgets/Buttons/IconButton'
 import ArticleItem from './ArticleItem'
 
 import type { TStore } from './store'
@@ -44,8 +47,10 @@ const GtdThreadContainer: FC<TProps> = ({
           <Title>
             <Label>已排期</Label>
             <TODOIcon />
+            <SpaceGrow />
+            <IconButton path="shape/more-l.svg" mRight={2} />
           </Title>
-          <SubTitle>8 项目</SubTitle>
+          <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
         </Header>
         <ArticleItem />
         <ArticleItem />
@@ -59,8 +64,10 @@ const GtdThreadContainer: FC<TProps> = ({
           <Title>
             <Label>正在完善</Label>
             <WipIcon />
+            <SpaceGrow />
+            <IconButton path="shape/more-l.svg" mRight={2} />
           </Title>
-          <SubTitle>10 项目</SubTitle>
+          <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
         </Header>
         <ArticleItem />
         <ArticleItem />
@@ -74,8 +81,10 @@ const GtdThreadContainer: FC<TProps> = ({
           <Title>
             <Label>已完成</Label>
             <DoneIcon />
+            <SpaceGrow />
+            <IconButton path="shape/more-l.svg" mRight={2} />
           </Title>
-          <SubTitle>10 项目</SubTitle>
+          <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
         </Header>
         <ArticleItem />
         <ArticleItem />

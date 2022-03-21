@@ -10,10 +10,14 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   /* ${css.flex('align-start', 'justify-between')}; */
   width: 100%;
   position: relative;
+  border-bottom: 1px solid;
+  border-bottom-color: #eae9e9; // to-theme
+  padding-top: 20px;
+  padding-bottom: 20px;
 `
 export const UpvoteWrapper = styled.div`
   position: absolute;
-  top: 0;
+  top: 18px;
   right: 0;
 `
 export const LabelsWrapper = styled.div`
@@ -28,7 +32,7 @@ export const TagsWrapper = styled.div`
 export const Title = styled.div`
   font-size: 15px;
   color: ${theme('thread.articleTitle')};
-  width: 85%;
+  width: calc(100% - 30px);
 
   position: relative;
   display: -webkit-box;
@@ -43,7 +47,7 @@ export const Title = styled.div`
 export const Desc = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
-  width: 85%;
+  width: calc(100% - 30px);
   /* opacity: 0.9; */
 
   position: relative;
@@ -60,7 +64,7 @@ export const Footer = styled.div`
   ${css.flex('align-center', 'justify-between')};
   font-size: 12px;
   color: ${theme('thread.extraInfo')};
-  margin-bottom: 20px;
+  padding-right: 6px;
 `
 export const Author = styled.div`
   ${css.flex('align-center')};
