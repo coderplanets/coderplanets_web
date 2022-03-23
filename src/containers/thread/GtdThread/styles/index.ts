@@ -10,11 +10,13 @@ import GtdTodoSVG from '@/icons/GtdTodo'
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
-  ${css.flex('align-start', 'justify-between')};
   width: 100%;
-  min-height: 500px;
   padding: 10px 25px;
-  padding-top: 40px;
+`
+export const ColumnsWrapper = styled.div`
+  ${css.flex('align-start', 'justify-between')};
+  min-height: 500px;
+  margin-top: 60px;
 `
 export const Column = styled.div`
   ${css.flexColumn('align-start')};

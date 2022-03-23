@@ -19,7 +19,6 @@ export const Wrapper = styled.button<TButton>`
   outline: none;
 
   line-height: 1.5;
-  font-weight: 400;
   text-align: center;
   touch-action: manipulation;
   background-image: none;
