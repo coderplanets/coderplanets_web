@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div<TActive>`
   ${css.flex('align-center')};
@@ -14,7 +14,7 @@ export const Wrapper = styled.div<TActive>`
   background: ${({ $active }) => ($active ? '#00333D' : 'transparent')};
 
   &:hover {
-    background: #f5f5f5; // to-theme
+    background: ${theme('textBadge')}; // to-theme
   }
 `
 

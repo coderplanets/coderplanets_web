@@ -27,7 +27,7 @@ export const CommunityJoinersTitle = styled.div`
 export const CommunityJoinersNum = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
-  background: #f5f5f5;
+  background: ${theme('textBadge')};
   font-size: 11px;
   font-weight: 600;
   margin-left: 5px;

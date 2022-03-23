@@ -14,17 +14,17 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   border-bottom-color: #eae9e9; // to-theme
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 2px;
 `
 export const UpvoteWrapper = styled.div`
   position: absolute;
-  top: 18px;
-  right: 0;
+  top: 20px;
+  right: -2px;
 `
 export const LabelsWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: -2px;
   margin-left: -2px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 `
 export const TagsWrapper = styled.div`
   margin-top: -2px;
@@ -32,7 +32,7 @@ export const TagsWrapper = styled.div`
 export const Title = styled.div`
   font-size: 15px;
   color: ${theme('thread.articleTitle')};
-  width: calc(100% - 30px);
+  width: calc(100% - 28px);
 
   position: relative;
   display: -webkit-box;
@@ -48,6 +48,8 @@ export const Desc = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   width: calc(100% - 30px);
+  /* width: calc(100% - 5px); */
+  /* width: 100%; */
   /* opacity: 0.9; */
 
   position: relative;

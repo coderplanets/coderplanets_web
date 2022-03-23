@@ -19,7 +19,7 @@ export const Wrapper = styled.div<TTag>`
   background: ${({ $active }) => (!$active ? 'transparent' : '#0e303d')};
 
   &:hover {
-    background: #f5f5f5; // to-theme
+    background: ${theme('textBadge')}; // to-theme
     cursor: pointer;
   }
 `

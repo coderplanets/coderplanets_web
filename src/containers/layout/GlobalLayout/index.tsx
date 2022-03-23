@@ -16,6 +16,7 @@ import ThemePalette from '@/containers/layout/ThemePalette'
 // import Header from '@/widgets/Header'
 
 // import Header from '@/containers/unit/Header'
+// import Footer from '@/containers/unit/Footer'
 // import ModeLine from '@/containers/unit/ModeLine'
 
 // import Drawer from '@/containers/tool/Drawer'

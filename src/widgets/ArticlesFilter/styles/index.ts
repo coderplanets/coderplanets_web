@@ -69,7 +69,7 @@ export const SelectItem = styled.div<TActive>`
   border-radius: 3px;
   margin-bottom: 5px;
   background-color: ${({ active }) =>
-    active ? '#f5f5f5' : 'transparent'}; // to-theme
+    active ? theme('textBadge') : 'transparent'}; // to-theme
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-weight: ${({ active }) => (active ? 600 : 450)};
@@ -78,7 +78,7 @@ export const SelectItem = styled.div<TActive>`
   &:hover {
     cursor: pointer;
     color: ${theme('thread.articleTitle')};
-    background-color: #f5f5f5;
+    background-color: #f8f8f8;
   }
 
   &:before {

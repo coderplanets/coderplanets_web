@@ -5,7 +5,7 @@ import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
-  background: #f5f5f5; // to-theme
+  background: ${theme('textBadge')}; // to-theme
   min-height: 30px;
   height: auto;
   border-radius: 10px;

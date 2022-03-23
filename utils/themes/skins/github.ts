@@ -43,6 +43,7 @@ const github = {
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#FFFEDE',
+  textBadge: '#f5f5f5',
   baseColor: {
     red: '#ca5f4d',
     orange: '#ad735c',

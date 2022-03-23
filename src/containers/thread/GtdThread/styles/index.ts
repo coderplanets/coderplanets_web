@@ -25,9 +25,10 @@ export const Column = styled.div`
 `
 export const Header = styled.div`
   border-bottom: 2px solid;
-  border-bottom-color: #d3d5d7;
+  border-bottom-color: ${theme('thread.articleDigest')};
   padding-bottom: 22px;
   width: 100%;
+  padding-left: 3px;
 `
 export const Title = styled.div`
   ${css.flex('align-center')};
@@ -41,7 +42,7 @@ export const SubTitle = styled.div`
 export const Label = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   margin-right: 10px;
 `
 export const TODOIcon = styled(GtdTodoSVG)`

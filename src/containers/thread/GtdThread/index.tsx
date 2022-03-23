@@ -11,7 +11,7 @@ import { getRandomInt } from '@/utils/helper'
 
 import { SpaceGrow } from '@/widgets/Common'
 import IconButton from '@/widgets/Buttons/IconButton'
-import ArticleItem from './ArticleItem'
+import GtdItem from '@/widgets/GtdItem'
 
 import type { TStore } from './store'
 import {
@@ -52,12 +52,12 @@ const GtdThreadContainer: FC<TProps> = ({
           </Title>
           <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
         </Header>
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
       </Column>
       <Column>
         <Header>
@@ -69,12 +69,12 @@ const GtdThreadContainer: FC<TProps> = ({
           </Title>
           <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
         </Header>
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
       </Column>
       <Column>
         <Header>
@@ -86,12 +86,12 @@ const GtdThreadContainer: FC<TProps> = ({
           </Title>
           <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
         </Header>
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
+        <GtdItem />
       </Column>
     </Wrapper>
   )

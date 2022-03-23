@@ -69,7 +69,7 @@ export const InputWrapper = styled.input<IInput>`
   color: ${theme('thread.articleTitle')};
   padding-left: ${({ hasPrefix }) => (hasPrefix ? '26px' : '8px')};
   padding-right: ${({ hasSuffix }) => (hasSuffix ? '26px' : '8px')};
-  background-color: #f5f5f5; // to-theme
+  background-color: ${theme('textBadge')}; // to-theme
   border-color: ${theme('editor.border')};
   ::placeholder {
     color: ${theme('thread.articleDigest')};

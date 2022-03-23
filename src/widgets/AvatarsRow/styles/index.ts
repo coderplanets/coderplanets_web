@@ -25,9 +25,9 @@ type TAvatarsMore = { size: TAvatarSize; total: number }
 export const AvatarsMore = styled.span<TAvatarsMore>`
   ${css.flex('align-both')};
   font-size: 14px;
-  border-color: #f5f5f5; // to-theme
+  border-color: ${theme('textBadge')}; // to-theme
   color: ${theme('thread.articleTitle')};
-  background-color: #f5f5f5; // to-theme
+  background-color: ${theme('textBadge')}; // to-theme
   border-radius: 100px 100px 100px 100px;
   font-family: sans-serif;
   font-weight: ${({ total }) => (total >= 1000 ? 600 : 200)};

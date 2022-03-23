@@ -85,5 +85,5 @@ export const ViewsIcon = styled(ViewedSVG)`
 export const GTDBadgeWrapper = styled.div`
   position: absolute;
   top: 44px;
-  right: -2px;
+  right: -5px;
 `
