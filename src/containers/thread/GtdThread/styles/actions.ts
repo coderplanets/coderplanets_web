@@ -10,10 +10,9 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  margin-top: 5px;
-  margin-left: 2px;
+  margin-top: 6px;
 `
 export const Count = styled.div`
   color: ${theme('thread.articleDigest')};

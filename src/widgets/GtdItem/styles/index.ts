@@ -24,7 +24,8 @@ export const UpvoteWrapper = styled.div`
 export const LabelsWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: -2px;
-  margin-bottom: 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 `
 export const TagsWrapper = styled.div`
   margin-top: -2px;
@@ -32,29 +33,28 @@ export const TagsWrapper = styled.div`
 export const Title = styled.div`
   font-size: 15px;
   color: ${theme('thread.articleTitle')};
-  width: calc(100% - 28px);
+  width: calc(100% - 40px);
 
   position: relative;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   line-height: 1.62;
   letter-spacing: 0.5px;
-  margin-bottom: 5px;
 `
 export const Desc = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
-  width: calc(100% - 30px);
+  width: calc(100% - 35px);
   /* width: calc(100% - 5px); */
   /* width: 100%; */
   /* opacity: 0.9; */
 
   position: relative;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
