@@ -25,7 +25,7 @@ export const Wrapper = styled(BaseAvatarItem)`
 
 type TNumbersMore = { size: string; total: number }
 export const NumbersMore = styled(AvatarsMore)<TNumbersMore>`
-  background-color: #f5f5f5; // to-theme
+  background-color: ${theme('textBadge')}; // to-theme
   color: ${theme('thread.articleTitle')};
   height: ${({ size }) => getAvatarSize(size)};
   width: ${({ total }) => getMoreTextWidth(total)};

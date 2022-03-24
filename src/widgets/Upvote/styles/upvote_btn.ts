@@ -163,7 +163,7 @@ export const IconShadow = styled.div<{ type: TUpvoteLayout }>`
   width: ${({ type }) => getIconShadowSize(type)};
   height: ${({ type }) => getIconShadowSize(type)};
   border-radius: 100%;
-  background: #f5f5f5; // to-theme
+  background: ${theme('textBadge')}; // to-theme
   z-index: -1;
   opacity: 0;
 

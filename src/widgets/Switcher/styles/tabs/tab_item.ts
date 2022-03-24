@@ -70,7 +70,7 @@ export const Label = styled.span<TLabel>`
     active ? theme('thread.articleTitle') : '#878b8f'}; // to-theme
   margin-bottom: ${({ bottomSpace }) => `${bottomSpace}px`};
 
-  font-weight: ${({ active }) => (active ? 600 : 400)};
+  font-weight: 500;
 
   &:hover {
     color: ${theme('thread.articleTitle')};

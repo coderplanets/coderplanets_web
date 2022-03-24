@@ -79,6 +79,7 @@ export { default as CommunityEditorStore } from '@/containers/editor/CommunityEd
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as GtdThreadStore } from '@/containers/thread/GtdThread/store'
 export { default as FriendsContentStore } from '@/containers/content/FriendsContent/store'
 export { default as BlogEditorStore } from '@/containers/editor/BlogEditor/store'
 export { default as CommunityTagSetterStore } from '@/containers/tool/CommunityTagSetter/store'

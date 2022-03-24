@@ -28,13 +28,13 @@ export const Tabs = styled.div`
   z-index: 2;
   border: 1px solid;
   border-color: transparent;
-  background-color: #f5f5f5; // to-theme
+  background-color: ${theme('textBadge')}; // to-theme
 
   ${Wrapper}:hover & {
-    border-color: #f5f5f5; // to-theme
+    border-color: ${theme('textBadge')}; // to-theme
   }
   ${AccessZone}:hover & {
-    border-color: #f5f5f5; // to-theme
+    border-color: ${theme('textBadge')}; // to-theme
   }
   transition: all 0.2s;
 `

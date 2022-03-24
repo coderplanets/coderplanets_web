@@ -42,7 +42,7 @@ const FooterContainer: FC<TProps> = ({
   useInit(store, metric)
 
   const { viewingArticle, curCommunity, c11n, onlineStatus } = store
-  const isHome = curCommunity.raw === HCN
+  // const isHome = curCommunity.raw === HCN
 
   const isGeneral = includes(metric, [
     METRIC.COOL_GUIDE,

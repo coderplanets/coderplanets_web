@@ -31,9 +31,9 @@ const SwitchBlock = styled.div`
   ${css.circle(50)};
   ${css.flex('align-both')};
   opacity: 0.4;
-  /* background: #f5f5f5; */
+  /* background: ${theme('textBadge')};; */
   &:hover {
-    background: #f5f5f5;
+    background: ${theme('textBadge')};
     opacity: 1;
     cursor: pointer;
   }

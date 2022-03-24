@@ -12,5 +12,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 
   margin-left: ${({ left }) => `${left}px` || 0};
   margin-right: ${({ right }) => `${right}px` || 0};
+  margin-top: ${({ top }) => `${top}px` || 0};
+  margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
 `
 export const holder = 1
