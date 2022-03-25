@@ -1,13 +1,18 @@
 import { FC, memo } from 'react'
 
-import { Wrapper } from './styles/filters'
+import { Br } from '@/widgets/Common'
+import TagsBar from '@/containers/unit/TagsBar'
+
+import { Wrapper, SearchInput, SearchBox } from './styles/filters'
 
 const Filters: FC = () => {
   return (
     <Wrapper>
-      <h3>新功能</h3>
-      <h3>修复改进</h3>
-      <h3>预发布</h3>
+      <SearchBox>新增 更新记录</SearchBox>
+      <Br bottom={15} />
+      <SearchInput placeholder="搜索内容..." />
+      <Br bottom={30} />
+      <TagsBar onSelect={() => console.log} />
     </Wrapper>
   )
 }

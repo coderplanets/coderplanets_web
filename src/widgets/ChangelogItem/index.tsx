@@ -7,8 +7,18 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
+import TagsList from '@/widgets/TagsList'
 
-import { Wrapper, Main, Side, Title, Body, DateTime, Download } from './styles'
+import {
+  Wrapper,
+  Main,
+  Side,
+  Title,
+  TagsWrapper,
+  Body,
+  DateTime,
+  Download,
+} from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ChangelogItem:index')
@@ -18,9 +28,24 @@ type TProps = {
 }
 
 const ChangelogItem: FC<TProps> = ({ testid = 'changelog-item' }) => {
+  const tags = [
+    {
+      title: 'Bug 修复',
+      raw: 'fix',
+      color: 'blue',
+    },
+    {
+      title: '新功能',
+      raw: 'feature',
+      color: 'yellow',
+    },
+  ]
   return (
     <Wrapper testid={testid}>
       <Main>
+        <TagsWrapper>
+          <TagsList items={tags} mLeft={3} mode="solid" size="small" />
+        </TagsWrapper>
         <Title>帖子支持表情了</Title>
         <Body>
           这次俄乌冲突出现侮辱乌女性的评论就是1450干的，刷完评论就截图转发外网，成为外媒攻击中国人的“口实”。

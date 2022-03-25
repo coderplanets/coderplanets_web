@@ -24,6 +24,18 @@ export const Title = styled.div<{ size: TSIZE_TSM }>`
   font-weight: 700;
   letter-spacing: 0.06em;
 `
+export const SolidTitle = styled.div<{ size: TSIZE_TSM; color: string }>`
+  color: #fff;
+  font-size: ${({ size }) => getTitleSize(size)};
+  background-color: ${({ color }) => color};
+  margin-left: 3px;
+  word-break: keep-all;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 1px 5px;
+  border-radius: 5px;
+  filter: saturate(0.8);
+`
 export const More = styled.div`
   color: ${theme('thread.extraInfo')};
   font-weight: bold;

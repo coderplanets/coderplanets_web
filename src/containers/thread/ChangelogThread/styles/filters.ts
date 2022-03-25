@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-import type { TTestable, TThread } from '@/spec'
+import type { TTestable } from '@/spec'
+
+import Input from '@/widgets/Input'
+import Button from '@/widgets/Buttons/Button'
+
 import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -10,16 +14,20 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   width: 200px;
   min-width: 200px;
   color: ${theme('thread.articleDigest')};
+  padding-top: 25px;
 `
-export const MainWrapper = styled.div<{ thread: TThread }>`
-  flex-grow: 1;
-  width: 100%;
+export const SearchInput = styled(Input)`
+  width: 180px;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 15px;
 
-  background: transparent;
-  border-radius: 6px;
-  margin-top: 12px;
-  padding-left: 25px;
-  padding-right: 80px;
-  margin-right: 65px;
-  border-right: 1px solid #eae9e9;
+  ::placeholder {
+    color: ${theme('form.text')};
+    opacity: 0.6;
+  }
+`
+export const SearchBox = styled(Button)`
+  width: 180px;
+  border-radius: 15px;
 `

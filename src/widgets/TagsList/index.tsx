@@ -4,7 +4,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TTag, TSIZE_TSM, TCommunity, TThread } from '@/spec'
+import type { TTag, TSIZE_TSM, TCommunity, TThread, TTagMode } from '@/spec'
 import { SIZE, THREAD } from '@/constant'
 
 import { sortByColor } from '@/utils/helper'
@@ -14,18 +14,24 @@ import Tooltip from '@/widgets/Tooltip'
 
 import Setter from './Setter'
 
-import { Wrapper, Tag, DotSign, Title, More } from './styles'
+import { Wrapper, Tag, DotSign, Title, SolidTitle, More } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TagsList:index')
 
-const FullList = ({ items, mLeft, size }) => {
+const FullList = ({ items, mLeft, size, mode = 'solid' }) => {
   return (
     <Wrapper mLeft={mLeft}>
       {sortByColor(items).map((tag) => (
         <Tag key={tag.title}>
-          <DotSign color={tag.color} size={size} />
-          <Title size={size}>{Trans(tag.title)}</Title>
+          {mode === 'default' && <DotSign color={tag.color} size={size} />}
+          {mode === 'default' ? (
+            <Title size={size}>{Trans(tag.title)}</Title>
+          ) : (
+            <SolidTitle size={size} color={tag.color}>
+              {Trans(tag.title)}
+            </SolidTitle>
+          )}
         </Tag>
       ))}
     </Wrapper>
@@ -38,6 +44,7 @@ type TProps = {
   mLeft?: number
   size?: TSIZE_TSM
   withSetter?: boolean
+  mode?: TTagMode
 
   // if withSetter is set to true, MUST have community and thread
   community?: TCommunity
@@ -50,6 +57,7 @@ const TagsList: FC<TProps> = ({
   mLeft = 8,
   size = SIZE.TINY,
   withSetter = false,
+  mode = 'default',
   community = { raw: 'home' },
   thread = THREAD.POST,
 }) => {
@@ -60,13 +68,15 @@ const TagsList: FC<TProps> = ({
           .slice(0, max)
           .map((tag) => (
             <Tag key={tag.title}>
-              <DotSign color={tag.color} size={size} />
+              {mode === 'default' && <DotSign color={tag.color} size={size} />}
               <Title size={size}>{Trans(tag.title)}</Title>
             </Tag>
           ))}
         <Tooltip
           placement="bottom"
-          content={<FullList items={items} mLeft={mLeft} size={size} />}
+          content={
+            <FullList items={items} mLeft={mLeft} size={size} mode={mode} />
+          }
         >
           <More>..</More>
         </Tooltip>

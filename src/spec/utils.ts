@@ -185,3 +185,5 @@ export type TModelineType =
 
 export type TGtdType = 'BUG' | 'FEATURE' | null
 export type TGtdState = 'TODO' | 'WIP' | 'DONE' | null
+
+export type TTagMode = 'default' | 'solid'

@@ -22,25 +22,28 @@ export const Main = styled.div`
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 580;
   margin-bottom: 10px;
+`
+export const TagsWrapper = styled.div`
+  margin-bottom: 10px;
+  margin-left: -6px;
 `
 export const Body = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.85;
 `
 export const Side = styled.div`
   ${css.flexColumn('align-end')};
+  color: ${theme('thread.extraInfo')};
   flex-grow: 1;
   margin-top: 5px;
 `
 export const DateTime = styled.div`
   font-size: 12px;
-  color: ${theme('thread.articleDigest')};
 `
 export const Download = styled.div`
   font-size: 12px;
-  color: ${theme('thread.extraInfo')};
   margin-top: 4px;
 `
