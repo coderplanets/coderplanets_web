@@ -5,6 +5,7 @@ import { THREAD } from '@/constant'
 
 import ArticlesThread from '@/containers//thread/ArticlesThread'
 import GtdThread from '@/containers//thread/GtdThread'
+import ChangeThread from '@/containers//thread/ChangelogThread'
 // import ReposThread from '@/containers/thread/ReposThread'
 import CperMapThread from '@/containers/thread/CperMapThread'
 
@@ -47,7 +48,8 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
       return <CperMapThread />
 
     default:
-      return <GtdThread />
+      // return <GtdThread />
+      return <ChangeThread />
     // return <ArticlesThread />
   }
 }

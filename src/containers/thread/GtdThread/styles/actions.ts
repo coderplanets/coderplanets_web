@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   margin-top: 6px;
 `
