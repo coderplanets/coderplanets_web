@@ -32,19 +32,19 @@ const ChangelogItem: FC<TProps> = ({ testid = 'changelog-item' }) => {
     {
       title: 'Bug 修复',
       raw: 'fix',
-      color: 'blue',
+      color: 'red',
     },
     {
       title: '新功能',
       raw: 'feature',
-      color: 'yellow',
+      color: 'blue',
     },
   ]
   return (
     <Wrapper testid={testid}>
       <Main>
         <TagsWrapper>
-          <TagsList items={tags} mLeft={3} mode="solid" size="small" />
+          <TagsList items={tags} mLeft={3} mode="solid" size="small" max={5} />
         </TagsWrapper>
         <Title>帖子支持表情了</Title>
         <Body>

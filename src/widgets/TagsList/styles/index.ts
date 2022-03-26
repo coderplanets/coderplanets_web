@@ -16,6 +16,13 @@ export const Tag = styled.div`
   margin-right: 5px;
   min-width: 40px;
 `
+type THashSign = { color: string; size: TSIZE_TSM }
+export const DotSign = styled.div<THashSign>`
+  background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
+  ${({ size }) => css.size(getIconSize(size))};
+  border-radius: 100%;
+  margin-right: 2px;
+`
 export const Title = styled.div<{ size: TSIZE_TSM }>`
   color: ${theme('thread.extraInfo')};
   font-size: ${({ size }) => getTitleSize(size)};
@@ -25,29 +32,21 @@ export const Title = styled.div<{ size: TSIZE_TSM }>`
   letter-spacing: 0.06em;
 `
 export const SolidTitle = styled.div<{ size: TSIZE_TSM; color: string }>`
-  color: #fff;
+  color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
   font-size: ${({ size }) => getTitleSize(size)};
-  background-color: ${({ color }) => color};
+  background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}Bg`)};
   margin-left: 3px;
   word-break: keep-all;
   font-weight: 600;
   letter-spacing: 0.06em;
-  padding: 1px 5px;
+  padding: 2px 6px;
   border-radius: 5px;
-  filter: saturate(0.8);
 `
 export const More = styled.div`
   color: ${theme('thread.extraInfo')};
   font-weight: bold;
   cursor: pointer;
   margin-top: -3px;
-`
-type THashSign = { color: string; size: TSIZE_TSM }
-export const DotSign = styled.div<THashSign>`
-  background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
-  ${({ size }) => css.size(getIconSize(size))};
-  border-radius: 100%;
-  margin-right: 2px;
 `
 
 export const PopoverInfo = styled.div``

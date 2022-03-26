@@ -12,33 +12,15 @@ import { Trans } from '@/utils/i18n'
 import { buildLog } from '@/utils/logger'
 import Tooltip from '@/widgets/Tooltip'
 
+import FullList from './FullList'
 import Setter from './Setter'
 
-import { Wrapper, Tag, DotSign, Title, SolidTitle, More } from './styles'
+import { Wrapper, Tag, DotSign, Title, More } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TagsList:index')
 
-const FullList = ({ items, mLeft, size, mode = 'default' }) => {
-  return (
-    <Wrapper mLeft={mLeft}>
-      {sortByColor(items).map((tag) => (
-        <Tag key={tag.title}>
-          {mode === 'default' && <DotSign color={tag.color} size={size} />}
-          {mode === 'default' ? (
-            <Title size={size}>{Trans(tag.title)}</Title>
-          ) : (
-            <SolidTitle size={size} color={tag.color}>
-              {Trans(tag.title)}
-            </SolidTitle>
-          )}
-        </Tag>
-      ))}
-    </Wrapper>
-  )
-}
-
-type TProps = {
+export type TProps = {
   items: TTag[]
   max?: number
   mLeft?: number
@@ -89,7 +71,9 @@ const TagsList: FC<TProps> = ({
 
   return (
     <Wrapper>
-      {items.length > 0 && <FullList items={items} mLeft={mLeft} size={size} />}
+      {items.length > 0 && (
+        <FullList items={items} mLeft={mLeft} size={size} mode={mode} />
+      )}
       {withSetter && (
         <Setter
           tags={items}
