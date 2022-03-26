@@ -19,7 +19,7 @@ import { Wrapper, Tag, DotSign, Title, SolidTitle, More } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:TagsList:index')
 
-const FullList = ({ items, mLeft, size, mode = 'solid' }) => {
+const FullList = ({ items, mLeft, size, mode = 'default' }) => {
   return (
     <Wrapper mLeft={mLeft}>
       {sortByColor(items).map((tag) => (

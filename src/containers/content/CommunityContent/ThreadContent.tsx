@@ -49,8 +49,8 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
 
     default:
       // return <GtdThread />
-      return <ChangeThread />
-    // return <ArticlesThread />
+      // return <ChangeThread />
+      return <ArticlesThread />
   }
 }
 
