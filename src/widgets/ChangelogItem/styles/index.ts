@@ -43,6 +43,12 @@ export const Side = styled.div`
 export const DateTime = styled.div`
   font-size: 12px;
 `
+export const Version = styled.div`
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 2px;
+`
 export const Download = styled.div`
   font-size: 12px;
   margin-top: 4px;
