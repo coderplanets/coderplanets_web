@@ -17,8 +17,9 @@ import {
   Title,
   TagsWrapper,
   Body,
+  Version,
   DateTime,
-  Download,
+  // Download,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -61,8 +62,9 @@ const ChangelogItem: FC<TProps> = ({ testid = 'changelog-item' }) => {
         </Body>
       </Main>
       <Side>
+        <Version>v3.20</Version>
         <DateTime>2020-03-23</DateTime>
-        <Download>download</Download>
+        {/* <Download>download</Download> */}
       </Side>
     </Wrapper>
   )

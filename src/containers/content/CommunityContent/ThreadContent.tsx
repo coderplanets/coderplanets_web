@@ -3,11 +3,12 @@ import { FC, memo } from 'react'
 import type { TThread } from '@/spec'
 import { THREAD } from '@/constant'
 
-import ArticlesThread from '@/containers//thread/ArticlesThread'
+// import ArticlesThread from '@/containers//thread/ArticlesThread'
 // import GtdThread from '@/containers//thread/GtdThread'
 // import ChangeThread from '@/containers//thread/ChangelogThread'
 // import ReposThread from '@/containers/thread/ReposThread'
 import CperMapThread from '@/containers/thread/CperMapThread'
+import AboutThread from '@/containers/thread/AboutThread'
 
 import WipThread from './WipThread'
 
@@ -48,9 +49,10 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
       return <CperMapThread />
 
     default:
-      // return <GtdThread />
-      // return <ChangeThread />
-      return <ArticlesThread />
+      return <AboutThread />
+    // return <GtdThread />
+    // return <ChangeThread />
+    // return <ArticlesThread />
   }
 }
 
