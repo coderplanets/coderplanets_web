@@ -73,6 +73,7 @@ export type {
   TModelineType,
   TGtdType,
   TGtdState,
+  TTagMode,
 } from './utils'
 
 export type { TGQLError } from './graphql'

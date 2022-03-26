@@ -4,14 +4,15 @@
 
 import { FC, memo } from 'react'
 
-import type { TTag, TSIZE_TSM, TCommunity, TThread } from '@/spec'
-import { SIZE, THREAD } from '@/constant'
+import type { TTag, TSIZE_TSM, TCommunity, TThread, TTagMode } from '@/spec'
+import { SIZE, THREAD, TAG_MODE } from '@/constant'
 
 import { sortByColor } from '@/utils/helper'
 import { Trans } from '@/utils/i18n'
 import { buildLog } from '@/utils/logger'
 import Tooltip from '@/widgets/Tooltip'
 
+import FullList from './FullList'
 import Setter from './Setter'
 
 import { Wrapper, Tag, DotSign, Title, More } from './styles'
@@ -19,25 +20,13 @@ import { Wrapper, Tag, DotSign, Title, More } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:TagsList:index')
 
-const FullList = ({ items, mLeft, size }) => {
-  return (
-    <Wrapper mLeft={mLeft}>
-      {sortByColor(items).map((tag) => (
-        <Tag key={tag.title}>
-          <DotSign color={tag.color} size={size} />
-          <Title size={size}>{Trans(tag.title)}</Title>
-        </Tag>
-      ))}
-    </Wrapper>
-  )
-}
-
-type TProps = {
+export type TProps = {
   items: TTag[]
   max?: number
   mLeft?: number
   size?: TSIZE_TSM
   withSetter?: boolean
+  mode?: TTagMode
 
   // if withSetter is set to true, MUST have community and thread
   community?: TCommunity
@@ -50,6 +39,7 @@ const TagsList: FC<TProps> = ({
   mLeft = 8,
   size = SIZE.TINY,
   withSetter = false,
+  mode = TAG_MODE.DEFAULT,
   community = { raw: 'home' },
   thread = THREAD.POST,
 }) => {
@@ -60,13 +50,17 @@ const TagsList: FC<TProps> = ({
           .slice(0, max)
           .map((tag) => (
             <Tag key={tag.title}>
-              <DotSign color={tag.color} size={size} />
+              {mode === TAG_MODE.DEFAULT && (
+                <DotSign color={tag.color} size={size} />
+              )}
               <Title size={size}>{Trans(tag.title)}</Title>
             </Tag>
           ))}
         <Tooltip
           placement="bottom"
-          content={<FullList items={items} mLeft={mLeft} size={size} />}
+          content={
+            <FullList items={items} mLeft={mLeft} size={size} mode={mode} />
+          }
         >
           <More>..</More>
         </Tooltip>
@@ -79,7 +73,9 @@ const TagsList: FC<TProps> = ({
 
   return (
     <Wrapper>
-      {items.length > 0 && <FullList items={items} mLeft={mLeft} size={size} />}
+      {items.length > 0 && (
+        <FullList items={items} mLeft={mLeft} size={size} mode={mode} />
+      )}
       {withSetter && (
         <Setter
           tags={items}

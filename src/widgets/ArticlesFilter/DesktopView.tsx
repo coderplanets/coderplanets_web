@@ -46,11 +46,6 @@ const ArticlesFilter: FC<TProps> = ({
 
   return (
     <Wrapper>
-      <SearchBox />
-      <SpaceGrow />
-      {resState === TYPE.RES_STATE.LOADING && (
-        <LavaLampLoading top={2} right={28} />
-      )}
       <MainFilterWrapper>
         <FilterButton
           thread={THREAD.POST}
@@ -64,6 +59,11 @@ const ArticlesFilter: FC<TProps> = ({
         onSelect={onSelect}
         activeFilter={activeFilter}
       />
+      <SpaceGrow />
+      {resState === TYPE.RES_STATE.LOADING && (
+        <LavaLampLoading top={2} right={28} />
+      )}
+      <SearchBox />
       {/* <FilterResult pageNumber={pageNumber} totalCount={totalCount} /> */}
     </Wrapper>
   )

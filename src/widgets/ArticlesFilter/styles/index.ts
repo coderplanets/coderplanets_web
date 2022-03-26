@@ -9,13 +9,14 @@ import Input from '@/widgets/Input'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 `
 export const Inputer = styled(Input)`
   height: 30px;
 `
 export const MainFilterWrapper = styled.div`
   ${css.flex('align-center')};
+  padding-left: 2px;
 `
 export const FilterPanelWrapper = styled.div`
   ${css.flex()};

@@ -46,15 +46,30 @@ const github = {
   textBadge: '#f5f5f5',
   baseColor: {
     red: '#ca5f4d',
+    redBg: '#FDF1F0',
+
     orange: '#ad735c',
+    orangeBg: '#FEF7E8',
+
     yellow: '#B0BA6C',
+    yellowBg: '#FEFBE8',
+
     green: '#699411',
+    greenBg: '#F8FFEE',
+
     cyan: '#24878C',
+    cyanBg: '#EBFEFB',
+
     blue: '#456fbd',
+    blueBg: '#E9F6FE',
+
     purple: '#7d519e',
+    purpleBg: '#F7F0FE',
 
     grey: '#106d8a',
+
     pink: '#b36976',
+    pinkBg: '#FCF1F6',
 
     pinkLite: '#82606b',
     pinkBtnText: '#ded0d0',
