@@ -54,6 +54,58 @@ const users = [
     login: 'philss',
     bio: 'Software developer. Interested in Elixir and functional programming ',
   },
+
+  //
+  {
+    id: '8',
+    avatar:
+      'https://avatars.githubusercontent.com/u/3684889?s=88&u=bb5e8d9294af17219316997ff11d349755ac9740&v=4',
+    nickname: 'neSpecc',
+    login: 'neSpecc2',
+    bio: 'the codex core teamf',
+  },
+  {
+    id: '9',
+    avatar: 'https://avatars.githubusercontent.com/u/53274?s=64&v=4',
+    nickname: 'scrogson',
+    login: 'scrogson2',
+    bio: 'Software Engineer specializing in Erlang/Elixir/Rust',
+  },
+  {
+    id: '10',
+    avatar: 'https://avatars.githubusercontent.com/u/52195?s=64&v=4',
+    nickname: 'mcollina',
+    login: 'mcollina2',
+    bio: 'Technical Director @nearform, TSC member',
+  },
+  {
+    id: '11',
+    avatar: 'https://avatars.githubusercontent.com/u/665846?s=64&v=4',
+    nickname: 'Alex Rodionov',
+    login: 'Alex Rodionov2',
+    bio: 'Selenium Committer, Watir Core Team Developer',
+  },
+  {
+    id: '12',
+    avatar: 'https://avatars.githubusercontent.com/u/1361891?s=64&v=4',
+    nickname: 'huan',
+    login: 'huan2',
+    bio: 'Angel Investor, Serial Entrepreneur, Machine Learning PhD Student',
+  },
+  {
+    id: '13',
+    avatar: 'https://avatars.githubusercontent.com/u/70602?v=4',
+    nickname: 'Joshua Gross',
+    login: 'JoshuaGross2',
+    bio: 'React Native Core team @ Facebook',
+  },
+  {
+    id: '14',
+    avatar: 'https://avatars.githubusercontent.com/u/381213?s=64&v=4',
+    nickname: 'philss',
+    login: 'philss2',
+    bio: 'Software developer. Interested in Elixir and functional programming ',
+  },
 ]
 
 const tags = [
@@ -1404,7 +1456,7 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
     // 博物馆 end
     // ----------------
     // 教程 / 101 start
-    // 路线图谱，视频课程，技术书籍，社区文档, 高校教学，新手项目, 比如 https://web.stanford.edu/class/cs224n/
+    // 路线图谱，视频课程，技术书籍，社区文档, 高校教学，新手项目, 比如2 https://web.stanford.edu/class/cs224n/
     {
       id: '101',
       raw: '101',
