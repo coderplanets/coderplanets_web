@@ -7,6 +7,7 @@
 import { FC } from 'react'
 
 import { VIEW } from '@/constant'
+import type { TTagMode } from '@/spec'
 import type { TStore } from './store'
 
 import DesktopView from './DesktopView/index'
@@ -14,6 +15,7 @@ import DesktopView from './DesktopView/index'
 export type TProps = {
   view?: string
   tagsBar?: TStore
+  mode?: TTagMode
   onSelect: () => void
 }
 

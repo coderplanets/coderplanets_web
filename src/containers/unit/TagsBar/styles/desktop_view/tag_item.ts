@@ -48,6 +48,22 @@ export const DotSign = styled.div<THashSign>`
 
   transition: filter 0.1s;
 `
+export const SlashSign = styled.div<THashSign>`
+  width: 5px;
+  height: 16px;
+  border-radius: 5px;
+  background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
+  margin-top: 0;
+  margin-left: 2px;
+  margin-right: 8px;
+  opacity: ${({ $active }) => ($active ? 0.9 : theme('tags.dotOpacity'))};
+
+  ${Wrapper}:hover & {
+    opacity: 0.9;
+  }
+
+  transition: filter 0.1s;
+`
 export const Tag = styled.div<TTag>`
   ${css.flex('align-end', 'justify-between')};
   width: 100%;

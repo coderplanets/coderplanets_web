@@ -8,6 +8,7 @@ import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import TagsList from '@/widgets/TagsList'
+import { TAG_MODE } from '@/constant'
 
 import {
   Wrapper,
@@ -44,7 +45,13 @@ const ChangelogItem: FC<TProps> = ({ testid = 'changelog-item' }) => {
     <Wrapper testid={testid}>
       <Main>
         <TagsWrapper>
-          <TagsList items={tags} mLeft={3} mode="solid" size="small" max={5} />
+          <TagsList
+            items={tags}
+            mLeft={3}
+            mode={TAG_MODE.LABEL}
+            size="small"
+            max={5}
+          />
         </TagsWrapper>
         <Title>帖子支持表情了</Title>
         <Body>

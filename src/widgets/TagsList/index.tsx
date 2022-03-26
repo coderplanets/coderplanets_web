@@ -5,7 +5,7 @@
 import { FC, memo } from 'react'
 
 import type { TTag, TSIZE_TSM, TCommunity, TThread, TTagMode } from '@/spec'
-import { SIZE, THREAD } from '@/constant'
+import { SIZE, THREAD, TAG_MODE } from '@/constant'
 
 import { sortByColor } from '@/utils/helper'
 import { Trans } from '@/utils/i18n'
@@ -39,7 +39,7 @@ const TagsList: FC<TProps> = ({
   mLeft = 8,
   size = SIZE.TINY,
   withSetter = false,
-  mode = 'default',
+  mode = TAG_MODE.DEFAULT,
   community = { raw: 'home' },
   thread = THREAD.POST,
 }) => {
@@ -50,7 +50,9 @@ const TagsList: FC<TProps> = ({
           .slice(0, max)
           .map((tag) => (
             <Tag key={tag.title}>
-              {mode === 'default' && <DotSign color={tag.color} size={size} />}
+              {mode === TAG_MODE.DEFAULT && (
+                <DotSign color={tag.color} size={size} />
+              )}
               <Title size={size}>{Trans(tag.title)}</Title>
             </Tag>
           ))}
