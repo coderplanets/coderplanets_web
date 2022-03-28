@@ -56,7 +56,7 @@ const Header: FC<TIndex> = ({ data, thread }) => {
           <TagsList
             items={articleTags}
             mLeft={0}
-            size={isMobile ? 'small' : 'medium'}
+            size={isMobile ? 'small' : 'small'}
           />
           <Br top={isMobile ? '4px' : '10px'} />
           {!isMobile && (
