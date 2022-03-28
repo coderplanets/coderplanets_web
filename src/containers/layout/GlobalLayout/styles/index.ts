@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     height: 100%;
     left: 0;
     top: 0;
-    background-image: url(${ASSETS_ENDPOINT}/space-background.svg);
+    /* background-image: url(${ASSETS_ENDPOINT}/space-background.svg); */
     /* background-attachment: fixed; */
     /* see https://www.zhangxinxu.com/wordpress/2015/11/css3-will-change-improve-paint/ */
     will-change: transform;

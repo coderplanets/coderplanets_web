@@ -26,7 +26,7 @@ const github = {
   coverIndex: '#F9FCFC',
   contrastFg: '#eca014',
   htmlBg: bannerBg,
-  spaceBg: '#181c1f',
+  spaceBg: '#fff',
   mobileTab: '#323344',
   loading: {
     basic: darken(0.05, contentBg),
