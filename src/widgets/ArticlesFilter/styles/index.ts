@@ -9,7 +9,7 @@ import Input from '@/widgets/Input'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 `
 export const Inputer = styled(Input)`
   height: 30px;

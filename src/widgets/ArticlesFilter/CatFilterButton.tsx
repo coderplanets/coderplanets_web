@@ -6,6 +6,7 @@ import Tooltip from '@/widgets/Tooltip'
 
 import {
   Wrapper,
+  Label,
   InnerBtnWrapper,
   ButtonWrapper,
   FilterIcon,
@@ -26,7 +27,7 @@ type TProps = {
 const CatFilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
   return (
     <Wrapper>
-      类别
+      <Label>类别</Label>
       <Tooltip
         placement="bottom-end"
         trigger="click"

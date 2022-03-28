@@ -10,11 +10,14 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
 `
+export const Label = styled.div`
+  opacity: 0.7;
+`
 export const InnerBtnWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 2px;
   color: ${theme('thread.articleDigest')};
-  font-weight: 550;
+  font-weight: 400;
   font-size: 13px;
 
   &:hover {
