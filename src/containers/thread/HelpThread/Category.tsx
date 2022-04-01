@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Wrapper, Title, Item } from './styles/category'
+import { Wrapper, Header, Icon, Title, Item, MoreLink } from './styles/category'
 
 type TProps = {
   color: string
@@ -11,10 +11,14 @@ type TProps = {
 const Category: FC<TProps> = ({ color, title, desc }) => {
   return (
     <Wrapper color={color}>
-      <Title color={color}>{title}</Title>
+      <Header>
+        <Icon />
+        <Title color={color}>{title}</Title>
+      </Header>
       <Item color={color}>{desc}</Item>
       <Item color={color}>{desc}</Item>
       <Item color={color}>{desc}</Item>
+      <MoreLink>查看全部</MoreLink>
     </Wrapper>
   )
 }
