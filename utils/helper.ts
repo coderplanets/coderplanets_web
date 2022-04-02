@@ -603,32 +603,23 @@ export const singular = (value: string, opt = null): string => {
  * post -> posts
  */
 export const plural = (value: string, opt = null): string => {
-  switch (value) {
-    case THREAD.WORKS: {
-      return doCovert(THREAD.WORKS, opt)
-    }
-    case THREAD.KANBAN: {
-      return doCovert(THREAD.KANBAN, opt)
-    }
-    case THREAD.INTERVIEW: {
-      return doCovert(THREAD.INTERVIEW, opt)
-    }
-    case THREAD.TEAM: {
-      return doCovert(THREAD.TEAM, opt)
-    }
-    case THREAD.PRODUCT: {
-      return doCovert(THREAD.PRODUCT, opt)
-    }
-    case THREAD.ACCOUNT: {
-      return doCovert(THREAD.ACCOUNT, opt)
-    }
-    // case THREAD.RADAR: {
-    //   return doCovert(THREAD.RADAR, opt)
-    // }
-    default: {
-      return doCovert(`${value}s`, opt)
-    }
+  if (
+    includes(value, [
+      THREAD.WORKS,
+      THREAD.INTERVIEW,
+      THREAD.TEAM,
+      THREAD.PRODUCT,
+      THREAD.ACCOUNT,
+      THREAD.CHANGELOG,
+      THREAD.HELP,
+      THREAD.ROADMAP,
+      THREAD.ABOUT,
+    ])
+  ) {
+    return doCovert(value, opt)
   }
+
+  return doCovert(`${value}s`, opt)
 }
 
 /**

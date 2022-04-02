@@ -3,12 +3,12 @@ import { FC, memo } from 'react'
 import type { TThread } from '@/spec'
 import { THREAD } from '@/constant'
 
-// import ArticlesThread from '@/containers//thread/ArticlesThread'
-// import GtdThread from '@/containers//thread/GtdThread'
-// import ChangeThread from '@/containers//thread/ChangelogThread'
+import ArticlesThread from '@/containers//thread/ArticlesThread'
+import GtdThread from '@/containers//thread/GtdThread'
+import ChangeThread from '@/containers//thread/ChangelogThread'
 // import ReposThread from '@/containers/thread/ReposThread'
 import CperMapThread from '@/containers/thread/CperMapThread'
-// import AboutThread from '@/containers/thread/AboutThread'
+import AboutThread from '@/containers/thread/AboutThread'
 import HelpThread from '@/containers/thread/HelpThread'
 
 import WipThread from './WipThread'
@@ -19,10 +19,6 @@ type TProps = {
 
 const ThreadContent: FC<TProps> = ({ thread }) => {
   switch (thread) {
-    case THREAD.KANBAN: {
-      return <WipThread title="看板" />
-    }
-
     case THREAD.INTERVIEW: {
       return <WipThread title="开发者访谈" />
     }
@@ -43,18 +39,32 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
       return <WipThread title="违规账户信息" />
     }
 
-    case THREAD.CPER:
+    case THREAD.CPER: {
       return <CperMapThread />
+    }
 
-    case THREAD.MAP:
+    case THREAD.MAP: {
       return <CperMapThread />
+    }
+
+    case THREAD.ABOUT: {
+      return <AboutThread />
+    }
+
+    case THREAD.ROADMAP: {
+      return <GtdThread />
+    }
+
+    case THREAD.CHANGELOG: {
+      return <ChangeThread />
+    }
+
+    case THREAD.HELP: {
+      return <HelpThread />
+    }
 
     default:
-      // return <AboutThread />
-      // return <GtdThread />
-      // return <ChangeThread />
-      // return <ArticlesThread />
-      return <HelpThread />
+      return <ArticlesThread />
   }
 }
 

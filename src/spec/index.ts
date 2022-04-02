@@ -142,6 +142,11 @@ export type TArticleThread =
   | 'blog'
   | 'radar'
   | 'works'
+  // for groupher
+  | 'roadmap'
+  | 'changelog'
+  | 'help'
+  | 'about'
 
 export type TThread =
   | TArticleThread
