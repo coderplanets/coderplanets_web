@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import { isMobile } from 'react-device-detect'
 
 import type { TSEO, TMetric } from '@/spec'
-import { SIZE, C11N, BODY_SCROLLER } from '@/constant'
+import { SIZE, BODY_SCROLLER } from '@/constant'
 import { bond } from '@/utils/mobx'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
@@ -25,7 +25,7 @@ import ThemePalette from '@/containers/layout/ThemePalette'
 import type { TStore } from './store'
 import SEO from './SEO'
 
-import { CustomScroller, Sidebar, Footer, ModeLine } from './dynamic'
+import { CustomScroller, Footer, ModeLine } from './dynamic'
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
 import { useInit, onPageScrollDirhange, childrenWithProps } from './logic'
 
@@ -63,7 +63,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
         <Fragment>
           <SEO metric={metric} config={seoConfig} />
           <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
-            {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
+            {/* {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />} */}
             <Addon />
             <ContentWrapper offsetLeft={sidebarPin}>
               <CustomScroller
