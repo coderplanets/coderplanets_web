@@ -8,18 +8,14 @@ import { getRouteMainPath } from '@/utils/route'
 import MoreLink from './MoreLink'
 import { Wrapper, DotDivider, SiteLink } from '../styles/main_entries'
 
-const splitMargin = 7
+const splitMargin = 8
 
-type TProps = {
-  type: string
-}
-
-const DesktopView: FC<TProps> = ({ type }) => {
+const DesktopView: FC = () => {
   const router = useRouter()
   const mainPath = getRouteMainPath(router.asPath)
 
   return (
-    <Wrapper type={type}>
+    <Wrapper>
       <Link href={`/${ROUTE.TOPICS}`} passHref>
         <SiteLink
           active={mainPath === ROUTE.TOPICS}

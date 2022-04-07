@@ -20,7 +20,7 @@ export const ColumnsWrapper = styled.div`
 `
 export const Column = styled.div`
   ${css.flexColumn('align-start')};
-  width: 29%;
+  width: 27%;
   min-height: 70vh;
   /* border: 1px solid; */
   /* border-color: ${theme('thread.extraInfo')}; */

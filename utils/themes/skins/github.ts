@@ -3,7 +3,7 @@
  */
 import { lighten, darken } from 'polished'
 
-const primaryColor = '#000000'
+const primaryColor = '#3b434a' // '#000000'
 
 const bannerBg = '#fff'
 const contentBg = '#fff'
@@ -87,9 +87,9 @@ const github = {
     cardTitle: 'darkgrey',
   },
   banner: {
-    title: '#949494',
+    title: threadTitle,
     bg: bannerBg,
-    desc: '#cccccc',
+    desc: descText,
     spliter: '#eae9e9',
     numberDesc: '#cccccc',
     number: '#949494',
@@ -177,7 +177,7 @@ const github = {
     floor: '#8590a6',
     reply: '#93b3b5',
     replyBg: '#f3f3f3',
-    placeholder: '#C0D9DA',
+    placeholder: descText,
     filter: 'grey',
     filterActive: primaryColor,
     action: '#8590a6',

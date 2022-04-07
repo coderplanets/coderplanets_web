@@ -15,7 +15,7 @@ export const openMobileNaviMenu = (): void => {
 
 const MainEntries: FC = () => {
   return (
-    <Wrapper type="todo" onClick={openMobileNaviMenu}>
+    <Wrapper onClick={openMobileNaviMenu}>
       <SiteLink as="span" testid="header-mobile">
         <MobileIcon />
       </SiteLink>

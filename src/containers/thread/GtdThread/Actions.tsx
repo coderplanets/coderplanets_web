@@ -16,6 +16,7 @@ import {
   RightPart,
   JoinTitle,
   NewButton,
+  BtnText,
 } from './styles/actions'
 
 const switchItems = [
@@ -52,7 +53,9 @@ const Actions: FC = () => {
         <JoinTitle>参与者</JoinTitle>
         <AvatarsRow size="medium" users={mockUsers(6)} total={20} />
         <Space right={25} />
-        <NewButton size="medium">新&nbsp;增</NewButton>
+        <NewButton size="medium">
+          <BtnText>新增</BtnText>
+        </NewButton>
       </RightPart>
     </Wrapper>
   )

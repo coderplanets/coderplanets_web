@@ -25,7 +25,6 @@ export const LabelsWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: -2px;
   margin-top: 7px;
-  margin-bottom: 7px;
 `
 export const TagsWrapper = styled.div`
   margin-top: -2px;
@@ -48,6 +47,7 @@ export const Desc = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   width: calc(100% - 35px);
+  margin-top: 8px;
   /* width: calc(100% - 5px); */
   /* width: 100%; */
   /* opacity: 0.9; */

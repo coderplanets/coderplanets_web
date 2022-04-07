@@ -12,7 +12,7 @@ export const getDigestHeight = (metric: TMetric): string => {
     }
 
     default: {
-      return '232px'
+      return '252px'
     }
   }
 }

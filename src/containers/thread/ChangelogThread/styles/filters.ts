@@ -27,7 +27,12 @@ export const SearchInput = styled(Input)`
     opacity: 0.6;
   }
 `
-export const SearchBox = styled(Button)`
+export const NewButton = styled(Button)`
   width: 180px;
-  border-radius: 15px;
+  border-radius: 12px;
+`
+export const BtnText = styled.div`
+  margin-left: 4px;
+  font-size: 15px;
+  margin-top: 2px;
 `

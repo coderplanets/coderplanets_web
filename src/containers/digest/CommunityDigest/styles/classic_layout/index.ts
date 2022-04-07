@@ -8,10 +8,10 @@ import { BaseBanner } from '../index'
 
 const getMinHeight = (noSocial, isMobile) => {
   if (isMobile) {
-    return noSocial ? '108px' : '140px'
+    return noSocial ? '116px' : '140px'
   }
 
-  return noSocial ? '108px' : '150px'
+  return noSocial ? '116px' : '150px'
 }
 
 type TWrapper = {

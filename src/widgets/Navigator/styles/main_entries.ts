@@ -4,20 +4,17 @@ import type { TTestable, TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
 import DotDividerBase from '@/widgets/DotDivider'
 
-export const Wrapper = styled.div<{ type: string }>`
+export const Wrapper = styled.div`
   ${css.flex('align-center')};
-
-  margin-left: ${({ type }) => (type === 'brief' ? '5px' : '10px')};
-  font-size: 14.5px;
+  font-size: 15px;
+  width: 100%;
 
   ${css.media.mobile`
     margin-left: 2px;
   `};
 `
 export const DotDivider = styled(DotDividerBase)`
-  background-color: ${theme('banner.desc')};
-  width: 4px;
-  height: 4px;
+  background-color: transparent;
 `
 type TSiteLink = TTestable & TActive
 export const SiteLink = styled.a.attrs(({ testid }: TTestable) => ({
@@ -32,7 +29,8 @@ export const SiteLink = styled.a.attrs(({ testid }: TTestable) => ({
   border-top-color: ${({ active }) =>
     active ? theme('tabs.headerActive') : ''};
 
-  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
+  /* font-weight: ${({ active }) => (active ? 'bold' : 'normal')}; */
+  font-weight: 600;
 
   height: 33px;
   text-decoration: none;

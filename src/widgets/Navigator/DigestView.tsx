@@ -1,5 +1,5 @@
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 
 import type { TMetric, TC11NLayout } from '@/spec'
 import { changeToCommunity } from '@/utils/helper'
@@ -18,9 +18,9 @@ import {
 
 import MainEntries from './MainEntries'
 
-export const BlinkCursor = dynamic(() => import('@/widgets/BlinkCursor'), {
-  ssr: false,
-})
+// export const BlinkCursor = dynamic(() => import('@/widgets/BlinkCursor'), {
+//   ssr: false,
+// })
 
 const renderMainEntries = (metric) => {
   switch (metric) {
@@ -55,8 +55,7 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, layout }) => {
         {showLogoText && <LogoText>oderPlanets</LogoText>}
       </LogoLink>
 
-      <BlinkCursor duration={1.6} height={14} left={5} right={2} />
-
+      {/* <BlinkCursor duration={1.6} height={14} left={5} right={2} /> */}
       {renderMainEntries(metric)}
       {/* {online ? (
         renderMainEntries(metric)

@@ -28,7 +28,7 @@ export const HintText = styled.div`
 `
 export const UserAvatar = styled(Img)`
   ${css.circle(20)};
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('comment.placeholder')};
   margin-left: 4%;
   opacity: ${theme('avatar.opacity')};
 `

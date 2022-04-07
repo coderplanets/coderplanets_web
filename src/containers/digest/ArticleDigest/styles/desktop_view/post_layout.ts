@@ -31,7 +31,7 @@ export const BottomInfo = styled.div`
   margin-top: 15px;
   padding-bottom: 45px;
   border-bottom: 1px solid;
-  border-bottom-color: #004251;
+  border-bottom-color: #ebebeb; // to-theme
   width: 100%;
   color: ${theme('thread.articleDigest')};
 `

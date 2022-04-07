@@ -42,3 +42,9 @@ export const NewButton = styled(Button)`
   border-radius: 12px;
   height: 30px;
 `
+export const BtnText = styled.div`
+  letter-spacing: 4px;
+  margin-left: 4px;
+  font-size: 15px;
+  margin-top: 2px;
+`
