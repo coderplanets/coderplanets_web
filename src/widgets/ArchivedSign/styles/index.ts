@@ -9,26 +9,23 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flex('align-center')};
-  border: 1px solid;
-  border-color: #00424f;
   padding: 0 8px;
-  border-radius: 4px;
   cursor: default;
 `
 export const SignIcon = styled(ArchivedSVG)`
   ${css.size(12)};
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
   margin-right: 5px;
 
   ${Wrapper}:hover & {
-    fill: ${theme('thread.articleTitle')};
+    fill: ${theme('thread.extraInfo')};
   }
 `
 export const Text = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-size: 12px;
 
   ${Wrapper}:hover & {
-    color: ${theme('thread.articleTitle')};
+    color: ${theme('thread.extraInfo')};
   }
 `

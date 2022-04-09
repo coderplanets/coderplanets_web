@@ -55,6 +55,7 @@ const ArticleStickerContainer: FC<TProps> = ({
     viewingArticle,
     activeThread,
     isTocMenuOpened,
+    showArticleAction,
     isArticleDigestInViewport,
     showCommentSticker,
   } = store
@@ -72,7 +73,7 @@ const ArticleStickerContainer: FC<TProps> = ({
           <InnerWrapper>
             <MainWrapper>
               <RightSticker
-                show={!showCommentSticker}
+                show={showArticleAction}
                 article={viewingArticle}
                 thread={activeThread}
               />

@@ -36,9 +36,8 @@ export const LogoMargin = styled.div<{ layout: TC11NLayout }>`
     layout === C11N.HOLY_GRAIL ? '42px' : '32px'};
 `
 export const LogoText = styled.div`
-  color: ${theme('thread.extraInfo')};
-  font-weight: bold;
-  letter-spacing: 1px;
+  color: ${theme('thread.articleDigest')};
+  font-weight: 500;
   font-size: 16px;
   margin-left: 8px;
 `

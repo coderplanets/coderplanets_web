@@ -39,9 +39,15 @@ const loader = async (context, opt = {}) => {
     userHasLogin,
   })
 
-  const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
-    filter: { communityRaw: community, thread: singular(thread, 'upperCase') },
-  })
+  // tmply
+  const pagedArticleTags = isArticleThread(thread)
+    ? gqClient.request(P.pagedArticleTags, {
+        filter: {
+          communityRaw: community,
+          thread: singular(thread, 'upperCase'),
+        },
+      })
+    : {}
 
   const filter = ssrPagedArticlesFilter(context, userHasLogin)
 
@@ -75,7 +81,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   )
 
   const thread = singular((query.thread as string) || THREAD.POST)
-  console.log('page community, thread(radar): ', thread)
+  console.log('page community, thread: ', thread)
 
   let resp
   try {
@@ -91,7 +97,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   const { filter, community, pagedArticleTags } = resp
-  // console.log('iii got resp: ', resp)
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
   const initProps = merge(
@@ -104,7 +109,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         thread,
       },
       tagsBar: {
-        tags: pagedArticleTags.entries,
+        tags: pagedArticleTags?.entries || [],
       },
       viewing: {
         community,

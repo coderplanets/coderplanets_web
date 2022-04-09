@@ -10,11 +10,18 @@ export const Main = styled.div<{ metric: TMetric }>`
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 8px;
+  margin-bottom: 14px;
+  position: relative;
 `
 export const PublishDateInfo = styled.div`
-  font-size: 14px;
+  font-size: 10px;
   color: ${theme('thread.articleDigest')};
+`
+export const UpvoteInfo = styled.div`
+  position: absolute;
+  right: -5px;
+  top: 21px;
+  transform: scale(1.3);
 `
 export const CommunityInfo = styled.div`
   ${css.flex('align-start', 'justify-center')};

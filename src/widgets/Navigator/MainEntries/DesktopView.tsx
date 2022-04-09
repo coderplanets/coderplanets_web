@@ -21,13 +21,13 @@ const DesktopView: FC = () => {
           active={mainPath === ROUTE.TOPICS}
           testid="header-explore-link"
         >
-          讨论
+          社区首页
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.WORKS}`} passHref>
         <SiteLink active={mainPath === ROUTE.WORKS} testid="header-works-link">
-          作品
+          看板
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
@@ -36,7 +36,7 @@ const DesktopView: FC = () => {
           active={mainPath === ROUTE.COOL_GUIDE}
           testid={`header-${ROUTE.COOL_GUIDE}`}
         >
-          酷导航
+          发布日志
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
@@ -45,7 +45,7 @@ const DesktopView: FC = () => {
           active={mainPath === ROUTE.MEETUPS}
           testid="header-meetups-link"
         >
-          小聚
+          文章
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
@@ -54,7 +54,16 @@ const DesktopView: FC = () => {
           active={mainPath === ROUTE.HAVE_A_DRINK}
           testid={`header-${ROUTE.HAVE_A_DRINK}`}
         >
-          来一杯
+          常见问题
+        </SiteLink>
+      </Link>
+      <DotDivider space={splitMargin} />
+      <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
+        <SiteLink
+          active={mainPath === ROUTE.HAVE_A_DRINK}
+          testid={`header-${ROUTE.HAVE_A_DRINK}`}
+        >
+          关于
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />

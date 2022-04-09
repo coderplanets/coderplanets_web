@@ -52,7 +52,7 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, layout }) => {
         }}
       >
         <Logo />
-        {showLogoText && <LogoText>oderPlanets</LogoText>}
+        {showLogoText && <LogoText>YourProduct</LogoText>}
       </LogoLink>
 
       {/* <BlinkCursor duration={1.6} height={14} left={5} right={2} /> */}
