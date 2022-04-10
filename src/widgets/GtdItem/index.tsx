@@ -26,9 +26,9 @@ type TProps = {
 const GtdItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
   const tags = [
     {
-      title: 'cocos',
+      title: 'Groupher',
       raw: 'raw',
-      color: 'yellow',
+      color: 'red',
     },
   ]
 
@@ -38,20 +38,13 @@ const GtdItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
         <TagsList items={tags} mLeft={2} />
         <IconButton path="shape/more.svg" mRight={0} />
       </Header>
-      <Title>
-        如何看待俄航天局长称「美国正研究将俄罗斯排除出 GPS
-        卫星导航系统，俄有格洛纳斯系统无需紧张」
-      </Title>
+      <Title>增加看板，发布日志，与常见问题的功能和其他</Title>
       <Desc>
-        当地时间19日，俄罗斯航天局局长罗戈津表示美国正在，美国正在研究将俄罗斯排除出GPS卫星导航系统的问题
+        服务于团队开发流程，以社区服务为基础，提供反馈社区工具箱，各种个性化设置等等
       </Desc>
       <Footer>
         <Upvote count={3} avatarList={mockUsers(3)} />
         <GTDBadge type="FEATURE" noBg />
-        {/* <Author>
-          <Avatar src={mockImage()} />
-          <Name>mydearxym</Name>
-        </Author> */}
       </Footer>
     </Wrapper>
   )

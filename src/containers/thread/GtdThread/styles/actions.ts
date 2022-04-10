@@ -17,7 +17,7 @@ export const Title = styled.div`
 export const Count = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
-  margin-left: 8px;
+  margin-left: 10px;
   opacity: 0.8;
   margin-top: 2px;
   font-weight: 400;
@@ -28,7 +28,7 @@ export const LeftPart = styled.div`
 export const KanbanIcon = styled(KanbanSVG)`
   ${css.size(13)};
   fill: ${theme('thread.extraInfo')};
-  margin-right: 8px;
+  margin-right: 10px;
   margin-top: 6px;
 `
 export const ModeWrapper = styled.div`

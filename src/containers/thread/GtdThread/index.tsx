@@ -51,7 +51,7 @@ const GtdThreadContainer: FC<TProps> = ({
         <Column>
           <Header>
             <TODOIcon />
-            <Label>已排期</Label>
+            <Label>待办项</Label>
             <SubTitle>{getRandomInt(5, 20)}</SubTitle>
             <SpaceGrow />
             <IconButton path="shape/add.svg" mRight={12} />

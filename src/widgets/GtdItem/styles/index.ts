@@ -29,7 +29,8 @@ export const TimeStamp = styled.div`
 export const Title = styled.div`
   font-size: 15px;
   color: ${theme('thread.articleTitle')};
-  width: calc(100% - 10px);
+  width: 100%;
+  font-weight: 500;
 
   position: relative;
   display: -webkit-box;
