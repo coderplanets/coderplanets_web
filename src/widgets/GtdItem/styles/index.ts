@@ -10,33 +10,30 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   /* ${css.flex('align-start', 'justify-between')}; */
   width: 100%;
   position: relative;
-  border-bottom: 1px solid;
-  border-bottom-color: #eae9e9; // to-theme
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 2px;
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  margin-top: 3px;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 12px;
 `
-export const UpvoteWrapper = styled.div`
-  position: absolute;
-  top: 20px;
-  right: -2px;
+export const Header = styled.div`
+  ${css.flex('align-center', 'justify-between')};
+  margin-bottom: 10px;
 `
-export const LabelsWrapper = styled.div`
-  ${css.flex('align-center')};
-  margin-left: -2px;
-  margin-top: 7px;
-`
-export const TagsWrapper = styled.div`
-  margin-top: -2px;
+export const TimeStamp = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.extraInfo')};
 `
 export const Title = styled.div`
   font-size: 15px;
   color: ${theme('thread.articleTitle')};
-  width: calc(100% - 40px);
+  width: calc(100% - 10px);
 
   position: relative;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
@@ -54,7 +51,7 @@ export const Desc = styled.div`
 
   position: relative;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
@@ -66,7 +63,7 @@ export const Footer = styled.div`
   ${css.flex('align-center', 'justify-between')};
   font-size: 12px;
   color: ${theme('thread.extraInfo')};
-  padding-right: 6px;
+  margin-top: 18px;
 `
 export const Author = styled.div`
   ${css.flex('align-center')};
