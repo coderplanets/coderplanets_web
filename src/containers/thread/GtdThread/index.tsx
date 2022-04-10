@@ -10,7 +10,7 @@ import { bond } from '@/utils/mobx'
 import { getRandomInt } from '@/utils/helper'
 
 import { SpaceGrow } from '@/widgets/Common'
-// import IconButton from '@/widgets/Buttons/IconButton'
+import IconButton from '@/widgets/Buttons/IconButton'
 import GtdItem from '@/widgets/GtdItem'
 
 import Actions from './Actions'
@@ -52,9 +52,9 @@ const GtdThreadContainer: FC<TProps> = ({
           <Header>
             <TODOIcon />
             <Label>已排期</Label>
+            <SubTitle>{getRandomInt(5, 20)}</SubTitle>
             <SpaceGrow />
-            <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
-            {/* <IconButton path="shape/more-l.svg" mRight={2} /> */}
+            <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
             <GtdItem />
@@ -69,9 +69,9 @@ const GtdThreadContainer: FC<TProps> = ({
           <Header>
             <WipIcon />
             <Label>正在完善</Label>
+            <SubTitle>{getRandomInt(5, 20)}</SubTitle>
             <SpaceGrow />
-            <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
-            {/* <IconButton path="shape/more-l.svg" mRight={2} /> */}
+            <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
             <GtdItem />
@@ -86,9 +86,9 @@ const GtdThreadContainer: FC<TProps> = ({
           <Header>
             <DoneIcon />
             <Label>已完成</Label>
+            <SubTitle>{getRandomInt(5, 20)}</SubTitle>
             <SpaceGrow />
-            <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
-            {/* <IconButton path="shape/more-l.svg" mRight={2} /> */}
+            <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
             <GtdItem />

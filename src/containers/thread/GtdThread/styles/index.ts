@@ -40,7 +40,7 @@ export const SubTitle = styled.div`
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
   font-size: 13px;
-  margin-right: 6px;
+  margin-left: 6px;
 `
 export const Label = styled.div`
   color: ${theme('thread.articleTitle')};

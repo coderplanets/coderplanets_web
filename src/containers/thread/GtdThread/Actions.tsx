@@ -14,9 +14,8 @@ import {
   ModeWrapper,
   LeftPart,
   RightPart,
+  KanbanIcon,
   JoinTitle,
-  NewButton,
-  BtnText,
 } from './styles/actions'
 
 const switchItems = [
@@ -36,6 +35,7 @@ const Actions: FC = () => {
   return (
     <Wrapper>
       <LeftPart>
+        <KanbanIcon />
         <Title>
           看板墙
           <Count>23</Count>
@@ -52,10 +52,10 @@ const Actions: FC = () => {
         <Space right={20} />
         <JoinTitle>参与者</JoinTitle>
         <AvatarsRow size="medium" users={mockUsers(6)} total={20} />
-        <Space right={25} />
-        <NewButton size="medium">
+        {/* <Space right={25} /> */}
+        {/* <NewButton size="medium">
           <BtnText>新增</BtnText>
-        </NewButton>
+        </NewButton> */}
       </RightPart>
     </Wrapper>
   )

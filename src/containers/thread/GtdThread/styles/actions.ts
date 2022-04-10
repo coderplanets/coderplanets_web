@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
-import Button from '@/widgets/Buttons/Button'
+import KanbanSVG from '@/icons/Kanban'
 
 export const Wrapper = styled.div`
   ${css.flex('justify-between', 'align-center')};
@@ -25,6 +25,12 @@ export const Count = styled.div`
 export const LeftPart = styled.div`
   ${css.flex('align-center')};
 `
+export const KanbanIcon = styled(KanbanSVG)`
+  ${css.size(13)};
+  fill: ${theme('thread.extraInfo')};
+  margin-right: 8px;
+  margin-top: 6px;
+`
 export const ModeWrapper = styled.div`
   margin-top: 2px;
   transform: scale(0.85);
@@ -37,14 +43,4 @@ export const JoinTitle = styled.div`
   font-size: 12px;
   margin-right: 10px;
   margin-top: 3px;
-`
-export const NewButton = styled(Button)`
-  border-radius: 12px;
-  height: 30px;
-`
-export const BtnText = styled.div`
-  letter-spacing: 4px;
-  margin-left: 4px;
-  font-size: 15px;
-  margin-top: 2px;
 `
