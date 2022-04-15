@@ -11,14 +11,15 @@ import { includes } from 'ramda'
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
-import { HCN, METRIC } from '@/constant'
+import { METRIC } from '@/constant'
 
 import JoinModal from '@/containers/tool/JoinModal'
 
 import HomeLayout from './HomeLayout'
-import ArticleLayout from './ArticleLayout'
-import WorksArticleLayout from './WorksArticleLayout'
+// import ArticleLayout from './ArticleLayout'
+// import WorksArticleLayout from './WorksArticleLayout'
 import GeneralLayout from './GeneralLayout'
+import SimpleLayout from './SimpleLayout'
 // import HostingCommunityView from './HostingCommunityView'
 
 import type { TStore } from '../store'
@@ -41,8 +42,7 @@ const FooterContainer: FC<TProps> = ({
 }) => {
   useInit(store, metric)
 
-  const { viewingArticle, curCommunity, c11n, onlineStatus } = store
-  // const isHome = curCommunity.raw === HCN
+  const { c11n, onlineStatus } = store
 
   const isGeneral = includes(metric, [
     METRIC.COOL_GUIDE,
@@ -67,12 +67,13 @@ const FooterContainer: FC<TProps> = ({
       )}
 
       {metric === METRIC.COMMUNITY && (
-        <GeneralLayout metric={metric} title={curCommunity.title} />
+        // <GeneralLayout metric={metric} title={curCommunity.title} />
+        <SimpleLayout />
       )}
 
-      {metric === METRIC.WORKS_ARTICLE && (
+      {/* {metric === METRIC.WORKS_ARTICLE && (
         <WorksArticleLayout viewingArticle={viewingArticle} />
-      )}
+      )} */}
 
       {isGeneral && <GeneralLayout metric={metric} />}
 
@@ -80,11 +81,12 @@ const FooterContainer: FC<TProps> = ({
         <HostingCommunityView metric={metric} layout={bannerLayout} />
       )} */}
       {metric === METRIC.ARTICLE && (
-        <ArticleLayout
-          layout={c11n.bannerLayout}
-          metric={metric}
-          article={viewingArticle}
-        />
+        <SimpleLayout />
+        // <ArticleLayout
+        //   layout={c11n.bannerLayout}
+        //   metric={metric}
+        //   article={viewingArticle}
+        // />
       )}
     </Wrapper>
   )
