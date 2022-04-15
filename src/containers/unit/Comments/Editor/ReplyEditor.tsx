@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TSubmitState, TComment } from '@/spec'
 
-import { LavaLampLoading } from '@/widgets/dynamic'
+import { LavaLampLoading } from '@/widgets/Loading'
 import CustomScroller from '@/widgets/CustomScroller'
 
 import BodyEditor from './BodyEditor'

@@ -12,7 +12,7 @@ import { TYPE, THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 // import { useViewing } from '@/hooks'
 
-import { LavaLampLoading } from '@/widgets/dynamic'
+import { LavaLampLoading } from '@/widgets/Loading'
 import { SpaceGrow } from '@/widgets/Common'
 
 import SearchBox from './SearchBox'

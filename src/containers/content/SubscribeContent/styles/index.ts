@@ -19,6 +19,7 @@ export const InnerWrapper = styled.div<{ metric: TMetric }>`
   width: 100%;
   color: ${theme('thread.articleDigest')};
 `
+// @ts-ignore
 export const StickyWrapper = styled(Sticky)`
   ${css.flex('justify-center')}
 `

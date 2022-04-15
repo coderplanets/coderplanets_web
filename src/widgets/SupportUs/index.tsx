@@ -102,7 +102,9 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
 
   return (
     <Wrapper testid="support-us-content">
+      {/*  @ts-ignore */}
       <Cashier />
+      {/*  @ts-ignore */}
       <BuyMeChuanChuan
         onClose={() => setShowChuan(false)}
         onLogin={() => console.log('onLogin')}
@@ -112,7 +114,6 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
         }}
         show={showChuan}
       />
-
       <InnerWrapper metric={metric}>
         <Title>
           <SupportLogo src={`${ICON}/menu/lifebuoy.png`} noLazy />

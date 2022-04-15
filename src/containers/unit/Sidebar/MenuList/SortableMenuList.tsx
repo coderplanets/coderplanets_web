@@ -44,6 +44,7 @@ const SortableMenuList: ComponentClass<TProps> = SortableContainer(
       <CustomScroller direction="vertical" height="84vh" withBorder autoHide>
         <div>
           {communities.map((item: TCommunity, index: number) => (
+            /* @ts-ignore */
             <SortableMenuBar
               index={index}
               key={item.raw}

@@ -10,6 +10,7 @@ const MorePanel = dynamic(() => import('../MorePanel'), { ssr: false })
 const MoreLink: FC = () => {
   return (
     <Tooltip
+      // @ts-ignore
       content={<MorePanel />}
       placement="bottom"
       hideOnClick={false}

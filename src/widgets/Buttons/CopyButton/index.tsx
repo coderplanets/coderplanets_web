@@ -22,6 +22,7 @@ const CopyButton: FC<TProps> = ({ value }) => {
   return (
     <Wrapper>
       <CopyToClipboard text={value}>
+        {/*  @ts-ignore */}
         <AnimatedCopyButton />
       </CopyToClipboard>
     </Wrapper>

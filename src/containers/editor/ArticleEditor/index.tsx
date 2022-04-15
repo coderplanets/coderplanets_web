@@ -10,7 +10,8 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import { ArchiveAlert, IllegalWarning } from '@/widgets/dynamic'
+import ArchiveAlert from '@/widgets/ArchiveAlert'
+import IllegalWarning from '@/widgets/IllegalWarning'
 
 import NoticeBar from '@/widgets/NoticeBar'
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
@@ -85,9 +86,9 @@ const ArticleEditorContainer: FC<TProps> = ({
           {isArchived && (
             <ArchiveAlert date={archivedAt} top={12} bottom={20} left={25} />
           )}
-
           <TitleInput title={title} placeholder={texts.holder.title} />
           {initEditor && (
+            /* @ts-ignore */
             <RichEditor
               data={body}
               onChange={(v) => editOnChange(JSON.stringify(v), 'body')}

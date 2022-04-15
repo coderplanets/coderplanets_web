@@ -9,7 +9,7 @@ import type { TPost, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import { ArchivedSign } from '@/widgets/dynamic'
+import ArchivedSign from '@/widgets/ArchivedSign'
 import Upvote from '@/widgets/Upvote'
 import { SpaceGrow } from '@/widgets/Common'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'

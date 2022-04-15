@@ -17,6 +17,7 @@ import { bond } from '@/utils/mobx'
 import PagedArticles from '@/widgets/PagedArticles'
 import ViewportTracker from '@/widgets/ViewportTracker'
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
+import ArticlesFilter from '@/widgets/ArticlesFilter'
 
 import type { TStore } from './store'
 
@@ -27,10 +28,6 @@ import {
   FilterWrapper,
 } from './styles'
 import { useInit, inAnchor, outAnchor, onFilterSelect } from './logic'
-
-const ArticlesFilter = dynamic(() => import('@/widgets/ArticlesFilter'), {
-  ssr: false,
-})
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticlesThread')

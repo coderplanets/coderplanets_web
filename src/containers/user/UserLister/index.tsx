@@ -11,7 +11,7 @@ import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import EmptyLabel from '@/widgets/EmptyLabel'
-import { LavaLampLoading } from '@/widgets/dynamic'
+import { LavaLampLoading } from '@/widgets/Loading'
 
 import type { TStore } from './store'
 import HeaderInfo from './HeaderInfo'

@@ -55,6 +55,7 @@ const WorksHeader: FC<TProps> = ({ metric, c11n, community, accountInfo }) => {
             metric={metric}
           />
         </RouterWrapper>
+        {/* @ts-ignore */}
         <AddOns accountInfo={accountInfo} />
       </InnerWrapper>
     </Wrapper>

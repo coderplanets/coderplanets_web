@@ -25,6 +25,7 @@ const ArticleList = (props) => {
     (resState === TYPE.RES_STATE.EMPTY && entries.length === 0) ||
     (resState === TYPE.RES_STATE.DONE && entries.length === 0)
   ) {
+    // @ts-ignore
     return <EmptyThread thread={thread} />
   }
 

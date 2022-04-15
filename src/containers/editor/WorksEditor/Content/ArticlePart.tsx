@@ -16,6 +16,7 @@ const ArticlePart: FC<TProps> = ({ inputData }) => {
   return (
     <Wrapper>
       <EditorWrapper>
+        {/* @ts-ignore */}
         <RichEditor
           data={body}
           placeholder={`// ${cutRest(title, 15)} 的故事（'Tab' 键插入富文本）`}

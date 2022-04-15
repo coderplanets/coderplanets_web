@@ -12,10 +12,15 @@ const Addon: FC = () => {
 
   return (
     <Fragment>
+      {/* @ts-ignore */}
       {!isMobile && <AbuseReport />}
+      {/* @ts-ignore */}
       <Drawer />
+      {/* @ts-ignore */}
       {!isMobile && <Share />}
+      {/* @ts-ignore */}
       {!isMobile && <Doraemon />}
+      {/* @ts-ignore */}
       <ErrorBox />
     </Fragment>
   )

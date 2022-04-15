@@ -44,6 +44,7 @@ const CperMapThreadContainer: FC<TProps> = ({ cperMapThread: store }) => {
   return (
     <Wrapper>
       <RankingBoard total={curCommunity.subscribersCount} geoData={markers} />
+      {/* @ts-ignore */}
       <GeoMap markers={markers} curTheme={curTheme} theme={theme} />
     </Wrapper>
   )

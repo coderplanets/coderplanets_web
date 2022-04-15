@@ -20,6 +20,7 @@ const TabIcon: FC<TProps> = ({ item, clickableRef, active }) => {
   const { localIcon, icon } = item
 
   const IconCmp = localIcon ? (
+    // @ts-ignore
     <LocalIcon raw={localIcon} active={active} small={false} />
   ) : (
     <Icon src={icon as string} active={active} />

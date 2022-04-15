@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { LavaLampLoading } from '@/widgets/dynamic'
+import { LavaLampLoading } from '@/widgets/Loading'
 
 export const ArticleFooter = dynamic(() => import('../unit/ArticleFooter'), {
   ssr: false,

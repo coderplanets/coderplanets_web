@@ -41,22 +41,10 @@ const Count: FC<TProps> = ({
 }) => {
   return (
     <LoadingValueContext.Provider value={{ count, size, active }}>
+      {/* @ts-ignore */}
       <AnimatedCount count={count} size={size} active={active} />
     </LoadingValueContext.Provider>
   )
 }
-
-// debug
-// const Count: FC<TProps> = ({ size = SIZE.SMALL }) => {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <LoadingValueContext.Provider value={{ count, size }}>
-//       <div onClick={() => setCount(count + 1)}>
-//         <AnimatedCount count={count} size={size} />
-//       </div>
-//     </LoadingValueContext.Provider>
-//   )
-// }
 
 export default memo(Count)

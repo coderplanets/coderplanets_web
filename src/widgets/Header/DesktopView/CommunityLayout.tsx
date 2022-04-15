@@ -66,6 +66,7 @@ const CommunityView: FC<TProps> = ({
             metric={metric}
           />
         </RouterWrapper>
+        {/* @ts-ignore */}
         <AddOns accountInfo={accountInfo} />
       </InnerWrapper>
     </Wrapper>

@@ -9,7 +9,7 @@ import { Wrapper, Title, Actions } from '../styles/tag_setter/header'
 import { changeTagView } from '../logic'
 
 // import DotDivider from '@/widgets/DotDivider'
-// import { LavaLampLoading } from '@/widgets/dynamic'
+// import { LavaLampLoading } from '@/widgets/Loading'
 
 type TProps = {
   view: TTagView

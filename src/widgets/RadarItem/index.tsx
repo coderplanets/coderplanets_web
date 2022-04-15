@@ -11,7 +11,8 @@ import { THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import ArticleCard from '@/widgets/ArticleCard'
-import { ArticleReadLabel, ArticlePinLabel } from '@/widgets/dynamic'
+import ArticleReadLabel from '@/widgets/ArticleReadLabel'
+import ArticlePinLabel from '@/widgets/ArticlePinLabel'
 
 import { Wrapper } from './styles'
 

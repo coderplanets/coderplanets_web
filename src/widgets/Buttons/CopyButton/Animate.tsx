@@ -17,7 +17,6 @@ const CopyButton: FC = () => {
 
   return (
     <AnimateOnChange
-      // animationIn="bounceIn"
       animationIn="popIn"
       animationOut="bounceOut"
       durationOut={100}

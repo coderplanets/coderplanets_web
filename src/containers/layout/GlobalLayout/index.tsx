@@ -64,8 +64,10 @@ const GlobalLayoutContainer: FC<TProps> = ({
           <SEO metric={metric} config={seoConfig} />
           <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
             {/* {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />} */}
+            {/* @ts-ignore */}
             <Addon />
             <ContentWrapper offsetLeft={sidebarPin}>
+              {/* @ts-ignore */}
               <CustomScroller
                 instanceKey={BODY_SCROLLER}
                 direction="vertical"
@@ -84,11 +86,13 @@ const GlobalLayoutContainer: FC<TProps> = ({
                 <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                   {childrenWithProps(children, { metric })}
                 </BodyWrapper>
+                {/* @ts-ignore */}
                 {!noFooter && <Footer metric={metric} />}
               </CustomScroller>
             </ContentWrapper>
           </InnerWrapper>
         </Fragment>
+        {/* @ts-ignore */}
         {isMobile && <ModeLine metric={metric} />}
       </Wrapper>
     </ThemePalette>

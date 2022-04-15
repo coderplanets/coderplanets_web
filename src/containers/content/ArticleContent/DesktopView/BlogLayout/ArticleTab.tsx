@@ -3,8 +3,10 @@ import { FC, useRef, Fragment } from 'react'
 import type { TBlog, TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import { ArticleFooter, Comments } from '@/containers/dynamic'
+// import { Comments } from '@/containers/dynamic'
+// import ArticleFooter from '@/containers/unit/ArticleFooter'
 import ArtimentBody from '@/widgets/ArtimentBody'
+import Comments from '@/containers/unit/Comments'
 import Linker from '@/widgets/Linker'
 import ViewportTracker from '@/widgets/ViewportTracker'
 
@@ -37,7 +39,7 @@ const ArticleTab: FC<TProps> = ({ metric, article }) => {
         <ArticleWrapper ref={ref}>
           <Linker src={article.linkAddr} right={10} bottom={25} hint="原文:" />
           <ArtimentBody document={article.document} />
-          <ArticleFooter metric={metric} />
+          {/* <ArticleFooter metric={metric} /> */}
         </ArticleWrapper>
 
         <ViewportTracker

@@ -34,6 +34,7 @@ const HolyGrailLayout: FC<TProps> = ({
         realtimeVisitors={realtimeVisitors}
       />
       <Divider />
+      {/* @ts-ignore */}
       <DynamicPart community={community} thread={thread} />
     </Wrapper>
   )

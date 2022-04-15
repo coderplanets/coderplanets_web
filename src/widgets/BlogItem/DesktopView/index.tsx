@@ -4,7 +4,8 @@ import { UPVOTE_LAYOUT } from '@/constant'
 import type { TBlog } from '@/spec'
 
 import Upvote from '@/widgets/Upvote'
-import { ArticleReadLabel, ArticlePinLabel } from '@/widgets/dynamic'
+import ArticleReadLabel from '@/widgets/ArticleReadLabel'
+import ArticlePinLabel from '@/widgets/ArticlePinLabel'
 
 import AuthorIntro from './AuthorIntro'
 import Header from './Header'

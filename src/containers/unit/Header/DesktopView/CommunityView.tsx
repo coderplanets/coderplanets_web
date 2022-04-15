@@ -87,13 +87,16 @@ const CommunityHeaderContainer: FC<TProps> = ({
             metric={metric}
           />
         </RouterWrapper>
+        {/* @ts-ignore */}
         <AddOns />
         <Operations>
           <Search onClick={openDoraemon} testid="header-search">
             <HeaderSearchIcon testid="header-search-icon" />
           </Search>
 
+          {/* @ts-ignore */}
           {MailBox && <MailBox />}
+          {/* @ts-ignore */}
           <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
         </Operations>
       </InnerWrapper>

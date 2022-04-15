@@ -5,7 +5,7 @@ import type { TCommunity, TCommunitySetterStyle } from '@/spec'
 import { Br } from '@/widgets/Common'
 import CustomScroller from '@/widgets/CustomScroller'
 import NoticeBar from '@/widgets/NoticeBar'
-import { LavaLampLoading } from '@/widgets/dynamic'
+import { LavaLampLoading } from '@/widgets/Loading'
 
 import type { TCommunitiesList, TTexts } from '../spec'
 import SearchBox from './SearchBox'

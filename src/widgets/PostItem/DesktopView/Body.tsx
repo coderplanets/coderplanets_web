@@ -59,6 +59,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
           {showOriginalCommunity && (
             <Fragment>
               <Tooltip
+                //  @ts-ignore
                 content={<CommunityCard item={originalCommunity} />}
                 placement="right"
                 delay={1500}
@@ -74,6 +75,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
           )}
 
           <Tooltip
+            //  @ts-ignore
             content={<UserCard item={author} />}
             placement="right"
             delay={500}
@@ -97,6 +99,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
         </LeftPart>
         <SpaceGrow />
 
+        {/*  @ts-ignore */}
         <ActiveBadge item={item} />
         <GTDBadgeWrapper>
           {item.id === '239' && <GTDBadge type="FEATURE" />}

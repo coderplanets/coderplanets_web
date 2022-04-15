@@ -3,7 +3,7 @@ import { FC, memo, Fragment } from 'react'
 import type { TBlogRSS, TBlog, TEditMode, TRSSAuthor } from '@/spec'
 
 import NoticeBar from '@/widgets/NoticeBar'
-import { LavaLampLoading } from '@/widgets/dynamic'
+import { LavaLampLoading } from '@/widgets/Loading'
 
 import RSSItem from './TheRSSItem'
 import FeedItem from './FeedItem'

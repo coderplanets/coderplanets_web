@@ -2,12 +2,12 @@ import { FC, memo } from 'react'
 import { isEmpty, contains } from 'ramda'
 import Link from 'next/link'
 
-import type { TCommunity, TID } from '@/spec'
+import type { TCommunity } from '@/spec'
 import { NON_FILL_COMMUNITY } from '@/constant'
 import { prettyNum, cutRest } from '@/utils/helper'
 
 import { SpaceGrow } from '@/widgets/Common'
-import { TrendLine } from '@/widgets/dynamic'
+import TrendLine from '@/widgets/TrendLine'
 
 import SubscribeBtn from './SubscribeBtn'
 

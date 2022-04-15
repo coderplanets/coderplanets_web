@@ -65,6 +65,7 @@ const Tooltip: FC<TProps> = (props) => {
   const { children } = props
   return (
     <TooltipContext.Provider value={{ children }}>
+      {/* @ts-ignore */}
       <RealTooltip {...props} />
     </TooltipContext.Provider>
   )

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import TimeAgo from 'timeago-react'
 
 import type { TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
@@ -76,7 +75,7 @@ export const AbsDate = styled(ReadableDate)`
   font-size: 12px;
   opacity: 0.85;
 `
-export const RelDate = styled(TimeAgo)`
+export const RelDate = styled.div`
   font-size: 12px;
   opacity: 0.95;
   margin-left: 5px;

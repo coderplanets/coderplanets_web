@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useState } from 'react'
+import { Fragment, memo, useEffect, useState } from 'react'
 import { AnimateOnChange } from 'react-animation'
 
 import { SloganTextWrapper } from './styles/banner'
@@ -23,7 +23,7 @@ const fixAnimationStockIfNeed = (): void => {
   }
 }
 
-const SlogenText: FC = () => {
+const SlogenText = () => {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const SlogenText: FC = () => {
   })
 
   return (
-    <>
+    <Fragment>
       「
       <AnimateOnChange durationOut={500}>
         <SloganTextWrapper highlight onClick={fixAnimationStockIfNeed}>
@@ -48,7 +48,7 @@ const SlogenText: FC = () => {
         </SloganTextWrapper>
       </AnimateOnChange>
       」
-    </>
+    </Fragment>
   )
 }
 

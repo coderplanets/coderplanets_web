@@ -34,6 +34,7 @@ const CatFilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
         hideOnClick={false}
         content={
           FilterPanel && (
+            // @ts-ignore
             <FilterPanel
               thread="ArticleCat"
               onSelect={onSelect}

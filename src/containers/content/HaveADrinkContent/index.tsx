@@ -15,6 +15,7 @@ import useShortcut from '@/hooks/useShortcut'
 
 import type { TStore } from './store'
 import Header from './Header'
+// import Body from './Body'
 import Footer from './Footer'
 
 import { Wrapper, InnerWrapper, LoadingSentence } from './styles'
@@ -68,6 +69,7 @@ const HaveADrinkContentContainer: FC<TProps> = ({
           category={category}
           pagiState={pagiState}
         />
+        {/* @ts-ignore */}
         <Body
           view={view}
           category={category}
