@@ -11,9 +11,12 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import { ArticleFooter, Comments } from '@/containers/dynamic'
+// import { Comments } from '@/containers/dynamic'
+
 import ArticleSticker from '@/containers/tool/ArticleSticker'
+import ArticleFooter from '@/containers/unit/ArticleFooter'
 import ArtimentBody from '@/widgets/ArtimentBody'
+import Comments from '@/containers/unit/Comments'
 import Linker from '@/widgets/Linker'
 
 import ViewportTracker from '@/widgets/ViewportTracker'

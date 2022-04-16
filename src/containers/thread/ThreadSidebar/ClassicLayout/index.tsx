@@ -22,12 +22,6 @@ import { Wrapper } from '../styles/classic_layout'
 /* eslint-disable-next-line */
 const log = buildLog('c:ClassicSidebar')
 
-// export const DynamicPart = dynamic(() => import('./DynamicPart'), {
-/* eslint-disable react/display-name */
-//   loading: () => <LavaLampLoading size="small" top={30} />,
-//   ssr: false,
-// })
-
 export type TProps = {
   showCommunityBadge: boolean
   thread: TThread

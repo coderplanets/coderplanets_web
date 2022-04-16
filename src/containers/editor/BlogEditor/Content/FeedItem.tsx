@@ -2,6 +2,8 @@ import { FC, memo } from 'react'
 
 import type { TBlog } from '@/spec'
 import { SVG } from '@/constant'
+
+import TimeAgo from 'timeago-react'
 import Checker from '@/widgets/Checker'
 import IconButton from '@/widgets/Buttons/IconButton'
 
@@ -64,12 +66,16 @@ const FeedItem: FC<TProps> = ({
       {!withEdit ? (
         <HoverPubDateWrapper $active={active} onClick={() => selectBlog(item)}>
           <AbsDate date={item.published} withTime={false} />
-          <RelDate datetime={item.published} locale="zh_CN" />
+          <RelDate>
+            <TimeAgo datetime={item.published} locale="zh_CN" />
+          </RelDate>
         </HoverPubDateWrapper>
       ) : (
         <PubDateWrapper>
           <AbsDate date={item.published} withTime={false} />
-          <RelDate datetime={item.published} locale="zh_CN" />
+          <RelDate>
+            <TimeAgo datetime={item.published} locale="zh_CN" />
+          </RelDate>
         </PubDateWrapper>
       )}
 

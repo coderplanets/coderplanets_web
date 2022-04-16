@@ -13,7 +13,7 @@ import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import MobileBanner from './MobileBanner'
-import { Comments } from '@/containers/dynamic'
+import Comments from '@/containers/unit/Comments'
 import UserProfile from '@/containers/user/UserProfile'
 import UserPublishedArticles from '@/containers/user/UserPublishedArticles'
 // import UserBilling from '@/containers/user/UserBilling'

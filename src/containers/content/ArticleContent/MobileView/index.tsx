@@ -10,9 +10,11 @@ import dynamic from 'next/dynamic'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import { ArticleFooter, Comments } from '@/containers/dynamic'
+import ArticleFooter from '@/containers/unit/ArticleFooter'
+import Comments from '@/containers/unit/Comments'
 import Maybe from '@/widgets/Maybe'
 import ViewportTracker from '@/widgets/ViewportTracker'
+import MarkDownRender from '@/widgets/MarkDownRender'
 
 import type { TStore } from '../store'
 
@@ -25,13 +27,6 @@ import {
 } from '../styles/mobile_view'
 
 import { useInit, articleInAnchor, articleOutAnchor } from '../logic'
-
-export const MarkDownRender = dynamic(
-  () => import('@/widgets/MarkDownRender'),
-  {
-    ssr: false,
-  },
-)
 
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')

@@ -15,6 +15,7 @@ const CommentBodyEditor: FC<TProps> = ({
 }) => {
   return (
     <div className="comment-editor">
+      {/* @ts-ignore */}
       <RichEditor
         data={body}
         type="comment"

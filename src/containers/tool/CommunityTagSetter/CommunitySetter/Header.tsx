@@ -6,7 +6,7 @@ import type { TCommunityView, TTexts } from '../spec'
 import { Wrapper, Title } from '../styles/community_setter/header'
 // import { useStore } from '../logic'
 
-// import { LavaLampLoading } from '@/widgets/dynamic'
+// import { LavaLampLoading } from '@/widgets/Loading'
 
 type TProps = {
   view: TCommunityView

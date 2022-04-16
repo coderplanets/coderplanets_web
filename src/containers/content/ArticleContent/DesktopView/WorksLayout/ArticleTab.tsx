@@ -3,8 +3,9 @@ import { FC, useRef, Fragment } from 'react'
 import type { TWorks, TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import { ArticleFooter, Comments } from '@/containers/dynamic'
+import ArticleFooter from '@/containers/unit/ArticleFooter'
 import ArtimentBody from '@/widgets/ArtimentBody'
+import Comments from '@/containers/unit/Comments'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
 

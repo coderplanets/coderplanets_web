@@ -43,6 +43,7 @@ const ArticleViewerContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
+      {/* @ts-ignore */}
       <CollectionFolder />
       <Viewer
         article={article}

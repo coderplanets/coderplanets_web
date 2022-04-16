@@ -48,8 +48,9 @@ const ArticleDigestContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid} metric={metric}>
+      {/* @ts-ignore */}
       {!isMobile && <CollectionFolder />}
-
+      {/* @ts-ignore */}
       <FixedHeader
         show={!inViewport}
         article={viewingArticle}

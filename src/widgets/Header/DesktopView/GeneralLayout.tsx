@@ -60,6 +60,7 @@ const GeneralHeader: FC<TProps> = ({
             metric={metric}
           />
         </RouterWrapper>
+        {/* @ts-ignore */}
         <AddOns accountInfo={accountInfo} />
       </InnerWrapper>
     </Wrapper>

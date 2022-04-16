@@ -77,12 +77,14 @@ const HorizontalScroller: FC<TProps> = ({
 
       <ScrollWrapper ref={ref}>
         <InnerWrapper innerHeight={innerHeight}>
+          {/*  @ts-ignore */}
           <Waypoint
             horizontal
             onEnter={handleHideLeftShadow}
             onLeave={handleShowLeftShadow}
           />
           {children}
+          {/*  @ts-ignore */}
           <Waypoint
             horizontal
             onEnter={handleHideRightShadow}

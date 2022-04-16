@@ -44,10 +44,10 @@ export const TitleWrapper = styled.div`
 `
 export const Title = styled.div<{ descExpand: boolean }>`
   ${css.flex('align-center')};
-  font-size: ${({ descExpand }) => (descExpand ? '18px' : '16px')};
+  /* font-size: ${({ descExpand }) => (descExpand ? '18px' : '18px')}; */
   color: ${theme('thread.articleTitle')};
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 0.03em;
   font-weight: 600;
   color: #333;

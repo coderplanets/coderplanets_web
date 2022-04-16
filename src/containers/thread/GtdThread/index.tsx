@@ -21,7 +21,7 @@ import {
   ColumnsWrapper,
   Column,
   Header,
-  Title,
+  Body,
   Label,
   SubTitle,
   TODOIcon,
@@ -50,54 +50,54 @@ const GtdThreadContainer: FC<TProps> = ({
       <ColumnsWrapper>
         <Column>
           <Header>
-            <Title>
-              <Label>已排期</Label>
-              <TODOIcon />
-              <SpaceGrow />
-              <IconButton path="shape/more-l.svg" mRight={2} />
-            </Title>
-            <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
+            <TODOIcon />
+            <Label>待办项</Label>
+            <SubTitle>{getRandomInt(5, 20)}</SubTitle>
+            <SpaceGrow />
+            <IconButton path="shape/add.svg" mRight={12} />
           </Header>
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
+          <Body>
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+          </Body>
         </Column>
         <Column>
           <Header>
-            <Title>
-              <Label>正在完善</Label>
-              <WipIcon />
-              <SpaceGrow />
-              <IconButton path="shape/more-l.svg" mRight={2} />
-            </Title>
-            <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
+            <WipIcon />
+            <Label>正在完善</Label>
+            <SubTitle>{getRandomInt(5, 20)}</SubTitle>
+            <SpaceGrow />
+            <IconButton path="shape/add.svg" mRight={12} />
           </Header>
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
+          <Body>
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+          </Body>
         </Column>
         <Column>
           <Header>
-            <Title>
-              <Label>已完成</Label>
-              <DoneIcon />
-              <SpaceGrow />
-              <IconButton path="shape/more-l.svg" mRight={2} />
-            </Title>
-            <SubTitle>{getRandomInt(5, 20)} 项</SubTitle>
+            <DoneIcon />
+            <Label>已完成</Label>
+            <SubTitle>{getRandomInt(5, 20)}</SubTitle>
+            <SpaceGrow />
+            <IconButton path="shape/add.svg" mRight={12} />
           </Header>
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
-          <GtdItem />
+          <Body>
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+            <GtdItem />
+          </Body>
         </Column>
       </ColumnsWrapper>
     </Wrapper>

@@ -13,7 +13,7 @@ import { SIZE, BODY_SCROLLER } from '@/constant'
 import { bond } from '@/utils/mobx'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-// import Header from '@/widgets/Header'
+import Header from '@/widgets/Header'
 
 // import Header from '@/containers/unit/Header'
 // import Footer from '@/containers/unit/Footer'
@@ -54,7 +54,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // load debug graph
   useInit(store, { isMobile })
 
-  const { sidebarPin, c11n } = store
+  const { accountInfo, sidebarPin, c11n, curCommunity } = store
   const { bannerLayout } = c11n
 
   return (
@@ -64,8 +64,10 @@ const GlobalLayoutContainer: FC<TProps> = ({
           <SEO metric={metric} config={seoConfig} />
           <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
             {/* {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />} */}
+            {/* @ts-ignore */}
             <Addon />
             <ContentWrapper offsetLeft={sidebarPin}>
+              {/* @ts-ignore */}
               <CustomScroller
                 instanceKey={BODY_SCROLLER}
                 direction="vertical"
@@ -75,20 +77,22 @@ const GlobalLayoutContainer: FC<TProps> = ({
                 onScrollDirectionChange={onPageScrollDirhange}
                 autoHide
               >
-                {/* <Header
+                <Header
                   metric={metric}
                   c11n={c11n}
                   accountInfo={accountInfo}
                   community={curCommunity}
-                /> */}
+                />
                 <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                   {childrenWithProps(children, { metric })}
                 </BodyWrapper>
+                {/* @ts-ignore */}
                 {!noFooter && <Footer metric={metric} />}
               </CustomScroller>
             </ContentWrapper>
           </InnerWrapper>
         </Fragment>
+        {/* @ts-ignore */}
         {isMobile && <ModeLine metric={metric} />}
       </Wrapper>
     </ThemePalette>

@@ -57,6 +57,7 @@ const SponsorGallery: FC<TProps> = ({ items, level = 'gold' }) => {
               {level === 'silver' && !isMobile && <Icon />}
             </IntroHead>
           </Header>
+          {/* @ts-ignore */}
           {level === 'gold' && !item.cover && <Patterns index={index} />}
           {level === 'gold' && item.cover && <IntroImg src={item.cover} />}
           {item.desc && <Desc level={level}>{cutRest(item.desc, 30)}</Desc>}

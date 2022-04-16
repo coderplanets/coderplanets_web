@@ -22,18 +22,20 @@ export type TProps = {
   testid?: string
   type?: TGtdType
   state?: TGtdState
+  noBg?: boolean
 } & TSpace
 
 const GTDBadge: FC<TProps> = ({
   testid = 'gtd-badge',
   type = GTD_TYPE.DEFAULT,
   state = GTD_STATE.DEFAULT,
+  noBg = false,
   ...restProps
 }) => {
   return (
     <Wrapper testid={testid} {...restProps}>
       {type && <State state={state} type={type} />}
-      {type && <Label type={type} />}
+      {type && <Label type={type} noBg={noBg} />}
     </Wrapper>
   )
 }

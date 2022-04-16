@@ -46,6 +46,7 @@ const Header: FC<TProps> = ({ item }) => {
           </TitleLink>
         )}
 
+        {/*  @ts-ignore */}
         <TagsList items={item.articleTags} mLeft={12} />
       </Brief>
       <Participants>

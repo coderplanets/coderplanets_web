@@ -34,6 +34,7 @@ const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
         hideOnClick={false}
         content={
           FilterPanel && (
+            // @ts-ignore
             <FilterPanel
               thread={thread}
               onSelect={onSelect}

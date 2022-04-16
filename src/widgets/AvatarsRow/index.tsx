@@ -120,6 +120,7 @@ const AvatarsRow: FC<TProps> = ({
 
       {totalCount === 1 ? (
         <RealAvatarContext.Provider value={{ size, user: sortedUsers[0] }}>
+          {/*  @ts-ignore */}
           <RealAvatar
             user={sortedUsers[0]}
             size={size}
@@ -131,6 +132,7 @@ const AvatarsRow: FC<TProps> = ({
         <AvatarsWrapper>
           {slice(0, limit, sortedUsers).map((user) => (
             <RealAvatarContext.Provider key={user.login} value={{ size, user }}>
+              {/*  @ts-ignore */}
               <RealAvatar
                 user={user}
                 size={size}

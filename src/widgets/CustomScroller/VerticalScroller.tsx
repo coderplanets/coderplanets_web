@@ -133,8 +133,10 @@ const VerticalScroller: FC<TProps> = ({
       )}
 
       <ScrollWrapper ref={ref}>
+        {/*  @ts-ignore */}
         <Waypoint onEnter={handleHideTopShadow} onLeave={handleShowTopShadow} />
         <div>{children}</div>
+        {/*  @ts-ignore */}
         <Waypoint
           onEnter={handleHideBottomShadow}
           onLeave={handleShowBottomShadow}

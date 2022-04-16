@@ -8,30 +8,26 @@ import { getRouteMainPath } from '@/utils/route'
 import MoreLink from './MoreLink'
 import { Wrapper, DotDivider, SiteLink } from '../styles/main_entries'
 
-const splitMargin = 7
+const splitMargin = 8
 
-type TProps = {
-  type: string
-}
-
-const DesktopView: FC<TProps> = ({ type }) => {
+const DesktopView: FC = () => {
   const router = useRouter()
   const mainPath = getRouteMainPath(router.asPath)
 
   return (
-    <Wrapper type={type}>
+    <Wrapper>
       <Link href={`/${ROUTE.TOPICS}`} passHref>
         <SiteLink
           active={mainPath === ROUTE.TOPICS}
           testid="header-explore-link"
         >
-          讨论
+          社区首页
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.WORKS}`} passHref>
         <SiteLink active={mainPath === ROUTE.WORKS} testid="header-works-link">
-          作品
+          看板
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
@@ -40,7 +36,7 @@ const DesktopView: FC<TProps> = ({ type }) => {
           active={mainPath === ROUTE.COOL_GUIDE}
           testid={`header-${ROUTE.COOL_GUIDE}`}
         >
-          酷导航
+          发布日志
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
@@ -49,7 +45,7 @@ const DesktopView: FC<TProps> = ({ type }) => {
           active={mainPath === ROUTE.MEETUPS}
           testid="header-meetups-link"
         >
-          小聚
+          文章
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
@@ -58,7 +54,16 @@ const DesktopView: FC<TProps> = ({ type }) => {
           active={mainPath === ROUTE.HAVE_A_DRINK}
           testid={`header-${ROUTE.HAVE_A_DRINK}`}
         >
-          来一杯
+          常见问题
+        </SiteLink>
+      </Link>
+      <DotDivider space={splitMargin} />
+      <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
+        <SiteLink
+          active={mainPath === ROUTE.HAVE_A_DRINK}
+          testid={`header-${ROUTE.HAVE_A_DRINK}`}
+        >
+          关于
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />

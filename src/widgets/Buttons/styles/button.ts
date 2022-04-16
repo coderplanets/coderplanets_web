@@ -27,7 +27,7 @@ export const Wrapper = styled.button<TButton>`
   padding: ${({ size }) => getPadding(size)};
   font-size: ${({ size }) => getFontSize(size)};
   /* font-size: 14px; */
-  border-radius: 4px;
+  border-radius: 10px;
   height: ${({ size }) => getHeight(size)};
   user-select: none;
   transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -71,6 +71,7 @@ export const ChildrenWrapper = styled.div<{ size: TSIZE }>`
   ${css.flex('align-both')};
   width: 100%;
   font-size: ${({ size }) => getFontSize(size)};
+  font-weight: 600;
   position: relative;
   z-index: 2;
 `

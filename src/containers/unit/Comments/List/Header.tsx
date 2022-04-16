@@ -6,7 +6,7 @@ import { SVG } from '@/constant'
 
 import IconButton from '@/widgets/Buttons/IconButton'
 import { IconSwitcher } from '@/widgets/Switcher'
-import { LavaLampLoading } from '@/widgets/dynamic'
+import { LavaLampLoading } from '@/widgets/Loading'
 
 import {
   Wrapper,

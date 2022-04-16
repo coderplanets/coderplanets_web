@@ -41,14 +41,14 @@ const SwitchBlock = styled.div`
   transition: opacity 0.3s;
 `
 export const LeftSwitchBlock = styled(SwitchBlock)`
-  left: 0;
+  left: -10;
 `
 export const LeftArrow = styled(ArrowSVG)`
   ${css.size(28)};
   fill: ${theme('thread.extraInfo')};
 `
 export const RightSwitchBlock = styled(SwitchBlock)`
-  left: 780px;
+  left: 755px;
 `
 export const RightArrow = styled(LeftArrow)`
   transform: rotate(180deg);

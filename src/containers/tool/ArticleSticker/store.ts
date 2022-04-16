@@ -11,7 +11,6 @@ import type {
   TArticle,
   TScrollDirection,
   TThread,
-  TPagedUsers,
   TCommentsState,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
@@ -63,6 +62,13 @@ const ArticleSticker = T.model('ArticleSticker', {
       if (isLeftStickerLocked) return true
 
       return bodyScrollDirection === 'down'
+    },
+
+    get showArticleAction(): boolean {
+      // const root = getParent(self) as TRootStore
+      const { isArticleInViewport, isArticleDigestInViewport } = self as TStore
+
+      return !isArticleDigestInViewport && isArticleInViewport
     },
     // get showCommunity(): boolean {
     //   const { isArticleDigestInViewport, isArticleInViewport } = self as TStore

@@ -22,21 +22,20 @@ import {
   IntroWrapper,
   IntroTitle,
   IntroDesc,
-  SloganTextWrapper,
   CreateCommunityLink,
   SearchIcon,
 } from './styles/banner'
 
 import { searchOnChange } from './logic'
 
-export const SloganText = dynamic(() => import('./SloganText'), {
-  /* eslint-disable react/display-name */
-  loading: () => <SloganTextWrapper>心爱的作品</SloganTextWrapper>,
-  ssr: false,
-})
-
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
+
+const SloganText = dynamic(() => import('./SloganText'), {
+  // eslint-disable-next-line react/display-name
+  loading: () => <div />,
+  ssr: false,
+})
 
 type TProps = {
   searchStatus: TSearchState
@@ -75,6 +74,7 @@ const Banner: FC<TProps> = ({
           <IntroDesc>
             <Space right={24} />
             或者，来为你
+            {/* @ts-ignore */}
             <SloganText />
             <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>
               <CreateCommunityLink>建立一个社区</CreateCommunityLink>

@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { TYPE } from '@/constant'
 import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 import type { TUser } from '@/spec'
@@ -26,15 +25,18 @@ const renderContent = (
 
   switch (type) {
     case TYPE.DRAWER.ACCOUNT_EDIT:
+      // @ts-ignore
       return <AccountEditor />
 
     // case TYPE.DRAWER.REPO_CREATE:
     //   return <RepoEditor />
 
     case TYPE.DRAWER.MAILS_VIEW:
+      // @ts-ignore
       return <MailsViewer />
 
     case TYPE.DRAWER.C11N_SETTINGS:
+      // @ts-ignore
       return <C11NSettingPanel />
 
     case TYPE.DRAWER.MODELINE_MENU:
@@ -42,11 +44,12 @@ const renderContent = (
       return <ModeLineMenu type={mmType} />
 
     case TYPE.DRAWER.USER_LISTER: {
+      // @ts-ignore
       return <UserLister type={userListerType} />
     }
 
     default:
-      // TYPE.DRAWER.[ARTICLE]_VIEW:
+      // @ts-ignore
       return <ArticleViewer />
   }
 }

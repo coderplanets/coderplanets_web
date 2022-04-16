@@ -33,6 +33,7 @@ const MenuList: FC<TProps> = ({ items, pin, sortOptActive, activeRaw }) => {
           activeRaw={activeRaw}
         />
       ) : (
+        // @ts-ignore
         <SortableMenuList
           communities={sortableCommunities}
           sortOptActive={sortOptActive}

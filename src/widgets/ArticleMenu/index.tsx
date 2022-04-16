@@ -24,6 +24,7 @@ const ArticleMenu: FC<TProps> = ({
   article,
 }) => {
   return (
+    // @ts-ignore
     <RealArticleMenu
       testid={testid}
       verticalIcon={verticalIcon}

@@ -10,7 +10,10 @@ import SiteLogo from '@/icons/CPLogo' // TODO:
 export const Breadcrumbs = styled.div`
   ${css.flex('align-center')};
   max-width: 650px;
+  width: 100%;
   height: 100%;
+  position: relative;
+
   ${css.media.mobile`
     margin-right: 0;
   `};
@@ -20,6 +23,10 @@ export const Logo = styled(SiteLogo)`
   ${css.size(16)};
 `
 export const LogoLink = styled.div<{ layout: TC11NLayout }>`
+  position: absolute;
+  left: -240px;
+  top: 15px;
+
   ${css.flex('align-center')};
   margin-right: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? 0 : '10px')};
   cursor: pointer;
@@ -29,13 +36,10 @@ export const LogoMargin = styled.div<{ layout: TC11NLayout }>`
     layout === C11N.HOLY_GRAIL ? '42px' : '32px'};
 `
 export const LogoText = styled.div`
-  color: ${theme('header.fg')};
-  font-weight: bold;
-  font-family: sans-serif;
-  letter-spacing: 1px;
+  color: ${theme('thread.articleDigest')};
+  font-weight: 500;
   font-size: 16px;
-  margin-left: 3px;
-  margin-top: 2px;
+  margin-left: 8px;
 `
 export const UL = styled.ul`
   &:before {

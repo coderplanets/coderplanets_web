@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { METRIC } from '@/constant'
 
 import type { TProps } from '../index'
-import CommunityLayout from './CommunityLayout'
+// import CommunityLayout from './CommunityLayout'
 import ArticleLayout from './ArticleLayout'
 // import WorksLayout from './WorksLayout'
 import GeneralLayout from './GeneralLayout'
@@ -20,7 +20,7 @@ const DesktopView: FC<TProps> = (props) => {
       return <ArticleLayout {...props} />
     }
     case METRIC.COMMUNITY: {
-      return <CommunityLayout {...props} />
+      return null // <CommunityLayout {...props} />
     }
     default: {
       return <GeneralLayout {...props} />

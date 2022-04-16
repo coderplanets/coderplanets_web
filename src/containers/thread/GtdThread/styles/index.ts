@@ -20,32 +20,33 @@ export const ColumnsWrapper = styled.div`
 `
 export const Column = styled.div`
   ${css.flexColumn('align-start')};
-  width: 29%;
+  width: 32%;
   min-height: 70vh;
   /* border: 1px solid; */
   /* border-color: ${theme('thread.extraInfo')}; */
 `
 export const Header = styled.div`
-  border-bottom: 2px solid;
-  border-bottom-color: ${theme('thread.articleDigest')};
-  padding-bottom: 22px;
+  ${css.flex('align-center')};
+  padding-bottom: 15px;
   width: 100%;
   padding-left: 3px;
 `
-export const Title = styled.div`
-  ${css.flex('align-center')};
+export const Body = styled.div`
+  background: #f5f5f5; //#eef2f7;
+  padding: 8px;
+  border-radius: 6px;
 `
 export const SubTitle = styled.div`
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
   font-size: 13px;
-  margin-top: 4px;
+  margin-left: 6px;
 `
 export const Label = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
   font-weight: 600;
-  margin-right: 10px;
+  margin-left: 10px;
 `
 export const TODOIcon = styled(GtdTodoSVG)`
   ${css.size(12)};

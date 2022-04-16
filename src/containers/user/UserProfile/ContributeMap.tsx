@@ -106,6 +106,7 @@ const UserContributeMap: FC<TProps> = ({ user }) => {
           />
         </CalendarInnerWrapper>
       </CalendarWrapper>
+      {/* @ts-ignore */}
       <ReactTooltip effect="solid" place="top" id="user_contribute_map" />
     </Wrapper>
   )

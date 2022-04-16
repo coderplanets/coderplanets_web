@@ -11,6 +11,7 @@ const MobileView = dynamic(() => import('./MobileView'), {
 const MainEntries = (props) => {
   return (
     <Fragment>
+      {/* @ts-ignore */}
       {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
     </Fragment>
   )
