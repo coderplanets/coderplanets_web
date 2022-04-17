@@ -13,7 +13,7 @@ const State: FC<TProps> = ({ state, type }) => {
     case GTD_STATE.DONE: {
       return (
         <Wrapper type={type}>
-          <DoneIcon />
+          <DoneIcon type={type} />
         </Wrapper>
       )
     }
@@ -21,7 +21,7 @@ const State: FC<TProps> = ({ state, type }) => {
     case GTD_STATE.WIP: {
       return (
         <Wrapper type={type}>
-          <WipIcon />
+          <WipIcon type={type} />
         </Wrapper>
       )
     }
@@ -29,7 +29,7 @@ const State: FC<TProps> = ({ state, type }) => {
     case GTD_STATE.TODO: {
       return (
         <Wrapper type={type}>
-          <TODOIcon />
+          <TODOIcon type={type} />
         </Wrapper>
       )
     }

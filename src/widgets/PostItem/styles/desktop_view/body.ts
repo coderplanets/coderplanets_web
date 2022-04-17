@@ -13,7 +13,7 @@ export const Extra = styled.li`
   position: relative;
   ${css.flex('align-end')};
   color: ${theme('thread.extraInfo')};
-  margin-top: 3px;
+  margin-top: 5px;
   font-size: 12px;
 `
 export const LeftPart = styled.div`
@@ -84,6 +84,6 @@ export const ViewsIcon = styled(ViewedSVG)`
 
 export const GTDBadgeWrapper = styled.div`
   position: absolute;
-  top: 44px;
+  top: 41px;
   right: -5px;
 `
