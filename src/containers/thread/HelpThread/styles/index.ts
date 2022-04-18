@@ -20,6 +20,8 @@ export const MainWrapper = styled.div`
   margin-top: 12px;
   padding-left: 25px;
   padding-right: 80px;
+
+  border-right: 1px solid #eae9e9;
 `
 export const CatsWapper = styled.div`
   ${css.flex()};

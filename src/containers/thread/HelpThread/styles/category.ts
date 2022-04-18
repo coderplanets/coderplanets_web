@@ -11,7 +11,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TWrapper>`
   ${css.flexColumn()};
   background: transparent;
-  width: 33%;
+  width: 50%;
   min-height: 80px;
   padding: 15px 20px;
   padding-left: 0;
@@ -47,9 +47,8 @@ export const Item = styled.div<{ color: string }>`
 
   transition: all 0.2s;
 `
-
 export const MoreLink = styled.div`
-  color: #175199; // to-theme
+  color: ${theme('link')};
   font-size: 13px;
   margin-top: 5px;
   margin-left: 24px;

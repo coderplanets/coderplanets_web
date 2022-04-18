@@ -39,7 +39,7 @@ const github = {
   },
 
   font: fontColor,
-  link: 'orange',
+  link: '#175199',
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#FFFEDE',
