@@ -9,6 +9,8 @@ import { FC } from 'react'
 import { bond } from '@/utils/mobx'
 
 import type { TStore } from './store'
+
+import Sidebar from './Sidebar'
 import Category from './Category'
 
 import { Wrapper, MainWrapper, CatsWapper } from './styles'
@@ -78,6 +80,7 @@ const HelpThreadContainer: FC<TProps> = ({
           />
         </CatsWapper>
       </MainWrapper>
+      <Sidebar />
     </Wrapper>
   )
 }
