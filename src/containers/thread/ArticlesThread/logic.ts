@@ -35,6 +35,14 @@ let sub$ = null
 export const inAnchor = (): void => store?.showTopModeline(false)
 export const outAnchor = (): void => store?.showTopModeline(true)
 
+export const onSearch = (v: string): void => {
+  store.mark({ mode: 'search', searchValue: v })
+}
+
+export const closeSearch = (): void => {
+  store.mark({ mode: 'default' })
+}
+
 export const onFilterSelect = (option: TArticleFilter): void => {
   store.selectFilter(option)
   // console.log('cur filter: ', store.filtersData)

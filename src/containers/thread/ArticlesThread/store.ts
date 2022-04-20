@@ -34,6 +34,8 @@ import {
 } from '@/model'
 
 const ArticlesThread = T.model('ArticlesThread', {
+  mode: T.optional(T.enumeration(['default', 'search']), 'default'),
+  searchValue: T.optional(T.string, ''),
   pagedPosts: T.optional(PagedPosts, emptyPagi),
   pagedJobs: T.optional(PagedJobs, emptyPagi),
   pagedBlogs: T.optional(PagedBlogs, emptyPagi),

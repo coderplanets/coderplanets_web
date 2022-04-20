@@ -4,7 +4,7 @@
  *
  */
 
-import { FC, memo } from 'react'
+import { FC, Fragment, memo } from 'react'
 
 import type { TArticleFilter, TResState } from '@/spec'
 
@@ -32,6 +32,9 @@ type TProps = {
   pageNumber?: number
   totalCount?: number
   resState?: TResState
+  mode?: 'default' | 'search'
+  onSearch: (v: string) => void
+  closeSearch: () => void
 }
 
 const ArticlesFilter: FC<TProps> = ({
@@ -40,30 +43,44 @@ const ArticlesFilter: FC<TProps> = ({
   pageNumber = 1,
   totalCount = 0,
   resState = TYPE.RES_STATE.DONE,
+  mode = 'default',
+  onSearch,
+  closeSearch,
 }) => {
   // NOTE: 这里使用 useViewing 会导致 build-size blow
   // const { activeThread } = useViewing()
 
+  const searchMode = mode === 'search'
+
   return (
     <Wrapper>
-      <MainFilterWrapper>
-        <FilterButton
-          thread={THREAD.POST}
-          onSelect={onSelect}
-          activeFilter={activeFilter}
-        />
-        <SelectedFilters onSelect={onSelect} activeFilter={activeFilter} />
-      </MainFilterWrapper>
-      <CatFilterButton
-        thread={THREAD.POST}
-        onSelect={onSelect}
-        activeFilter={activeFilter}
-      />
-      <SpaceGrow />
-      {resState === TYPE.RES_STATE.LOADING && (
-        <LavaLampLoading top={2} right={28} />
+      {!searchMode && (
+        <Fragment>
+          <MainFilterWrapper>
+            <FilterButton
+              thread={THREAD.POST}
+              onSelect={onSelect}
+              activeFilter={activeFilter}
+            />
+            <SelectedFilters onSelect={onSelect} activeFilter={activeFilter} />
+          </MainFilterWrapper>
+          <CatFilterButton
+            thread={THREAD.POST}
+            onSelect={onSelect}
+            activeFilter={activeFilter}
+          />
+          <SpaceGrow />
+          {resState === TYPE.RES_STATE.LOADING && (
+            <LavaLampLoading top={2} right={28} />
+          )}
+        </Fragment>
       )}
-      <SearchBox />
+
+      <SearchBox
+        searchMode={searchMode}
+        onSearch={onSearch}
+        closeSearch={closeSearch}
+      />
       {/* <FilterResult pageNumber={pageNumber} totalCount={totalCount} /> */}
     </Wrapper>
   )
