@@ -11,6 +11,8 @@ import { bond } from '@/utils/mobx'
 import Members from './Members'
 
 import type { TStore } from './store'
+import Sidebar from './Sidebar'
+
 import { Wrapper, MainWrapper, Block, BottomBlock, Title, Desc } from './styles'
 import { useInit } from './logic' /* eslint-disable-next-line */
 
@@ -44,15 +46,12 @@ const AboutThreadContainer: FC<TProps> = ({
           <Title>社区基本概况</Title>
           <Desc>(订阅人数 / 内容数 / 趋势)</Desc>
         </Block>
-        <Block>
-          <Members />
-        </Block>
 
         <BottomBlock>
-          <Title>联系我们</Title>
-          <Desc>邮件 / Twitter / Weibo / xxx</Desc>
+          <Members />
         </BottomBlock>
       </MainWrapper>
+      <Sidebar />
     </Wrapper>
   )
 }
