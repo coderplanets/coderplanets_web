@@ -5,7 +5,6 @@
  */
 
 import { FC } from 'react'
-import dynamic from 'next/dynamic'
 import { includes } from 'ramda'
 import { isMobile } from 'react-device-detect'
 
@@ -15,6 +14,7 @@ import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import PagedArticles from '@/widgets/PagedArticles'
+import FaqList from '@/widgets/FaqList'
 import ViewportTracker from '@/widgets/ViewportTracker'
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import ArticlesFilter from '@/widgets/ArticlesFilter'
@@ -75,13 +75,14 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
             />
           </FilterWrapper>
         )}
-        <PagedArticles
+        <FaqList mode="search-hint" />
+        {/* <PagedArticles
           data={pagedArticlesData}
           curCommunity={curCommunity}
           thread={curThread}
           resState={resState as TResState}
           c11n={c11n}
-        />
+        /> */}
       </TheMainWrapper>
 
       {!isMobile && bannerLayout === C11N.CLASSIC && <ThreadSidebar />}

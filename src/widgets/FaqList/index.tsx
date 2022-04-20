@@ -9,6 +9,7 @@ import { FC, memo } from 'react'
 import { buildLog } from '@/utils/logger'
 
 import Sidebar from './Sidebar'
+import SearchHint from './SearchHint'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
@@ -58,6 +59,7 @@ const FaqList: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       {mode === 'sidebar' && <Sidebar articles={articles} />}
+      {mode === 'search-hint' && <SearchHint articles={articles} />}
     </Wrapper>
   )
 }
