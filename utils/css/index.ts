@@ -26,9 +26,18 @@ const cutRest = (width = '100px'): string => `
   overflow: hidden;
   text-overflow: ellipsis;
 `
+const lineClamp = (num = 1): string => `
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: ${num};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+`
 
 const css = {
   cutRest,
+  lineClamp,
   circle,
   size,
   smokey,

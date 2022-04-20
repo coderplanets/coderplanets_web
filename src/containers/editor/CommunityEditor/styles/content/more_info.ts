@@ -31,12 +31,7 @@ export const Title = styled.div`
   font-size: 17px;
 `
 export const Desc = styled.div`
+  ${css.lineClamp(2)}
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 `

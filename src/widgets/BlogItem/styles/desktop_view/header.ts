@@ -12,15 +12,11 @@ export const Brief = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const Title = styled.a`
+  ${css.lineClamp(2)}
   font-size: 16px;
   color: ${theme('thread.articleTitle')};
   text-decoration: none;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
   max-width: 380px;
   word-break: break-all;
 

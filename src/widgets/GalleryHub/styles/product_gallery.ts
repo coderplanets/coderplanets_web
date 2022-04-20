@@ -56,15 +56,10 @@ export const Title = styled.div`
   cursor: pointer;
 `
 export const Desc = styled.div`
+  ${css.lineClamp(2)}
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   margin-top: 15px;
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
   opacity: 0.9;
   cursor: pointer;
 

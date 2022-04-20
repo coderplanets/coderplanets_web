@@ -28,12 +28,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   transition: color 0.1s;
 `
 export const Text = styled.div<{ lineClamp: number }>`
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: ${({ lineClamp }) => lineClamp};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
+  ${({ lineClamp }) => `${css.lineClamp(lineClamp)}`};
   line-height: 1.62;
   letter-spacing: 0.5px;
 `

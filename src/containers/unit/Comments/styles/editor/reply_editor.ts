@@ -28,13 +28,9 @@ export const ReplyToHint = styled.div`
   margin-bottom: 6px;
 `
 export const ReplyToContent = styled.div`
+  ${css.lineClamp(1)}
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 `
 export const ReplyToAuthor = styled.div`
   color: ${theme('thread.articleTitle')};
