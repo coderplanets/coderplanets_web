@@ -8,7 +8,7 @@ export const Wrapper = styled.div<{ noBg: boolean }>`
   background-color: ${({ noBg }) =>
     noBg ? 'transparent' : theme('gtdBadge.featBg')};
   padding: ${({ noBg }) => (noBg ? 0 : '2px 6px')};
-  font-weight: 500;
+  font-weight: 600;
   border-radius: ${({ noBg }) => (noBg ? 0 : '6px')};
   border-radius: 6px;
   font-size: 12px;

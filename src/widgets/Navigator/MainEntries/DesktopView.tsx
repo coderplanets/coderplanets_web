@@ -54,7 +54,7 @@ const DesktopView: FC = () => {
           active={mainPath === ROUTE.HAVE_A_DRINK}
           testid={`header-${ROUTE.HAVE_A_DRINK}`}
         >
-          常见问题
+          帮助台
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
