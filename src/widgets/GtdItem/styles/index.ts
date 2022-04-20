@@ -27,35 +27,21 @@ export const TimeStamp = styled.div`
   color: ${theme('thread.extraInfo')};
 `
 export const Title = styled.div`
+  ${css.lineClamp(1)}
   font-size: 15px;
   color: ${theme('thread.articleTitle')};
   width: 100%;
   font-weight: 500;
 
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
   line-height: 1.62;
   letter-spacing: 0.5px;
 `
 export const Desc = styled.div`
+  ${css.lineClamp(2)}
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   width: calc(100% - 35px);
   margin-top: 8px;
-  /* width: calc(100% - 5px); */
-  /* width: 100%; */
-  /* opacity: 0.9; */
-
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
   line-height: 1.62;
   letter-spacing: 0.5px;
   margin-bottom: 8px;

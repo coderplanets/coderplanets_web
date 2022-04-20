@@ -10,7 +10,7 @@ import { bond } from '@/utils/mobx'
 
 import type { TStore } from './store'
 
-import Sidebar from './Sidebar'
+import FaqList from '@/widgets/FaqList'
 import Category from './Category'
 
 import { Wrapper, MainWrapper, CatsWapper } from './styles'
@@ -80,7 +80,7 @@ const HelpThreadContainer: FC<TProps> = ({
           />
         </CatsWapper>
       </MainWrapper>
-      <Sidebar />
+      <FaqList />
     </Wrapper>
   )
 }

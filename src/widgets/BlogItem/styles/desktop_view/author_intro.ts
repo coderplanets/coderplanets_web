@@ -20,15 +20,11 @@ export const Name = styled.div`
   ${css.cutRest('100px')};
 `
 export const Intro = styled.div`
+  ${css.lineClamp(2)}
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
   line-height: 1.8;
   text-align: right;
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
+
   max-width: 200px;
 `

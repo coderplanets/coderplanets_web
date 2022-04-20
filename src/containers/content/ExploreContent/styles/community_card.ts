@@ -63,12 +63,7 @@ export const Slash = styled.div`
   font-weight: bold;
 `
 export const Raw = styled.div`
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
+  ${css.lineClamp(1)};
 `
 export const JoinWrapper = styled.div`
   ${css.flex('align-center')};
@@ -97,16 +92,11 @@ export const Title = styled.a`
   }
 `
 export const Desc = styled.div`
+  ${css.lineClamp(2)}
   margin-top: 8px;
   color: ${theme('thread.articleDigest')};
   word-break: break-all;
   font-size: 13px;
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 `
 export const ActivitySpark = styled.div`
   width: 80px;

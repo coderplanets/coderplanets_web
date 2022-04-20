@@ -37,16 +37,10 @@ export const ContributorsWrapper = styled.div`
 `
 
 export const Desc = styled.div`
+  ${css.lineClamp(2)}
   color: ${theme('thread.articleDigest')};
   margin-top: -10px;
   opacity: 0.8;
-
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 
   ${Block}:hover & {
     opacity: 1;

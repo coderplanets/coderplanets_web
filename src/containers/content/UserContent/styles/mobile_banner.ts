@@ -24,12 +24,7 @@ export const NickName = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const Bio = styled.div`
+  ${css.lineClamp(2)}
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 `

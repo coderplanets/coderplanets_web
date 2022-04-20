@@ -19,20 +19,20 @@ type TProps = {
   testid?: string
   document: TDocument
   // 超过多行就默认折叠
-  initLineClampNum?: number
+  initLineClamp?: number
   mode?: 'article' | 'comment'
 }
 
 const ArtimentBody: FC<TProps> = ({
   testid = 'article-body',
   document,
-  initLineClampNum = 15,
+  initLineClamp = 15,
   mode = 'article',
 }) => {
   const bodyRef = useRef(null)
   const [fold, setFold] = useState(false)
   const [needFold, setNeedFold] = useState(false)
-  const [lineClampNum, setLineClampNum] = useState(initLineClampNum)
+  const [lineClamp, setLineClamp] = useState(initLineClamp)
 
   useEffect(() => {
     if (bodyRef) {
@@ -52,7 +52,7 @@ const ArtimentBody: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <Body ref={bodyRef} lineClampNum={lineClampNum} mode={mode}>
+      <Body ref={bodyRef} lineClamp={lineClamp} mode={mode}>
         <HTML
           dangerouslySetInnerHTML={{
             __html: document.bodyHtml,
@@ -65,11 +65,11 @@ const ArtimentBody: FC<TProps> = ({
           fold={fold}
           mode={mode}
           onFold={() => {
-            setLineClampNum(initLineClampNum)
+            setLineClamp(initLineClamp)
             setFold(true)
           }}
           onExpand={() => {
-            setLineClampNum(0)
+            setLineClamp(0)
             setFold(false)
           }}
         />

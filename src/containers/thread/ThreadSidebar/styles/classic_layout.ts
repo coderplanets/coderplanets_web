@@ -46,16 +46,11 @@ export const JoinerAvatar = styled(Img)`
   margin-right: 8px;
 `
 export const CommunityNoteWrapper = styled.div`
+  ${css.lineClamp(2)}
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   margin-bottom: 18px;
 
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
   line-height: 1.62;
   letter-spacing: 0.5px;
 `

@@ -67,16 +67,10 @@ export const ThemeTitle = styled.div<TActive>`
   }
 `
 export const ThemeDesc = styled.div<TActive>`
+  ${css.lineClamp(3)}
   font-size: ${({ active }) => (active ? '15px' : '14px')};
   /* color: ${theme('banner.desc')}; */
   color: #7b8f90;
   opacity: ${({ active }) => (active ? '1' : '0.6')};
   cursor: pointer;
-
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 `

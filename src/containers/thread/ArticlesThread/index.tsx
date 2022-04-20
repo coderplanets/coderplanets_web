@@ -5,7 +5,6 @@
  */
 
 import { FC } from 'react'
-import dynamic from 'next/dynamic'
 import { includes } from 'ramda'
 import { isMobile } from 'react-device-detect'
 
@@ -15,6 +14,7 @@ import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import PagedArticles from '@/widgets/PagedArticles'
+import FaqList from '@/widgets/FaqList'
 import ViewportTracker from '@/widgets/ViewportTracker'
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import ArticlesFilter from '@/widgets/ArticlesFilter'
@@ -27,7 +27,14 @@ import {
   MobileCardsMainWrapper,
   FilterWrapper,
 } from './styles'
-import { useInit, inAnchor, outAnchor, onFilterSelect } from './logic'
+import {
+  useInit,
+  inAnchor,
+  outAnchor,
+  onFilterSelect,
+  onSearch,
+  closeSearch,
+} from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticlesThread')
@@ -47,6 +54,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     showFilters,
     c11n,
     resState,
+    mode,
   } = store
   const { bannerLayout } = c11n
   const { pageNumber, totalCount } = pagedArticlesData
@@ -72,16 +80,22 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
               activeFilter={filtersData}
               pageNumber={pageNumber}
               totalCount={totalCount}
+              mode={mode}
+              onSearch={onSearch}
+              closeSearch={closeSearch}
             />
           </FilterWrapper>
         )}
-        <PagedArticles
-          data={pagedArticlesData}
-          curCommunity={curCommunity}
-          thread={curThread}
-          resState={resState as TResState}
-          c11n={c11n}
-        />
+        {mode === 'default' && (
+          <PagedArticles
+            data={pagedArticlesData}
+            curCommunity={curCommunity}
+            thread={curThread}
+            resState={resState as TResState}
+            c11n={c11n}
+          />
+        )}
+        {mode === 'search' && <FaqList mode="search-hint" />}
       </TheMainWrapper>
 
       {!isMobile && bannerLayout === C11N.CLASSIC && <ThreadSidebar />}

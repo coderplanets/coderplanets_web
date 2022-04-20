@@ -18,12 +18,7 @@ export const Wrapper = styled.div`
   border-color: #f8f6f6;
 `
 export const MobileDigest = styled.div`
+  ${css.lineClamp(2)}
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 `

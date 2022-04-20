@@ -90,18 +90,12 @@ export const IntroImg = styled(Img)`
   display: block;
 `
 export const Desc = styled.div<{ level: string }>`
+  ${css.lineClamp(2)}
   color: ${theme('thread.articleDigest')};
   font-size: ${({ level }) => (level === 'gold' ? '14px' : '13px')};
   cursor: pointer;
   height: 45px;
   margin-top: ${({ level }) => (level === 'gold' ? '3px' : '5px')};
-
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 
   ${css.media.mobile`
     padding-right: 20px;

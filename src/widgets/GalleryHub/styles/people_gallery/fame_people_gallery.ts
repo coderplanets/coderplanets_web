@@ -46,18 +46,12 @@ export const Birthday = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const Digest = styled.div`
+  ${css.lineClamp(3)}
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   opacity: 0.9;
   margin-top: 20px;
   cursor: pointer;
-
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 
   ${Block}:hover & {
     color: ${theme('thread.articleTitle')};

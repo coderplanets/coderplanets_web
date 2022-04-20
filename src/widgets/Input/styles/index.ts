@@ -14,7 +14,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   position: relative;
-  width: auto;
+  width: 100%;
 `
 const AddOn = styled.div<TActive>`
   position: absolute;
@@ -55,7 +55,6 @@ export const baseInput = `
   
   background-image: none;
   border: 1px solid;
-  border-radius: 5px;
   transition: all 0.2s;
   -webkit-appearance: none; 
 `
@@ -69,8 +68,9 @@ export const InputWrapper = styled.input<IInput>`
   color: ${theme('thread.articleTitle')};
   padding-left: ${({ hasPrefix }) => (hasPrefix ? '26px' : '8px')};
   padding-right: ${({ hasSuffix }) => (hasSuffix ? '26px' : '8px')};
-  background-color: ${theme('textBadge')}; // to-theme
-  border-color: ${theme('editor.border')};
+  border: none;
+  border-bottom: 1px solid;
+  border-bottom-color: ${theme('editor.border')};
   ::placeholder {
     color: ${theme('thread.articleDigest')};
     opacity: 0.5;

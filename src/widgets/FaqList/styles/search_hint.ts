@@ -9,11 +9,11 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn()};
-  width: 320px;
+  width: 100%;
   min-width: 320px;
   color: ${theme('thread.articleDigest')};
   padding-top: 25px;
-  padding-left: 50px;
+  padding-left: 5px;
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
@@ -29,23 +29,31 @@ export const FAQIcon = styled(FAQSVG)`
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
 `
+export const Body = styled.div`
+  ${css.flex('align-center')};
+  flex-wrap: wrap;
+`
 export const Section = styled.div`
-  ${css.lineClamp(2)}
-  font-size: 15px;
-  color: ${theme('thread.articleTitle')};
-  font-weight: 400;
-  margin-bottom: 14px;
+  width: 48%;
+  ${css.lineClamp(1)}
 
+  margin-bottom: 14px;
+`
+
+export const Item = styled.span`
+  font-size: 14px;
+  color: ${theme('thread.articleDigest')};
   &:hover {
-    font-weight: 500;
     cursor: pointer;
+    color: ${theme('thread.articleTitle')};
   }
+
   transition: all 0.2s;
 `
+
 export const Footer = styled.div`
   ${css.flex('align-center')};
   margin-top: 15px;
-  border-top: 1px solid #eae9e9;
   padding-top: 20px;
   font-size: 12px;
   color: ${theme('thread.articleDigest')};

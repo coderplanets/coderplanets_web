@@ -26,14 +26,8 @@ export const PubDate = styled.div`
   opacity: 0.8;
 `
 export const Digest = styled.div`
+  ${css.lineClamp(3)}
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   margin-top: 7px;
-
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
 `
