@@ -10,10 +10,10 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   letter-spacing: 2px;
-  font-size: 15px;
+  font-size: 14px;
   padding-left: 2px;
 `
 export const EditIcon = styled(EditPenSVG)`
-  ${css.size(16)};
+  ${css.size(14)};
   fill: #fff; // to-theme
 `

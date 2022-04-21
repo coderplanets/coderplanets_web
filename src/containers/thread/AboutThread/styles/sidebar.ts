@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
-  width: 320px;
+  width: 300px;
   height: auto;
   /* background: #f1f3f4; */
   border: 1px solid;

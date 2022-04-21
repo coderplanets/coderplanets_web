@@ -1,6 +1,8 @@
 import { FC, memo } from 'react'
 
 import { Br } from '@/widgets/Common'
+import SocialList from './SocialList'
+
 import {
   Wrapper,
   Block,
@@ -16,7 +18,7 @@ const Sidebar: FC = () => {
     <Wrapper>
       <Block>
         <Title>关注我们</Title>
-        <Desc>Github / Twitter / Weibo / weichat / B站</Desc>
+        <SocialList />
       </Block>
       <Block>
         <Title>媒体报道</Title>

@@ -75,7 +75,11 @@ const ClassicLayout: FC<TProps> = ({
       <StickyWrapper>
         <PublishWrapper show={showCommunityBadge}>
           {community.raw !== 'blackhole' ? (
-            <PublishButton thread={thread} community={community.raw} />
+            <PublishButton
+              thread={thread}
+              community={community.raw}
+              text="反馈 & 建议"
+            />
           ) : (
             <NoteWrapper>
               这里的内容将不会被开放给搜索引擎，只进不出。如果有异议，可联系志愿者移出。
