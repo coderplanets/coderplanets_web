@@ -9,6 +9,7 @@ import { FC } from 'react'
 import { bond } from '@/utils/mobx'
 
 import Members from './Members'
+import BasicStates from './BasicStates'
 
 import type { TStore } from './store'
 import Sidebar from './Sidebar'
@@ -43,8 +44,8 @@ const AboutThreadContainer: FC<TProps> = ({
         </Block>
 
         <Block>
-          <Title>社区基本概况</Title>
-          <Desc>(订阅人数 / 内容数 / 趋势)</Desc>
+          <Title>社区概况</Title>
+          <BasicStates />
         </Block>
 
         <BottomBlock>
