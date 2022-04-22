@@ -5,9 +5,9 @@ import { mockUsers } from '@/utils/mock'
 import {
   Wrapper,
   Block,
+  BottomBlock,
   Header,
   Title,
-  Count,
   Row,
   Admin,
   AdminInfo,
@@ -23,7 +23,6 @@ const Members: FC = () => {
       <Block>
         <Header>
           <Title>团队成员</Title>
-          <Count>23</Count>
         </Header>
 
         <Row>
@@ -39,10 +38,9 @@ const Members: FC = () => {
         </Row>
       </Block>
 
-      <Block>
+      <BottomBlock>
         <Header>
           <Title>参与者</Title>
-          <Count>1839</Count>
         </Header>
         <Row>
           {mockUsers(15).map((user) => (
@@ -52,7 +50,7 @@ const Members: FC = () => {
             <NormalAvatar key={user.id} src={user.avatar} />
           ))}
         </Row>
-      </Block>
+      </BottomBlock>
     </Wrapper>
   )
 }
