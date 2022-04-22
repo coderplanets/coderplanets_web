@@ -27,6 +27,11 @@ export const Block = styled.div`
   margin-bottom: 30px;
   width: 600px;
 `
+export const BottomBlock = styled(Block)`
+  border-top: 1px solid;
+  border-top-color: #eae9e9; // to-theme
+  padding-top: 30px;
+`
 export const Header = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 30px;

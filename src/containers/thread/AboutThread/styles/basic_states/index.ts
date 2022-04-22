@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 import css, { theme } from '@/utils/css'
-import PostSVG from '@/icons/Post'
+import PostSVG from '@/icons/EditPen'
 import CommentSVG from '@/icons/Comment'
 import UserSVG from '@/icons/Users'
 import EmojiSVG from '@/icons/Heart'
@@ -13,9 +13,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flex()};
   width: calc(100% + 38px);
-  /* border: 1px solid; */
   margin-top: 30px;
-  margin-bottom: 16px;
+  margin-bottom: 22px;
 `
 export const Block = styled.div`
   ${css.flexColumn('align-start')};
@@ -49,12 +48,15 @@ export const UsersIcon = styled(UserSVG)`
   fill: #2f71ff;
 `
 export const ContentIcon = styled(PostSVG)`
-  ${css.size(13)};
+  ${css.size(12)};
   fill: #860075;
+  margin-top: 1px;
 `
 export const CommentIcon = styled(CommentSVG)`
   ${css.size(15)};
   fill: #e75908;
+  margin-left: 1px;
+  margin-top: 1px;
 `
 export const EmojiIcon = styled(EmojiSVG)`
   ${css.size(14)};
@@ -68,19 +70,21 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   font-weight: 600;
   font-size: 13px;
+  margin-bottom: 2px;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 10px;
+  opacity: 0.8;
 `
 export const Num = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   margin-top: 5px;
 `
 export const TrendLineWrapper = styled.div`
-  margin-top: 8px;
+  margin-top: 6px;
   margin-left: -5px;
   width: 100%;
 `

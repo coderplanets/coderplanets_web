@@ -56,7 +56,7 @@ const BasicStates: FC = () => {
           <UsersIcon />
         </UsersWrapper>
         <Title>参与者</Title>
-        <Desc>参与反馈的用户总数</Desc>
+        <Desc>参与互动的用户总和</Desc>
         <Num>28</Num>
       </Block>
       <Block>
@@ -64,7 +64,7 @@ const BasicStates: FC = () => {
           <ContentIcon />
         </ContentWrapper>
         <Title>内容</Title>
-        <Desc>所有内容总数</Desc>
+        <Desc>所有板块内容总和</Desc>
         <Num>12k</Num>
       </Block>
       <Block>
@@ -72,7 +72,7 @@ const BasicStates: FC = () => {
           <CommentIcon />
         </CommentsWrapper>
         <Title>评论</Title>
-        <Desc>所有评论总数</Desc>
+        <Desc>所有评论总和</Desc>
         <Num>237</Num>
       </Block>
       <Block>
@@ -80,7 +80,7 @@ const BasicStates: FC = () => {
           <EmojiIcon />
         </EmojisWrapper>
         <Title>表情</Title>
-        <Desc>收到的 Emoji 总数</Desc>
+        <Desc>收到的 Emoji 总和</Desc>
         <Num>374</Num>
       </Block>
     </Wrapper>
