@@ -4,8 +4,8 @@ import type { TTestable } from '@/spec'
 import css, { theme } from '@/utils/css'
 import PostSVG from '@/icons/Post'
 import CommentSVG from '@/icons/Comment'
-import UserSVG from '@/icons/User'
-import EmojiSVG from '@/icons/Emoji'
+import UserSVG from '@/icons/Users'
+import EmojiSVG from '@/icons/Heart'
 import PulseSVG from '@/icons/Pulse'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -39,17 +39,17 @@ export const CommentsWrapper = styled(IconWrapper)`
   background: #f9dfc9;
 `
 export const EmojisWrapper = styled(IconWrapper)`
-  background: #bcede5;
+  background: #ffd5dc;
 `
 export const TrendWrapper = styled(IconWrapper)`
-  background: #dfdfdf;
+  background: #def0ba;
 `
 export const UsersIcon = styled(UserSVG)`
-  ${css.size(12)};
+  ${css.size(14)};
   fill: #2f71ff;
 `
 export const ContentIcon = styled(PostSVG)`
-  ${css.size(14)};
+  ${css.size(13)};
   fill: #860075;
 `
 export const CommentIcon = styled(CommentSVG)`
@@ -58,14 +58,14 @@ export const CommentIcon = styled(CommentSVG)`
 `
 export const EmojiIcon = styled(EmojiSVG)`
   ${css.size(14)};
-  fill: #00a88b;
+  fill: #ff1717;
 `
 export const TrendIcon = styled(PulseSVG)`
   ${css.size(14)};
-  fill: ${theme('thread.articleTitle')};
+  fill: #2a7c43;
 `
 export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
   font-weight: 600;
   font-size: 13px;
 `
