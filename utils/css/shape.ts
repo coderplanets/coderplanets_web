@@ -6,13 +6,17 @@ export const circle = (width: string | number, displayBlock = true): string => {
   return displayBlock
     ? `
     width: ${theWidth};
+    min-width: ${theWidth};
     height: ${theWidth};
+    min-height: ${theWidth};
     border-radius: 100%;
     display: block;
   `
     : `
   width: ${theWidth};
+  min-width: ${theWidth};
   height: ${theWidth};
+  min-height: ${theWidth};
   border-radius: 100%;
 `
 }
