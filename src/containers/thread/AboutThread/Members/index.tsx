@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 
 import { mockUsers } from '@/utils/mock'
+import AdminMember from './AdminMember'
 
 import {
   Wrapper,
@@ -10,12 +11,8 @@ import {
   Title,
   Row,
   Admin,
-  AdminInfo,
-  Name,
-  Bio,
-  AdminAvatar,
   NormalAvatar,
-} from './styles/members'
+} from '../styles/members'
 
 const Members: FC = () => {
   return (
@@ -24,15 +21,10 @@ const Members: FC = () => {
         <Header>
           <Title>团队成员</Title>
         </Header>
-
         <Row>
           {mockUsers(6).map((user) => (
             <Admin key={user.id}>
-              <AdminAvatar src={user.avatar} />
-              <AdminInfo>
-                <Name>{user.nickname}</Name>
-                <Bio>{user.bio}</Bio>
-              </AdminInfo>
+              <AdminMember user={user} />
             </Admin>
           ))}
         </Row>
