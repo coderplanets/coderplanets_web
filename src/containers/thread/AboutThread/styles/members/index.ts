@@ -11,21 +11,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flexColumn()};
   width: 100%;
 `
-export const MainWrapper = styled.div`
-  flex-grow: 1;
-  width: 100%;
-  min-height: 500px;
-
-  background: transparent;
-  border-radius: 6px;
-  margin-top: 12px;
-  padding-left: 25px;
-  padding-right: 80px;
-  margin-right: 65px;
-`
 export const Block = styled.div`
   margin-bottom: 30px;
-  width: 600px;
+  width: 665px;
 `
 export const BottomBlock = styled(Block)`
   border-top: 1px solid;
@@ -57,7 +45,7 @@ export const Row = styled.div`
 `
 export const Admin = styled.div`
   ${css.flex('align-start')};
-  width: 33%;
+  width: 33.3%;
 `
 export const NormalAvatar = styled(AdminAvatar)`
   ${css.circle(30)};
