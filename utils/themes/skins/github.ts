@@ -11,6 +11,8 @@ const contentBoxBg = '#fff'
 const fontColor = primaryColor
 const sidebarBg = '#23292E'
 const markdownFont = '#9eb8bd'
+const border = '#EAE9E9'
+const link = '#0062b0'
 
 const descText = '#666'
 const threadTitle = '#333333'
@@ -39,7 +41,9 @@ const github = {
   },
 
   font: fontColor,
-  link: '#175199',
+  link,
+  border,
+  linkHover: lighten(0.05, link),
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#FFFEDE',
@@ -112,7 +116,7 @@ const github = {
     articleStrip: contentBoxBg,
     articleDigest: descText,
     articleTag: '#71979a',
-    articleLink: descText,
+    articleLink: link,
     articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
     extraInfo: '#8590a6', // descText,
@@ -170,7 +174,7 @@ const github = {
     sideDivider: '#e4e4e4',
   },
   article: {
-    link: '#b5ccce',
+    link,
     linkHover: 'orange',
     reactionTitle: '#7f979a',
     reactionHoverBg: '#f3f7f7',
@@ -264,7 +268,7 @@ const github = {
     blockquoteFg: darken(0.09, markdownFont),
     strongFg: '#7c999c',
     strongBg: contentBoxBg,
-    link: '#c5ba78',
+    link,
     tableBg: darken(0.01, contentBoxBg),
     tableBg2n: darken(0.05, contentBoxBg),
     tableborder: `1px solid ${darken(0.1, contentBoxBg)}`,
@@ -276,7 +280,7 @@ const github = {
     bg: darken(0.05, contentBoxBg),
   },
   shell: {
-    link: descText,
+    link,
     searchInput: descText,
     searchIcon: lighten(0.1, descText),
     barBg: contentBoxBg,

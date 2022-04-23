@@ -18,14 +18,12 @@ export const MainWrapper = styled.div`
   border-radius: 6px;
   margin-top: 12px;
   padding-left: 25px;
-  /* padding-right: 80px; */
-  /* border-right: 1px solid #eae9e9; */
 `
 export const Block = styled.div`
   margin-bottom: 30px;
   padding-bottom: 30px;
   border-bottom: 1px solid;
-  border-bottom-color: #eae9e9; // to-theme
+  border-bottom-color: ${theme('border')};
   width: 600px;
 `
 export const BottomBlock = styled(Block)`

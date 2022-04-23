@@ -16,9 +16,8 @@ export const SpaceGrow = styled.div`
 `
 export const Divider = styled.div<TSpace>`
   border-top: 1px solid;
-  border-top-color: ${theme('thread.articleDigest')};
+  border-top-color: ${theme('border')};
   width: 100%;
-  opacity: 0.3;
   margin-top: ${({ top }) => `${top === undefined ? 20 : top}px`};
   margin-bottom: ${({ bottom }) => `${bottom === undefined ? 20 : bottom}px`};
 `

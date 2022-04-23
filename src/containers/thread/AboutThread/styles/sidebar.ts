@@ -7,17 +7,18 @@ export const Wrapper = styled.div`
   height: auto;
   /* background: #f1f3f4; */
   border: 1px solid;
-  /* border-top: 2px solid; */
-  border-color: #eae9e9;
+  border-color: ${theme('border')};
   border-radius: 5px;
   padding: 20px;
+  padding-top: 24px;
   padding-bottom: 0;
-  margin-top: 12px;
+  margin-top: 18px;
   margin-left: 80px;
 `
 export const Block = styled.div`
   margin-bottom: 20px;
 `
+
 export const Title = styled.div`
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
@@ -26,6 +27,7 @@ export const Title = styled.div`
 `
 export const Desc = styled.div`
   font-size: 14px;
+  font-weight: 400;
   color: ${theme('thread.articleDigest')};
   line-height: 1.6;
 `
@@ -37,9 +39,14 @@ export const ReportsArticle = styled(Desc)`
 `
 export const Press = styled.div`
   /* color: #ec633f; */
+  border: 1px solid;
+  border-color: ${theme('thread.extraInfo')};
   color: ${theme('thread.extraInfo')};
   font-weight: 600;
-  font-size: 13px;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-size: 11px;
+  margin-left: -1px;
   margin-right: 8px;
   cursor: pointer;
 `

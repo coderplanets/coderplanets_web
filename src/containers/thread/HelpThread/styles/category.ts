@@ -49,7 +49,7 @@ export const Item = styled.div<{ color: string }>`
 `
 export const MoreLink = styled.div`
   color: ${theme('link')};
-  font-size: 13px;
+  font-size: 12px;
   margin-top: 5px;
   margin-left: 24px;
 

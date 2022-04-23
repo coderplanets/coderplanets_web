@@ -22,7 +22,6 @@ export const MainWrapper = styled.div`
   padding-left: 25px;
   padding-right: 80px;
   margin-right: 65px;
-  /* border-right: 1px solid #eae9e9; */
 `
 export const Block = styled.div`
   margin-bottom: 30px;
@@ -30,7 +29,7 @@ export const Block = styled.div`
 `
 export const BottomBlock = styled(Block)`
   border-top: 1px solid;
-  border-top-color: #eae9e9; // to-theme
+  border-top-color: ${theme('border')};
   padding-top: 30px;
 `
 export const Header = styled.div`
