@@ -34,9 +34,9 @@ export const EIcon = styled(Img)<TEIcon>`
 `
 export const Name = styled.div<TActive>`
   font-size: 11px;
-  margin-top: 5px;
+  margin-top: 7px;
   color: ${({ $active }) =>
-    $active ? '#12999B' : theme('thread.articleTitle')};
+    $active ? '#12999B' : theme('thread.articleDigest')};
 
   ${Item}:hover & {
     cursor: pointer;

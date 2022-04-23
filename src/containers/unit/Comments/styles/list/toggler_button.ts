@@ -4,7 +4,7 @@ import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   padding-top: 25px;
   padding-bottom: 18px;
   margin-left: 25px;
@@ -19,7 +19,7 @@ export const SlashSign = styled.div`
 export const Text = styled.div`
   font-size: 12px;
   opacity: 0.8;
-  color: ${theme('button.primary')};
+  color: ${theme('thread.extraInfo')};
   margin-left: 14px;
 
   &:hover {

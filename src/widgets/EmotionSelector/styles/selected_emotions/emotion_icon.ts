@@ -9,7 +9,6 @@ export const EIcon = styled(Img)<{ name: string }>`
     name === 'confused' || name === 'popcorn' ? css.size(15) : css.size(14)};
   margin-right: 6px;
 
-  filter: saturate(0.6);
-  opacity: 0.9;
+  filter: saturate(0.8);
 `
 export const holder = 1
