@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 import css, { theme } from '@/utils/css'
-import Img from '@/Img'
+
+import { Avatar as AdminAvatar } from './admin_member'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -59,22 +60,8 @@ export const Admin = styled.div`
   ${css.flex('align-start')};
   width: 33%;
 `
-export const AdminInfo = styled.div``
-export const Name = styled.div`
-  color: ${theme('thread.articleTitle')};
-  font-size: 14px;
-`
-export const Bio = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 12px;
-  ${css.cutRest('100px')};
-`
-export const AdminAvatar = styled(Img)`
-  ${css.circle(46)};
-  margin-right: 10px;
-  margin-bottom: 20px;
-`
 export const NormalAvatar = styled(AdminAvatar)`
   ${css.circle(30)};
   margin-bottom: 10px;
+  border: none;
 `
