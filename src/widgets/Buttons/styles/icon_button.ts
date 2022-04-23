@@ -52,7 +52,7 @@ export const Icon = styled(Img)<TIcon>`
   opacity: ${({ $dimWhenIdle }) => ($dimWhenIdle ? 0.7 : 1)};
 
   &:hover {
-    fill: #00a59b;
+    fill: ${theme('thread.extraInfo')};
     opacity: 1;
     cursor: pointer;
   }
@@ -122,12 +122,12 @@ export const getStyledIcon = (comp: FC): FC<TIcon> => {
     opacity: ${({ $dimWhenIdle }) => ($dimWhenIdle ? 0.7 : 1)};
 
     &:hover {
-      fill: #00a59b;
+      fill: ${theme('thread.extraInfo')};
       opacity: 1;
       cursor: pointer;
     }
 
-    transition: fill 0.2s;
+    transition: all 0.2s;
   `
 }
 

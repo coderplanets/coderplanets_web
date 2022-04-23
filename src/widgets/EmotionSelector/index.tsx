@@ -40,7 +40,12 @@ const EmotionSelector: FC<TProps> = ({
           trigger="click"
           noPadding
         >
-          <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
+          <IconButton
+            path="emotion/emotion.svg"
+            mRight={0}
+            mTop={1}
+            dimWhenIdle
+          />
         </Tooltip>
       )}
     </Wrapper>

@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components'
 
 import type { TSpace, TSIZE_TSM } from '@/spec'
 import { getRandomInt } from '@/utils/helper'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import { getLavaLampScale } from './metric'
 
@@ -49,8 +49,8 @@ const speedMap = {
 }
 
 export const Circle = styled.span<{ index: number }>`
-  ${css.circle(4)};
-  background-color: #0080a9;
+  ${css.circle(3)};
+  background-color: ${theme('thread.extraInfo')};
   animation: ${move} 1s linear 0ms infinite;
   /* animation-duration: ${() =>
     `${speed[getRandomInt(0, speed.length - 1)]}s`}; */

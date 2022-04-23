@@ -13,5 +13,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   padding-right: 0;
   border-radius: 8px;
   margin-left: -4px;
+  margin-top: -2px;
 `
 export const holder = 1

@@ -199,7 +199,7 @@ const github = {
     mentionShadow: '0px 2px 10px 1px rgba(235, 235, 235, 1)',
 
     indentLine: '#d5d5d5',
-    indentActive: descText,
+    indentActive: '#8590a6',
   },
   editor: {
     title: '#7ea9ad',
