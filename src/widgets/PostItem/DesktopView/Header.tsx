@@ -4,15 +4,12 @@ import dynamic from 'next/dynamic'
 
 import type { TPost } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
-import { parseDomain } from '@/utils/route'
 
 import AvatarsRow from '@/widgets/AvatarsRow'
 // import TagsList from '@/widgets/TagsList'
 
 import {
   Wrapper,
-  TitleLink,
-  LinkIcon,
   Brief,
   Title,
   Participants,
@@ -39,12 +36,12 @@ const Header: FC<TProps> = ({ item }) => {
     <Wrapper>
       <Brief>
         <Title onClick={gotoArticle}>{item.title}</Title>
-        {item.linkAddr && (
+        {/* {item.linkAddr && (
           <TitleLink>
             <LinkIcon />
             <span style={{ marginLeft: 9 }}>{parseDomain(item.linkAddr)}</span>
           </TitleLink>
-        )}
+        )} */}
 
         {/*  @ts-ignore */}
         <TagsList items={item.articleTags} mLeft={12} />

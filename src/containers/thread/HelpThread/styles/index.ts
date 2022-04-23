@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -21,7 +21,8 @@ export const MainWrapper = styled.div`
   padding-left: 25px;
   padding-right: 80px;
 
-  border-right: 1px solid #eae9e9;
+  border-right: 1px solid;
+  border-right-color: ${theme('border')};
 `
 export const CatsWapper = styled.div`
   ${css.flex()};

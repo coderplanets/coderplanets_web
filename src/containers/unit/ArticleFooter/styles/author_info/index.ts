@@ -10,7 +10,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('justify-between')};
   border-top: 1px solid;
   border-bottom: 3px solid;
-  border-color: #ebebeb; // to-theme
+  border-color: ${theme('border')};
   padding: 26px 5px;
   padding-bottom: 32px;
 
