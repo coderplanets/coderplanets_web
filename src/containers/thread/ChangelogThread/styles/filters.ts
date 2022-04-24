@@ -21,18 +21,27 @@ export const SearchInput = styled(Input)`
   font-size: 13px;
   text-align: center;
   border-radius: 15px;
+  border: 1px solid;
+  border-color: ${theme('border')};
 
   ::placeholder {
-    color: ${theme('form.text')};
-    opacity: 0.6;
+    color: ${theme('thread.articleDigest')};
+    opacity: 0.8;
   }
 `
 export const NewButton = styled(Button)`
   width: 180px;
   border-radius: 12px;
 `
+export const PublishButton = styled(Button)`
+  width: 180px;
+  border-radius: 12px;
+  background: #f5f5f5;
+  color: ${theme('thread.articleTitle')};
+  border-color: ${theme('border')};
+`
 export const BtnText = styled.div`
   margin-left: 4px;
-  font-size: 15px;
+  font-size: 13px;
   margin-top: 2px;
 `
