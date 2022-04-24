@@ -7,8 +7,10 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import TagsList from '@/widgets/TagsList'
 import { TAG_MODE } from '@/constant'
+
+import TagsList from '@/widgets/TagsList'
+import EmotionSelector from '@/widgets/EmotionSelector'
 
 import {
   Wrapper,
@@ -17,6 +19,7 @@ import {
   Title,
   TagsWrapper,
   Body,
+  Footer,
   Version,
   DateTime,
   // Download,
@@ -42,6 +45,44 @@ const ChangelogItem: FC<TProps> = ({ testid = 'changelog-item' }) => {
       color: 'blue',
     },
   ]
+
+  const emotion = {
+    beerCount: 2,
+    confusedCount: 0,
+    downvoteCount: 0,
+    heartCount: 0,
+    latestBeerUsers: [
+      {
+        login: 'porter172',
+        nickname: 'Immanuel172',
+        bio: null,
+        shortbio: null,
+        avatar: null,
+      },
+      {
+        login: 'cp_bot',
+        nickname: 'botman',
+        bio: null,
+        shortbio: null,
+        avatar: null,
+      },
+    ],
+    latestConfusedUsers: [],
+    latestDownvoteUsers: [],
+    latestHeartUsers: [],
+    latestPillUsers: [],
+    length: 2,
+    latestPopcornUsers: [],
+    pillCount: 0,
+    popcornCount: 0,
+    viewerHasBeered: false,
+    viewerHasConfuseded: false,
+    viewerHasDownvoteed: false,
+    viewerHasHearted: false,
+    viewerHasPilled: false,
+    viewerHasPopcorned: false,
+  }
+
   return (
     <Wrapper testid={testid}>
       <Main>
@@ -58,8 +99,11 @@ const ChangelogItem: FC<TProps> = ({ testid = 'changelog-item' }) => {
         <Body>
           这次俄乌冲突出现侮辱乌女性的评论就是1450干的，刷完评论就截图转发外网，成为外媒攻击中国人的“口实”。
           这种行为十分危险，战争期间各种武装组织骚动，随时对我国在乌克兰撤侨的6000人直接造成生命威胁。前段时间，刘学州那个找爸妈的孩子，也是被1450它们网暴死的。
-          （1450罪恶滔天啊！1450是九世恶人下凡！连孩子都不放过。）
+          （1450罪恶滔天啊！1450是九世恶人下凡！连孩子都不放过。
         </Body>
+        <Footer>
+          <EmotionSelector emotions={emotion} isLegal />
+        </Footer>
       </Main>
       <Side>
         <Version>v3.20</Version>

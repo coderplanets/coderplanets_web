@@ -45,7 +45,8 @@ export const Section = styled.div`
 export const Footer = styled.div`
   ${css.flex('align-center')};
   margin-top: 15px;
-  border-top: 1px solid #eae9e9;
+  border-top: 1px solid;
+  border-top-color: ${theme('border')};
   padding-top: 20px;
   font-size: 12px;
   color: ${theme('thread.articleDigest')};
