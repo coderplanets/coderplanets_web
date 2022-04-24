@@ -6,11 +6,12 @@ type TProps = {
   color: string
   title: string
   desc: string
+  column?: number
 }
 
-const Category: FC<TProps> = ({ color, title, desc }) => {
+const Category: FC<TProps> = ({ color, title, desc, column = 2 }) => {
   return (
-    <Wrapper color={color}>
+    <Wrapper color={color} column={column}>
       <Header>
         <Icon />
         <Title color={color}>{title}</Title>

@@ -5,13 +5,13 @@ import css, { theme } from '@/utils/css'
 
 import LaptopSVG from '@/icons/Laptop'
 
-type TWrapper = TTestable | { color?: string }
+type TWrapper = TTestable & { color?: string; column: number }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
   ${css.flexColumn()};
   background: transparent;
-  width: 50%;
+  width: ${({ column }) => (column === 2 ? '50%' : '33%')};
   min-height: 80px;
   padding: 15px 20px;
   padding-left: 0;

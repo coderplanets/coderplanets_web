@@ -10,6 +10,8 @@ import { buildLog } from '@/utils/logger'
 
 import Sidebar from './Sidebar'
 import SearchHint from './SearchHint'
+import Collapse from './Collapse'
+
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
@@ -60,6 +62,7 @@ const FaqList: FC<TProps> = ({
     <Wrapper testid={testid}>
       {mode === 'sidebar' && <Sidebar articles={articles} />}
       {mode === 'search-hint' && <SearchHint articles={articles} />}
+      {mode === 'collapse' && <Collapse articles={articles} />}
     </Wrapper>
   )
 }
