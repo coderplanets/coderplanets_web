@@ -11,12 +11,12 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 `
 export const MainWrapper = styled.div`
   width: auto;
-  min-height: 500px;
+  min-height: 550px;
   flex-grow: 1;
 
   background: transparent;
   border-radius: 6px;
-  margin-top: 12px;
+  margin-top: 14px;
   padding-left: 25px;
 `
 export const Block = styled.div`
@@ -24,12 +24,17 @@ export const Block = styled.div`
   padding-bottom: 30px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('border')};
-  width: 600px;
+  width: 660px;
 `
-export const BottomBlock = styled(Block)`
+export const IntroBlock = styled(Block)`
+  padding-right: 20px;
+`
+export const StateBlock = styled(Block)`
+  padding-right: 10px;
+`
+export const MemberBlock = styled(Block)`
   border-bottom: none;
 `
-
 export const Title = styled.div`
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
@@ -39,5 +44,5 @@ export const Title = styled.div`
 export const Desc = styled.div`
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
-  line-height: 1.6;
+  line-height: 1.8;
 `

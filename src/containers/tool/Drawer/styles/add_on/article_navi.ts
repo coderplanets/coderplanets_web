@@ -48,7 +48,11 @@ export const LeftArrow = styled(ArrowSVG)`
   fill: ${theme('thread.extraInfo')};
 `
 export const RightSwitchBlock = styled(SwitchBlock)`
-  left: 54vw;
+  left: 785px;
+
+  ${css.media.laptopL`
+    left: 55vw;
+  `};
 `
 export const RightArrow = styled(LeftArrow)`
   transform: rotate(180deg);
