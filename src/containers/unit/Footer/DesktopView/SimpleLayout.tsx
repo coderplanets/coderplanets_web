@@ -11,7 +11,7 @@ const SimpleLayout: FC = () => {
         <Link href="https://groupher.com" passHref>
           <Addr>Groupher</Addr>
         </Link>{' '}
-        提供支持
+        提供服务
       </Note>
     </Wrapper>
   )

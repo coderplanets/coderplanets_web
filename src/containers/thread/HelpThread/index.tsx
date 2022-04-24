@@ -10,10 +10,11 @@ import { bond } from '@/utils/mobx'
 
 import type { TStore } from './store'
 
-import FaqList from '@/widgets/FaqList'
-import Category from './Category'
+import HelpCenterLayout from './HelpCenterLayout'
+import FullLayout from './FullLayout'
+import FaqLayout from './FaqLayout'
 
-import { Wrapper, MainWrapper, CatsWapper } from './styles'
+import { Wrapper } from './styles'
 import { useInit } from './logic' /* eslint-disable-next-line */
 
 // const log = buildLog('C:HelpThread')
@@ -32,55 +33,13 @@ const HelpThreadContainer: FC<TProps> = ({
   desc = 'desc',
 }) => {
   useInit(store)
+  const { mode } = store
 
   return (
     <Wrapper testid={testid}>
-      <MainWrapper>
-        <CatsWapper>
-          <Category color="orange" title="Get Started" desc="Get Started" />
-          <Category
-            color="red"
-            title="CI/CD and DevOps"
-            desc="CI/CD and DevOps"
-          />
-          <Category
-            color="blue"
-            title="Collaborative Coding"
-            desc="Collaborative Coding"
-          />
-          <Category
-            color="green"
-            title="Developers"
-            desc="Collaborative Coding"
-          />
-          <Category
-            color="purple"
-            title="Enterprise and Teams"
-            desc="Enterprise and Teams"
-          />
-          <Category
-            color="red"
-            title="CI/CD and DevOps"
-            desc="CI/CD and DevOps"
-          />
-          <Category
-            color="blue"
-            title="Collaborative Coding"
-            desc="Collaborative Coding"
-          />
-          <Category
-            color="green"
-            title="Developers"
-            desc="Collaborative Coding"
-          />
-          <Category
-            color="purple"
-            title="Enterprise and Teams"
-            desc="Enterprise and Teams"
-          />
-        </CatsWapper>
-      </MainWrapper>
-      <FaqList />
+      {mode === 'full' && <FullLayout />}
+      {mode === 'faq' && <FaqLayout />}
+      {mode === 'helpcenter' && <HelpCenterLayout />}
     </Wrapper>
   )
 }

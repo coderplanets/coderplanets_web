@@ -25,7 +25,7 @@ const Sidebar: FC<TProps> = ({ articles }) => {
         <Section key={item.title}>{item.title}</Section>
       ))}
       <Footer>
-        <div>如果还有疑问，请</div>
+        <div>如有其他疑问，请</div>
         <MoreLink>告诉我们</MoreLink>。
       </Footer>
     </Wrapper>

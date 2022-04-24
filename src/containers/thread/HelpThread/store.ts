@@ -12,7 +12,9 @@ import { markStates, toJS } from '@/utils/mobx'
 /* eslint-disable-next-line */
 const log = buildLog('S:HelpThread')
 
-const HelpThread = T.model('HelpThread', {})
+const HelpThread = T.model('HelpThread', {
+  mode: T.optional(T.enumeration(['full', 'helpcenter', 'faq']), 'full'),
+})
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
