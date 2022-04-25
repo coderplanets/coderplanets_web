@@ -11,6 +11,7 @@ import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import ClassicLayout from './ClassicLayout'
+import SimpleLayout from './SimpleLayout'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
@@ -39,14 +40,22 @@ const CommunityDigestContainer: FC<TProps> = ({
   } = store
 
   return (
-    <ClassicLayout
+    <SimpleLayout
       metric={metric}
-      realtimeVisitors={realtimeVisitors}
       community={curCommunity}
       activeThread={curThread}
       layout={bannerLayout}
     />
   )
+  // return (
+  //   <ClassicLayout
+  //     metric={metric}
+  //     realtimeVisitors={realtimeVisitors}
+  //     community={curCommunity}
+  //     activeThread={curThread}
+  //     layout={bannerLayout}
+  //   />
+  // )
 }
 
 export default bond(CommunityDigestContainer, 'communityDigest') as FC<TProps>

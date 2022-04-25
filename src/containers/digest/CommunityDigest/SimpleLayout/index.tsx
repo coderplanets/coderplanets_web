@@ -1,13 +1,9 @@
 import { FC, memo } from 'react'
-import { isMobile } from 'react-device-detect'
 
 import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
-import { EVENT } from '@/constant'
-import { send } from '@/utils/helper'
-
-import TabBar from '@/widgets/TabBar'
 import ViewportTracker from '@/widgets/ViewportTracker'
 
+import ThreadTab from './ThreadTab'
 import CommunityBrief from './CommunityBrief'
 import AccountUnit from './AccountUnit'
 
@@ -16,8 +12,7 @@ import {
   InnerWrapper,
   BannerContentWrapper,
   CommunityBaseInfo,
-  TabBarWrapper,
-} from '../styles/classic_layout'
+} from '../styles/simple_layout'
 
 import { setViewport } from '../logic'
 
@@ -31,29 +26,21 @@ type TProps = {
   metric: TMetric
 }
 
-const ClassicLayout: FC<TProps> = ({
+const SimpleLayout: FC<TProps> = ({
   community,
   activeThread,
   layout,
   metric,
 }) => {
   return (
-    <Wrapper testid="community-digest" isMobile={isMobile}>
-      <InnerWrapper metric={metric} isMobile={isMobile}>
+    <Wrapper testid="community-digest">
+      <InnerWrapper metric={metric}>
         <BannerContentWrapper>
           <CommunityBaseInfo>
             <CommunityBrief community={community} />
+            <ThreadTab />
             <AccountUnit />
           </CommunityBaseInfo>
-          <TabBarWrapper>
-            <TabBar
-              source={community.threads}
-              onChange={(data) => send(EVENT.COMMUNITY_THREAD_CHANGE, { data })}
-              active={activeThread}
-              layout={layout}
-              communityRaw={community.raw}
-            />
-          </TabBarWrapper>
         </BannerContentWrapper>
       </InnerWrapper>
       <ViewportTracker
@@ -64,4 +51,4 @@ const ClassicLayout: FC<TProps> = ({
   )
 }
 
-export default memo(ClassicLayout)
+export default memo(SimpleLayout)
