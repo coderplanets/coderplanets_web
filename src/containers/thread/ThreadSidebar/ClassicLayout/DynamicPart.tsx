@@ -16,7 +16,7 @@ import { mockUsers } from '@/utils/mock'
 import { EVENT } from '@/constant'
 
 import Sticky from '@/widgets/Sticky'
-import { SpaceGrow } from '@/widgets/Common'
+import { SpaceGrow, Br } from '@/widgets/Common'
 // import FiltersMenu from '@/widgets/FiltersMenu'
 import PublishButton from '@/widgets/Buttons/PublishButton'
 import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
@@ -27,7 +27,7 @@ import {
   NoteWrapper,
   TagsBarWrapper,
   StickyWrapper,
-  CommunityJoinersTitle,
+  DividerTitle,
   CommunityJoinersNum,
   CommunityJoinersWrapper,
   JoinerAvatar,
@@ -53,10 +53,24 @@ const ClassicLayout: FC<TProps> = ({
     <Sticky offsetTop={50}>
       <Fragment>
         {showCommunityBadge && (
-          <CommunityJoinersTitle>
-            参与者
-            <CommunityJoinersNum>3829</CommunityJoinersNum>
-          </CommunityJoinersTitle>
+          <Fragment>
+            <DividerTitle>简介</DividerTitle>
+            <Br top={10} />
+            <CommunityNoteWrapper>
+              关于 CoderPlanets 的各种建议，吐槽等请发布到这里 关于 CoderPlanets
+              的各种建议，吐槽等请发布到这里
+            </CommunityNoteWrapper>
+          </Fragment>
+        )}
+
+        {showCommunityBadge && (
+          <Fragment>
+            <DividerTitle>
+              参与者
+              <CommunityJoinersNum>329</CommunityJoinersNum>
+            </DividerTitle>
+            <Br top={14} />
+          </Fragment>
         )}
 
         <CommunityJoinersWrapper show={showCommunityBadge}>
@@ -64,12 +78,6 @@ const ClassicLayout: FC<TProps> = ({
             <JoinerAvatar key={user.id} src={user.avatar} noLazy />
           ))}
         </CommunityJoinersWrapper>
-        {showCommunityBadge && (
-          <CommunityNoteWrapper>
-            关于 CoderPlanets 的各种建议，吐槽等请发布到这里 关于 CoderPlanets
-            的各种建议，吐槽等请发布到这里
-          </CommunityNoteWrapper>
-        )}
       </Fragment>
 
       <StickyWrapper>
@@ -78,7 +86,7 @@ const ClassicLayout: FC<TProps> = ({
             <PublishButton
               thread={thread}
               community={community.raw}
-              text="反馈 & 建议"
+              text="反馈/建议/问题"
             />
           ) : (
             <NoteWrapper>
