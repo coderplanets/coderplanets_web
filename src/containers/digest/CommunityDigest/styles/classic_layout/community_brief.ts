@@ -5,9 +5,8 @@ import Img from '@/Img'
 
 import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
-export const Wrapper = styled.div<{ descExpand: boolean }>`
+export const Wrapper = styled.div`
   ${css.flexGrow('align-center')};
-  align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
   transition: all 0.5s;
 `
 export const LogoWrapper = styled.div`
@@ -36,15 +35,14 @@ export const CommunityInfo = styled.div`
   margin-left: 14px;
 
   ${css.media.mobile`
-    margin-left: ${({ descExpand }) => (descExpand ? '12px' : '3px')};
+    margin-left: 3px;
   `};
 `
 export const TitleWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const Title = styled.div<{ descExpand: boolean }>`
+export const Title = styled.div`
   ${css.flex('align-center')};
-  /* font-size: ${({ descExpand }) => (descExpand ? '18px' : '18px')}; */
   color: ${theme('thread.articleTitle')};
   margin-right: 10px;
   font-size: 18px;

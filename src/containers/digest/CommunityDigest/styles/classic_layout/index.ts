@@ -6,30 +6,26 @@ import { pixelAdd } from '@/utils/dom'
 
 import { BaseBanner } from '../index'
 
-const getMinHeight = (noSocial, isMobile) => {
+const getMinHeight = (isMobile) => {
   if (isMobile) {
-    return noSocial ? '116px' : '140px'
+    return '140px'
   }
 
-  return noSocial ? '116px' : '150px'
+  return '116px'
 }
 
 type TWrapper = {
-  descExpand: boolean
-  noSocial: boolean
   isMobile: boolean
   metric?: TMetric
 }
 export const Wrapper = styled(BaseBanner)<TWrapper>`
   width: 100%;
-  min-height: ${({ descExpand, noSocial, isMobile }) =>
-    descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
+  min-height: ${({ isMobile }) => getMinHeight(isMobile)};
 `
 export const InnerWrapper = styled.div<TWrapper>`
   ${css.flex('justify-center')};
   padding-top: 10px;
-  min-height: ${({ descExpand, noSocial, isMobile }) =>
-    descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
+  min-height: ${({ isMobile }) => getMinHeight(isMobile)};
   width: 100%;
   // if use margin-left will cause horizontal scrollbar
   // 70 是经典布局为缩小帖子列表"视觉宽度"手动缩小的值
@@ -51,10 +47,9 @@ export const BaseBannerContent = styled.div`
     padding-right: 5.5%;
   `};
 `
-type TBannerContent = { descExpand: boolean }
-export const BannerContentWrapper = styled(BaseBannerContent)<TBannerContent>`
+export const BannerContentWrapper = styled(BaseBannerContent)`
   ${css.flexColumn('justify-between')};
-  align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
+  align-items: 'center';
 `
 export const BannerContainer = styled(BaseBanner)`
   /* min-height: 125px; */

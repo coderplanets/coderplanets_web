@@ -13,7 +13,7 @@ import { useState, useEffect, useCallback } from 'react'
  *   alert("langPress works")
  * }, 500);
  *
- * <Title descExpand={descExpand} {...longPress}>
+ * <Title  {...longPress}>
  *   ...
  * </Title>
  *

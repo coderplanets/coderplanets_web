@@ -3,9 +3,6 @@ import styled from 'styled-components'
 // import Img from '@/Img'
 import css, { theme } from '@/utils/css'
 
-/* ${css.flex('align-center')}; */
-/* align-items: ${({ descExpand }) =>
-    descExpand ? 'flex-start' : 'center'}; */
 export const Wrapper = styled.div``
 export const Normal = styled.div<{ margin?: boolean }>`
   ${css.flex('align-center')};

@@ -36,7 +36,6 @@ const CommunityDigestContainer: FC<TProps> = ({
     realtimeVisitors,
     curThread,
     curCommunity,
-    descExpand,
   } = store
 
   return (
@@ -46,7 +45,6 @@ const CommunityDigestContainer: FC<TProps> = ({
       community={curCommunity}
       activeThread={curThread}
       layout={bannerLayout}
-      descExpand={descExpand}
     />
   )
 }

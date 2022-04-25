@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   letter-spacing: 2px;
-  font-size: 13px;
+  font-size: 12px;
   padding-left: 2px;
 `
 export const EditIcon = styled(EditPenSVG)`

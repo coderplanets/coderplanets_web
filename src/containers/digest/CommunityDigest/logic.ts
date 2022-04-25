@@ -53,12 +53,6 @@ export const onShowSubscriberList = (): void => {
   listUsers(TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS)
 }
 
-export const toggleDescExpand = (): void => {
-  const { descExpand } = store
-
-  store.mark({ descExpand: !descExpand })
-}
-
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 /**

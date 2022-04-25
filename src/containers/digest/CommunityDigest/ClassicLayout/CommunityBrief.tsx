@@ -5,9 +5,6 @@ import type { TCommunity } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { HCN, NON_FILL_COMMUNITY } from '@/constant'
 
-// import ExpandTexts from '../ExpandTexts'
-// import SocialList from '../SocialList'
-
 import CommunityJoinSign from '@/widgets/CommunityJoinSign'
 
 import {
@@ -26,12 +23,11 @@ const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
 type TProps = {
   community: TCommunity
-  descExpand: boolean
 }
 
-const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
+const CommunityBrief: FC<TProps> = ({ community }) => {
   return (
-    <Wrapper descExpand={descExpand}>
+    <Wrapper>
       <LogoWrapper>
         {community.logo ? (
           <Logo
@@ -45,7 +41,7 @@ const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
       </LogoWrapper>
       <CommunityInfo>
         <TitleWrapper>
-          <Title descExpand={descExpand}>
+          <Title>
             <TitleText>{community.title}</TitleText>
             {community.raw !== HCN && (
               <CommunityJoinSign
@@ -56,9 +52,6 @@ const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
             )}
           </Title>
         </TitleWrapper>
-        {/* <Desc>{community.desc}</Desc> */}
-        {/* <ExpandTexts descExpand={descExpand} desc={community.desc} /> */}
-        {/* {community.raw !== HCN && <SocialList />} */}
       </CommunityInfo>
     </Wrapper>
   )

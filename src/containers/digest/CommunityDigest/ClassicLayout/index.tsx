@@ -28,7 +28,6 @@ import { setViewport } from '../logic'
 type TProps = {
   community: TCommunity
   realtimeVisitors: number
-  descExpand: boolean
   activeThread: TThread
   layout: TC11NLayout
   metric: TMetric
@@ -37,29 +36,16 @@ type TProps = {
 const ClassicLayout: FC<TProps> = ({
   community,
   realtimeVisitors,
-  descExpand,
   activeThread,
   layout,
   metric,
 }) => {
   return (
-    <Wrapper
-      testid="community-digest"
-      descExpand={descExpand}
-      // noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
-      noSocial
-      isMobile={isMobile}
-    >
-      <InnerWrapper
-        metric={metric}
-        descExpand={descExpand}
-        // noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
-        noSocial
-        isMobile={isMobile}
-      >
-        <BannerContentWrapper descExpand={descExpand}>
+    <Wrapper testid="community-digest" isMobile={isMobile}>
+      <InnerWrapper metric={metric} isMobile={isMobile}>
+        <BannerContentWrapper>
           <CommunityBaseInfo>
-            <CommunityBrief community={community} descExpand={descExpand} />
+            <CommunityBrief community={community} />
             <AccountUnit />
             {/* <CommunityStatesPad
               community={community}

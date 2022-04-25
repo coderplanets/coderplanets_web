@@ -12,9 +12,7 @@ import { buildLog } from '@/utils/logger'
 /* eslint-disable-next-line */
 const log = buildLog('S:ThreadSidebar')
 
-const ThreadSidebar = T.model('ThreadSidebar', {
-  descExpand: T.optional(T.boolean, false),
-})
+const ThreadSidebar = T.model('ThreadSidebar', {})
   .views((self) => ({
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
