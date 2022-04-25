@@ -8,7 +8,7 @@ export const Wrapper = styled.div<TActive>`
   cursor: pointer;
   margin-right: 14px;
   margin-right: 5px;
-  padding: 0 5px;
+  padding: 2px 5px;
   border-radius: 5px;
   margin-left: -1px;
   background: ${({ $active }) => ($active ? '#00333D' : 'transparent')};
@@ -19,8 +19,7 @@ export const Wrapper = styled.div<TActive>`
 `
 
 export const Count = styled.div`
-  opacity: 0.8;
-
+  color: ${theme('thread.extraInfo')};
   ${Wrapper}:hover & {
     color: #00a59b;
   }

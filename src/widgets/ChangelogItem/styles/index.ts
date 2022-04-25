@@ -11,11 +11,11 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('align-start')};
   padding-top: 12px;
   border-bottom: 1px solid;
-  border-bottom-color: #eae9e9; // to-theme
-  margin-bottom: 40px;
+  border-bottom-color: ${theme('border')};
+  margin-bottom: 30px;
 `
 export const Main = styled.div`
-  width: 600px;
+  width: 580px;
   min-height: 220px;
   padding-bottom: 30px;
 `
@@ -33,6 +33,10 @@ export const Body = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 15px;
   line-height: 1.85;
+`
+export const Footer = styled.div`
+  margin-top: 20px;
+  margin-left: -5px;
 `
 export const Side = styled.div`
   ${css.flexColumn('align-end')};

@@ -22,8 +22,7 @@ export const EIcon = styled(Img)<TEIcon>`
   margin-bottom: ${({ name }) => (name === 'heart' ? '1px' : 0)};
   ${({ name }) => (name === 'confused' ? css.size(21) : css.size(20))};
 
-  filter: ${({ $active }) => ($active ? 'saturate(1)' : 'saturate(0.6)')};
-  opacity: ${({ $active }) => ($active ? 1 : 0.9)};
+  filter: ${({ $active }) => ($active ? 'saturate(1)' : 'saturate(0.8)')};
   z-index: 1;
 
   ${Item}:hover & {
@@ -36,10 +35,10 @@ export const Name = styled.div<TActive>`
   font-size: 11px;
   margin-top: 7px;
   color: ${({ $active }) =>
-    $active ? '#12999B' : theme('thread.articleDigest')};
+    $active ? theme('thread.extraInfo') : theme('thread.articleDigest')};
 
   ${Item}:hover & {
     cursor: pointer;
-    color: #12999b;
+    color: ${theme('thread.extraInfo')};
   }
 `

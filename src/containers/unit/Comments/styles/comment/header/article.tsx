@@ -14,7 +14,7 @@ export const Avatar = styled(Img)<{ avatarSize: number }>`
   `}
 `
 export const UserBase = styled.div`
-  ${css.flex('align-end')};
+  ${css.flex('align-center')};
   font-size: 15px;
   flex-grow: 1;
 `
@@ -30,12 +30,14 @@ export const Nickname = styled.div`
 export const AuthorTag = styled.div`
   font-size: 11px;
   margin-bottom: 2px;
-  padding: 0 8px;
-  padding-top: 2px;
+  padding: 1px 8px;
+  /* padding-top: 2px; */
   margin-left: 10px;
-  background-color: rgba(0, 179, 126, 0.1); // to-theme
-  color: #056d4e; // to-theme
-  border-radius: 5px;
+  background-color: #e2f2f5;
+  color: #3c4057;
+  border-radius: 4px;
+  font-weight: 500;
+  font-family: 'Audiowide';
 
   ${css.media.mobile`
     margin-left: 5px;
@@ -76,5 +78,4 @@ export const CreateDate = styled.div`
   color: ${theme('comment.floor')};
   font-size: 12px;
   margin-left: 2px;
-  opacity: 0.8;
 `

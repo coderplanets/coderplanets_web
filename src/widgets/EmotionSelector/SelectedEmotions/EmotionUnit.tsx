@@ -43,7 +43,7 @@ const EmotionUnit: FC<TProps> = ({ item, onAction }) => {
       >
         <EmotionIcon name={name} />
         <Count>
-          <AnimatedCount count={count} size="tiny" active={hasEmotioned} />
+          <AnimatedCount count={count} size="small" active={hasEmotioned} />
         </Count>
       </Wrapper>
     </Tooltip>

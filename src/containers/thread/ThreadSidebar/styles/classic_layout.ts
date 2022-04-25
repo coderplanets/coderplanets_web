@@ -16,12 +16,10 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const StickyWrapper = styled.div`
   ${css.flexColumn()};
 `
-export const CommunityJoinersTitle = styled.div`
+export const DividerTitle = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 14px;
-  margin-top: -2px;
-  margin-bottom: 16px;
   font-weight: 600;
 `
 export const CommunityJoinersNum = styled.div`
@@ -36,13 +34,13 @@ export const CommunityJoinersNum = styled.div`
 `
 export const CommunityJoinersWrapper = styled.div<TActive>`
   ${css.flex()};
-  flex-wrap: wrap;
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
   margin-bottom: ${({ show }) => (show ? '15px' : 0)};
   height: ${({ show }) => (show ? 'auto' : 0)};
+  margin-bottom: 25px;
 `
 export const JoinerAvatar = styled(Img)`
-  ${css.circle(30)};
+  ${css.circle(28)};
   margin-right: 8px;
 `
 export const CommunityNoteWrapper = styled.div`

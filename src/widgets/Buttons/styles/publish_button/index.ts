@@ -18,6 +18,6 @@ export const PubButton = styled(Button)`
   font-weight: 600;
   background: #3b434a; // to-theme
   color: #fff; // to-theme
-  height: 32px;
+  height: 33px;
   border-radius: 15px;
 `
