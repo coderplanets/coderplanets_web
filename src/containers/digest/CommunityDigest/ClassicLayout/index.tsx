@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { isMobile } from 'react-device-detect'
 
-import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
+import type { TThread, TCommunity, TMetric } from '@/spec'
 import { EVENT } from '@/constant'
 import { send } from '@/utils/helper'
 
@@ -27,16 +27,10 @@ import { setViewport } from '../logic'
 type TProps = {
   community: TCommunity
   activeThread: TThread
-  layout: TC11NLayout
   metric: TMetric
 }
 
-const ClassicLayout: FC<TProps> = ({
-  community,
-  activeThread,
-  layout,
-  metric,
-}) => {
+const ClassicLayout: FC<TProps> = ({ community, activeThread, metric }) => {
   return (
     <Wrapper testid="community-digest" isMobile={isMobile}>
       <InnerWrapper metric={metric} isMobile={isMobile}>
@@ -50,7 +44,6 @@ const ClassicLayout: FC<TProps> = ({
               source={community.threads}
               onChange={(data) => send(EVENT.COMMUNITY_THREAD_CHANGE, { data })}
               active={activeThread}
-              layout={layout}
               communityRaw={community.raw}
             />
           </TabBarWrapper>

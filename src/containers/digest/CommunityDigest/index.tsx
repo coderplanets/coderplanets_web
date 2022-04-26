@@ -3,10 +3,10 @@
  * CommunityDigest
  *
  */
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 
 import type { TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+import { METRIC, C11N } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
@@ -34,28 +34,27 @@ const CommunityDigestContainer: FC<TProps> = ({
     accountInfo: {
       customization: { bannerLayout },
     },
-    realtimeVisitors,
     curThread,
     curCommunity,
   } = store
 
   return (
-    <SimpleLayout
-      metric={metric}
-      community={curCommunity}
-      activeThread={curThread}
-      layout={bannerLayout}
-    />
+    <Fragment>
+      {bannerLayout === C11N.CLASSIC ? (
+        <ClassicLayout
+          metric={metric}
+          community={curCommunity}
+          activeThread={curThread}
+        />
+      ) : (
+        <SimpleLayout
+          metric={metric}
+          community={curCommunity}
+          activeThread={curThread}
+        />
+      )}
+    </Fragment>
   )
-  // return (
-  //   <ClassicLayout
-  //     metric={metric}
-  //     realtimeVisitors={realtimeVisitors}
-  //     community={curCommunity}
-  //     activeThread={curThread}
-  //     layout={bannerLayout}
-  //   />
-  // )
 }
 
 export default bond(CommunityDigestContainer, 'communityDigest') as FC<TProps>

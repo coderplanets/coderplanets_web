@@ -22,18 +22,17 @@ export const Logo = styled(SiteLogo)`
   fill: #007fa6;
   ${css.size(16)};
 `
-export const LogoLink = styled.div<{ layout: TC11NLayout }>`
+export const LogoLink = styled.div`
   position: absolute;
   left: -240px;
   top: 15px;
 
   ${css.flex('align-center')};
-  margin-right: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? 0 : '10px')};
+  margin-right: 10px;
   cursor: pointer;
 `
-export const LogoMargin = styled.div<{ layout: TC11NLayout }>`
-  margin-right: ${({ layout }) =>
-    layout === C11N.HOLY_GRAIL ? '42px' : '32px'};
+export const LogoMargin = styled.div`
+  margin-right: 32px;
 `
 export const LogoText = styled.div`
   color: ${theme('thread.articleDigest')};

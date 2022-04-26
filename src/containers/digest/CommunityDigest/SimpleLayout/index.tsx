@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
+import type { TThread, TCommunity, TMetric } from '@/spec'
 import { EVENT } from '@/constant'
 import { send } from '@/utils/helper'
 
@@ -25,16 +25,10 @@ import { setViewport } from '../logic'
 type TProps = {
   community: TCommunity
   activeThread: TThread
-  layout: TC11NLayout
   metric: TMetric
 }
 
-const SimpleLayout: FC<TProps> = ({
-  community,
-  activeThread,
-  layout,
-  metric,
-}) => {
+const SimpleLayout: FC<TProps> = ({ community, activeThread, metric }) => {
   return (
     <Wrapper testid="community-digest">
       <InnerWrapper metric={metric}>

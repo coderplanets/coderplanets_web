@@ -35,17 +35,6 @@ export const ClassicInnerWrapper = styled(InnerWrapper)`
   padding-left: ${pixelAdd(WIDTH.COMMUNITY.CONTENT_OFFSET, 10)};
   padding-right: ${WIDTH.COMMUNITY.CONTENT_OFFSET};
 `
-export const HolyGrailInnerWrapper = styled(InnerWrapper)`
-  padding-left: 0;
-  padding-right: 0;
-
-  margin-left: 18px;
-
-  ${css.media.laptopM`
-    margin-left: 30px;
-    padding-right: 5px;
-  `}
-`
 
 export const RouterWrapper = styled.div`
   ${css.flexGrow('align-center')};

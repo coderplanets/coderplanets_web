@@ -29,21 +29,12 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
 
-const ArticleHeader: FC<TProps> = ({
-  metric,
-  c11n,
-  community,
-  accountInfo,
-}) => {
+const ArticleHeader: FC<TProps> = ({ metric, community, accountInfo }) => {
   return (
     <Wrapper id="whereCallShowDoraemon" testid="header" noBorder>
       <InnerWrapper>
         <RouterWrapper metric={metric}>
-          <Navigator
-            community={community}
-            layout={c11n.bannerLayout}
-            metric={metric}
-          />
+          <Navigator community={community} metric={metric} />
         </RouterWrapper>
         <Operations metric={metric}>
           {!accountInfo.login ? (

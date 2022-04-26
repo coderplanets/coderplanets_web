@@ -34,7 +34,7 @@ const GeneralSettings: FC<TProps> = ({ curThread, customization }) => {
           },
           {
             value: '圣杯布局',
-            key: C11N.HOLY_GRAIL,
+            key: C11N.SIMPLE,
             dimOnActive: isMobile,
           },
         ]}

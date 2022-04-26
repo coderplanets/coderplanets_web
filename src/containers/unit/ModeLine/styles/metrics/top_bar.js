@@ -20,7 +20,7 @@ export const getPadding = (type, layout) => {
     }
 
     default: {
-      return layout === C11N.HOLY_GRAIL ? '0 5vw;' : '0 6vw;'
+      return layout === C11N.SIMPLE ? '0 5vw;' : '0 6vw;'
     }
   }
 }

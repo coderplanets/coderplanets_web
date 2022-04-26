@@ -38,9 +38,9 @@ export const Achievement = T.model('Achievement', {
 
 const Customization = T.model('Customization', {
   bannerLayout: T.optional(
-    T.enumeration('bannerLayout', [C11N.CLASSIC, C11N.HOLY_GRAIL, C11N.BRIEF]),
-    C11N.CLASSIC,
-    // C11N.HOLY_GRAIL,
+    T.enumeration('bannerLayout', [C11N.CLASSIC, C11N.SIMPLE]),
+    // C11N.CLASSIC,
+    C11N.SIMPLE,
   ),
   contentDivider: T.optional(T.boolean, false),
   markViewed: T.optional(T.boolean, true),

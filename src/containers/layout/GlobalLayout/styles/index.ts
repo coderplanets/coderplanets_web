@@ -46,16 +46,9 @@ export const InnerWrapper = styled.div<TInner>`
     padding-left: 0;
   `};
 `
-type TBody = { layout: string; isMobile: boolean }
+type TBody = { isMobile: boolean }
 export const BodyWrapper = styled.div<TBody>`
   ${css.flex('align-both')};
-  flex-direction: ${({ layout, isMobile }) => {
-    if (isMobile) return 'column'
-    return layout === C11N.CLASSIC ? 'column' : 'row-reverse'
-  }};
-  align-items: ${({ layout }) => {
-    return layout === C11N.CLASSIC ? 'center' : 'flex-start'
-  }};
   width: 100%;
 `
 // 180 is the sidebar full width

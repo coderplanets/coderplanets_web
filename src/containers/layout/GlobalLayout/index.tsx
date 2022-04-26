@@ -54,8 +54,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // load debug graph
   useInit(store, { isMobile })
 
-  const { accountInfo, sidebarPin, c11n, curCommunity } = store
-  const { bannerLayout } = c11n
+  const { accountInfo, sidebarPin, curCommunity } = store
 
   return (
     <ThemePalette>
@@ -63,7 +62,6 @@ const GlobalLayoutContainer: FC<TProps> = ({
         <Fragment>
           <SEO metric={metric} config={seoConfig} />
           <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
-            {/* {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />} */}
             {/* @ts-ignore */}
             <Addon />
             <ContentWrapper offsetLeft={sidebarPin}>
@@ -79,11 +77,10 @@ const GlobalLayoutContainer: FC<TProps> = ({
               >
                 <Header
                   metric={metric}
-                  c11n={c11n}
                   accountInfo={accountInfo}
                   community={curCommunity}
                 />
-                <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
+                <BodyWrapper isMobile={isMobile}>
                   {childrenWithProps(children, { metric })}
                 </BodyWrapper>
                 {/* @ts-ignore */}

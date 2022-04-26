@@ -3,13 +3,10 @@
  */
 
 import { FC, Fragment } from 'react'
-import { isMobile } from 'react-device-detect'
 
-import { C11N } from '@/constant'
 import { bond } from '@/utils/mobx'
 
 import ClassicLayout from './ClassicLayout'
-import HolyGrailLayout from './HolyGrailLayout'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
@@ -21,20 +18,11 @@ type TProps = {
 const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   useInit(store)
 
-  const { curThread, curCommunity, c11n, subscribedCommunitiesData } = store
-  const isClassicLayout = isMobile || c11n.bannerLayout === C11N.CLASSIC
+  const { curThread } = store
 
   return (
     <Fragment>
-      {isClassicLayout ? (
-        <ClassicLayout thread={curThread} />
-      ) : (
-        <HolyGrailLayout
-          thread={curThread}
-          community={curCommunity}
-          subscribedCommunities={subscribedCommunitiesData}
-        />
-      )}
+      <ClassicLayout thread={curThread} />
     </Fragment>
   )
 }

@@ -9,7 +9,7 @@ import { contains } from 'ramda'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
-import { C11N, METRIC } from '@/constant'
+import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import Navigator from '@/widgets/Navigator'
@@ -18,7 +18,6 @@ import type { TProps } from '../index'
 import {
   Wrapper,
   ClassicInnerWrapper,
-  HolyGrailInnerWrapper,
   RouterWrapper,
 } from '../styles/desktop_view/community_layout'
 
@@ -41,16 +40,8 @@ const hasNoBorder = (metric: TMetric): boolean =>
     METRIC.HELP_CENTER,
   ])
 
-const CommunityView: FC<TProps> = ({
-  metric,
-  c11n,
-  community,
-  accountInfo,
-}) => {
-  const InnerWrapper =
-    c11n.bannerLayout === C11N.CLASSIC
-      ? ClassicInnerWrapper
-      : HolyGrailInnerWrapper
+const CommunityView: FC<TProps> = ({ metric, community, accountInfo }) => {
+  const InnerWrapper = ClassicInnerWrapper
 
   return (
     <Wrapper
@@ -60,11 +51,7 @@ const CommunityView: FC<TProps> = ({
     >
       <InnerWrapper metric={metric}>
         <RouterWrapper>
-          <Navigator
-            community={community}
-            layout={c11n.bannerLayout}
-            metric={metric}
-          />
+          <Navigator community={community} metric={metric} />
         </RouterWrapper>
         {/* @ts-ignore */}
         <AddOns accountInfo={accountInfo} />

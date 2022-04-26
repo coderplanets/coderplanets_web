@@ -42,7 +42,7 @@ const FooterContainer: FC<TProps> = ({
 }) => {
   useInit(store, metric)
 
-  const { c11n, onlineStatus } = store
+  const { onlineStatus } = store
 
   const isGeneral = includes(metric, [
     METRIC.COOL_GUIDE,
@@ -56,14 +56,10 @@ const FooterContainer: FC<TProps> = ({
   ])
 
   return (
-    <Wrapper testid={testid} layout={c11n.bannerLayout} metric={metric}>
+    <Wrapper testid={testid} metric={metric}>
       <JoinModal />
       {metric === METRIC.EXPLORE && (
-        <HomeLayout
-          metric={metric}
-          layout={c11n.bannerLayout}
-          onlineStatus={onlineStatus}
-        />
+        <HomeLayout metric={metric} onlineStatus={onlineStatus} />
       )}
 
       {metric === METRIC.COMMUNITY && (
@@ -78,12 +74,11 @@ const FooterContainer: FC<TProps> = ({
       {isGeneral && <GeneralLayout metric={metric} />}
 
       {/* {type === VIEW.HOME && (
-        <HostingCommunityView metric={metric} layout={bannerLayout} />
+        <HostingCommunityView metric={metric}  />
       )} */}
       {metric === METRIC.ARTICLE && (
         <SimpleLayout />
         // <ArticleLayout
-        //   layout={c11n.bannerLayout}
         //   metric={metric}
         //   article={viewingArticle}
         // />
