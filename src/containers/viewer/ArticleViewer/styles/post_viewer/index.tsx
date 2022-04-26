@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import css, { theme } from '@/utils/css'
+import { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   padding: 0 8px;
@@ -11,13 +11,21 @@ export const BodyWrapper = styled.div`
   margin-top: 5px;
 `
 export const Title = styled.div`
-  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 25px;
 `
-export const SubTitle = styled.div`
+export const SubTitle = styled.span`
+  display: inline-block;
   color: ${theme('thread.articleTitle')};
   opacity: 0.4;
-  font-size: 18px;
+  font-size: 19px;
   margin-left: 10px;
+  margin-top: -2px;
+
+  &:before {
+    content: '#';
+    margin-top: 1px;
+    margin-right: 2px;
+    font-size: 17px;
+  }
 `
