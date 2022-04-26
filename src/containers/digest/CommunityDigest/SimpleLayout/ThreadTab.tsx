@@ -1,15 +1,26 @@
 import { FC, memo } from 'react'
 
+import type { TCommunityThread, TThread } from '@/spec'
 import { Wrapper, Title } from '../styles/simple_layout/thread_tab'
 
-const ThreadTab: FC = () => {
+type TProps = {
+  threads: TCommunityThread[]
+  active: string
+  onChange: (thread: TThread) => void
+}
+
+const ThreadTab: FC<TProps> = ({ active, threads, onChange }) => {
   return (
     <Wrapper>
-      <Title $active>讨论</Title>
-      <Title>看板</Title>
-      <Title>更新日志</Title>
-      <Title>帮助台</Title>
-      <Title>关于</Title>
+      {threads.map((item) => (
+        <Title
+          key={item.raw}
+          $active={active === item.raw}
+          onClick={() => onChange(item.raw)}
+        >
+          {item.title}
+        </Title>
+      ))}
     </Wrapper>
   )
 }

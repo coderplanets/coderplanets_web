@@ -1,6 +1,9 @@
 import { FC, memo } from 'react'
 
 import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
+import { EVENT } from '@/constant'
+import { send } from '@/utils/helper'
+
 import ViewportTracker from '@/widgets/ViewportTracker'
 
 import ThreadTab from './ThreadTab'
@@ -38,7 +41,11 @@ const SimpleLayout: FC<TProps> = ({
         <BannerContentWrapper>
           <CommunityBaseInfo>
             <CommunityBrief community={community} />
-            <ThreadTab />
+            <ThreadTab
+              threads={community.threads}
+              onChange={(data) => send(EVENT.COMMUNITY_THREAD_CHANGE, { data })}
+              active={activeThread}
+            />
             <AccountUnit />
           </CommunityBaseInfo>
         </BannerContentWrapper>

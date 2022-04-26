@@ -2,7 +2,7 @@ import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
 import { merge } from 'ramda'
 
-import { PAGE_SIZE } from '@/config'
+import type { TCommunity } from '@/spec'
 import { HCN, THREAD, METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
@@ -17,7 +17,6 @@ import {
   ssrRescue,
   communitySEO,
   singular,
-  ssrGetParam,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -138,7 +137,7 @@ const CommunityPage = (props) => {
     <Provider store={store}>
       <GlobalLayout
         metric={METRIC.COMMUNITY}
-        seoConfig={communitySEO(community, activeThread)}
+        seoConfig={communitySEO(community as TCommunity, activeThread)}
       >
         <CommunityContent />
       </GlobalLayout>

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { merge, toLower } from 'ramda'
 
+import type { TCommunity } from '@/spec'
 import { HCN, THREAD, METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
@@ -104,7 +105,7 @@ const CommunityPage = (props) => {
     <Provider store={store}>
       <GlobalLayout
         metric={METRIC.COMMUNITY}
-        seoConfig={communitySEO(community, activeThread)}
+        seoConfig={communitySEO(community as TCommunity, activeThread)}
       >
         <CommunityContent />
       </GlobalLayout>
