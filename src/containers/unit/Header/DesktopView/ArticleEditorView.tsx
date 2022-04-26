@@ -9,7 +9,6 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
-import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
@@ -39,7 +38,7 @@ type TProps = {
 const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
   useInit(store, metric)
 
-  const { c11n, leftOffset, isLogin, curCommunity } = store
+  const { leftOffset, isLogin, curCommunity } = store
 
   useEffect(() => {
     if (isLogin) {
@@ -60,11 +59,7 @@ const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
     >
       <InnerWrapper>
         <RouterWrapper metric={metric}>
-          <Navigator
-            community={curCommunity}
-            layout={c11n.bannerLayout}
-            metric={metric}
-          />
+          <Navigator community={curCommunity} metric={metric} />
         </RouterWrapper>
         <Operations>
           {MailBox && <MailBox />}

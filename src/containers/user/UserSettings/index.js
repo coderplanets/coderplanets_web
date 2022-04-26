@@ -56,7 +56,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
                 },
                 {
                   value: '简洁视图',
-                  key: C11N.BRIEF,
+                  key: C11N.SIMPLE,
                 },
               ]}
               activeKey={customization.bannerLayout}

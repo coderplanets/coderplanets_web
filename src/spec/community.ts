@@ -1,5 +1,20 @@
 import type { TID } from './utils'
 
+import type { TThread } from './thread'
+
+type TMeta = {
+  postsCount: number
+  jobsCount: number
+  worksCount: number
+  blogsCount: number
+  radarsCount: number
+}
+
+export type TCommunityThread = {
+  title: string
+  raw: TThread
+}
+
 export type TCommunity = {
   id?: string
   index?: number
@@ -12,17 +27,8 @@ export type TCommunity = {
   contributesDigest?: number[]
   editorsCount?: number
   desc?: string
-  meta?: {
-    postsCount: number
-    jobsCount: number
-    worksCount: number
-    blogsCount: number
-    radarsCount: number
-  }
-  threads?: {
-    title: string
-    raw: string
-  }[]
+  meta?: TMeta
+  threads?: TCommunityThread[]
 }
 
 export type TPagedCommunities = {

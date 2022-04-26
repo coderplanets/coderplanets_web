@@ -1,13 +1,12 @@
 import { FC, memo } from 'react'
 
-import type { TC11NLayout, TMetric } from '@/spec'
-import { C11N, METRIC } from '@/constant'
+import type { TMetric } from '@/spec'
+import { METRIC } from '@/constant'
 
 import {
   RawWrapper,
   InnerWrapper,
   ClassicWrapper,
-  HolyGrailWrapper,
   BeianLink,
   PowerByWrapper,
   PowerByLink,
@@ -15,10 +14,9 @@ import {
 
 type TProps = {
   metric: TMetric
-  layout?: TC11NLayout
 }
 
-const BottomInfo: FC<TProps> = ({ metric, layout }) => {
+const BottomInfo: FC<TProps> = ({ metric }) => {
   if (metric !== METRIC.COMMUNITY) {
     return (
       <RawWrapper metric={metric}>
@@ -37,7 +35,7 @@ const BottomInfo: FC<TProps> = ({ metric, layout }) => {
     )
   }
 
-  const Wrapper = layout === C11N.CLASSIC ? ClassicWrapper : HolyGrailWrapper
+  const Wrapper = ClassicWrapper
 
   return (
     <Wrapper metric={metric}>

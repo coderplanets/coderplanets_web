@@ -122,7 +122,7 @@ const Tabs: FC<TProps> = ({
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
             mobileView={isMobile}
-            holyGrailView={layout === C11N.HOLY_GRAIL}
+            holyGrailView={layout === C11N.SIMPLE}
             activeKey={activeKey}
             index={index}
             item={item}

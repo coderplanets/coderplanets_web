@@ -1,6 +1,6 @@
 const C11N = {
   CLASSIC: 'digest',
-  HOLY_GRAIL: 'digest_row',
+  SIMPLE: 'simple',
   LIST: 'list',
   BRIEF: 'brief',
 }

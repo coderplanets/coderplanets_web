@@ -28,6 +28,7 @@ export type {
 export type { TC11NLayout } from './c11n'
 export type {
   TCommunity,
+  TCommunityThread,
   TPagedCommunities,
   TTag,
   TNaviTag,
@@ -35,6 +36,8 @@ export type {
   TGroupedTags,
   TCategory,
 } from './community'
+
+export type { TThread, TArticleThread } from './thread'
 
 export type {
   TID,
@@ -133,31 +136,5 @@ export type TRoute = {
 export type TRootStore = RootStoreType
 
 export type TViewing = TCommunity | TArticle
-
-export type TArticleThread =
-  | 'post'
-  | 'job'
-  | 'repo'
-  | 'meetup'
-  | 'blog'
-  | 'radar'
-  | 'works'
-  // for groupher
-  | 'roadmap'
-  | 'changelog'
-  | 'help'
-  | 'about'
-
-export type TThread =
-  | TArticleThread
-  | 'cper'
-  | 'setting'
-  | 'map'
-  | 'kanban'
-  | 'product'
-  | 'team'
-  | 'interview'
-  | 'account'
-  | 'guide'
 
 export type TContainer = 'body' | 'drawer'

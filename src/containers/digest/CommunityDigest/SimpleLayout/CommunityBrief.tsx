@@ -16,7 +16,7 @@ import {
   Title,
   TitleText,
   LogoHolder,
-} from '../styles/classic_layout/community_brief'
+} from '../styles/simple_layout/community_brief'
 import { subscribeCommunity, unsubscribeCommunity } from '../logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { includes } from 'ramda'
 
-import type { TTestable, TC11NLayout, TMetric } from '@/spec'
-import { C11N, METRIC } from '@/constant'
+import type { TTestable, TMetric } from '@/spec'
+import { METRIC } from '@/constant'
 import css from '@/utils/css'
 
-type TWrapper = TTestable & { metric: TMetric; layout: TC11NLayout }
+type TWrapper = TTestable & { metric: TMetric }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
@@ -14,7 +14,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     includes(metric, [METRIC.ARTICLE, METRIC.WORKS_ARTICLE])
       ? 'start'
       : 'center'};
-  margin-top: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? '30px' : '50px')};
+  margin-top: 50px;
   ${({ metric }) => css.fitPageWidth(metric)};
   padding: 30px 0;
 `

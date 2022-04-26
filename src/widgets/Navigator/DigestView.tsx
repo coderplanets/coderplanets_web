@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 // import dynamic from 'next/dynamic'
 
-import type { TMetric, TC11NLayout } from '@/spec'
+import type { TMetric } from '@/spec'
 import { changeToCommunity } from '@/utils/helper'
 
 import { METRIC } from '@/constant'
@@ -36,18 +36,15 @@ const renderMainEntries = (metric) => {
 
 type TProps = {
   metric: TMetric
-  layout: TC11NLayout
   showLogoText: boolean
 }
 
-const DigestView: FC<TProps> = ({ metric, showLogoText, layout }) => {
+const DigestView: FC<TProps> = ({ metric, showLogoText }) => {
   // const { online } = useNetwork()
   return (
     <Breadcrumbs>
       <LogoLink
-        layout={layout}
         onClick={() => {
-          console.log('# navi to home')
           changeToCommunity('home')
         }}
       >

@@ -8,7 +8,7 @@ import { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
-import { C11N, METRIC } from '@/constant'
+import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
@@ -19,7 +19,6 @@ import type { TStore } from '../store'
 import {
   Wrapper,
   ClassicInnerWrapper,
-  HolyGrailInnerWrapper,
   RouterWrapper,
   Search,
   HeaderSearchIcon,
@@ -48,14 +47,8 @@ const CommunityHeaderContainer: FC<TProps> = ({
   // log('header metric: ', metric)
   useInit(store, metric)
 
-  const {
-    leftOffset,
-    accountInfo,
-    isLogin,
-    curCommunity,
-    hasNoBottomBorder,
-    c11n,
-  } = store
+  const { leftOffset, accountInfo, isLogin, curCommunity, hasNoBottomBorder } =
+    store
 
   useEffect(() => {
     if (isLogin) {
@@ -67,10 +60,7 @@ const CommunityHeaderContainer: FC<TProps> = ({
     }
   }, [isLogin])
 
-  const InnerWrapper =
-    c11n.bannerLayout === C11N.CLASSIC
-      ? ClassicInnerWrapper
-      : HolyGrailInnerWrapper
+  const InnerWrapper = ClassicInnerWrapper
 
   return (
     <Wrapper
@@ -81,11 +71,7 @@ const CommunityHeaderContainer: FC<TProps> = ({
     >
       <InnerWrapper metric={metric}>
         <RouterWrapper>
-          <Navigator
-            community={curCommunity}
-            layout={c11n.bannerLayout}
-            metric={metric}
-          />
+          <Navigator community={curCommunity} metric={metric} />
         </RouterWrapper>
         {/* @ts-ignore */}
         <AddOns />

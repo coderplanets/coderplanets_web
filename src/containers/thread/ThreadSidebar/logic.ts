@@ -92,14 +92,14 @@ const ErrSolver = [
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       markLoading(false)
-      errRescue({ type: ERR.TIMEOUT, details, path: 'HolyGrailThreadSidebar' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'ThreadSidebar' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
       markLoading(false)
-      errRescue({ type: ERR.NETWORK, path: 'HolyGrailThreadSidebar' })
+      errRescue({ type: ERR.NETWORK, path: 'ThreadSidebar' })
     },
   },
 ]

@@ -56,7 +56,6 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     resState,
     mode,
   } = store
-  const { bannerLayout } = c11n
   const { pageNumber, totalCount } = pagedArticlesData
 
   const isMobileCardsView =
@@ -98,7 +97,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
         {mode === 'search' && <FaqList mode="search-hint" />}
       </TheMainWrapper>
 
-      {!isMobile && bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
+      {!isMobile && <ThreadSidebar />}
     </Wrapper>
   )
 }

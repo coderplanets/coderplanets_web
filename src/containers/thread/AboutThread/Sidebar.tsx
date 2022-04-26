@@ -19,7 +19,7 @@ const Sidebar: FC = () => {
   return (
     <Wrapper>
       <Block>
-        <Title>官方网站</Title>
+        <Title>官方主页</Title>
         <Desc>
           <Linker src="https://groupher.com" left={-2} />
         </Desc>
@@ -28,18 +28,20 @@ const Sidebar: FC = () => {
         <Title>关注我们</Title>
         <SocialList />
       </Block>
+      <Divider />
+      <Block>
+        <Title>技术栈</Title>
+        <Desc>Typescript, Elixir</Desc>
+      </Block>
       <Block>
         <Title>所在地</Title>
         <Desc>成都, 厦门</Desc>
       </Block>
-
       <Block>
         <Title>链接</Title>
         <Reports>喜马拉雅</Reports>
       </Block>
-
       <Divider />
-
       <Block>
         <Title>媒体报道</Title>
         <Br top={10} />

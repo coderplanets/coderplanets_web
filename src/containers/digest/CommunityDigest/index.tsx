@@ -3,14 +3,15 @@
  * CommunityDigest
  *
  */
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 
 import type { TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+import { METRIC, C11N } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import ClassicLayout from './ClassicLayout'
+import SimpleLayout from './SimpleLayout'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
@@ -33,21 +34,26 @@ const CommunityDigestContainer: FC<TProps> = ({
     accountInfo: {
       customization: { bannerLayout },
     },
-    realtimeVisitors,
     curThread,
     curCommunity,
-    descExpand,
   } = store
 
   return (
-    <ClassicLayout
-      metric={metric}
-      realtimeVisitors={realtimeVisitors}
-      community={curCommunity}
-      activeThread={curThread}
-      layout={bannerLayout}
-      descExpand={descExpand}
-    />
+    <Fragment>
+      {bannerLayout === C11N.CLASSIC ? (
+        <ClassicLayout
+          metric={metric}
+          community={curCommunity}
+          activeThread={curThread}
+        />
+      ) : (
+        <SimpleLayout
+          metric={metric}
+          community={curCommunity}
+          activeThread={curThread}
+        />
+      )}
+    </Fragment>
   )
 }
 

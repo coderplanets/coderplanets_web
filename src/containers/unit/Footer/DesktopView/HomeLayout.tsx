@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
-import type { TThemeMap, TC11NLayout, TMetric, TOnlineStatus } from '@/spec'
+import type { TThemeMap, TMetric, TOnlineStatus } from '@/spec'
 import { GITHUB, ABOUT_LINK, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 import { siteBirthDay } from '@/utils/helper'
@@ -23,11 +23,10 @@ import {
 
 type TProps = {
   metric: TMetric
-  layout: TC11NLayout
   onlineStatus: TOnlineStatus
 }
 
-const HomeView: FC<TProps> = ({ metric, layout, onlineStatus }) => {
+const HomeView: FC<TProps> = ({ metric, onlineStatus }) => {
   const theme = useTheme() as TThemeMap
 
   const linkColors = {
@@ -152,7 +151,7 @@ const HomeView: FC<TProps> = ({ metric, layout, onlineStatus }) => {
           </Column>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo metric={metric} layout={layout} />
+      <BottomInfo metric={metric} />
     </Wrapper>
   )
 }

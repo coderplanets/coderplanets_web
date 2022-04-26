@@ -1,2 +1,2 @@
-export type TC11NLayout = 'digest' | 'digest_row'
+export type TC11NLayout = 'classic' | 'simple'
 export type holder = string

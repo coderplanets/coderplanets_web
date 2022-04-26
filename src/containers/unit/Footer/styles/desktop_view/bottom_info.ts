@@ -24,13 +24,6 @@ export const ClassicWrapper = styled(Wrapper)`
     padding-left: 18px;
   `}
 `
-export const HolyGrailWrapper = styled(Wrapper)`
-  padding-left: 24px;
-
-  ${css.media.laptopM`
-    padding-left: 18px;
-  `}
-`
 export const InnerWrapper = styled.div`
   ${css.flex('justify-between')};
   width: 100%;
