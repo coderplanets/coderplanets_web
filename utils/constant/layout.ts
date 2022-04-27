@@ -1,14 +1,16 @@
 import type { TUpvoteLayout } from '@/spec'
+// eslint-disable-next-line import/no-unresolved
+import type { ScreamingSnakeCase } from 'type-fest'
 
 export const UPVOTE_LAYOUT = {
-  DEFAULT: 'default' as TUpvoteLayout,
-  COMMENT: 'comment' as TUpvoteLayout,
-  ARTICLE: 'article' as TUpvoteLayout,
-  POST_LIST: 'post-list' as TUpvoteLayout,
-  BLOG_LIST: 'blog-list' as TUpvoteLayout,
-  WORKS_ARTICLE: 'works-article' as TUpvoteLayout,
-  WORKS_CARD: 'works-card' as TUpvoteLayout,
-  GUIDE_LIST: 'guide-list' as TUpvoteLayout,
-}
+  DEFAULT: 'default',
+  COMMENT: 'comment',
+  ARTICLE: 'article',
+  POST_LIST: 'post-list',
+  BLOG_LIST: 'blog-list',
+  WORKS_ARTICLE: 'works-article',
+  WORKS_CARD: 'works-card',
+  GUIDE_LIST: 'guide-list',
+} as Record<ScreamingSnakeCase<TUpvoteLayout>, TUpvoteLayout>
 
 export const holder = 1
