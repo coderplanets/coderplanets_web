@@ -1,5 +1,4 @@
-import type { TUpvoteLayout } from '@/spec'
-import type { ScreamingSnakeCase } from 'type-fest'
+import type { TUpvoteLayout, SnakeUpperCase } from '@/spec'
 
 export const UPVOTE_LAYOUT = {
   DEFAULT: 'default',
@@ -10,6 +9,6 @@ export const UPVOTE_LAYOUT = {
   WORKS_ARTICLE: 'works-article',
   WORKS_CARD: 'works-card',
   GUIDE_LIST: 'guide-list',
-} as Record<ScreamingSnakeCase<TUpvoteLayout>, TUpvoteLayout>
+} as Record<SnakeUpperCase<TUpvoteLayout>, TUpvoteLayout>
 
 export const holder = 1
