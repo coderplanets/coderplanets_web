@@ -83,7 +83,7 @@ export const getFontSize = (size: string): string => {
     }
 
     case SIZE.SMALL: {
-      return '13px'
+      return '12px'
     }
 
     default: {

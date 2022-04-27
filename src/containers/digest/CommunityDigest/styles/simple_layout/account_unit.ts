@@ -23,9 +23,6 @@ export const SubscribeButton = styled(Button)`
   border-radius: 10px;
   padding: 0 12px;
 `
-export const SubText = styled.div`
-  font-size: 12px;
-`
 export const NotifyIcon = styled(NotifySVG)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(22)};
