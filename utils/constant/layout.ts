@@ -1,5 +1,4 @@
 import type { TUpvoteLayout } from '@/spec'
-// eslint-disable-next-line import/no-unresolved
 import type { ScreamingSnakeCase } from 'type-fest'
 
 export const UPVOTE_LAYOUT = {
