@@ -34,7 +34,7 @@ const ArticleBaseStats: FC<TProps> = ({
     <Wrapper testid={testid}>
       <ViewsIcon />
       <Count>{article.views}</Count>
-      <Space left={14} />
+      <Space left={18} />
       <CommentWrapper onClick={() => scrollToComments(container)}>
         <CommentIcon />
         <CommentCount>{article.commentsCount}</CommentCount>

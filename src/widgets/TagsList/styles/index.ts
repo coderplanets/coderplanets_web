@@ -28,7 +28,6 @@ export const Title = styled.div<{ size: TSIZE_TSM }>`
   font-size: ${({ size }) => getTitleSize(size)};
   margin-left: 3px;
   word-break: keep-all;
-  font-weight: 700;
   letter-spacing: 0.06em;
 `
 export const SolidTitle = styled.div<{ size: TSIZE_TSM; color: string }>`

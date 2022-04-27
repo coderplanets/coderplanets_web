@@ -119,7 +119,7 @@ const github = {
     articleLink: link,
     articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
-    extraInfo: '#8590a6', // descText,
+    extraInfo: '#647392', // '#687693', // '#8590a6'
     articleSpliter: '#dee8ea',
 
     // like github

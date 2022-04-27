@@ -3,7 +3,8 @@ import { memo, FC } from 'react'
 import type { TArticle } from '@/spec'
 
 import { addCollection } from '@/utils/helper'
-import DotDivider from '@/widgets/DotDivider'
+
+import { Space } from '@/widgets/Common'
 import Upvote from '@/widgets/Upvote'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 import GTDBadge from '@/widgets/GTDBadge'
@@ -37,7 +38,7 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
           <GTDBadge type="FEATURE" state="WIP" right={15} />
         )}
         <ArticleBaseStats article={article} container="drawer" />
-        <DotDivider space={10} />
+        <Space right={18} />
         <CollectWrapper onClick={() => addCollection()}>
           <CollectIcon />
           <CollectText>收藏</CollectText>

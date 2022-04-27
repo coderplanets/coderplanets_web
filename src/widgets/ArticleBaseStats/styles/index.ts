@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 
-import ViewSVGIcon from '@/icons/View'
-import CommentSVGIcon from '@/icons/Comment'
+import ViewSVG from '@/icons/View'
+import CommentSVG from '@/icons/Comment'
 
 import css, { theme } from '@/utils/css'
 
@@ -12,17 +12,17 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flex('align-center')};
 `
-export const ViewsIcon = styled(ViewSVGIcon)`
+export const ViewsIcon = styled(ViewSVG)`
   fill: ${theme('thread.extraInfo')};
-  ${css.size(14)};
+  ${css.size(13)};
   transition: fill 0.25s;
 `
 export const CommentWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const CommentIcon = styled(CommentSVGIcon)`
+export const CommentIcon = styled(CommentSVG)`
   fill: ${theme('thread.extraInfo')};
-  ${css.size(14)};
+  ${css.size(12)};
   transition: fill 0.25s;
 
   ${CommentWrapper}:hover & {
@@ -35,9 +35,11 @@ export const CommentIcon = styled(CommentSVGIcon)`
 export const Count = styled.div`
   color: ${theme('thread.extraInfo')};
   font-size: 15px;
-  margin-left: 5px;
+  margin-left: 6px;
+  margin-top: 1px;
 `
 export const CommentCount = styled(Count)`
+  margin-left: 8px;
   ${CommentWrapper}:hover & {
     cursor: pointer;
     color: ${theme('thread.articleTitle')};
