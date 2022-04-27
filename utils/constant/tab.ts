@@ -1,13 +1,13 @@
 import type { TWorksTab, TBlogTab } from '@/spec'
 
 export const WORKS_TAB = {
-  STORY: 'story' as TWorksTab,
-  BASIC: 'basic' as TWorksTab,
-  TECHSTACKS: 'techstacks' as TWorksTab,
-  COMMUNITY: 'community' as TWorksTab,
-  MILESTONE: 'milestone' as TWorksTab,
-  INTERVIEW: 'interview' as TWorksTab,
-}
+  STORY: 'story',
+  BASIC: 'basic',
+  TECHSTACKS: 'techstacks',
+  COMMUNITY: 'community',
+  MILESTONE: 'milestone',
+  INTERVIEW: 'interview',
+} as Record<Uppercase<TWorksTab>, TWorksTab>
 
 export const WORKS_TAB_ITEMS = [
   {
@@ -41,10 +41,10 @@ export const WORKS_TAB_ITEMS = [
 ]
 
 export const BLOG_TAB = {
-  DIGEST: 'digest' as TBlogTab,
-  AUTHOR: 'author' as TBlogTab,
-  FEEDS: 'feeds' as TBlogTab,
-}
+  DIGEST: 'digest',
+  AUTHOR: 'author',
+  FEEDS: 'feeds',
+} as Record<Uppercase<TBlogTab>, TBlogTab>
 
 export const BLOG_TAB_ITEMS = [
   {

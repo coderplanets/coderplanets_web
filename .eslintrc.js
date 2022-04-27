@@ -8,6 +8,8 @@ module.exports = {
     '@groupher/eslint-config-web',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    // see: https://stackoverflow.com/a/56696478/4050784
+    'plugin:import/typescript',
   ],
   // extends: ['@groupher/eslint-config-web'],
   settings: {

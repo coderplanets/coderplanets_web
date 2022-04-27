@@ -2,32 +2,32 @@ import type { TMetric } from '@/spec'
 // NOTE:  the value is mapping to @/utils/media's key
 // so do not change to lowercase etc...
 const METRIC = {
-  COMMUNITY: 'COMMUNITY' as TMetric,
-  USER: 'USER' as TMetric,
+  COMMUNITY: 'COMMUNITY',
+  USER: 'USER',
   // article
-  ARTICLE: 'ARTICLE' as TMetric,
-  BLOG_ARTICLE: 'BLOG_ARTICLE' as TMetric,
-  WORKS_ARTICLE: 'WORKS_ARTICLE' as TMetric,
+  ARTICLE: 'ARTICLE',
+  BLOG_ARTICLE: 'BLOG_ARTICLE',
+  WORKS_ARTICLE: 'WORKS_ARTICLE',
 
   // 版块
-  WORKS: 'WORKS' as TMetric,
-  TRENDING: 'TRENDING' as TMetric,
-  COOL_GUIDE: 'COOL_GUIDE' as TMetric,
-  HAVE_A_DRINK: 'HAVE_A_DRINK' as TMetric,
-  RECIPES: 'RECIPES' as TMetric,
-  EXPLORE: 'EXPLORE' as TMetric,
-  SPONSOR: 'SPONSOR' as TMetric,
-  FRIENDS: 'FRIENDS' as TMetric,
-  SUPPORT_US: 'SUPPORT_US' as TMetric,
-  SUBSCRIBE: 'SUBSCRIBE' as TMetric,
-  MEETUPS: 'MEETUPS' as TMetric,
-  MEMBERSHIP: 'MEMBERSHIP' as TMetric,
-  HELP_CENTER: 'HELP_CENTER' as TMetric,
+  WORKS: 'WORKS',
+  TRENDING: 'TRENDING',
+  COOL_GUIDE: 'COOL_GUIDE',
+  HAVE_A_DRINK: 'HAVE_A_DRINK',
+  RECIPES: 'RECIPES',
+  EXPLORE: 'EXPLORE',
+  SPONSOR: 'SPONSOR',
+  FRIENDS: 'FRIENDS',
+  SUPPORT_US: 'SUPPORT_US',
+  SUBSCRIBE: 'SUBSCRIBE',
+  MEETUPS: 'MEETUPS',
+  MEMBERSHIP: 'MEMBERSHIP',
+  HELP_CENTER: 'HELP_CENTER',
 
   // eidtors
-  WORKS_EDITOR: 'WORKS_EDITOR' as TMetric,
-  COMMUNITY_EDITOR: 'COMMUNITY_EDITOR' as TMetric,
-  ARTICLE_EDITOR: 'ARTICLE_EDITOR' as TMetric,
-}
+  WORKS_EDITOR: 'WORKS_EDITOR',
+  COMMUNITY_EDITOR: 'COMMUNITY_EDITOR',
+  ARTICLE_EDITOR: 'ARTICLE_EDITOR',
+} as Record<Uppercase<TMetric>, Uppercase<TMetric>>
 
 export default METRIC
