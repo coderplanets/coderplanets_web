@@ -40,7 +40,6 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
         </UpvoteWrapper>
         <SpaceGrow />
         <ArticleBaseStats article={article} container="drawer" />
-
         <Space right={18} />
         <CollectWrapper onClick={() => addCollection()}>
           <CollectIcon />
