@@ -12,7 +12,7 @@ import Tooltip from '@/widgets/Tooltip'
 import { emotionsCoverter } from './helper'
 import SelectedEmotions from './SelectedEmotions/index'
 import Panel from './Panel'
-import { Wrapper } from './styles'
+import { Wrapper, SelectEmotionWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:EmotionSelector:index')
@@ -40,12 +40,9 @@ const EmotionSelector: FC<TProps> = ({
           trigger="click"
           noPadding
         >
-          <IconButton
-            path="emotion/emotion.svg"
-            mRight={0}
-            mTop={1}
-            dimWhenIdle
-          />
+          <SelectEmotionWrapper>
+            <IconButton icon="emotion" mRight={0} dimWhenIdle size={14} />
+          </SelectEmotionWrapper>
         </Tooltip>
       )}
     </Wrapper>

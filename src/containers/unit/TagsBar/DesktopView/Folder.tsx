@@ -27,7 +27,6 @@ type TProps = {
   groupTags: TTag[]
   maxDisplayCount: number
   totalCountThrold: number
-  mode: TTagMode
 
   onSelect: (tag?: TTag) => void
 }
@@ -40,7 +39,6 @@ const Folder: FC<TProps> = ({
   maxDisplayCount,
   totalCountThrold,
   onSelect,
-  mode,
 }) => {
   // 决定是否显示 '展示更多' 的时候参考标签总数
   const needSubToggle =
@@ -85,7 +83,7 @@ const Folder: FC<TProps> = ({
           {!isFolderOpen && <Count>{sortedTags.length}</Count>}
         </Title>
         {!isFolderOpen && isActiveTagInFolder && (
-          <TagItem tag={activeTag} mode={mode} active />
+          <TagItem tag={activeTag} active />
         )}
       </Header>
 
@@ -95,7 +93,6 @@ const Folder: FC<TProps> = ({
             <TagItem
               key={tag.raw}
               tag={tag}
-              mode={mode}
               active={activeTag.title === tag.title}
               onSelect={onSelect}
             />

@@ -13,6 +13,8 @@ import EditPenIcon from '@/icons/EditPen'
 import LockIcon from '@/icons/Lock'
 import ExpandIcon from '@/icons/Expand'
 import FoldIcon from '@/icons/Fold'
+import Emotion from '@/icons/Emotion'
+import CommentIcon from '@/icons/Comment'
 
 import ActivityIcon from '@/icons/article/Activity'
 import ArchivedIcon from '@/icons/article/Archived'
@@ -106,6 +108,13 @@ export const getIcon = (type: string): FC<TIcon> => {
     case SVG.TO_TOP: {
       // @ts-ignore
       return getStyledIcon(AirBalloon)
+    }
+
+    case SVG.EMOTION: {
+      return getStyledIcon(Emotion)
+    }
+    case SVG.COMMENT: {
+      return getStyledIcon(CommentIcon)
     }
 
     default: {

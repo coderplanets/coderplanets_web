@@ -18,8 +18,8 @@ export const MainWrapper = styled.div`
   border-radius: 6px;
   margin-top: 12px;
   padding-left: 25px;
-  padding-right: 80px;
-  margin-right: 65px;
+  padding-right: 65px;
+  margin-right: 60px;
   border-right: 1px solid;
   border-right-color: ${theme('border')};
 `
