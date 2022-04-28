@@ -10,13 +10,10 @@ const BaseAvatarItem = styled.li<{ size: string }>`
   padding: 0px 0px 0px 0px;
   position: relative;
   width: ${({ size }) => getAvatarSize(size)};
-  opacity: 1;
   z-index: 0;
-  &:hover {
-    opacity: 1;
-  }
   ${BaseWrapper}:hover & {
     margin-left: 0;
+    z-index: 1;
   }
 `
 export const Wrapper = styled(BaseAvatarItem)`

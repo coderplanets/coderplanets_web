@@ -18,11 +18,23 @@ export const TopArea = styled.div<{ showShare: boolean }>`
   top: 0;
   left: 34px;
   display: block;
-  background: ${theme('textBadge')}; // to-theme
-  border-bottom-left-radius: 15px;
-  box-shadow: ${theme('drawer.shadow')};
+  background: white;
+  border-bottom-left-radius: 16px;
+  box-shadow: ${theme('drawer.closerShadow')};
   ${css.flexColumn('align-both')}
   padding-left: 16px;
+
+  &:after {
+    // this is for cover the box-shadow
+    content: '';
+    position: absolute;
+    background: white;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 100%;
+    /* border: 1px solid tomato; */
+  }
 `
 export const MobileCloser = styled.div`
   position: absolute;
