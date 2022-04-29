@@ -14,6 +14,7 @@ import DigestSentence from '@/widgets/DigestSentence'
 // import UserCard from '@/widgets/Cards/UserCard'
 import Tooltip from '@/widgets/Tooltip'
 import GTDBadge from '@/widgets/GTDBadge'
+import ViewsCount from './ViewsCount'
 
 import {
   Wrapper,
@@ -24,8 +25,6 @@ import {
   CommunityLabel,
   LabelDivider,
   AuthorName,
-  ItemWrapper,
-  ViewsIcon,
   GTDBadgeWrapper,
 } from '../styles/desktop_view/body'
 
@@ -92,10 +91,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
             <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
           </PublishTime>
           <Dot radius={3} space={10} />
-          <ItemWrapper>
-            <ViewsIcon />
-            {item.views}
-          </ItemWrapper>
+          <ViewsCount count={item.views} />
         </LeftPart>
         <SpaceGrow />
 

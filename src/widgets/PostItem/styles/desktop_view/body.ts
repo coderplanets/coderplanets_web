@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
 
-import ViewedSVG from '@/icons/article/Viewed'
 import DotDivider from '@/widgets/DotDivider'
 
 export const Wrapper = styled.div`
@@ -73,15 +72,6 @@ export const Dot = styled(DotDivider)`
   background-color: ${theme('thread.articleDigest')};
   margin-right: 8px;
 `
-export const ItemWrapper = styled.div`
-  ${css.flex('align-center')};
-`
-export const ViewsIcon = styled(ViewedSVG)`
-  fill: ${theme('thread.extraInfo')};
-  ${css.size(12)};
-  margin-right: 3px;
-`
-
 export const GTDBadgeWrapper = styled.div`
   position: absolute;
   top: 41px;

@@ -1,14 +1,14 @@
 import { FC } from 'react'
 
-import { prettyNum } from '@/utils/helper'
 import { Br } from '@/widgets/Common'
 import Tooltip from '@/widgets/Tooltip'
 
 import type { TProps as TAvatarsProps } from './index'
 
+import RealNumber from './RealNumber'
+
 import {
   Wrapper,
-  NumbersMore,
   TextMore,
   DotText,
   StateInfoWrapper,
@@ -54,9 +54,7 @@ const MoreItem: FC<TProps> = ({
             <DotText>...</DotText>
           </TextMore>
         ) : (
-          <NumbersMore total={total} size={size}>
-            {prettyNum(total)}
-          </NumbersMore>
+          <RealNumber total={total} size={size} />
         )}
       </Tooltip>
     </Wrapper>

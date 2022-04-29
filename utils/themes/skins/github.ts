@@ -44,6 +44,9 @@ const github = {
   link,
   border,
   linkHover: lighten(0.05, link),
+  heightIcon: '#e48a3d',
+  heightGradient:
+    'linear-gradient(90deg, rgb(243, 170, 0) 0%, rgb(228, 62, 41) 100%)',
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#FFFEDE',
