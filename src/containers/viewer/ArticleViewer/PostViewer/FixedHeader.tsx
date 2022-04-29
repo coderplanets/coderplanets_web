@@ -2,7 +2,14 @@ import { FC, memo } from 'react'
 import type { TArticle } from '@/spec'
 
 import Upvote from '@/widgets/Upvote'
-import { Wrapper, ArticleTitle } from '../styles/post_viewer/fixed_header'
+import GTDBadge from '@/widgets/GTDBadge'
+
+import {
+  Wrapper,
+  LeftPart,
+  ArticleTitle,
+  GTDBadgeWrapper,
+} from '../styles/post_viewer/fixed_header'
 import { handleUpvote } from '../logic'
 
 type TProps = {
@@ -15,7 +22,15 @@ const FixedHeader: FC<TProps> = ({ article, visible }) => {
 
   return (
     <Wrapper visible={visible}>
-      <ArticleTitle>{article.title}</ArticleTitle>
+      <LeftPart>
+        <ArticleTitle>{article.title}</ArticleTitle>
+        <GTDBadgeWrapper>
+          {article.id === '239' && <GTDBadge type="FEATURE" />}
+          {article.id === '231' && <GTDBadge type="BUG" />}
+          {article.id === '227' && <GTDBadge type="BUG" state="TODO" />}
+          {article.id === '228' && <GTDBadge type="FEATURE" state="WIP" />}
+        </GTDBadgeWrapper>
+      </LeftPart>
       <Upvote
         count={upvotesCount}
         avatarList={meta.latestUpvotedUsers}
