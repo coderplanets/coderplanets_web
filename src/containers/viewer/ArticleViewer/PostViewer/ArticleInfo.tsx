@@ -4,7 +4,7 @@ import type { TArticle } from '@/spec'
 
 import { addCollection } from '@/utils/helper'
 
-import { Space } from '@/widgets/Common'
+import { Space, SpaceGrow } from '@/widgets/Common'
 import Upvote from '@/widgets/Upvote'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 import GTDBadge from '@/widgets/GTDBadge'
@@ -37,23 +37,25 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
         {article.id === '228' && (
           <GTDBadge type="FEATURE" state="WIP" right={15} />
         )}
+        <UpvoteWrapper>
+          <Upvote
+            count={upvotesCount}
+            avatarList={meta.latestUpvotedUsers}
+            viewerHasUpvoted={viewerHasUpvoted}
+            onAction={(viewerHasUpvoted) =>
+              handleUpvote(article, viewerHasUpvoted)
+            }
+          />
+        </UpvoteWrapper>
+        <SpaceGrow />
         <ArticleBaseStats article={article} container="drawer" />
+
         <Space right={18} />
         <CollectWrapper onClick={() => addCollection()}>
           <CollectIcon />
           <CollectText>收藏</CollectText>
         </CollectWrapper>
       </BaseWrapper>
-      <UpvoteWrapper>
-        <Upvote
-          count={upvotesCount}
-          avatarList={meta.latestUpvotedUsers}
-          viewerHasUpvoted={viewerHasUpvoted}
-          onAction={(viewerHasUpvoted) =>
-            handleUpvote(article, viewerHasUpvoted)
-          }
-        />
-      </UpvoteWrapper>
     </Wrapper>
   )
 }

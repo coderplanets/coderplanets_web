@@ -28,7 +28,7 @@ export const CommentBody = styled.div`
   font-size: 14px;
 `
 export const RepliesHint = styled.div`
-  color: #139c9e;
+  color: ${theme('thread.extraInfo')};
   font-size: 12px;
   margin-right: 6px;
 `

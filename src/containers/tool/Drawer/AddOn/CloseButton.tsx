@@ -8,8 +8,8 @@ const CloseButton: FC = () => {
     <IconButton
       icon="close"
       onClick={closeDrawer}
-      size={21}
-      mLeft={-5}
+      size={20}
+      mLeft={7}
       dimWhenIdle
     />
   )

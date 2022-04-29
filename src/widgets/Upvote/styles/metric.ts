@@ -17,7 +17,7 @@ export const getIconSize = (type: TUpvoteLayout): string => {
     }
 
     case UPVOTE_LAYOUT.COMMENT: {
-      return '16px;'
+      return '15px;'
     }
 
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
@@ -25,79 +25,7 @@ export const getIconSize = (type: TUpvoteLayout): string => {
     }
 
     default: {
-      return ' 18px;'
-    }
-  }
-}
-
-export const getIconShadowSize = (type: TUpvoteLayout): string => {
-  switch (type) {
-    case 'article': {
-      return '36px;'
-    }
-
-    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
-      return '30px;'
-    }
-
-    default: {
-      return ' 23px;'
-    }
-  }
-}
-
-export const getShadowLeftOffset = (type: TUpvoteLayout): string => {
-  switch (type) {
-    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
-      return '-5px'
-    }
-
-    default: {
-      return '-3px'
-    }
-  }
-}
-
-export const getShadowTopOffset = (type: TUpvoteLayout): string => {
-  switch (type) {
-    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
-      return '-3px'
-    }
-
-    default: {
-      return '-2px'
-    }
-  }
-}
-
-export const getWindowLeftOffset = (type: TUpvoteLayout): string => {
-  switch (type) {
-    case UPVOTE_LAYOUT.COMMENT: {
-      return '6px'
-    }
-
-    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
-      return '8px'
-    }
-
-    default: {
-      return '7px'
-    }
-  }
-}
-
-export const getWindowTopOffset = (type: TUpvoteLayout): string => {
-  switch (type) {
-    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
-      return '10px'
-    }
-
-    case UPVOTE_LAYOUT.COMMENT: {
-      return '7px'
-    }
-
-    default: {
-      return '8px'
+      return ' 16px;'
     }
   }
 }

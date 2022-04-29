@@ -10,6 +10,7 @@ import { isMobile } from 'react-device-detect'
 import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
+import { Space } from '@/widgets/Common'
 import AvatarsRow from '@/widgets/AvatarsRow'
 
 import UpvoteBtn from './UpvoteBtn'
@@ -48,11 +49,10 @@ const Upvote: FC<TProps> = ({
         onAction={onAction}
         count={count}
       />
-
+      <Space right={5} />
       {!noOne && !isMobile && (
         <AvatarsRow users={avatarList} showMore={false} />
       )}
-
       <Desc
         noOne={noOne}
         count={count}

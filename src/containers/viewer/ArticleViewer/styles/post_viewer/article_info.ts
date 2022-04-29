@@ -6,9 +6,10 @@ import CollectionSVG from '@/icons/CollectionBookmark'
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
   width: 100%;
-  height: 60px;
+  height: 80px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('drawer.divider')};
+  padding-bottom: 12px;
 `
 export const CollectWrapper = styled.div`
   ${css.flex('align-center')};
@@ -36,5 +37,6 @@ export const CollectText = styled.div`
 `
 export const BaseWrapper = styled.div`
   ${css.flex('align-center')};
+  width: 100%;
 `
 export const UpvoteWrapper = styled.div``

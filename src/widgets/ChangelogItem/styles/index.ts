@@ -17,7 +17,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-bottom: 30px;
 `
 export const Main = styled.div`
-  width: 600px;
+  width: 590px;
   min-height: 220px;
   padding-bottom: 30px;
 `
@@ -74,7 +74,7 @@ export const Version = styled.span`
 `
 export const Publisher = styled.div`
   ${css.flex('align-center')};
-  margin-top: 4px;
+  margin-top: 5px;
 `
 export const Avatar = styled(Img)`
   ${css.circle(14)};
@@ -84,6 +84,7 @@ export const Username = styled.div`
   margin-left: 5px;
 `
 export const Download = styled.div`
+  color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  margin-top: 4px;
+  margin-top: 14px;
 `

@@ -27,7 +27,7 @@ import {
   CommentWrapper,
   CommentIcon,
   Text,
-  // Download,
+  Download,
   Publisher,
   Avatar,
   Username,
@@ -128,7 +128,7 @@ const ChangelogItem: FC<TProps> = ({ testid = 'changelog-item' }) => {
           <Avatar src={publisher.avatar} />
           <Username>{publisher.nickname}</Username>
         </Publisher>
-        {/* <Download>获取</Download> */}
+        <Download>获取</Download>
       </Side>
     </Wrapper>
   )

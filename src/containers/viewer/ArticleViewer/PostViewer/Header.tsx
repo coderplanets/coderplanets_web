@@ -9,9 +9,7 @@ import {
   AuthorWrapper,
   Avatar,
   AuthorName,
-  AuthorDesc,
   PublishWrapper,
-  PublishHint,
   PubDate,
   EditedHint,
 } from '../styles/post_viewer/header'
@@ -27,10 +25,8 @@ const Header: FC<TProps> = ({ article }) => {
       <AuthorWrapper>
         <Avatar src={author.avatar} />
         <AuthorName>{author.nickname}</AuthorName>
-        <AuthorDesc>maker@coderplanets</AuthorDesc>
       </AuthorWrapper>
       <PublishWrapper>
-        <PublishHint>发布于:</PublishHint>
         <PubDate>
           <TimeAgo datetime={insertedAt} locale="zh_CN" />
         </PubDate>

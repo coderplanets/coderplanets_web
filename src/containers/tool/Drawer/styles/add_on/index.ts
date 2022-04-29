@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   `};
 `
 export const TopArea = styled.div<{ showShare: boolean }>`
-  width: 26px;
+  width: 30px;
   height: ${({ showShare }) => (showShare ? '80px' : '50px')};
 
   position: absolute;
@@ -19,10 +19,11 @@ export const TopArea = styled.div<{ showShare: boolean }>`
   left: 34px;
   display: block;
   background: white;
-  border-bottom-left-radius: 16px;
+  border-bottom-left-radius: 40px;
   box-shadow: ${theme('drawer.closerShadow')};
   ${css.flexColumn('align-both')}
   padding-left: 16px;
+  transform: rotate(2deg);
 
   &:after {
     // this is for cover the box-shadow

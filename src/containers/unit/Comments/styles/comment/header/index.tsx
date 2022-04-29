@@ -7,6 +7,7 @@ import { Wrapper as CommentBlock } from '../desktop_view'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 15px;
+  margin-left: 4px;
 `
 export const HeaderBaseInfo = styled.div`
   ${css.flexColumn()};
