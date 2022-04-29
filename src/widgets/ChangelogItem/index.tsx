@@ -11,6 +11,7 @@ import { mockUsers } from '@/utils/mock'
 
 import { TAG_MODE } from '@/constant'
 
+import DropdownButton from '@/widgets/Buttons/DropdownButton'
 import TagsList from '@/widgets/TagsList'
 import EmotionSelector from '@/widgets/EmotionSelector'
 
@@ -27,7 +28,6 @@ import {
   CommentWrapper,
   CommentIcon,
   Text,
-  Download,
   Publisher,
   Avatar,
   Username,
@@ -128,7 +128,7 @@ const ChangelogItem: FC<TProps> = ({ testid = 'changelog-item' }) => {
           <Avatar src={publisher.avatar} />
           <Username>{publisher.nickname}</Username>
         </Publisher>
-        <Download>获取</Download>
+        <DropdownButton top={12}>获取</DropdownButton>
       </Side>
     </Wrapper>
   )

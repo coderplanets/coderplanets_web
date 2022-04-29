@@ -3,14 +3,9 @@ import dynamic from 'next/dynamic'
 
 import type { TThread, TArticleFilter } from '@/spec'
 import Tooltip from '@/widgets/Tooltip'
+import DropdownButton from '@/widgets/Buttons/DropdownButton'
 
-import {
-  Wrapper,
-  Label,
-  InnerBtnWrapper,
-  ButtonWrapper,
-  FilterIcon,
-} from './styles/filter_button'
+import { Wrapper, Label } from './styles/filter_button'
 
 const FilterPanel = dynamic(() => import('./FilterPanel'), {
   /* eslint-disable react/display-name */
@@ -43,12 +38,7 @@ const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
           )
         }
       >
-        <ButtonWrapper size="small" type="primary" ghost>
-          <InnerBtnWrapper>
-            全部
-            <FilterIcon />
-          </InnerBtnWrapper>
-        </ButtonWrapper>
+        <DropdownButton>全部</DropdownButton>
       </Tooltip>
     </Wrapper>
   )

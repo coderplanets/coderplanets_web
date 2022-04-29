@@ -83,8 +83,3 @@ export const Username = styled.div`
   font-size: 14px;
   margin-left: 5px;
 `
-export const Download = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 13px;
-  margin-top: 14px;
-`
