@@ -38,5 +38,7 @@ export const LineDivider = styled.div`
   height: 10px;
   width: 1px;
   background: ${theme('thread.articleDigest')};
+  background: ${theme('thread.extraInfo')};
+  opacity: 0.9;
   margin-right: 8px;
 `

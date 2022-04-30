@@ -33,7 +33,7 @@ export const LineDivider = styled.div`
   height: 11px;
   width: 1px;
   margin-top: 1px;
-  /* background: ${theme('thread.articleDigest')}; */
-  background: ${theme('thread.articleDigest')};
+  background: ${theme('thread.extraInfo')};
+  opacity: 0.9;
   margin-right: 13px;
 `
