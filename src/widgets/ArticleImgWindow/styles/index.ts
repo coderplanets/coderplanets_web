@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 
 // import Img from '@/Img'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -13,7 +13,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const Block = styled.div`
   width: 30%;
   height: 60px;
-  background: #f5f5f5; // to-theme
+  background: ${theme('hoverBg')};
   margin-right: 10px;
   border-radius: 5px;
 `

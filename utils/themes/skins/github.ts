@@ -16,6 +16,7 @@ const link = '#0062b0'
 
 const descText = '#666'
 const threadTitle = '#333333'
+const hoverBg = '#F5F5F5'
 // const primaryMate = 'orange'
 
 const github = {
@@ -43,6 +44,7 @@ const github = {
   font: fontColor,
   link,
   border,
+  hoverBg,
   linkHover: lighten(0.05, link),
   heightIcon: '#e48a3d',
   heightGradient:
@@ -382,7 +384,7 @@ const github = {
   avatar: {
     opacity: 1,
     quote: '#217470',
-    fallbackBg: '#F5F5F5',
+    fallbackBg: hoverBg,
     shadow: '0px 0px 4px 0px rgb(0 0 0 / 50%) inset',
     quoteShadow: '0px 0px 3px 0px rgb(0 0 0 / 30%) inset',
   },

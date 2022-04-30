@@ -36,7 +36,7 @@ export const NewButton = styled(Button)`
 export const PublishButton = styled(Button)`
   width: 180px;
   border-radius: 12px;
-  background: #f5f5f5;
+  background: ${theme('hoverBg')};
   color: ${theme('thread.articleTitle')};
   border-color: ${theme('border')};
 `
