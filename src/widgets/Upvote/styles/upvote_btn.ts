@@ -6,15 +6,7 @@ import { UPVOTE_LAYOUT } from '@/constant'
 import UpvoteIcon from '@/icons/Upvote'
 import css, { theme } from '@/utils/css'
 
-import {
-  getIconSize,
-  getIconShadowSize,
-  getShadowLeftOffset,
-  getShadowTopOffset,
-  getWindowLeftOffset,
-  getWindowTopOffset,
-  getIconColor,
-} from './metric'
+import { getIconSize, getIconColor } from './metric'
 
 const topBubbles = keyframes`
   0% {
@@ -152,50 +144,10 @@ export const ContentWrapper = styled.div`
 export const IconWrapper = styled.div<{ type: TUpvoteLayout }>`
   ${css.flex('align-center', 'justify-start')};
   width: ${({ type }) => (type !== UPVOTE_LAYOUT.ARTICLE ? '20px' : 'auto')};
-  margin-right: ${({ type }) => (type !== UPVOTE_LAYOUT.ARTICLE ? '3px' : '0')};
+  margin-right: ${({ type }) => (type !== UPVOTE_LAYOUT.ARTICLE ? '0' : '0')};
   position: relative;
   z-index: 1;
 `
-export const IconShadow = styled.div<{ type: TUpvoteLayout }>`
-  position: absolute;
-  left: ${({ type }) => getShadowLeftOffset(type)};
-  top: ${({ type }) => getShadowTopOffset(type)};
-  width: ${({ type }) => getIconShadowSize(type)};
-  height: ${({ type }) => getIconShadowSize(type)};
-  border-radius: 100%;
-  background: ${theme('textBadge')}; // to-theme
-  z-index: -1;
-  opacity: 0;
-
-  ${IconWrapper}:hover & {
-    opacity: 1;
-  }
-
-  transform: opacity 0.2s;
-`
-
-export const ShipWindow = styled.div<{ type?: TUpvoteLayout }>`
-  position: absolute;
-  left: ${({ type }) => getWindowLeftOffset(type)};
-  top: ${({ type }) => getWindowTopOffset(type)};
-  width: 6px;
-  height: 4px;
-  border-radius: 100%;
-  display: block;
-  background: ${theme('thread.articleDigest')};
-
-  opacity: 0.6;
-`
-
-export const ArticleShipWindow = styled(ShipWindow)`
-  position: absolute;
-  left: 11px;
-  top: 12px;
-  width: 10px;
-  height: 10px;
-  opacity: 0.5;
-`
-
 type TUpIcon = { type: TUpvoteLayout; count: number } & TActive
 export const UpIcon = styled(UpvoteIcon)<TUpIcon>`
   fill: ${({ $active, count }) => getIconColor($active, count)};
@@ -206,7 +158,6 @@ export const UpIcon = styled(UpvoteIcon)<TUpIcon>`
   opacity: ${({ count }) => (count === 0 ? 0.6 : 1)};
 
   transform: scale(1, 0.8);
-  margin-top: 1px;
 
   &:hover {
     fill: ${theme('thread.articleTitle')};

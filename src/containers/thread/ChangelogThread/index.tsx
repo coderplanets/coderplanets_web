@@ -12,7 +12,7 @@ import ChangelogItem from '@/widgets/ChangelogItem'
 import Filters from './Filters'
 
 import type { TStore } from './store'
-import { Wrapper, MainWrapper } from './styles'
+import { Wrapper, PreviousTitle, MainWrapper } from './styles'
 import { useInit } from './logic' /* eslint-disable-next-line */
 
 // const log = buildLog('C:ChangelogThread')
@@ -28,13 +28,22 @@ const ChangelogThreadContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
+  const layout = 'outline'
   return (
     <Wrapper testid={testid}>
       <MainWrapper>
         <ChangelogItem />
-        <ChangelogItem />
-        <ChangelogItem />
-        <ChangelogItem />
+
+        {layout === 'outline' && <PreviousTitle>历史版本</PreviousTitle>}
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
       </MainWrapper>
       <Filters />
     </Wrapper>

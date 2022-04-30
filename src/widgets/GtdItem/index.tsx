@@ -10,7 +10,7 @@ import { buildLog } from '@/utils/logger'
 import { mockUsers } from '@/utils/mock'
 
 import IconButton from '@/widgets/Buttons/IconButton'
-import GTDBadge from '@/widgets/GTDBadge'
+import ArticleStateBadge from '@/widgets/ArticleStateBadge'
 import Upvote from '@/widgets/Upvote'
 import TagsList from '@/widgets/TagsList'
 
@@ -44,7 +44,9 @@ const GtdItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
       </Desc>
       <Footer>
         <Upvote count={3} avatarList={mockUsers(3)} />
-        <GTDBadge type="FEATURE" noBg />
+        <ArticleStateBadge type="FEATURE" kanbanLayout />
+        {/* <ArticleStateBadge type="LOCK" state="LOCK" noBg /> */}
+        {/* <ArticleStateBadge type="QUESTION" state="RESOLVE" noBg /> */}
       </Footer>
     </Wrapper>
   )

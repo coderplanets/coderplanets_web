@@ -18,8 +18,15 @@ export const MainWrapper = styled.div`
   border-radius: 6px;
   margin-top: 12px;
   padding-left: 25px;
-  padding-right: 80px;
-  margin-right: 65px;
+  padding-right: 65px;
+  margin-right: 60px;
   border-right: 1px solid;
   border-right-color: ${theme('border')};
+`
+
+export const PreviousTitle = styled.div`
+  font-size: 18px;
+  color: ${theme('thread.articleTitle')};
+  margin-top: 45px;
+  margin-bottom: 22px;
 `

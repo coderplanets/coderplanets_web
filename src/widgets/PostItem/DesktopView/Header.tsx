@@ -8,12 +8,7 @@ import { ARTICLE_THREAD } from '@/constant'
 import AvatarsRow from '@/widgets/AvatarsRow'
 // import TagsList from '@/widgets/TagsList'
 
-import {
-  Wrapper,
-  Brief,
-  Title,
-  Participants,
-} from '../styles/desktop_view/header'
+import { Wrapper, Brief, Title } from '../styles/desktop_view/header'
 
 // const AvatarsRow = dynamic(() => import('@/widgets/AvatarsRow'), {
 //   ssr: false,
@@ -46,12 +41,10 @@ const Header: FC<TProps> = ({ item }) => {
         {/*  @ts-ignore */}
         <TagsList items={item.articleTags} mLeft={12} />
       </Brief>
-      <Participants>
-        <AvatarsRow
-          users={item.commentsParticipants}
-          total={item.commentsCount}
-        />
-      </Participants>
+      <AvatarsRow
+        users={item.commentsParticipants}
+        total={item.commentsCount}
+      />
     </Wrapper>
   )
 }

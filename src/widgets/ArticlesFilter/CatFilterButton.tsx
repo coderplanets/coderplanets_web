@@ -4,13 +4,9 @@ import dynamic from 'next/dynamic'
 import type { TThread, TArticleFilter } from '@/spec'
 import Tooltip from '@/widgets/Tooltip'
 
-import {
-  Wrapper,
-  Label,
-  InnerBtnWrapper,
-  ButtonWrapper,
-  FilterIcon,
-} from './styles/cat_filter_button'
+import DropdownButton from '@/widgets/Buttons/DropdownButton'
+
+import { Wrapper, Label } from './styles/cat_filter_button'
 
 const FilterPanel = dynamic(() => import('./FilterPanel'), {
   /* eslint-disable react/display-name */
@@ -43,12 +39,7 @@ const CatFilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
           )
         }
       >
-        <ButtonWrapper size="small" type="primary" ghost>
-          <InnerBtnWrapper>
-            全部
-            <FilterIcon />
-          </InnerBtnWrapper>
-        </ButtonWrapper>
+        <DropdownButton>全部</DropdownButton>
       </Tooltip>
     </Wrapper>
   )

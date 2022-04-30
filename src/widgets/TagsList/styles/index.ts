@@ -19,28 +19,29 @@ export const Tag = styled.div`
 type THashSign = { color: string; size: TSIZE_TSM }
 export const DotSign = styled.div<THashSign>`
   background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
-  ${({ size }) => css.size(getIconSize(size))};
-  border-radius: 100%;
+  ${({ size }) => css.circle(getIconSize(size))};
   margin-right: 2px;
+`
+export const LabelDotSign = styled.div<THashSign>`
+  background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
+  ${css.circle(8)};
+  margin-right: 4px;
 `
 export const Title = styled.div<{ size: TSIZE_TSM }>`
   color: ${theme('thread.extraInfo')};
   font-size: ${({ size }) => getTitleSize(size)};
   margin-left: 3px;
   word-break: keep-all;
-  font-weight: 700;
   letter-spacing: 0.06em;
 `
 export const SolidTitle = styled.div<{ size: TSIZE_TSM; color: string }>`
-  color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
-  font-size: ${({ size }) => getTitleSize(size)};
-  background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}Bg`)};
+  /* color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)}; */
+  color: ${theme('thread.extraInfo')};
+  font-size: 13px;
   margin-left: 3px;
   word-break: keep-all;
-  font-weight: 600;
   letter-spacing: 0.06em;
-  padding: 2px 6px;
-  border-radius: 5px;
+  margin-right: 10px;
 `
 export const More = styled.div`
   color: ${theme('thread.extraInfo')};

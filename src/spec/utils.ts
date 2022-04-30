@@ -187,7 +187,7 @@ export type TModelineType =
   | 'search'
   | 'more'
 
-export type TGtdType = 'BUG' | 'FEATURE' | 'DEFAULT'
-export type TGtdState = 'TODO' | 'WIP' | 'DONE' | 'DEFAULT'
+export type TASType = 'BUG' | 'FEATURE' | 'DEFAULT' | 'QUESTION' | 'LOCK'
+export type TASState = 'TODO' | 'WIP' | 'DONE' | 'DEFAULT' | 'RESOLVE' | 'LOCK'
 
 export type TTagMode = 'default' | 'label'

@@ -11,7 +11,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TInnerWrapper>`
   ${css.flexColumn('align-both')};
-  margin-left: -9px;
+  margin-left: -11px;
+  margin-top: 2px;
 `
 export const UpWrapper = styled.div`
   margin-left: 7px;

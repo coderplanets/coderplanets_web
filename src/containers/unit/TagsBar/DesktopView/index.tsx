@@ -9,7 +9,6 @@ import { keys, reverse } from 'ramda'
 
 import { bond } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
-import { TAG_MODE } from '@/constant'
 
 import type { TProps as TTagProps } from '../index'
 
@@ -25,11 +24,7 @@ const log = buildLog('C:TagsBar')
 
 type TProps = Omit<TTagProps, 'view'>
 
-const TagsBarContainer: FC<TProps> = ({
-  tagsBar: store,
-  onSelect,
-  mode = TAG_MODE.DEFAULT,
-}) => {
+const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
   useInit(store)
 
   const {
@@ -60,7 +55,6 @@ const TagsBarContainer: FC<TProps> = ({
           activeTag={activeTagData}
           maxDisplayCount={maxDisplayCount}
           totalCountThrold={totalCountThrold}
-          mode={mode}
           onSelect={(tag) => {
             onTagSelect(tag)
             onSelect?.()

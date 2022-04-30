@@ -44,6 +44,9 @@ const github = {
   link,
   border,
   linkHover: lighten(0.05, link),
+  heightIcon: '#e48a3d',
+  heightGradient:
+    'linear-gradient(90deg, rgb(243, 170, 0) 0%, rgb(228, 62, 41) 100%)',
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#FFFEDE',
@@ -119,7 +122,7 @@ const github = {
     articleLink: link,
     articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
-    extraInfo: '#8590a6', // descText,
+    extraInfo: '#647392', // '#687693', // '#8590a6'
     articleSpliter: '#dee8ea',
 
     // like github
@@ -160,8 +163,8 @@ const github = {
     desc: descText,
     font: primaryColor,
     bg: contentBg,
-    shadow: '-4px 3px 10px 0px rgb(143 143 143 / 27%)',
-    closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
+    shadow: '-5px -1px 20px 0px rgb(143 143 143 / 27%)',
+    closerShadow: '-7px 4px 20px 0px rgb(143 143 143 / 27%)',
     markdownHelperBg: '#F9FCFC',
     accountBg: '#FFFFFF',
     articleBg: '#FFFFFF',

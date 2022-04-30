@@ -18,14 +18,14 @@ export const SubTitle = styled.span`
   display: inline-block;
   color: ${theme('thread.articleTitle')};
   opacity: 0.4;
-  font-size: 19px;
+  font-size: 22px;
   margin-left: 10px;
   margin-top: -2px;
 
   &:before {
     content: '#';
     margin-top: 1px;
-    margin-right: 2px;
-    font-size: 17px;
+    margin-right: 3px;
+    font-size: 19px;
   }
 `

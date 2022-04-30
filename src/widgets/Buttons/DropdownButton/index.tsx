@@ -1,68 +1,35 @@
 import { FC, ReactNode, memo } from 'react'
 
-import { ICON_CMD } from '@/config'
+import type { TSpace } from '@/spec'
 import { buildLog } from '@/utils/logger'
-
-import type { TTooltipPlacement } from '@/spec'
-
-import Tooltip from '@/widgets/Tooltip'
-import OptionPanel from './OptionPanel'
 
 import {
   Wrapper,
   ButtonWrapper,
-  DropdownButtonWrapper,
-  Divider,
-  MoreIcon,
+  InnerBtnWrapper,
+  FilterIcon,
 } from '../styles/dropdown_button'
 
 const log = buildLog('C:DropdownButton')
 
-export type TOption = {
-  title: string
-  key: string
-  desc?: string
-  icon?: string
-  link?: string
-}
-
 type TProps = {
   children: ReactNode
-  options: TOption[]
-  placement?: TTooltipPlacement
-  panelMinWidth?: string
-  onClick: (key?: string) => void
-}
+  onClick?: () => void
+} & TSpace
 
-// <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
 const DropdownButton: FC<TProps> = ({
   children,
-  options,
   onClick = log,
-  placement = 'bottom',
-  panelMinWidth = '100%',
+  ...restProps
 }) => {
   return (
-    <Wrapper>
-      <ButtonWrapper onClick={onClick}>{children}</ButtonWrapper>
-      <Tooltip
-        placement={placement}
-        trigger="click"
-        hideOnClick={false}
-        content={
-          <OptionPanel
-            options={options}
-            onClick={onClick}
-            panelMinWidth={panelMinWidth}
-          />
-        }
-        noPadding
-      >
-        <DropdownButtonWrapper>
-          <MoreIcon src={`${ICON_CMD}/works/vote_up.svg`} onClick={onClick} />
-        </DropdownButtonWrapper>
-      </Tooltip>
-      <Divider />
+    <Wrapper {...restProps}>
+      <ButtonWrapper size="small" type="primary" ghost>
+        <InnerBtnWrapper>
+          {children}
+          <FilterIcon />
+        </InnerBtnWrapper>
+      </ButtonWrapper>
     </Wrapper>
   )
 }

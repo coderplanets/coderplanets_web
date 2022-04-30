@@ -8,7 +8,7 @@ export const getIconSize = (size: TSIZE_TSM): number => {
     }
 
     default: {
-      return 9
+      return 7
     }
   }
 }

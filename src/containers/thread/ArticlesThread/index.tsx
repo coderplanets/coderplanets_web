@@ -9,7 +9,7 @@ import { includes } from 'ramda'
 import { isMobile } from 'react-device-detect'
 
 import type { TResState } from '@/spec'
-import { C11N, ARTICLE_THREAD } from '@/constant'
+import { ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 

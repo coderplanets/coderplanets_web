@@ -8,7 +8,7 @@ export const Wrapper = styled.div<{ visible: boolean }>`
   top: ${({ visible }) => (visible ? 0 : '-60px;')};
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   width: calc(100% - 200px);
-  margin-left: -50px;
+  margin-left: -65px;
   height: 60px;
   background: #fff; // to-theme
   border-bottom: 1px solid;
@@ -16,11 +16,15 @@ export const Wrapper = styled.div<{ visible: boolean }>`
   z-index: 5;
   transition: all 0.2s;
 `
-export const ArticleWrapper = styled.div`
+export const LeftPart = styled.div`
   ${css.flex('align-center')};
 `
 export const ArticleTitle = styled.div`
-  font-size: 18px;
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
+  font-size: 18px;
   ${css.cutRest('400px')};
+`
+export const ArticleStateBadgeWrapper = styled.div`
+  margin-left: 10px;
 `

@@ -8,12 +8,13 @@ import type { TCommunity, TPost } from '@/spec'
 import { EVENT } from '@/constant'
 import { send, changeToCommunity } from '@/utils/helper'
 
-import { SpaceGrow } from '@/widgets/Common'
+import { Space, SpaceGrow } from '@/widgets/Common'
 import DigestSentence from '@/widgets/DigestSentence'
 // import CommunityCard from '@/widgets/Cards/CommunityCard'
 // import UserCard from '@/widgets/Cards/UserCard'
 import Tooltip from '@/widgets/Tooltip'
-import GTDBadge from '@/widgets/GTDBadge'
+import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ViewsCount from './ViewsCount'
 
 import {
   Wrapper,
@@ -24,9 +25,7 @@ import {
   CommunityLabel,
   LabelDivider,
   AuthorName,
-  ItemWrapper,
-  ViewsIcon,
-  GTDBadgeWrapper,
+  ArticleStateBadgeWrapper,
 } from '../styles/desktop_view/body'
 
 const CommunityCard = dynamic(() => import('@/widgets/Cards/CommunityCard'), {
@@ -91,22 +90,25 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
           <PublishTime>
             <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
           </PublishTime>
-          <Dot radius={3} space={10} />
-          <ItemWrapper>
-            <ViewsIcon />
-            {item.views}
-          </ItemWrapper>
+          <Space right={10} />
+          <ViewsCount count={item.views} />
         </LeftPart>
         <SpaceGrow />
 
         {/*  @ts-ignore */}
         <ActiveBadge item={item} />
-        <GTDBadgeWrapper>
-          {item.id === '239' && <GTDBadge type="FEATURE" />}
-          {item.id === '231' && <GTDBadge type="BUG" />}
-          {item.id === '227' && <GTDBadge type="BUG" state="TODO" />}
-          {item.id === '228' && <GTDBadge type="FEATURE" state="WIP" />}
-        </GTDBadgeWrapper>
+        <ArticleStateBadgeWrapper>
+          {item.id === '239' && <ArticleStateBadge type="FEATURE" />}
+          {item.id === '231' && <ArticleStateBadge type="BUG" />}
+          {item.id === '227' && <ArticleStateBadge type="BUG" state="TODO" />}
+          {item.id === '228' && (
+            <ArticleStateBadge type="FEATURE" state="WIP" />
+          )}
+          {item.id === '226' && (
+            <ArticleStateBadge type="QUESTION" state="RESOLVE" />
+          )}
+          {item.id === '225' && <ArticleStateBadge type="LOCK" state="LOCK" />}
+        </ArticleStateBadgeWrapper>
       </Extra>
 
       <DigestSentence

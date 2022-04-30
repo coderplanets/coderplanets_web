@@ -3,36 +3,21 @@ import styled from 'styled-components'
 import css, { theme } from '@/utils/css'
 
 import { Wrapper as BaseWrapper, AvatarsMore } from './index'
-import { getAvatarSize, getMoreTextWidth } from './metric'
+import { getAvatarSize } from './metric'
 
 const BaseAvatarItem = styled.li<{ size: string }>`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   position: relative;
   width: ${({ size }) => getAvatarSize(size)};
-  opacity: 1;
   z-index: 0;
-  &:hover {
-    opacity: 1;
-  }
   ${BaseWrapper}:hover & {
     margin-left: 0;
+    z-index: 1;
   }
 `
 export const Wrapper = styled(BaseAvatarItem)`
   ${css.media.mobile`display: none`};
-`
-
-type TNumbersMore = { size: string; total: number }
-export const NumbersMore = styled(AvatarsMore)<TNumbersMore>`
-  background-color: ${theme('textBadge')};
-  color: ${theme('thread.articleTitle')};
-  height: ${({ size }) => getAvatarSize(size)};
-  width: ${({ total }) => getMoreTextWidth(total)};
-  font-weight: 400;
-  padding-left: 2px;
-  margin-left: 4px;
-  border-radius: 0 10px 10px 0;
 `
 export const TextMore = styled(AvatarsMore)`
   font-size: 20px;
