@@ -25,6 +25,6 @@ export const ArticleTitle = styled.div`
   font-size: 18px;
   ${css.cutRest('400px')};
 `
-export const GTDBadgeWrapper = styled.div`
+export const ArticleStateBadgeWrapper = styled.div`
   margin-left: 10px;
 `

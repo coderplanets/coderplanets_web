@@ -77,8 +77,8 @@ export type {
   TEditMode,
   TOnlineStatus,
   TModelineType,
-  TGtdType,
-  TGtdState,
+  TASType,
+  TASState,
   TTagMode,
 } from './utils'
 

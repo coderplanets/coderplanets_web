@@ -2,7 +2,10 @@ import { FC, memo, Fragment } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
+import { SpaceGrow } from '@/widgets/Common'
+
 import DotDivider from '@/widgets/DotDivider'
+import ArticleStateBadge from '@/widgets/ArticleStateBadge'
 
 import {
   Wrapper,
@@ -37,6 +40,18 @@ const Header: FC<TProps> = ({ article }) => {
           </Fragment>
         )}
       </PublishWrapper>
+      <SpaceGrow />
+
+      {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
+      {article.id === '231' && <ArticleStateBadge type="BUG" />}
+      {article.id === '227' && <ArticleStateBadge type="BUG" state="TODO" />}
+      {article.id === '228' && <ArticleStateBadge type="FEATURE" state="WIP" />}
+      {article.id === '226' && (
+        <ArticleStateBadge type="QUESTION" state="RESOLVE" articleInfoLayout />
+      )}
+      {article.id === '225' && (
+        <ArticleStateBadge type="LOCK" state="LOCK" articleInfoLayout />
+      )}
     </Wrapper>
   )
 }

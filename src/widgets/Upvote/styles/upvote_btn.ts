@@ -158,7 +158,6 @@ export const UpIcon = styled(UpvoteIcon)<TUpIcon>`
   opacity: ${({ count }) => (count === 0 ? 0.6 : 1)};
 
   transform: scale(1, 0.8);
-  margin-top: 1px;
 
   &:hover {
     fill: ${theme('thread.articleTitle')};

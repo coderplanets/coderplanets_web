@@ -19,7 +19,7 @@ export const ViewsIcon = styled(ViewedSVG)<{ highlight?: boolean }>`
   ${css.size(10)};
   margin-right: 4px;
 `
-export const GTDBadgeWrapper = styled.div`
+export const ArticleStateBadgeWrapper = styled.div`
   position: absolute;
   top: 41px;
   right: -5px;

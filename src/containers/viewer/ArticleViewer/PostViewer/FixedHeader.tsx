@@ -2,13 +2,13 @@ import { FC, memo } from 'react'
 import type { TArticle } from '@/spec'
 
 import Upvote from '@/widgets/Upvote'
-import GTDBadge from '@/widgets/GTDBadge'
+import ArticleStateBadge from '@/widgets/ArticleStateBadge'
 
 import {
   Wrapper,
   LeftPart,
   ArticleTitle,
-  GTDBadgeWrapper,
+  ArticleStateBadgeWrapper,
 } from '../styles/post_viewer/fixed_header'
 import { handleUpvote } from '../logic'
 
@@ -24,12 +24,22 @@ const FixedHeader: FC<TProps> = ({ article, visible }) => {
     <Wrapper visible={visible}>
       <LeftPart>
         <ArticleTitle>{article.title}</ArticleTitle>
-        <GTDBadgeWrapper>
-          {article.id === '239' && <GTDBadge type="FEATURE" />}
-          {article.id === '231' && <GTDBadge type="BUG" />}
-          {article.id === '227' && <GTDBadge type="BUG" state="TODO" />}
-          {article.id === '228' && <GTDBadge type="FEATURE" state="WIP" />}
-        </GTDBadgeWrapper>
+        <ArticleStateBadgeWrapper>
+          {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
+          {article.id === '231' && <ArticleStateBadge type="BUG" />}
+          {article.id === '227' && (
+            <ArticleStateBadge type="BUG" state="TODO" />
+          )}
+          {article.id === '228' && (
+            <ArticleStateBadge type="FEATURE" state="WIP" />
+          )}
+          {article.id === '226' && (
+            <ArticleStateBadge type="QUESTION" state="RESOLVE" />
+          )}
+          {article.id === '225' && (
+            <ArticleStateBadge type="LOCK" state="LOCK" />
+          )}
+        </ArticleStateBadgeWrapper>
       </LeftPart>
       <Upvote
         count={upvotesCount}

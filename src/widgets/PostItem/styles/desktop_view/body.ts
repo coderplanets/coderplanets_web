@@ -71,7 +71,7 @@ export const Dot = styled(DotDivider)`
   background-color: ${theme('thread.articleDigest')};
   margin-right: 8px;
 `
-export const GTDBadgeWrapper = styled.div`
+export const ArticleStateBadgeWrapper = styled.div`
   position: absolute;
   top: 41px;
   right: -5px;

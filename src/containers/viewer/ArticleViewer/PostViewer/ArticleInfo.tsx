@@ -7,7 +7,6 @@ import { addCollection } from '@/utils/helper'
 import { Space, SpaceGrow } from '@/widgets/Common'
 import Upvote from '@/widgets/Upvote'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
-import GTDBadge from '@/widgets/GTDBadge'
 
 import {
   Wrapper,
@@ -29,14 +28,6 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <BaseWrapper>
-        {article.id === '239' && <GTDBadge type="FEATURE" right={15} />}
-        {article.id === '231' && <GTDBadge type="BUG" right={15} />}
-        {article.id === '227' && (
-          <GTDBadge type="BUG" state="TODO" right={15} />
-        )}
-        {article.id === '228' && (
-          <GTDBadge type="FEATURE" state="WIP" right={15} />
-        )}
         <UpvoteWrapper>
           <Upvote
             count={upvotesCount}
