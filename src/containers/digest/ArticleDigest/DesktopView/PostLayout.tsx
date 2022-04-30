@@ -9,20 +9,20 @@ import type { TPost, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import ArchivedSign from '@/widgets/ArchivedSign'
+// import ArchivedSign from '@/widgets/ArchivedSign'
 import Upvote from '@/widgets/Upvote'
 import { SpaceGrow } from '@/widgets/Common'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 // import ArticleBelongCommunity from '@/widgets/ArticleBelongCommunity'
 import DotDivider from '@/widgets/DotDivider'
-import ArticleMenu from '@/widgets/ArticleMenu'
+// import ArticleMenu from '@/widgets/ArticleMenu'
 import ReadableDate from '@/widgets/ReadableDate'
+import ArticleStateBadge from '@/widgets/ArticleStateBadge'
 
 import {
   Main,
   Header,
   PublishDateInfo,
-  UpvoteInfo,
   Title,
   AuthorName,
   BottomInfo,
@@ -43,8 +43,8 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
     author,
     title,
     insertedAt,
-    isArchived,
-    archivedAt,
+    // isArchived,
+    // archivedAt,
     upvotesCount,
     meta,
     viewerHasUpvoted,
@@ -61,26 +61,40 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
           <PublishDateInfo>
             <ReadableDate date={insertedAt} fmt="absolute" withTime={false} />
           </PublishDateInfo>
-          {isArchived && (
+          {/* {isArchived && (
             <Fragment>
               <DotDivider space={8} />
               <ArchivedSign date={archivedAt} />
             </Fragment>
-          )}
+          )} */}
           <SpaceGrow />
-          <UpvoteInfo>
-            <Upvote
-              count={upvotesCount}
-              avatarList={meta.latestUpvotedUsers}
-              viewerHasUpvoted={viewerHasUpvoted}
-              type="comment"
-            />
-          </UpvoteInfo>
+          <div>
+            {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
+            {article.id === '231' && <ArticleStateBadge type="BUG" />}
+            {article.id === '227' && (
+              <ArticleStateBadge type="BUG" state="TODO" />
+            )}
+            {article.id === '228' && (
+              <ArticleStateBadge type="FEATURE" state="WIP" />
+            )}
+            {article.id === '226' && (
+              <ArticleStateBadge type="QUESTION" state="RESOLVE" />
+            )}
+            {article.id === '225' && (
+              <ArticleStateBadge type="LOCK" state="LOCK" />
+            )}
+          </div>
         </Header>
         <Title>{title}</Title>
         <BottomInfo>
+          <Upvote
+            count={upvotesCount}
+            avatarList={meta.latestUpvotedUsers}
+            viewerHasUpvoted={viewerHasUpvoted}
+          />
+          <SpaceGrow />
           <ArticleBaseStats article={article} />
-          <ArticleMenu article={article} />
+          {/* <ArticleMenu article={article} /> */}
         </BottomInfo>
       </Main>
       {/* <CommunityInfo>

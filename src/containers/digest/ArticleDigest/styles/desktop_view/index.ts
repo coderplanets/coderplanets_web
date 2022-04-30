@@ -9,11 +9,12 @@ type TWrapper = { metric: TMetric } & TTestable
 export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
-  ${css.flexColumn('justify-end')};
+  ${css.flexColumn('justify-center')};
   position: relative;
   background: transparent;
   border-bottom: ${theme('banner.spliter')};
   min-height: ${({ metric }) => getDigestHeight(metric)};
+  height: auto;
 
   margin-bottom: 15px;
   width: 100%;

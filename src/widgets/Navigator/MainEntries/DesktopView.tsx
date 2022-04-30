@@ -21,7 +21,7 @@ const DesktopView: FC = () => {
           active={mainPath === ROUTE.TOPICS}
           testid="header-explore-link"
         >
-          社区首页
+          社区
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />

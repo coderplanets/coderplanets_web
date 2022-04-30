@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import { C11N } from '@/constant'
+import { METRIC } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
 import css, { theme } from '@/utils/css'
 
@@ -48,7 +48,8 @@ export const InnerWrapper = styled.div<TInner>`
 `
 type TBody = { isMobile: boolean }
 export const BodyWrapper = styled.div<TBody>`
-  ${css.flex('align-both')};
+  ${css.flexColumn('align-both')};
+
   width: 100%;
 `
 // 180 is the sidebar full width
