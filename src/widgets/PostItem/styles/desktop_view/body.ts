@@ -55,7 +55,6 @@ export const AuthorName = styled.a<{ darker: boolean }>`
   display: block;
   color: ${theme('thread.extraInfo')};
   font-size: 13px;
-  margin-bottom: 1px;
 
   text-decoration: none;
 
@@ -66,7 +65,7 @@ export const AuthorName = styled.a<{ darker: boolean }>`
   }
 `
 export const PublishTime = styled.div`
-  font-size: 12px;
+  font-size: 11px;
 `
 export const Dot = styled(DotDivider)`
   background-color: ${theme('thread.articleDigest')};

@@ -8,7 +8,7 @@ import type { TCommunity, TPost } from '@/spec'
 import { EVENT } from '@/constant'
 import { send, changeToCommunity } from '@/utils/helper'
 
-import { SpaceGrow } from '@/widgets/Common'
+import { Space, SpaceGrow } from '@/widgets/Common'
 import DigestSentence from '@/widgets/DigestSentence'
 // import CommunityCard from '@/widgets/Cards/CommunityCard'
 // import UserCard from '@/widgets/Cards/UserCard'
@@ -90,7 +90,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
           <PublishTime>
             <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
           </PublishTime>
-          <Dot radius={3} space={10} />
+          <Space right={10} />
           <ViewsCount count={item.views} />
         </LeftPart>
         <SpaceGrow />
