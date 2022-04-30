@@ -11,7 +11,7 @@ import { getRandomInt } from '@/utils/helper'
 
 import { SpaceGrow } from '@/widgets/Common'
 import IconButton from '@/widgets/Buttons/IconButton'
-import GtdItem from '@/widgets/GtdItem'
+import KanbanItem from '@/widgets/KanbanItem'
 
 import Actions from './Actions'
 
@@ -57,12 +57,12 @@ const GtdThreadContainer: FC<TProps> = ({
             <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
           </Body>
         </Column>
         <Column>
@@ -74,12 +74,12 @@ const GtdThreadContainer: FC<TProps> = ({
             <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
           </Body>
         </Column>
         <Column>
@@ -91,12 +91,12 @@ const GtdThreadContainer: FC<TProps> = ({
             <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
           </Body>
         </Column>
       </ColumnsWrapper>
