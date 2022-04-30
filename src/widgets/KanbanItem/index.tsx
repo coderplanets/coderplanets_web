@@ -1,6 +1,6 @@
 /*
  *
- * GtdItem
+ * KanbanItem
  *
  */
 
@@ -17,13 +17,13 @@ import TagsList from '@/widgets/TagsList'
 import { Wrapper, Header, Footer, Title, Desc } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:GtdItem:index')
+const log = buildLog('c:KanbanItem:index')
 
 type TProps = {
   testid?: string
 }
 
-const GtdItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
+const KanbanItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
   const tags = [
     {
       title: 'Groupher',
@@ -52,4 +52,4 @@ const GtdItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
   )
 }
 
-export default memo(GtdItem)
+export default memo(KanbanItem)

@@ -72,7 +72,7 @@ import {
   HelpThreadStore,
   AboutThreadStore,
   ChangelogThreadStore,
-  GtdThreadStore,
+  KanbanThreadStore,
   FriendsContentStore,
   UserPublishedArticlesStore,
   BlogEditorStore,
@@ -101,7 +101,6 @@ import {
   TrendingContentStore,
   WorksContentStore,
   C11NSettingPanelStore,
-  RoadmapThreadStore,
 } from '../index'
 
 const rootStore = T.model({
@@ -175,7 +174,7 @@ const rootStore = T.model({
   helpThread: T.optional(HelpThreadStore, {}),
   aboutThread: T.optional(AboutThreadStore, {}),
   changelogThread: T.optional(ChangelogThreadStore, {}),
-  gtdThread: T.optional(GtdThreadStore, {}),
+  kanbanThread: T.optional(KanbanThreadStore, {}),
   friendsContent: T.optional(FriendsContentStore, {}),
   userPublishedArticles: T.optional(UserPublishedArticlesStore, {}),
   blogEditor: T.optional(BlogEditorStore, {}),
@@ -204,7 +203,6 @@ const rootStore = T.model({
   trendingContent: T.optional(TrendingContentStore, {}),
   worksContent: T.optional(WorksContentStore, {}),
   c11NSettingPanel: T.optional(C11NSettingPanelStore, {}),
-  roadmapThread: T.optional(RoadmapThreadStore, {}),
 })
   .views((self) => ({
     get isOnline(): boolean {

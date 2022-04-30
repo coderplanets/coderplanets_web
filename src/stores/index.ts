@@ -49,7 +49,6 @@ export { default as FooterStore } from '@/containers/unit/Footer/store'
 // threads store
 export { default as ReposThreadStore } from '@/containers/thread/ReposThread/store'
 export { default as CperMapThreadStore } from '@/containers/thread/CperMapThread/store'
-export { default as RoadmapThreadStore } from '@/containers/thread/RoadmapThread/store'
 
 export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
 
@@ -82,7 +81,7 @@ export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/sto
 export { default as HelpThreadStore } from '@/containers/thread/HelpThread/store'
 export { default as AboutThreadStore } from '@/containers/thread/AboutThread/store'
 export { default as ChangelogThreadStore } from '@/containers/thread/ChangelogThread/store'
-export { default as GtdThreadStore } from '@/containers/thread/GtdThread/store'
+export { default as KanbanThreadStore } from '@/containers/thread/KanbanThread/store'
 export { default as FriendsContentStore } from '@/containers/content/FriendsContent/store'
 export { default as BlogEditorStore } from '@/containers/editor/BlogEditor/store'
 export { default as CommunityTagSetterStore } from '@/containers/tool/CommunityTagSetter/store'

@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import GtdThread from '../index'
+// import KanbanThread from '../index'
 
-describe('TODO <GtdThread />', () => {
+describe('TODO <KanbanThread />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

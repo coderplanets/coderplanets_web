@@ -1,5 +1,5 @@
 /* *
- * GtdThread
+ * KanbanThread
  *
  */
 
@@ -11,7 +11,7 @@ import { getRandomInt } from '@/utils/helper'
 
 import { SpaceGrow } from '@/widgets/Common'
 import IconButton from '@/widgets/Buttons/IconButton'
-import GtdItem from '@/widgets/GtdItem'
+import KanbanItem from '@/widgets/KanbanItem'
 
 import Actions from './Actions'
 
@@ -30,16 +30,16 @@ import {
 } from './styles'
 import { useInit } from './logic' /* eslint-disable-next-line */
 
-// const log = buildLog('C:GtdThread')
+// const log = buildLog('C:KanbanThread')
 
 type TProps = {
-  gtdThread?: TStore
+  kanbanThread?: TStore
   testid?: string
 }
 
-const GtdThreadContainer: FC<TProps> = ({
-  gtdThread: store,
-  testid = 'gtd-thread',
+const KanbanThreadContainer: FC<TProps> = ({
+  kanbanThread: store,
+  testid = 'kanban-thread',
 }) => {
   useInit(store)
 
@@ -57,12 +57,12 @@ const GtdThreadContainer: FC<TProps> = ({
             <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
           </Body>
         </Column>
         <Column>
@@ -74,12 +74,12 @@ const GtdThreadContainer: FC<TProps> = ({
             <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
           </Body>
         </Column>
         <Column>
@@ -91,12 +91,12 @@ const GtdThreadContainer: FC<TProps> = ({
             <IconButton path="shape/add.svg" mRight={12} />
           </Header>
           <Body>
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
-            <GtdItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
+            <KanbanItem />
           </Body>
         </Column>
       </ColumnsWrapper>
@@ -104,4 +104,4 @@ const GtdThreadContainer: FC<TProps> = ({
   )
 }
 
-export default bond(GtdThreadContainer, 'gtdThread') as FC<TProps>
+export default bond(KanbanThreadContainer, 'kanbanThread') as FC<TProps>

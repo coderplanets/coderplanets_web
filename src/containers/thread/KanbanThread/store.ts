@@ -1,5 +1,5 @@
 /*
- * GtdThread store
+ * KanbanThread store
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
@@ -10,9 +10,9 @@ import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:GtdThread')
+const log = buildLog('S:KanbanThread')
 
-const GtdThread = T.model('GtdThread', {})
+const KanbanThread = T.model('KanbanThread', {})
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
@@ -26,6 +26,6 @@ const GtdThread = T.model('GtdThread', {})
     },
   }))
 
-export type TStore = Instance<typeof GtdThread>
+export type TStore = Instance<typeof KanbanThread>
 
-export default GtdThread
+export default KanbanThread

@@ -612,7 +612,7 @@ export const plural = (value: string, opt = null): string => {
       THREAD.ACCOUNT,
       THREAD.CHANGELOG,
       THREAD.HELP,
-      THREAD.ROADMAP,
+      THREAD.KANBAN,
       THREAD.ABOUT,
     ])
   ) {

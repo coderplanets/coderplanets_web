@@ -27,7 +27,7 @@ export const THREAD = {
   ACCOUNT: 'account',
   SETTING: 'setting',
   // for groupher
-  ROADMAP: 'roadmap',
+  KANBAN: 'kanban',
   CHANGELOG: 'changelog',
   HELP: 'help',
   ABOUT: 'about',
