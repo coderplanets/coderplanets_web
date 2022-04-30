@@ -49,7 +49,6 @@ export { default as FooterStore } from '@/containers/unit/Footer/store'
 // threads store
 export { default as ReposThreadStore } from '@/containers/thread/ReposThread/store'
 export { default as CperMapThreadStore } from '@/containers/thread/CperMapThread/store'
-export { default as RoadmapThreadStore } from '@/containers/thread/RoadmapThread/store'
 
 export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
 

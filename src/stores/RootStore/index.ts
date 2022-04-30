@@ -101,7 +101,6 @@ import {
   TrendingContentStore,
   WorksContentStore,
   C11NSettingPanelStore,
-  RoadmapThreadStore,
 } from '../index'
 
 const rootStore = T.model({
@@ -204,7 +203,6 @@ const rootStore = T.model({
   trendingContent: T.optional(TrendingContentStore, {}),
   worksContent: T.optional(WorksContentStore, {}),
   c11NSettingPanel: T.optional(C11NSettingPanelStore, {}),
-  roadmapThread: T.optional(RoadmapThreadStore, {}),
 })
   .views((self) => ({
     get isOnline(): boolean {
