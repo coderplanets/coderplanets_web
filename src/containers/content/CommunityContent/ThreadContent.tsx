@@ -4,7 +4,7 @@ import type { TThread } from '@/spec'
 import { THREAD } from '@/constant'
 
 import ArticlesThread from '@/containers//thread/ArticlesThread'
-import GtdThread from '@/containers//thread/GtdThread'
+import KanbanThread from '@/containers//thread/KanbanThread'
 import ChangeThread from '@/containers//thread/ChangelogThread'
 // import ReposThread from '@/containers/thread/ReposThread'
 import CperMapThread from '@/containers/thread/CperMapThread'
@@ -52,7 +52,7 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
     }
 
     case THREAD.ROADMAP: {
-      return <GtdThread />
+      return <KanbanThread />
     }
 
     case THREAD.CHANGELOG: {

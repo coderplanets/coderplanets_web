@@ -1,5 +1,5 @@
 /* *
- * GtdThread
+ * KanbanThread
  *
  */
 
@@ -30,16 +30,16 @@ import {
 } from './styles'
 import { useInit } from './logic' /* eslint-disable-next-line */
 
-// const log = buildLog('C:GtdThread')
+// const log = buildLog('C:KanbanThread')
 
 type TProps = {
-  gtdThread?: TStore
+  kanbanThread?: TStore
   testid?: string
 }
 
-const GtdThreadContainer: FC<TProps> = ({
-  gtdThread: store,
-  testid = 'gtd-thread',
+const KanbanThreadContainer: FC<TProps> = ({
+  kanbanThread: store,
+  testid = 'kanban-thread',
 }) => {
   useInit(store)
 
@@ -104,4 +104,4 @@ const GtdThreadContainer: FC<TProps> = ({
   )
 }
 
-export default bond(GtdThreadContainer, 'gtdThread') as FC<TProps>
+export default bond(KanbanThreadContainer, 'kanbanThread') as FC<TProps>

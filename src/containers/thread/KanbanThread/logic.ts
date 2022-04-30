@@ -9,7 +9,7 @@ import type { TStore } from './store'
 let store: TStore | undefined
 
 /* eslint-disable-next-line */
-const log = buildLog('L:GtdThread')
+const log = buildLog('L:KanbanThread')
 
 export const someMethod = (): void => {
   //
