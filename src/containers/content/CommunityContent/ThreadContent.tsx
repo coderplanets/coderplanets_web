@@ -51,7 +51,7 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
       return <AboutThread />
     }
 
-    case THREAD.ROADMAP: {
+    case THREAD.KANBAN: {
       return <KanbanThread />
     }
 
