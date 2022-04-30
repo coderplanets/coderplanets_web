@@ -6,7 +6,7 @@ export const Wrapper = styled.div<{ hasComments: boolean }>`
   ${css.flex('align-center')};
   display: ${({ hasComments }) => (hasComments ? 'flex' : 'none')};
   position: absolute;
-  top: 6px;
+  top: 4px;
   right: 0;
   color: ${theme('thread.articleDigest')};
   margin-right: 1px;

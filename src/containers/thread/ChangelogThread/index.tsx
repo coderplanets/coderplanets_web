@@ -28,13 +28,21 @@ const ChangelogThreadContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
+  const layout = 'outline'
   return (
     <Wrapper testid={testid}>
       <MainWrapper>
         <ChangelogItem />
-        <ChangelogItem />
-        <ChangelogItem />
-        <ChangelogItem />
+
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
+        <ChangelogItem layout={layout} />
       </MainWrapper>
       <Filters />
     </Wrapper>
