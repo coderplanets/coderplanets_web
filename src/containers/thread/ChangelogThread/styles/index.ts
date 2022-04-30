@@ -23,3 +23,10 @@ export const MainWrapper = styled.div`
   border-right: 1px solid;
   border-right-color: ${theme('border')};
 `
+
+export const PreviousTitle = styled.div`
+  font-size: 18px;
+  color: ${theme('thread.articleTitle')};
+  margin-top: 45px;
+  margin-bottom: 22px;
+`
