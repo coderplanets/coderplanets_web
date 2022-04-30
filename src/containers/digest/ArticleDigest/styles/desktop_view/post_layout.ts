@@ -33,6 +33,8 @@ export const BottomInfo = styled.div`
   ${css.flex('align-end', 'justify-between')};
   margin-top: 15px;
   padding-bottom: 45px;
+  padding-left: 2px;
+  padding-right: 3px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('border')};
   width: 100%;

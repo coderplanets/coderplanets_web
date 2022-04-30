@@ -12,28 +12,31 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TInnerWrapper>`
   ${css.flex('align-center')};
 `
+export const UpvoteBtnWrapper = styled.div`
+  transform: scale(0.8);
+  margin-top: 4px;
+`
 export const DescWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 2px;
 `
 export const Text = styled.div`
   color: ${theme('thread.extraInfo')};
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: 1px;
 `
 export const Count = styled.div<{ noOne: boolean }>`
   color: ${({ noOne }) =>
     noOne ? theme('thread.articleDigest') : theme('thread.extraInfo')};
   font-weight: ${({ noOne }) => (noOne ? 400 : 600)};
-  font-size: 16px;
-  margin-right: 17px;
-  margin-left: 3px;
-  margin-top: 1px;
+  font-size: 14px;
+  margin-left: -3px;
+  margin-right: 10px;
+  margin-top: -1px;
 `
 export const LineDivider = styled.div`
-  height: 11px;
+  height: 10px;
   width: 1px;
-  margin-top: 1px;
-  /* background: ${theme('thread.articleDigest')}; */
   background: ${theme('thread.articleDigest')};
-  margin-right: 13px;
+  margin-right: 8px;
 `

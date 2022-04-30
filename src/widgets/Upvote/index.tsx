@@ -11,6 +11,7 @@ import { UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import DefaultLayout from './DefaultLayout'
+import KanbanLayout from './KanbanLayout'
 import CommentLayout from './CommentLayout'
 import PostListLayout from './PostListLayout'
 import GuideListLayout from './GuideListLayout'
@@ -55,6 +56,9 @@ const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
     }
     case UPVOTE_LAYOUT.ARTICLE: {
       return <ArticleLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.KANBAN: {
+      return <KanbanLayout {...restProps} />
     }
     default: {
       return <DefaultLayout {...restProps} />

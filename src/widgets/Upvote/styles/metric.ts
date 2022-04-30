@@ -7,7 +7,7 @@ export const getIconColor = ($active: boolean, count: number): string => {
   if ($active) return theme('thread.articleTitle')
   if (count === 0) return theme('thread.articleDigest')
 
-  return theme('thread.articleDigest')
+  return theme('thread.extraInfo')
 }
 
 export const getIconSize = (type: TUpvoteLayout): string => {
@@ -25,7 +25,7 @@ export const getIconSize = (type: TUpvoteLayout): string => {
     }
 
     default: {
-      return ' 16px;'
+      return ' 15px;'
     }
   }
 }

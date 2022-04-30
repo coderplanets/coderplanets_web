@@ -15,7 +15,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-top: 5px;
 `
 export const UpWrapper = styled.div`
-  margin-left: 6px;
+  margin-left: 5px;
 `
 export const CountWrapper = styled.div`
   margin-top: -4px;

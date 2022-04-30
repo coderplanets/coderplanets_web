@@ -35,32 +35,14 @@ const Desc: FC<TProps> = ({
 }) => {
   const onlyOne = count === 1
 
-  if (isMobile) {
-    return (
-      <DescWrapper>
-        <AnimatedCount count={count} />
-      </DescWrapper>
-    )
-  }
   return (
     <DescWrapper>
       {!noOne && !onlyOne && count > avatarsRowLimit && (
         <DescWrapper>
           <Text>等</Text>
-          <Maybe test={showCount}>
-            <Space left={4} />
-            <AnimatedCount count={count} active={viewerHasUpvoted} />
-            <Text>人</Text>
-          </Maybe>
         </DescWrapper>
       )}
-      {noOne ? (
-        <Maybe test={showCount}>
-          <AnimatedCount count={count} /> <Space left={4} />
-        </Maybe>
-      ) : (
-        <Text>{alias}</Text>
-      )}
+      <Text>{alias}</Text>
     </DescWrapper>
   )
 }

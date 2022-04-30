@@ -21,7 +21,7 @@ export const IndentLine = styled.div<TIndentLine>`
   width: 20px;
   border-left: 1px dashed;
   border-left-color: ${theme('comment.indentLine')};
-  margin-left: 6px;
+  margin-left: 5px;
 
   &:hover {
     cursor: pointer;
