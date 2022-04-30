@@ -147,6 +147,18 @@ export const IconWrapper = styled.div<{ type: TUpvoteLayout }>`
   margin-right: ${({ type }) => (type !== UPVOTE_LAYOUT.ARTICLE ? '0' : '0')};
   position: relative;
   z-index: 1;
+
+  &:hover {
+    &:before {
+      content: '';
+      ${css.circle(23)};
+      background: ${theme('hoverBg')};
+      left: -4px;
+      top: -4px;
+      position: absolute;
+    }
+    transition: all 0.2s;
+  }
 `
 type TUpIcon = { type: TUpvoteLayout; count: number } & TActive
 export const UpIcon = styled(UpvoteIcon)<TUpIcon>`

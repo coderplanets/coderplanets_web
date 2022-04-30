@@ -11,11 +11,11 @@ export const Wrapper = styled.div<TWrapper>`
   margin-bottom: 28px;
   padding: 5px 0;
   border-radius: 15px;
-  background: ${({ fold }) => (fold ? '#F5F5F5' : 'transparent')};
+  background: ${({ fold }) => (fold ? theme('hoverBg') : 'transparent')};
 
   &:hover {
     cursor: pointer;
-    background: #f5f5f5;
+    background: ${theme('hoverBg')};
   }
 
   ${css.media.mobile`

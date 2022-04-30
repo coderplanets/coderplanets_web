@@ -31,9 +31,9 @@ const SwitchBlock = styled.div`
   ${css.circle(50)};
   ${css.flex('align-both')};
   opacity: 0.4;
-  /* background: ${theme('textBadge')};; */
+
   &:hover {
-    background: ${theme('textBadge')};
+    background: ${theme('hoverBg')};
     opacity: 1;
     cursor: pointer;
   }
@@ -76,10 +76,10 @@ export const IndexWrapper = styled.div`
 export const LeftIndexWrapper = styled(IndexWrapper)`
   position: absolute;
   left: 32px;
-  top: 32px;
+  top: 38px;
 `
 export const RightIndexWrapper = styled(IndexWrapper)`
   position: absolute;
   left: 31px;
-  top: 32px;
+  top: 38px;
 `

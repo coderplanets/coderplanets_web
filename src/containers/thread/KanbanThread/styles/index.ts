@@ -32,7 +32,7 @@ export const Header = styled.div`
   padding-left: 3px;
 `
 export const Body = styled.div`
-  background: #f5f5f5; //#eef2f7;
+  background: ${theme('hoverBg')};
   padding: 8px;
   border-radius: 6px;
 `
