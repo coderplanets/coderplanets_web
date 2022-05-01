@@ -12,6 +12,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TInnerWrapper>`
   ${css.flex('align-center')};
 `
+export const UpvoteBtnWrapper = styled.div`
+  margin-top: 6px;
+`
 export const DescWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 2px;

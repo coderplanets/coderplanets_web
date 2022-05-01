@@ -10,6 +10,7 @@ export const UPVOTE_LAYOUT = {
   WORKS_CARD: 'works-card',
   GUIDE_LIST: 'guide-list',
   KANBAN: 'kanban',
+  STICKER: 'sticker',
 } as Record<SnakeUpperCase<TUpvoteLayout>, TUpvoteLayout>
 
 export const holder = 1

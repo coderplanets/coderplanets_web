@@ -8,6 +8,9 @@ export const getFontSize = (size: TSIZE): string => {
     case SIZE.TINY: {
       return '13px'
     }
+    case SIZE.MEDIUM: {
+      return '18px'
+    }
     case SIZE.LARGE: {
       return '23px'
     }

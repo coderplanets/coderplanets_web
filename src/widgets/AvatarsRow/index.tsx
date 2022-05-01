@@ -77,6 +77,7 @@ export type TProps = {
   reverse?: boolean
   scrollPosition?: any
   popCardPlacement?: 'top' | 'bottom'
+  noLazyLoad?: boolean
 
   onUserSelect?: (user: TUser) => void
   onTotalSelect?: () => void
@@ -87,6 +88,7 @@ const AvatarsRow: FC<TProps> = ({
   total = null,
   users = [],
   limit = AVATARS_LIST_LENGTH.POSTS,
+  noLazyLoad = false,
   onUserSelect = log,
   onTotalSelect = log,
   showMore = true,
@@ -124,6 +126,7 @@ const AvatarsRow: FC<TProps> = ({
           <RealAvatar
             user={sortedUsers[0]}
             size={size}
+            noLazyLoad={noLazyLoad}
             onUserSelect={onUserSelect}
             popCardPlacement={popCardPlacement}
           />
@@ -136,6 +139,7 @@ const AvatarsRow: FC<TProps> = ({
               <RealAvatar
                 user={user}
                 size={size}
+                noLazyLoad={noLazyLoad}
                 onUserSelect={onUserSelect}
                 popCardPlacement={popCardPlacement}
               />

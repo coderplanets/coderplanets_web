@@ -16,7 +16,12 @@ import AvatarsRow from '@/widgets/AvatarsRow'
 import UpvoteBtn from './UpvoteBtn'
 import Desc from './Desc'
 
-import { Wrapper, Count, LineDivider } from './styles/default_layout'
+import {
+  Wrapper,
+  UpvoteBtnWrapper,
+  Count,
+  LineDivider,
+} from './styles/default_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
@@ -44,11 +49,14 @@ const Upvote: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <UpvoteBtn
-        viewerHasUpvoted={viewerHasUpvoted}
-        onAction={onAction}
-        count={count}
-      />
+      <UpvoteBtnWrapper>
+        <UpvoteBtn
+          viewerHasUpvoted={viewerHasUpvoted}
+          onAction={onAction}
+          count={count}
+        />
+      </UpvoteBtnWrapper>
+
       <Space right={3} />
       <Count noOne={noOne}>{count}</Count>
       {!noOne && <LineDivider />}

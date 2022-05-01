@@ -29,3 +29,34 @@ export const SubTitle = styled.span`
     font-size: 19px;
   }
 `
+
+const getLeftOffset = (count: number): string => {
+  switch (count) {
+    case 0: {
+      return '133px;'
+    }
+    case 1: {
+      return '130px;'
+    }
+    case 2: {
+      return '128px;'
+    }
+    default: {
+      return '120px;'
+    }
+  }
+}
+
+type TUpvoteWrapper = {
+  show: boolean
+  count: number
+}
+
+export const UpvoteWrapper = styled.div<TUpvoteWrapper>`
+  position: fixed;
+  top: 100px;
+  left: ${({ count }) => getLeftOffset(count)};
+  opacity: ${({ show }) => (show ? 1 : 0)};
+
+  transition: opacity 0.5s;
+`

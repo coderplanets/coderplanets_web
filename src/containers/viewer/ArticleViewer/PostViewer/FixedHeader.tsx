@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 import type { TArticle } from '@/spec'
 
-import Upvote from '@/widgets/Upvote'
 import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 
 import {
   Wrapper,
@@ -10,7 +10,6 @@ import {
   ArticleTitle,
   ArticleStateBadgeWrapper,
 } from '../styles/post_viewer/fixed_header'
-import { handleUpvote } from '../logic'
 
 type TProps = {
   article: TArticle
@@ -18,8 +17,6 @@ type TProps = {
 }
 
 const FixedHeader: FC<TProps> = ({ article, visible }) => {
-  const { upvotesCount, viewerHasUpvoted, meta } = article
-
   return (
     <Wrapper visible={visible}>
       <LeftPart>
@@ -41,12 +38,7 @@ const FixedHeader: FC<TProps> = ({ article, visible }) => {
           )}
         </ArticleStateBadgeWrapper>
       </LeftPart>
-      <Upvote
-        count={upvotesCount}
-        avatarList={meta.latestUpvotedUsers}
-        viewerHasUpvoted={viewerHasUpvoted}
-        onAction={(viewerHasUpvoted) => handleUpvote(article, viewerHasUpvoted)}
-      />
+      <ArticleBaseStats article={article} container="drawer" />
     </Wrapper>
   )
 }
