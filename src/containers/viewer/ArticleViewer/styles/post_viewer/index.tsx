@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   padding: 0 8px;
@@ -63,14 +63,17 @@ export const UpvoteWrapper = styled.div<TUpvoteWrapper>`
 
 export const GoTopWrapper = styled.div<{ show: boolean }>`
   position: fixed;
-  bottom: 35px;
-  left: 128px;
+  bottom: 20px;
+  left: 50px;
   transform: scale(0.9);
-
-  opacity: ${({ show }) => (show ? 0.4 : 0)};
+  ${css.flex('align-end', 'justify-center')};
+  width: 165px;
+  height: 400px;
+  padding-left: 17px;
+  opacity: 0;
 
   &:hover {
-    opacity: 1;
+    opacity: ${({ show }) => (show ? 1 : 0)};
   }
   transition: opacity 0.2s;
 `
