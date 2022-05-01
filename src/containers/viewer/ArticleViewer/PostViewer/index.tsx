@@ -7,6 +7,7 @@ import { FC, memo, Fragment, useCallback, useState } from 'react'
 import type { TPost } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
+import GotoTop from '@/widgets/GotoTop'
 import ViewportTracker from '@/widgets/ViewportTracker'
 import { ArticleContentLoading } from '@/widgets/Loading'
 import ArticeBody from '@/widgets/ArtimentBody'
@@ -22,6 +23,7 @@ import {
   BodyWrapper,
   Title,
   UpvoteWrapper,
+  GoTopWrapper,
 } from '../styles/post_viewer'
 
 /* eslint-disable-next-line */
@@ -76,6 +78,9 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
         )}
         <ArticleFooter />
         <ViewportTracker onEnter={showFooter} onLeave={hideFooter} />
+        <GoTopWrapper show={fixedHeaderVisible}>
+          <GotoTop type="drawer" />
+        </GoTopWrapper>
       </Wrapper>
     </Fragment>
   )

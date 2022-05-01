@@ -60,3 +60,17 @@ export const UpvoteWrapper = styled.div<TUpvoteWrapper>`
 
   transition: opacity 0.5s;
 `
+
+export const GoTopWrapper = styled.div<{ show: boolean }>`
+  position: fixed;
+  bottom: 35px;
+  left: 128px;
+  transform: scale(0.9);
+
+  opacity: ${({ show }) => (show ? 0.4 : 0)};
+
+  &:hover {
+    opacity: 1;
+  }
+  transition: opacity 0.2s;
+`
