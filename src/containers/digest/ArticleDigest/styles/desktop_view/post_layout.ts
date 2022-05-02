@@ -7,7 +7,7 @@ import css, { theme } from '@/utils/css'
 export const Main = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitContentWidth(metric)};
   width: 100%;
-  margin-top: 35px;
+  margin-top: 50px;
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
