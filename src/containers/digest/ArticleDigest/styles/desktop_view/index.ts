@@ -16,7 +16,7 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   min-height: ${({ metric }) => getDigestHeight(metric)};
   height: auto;
 
-  margin-bottom: 15px;
+  margin-bottom: 24px;
   width: 100%;
   max-width: ${WIDTH.ARTICLE.PAGE};
 `

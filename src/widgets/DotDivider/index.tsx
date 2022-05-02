@@ -18,7 +18,7 @@ export type TProps = {
   space?: number
 }
 const DotDivider: FC<TProps> = ({
-  radius = 3,
+  radius = 2,
   space = 3,
   className = 'dot-divider-class',
 }) => {

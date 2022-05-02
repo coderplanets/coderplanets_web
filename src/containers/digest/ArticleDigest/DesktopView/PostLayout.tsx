@@ -11,7 +11,7 @@ import { buildLog } from '@/utils/logger'
 
 // import ArchivedSign from '@/widgets/ArchivedSign'
 import Upvote from '@/widgets/Upvote'
-import { SpaceGrow } from '@/widgets/Common'
+import { Space } from '@/widgets/Common'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 // import ArticleBelongCommunity from '@/widgets/ArticleBelongCommunity'
 import DotDivider from '@/widgets/DotDivider'
@@ -67,7 +67,7 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
               <ArchivedSign date={archivedAt} />
             </Fragment>
           )} */}
-          <SpaceGrow />
+          <DotDivider space={12} />
           <div>
             {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
             {article.id === '231' && <ArticleStateBadge type="BUG" />}
@@ -92,7 +92,7 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
             avatarList={meta.latestUpvotedUsers}
             viewerHasUpvoted={viewerHasUpvoted}
           />
-          <SpaceGrow />
+          <Space right={30} />
           <ArticleBaseStats article={article} />
           {/* <ArticleMenu article={article} /> */}
         </BottomInfo>

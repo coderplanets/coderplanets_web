@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { ROUTE } from '@/constant'
 import { getRouteMainPath } from '@/utils/route'
 
-import MoreLink from './MoreLink'
+// import MoreLink from './MoreLink'
 import { Wrapper, DotDivider, SiteLink } from '../styles/main_entries'
 
 const splitMargin = 8
@@ -39,7 +39,7 @@ const DesktopView: FC = () => {
           发布日志
         </SiteLink>
       </Link>
-      <DotDivider space={splitMargin} />
+      {/* <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.MEETUPS}`} passHref>
         <SiteLink
           active={mainPath === ROUTE.MEETUPS}
@@ -47,7 +47,7 @@ const DesktopView: FC = () => {
         >
           文章
         </SiteLink>
-      </Link>
+      </Link> */}
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
         <SiteLink
@@ -66,8 +66,8 @@ const DesktopView: FC = () => {
           关于
         </SiteLink>
       </Link>
-      <DotDivider space={splitMargin} />
-      <MoreLink />
+      {/* <DotDivider space={splitMargin} />
+      <MoreLink /> */}
     </Wrapper>
   )
 }

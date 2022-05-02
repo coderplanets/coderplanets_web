@@ -7,10 +7,10 @@ import css, { theme } from '@/utils/css'
 export const Main = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitContentWidth(metric)};
   width: 100%;
-  margin-top: 50px;
+  margin-top: 65px;
 `
 export const Header = styled.div`
-  ${css.flex('align-center')};
+  ${css.flex('align-both')};
   margin-bottom: 14px;
   position: relative;
 `
@@ -25,16 +25,14 @@ export const CommunityInfo = styled.div`
 `
 export const Title = styled.div`
   font-size: 26px;
+  text-align: center;
   color: ${theme('thread.articleTitle')};
   margin-bottom: 30px;
   ${css.lineClamp(3)};
 `
 export const BottomInfo = styled.div`
-  ${css.flex('align-end', 'justify-between')};
-  margin-top: 15px;
-  padding-bottom: 45px;
-  padding-left: 2px;
-  padding-right: 3px;
+  ${css.flex('align-both')};
+  padding-bottom: 30px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('border')};
   width: 100%;
