@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import { ICON } from '@/config'
 // import { cutRest } from '@/utils/helper'
@@ -11,7 +11,7 @@ import {
   MenuClosedIcon,
   MenuOpenedIcon,
   TocContentWrapper,
-} from '../styles/left_sticker/toc'
+} from '../styles/right_sticker/toc'
 import { toggleTocMenu } from '../logic'
 
 type TProps = {
@@ -20,20 +20,28 @@ type TProps = {
 }
 
 const Toc: FC<TProps> = ({ show, testid = 'article-sticker-toc' }) => {
+  const [expand, setExpand] = useState(true)
+
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testid={testid} show={show}>
       <HeaderWrapper onClick={toggleTocMenu}>
         <TitleWrapper>
           <TocIcon src={`${ICON}/article/outline.svg`} />
           <TocTitle>大纲</TocTitle>
         </TitleWrapper>
-        {!show ? (
-          <MenuClosedIcon src={`${ICON}/shape/menu-closed.svg`} />
+        {!expand ? (
+          <MenuClosedIcon
+            src={`${ICON}/shape/menu-closed.svg`}
+            onClick={() => setExpand(true)}
+          />
         ) : (
-          <MenuOpenedIcon src={`${ICON}/shape/menu-opened.svg`} />
+          <MenuOpenedIcon
+            src={`${ICON}/shape/menu-opened.svg`}
+            onClick={() => setExpand(false)}
+          />
         )}
       </HeaderWrapper>
-      {show && (
+      {expand && (
         <TocContentWrapper>
           <div>目录功能尚待开发</div>
         </TocContentWrapper>

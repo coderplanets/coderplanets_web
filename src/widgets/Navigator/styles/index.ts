@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import type { TActive, TC11NLayout } from '@/spec'
-import { C11N } from '@/constant'
+import type { TActive } from '@/spec'
 
 import css, { theme, animate } from '@/utils/css'
 import SiteLogo from '@/icons/CPLogo' // TODO:
@@ -28,7 +27,6 @@ export const LogoLink = styled.div`
   top: 15px;
 
   ${css.flex('align-center')};
-  margin-right: 10px;
   cursor: pointer;
 `
 export const LogoMargin = styled.div`
@@ -36,7 +34,6 @@ export const LogoMargin = styled.div`
 `
 export const LogoText = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-weight: 500;
   font-size: 16px;
   margin-left: 8px;
 `

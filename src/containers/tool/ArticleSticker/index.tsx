@@ -45,7 +45,6 @@ const ArticleStickerContainer: FC<TProps> = ({
   const { commentsState } = store
 
   const {
-    showLeftSticker,
     viewingArticle,
     activeThread,
     isTocMenuOpened,
@@ -56,11 +55,7 @@ const ArticleStickerContainer: FC<TProps> = ({
 
   return (
     <Fragment>
-      <LeftSticker
-        show={showLeftSticker}
-        title={viewingArticle.title}
-        isTocMenuOpened={isTocMenuOpened}
-      />
+      <LeftSticker show={showArticleAction} article={viewingArticle} />
 
       <Sticky offsetTop={120}>
         <Wrapper testid={testid} metric={metric}>

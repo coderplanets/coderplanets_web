@@ -8,7 +8,7 @@ export const Wrapper = styled.div<{ visible: boolean }>`
   top: ${({ visible }) => (visible ? 0 : '-60px;')};
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   width: calc(100% - 200px);
-  margin-left: -65px;
+  margin-left: -90px;
   height: 60px;
   background: #fff; // to-theme
   border-bottom: 1px solid;

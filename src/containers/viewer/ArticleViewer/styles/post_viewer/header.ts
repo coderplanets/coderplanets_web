@@ -15,19 +15,16 @@ export const Avatar = styled(Img)`
   ${css.circle(18)};
 `
 export const AuthorName = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
   font-size: 15px;
   margin-left: 10px;
-  margin-right: 10px;
 `
 export const PublishWrapper = styled.div`
   ${css.flex('align-center')}
 `
 export const PubDate = styled.div`
-  color: ${theme('thread.extraInfo')};
+  color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  margin-left: 4px;
-  margin-top: -1px;
 `
 export const EditedHint = styled.div`
   font-size: 13px;

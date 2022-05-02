@@ -1,17 +1,17 @@
 const zIndex = {
-  img: 2,
-  header: 3,
+  popover: 3000,
+  modalCloseBtn: 2999,
+  doraemonOverlay: 2998,
+  modalOverlay: 2997,
+  doraemon: 2996,
+  modeLine: 2995,
+  drawer: 2994,
+  drawerOverlay: 2993,
+  sidebar: 2992,
   articleFixedHeader: 10,
-  popover: 2000,
-  modalOverlay: 2500,
-  drawerOverlay: 2000,
-  drawer: 2001,
-  modeLine: 2002,
-  doraemonOverlay: 2600,
-  doraemon: 2601,
-  modalCloseBtn: 2000,
+  header: 3,
+  img: 2,
   //
-  sidebar: 1999,
 }
 
 export default zIndex

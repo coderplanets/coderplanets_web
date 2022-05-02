@@ -40,7 +40,7 @@ export const ContentWrapper = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitContentWidth(metric)};
 `
 type TStickerWrapper = { metric: TMetric; thread: TThread }
-export const StickerWrapper = styled.div<TStickerWrapper>`
+export const RightWrapper = styled.div<TStickerWrapper>`
   ${({ metric }) => css.fitStickerWidth(metric)};
   ${({ thread }) => css.flex(getFixStickerAlign(thread))};
 
@@ -59,4 +59,7 @@ export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   ${css.cutRest('300px')};
+`
+export const ArticleStateBadgeWrapper = styled.div`
+  margin-left: 10px;
 `

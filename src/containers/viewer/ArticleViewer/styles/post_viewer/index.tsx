@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils/css'
+import css, { theme } from '@/utils/css'
+import { FadeToggle } from '@/widgets/Common'
 
 export const Wrapper = styled.div`
   padding: 0 8px;
@@ -28,4 +29,49 @@ export const SubTitle = styled.span`
     margin-right: 3px;
     font-size: 19px;
   }
+`
+
+const getLeftOffset = (count: number): string => {
+  switch (count) {
+    case 0: {
+      return '133px;'
+    }
+    case 1: {
+      return '130px;'
+    }
+    case 2: {
+      return '128px;'
+    }
+    default: {
+      return '120px;'
+    }
+  }
+}
+
+type TUpvoteWrapper = {
+  show: boolean
+  count: number
+}
+
+export const UpvoteWrapper = styled(FadeToggle)<TUpvoteWrapper>`
+  position: fixed;
+  top: 100px;
+  left: ${({ count }) => getLeftOffset(count)};
+`
+
+export const GoTopWrapper = styled.div<{ show: boolean }>`
+  position: fixed;
+  bottom: 20px;
+  left: 50px;
+  transform: scale(0.9);
+  ${css.flex('align-end', 'justify-center')};
+  width: 165px;
+  height: 400px;
+  padding-left: 17px;
+  opacity: 0;
+
+  &:hover {
+    opacity: ${({ show }) => (show ? 1 : 0)};
+  }
+  transition: opacity 0.2s;
 `

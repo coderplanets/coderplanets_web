@@ -21,3 +21,8 @@ export const CountWrapper = styled.div`
   margin-top: -4px;
   margin-left: 1px;
 `
+export const AvatarsWrapper = styled.div<{ count: number }>`
+  display: ${({ count }) => (count === 0 ? 'none' : 'block')};
+  margin-left: ${({ count }) => (count === 1 ? '3px' : 0)};
+  margin-top: 4px;
+`

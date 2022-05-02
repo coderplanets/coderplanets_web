@@ -1,22 +1,21 @@
 import styled from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
+import { FadeToggle } from '@/widgets/Common'
 import Img from '@/Img'
 import css, { theme } from '@/utils/css'
 
 // see https://stackoverflow.com/questions/6794000/fixed-position-but-relative-to-container
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+export const Wrapper = styled(FadeToggle).attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable & TActive>`
-  ${css.flexColumn('align-start', 'justify-start')};
+  ${css.flexColumn('align-center')};
   position: fixed;
-  width: 170px;
-  left: 16%;
+  width: 100px;
+  left: 0;
   top: 10%;
   transform: translateX(-50%);
   font-size: 13px;
-  opacity: ${({ show }) => (show ? '1' : '0')}; */
-  transition: opacity 0.2s;
 
   ${css.media.desktopL`
     left: 18%;
@@ -26,9 +25,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     left: 12%;
   `}
 `
-export const ArticleTitle = styled.div`
-  color: ${theme('thread.articleDigest')};
-  word-break: break-all;
+export const InnerWrapper = styled.div`
+  ${css.flexColumn('align-center')};
 `
 export const BackWrapper = styled.div`
   ${css.flex('align-center')};
@@ -45,4 +43,13 @@ export const BackText = styled.div`
   margin-left: 5px;
   cursor: pointer;
   margin-top: 1px;
+`
+
+export const Divider = styled.div`
+  width: 20px;
+  height: 1px;
+  margin-right: 4px;
+  background: ${theme('border')};
+  margin-top: 20px;
+  margin-bottom: 20px;
 `

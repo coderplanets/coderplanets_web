@@ -2,17 +2,17 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
+import { FadeToggle } from '@/widgets/Common'
 import Img from '@/Img'
 
-export const Wrapper = styled.div<TActive>`
+export const Wrapper = styled(FadeToggle)<TActive>`
   min-height: 100px;
   margin-left: 120px;
-  margin-top: 50px;
+  margin-top: -50px;
   padding-bottom: 0;
   width: calc(100% - 50px);
   max-width: 200px;
   flex-wrap: wrap;
-  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -49,7 +49,7 @@ export const MoreIcon = styled(Img)`
 export const Divider = styled.div`
   width: 90%;
   height: 1px;
-  background: #0f4251;
+  background: ${theme('border')};
   margin-top: 12px;
   margin-bottom: 12px;
 `

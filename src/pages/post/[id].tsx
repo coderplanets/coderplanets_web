@@ -30,7 +30,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  console.log('ctx: ', ctx)
   const { params } = ctx
 
   const resp = await loader(params)

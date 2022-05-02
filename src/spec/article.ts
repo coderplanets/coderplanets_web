@@ -214,6 +214,8 @@ export type TUpvoteLayout =
   | 'works-article'
   | 'works-card'
   | 'guide-list'
+  | 'kanban'
+  | 'sticker'
 
 export type TCollectionFolder = {
   id: TID

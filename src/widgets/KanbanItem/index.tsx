@@ -8,6 +8,7 @@ import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { mockUsers } from '@/utils/mock'
+import { UPVOTE_LAYOUT } from '@/constant'
 
 import IconButton from '@/widgets/Buttons/IconButton'
 import ArticleStateBadge from '@/widgets/ArticleStateBadge'
@@ -43,7 +44,11 @@ const KanbanItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
         服务于团队开发流程，以社区服务为基础，提供反馈社区工具箱，各种个性化设置等等
       </Desc>
       <Footer>
-        <Upvote count={3} avatarList={mockUsers(3)} />
+        <Upvote
+          count={3}
+          avatarList={mockUsers(3)}
+          type={UPVOTE_LAYOUT.KANBAN}
+        />
         <ArticleStateBadge type="FEATURE" kanbanLayout />
         {/* <ArticleStateBadge type="LOCK" state="LOCK" noBg /> */}
         {/* <ArticleStateBadge type="QUESTION" state="RESOLVE" noBg /> */}

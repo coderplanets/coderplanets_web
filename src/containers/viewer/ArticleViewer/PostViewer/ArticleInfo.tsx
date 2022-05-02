@@ -2,17 +2,16 @@ import { memo, FC } from 'react'
 
 import type { TArticle } from '@/spec'
 
-import { addCollection } from '@/utils/helper'
-
-import { Space, SpaceGrow } from '@/widgets/Common'
+// import { addCollection } from '@/utils/helper'
+import { SpaceGrow } from '@/widgets/Common'
 import Upvote from '@/widgets/Upvote'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 
 import {
   Wrapper,
-  CollectWrapper,
-  CollectIcon,
-  CollectText,
+  // CollectWrapper,
+  // CollectIcon,
+  // CollectText,
   BaseWrapper,
   UpvoteWrapper,
 } from '../styles/post_viewer/article_info'
@@ -40,11 +39,11 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
         </UpvoteWrapper>
         <SpaceGrow />
         <ArticleBaseStats article={article} container="drawer" />
-        <Space right={18} />
+        {/* <Space right={18} />
         <CollectWrapper onClick={() => addCollection()}>
           <CollectIcon />
           <CollectText>收藏</CollectText>
-        </CollectWrapper>
+        </CollectWrapper> */}
       </BaseWrapper>
     </Wrapper>
   )

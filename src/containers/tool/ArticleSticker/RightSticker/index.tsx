@@ -3,7 +3,7 @@ import type { TArticle, TThread } from '@/spec'
 
 import { THREAD } from '@/constant'
 
-import DefaultSticker from './DefaultSticker'
+import Toc from './Toc'
 import WorksSticker from './WorkSticker'
 
 type TProps = {
@@ -19,7 +19,7 @@ const RightSticker: FC<TProps> = ({ article, thread, show }) => {
     }
 
     default: {
-      return <DefaultSticker article={article} show={show} />
+      return <Toc show={show} />
     }
   }
 }

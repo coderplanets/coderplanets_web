@@ -11,6 +11,7 @@ import { UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import DefaultLayout from './DefaultLayout'
+import KanbanLayout from './KanbanLayout'
 import CommentLayout from './CommentLayout'
 import PostListLayout from './PostListLayout'
 import GuideListLayout from './GuideListLayout'
@@ -18,6 +19,7 @@ import BlogListLayout from './BlogListLayout'
 import ArticleLayout from './ArticleLayout'
 import WorksArticleLayout from './WorksArticleLayout'
 import WorksCardLayout from './WorksCardLayout'
+import StickerLayout from './StickerLayout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
@@ -55,6 +57,12 @@ const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
     }
     case UPVOTE_LAYOUT.ARTICLE: {
       return <ArticleLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.KANBAN: {
+      return <KanbanLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.STICKER: {
+      return <StickerLayout {...restProps} />
     }
     default: {
       return <DefaultLayout {...restProps} />

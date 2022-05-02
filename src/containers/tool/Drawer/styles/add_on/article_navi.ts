@@ -41,7 +41,7 @@ const SwitchBlock = styled.div`
   transition: opacity 0.3s;
 `
 export const LeftSwitchBlock = styled(SwitchBlock)`
-  left: -10;
+  left: 8px;
 `
 export const LeftArrow = styled(ArrowSVG)`
   ${css.size(28)};

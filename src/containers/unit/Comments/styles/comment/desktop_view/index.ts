@@ -71,7 +71,7 @@ export const IndentLine = styled.div`
   height: 100%;
   border-left: 1px dashed;
   border-left-color: ${theme('comment.indentLine')};
-  margin-left: 8px;
+  margin-left: 7px;
   margin-top: 8px;
   opacity: 1;
 

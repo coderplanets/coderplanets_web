@@ -18,6 +18,7 @@ import {
 type TProps = {
   user?: TUser
   size?: TAvatarSize
+  noLazyLoad: boolean
   popCardPlacement?: 'top' | 'bottom'
   onUserSelect: (user: TUser) => void
 }
@@ -25,6 +26,7 @@ type TProps = {
 const RealAvatar: FC<TProps> = ({
   user,
   size,
+  noLazyLoad,
   onUserSelect,
   popCardPlacement,
 }) => {
@@ -43,6 +45,7 @@ const RealAvatar: FC<TProps> = ({
             size={size}
             onClick={() => onUserSelect(user)}
             scrollPosition={null}
+            noLazy={noLazyLoad}
             fallback={
               <AvatarFallback
                 size={getAvatarSize(size, 'number') as number}

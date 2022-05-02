@@ -29,6 +29,7 @@ const Header: FC<TProps> = ({ article }) => {
         <Avatar src={author.avatar} />
         <AuthorName>{author.nickname}</AuthorName>
       </AuthorWrapper>
+      <DotDivider space={10} />
       <PublishWrapper>
         <PubDate>
           <TimeAgo datetime={insertedAt} locale="zh_CN" />
@@ -40,8 +41,7 @@ const Header: FC<TProps> = ({ article }) => {
           </Fragment>
         )}
       </PublishWrapper>
-      <SpaceGrow />
-
+      <DotDivider space={8} />
       {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
       {article.id === '231' && <ArticleStateBadge type="BUG" />}
       {article.id === '227' && <ArticleStateBadge type="BUG" state="TODO" />}

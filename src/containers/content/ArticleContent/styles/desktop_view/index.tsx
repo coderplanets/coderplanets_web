@@ -8,7 +8,7 @@ export const Wrapper = styled.article.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexGrow('justify-center')};
   position: relative;
-  padding-top: 20px;
+  padding-top: 2px;
   min-height: 300px;
   max-width: ${WIDTH.ARTICLE.PAGE};
   width: 100%;
