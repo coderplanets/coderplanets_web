@@ -7,12 +7,14 @@ import Img from '@/Img'
 export const Wrapper = styled.div<TActive>`
   min-height: 100px;
   margin-left: 120px;
-  margin-top: 50px;
+  margin-top: -50px;
   padding-bottom: 0;
   width: calc(100% - 50px);
   max-width: 200px;
   flex-wrap: wrap;
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: visibility 0.3s linear, opacity 0.3s linear;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};

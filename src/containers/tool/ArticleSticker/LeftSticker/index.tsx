@@ -1,39 +1,53 @@
 import { FC } from 'react'
 
-import { ICON } from '@/config'
-import { cutRest } from '@/utils/helper'
+import type { TArticle } from '@/spec'
 
-import Toc from './Toc'
+import { SVG } from '@/constant'
+import { shareTo } from '@/utils/helper'
+import IconButton from '@/widgets/Buttons/IconButton'
+import Upvote from '@/widgets/Upvote'
 
 import {
   Wrapper,
-  ArticleTitle,
+  InnerWrapper,
   BackWrapper,
   ArrowIcon,
   BackText,
+  Divider,
 } from '../styles/left_sticker'
+import { handleUpvote } from '../logic'
 
 type TProps = {
   show: boolean
-  title: string
-  isTocMenuOpened: boolean
+  article: TArticle
   testid?: string
 }
 
 const LeftSticker: FC<TProps> = ({
   show,
-  title,
-  isTocMenuOpened,
+  article,
   testid = 'article-sticker-left-sidebar',
 }) => {
+  const { upvotesCount, viewerHasUpvoted, meta } = article
+
   return (
     <Wrapper show={show} testid={testid}>
-      <BackWrapper>
+      <InnerWrapper>
+        {/* <BackWrapper>
         <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
         <BackText>返回社区</BackText>
-      </BackWrapper>
-      <ArticleTitle>{cutRest(title, 30)}</ArticleTitle>
-      <Toc show={isTocMenuOpened} />
+      </BackWrapper> */}
+
+        <Upvote
+          count={upvotesCount}
+          avatarList={meta.latestUpvotedUsers}
+          type="sticker"
+          viewerHasUpvoted={viewerHasUpvoted}
+          onAction={handleUpvote}
+        />
+        <Divider />
+        <IconButton icon={SVG.SHARE} onClick={shareTo} size={16} mRight={2} />
+      </InnerWrapper>
     </Wrapper>
   )
 }

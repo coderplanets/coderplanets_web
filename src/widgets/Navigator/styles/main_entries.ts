@@ -8,10 +8,6 @@ export const Wrapper = styled.div`
   ${css.flex('align-both')};
   font-size: 15px;
   width: 100%;
-
-  ${css.media.mobile`
-    margin-left: 2px;
-  `};
 `
 export const DotDivider = styled(DotDividerBase)`
   background-color: transparent;
