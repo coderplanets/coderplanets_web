@@ -51,8 +51,9 @@ export const Cover = styled(Img)`
   margin-right: 15px;
 `
 export const Title = styled.div`
+  ${css.cutRest('400px')};
   color: ${theme('thread.articleTitle')};
-  font-weight: bold;
+  font-weight: 500;
   font-size: 17px;
 `
 export const Desc = styled.div`

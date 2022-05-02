@@ -12,7 +12,6 @@ import {
   MenuOpenedIcon,
   TocContentWrapper,
 } from '../styles/right_sticker/toc'
-import { toggleTocMenu } from '../logic'
 
 type TProps = {
   show: boolean
@@ -24,7 +23,7 @@ const Toc: FC<TProps> = ({ show, testid = 'article-sticker-toc' }) => {
 
   return (
     <Wrapper testid={testid} show={show}>
-      <HeaderWrapper onClick={toggleTocMenu}>
+      <HeaderWrapper>
         <TitleWrapper>
           <TocIcon src={`${ICON}/article/outline.svg`} />
           <TocTitle>大纲</TocTitle>

@@ -17,7 +17,6 @@ import { markStates, toJS } from '@/utils/mobx'
 import { PagedUsers, emptyPagi } from '@/model'
 
 const ArticleSticker = T.model('ArticleSticker', {
-  isTocMenuOpened: T.optional(T.boolean, false),
   pagedCommentsParticipants: T.optional(PagedUsers, emptyPagi),
   // is TOC is opend, then lock the lefsidebar
   isLeftStickerLocked: T.optional(T.boolean, false),

@@ -16,12 +16,16 @@ export const StyledTippy = styled(Tippy)`
   border-radius: 5px;
   padding: 5px;
 
+  box-shadow: -3px 2px 20px 0px rgb(58 58 58 / 15%);
+  border-color: #dfdfdf;
+
   .tippy-arrow {
     display: none;
   }
 `
 export const NoPaddingStyledTippy = styled(StyledTippy)`
   padding: 0;
+
   .tippy-content {
     padding: 0;
   }
