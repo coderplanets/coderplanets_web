@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
+import { FadeToggle } from '@/widgets/Common'
 
 export const Wrapper = styled.div`
   padding: 0 8px;
@@ -52,13 +53,10 @@ type TUpvoteWrapper = {
   count: number
 }
 
-export const UpvoteWrapper = styled.div<TUpvoteWrapper>`
+export const UpvoteWrapper = styled(FadeToggle)<TUpvoteWrapper>`
   position: fixed;
   top: 100px;
   left: ${({ count }) => getLeftOffset(count)};
-  opacity: ${({ show }) => (show ? 1 : 0)};
-
-  transition: opacity 0.5s;
 `
 
 export const GoTopWrapper = styled.div<{ show: boolean }>`

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
+import { FadeToggle } from '@/widgets/Common'
 import Img from '@/Img'
 import css, { theme } from '@/utils/css'
 
 // see https://stackoverflow.com/questions/6794000/fixed-position-but-relative-to-container
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+export const Wrapper = styled(FadeToggle).attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable & TActive>`
   ${css.flexColumn('align-center')};
@@ -15,9 +16,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   top: 10%;
   transform: translateX(-50%);
   font-size: 13px;
-  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
-  opacity: ${({ show }) => (show ? 1 : 0)};
-  transition: visibility 0.3s linear, opacity 0.3s linear;
 
   ${css.media.desktopL`
     left: 18%;

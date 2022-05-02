@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TSpace } from '@/spec'
+import type { TActive, TSpace } from '@/spec'
 import { theme } from '@/utils/css'
 
 export const Br = styled.div<TSpace>`
@@ -20,4 +20,11 @@ export const Divider = styled.div<TSpace>`
   width: 100%;
   margin-top: ${({ top }) => `${top === undefined ? 20 : top}px`};
   margin-bottom: ${({ bottom }) => `${bottom === undefined ? 20 : bottom}px`};
+`
+
+// see https://stackoverflow.com/questions/27900053/css-transition-with-visibility-not-working
+export const FadeToggle = styled.div<TActive>`
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: visibility 0.3s linear, opacity 0.3s linear;
 `

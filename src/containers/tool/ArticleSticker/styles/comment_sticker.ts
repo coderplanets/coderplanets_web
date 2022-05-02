@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
+import { FadeToggle } from '@/widgets/Common'
 import Img from '@/Img'
 
-export const Wrapper = styled.div<TActive>`
+export const Wrapper = styled(FadeToggle)<TActive>`
   min-height: 100px;
   margin-left: 120px;
   margin-top: -50px;
@@ -12,9 +13,6 @@ export const Wrapper = styled.div<TActive>`
   width: calc(100% - 50px);
   max-width: 200px;
   flex-wrap: wrap;
-  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
-  opacity: ${({ show }) => (show ? 1 : 0)};
-  transition: visibility 0.3s linear, opacity 0.3s linear;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
