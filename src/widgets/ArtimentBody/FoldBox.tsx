@@ -19,7 +19,7 @@ const FoldBox: FC<TProps> = ({ fold, onFold, onExpand, mode }) => {
     >
       {!fold && (
         <FoldHint mode={mode}>
-          折叠
+          折叠内容
           <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} reverse />
         </FoldHint>
       )}

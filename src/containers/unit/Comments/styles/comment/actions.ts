@@ -13,9 +13,8 @@ export const Wrapper = styled.div`
 `
 export const ReplyAction = styled.div`
   color: ${theme('comment.action')};
-
   &:hover {
-    color: ${theme('thread.articleTitle')};
+    font-weight: 500;
     cursor: pointer;
   }
 
