@@ -5,17 +5,22 @@ import css, { theme } from '@/utils/css'
 
 type TWrapper = { fold: boolean; mode: 'article' | 'comment' }
 export const Wrapper = styled.div<TWrapper>`
-  ${css.flex('align-both')};
-  width: ${({ mode }) => (mode === 'article' ? '100%' : '96%')};
-  margin-top: 28px;
+  ${css.flex('align-end', 'justify-center')};
+  width: 100%;
+  /* width: ${({ mode }) => (mode === 'article' ? '100%' : '95%')}; */
+  position: relative;
+  margin-top: -50px;
   margin-bottom: 28px;
-  padding: 5px 0;
-  border-radius: 15px;
-  background: ${({ fold }) => (fold ? theme('hoverBg') : 'transparent')};
+  background: ${({ fold }) =>
+    fold
+      ? 'linear-gradient(0deg,rgb(255 255 255 / 60%) 52%,rgb(255 255 255 / 0%) 80%)'
+      : 'transparent'};
+  height: 80px;
+  /* border: 1px solid; */
+  padding-bottom: 5px;
 
   &:hover {
     cursor: pointer;
-    background: ${theme('hoverBg')};
   }
 
   ${css.media.mobile`
@@ -27,11 +32,13 @@ export const Wrapper = styled.div<TWrapper>`
 `
 export const Hint = styled.div<{ mode: 'article' | 'comment' }>`
   ${css.flex('align-center')};
-  color: ${theme('article.extraInfo')};
+  color: ${theme('thread.extraInfo')};
   font-size: ${({ mode }) => (mode === 'article' ? '15px' : '13px')};
-  opacity: 0.8;
+  padding-right: 5%;
+  font-weight: 400;
 
   ${Wrapper}:hover & {
+    font-weight: 500;
     opacity: 1;
   }
   transition: all 0.2s;
@@ -41,7 +48,7 @@ export const FoldHint = styled(Hint)`
 `
 export const ArrowIcon = styled(Img)<{ reverse?: boolean }>`
   ${css.size(18)};
-  fill: ${theme('article.extraInfo')};
+  fill: ${theme('thread.extraInfo')};
   transform: ${({ reverse }) => (reverse ? 'rotate(90deg)' : 'rotate(-90deg)')};
   margin-left: 4px;
 `

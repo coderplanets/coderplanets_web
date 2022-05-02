@@ -5,7 +5,7 @@ import css, { theme } from '@/utils/css'
 import DotDividerBase from '@/widgets/DotDivider'
 
 export const Wrapper = styled.div`
-  ${css.flex('align-center')};
+  ${css.flex('align-both')};
   font-size: 15px;
   width: 100%;
 `

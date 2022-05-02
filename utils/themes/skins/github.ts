@@ -14,6 +14,7 @@ const markdownFont = '#9eb8bd'
 const border = '#EAE9E9'
 const link = '#0062b0'
 
+const actionText = '#647392'
 const descText = '#666'
 const threadTitle = '#333333'
 const hoverBg = '#F5F5F5'
@@ -124,7 +125,7 @@ const github = {
     articleLink: link,
     articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
-    extraInfo: '#647392', // '#687693', // '#8590a6'
+    extraInfo: actionText,
     articleSpliter: '#dee8ea',
 
     // like github
@@ -197,7 +198,7 @@ const github = {
     placeholder: descText,
     filter: 'grey',
     filterActive: primaryColor,
-    action: '#8590a6',
+    action: actionText,
     // mention text displayed in article
     mentionText: '#91a4b5',
     mentionTextBg: '#fcffdb',
