@@ -1,43 +1,19 @@
-import { FC, memo, Fragment } from 'react'
+import { FC, memo } from 'react'
 
-import type { TArticle, TWorks, TMetric, TThread } from '@/spec'
+import type { TArticle, TMetric, TThread } from '@/spec'
 import { METRIC } from '@/constant'
 
-import Upvote from '@/widgets/Upvote'
-import DotDivider from '@/widgets/DotDivider'
+import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 
 import {
   Wrapper,
   InnerWrapper,
   ContentWrapper,
-  StickerWrapper,
-  Cover,
+  RightWrapper,
   Title,
-  Desc,
+  ArticleStateBadgeWrapper,
 } from '../styles/desktop_view/fixed_header'
-
-const TitleContent: FC<{ article: TArticle; metric: TMetric }> = ({
-  article,
-  metric,
-}) => {
-  switch (metric) {
-    case METRIC.WORKS_ARTICLE: {
-      const works = article as TWorks
-      return (
-        <Fragment>
-          <Cover src={works.cover} />
-          <Title>{works.title}</Title>
-          <DotDivider space={10} />
-          <Desc>{works.desc}</Desc>
-        </Fragment>
-      )
-    }
-
-    default: {
-      return <Title>{article.title}</Title>
-    }
-  }
-}
 
 type TProps = {
   article: TArticle
@@ -51,22 +27,34 @@ const FixedHeader: FC<TProps> = ({
   metric = METRIC.ARTICLE,
   testid = 'article-fixed-header',
 }) => {
-  const { upvotesCount, meta, viewerHasUpvoted } = article
+  const { meta } = article
   const thread = meta.thread.toLowerCase() as TThread
 
   return (
     <Wrapper show={show} testid={testid}>
       <InnerWrapper metric={metric}>
         <ContentWrapper metric={metric}>
-          <TitleContent article={article} metric={metric} />
+          <Title>{article.title}</Title>
+          <ArticleStateBadgeWrapper>
+            {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
+            {article.id === '231' && <ArticleStateBadge type="BUG" />}
+            {article.id === '227' && (
+              <ArticleStateBadge type="BUG" state="TODO" />
+            )}
+            {article.id === '228' && (
+              <ArticleStateBadge type="FEATURE" state="WIP" />
+            )}
+            {article.id === '226' && (
+              <ArticleStateBadge type="QUESTION" state="RESOLVE" />
+            )}
+            {article.id === '225' && (
+              <ArticleStateBadge type="LOCK" state="LOCK" />
+            )}
+          </ArticleStateBadgeWrapper>
         </ContentWrapper>
-        <StickerWrapper metric={metric} thread={thread}>
-          <Upvote
-            count={upvotesCount}
-            avatarList={meta.latestUpvotedUsers}
-            viewerHasUpvoted={viewerHasUpvoted}
-          />
-        </StickerWrapper>
+        <RightWrapper metric={metric} thread={thread}>
+          <ArticleBaseStats article={article} container="drawer" />
+        </RightWrapper>
       </InnerWrapper>
     </Wrapper>
   )
