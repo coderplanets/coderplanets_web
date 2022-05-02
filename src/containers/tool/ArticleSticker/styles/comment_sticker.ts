@@ -7,10 +7,10 @@ import Img from '@/Img'
 
 export const Wrapper = styled(FadeToggle)<TActive>`
   min-height: 100px;
-  margin-left: 120px;
+  margin-left: 100px;
   margin-top: -50px;
   padding-bottom: 0;
-  width: calc(100% - 50px);
+  width: 100%;
   max-width: 200px;
   flex-wrap: wrap;
 `

@@ -56,7 +56,7 @@ const BasicStates: FC = () => {
           <UsersIcon />
         </UsersWrapper>
         <Title>参与者</Title>
-        <Desc>参与互动的用户总和</Desc>
+        <Desc>参与互动的用户</Desc>
         <Num>28</Num>
       </Block>
       <Block>
@@ -79,8 +79,8 @@ const BasicStates: FC = () => {
         <EmojisWrapper>
           <EmojiIcon />
         </EmojisWrapper>
-        <Title>表情</Title>
-        <Desc>收到的 Emoji 总和</Desc>
+        <Title>反应</Title>
+        <Desc>赞同与表情</Desc>
         <Num>374</Num>
       </Block>
     </Wrapper>

@@ -10,7 +10,7 @@ import { FadeToggle } from '@/widgets/Common'
 export const Wrapper = styled(FadeToggle).attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable & TActive>`
-  width: calc(100% - 60px);
+  width: calc(100% - 45px);
   margin-left: 120px;
 `
 export const HeaderWrapper = styled.div`

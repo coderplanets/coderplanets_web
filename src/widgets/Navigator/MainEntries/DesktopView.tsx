@@ -8,7 +8,7 @@ import { getRouteMainPath } from '@/utils/route'
 // import MoreLink from './MoreLink'
 import { Wrapper, DotDivider, SiteLink } from '../styles/main_entries'
 
-const splitMargin = 8
+const splitMargin = 10
 
 const DesktopView: FC = () => {
   const router = useRouter()

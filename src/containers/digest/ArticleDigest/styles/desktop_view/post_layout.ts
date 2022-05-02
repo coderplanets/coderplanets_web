@@ -10,7 +10,7 @@ export const Main = styled.div<{ metric: TMetric }>`
   margin-top: 65px;
 `
 export const Header = styled.div`
-  ${css.flex('align-both')};
+  ${css.flex('align-center')};
   margin-bottom: 14px;
   position: relative;
 `
@@ -25,15 +25,16 @@ export const CommunityInfo = styled.div`
 `
 export const Title = styled.div`
   font-size: 26px;
-  text-align: center;
   color: ${theme('thread.articleTitle')};
   margin-bottom: 30px;
   ${css.lineClamp(3)};
 `
 export const BottomInfo = styled.div`
-  ${css.flex('align-both')};
+  ${css.flex('align-center', 'justify-between')};
   padding-bottom: 30px;
   border-bottom: 1px solid;
+  padding-left: 2px;
+  padding-right: 2px;
   border-bottom-color: ${theme('border')};
   width: 100%;
   color: ${theme('thread.articleDigest')};

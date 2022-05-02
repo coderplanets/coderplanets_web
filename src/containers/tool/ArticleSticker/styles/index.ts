@@ -75,6 +75,6 @@ export const GoTopWrapper = styled.div<TActive>`
   ${css.flex('align-both')};
   opacity: ${({ show }) => (show ? 1 : 0)};
   position: absolute;
-  bottom: -120px;
+  bottom: -140px;
   width: 100%;
 `
