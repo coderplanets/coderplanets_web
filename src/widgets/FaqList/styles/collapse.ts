@@ -2,16 +2,18 @@ import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
 import FAQSVG from '@/icons/FAQ'
-import ArrowSVG from '@/icons/ArrowSolid'
+import ArrowSVG from '@/icons/ArrowSimple'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
+  margin-left: 15px;
 `
 export const Header = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 34px;
+  margin-left: -25px;
 `
 export const FAQ = styled.div`
-  ${css.flex('align-center')};
+  ${css.flex('align-both')};
 `
 export const FAQIcon = styled(FAQSVG)`
   ${css.size(16)};
@@ -25,11 +27,11 @@ export const FAQTitle = styled.div`
   font-weight: 500;
 `
 export const FAQDesc = styled.div`
-  ${css.flex('align-center')};
+  ${css.flex('align-both')};
   color: ${theme('thread.articleDigest')};
-  padding-top: 5px;
   font-size: 12px;
-  margin-top: 35px;
+  margin-top: 60px;
+  margin-left: -50px;
 `
 export const MoreLink = styled.div`
   color: ${theme('link')};
@@ -42,19 +44,20 @@ export const MoreLink = styled.div`
   transition: all 0.2s;
 `
 export const Section = styled.div`
-  ${css.flex('align-center')};
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid;
-  border-bottom-color: ${theme('border')};
+  ${css.flex('align-center', 'justify-between')};
+  padding: 20px 0;
 `
 export const ArrowIcon = styled(ArrowSVG)`
-  ${css.size(12)};
+  ${css.size(16)};
   fill: ${theme('thread.extraInfo')};
+  margin-left: 20px;
   margin-right: 10px;
+
+  transform: rotate(270deg);
 `
 export const Title = styled.div`
-  ${css.lineClamp(1)}
+  ${css.cutRest('440px')};
+  /* ${css.lineClamp(1)} */
   color: ${theme('thread.articleDigest')};
   font-size: 16px;
   font-weight: 500;

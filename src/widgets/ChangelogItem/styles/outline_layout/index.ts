@@ -10,16 +10,22 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flex('align-start')};
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+  cursor: pointer;
 `
 export const Main = styled.div`
   width: 574px;
 `
 export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
   font-size: 15px;
   font-weight: 580;
   margin-bottom: 2px;
+  margin-top: 2px;
+
+  ${Wrapper}:hover & {
+    color: ${theme('thread.articleTitle')};
+  }
 `
 export const Version = styled.span`
   color: ${theme('thread.articleDigest')};
@@ -34,7 +40,11 @@ export const Body = styled.div`
   color: ${theme('thread.articleDigest')};
   ${css.lineClamp(1)};
   font-size: 14px;
-  opacity: 0.9;
+  opacity: 0.65;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
 `
 export const Footer = styled.div`
   ${css.flex('align-center')};
@@ -66,9 +76,9 @@ export const DateTime = styled.div`
 `
 export const TagsWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: 10px;
+  margin-top: 13px;
   opacity: 0.8;
-  margin-right: 2px;
+  margin-right: 3px;
 `
 export const TagDot = styled.div<{ color: string }>`
   ${css.circle(5)};

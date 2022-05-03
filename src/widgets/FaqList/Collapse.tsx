@@ -27,8 +27,8 @@ const Collapse: FC<TProps> = ({ articles }) => {
 
       {articles.map((item) => (
         <Section key={item.title}>
-          <ArrowIcon />
           <Title>{item.title}</Title>
+          <ArrowIcon />
         </Section>
       ))}
 

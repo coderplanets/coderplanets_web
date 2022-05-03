@@ -6,7 +6,7 @@ import { theme } from '@/utils/css'
 export const Wrapper = styled.div`
   position: relative;
   border: 1px solid;
-  border-color: ${theme('border')};
+  border-color: #c2c2c2;
   border-radius: 4px;
   width: 40px;
   height: 50px;
@@ -22,7 +22,8 @@ export const CoverImg = styled(Img)`
 const BaseBar = styled.div`
   position: absolute;
   height: 2px;
-  background: ${theme('border')};
+  background: ${theme('thread.extraInfo')};
+  opacity: 0.4;
   border-radius: 2px;
 `
 export const DescBar = styled(BaseBar)`
