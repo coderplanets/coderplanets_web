@@ -9,7 +9,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn('align-center')};
-  /* width: 100%; */
 `
 
 export const Title = styled.div``
