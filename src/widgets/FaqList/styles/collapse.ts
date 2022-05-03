@@ -1,22 +1,26 @@
 import styled from 'styled-components'
 
+import type { TActive } from '@/spec'
+
 import css, { theme } from '@/utils/css'
 import FAQSVG from '@/icons/FAQ'
-import ArrowSVG from '@/icons/ArrowSolid'
+import ArrowSVG from '@/icons/ArrowSimple'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
-`
-export const Header = styled.div`
-  margin-bottom: 20px;
+  width: 55%;
+  max-width: 55%;
+  min-width: 550px;
+  max-width: 550px;
 `
 export const FAQ = styled.div`
-  ${css.flex('align-center')};
+  ${css.flex('align-both')};
+  margin-bottom: 34px;
+  margin-left: -40px;
 `
 export const FAQIcon = styled(FAQSVG)`
-  ${css.size(16)};
+  ${css.size(18)};
   fill: ${theme('thread.articleDigest')};
-  margin-right: 10px;
   margin-top: 2px;
 `
 export const FAQTitle = styled.div`
@@ -24,12 +28,12 @@ export const FAQTitle = styled.div`
   font-size: 20px;
   font-weight: 500;
 `
-export const FAQDesc = styled.div`
-  ${css.flex('align-center')};
+export const Footer = styled.div`
+  ${css.flex('align-both')};
   color: ${theme('thread.articleDigest')};
-  padding-top: 5px;
   font-size: 12px;
-  margin-top: 35px;
+  margin-top: 60px;
+  margin-left: -50px;
 `
 export const MoreLink = styled.div`
   color: ${theme('link')};
@@ -42,25 +46,41 @@ export const MoreLink = styled.div`
   transition: all 0.2s;
 `
 export const Section = styled.div`
-  ${css.flex('align-center')};
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid;
-  border-bottom-color: ${theme('border')};
+  padding: 18px 0;
+  width: 100%;
 `
-export const ArrowIcon = styled(ArrowSVG)`
-  ${css.size(12)};
-  fill: ${theme('thread.extraInfo')};
-  margin-right: 10px;
+export const Header = styled.div`
+  ${css.flex('align-center', 'justify-between')};
+  cursor: pointer;
 `
-export const Title = styled.div`
-  ${css.lineClamp(1)}
-  color: ${theme('thread.articleDigest')};
+export const Title = styled.div<TActive>`
+  ${css.cutRest('440px')};
+  color: ${({ $active }) =>
+    $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: 16px;
   font-weight: 500;
 
-  &:hover {
+  ${Section}:hover & {
     color: ${theme('thread.articleTitle')};
-    cursor: pointer;
   }
+`
+export const Body = styled.div<TActive>`
+  color: ${theme('thread.articleDigest')};
+  font-size: 15px;
+  margin-top: ${({ show }) => (show ? '12px' : 0)};
+  max-height: ${({ show }) => (show ? 'auto' : 0)};
+  line-height: 1.8;
+  overflow: hidden;
+
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: all 0.3s;
+`
+export const ArrowIcon = styled(ArrowSVG)<TActive>`
+  ${css.size(16)};
+  fill: ${theme('thread.extraInfo')};
+  margin-left: 20px;
+  margin-right: 10px;
+  transform: ${({ $active }) => ($active ? 'rotate(270deg)' : 'rotate(90deg)')};
+
+  transition: all 0.5s;
 `

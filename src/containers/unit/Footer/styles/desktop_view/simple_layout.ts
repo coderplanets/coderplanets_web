@@ -5,8 +5,6 @@ import css, { theme } from '@/utils/css'
 export const Wrapper = styled.div`
   ${css.flex('align-both')};
   width: 100%;
-  // the article page offset
-  padding-right: 40px;
 `
 export const Note = styled.div`
   font-size: 13px;
