@@ -30,7 +30,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const Text = styled.div<{ lineClamp: number }>`
   ${({ lineClamp }) => `${css.lineClamp(lineClamp)}`};
   line-height: 1.62;
-  letter-spacing: 0.5px;
 `
 
 export const HintWrapper = styled.div`
