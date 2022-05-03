@@ -48,9 +48,7 @@ export const CommunityNoteWrapper = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   margin-bottom: 18px;
-
-  line-height: 1.62;
-  letter-spacing: 0.5px;
+  line-height: 1.6;
 `
 export const PublishWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};

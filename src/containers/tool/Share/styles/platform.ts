@@ -6,6 +6,7 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 15px;
   width: 100%;
   min-height: 220px;
   background: ${theme('modal.bg')};
@@ -47,7 +48,6 @@ export const InnerWrapper = styled.div`
 export const Media = styled.div`
   ${css.size(80)};
   ${css.flexColumn('align-both')};
-  margin-bottom: 18px;
   cursor: pointer;
 
   ${css.media.mobile`
@@ -57,18 +57,18 @@ export const Media = styled.div`
   `};
 `
 export const LogoWrapper = styled.div<{ noBg: boolean }>`
-  ${css.circle(38)};
+  ${css.circle(28)};
   ${css.flex('align-both')};
-  background: ${({ noBg }) => (noBg ? 'transparent' : '#184b56')};
-  margin-bottom: 5px;
+  background: ${({ noBg }) => (noBg ? 'transparent' : theme('hoverBg'))};
+  margin-bottom: 8px;
 
   ${css.media.mobile`
     transform: scale(0.8);
   `};
 `
 export const Logo = styled(Img)<{ small: boolean }>`
-  fill: ${theme('thread.articleTitle')};
-  ${({ small }) => (small ? css.circle('24px') : css.circle('38px'))};
+  fill: ${theme('thread.articleDigest')};
+  ${({ small }) => (small ? css.circle('20px') : css.circle('28px'))};
   filter: saturate(0.6);
   opacity: 0.8;
 
@@ -79,11 +79,11 @@ export const Logo = styled(Img)<{ small: boolean }>`
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
 
   ${Media}:hover & {
-    color: #129698;
+    color: ${theme('thread.extraInfo')};
+    font-weight: 500;
   }
 
   ${css.media.mobile`

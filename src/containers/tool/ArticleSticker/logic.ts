@@ -23,13 +23,6 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleSticker')
 
-export const toggleTocMenu = (): void => {
-  const isTocMenuOpened = !store.isTocMenuOpened
-  const isLeftStickerLocked = isTocMenuOpened
-
-  store.mark({ isTocMenuOpened, isLeftStickerLocked })
-}
-
 export const handleUpvote = (viewerHasUpvoted: boolean): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
 

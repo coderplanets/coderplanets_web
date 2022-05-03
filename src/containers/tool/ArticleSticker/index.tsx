@@ -47,7 +47,6 @@ const ArticleStickerContainer: FC<TProps> = ({
   const {
     viewingArticle,
     activeThread,
-    isTocMenuOpened,
     showArticleAction,
     isArticleDigestInViewport,
     showCommentSticker,
@@ -57,7 +56,7 @@ const ArticleStickerContainer: FC<TProps> = ({
     <Fragment>
       <LeftSticker show={showArticleAction} article={viewingArticle} />
 
-      <Sticky offsetTop={120}>
+      <Sticky offsetTop={105}>
         <Wrapper testid={testid} metric={metric}>
           <InnerWrapper>
             <MainWrapper>

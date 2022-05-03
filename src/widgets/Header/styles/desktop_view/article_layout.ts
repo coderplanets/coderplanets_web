@@ -15,7 +15,9 @@ export const Wrapper = styled(CommunityWrapper)`
 export const InnerWrapper = styled.div`
   ${css.flex('justify-start', 'align-center')};
   width: 100%;
-  height: 52px;
+  height: 50px;
+  /* border-bottom: 1px solid;
+  border-bottom-color: ${theme('border')}; */
 `
 export const RouterWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center')};

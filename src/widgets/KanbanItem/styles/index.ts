@@ -34,7 +34,6 @@ export const Title = styled.div`
   font-weight: 500;
 
   line-height: 1.62;
-  letter-spacing: 0.5px;
 `
 export const Desc = styled.div`
   ${css.lineClamp(2)}
@@ -43,7 +42,6 @@ export const Desc = styled.div`
   width: calc(100% - 35px);
   margin-top: 8px;
   line-height: 1.62;
-  letter-spacing: 0.5px;
   margin-bottom: 8px;
 `
 export const Footer = styled.div`

@@ -12,6 +12,9 @@ export const Wrapper = styled.div<{ type: string }>`
   color: ${theme('thread.articleTitle')};
   transition: all 0.1s;
 
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
   ${css.media.mobile`
     padding-left: 10px;
     padding-right: 10px;
