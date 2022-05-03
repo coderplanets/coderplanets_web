@@ -19,4 +19,6 @@ export const CodeWrapper = styled.div`
   font-size: 12px;
   margin-left: -5px;
 `
-export const Inputer = styled(Input)``
+export const Inputer = styled(Input)`
+  background: ${theme('border')};
+`

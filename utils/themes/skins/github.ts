@@ -163,6 +163,7 @@ const github = {
   },
   drawer: {
     title: threadTitle,
+    mask: 'rgba(31, 34, 37, 0.15)',
     desc: descText,
     font: primaryColor,
     bg: contentBg,
@@ -333,10 +334,11 @@ const github = {
   },
   modal: {
     bg: contentBoxBg,
+    mask: 'rgba(31, 34, 37, 0.1)',
     border: primaryColor,
     innerSelectBg: '#e4eeed45',
     subPanel: '#F5F5F5',
-    subPanelShadow: 'drop-shadow(3px 3px 6px #002a34)',
+    subPanelShadow: 'drop-shadow(3px 3px 6px #EAE9E9)',
   },
   form: {
     inputBg: '#FFFFFF',

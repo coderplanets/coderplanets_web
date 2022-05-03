@@ -27,7 +27,7 @@ export const DrawerOverlay = styled.div<TActive>`
   /* z-index: ${({ visible }) => (visible ? css.zIndex.drawerOverlay : -1)}; */
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   background: ${({ visible }) =>
-    visible ? 'rgba(31, 34, 37, 0.15)' : 'transparent'}; // to-theme
+    visible ? theme('drawer.mask') : 'transparent'};
   opacity: ${({ visible }) => (visible ? 0.5 : 0)};
   transition: opacity 0.2s linear;
 `

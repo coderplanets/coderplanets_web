@@ -14,8 +14,8 @@ export const Mask = styled.div<TActive>`
   left: 0;
   z-index: ${css.zIndex.modalOverlay};
   display: ${({ show }) => (show ? 'block' : 'none')};
+  background: ${theme('modal.mask')};
 `
-
 type TWrapper = {
   background: string
   width: string
@@ -34,11 +34,12 @@ export const Wrapper = styled.div<TWrapper>`
   min-height: 320px;
   max-height: 65vh;
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
+  padding-top: 25px;
   /* border: 1px solid; */
-  border-top: 3px solid;
+  /* border-top: 2px solid; */
   border-color: ${({ mode }) =>
     mode === 'default' ? theme('modal.border') : theme('baseColor.red')};
-  animation: ${animate.zoomIn} 0.2s linear;
+  animation: ${animate.jump} 0.3s linear;
 
   ${css.media.tablet`width: 460px`};
   ${css.media.mobile`width: 320px`};
@@ -52,16 +53,18 @@ export const ChildrenWrapper = styled.div`
 type TCloseBtn = { mode: string }
 export const CloseBtn = styled(CloseCrossSVG)<TCloseBtn>`
   position: absolute;
-  top: 0;
-  right: -48px;
+  top: 12px;
+  right: 14px;
   fill: ${({ mode }) =>
-    mode === 'default' ? '#0A658A' : theme('baseColor.red')};
-  ${css.size(30)};
+    mode === 'default' ? theme('thread.extraInfo') : theme('baseColor.red')};
+  ${css.size(20)};
   z-index: ${css.zIndex.modalCloseBtn};
+  opacity: 0.5;
 
   &:hover {
     animation: ${animate.pulse} 0.3s linear;
     cursor: pointer;
+    opacity: 1;
   }
 `
 export const EscHint = styled.div<{ mode: string }>`

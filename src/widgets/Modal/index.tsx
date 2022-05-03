@@ -13,7 +13,7 @@ import useShortcut from '@/hooks/useShortcut'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
 
-import { Mask, Wrapper, CloseBtn, EscHint, ChildrenWrapper } from './styles'
+import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Modal:index')
@@ -75,7 +75,7 @@ const Modal: FC<TProps> = ({
             >
               <ViewportTracker onEnter={() => setVisibleOnPage(true)} />
               {showCloseBtn && <CloseBtn mode={mode} onClick={handleClose} />}
-              {showCloseBtn && <EscHint mode={mode}>Esc</EscHint>}
+              {/* {showCloseBtn && <EscHint mode={mode}>Esc</EscHint>} */}
               <ChildrenWrapper onClick={(e) => e.stopPropagation()}>
                 {children}
               </ChildrenWrapper>
