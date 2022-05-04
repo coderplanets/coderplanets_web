@@ -73,21 +73,20 @@ const IconButton: FC<TProps> = ({
       mBottom={mBottom}
       onClick={onClick}
     >
-      <>
-        {hint ? (
-          <Tooltip
-            placement={hintPlacement}
-            content={<Hint>{hint}</Hint>}
-            noPadding
-            delay={hintDelay}
-          >
-            <Content>{realIcon}</Content>
-          </Tooltip>
-        ) : (
+      {hint ? (
+        <Tooltip
+          placement={hintPlacement}
+          content={<Hint>{hint}</Hint>}
+          noPadding
+          delay={hintDelay}
+          forceZIndex
+        >
           <Content>{realIcon}</Content>
-        )}
-        <HoverBg size={size} />
-      </>
+        </Tooltip>
+      ) : (
+        <Content>{realIcon}</Content>
+      )}
+      <HoverBg size={size} />
     </Wrapper>
   )
 }
