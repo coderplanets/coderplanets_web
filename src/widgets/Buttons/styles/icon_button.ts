@@ -29,7 +29,7 @@ import MoreIcon from '@/icons/More'
 
 import type { TProps as TIconButtonProps } from '../IconButton'
 
-const CloseCross = dynamic(() => import('@/icons/CloseCross'), {
+const CloseCross = dynamic(() => import('@/icons/CloseLight'), {
   ssr: false,
 })
 
@@ -64,6 +64,7 @@ export const HoverBg = styled.div<{ size: number }>`
   top: -2px;
   background: ${theme('hoverBg')};
   opacity: 0;
+  cursor: pointer;
 
   ${Wrapper}:hover & {
     opacity: 1;

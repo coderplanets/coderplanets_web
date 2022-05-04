@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import css, { theme, animate } from '@/utils/css'
-import CloseCrossSVG from '@/icons/CloseCross'
+import CloseCrossSVG from '@/icons/CloseLight'
 
 // display: ${props => (props.show ? 'block' : 'none')};
 export const Mask = styled.div<TActive>`
@@ -53,13 +53,13 @@ export const ChildrenWrapper = styled.div`
 type TCloseBtn = { mode: string }
 export const CloseBtn = styled(CloseCrossSVG)<TCloseBtn>`
   position: absolute;
-  top: 12px;
-  right: 14px;
+  top: 16px;
+  right: 18px;
   fill: ${({ mode }) =>
     mode === 'default' ? theme('thread.extraInfo') : theme('baseColor.red')};
   ${css.size(20)};
   z-index: ${css.zIndex.modalCloseBtn};
-  opacity: 0.5;
+  opacity: 0.8;
 
   &:hover {
     animation: ${animate.pulse} 0.3s linear;

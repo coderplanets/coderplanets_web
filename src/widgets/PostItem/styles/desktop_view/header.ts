@@ -13,10 +13,11 @@ export const Brief = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const Title = styled.div`
+  position: relative;
   font-size: 15px;
   font-weight: 600;
   color: ${theme('thread.articleTitle')};
-  text-decoration: none;
+
   @media (max-width: 1450px) {
     ${css.cutRest('500px')};
   }
@@ -29,12 +30,13 @@ export const Title = styled.div`
 
   &:hover {
     color: ${theme('thread.articleDigest')};
-    text-decoration: underline;
-    text-decoration-color: ${theme('thread.articleDigest')};
     cursor: pointer;
   }
 
   transition: color 0.2s;
+`
+export const TitlePopInfo = styled.div`
+  padding: 4px 8px;
 `
 export const TitleLink = styled.div`
   position: relative;
@@ -51,4 +53,8 @@ export const LinkIcon = styled(LinkSVG)`
   top: 6px;
   left: -5px;
   ${css.size(12)};
+`
+
+export const AvatarsWrapper = styled.div`
+  margin-top: -1px;
 `

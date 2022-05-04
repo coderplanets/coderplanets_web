@@ -9,9 +9,9 @@ const ShareButton: FC = () => {
       onClick={shareTo}
       path="article/share.svg"
       size={15}
-      mTop={12}
+      mTop={9}
       mRight={14}
-      mLeft={15}
+      mLeft={12}
       hint="分享内容"
       hintPlacement="bottom"
       dimWhenIdle

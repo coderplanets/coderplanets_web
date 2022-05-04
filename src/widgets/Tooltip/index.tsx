@@ -28,12 +28,13 @@ const RealTooltip = dynamic(() => import('./RealTooltip'), {
 /* eslint-disable-next-line */
 const log = buildLog('c:Tooltip:index')
 
-type TProps = {
+export type TProps = {
   children: ReactNode
   content: string | ReactNode
   placement?: TTooltipPlacement
   // more options see: https://atomiks.github.io/tippyjs/all-options/
   delay?: number
+  offset?: [number, number]
   duration?: number
   trigger?: 'mouseenter focus' | 'click'
   hideOnClick?: boolean

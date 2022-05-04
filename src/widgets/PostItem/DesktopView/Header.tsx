@@ -1,18 +1,20 @@
-import { FC, useCallback } from 'react'
-import Router from 'next/router'
+import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TPost } from '@/spec'
-import { ARTICLE_THREAD } from '@/constant'
+import { EVENT } from '@/constant'
+
+import { send } from '@/utils/helper'
 
 import AvatarsRow from '@/widgets/AvatarsRow'
 // import TagsList from '@/widgets/TagsList'
 
-import { Wrapper, Brief, Title } from '../styles/desktop_view/header'
-
-// const AvatarsRow = dynamic(() => import('@/widgets/AvatarsRow'), {
-//   ssr: false,
-// })
+import {
+  Wrapper,
+  Brief,
+  Title,
+  AvatarsWrapper,
+} from '../styles/desktop_view/header'
 
 const TagsList = dynamic(() => import('@/widgets/TagsList'), {
   ssr: false,
@@ -23,28 +25,25 @@ type TProps = {
 }
 
 const Header: FC<TProps> = ({ item }) => {
-  const gotoArticle = useCallback(() => {
-    Router.push(`/${ARTICLE_THREAD.POST}/${item.id}`)
-  }, [item.id])
+  // const gotoArticle = useCallback(() => {
+  //   Router.push(`/${ARTICLE_THREAD.POST}/${item.id}`)
+  // }, [item.id])
 
   return (
     <Wrapper>
       <Brief>
-        <Title onClick={gotoArticle}>{item.title}</Title>
-        {/* {item.linkAddr && (
-          <TitleLink>
-            <LinkIcon />
-            <span style={{ marginLeft: 9 }}>{parseDomain(item.linkAddr)}</span>
-          </TitleLink>
-        )} */}
-
+        <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}>
+          {item.title}
+        </Title>
         {/*  @ts-ignore */}
         <TagsList items={item.articleTags} mLeft={12} />
       </Brief>
-      <AvatarsRow
-        users={item.commentsParticipants}
-        total={item.commentsCount}
-      />
+      <AvatarsWrapper>
+        <AvatarsRow
+          users={item.commentsParticipants}
+          total={item.commentsCount}
+        />
+      </AvatarsWrapper>
     </Wrapper>
   )
 }
