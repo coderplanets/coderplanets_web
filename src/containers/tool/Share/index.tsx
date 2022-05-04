@@ -27,7 +27,7 @@ type TProps = {
 
 const ShareContainer: FC<TProps> = ({ share: store, testid }) => {
   useInit(store)
-  const { show, siteShareType, linksData, viewingArticle } = store
+  const { show, offsetLeft, siteShareType, linksData, viewingArticle } = store
   if (isMobile) {
     return (
       <Fragment>
@@ -41,7 +41,13 @@ const ShareContainer: FC<TProps> = ({ share: store, testid }) => {
 
   return (
     <Fragment>
-      <Modal width="450px" show={show} showCloseBtn onClose={close}>
+      <Modal
+        width="450px"
+        show={show}
+        offsetLeft={offsetLeft}
+        onClose={close}
+        showCloseBtn
+      >
         <Wrapper testid={testid} type={siteShareType}>
           <Platforms article={viewingArticle} />
           <InfoPanel type={siteShareType} linksData={linksData} />

@@ -212,7 +212,9 @@ export const checkout = (amount: number, usage: TPaymentUsage): void =>
 /**
  * share articles
  */
-export const shareTo = (): void => send(EVENT.SHARE, {})
+export const shareTo = (offsetLeft = 'none'): void => {
+  send(EVENT.SHARE, { offsetLeft })
+}
 
 export const addCollection = (): void => {
   send(EVENT.SET_FAVORITE_CONTENT, {

@@ -21,6 +21,7 @@ type TWrapper = {
   width: string
   mode: string
   offsetTop: string
+  offsetLeft: string
 }
 export const Wrapper = styled.div<TWrapper>`
   position: relative;
@@ -40,6 +41,7 @@ export const Wrapper = styled.div<TWrapper>`
   border-color: ${({ mode }) =>
     mode === 'default' ? theme('modal.border') : theme('baseColor.red')};
   animation: ${animate.jump} 0.3s linear;
+  margin-left: ${({ offsetLeft }) => offsetLeft};
 
   ${css.media.tablet`width: 460px`};
   ${css.media.mobile`width: 320px`};

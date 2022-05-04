@@ -77,7 +77,10 @@ export const close = (): void => {
 const DataResolver = [
   {
     match: asyncRes(EVENT.SHARE),
-    action: () => store.mark({ show: true }),
+    action: (data) => {
+      const payload = data[EVENT.SHARE]
+      store.mark({ show: true, offsetLeft: payload.offsetLeft })
+    },
   },
 ]
 

@@ -6,7 +6,7 @@ import IconButton from '@/widgets/Buttons/IconButton'
 const ShareButton: FC = () => {
   return (
     <IconButton
-      onClick={shareTo}
+      onClick={() => shareTo('50%')}
       path="article/share.svg"
       size={15}
       mTop={9}
