@@ -4,7 +4,7 @@
  *
  */
 
-import { FC, Fragment, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import dynamic from 'next/dynamic'
 import { isMobile } from 'react-device-detect'
 
@@ -24,8 +24,10 @@ import Header from '@/widgets/Header'
 
 import type { TStore } from './store'
 import SEO from './SEO'
+import CustomBg from './CustomBg'
 
 import { CustomScroller, Footer, ModeLine } from './dynamic'
+
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
 import { useInit, onPageScrollDirhange, childrenWithProps } from './logic'
 
@@ -58,37 +60,36 @@ const GlobalLayoutContainer: FC<TProps> = ({
 
   return (
     <ThemePalette>
+      <CustomBg />
       <Wrapper>
-        <Fragment>
-          <SEO metric={metric} config={seoConfig} />
-          <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
+        <SEO metric={metric} config={seoConfig} />
+        <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
+          {/* @ts-ignore */}
+          <Addon />
+          <ContentWrapper offsetLeft={sidebarPin}>
             {/* @ts-ignore */}
-            <Addon />
-            <ContentWrapper offsetLeft={sidebarPin}>
+            <CustomScroller
+              instanceKey={BODY_SCROLLER}
+              direction="vertical"
+              height="100vh"
+              barSize={SIZE.MEDIUM}
+              showShadow={false}
+              onScrollDirectionChange={onPageScrollDirhange}
+              autoHide
+            >
+              <Header
+                metric={metric}
+                accountInfo={accountInfo}
+                community={curCommunity}
+              />
+              <BodyWrapper isMobile={isMobile}>
+                {childrenWithProps(children, { metric })}
+              </BodyWrapper>
               {/* @ts-ignore */}
-              <CustomScroller
-                instanceKey={BODY_SCROLLER}
-                direction="vertical"
-                height="100vh"
-                barSize={SIZE.MEDIUM}
-                showShadow={false}
-                onScrollDirectionChange={onPageScrollDirhange}
-                autoHide
-              >
-                <Header
-                  metric={metric}
-                  accountInfo={accountInfo}
-                  community={curCommunity}
-                />
-                <BodyWrapper isMobile={isMobile}>
-                  {childrenWithProps(children, { metric })}
-                </BodyWrapper>
-                {/* @ts-ignore */}
-                {!noFooter && <Footer metric={metric} />}
-              </CustomScroller>
-            </ContentWrapper>
-          </InnerWrapper>
-        </Fragment>
+              {!noFooter && <Footer metric={metric} />}
+            </CustomScroller>
+          </ContentWrapper>
+        </InnerWrapper>
         {/* @ts-ignore */}
         {isMobile && <ModeLine metric={metric} />}
       </Wrapper>
