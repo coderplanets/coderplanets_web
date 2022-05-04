@@ -80,6 +80,7 @@ export type {
   TASType,
   TASState,
   TTagMode,
+  TMenuOption,
 } from './utils'
 
 export type { TGQLError } from './graphql'

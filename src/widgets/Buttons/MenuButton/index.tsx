@@ -2,7 +2,7 @@ import { FC, ReactNode, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 
-import type { TTooltipPlacement } from '@/spec'
+import type { TTooltipPlacement, TMenuOption } from '@/spec'
 
 import Tooltip from '@/widgets/Tooltip'
 
@@ -12,17 +12,10 @@ import Menu from './Menu'
 
 const log = buildLog('C:MenuButton')
 
-export type TOption = {
-  title: string
-  key: string
-  icon?: string
-  link?: string
-}
-
 type TProps = {
   children: ReactNode
-  options: TOption[]
-  extraOptions?: TOption[]
+  options: TMenuOption[]
+  extraOptions?: TMenuOption[]
   placement?: TTooltipPlacement
   panelMinWidth?: string
   onClick?: (key?: string) => void

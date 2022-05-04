@@ -21,6 +21,8 @@ import ArchivedIcon from '@/icons/article/Archived'
 
 import CollectionIcon from '@/icons/CollectionBookmark'
 import ShareIcon from '@/icons/Share'
+import MoreLIcon from '@/icons/MoreL'
+import MoreIcon from '@/icons/More'
 
 // import CloseCross from '@/icons/CloseCross'
 // import AirBalloon from '@/icons/AirBalloon'
@@ -37,14 +39,37 @@ const AirBalloon = dynamic(() => import('@/icons/AirBalloon'), {
 
 type TWrapper = Omit<TIconButtonProps, 'path'>
 export const Wrapper = styled.div<TWrapper>`
+  position: relative;
+  ${({ size }) => css.size(size)}
   ${css.flex('align-both')};
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
 
   margin-left: ${({ mLeft }) => `${mLeft}px`};
   margin-right: ${({ mRight }) => `${mRight}px`};
   margin-top: ${({ mTop }) => `${mTop}px`};
   margin-bottom: ${({ mBottom }) => `${mBottom}px`};
+
+  /* &:before {
+    content: '';
+    ${({ size }) => css.circle(size + 2)};
+    background: ${theme('hoverBg')};
+  } */
+`
+export const Content = styled.div`
+  z-index: 2;
+`
+export const HoverBg = styled.div<{ size: number }>`
+  position: absolute;
+  ${({ size }) => css.circle(size + 4)};
+  left: -2px;
+  top: -2px;
+  background: ${theme('hoverBg')};
+  opacity: 0;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
+
+  transition: 0.25s;
 `
 type TIcon = { size: number; $dimWhenIdle: boolean } & TSpace & TActive
 export const Icon = styled(Img)<TIcon>`
@@ -116,7 +141,12 @@ export const getIcon = (type: string): FC<TIcon> => {
     case SVG.COMMENT: {
       return getStyledIcon(CommentIcon)
     }
-
+    case SVG.MOREL: {
+      return getStyledIcon(MoreLIcon)
+    }
+    case SVG.MORE: {
+      return getStyledIcon(MoreIcon)
+    }
     default: {
       return getStyledIcon(UpvoteIcon)
     }

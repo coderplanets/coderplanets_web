@@ -1,9 +1,10 @@
 import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
+import type { TMenuOption } from '@/spec'
+
 import { ICON } from '@/config'
 import { cutRest } from '@/utils/helper'
-import type { TOption } from './index'
 
 import {
   Wrapper,
@@ -40,8 +41,8 @@ const OptionBlock = ({ item, onClick }) => {
 }
 
 type TProps = {
-  options: TOption[]
-  extraOptions: TOption[]
+  options: TMenuOption[]
+  extraOptions: TMenuOption[]
   panelMinWidth: string
   onClick?: (key?: string) => void
 }

@@ -17,14 +17,14 @@ export const Block = styled.div`
   padding-left: 15px;
 
   &:hover {
-    background: #0d3e4e;
+    background: ${theme('hoverBg')};
     cursor: pointer;
   }
 `
 export const Divider = styled.div`
   width: 100%;
   height: 1px;
-  background: #0d3e4e;
+  background: ${theme('border')};
   margin-top: 3px;
   margin-bottom: 3px;
 `
