@@ -191,3 +191,11 @@ export type TASType = 'BUG' | 'FEATURE' | 'DEFAULT' | 'QUESTION' | 'LOCK'
 export type TASState = 'TODO' | 'WIP' | 'DONE' | 'DEFAULT' | 'RESOLVE' | 'LOCK'
 
 export type TTagMode = 'default' | 'label'
+
+// for menu button
+export type TMenuOption = {
+  title: string
+  key: string
+  icon?: string
+  link?: string
+}

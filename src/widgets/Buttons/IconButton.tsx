@@ -4,7 +4,14 @@ import { ICON } from '@/config'
 import { SVG } from '@/constant'
 
 import Tooltip from '@/widgets/Tooltip'
-import { Wrapper, Icon, Hint, getIcon } from './styles/icon_button'
+import {
+  Wrapper,
+  Content,
+  Icon,
+  Hint,
+  getIcon,
+  HoverBg,
+} from './styles/icon_button'
 
 export type TProps = {
   path?: string | null
@@ -66,18 +73,21 @@ const IconButton: FC<TProps> = ({
       mBottom={mBottom}
       onClick={onClick}
     >
-      {hint ? (
-        <Tooltip
-          placement={hintPlacement}
-          content={<Hint>{hint}</Hint>}
-          noPadding
-          delay={hintDelay}
-        >
-          {realIcon}
-        </Tooltip>
-      ) : (
-        <>{realIcon}</>
-      )}
+      <>
+        {hint ? (
+          <Tooltip
+            placement={hintPlacement}
+            content={<Hint>{hint}</Hint>}
+            noPadding
+            delay={hintDelay}
+          >
+            <Content>{realIcon}</Content>
+          </Tooltip>
+        ) : (
+          <Content>{realIcon}</Content>
+        )}
+        <HoverBg size={size} />
+      </>
     </Wrapper>
   )
 }
