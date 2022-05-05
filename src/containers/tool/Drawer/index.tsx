@@ -36,6 +36,7 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
     userListerType,
     mmType,
     rightOffset,
+    fromContentEdge,
     optionsData,
     canBeClose,
     headerText,
@@ -50,6 +51,7 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
       options={optionsData}
       visible={slideVisible}
       rightOffset={rightOffset}
+      fromContentEdge={fromContentEdge}
       type={type}
       canBeClose={canBeClose}
       showHeaderText={showHeaderText}

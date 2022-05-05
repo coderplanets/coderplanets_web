@@ -43,11 +43,19 @@ export const DrawerWrapper = styled.div.attrs(
     mobile,
     swipeUpY = 0,
     swipeDownY = 0,
+    fromContentEdge,
     options,
   }: TDrawer) => ({
     'data-test-id': testid,
     style: {
-      transform: getTransform(visible, mobile, swipeUpY, swipeDownY, options),
+      transform: getTransform(
+        visible,
+        mobile,
+        swipeUpY,
+        swipeDownY,
+        fromContentEdge,
+        options,
+      ),
     },
   }),
 )<TDrawer>`
@@ -67,23 +75,23 @@ export const DrawerWrapper = styled.div.attrs(
 
   min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
   max-width: 1000px;
-  z-index: ${({ visible }) => (visible ? css.zIndex.drawer : -1)};
-  /* 
-   * if the screen width > maxContent, then use display instead of visibility
-   * otherwise the Drawer will show up from screen edge
-   * ----
-   * 当屏幕宽度大于 maxContent 时，使用 display 作为出现的控制属性，否则 Drawer 会从
-   * 屏幕最边缘滑出
-   *
-  */
-  /* display: ${({ visible }) => (visible ? 'flex' : 'none')}; */
+  z-index: ${css.zIndex.drawer};
 
-  transition: transform 550ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  will-change: transform;
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+  opacity: ${({ visible, fromContentEdge }) =>
+    !visible && !fromContentEdge ? 0 : 1};
 
-  ${css.media.maxContent`
-    visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
-  `};
+  max-width: ${({ visible, fromContentEdge }) =>
+    !visible && !fromContentEdge ? '66%' : '100%'};
+
+  ${({ fromContentEdge }) =>
+    fromContentEdge
+      ? 'transition: transform 850ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;'
+      : 'transition-property: transform, max-width, opacity;transition-duration: 0.5s, 1s, 0.3s;transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1) 0ms, ease-out,ease-in'};
+
+  will-change: transform, max-width, opacity;
+  // 在宽屏时滑出来时，是从内容页而不是实际的 window 页滑出, 加 delay 可以在视觉上抵消从外部滑入的跳动感
+  transition-delay: 0s, 0.1s, 0.15s;
 
   ${css.media.mobile`
     right: 0;

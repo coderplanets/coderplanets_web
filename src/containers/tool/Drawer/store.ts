@@ -91,6 +91,12 @@ const DrawerStore = T.model('DrawerStore', {
         windowWidth <= MAX_WIDTH ? '0' : (windowWidth - MAX_WIDTH) / 2
       }px`
     },
+    get fromContentEdge(): boolean {
+      const { windowWidth } = self
+      const MAX_PAGE_WIDTH = Number(WIDTH.COMMUNITY.PAGE.slice(0, -2))
+
+      return windowWidth <= MAX_PAGE_WIDTH
+    },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing.community)
