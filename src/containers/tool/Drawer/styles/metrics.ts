@@ -102,11 +102,18 @@ export const getTransform = (
   mobile: boolean,
   swipeUpY: number,
   swipeDownY: number,
+  fromContentEdge: boolean,
   options: Options,
 ): string => {
   if (!mobile) {
-    // return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)' // fromRight
-    return visible ? 'translate(0px, 0px)' : 'translate(65px, 0px)' // fromRight
+    /*
+     * 滑动的原理是吧 Drawer 从"屏幕"外面移动到视窗窗口内部，但是在宽屏有背自定义景图片这个设计下，这个滑动
+     * 效果实际是从 WIDTH.xxxPAGE 边缘开始的，所以当屏幕宽度大于 maxPage 时，不能用默认的外侧滑动偏移，
+     * 需要减小这个值才能感觉自然，否则会有跳动感
+     *
+     */
+    const offsetFromEdge = fromContentEdge ? '65px' : '18px'
+    return visible ? 'translate(0px, 0px)' : `translate(${offsetFromEdge}, 0px)` // fromRight
   }
 
   switch (options.direction) {

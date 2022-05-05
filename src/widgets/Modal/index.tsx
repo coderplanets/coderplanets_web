@@ -27,6 +27,7 @@ type TProps = {
   mode?: 'default' | 'error'
   background?: 'default' | 'preview'
   offsetTop?: string
+  offsetLeft?: string
   onClose?: () => void
 }
 
@@ -40,6 +41,7 @@ const Modal: FC<TProps> = ({
   mode = 'default',
   background = 'default',
   offsetTop = '20%',
+  offsetLeft = 'none',
 }) => {
   const { Portal } = usePortal()
   // damn, i forgot why i set this state, fix LATER
@@ -72,6 +74,7 @@ const Modal: FC<TProps> = ({
               mode={mode}
               background={background}
               offsetTop={offsetTop}
+              offsetLeft={offsetLeft}
             >
               <ViewportTracker onEnter={() => setVisibleOnPage(true)} />
               {showCloseBtn && <CloseBtn mode={mode} onClick={handleClose} />}

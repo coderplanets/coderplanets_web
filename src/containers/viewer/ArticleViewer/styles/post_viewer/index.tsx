@@ -34,16 +34,16 @@ export const SubTitle = styled.span`
 const getLeftOffset = (count: number): string => {
   switch (count) {
     case 0: {
-      return '133px;'
-    }
-    case 1: {
-      return '130px;'
-    }
-    case 2: {
       return '128px;'
     }
+    case 1: {
+      return '128px;'
+    }
+    case 2: {
+      return '123px;'
+    }
     default: {
-      return '120px;'
+      return '115px;'
     }
   }
 }

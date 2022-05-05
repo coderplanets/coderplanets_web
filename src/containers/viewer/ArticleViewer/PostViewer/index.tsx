@@ -48,7 +48,11 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
 
   return (
     <Fragment>
-      <FixedHeader article={article} visible={fixedHeaderVisible} />
+      <FixedHeader
+        article={article}
+        visible={fixedHeaderVisible}
+        footerVisible={footerVisible}
+      />
       <Wrapper>
         <Header article={article} />
         <Title>

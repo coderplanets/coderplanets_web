@@ -13,6 +13,7 @@ type TProps = {
   options: TSwipeOption
   visible: boolean
   rightOffset: string
+  fromContentEdge: boolean
   type: string
   articleNavi?: TArticleNavi
   children: ReactNode
@@ -23,6 +24,7 @@ const DesktopView: FC<TProps> = ({
   options,
   visible,
   rightOffset,
+  fromContentEdge,
   type,
   articleNavi,
   children,
@@ -37,6 +39,7 @@ const DesktopView: FC<TProps> = ({
       <DrawerWrapper
         testid={testid}
         visible={visible}
+        fromContentEdge={fromContentEdge}
         rightOffset={rightOffset}
         type={type}
         mobile={false}

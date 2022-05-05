@@ -17,7 +17,7 @@ export const Wrapper = styled(AvatarsMore)<TWrapper>`
   border-radius: 0 10px 10px 0;
 `
 export const HighlightNumber = styled.div`
-  font-weight: 600;
+  font-weight: 500;
   background: ${theme('heightGradient')};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -18,6 +18,8 @@ export type TDrawer = TTestable &
     mobile: boolean
     rightOffset?: string
     type: string
+  } & {
+    fromContentEdge?: boolean
   }
 
 export type TArticleNavi = {

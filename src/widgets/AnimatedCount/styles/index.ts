@@ -9,7 +9,7 @@ type TWrapper = { size: TSIZE; count: number } & TActive
 export const Wrapper = styled.div<TWrapper>`
   color: ${({ $active, count }) => getCountColor($active, count)};
   font-size: ${({ size }) => getFontSize(size)};
-  font-weight: ${({ count }) => (count > 0 ? 'bold' : 'normal')};
+  font-weight: ${({ count }) => (count > 0 ? 500 : 400)};
   opacity: ${({ count }) => (count === 0 ? 0.8 : 1)};
   overflow-y: hidden;
 `

@@ -1,28 +1,14 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import { METRIC } from '@/constant'
-import { ASSETS_ENDPOINT } from '@/config'
+// import { METRIC } from '@/constant'
+// import { ASSETS_ENDPOINT } from '@/config'
 import css, { theme } from '@/utils/css'
 
 // background: #3b5456;
 export const Wrapper = styled.div`
   ${css.flex('justify-center')};
   background-color: ${theme('spaceBg')};
-
-  &:before {
-    content: '';
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    /* background-image: url(${ASSETS_ENDPOINT}/space-background.svg); */
-    /* background-attachment: fixed; */
-    /* see https://www.zhangxinxu.com/wordpress/2015/11/css3-will-change-improve-paint/ */
-    will-change: transform;
-    opacity: 0.6;
-  }
 `
 
 type TInner = { metric: TMetric; sidebarPin: boolean }
