@@ -5,9 +5,9 @@ import { Wrapper } from './styles/custom_bg'
 
 type TBackgroundEffect =
   | {
-      backgroundImage: string
-      backgroundColor?: string
-      backgroundSize?: 'contain' | 'cover'
+      bgImage: string
+      bgColor?: string
+      bgSize?: 'contain' | 'cover'
     }
   | string
 
@@ -28,8 +28,9 @@ const ComstomBg: FC = () => {
       hsl(55deg 100% 50%) 100%
     )`,
     b: `
-      background: #4568dc;
-      background: -webkit-linear-gradient(to right, #b06ab3, #4568dc);
+      background: #2c3e50; /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #2c3e50, #fd746c); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #2c3e50, #fd746c);
     `,
     c: `
     // 3: https://codepen.io/tennowman/pen/AYRqzO
@@ -54,63 +55,61 @@ const ComstomBg: FC = () => {
 
     // custom-images
     e: {
-      backgroundImage: '/bg/Waihou.png',
+      bgImage: '/bg/Waihou.png',
     },
     f: {
-      backgroundImage: '/bg/Limones.jpeg',
+      bgImage: '/bg/Limones.jpeg',
     },
     g: {
-      backgroundImage: '/bg/Mataura.png',
-      backgroundSize: 'cover',
+      bgImage: '/bg/Mataura.png',
+      bgSize: 'cover',
     },
     h: {
-      backgroundImage: '/bg/Waimakariri.png',
+      bgImage: '/bg/Waimakariri.png',
     },
     i: {
-      backgroundImage: '/bg/Doubs.png',
+      bgImage: '/bg/Doubs.png',
     },
     j: {
-      backgroundImage: '/bg/Taieri.png',
-      backgroundColor: '#050139', // backgroundBg or fallback
+      bgImage: '/bg/Taieri.png',
+      bgColor: '#050139', // backgroundBg or fallback
     },
     k: {
-      backgroundImage: '/bg/CircleSapres.jpeg',
+      bgImage: '/bg/CircleSapres.jpeg',
     },
     m: {
-      backgroundImage: '/bg/Antiquitarian.jpeg',
+      bgImage: '/bg/Antiquitarian.jpeg',
     },
     l: {
-      backgroundImage: '/bg/CyBeRGaTa.jpeg',
+      bgImage: '/bg/CyBeRGaTa.jpeg',
     },
     o: {
-      backgroundImage: '/bg/Fishes.jpeg',
+      bgImage: '/bg/Fishes.jpeg',
     },
     x: {
-      backgroundImage: '/bg/space.svg',
-      backgroundColor: '#002630', // backgroundBg
+      bgImage: '/bg/space.svg',
+      bgColor: '#002630', // backgroundBg
     },
   }
 
-  const effect: TBackgroundEffect = effects.f
+  const effect: TBackgroundEffect = effects.l
 
+  // for linear/solid background colors
   if (isString(effect)) {
     // @ts-ignore
     return <Wrapper effect={effect as string} />
   }
 
-  const {
-    backgroundImage,
-    backgroundColor = '',
-    backgroundSize = 'contain',
-  } = effect
+  const { bgImage, bgColor = '', bgSize = 'contain' } = effect
 
+  // for custom image/svg
   // for use style object not passing props
   // @link see https://github.com/styled-components/styled-components/issues/3315#issuecomment-885977691
   return (
     <Wrapper
-      effect={`background-color: ${backgroundColor}; background-size: ${backgroundSize}`}
+      effect={`background-color: ${bgColor}; background-size: ${bgSize}`}
       style={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${bgImage})`,
       }}
     />
   )
