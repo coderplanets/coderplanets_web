@@ -23,13 +23,12 @@ export const DrawerOverlay = styled.div<TActive>`
   height: 100%;
   right: 0;
   top: 0;
-  z-index: ${css.zIndex.drawerOverlay};
-  /* z-index: ${({ visible }) => (visible ? css.zIndex.drawerOverlay : -1)}; */
+  z-index: ${({ visible }) => (visible ? css.zIndex.drawerOverlay : -1)};
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
-  background: ${({ visible }) =>
-    visible ? theme('drawer.mask') : 'transparent'};
+  background: ${({ visible }) => (visible ? theme('drawer.mask') : 'none')};
   opacity: ${({ visible }) => (visible ? 0.5 : 0)};
-  transition: opacity 0.2s linear;
+
+  transition: visibility 0.3s linear, opacity 0.2s linear;
 `
 // see https://stackoverflow.com/questions/60079950/when-do-i-use-attrs-vs-passing-props-directly-with-styled-components
 
@@ -74,24 +73,24 @@ export const DrawerWrapper = styled.div.attrs(
     contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
 
   min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
-  max-width: 1000px;
-  z-index: ${css.zIndex.drawer};
+  z-index: ${({ visible }) => (visible ? css.zIndex.drawer : -1)};
 
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   opacity: ${({ visible, fromContentEdge }) =>
     !visible && !fromContentEdge ? 0 : 1};
 
   max-width: ${({ visible, fromContentEdge }) =>
-    !visible && !fromContentEdge ? '66%' : '100%'};
+    !visible && !fromContentEdge ? '60%' : '985px'};
+  /* max-width: 985px; */
 
   ${({ fromContentEdge }) =>
     fromContentEdge
       ? 'transition: transform 850ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;'
-      : 'transition-property: transform, max-width, opacity;transition-duration: 0.5s, 1s, 0.3s;transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1) 0ms, ease-out,ease-in'};
+      : 'transition-property: transform, max-width, opacity;transition-duration: 0.4s, 0.3s, 0.3s;transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1) 0ms, ease-out,ease-in'};
 
   will-change: transform, max-width, opacity;
   // 在宽屏时滑出来时，是从内容页而不是实际的 window 页滑出, 加 delay 可以在视觉上抵消从外部滑入的跳动感
-  transition-delay: 0s, 0.1s, 0.15s;
+  transition-delay: 0s, 0s, 0.1s;
 
   ${css.media.mobile`
     right: 0;

@@ -112,7 +112,7 @@ export const getTransform = (
      * 需要减小这个值才能感觉自然，否则会有跳动感
      *
      */
-    const offsetFromEdge = fromContentEdge ? '65px' : '15px'
+    const offsetFromEdge = fromContentEdge ? '65px' : '18px'
     return visible ? 'translate(0px, 0px)' : `translate(${offsetFromEdge}, 0px)` // fromRight
   }
 
