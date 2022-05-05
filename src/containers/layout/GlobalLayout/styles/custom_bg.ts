@@ -54,8 +54,8 @@ export const Wrapper = styled.div`
 
   /* background-image: url(/bg/Waimakariri.png); */
   /* background-image: url(/bg/Doubs.png); */
-  /* background-repeat: repeat-x;
-  background-size: cover; */
+
+  background-size: contain;
 `
 
 export const holder = 1
