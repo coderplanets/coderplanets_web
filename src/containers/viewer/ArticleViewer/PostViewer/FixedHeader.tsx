@@ -1,12 +1,14 @@
 import { FC, memo } from 'react'
 import type { TArticle } from '@/spec'
 
+import Upvote from '@/widgets/Upvote'
 import ArticleStateBadge from '@/widgets/ArticleStateBadge'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 
 import {
   Wrapper,
   LeftPart,
+  UpvoteWrapper,
   ArticleTitle,
   ArticleStateBadgeWrapper,
 } from '../styles/post_viewer/fixed_header'
@@ -14,12 +16,23 @@ import {
 type TProps = {
   article: TArticle
   visible?: boolean
+  footerVisible: boolean
 }
 
-const FixedHeader: FC<TProps> = ({ article, visible }) => {
+const FixedHeader: FC<TProps> = ({ article, visible, footerVisible }) => {
+  const { upvotesCount, viewerHasUpvoted } = article
+
   return (
     <Wrapper visible={visible}>
       <LeftPart>
+        <UpvoteWrapper show={!footerVisible}>
+          <Upvote
+            count={upvotesCount}
+            viewerHasUpvoted={viewerHasUpvoted}
+            type="fixed-header"
+          />
+        </UpvoteWrapper>
+
         <ArticleTitle>{article.title}</ArticleTitle>
         <ArticleStateBadgeWrapper>
           {article.id === '239' && <ArticleStateBadge type="FEATURE" />}

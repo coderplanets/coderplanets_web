@@ -12,6 +12,7 @@ import { buildLog } from '@/utils/logger'
 
 import DefaultLayout from './DefaultLayout'
 import KanbanLayout from './KanbanLayout'
+import FixedHeaderLayout from './FixedHeaderLayout'
 import CommentLayout from './CommentLayout'
 import PostListLayout from './PostListLayout'
 import GuideListLayout from './GuideListLayout'
@@ -60,6 +61,9 @@ const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
     }
     case UPVOTE_LAYOUT.KANBAN: {
       return <KanbanLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.FIXED_HEADER: {
+      return <FixedHeaderLayout {...restProps} />
     }
     case UPVOTE_LAYOUT.STICKER: {
       return <StickerLayout {...restProps} />

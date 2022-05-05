@@ -215,6 +215,7 @@ export type TUpvoteLayout =
   | 'works-card'
   | 'guide-list'
   | 'kanban'
+  | 'fixed-header'
   | 'sticker'
 
 export type TCollectionFolder = {

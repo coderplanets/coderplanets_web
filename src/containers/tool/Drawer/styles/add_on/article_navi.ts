@@ -48,7 +48,7 @@ export const LeftArrow = styled(ArrowSVG)`
   fill: ${theme('thread.extraInfo')};
 `
 export const RightSwitchBlock = styled(SwitchBlock)`
-  left: 800px;
+  left: 780px;
 
   ${css.media.laptopL`
     left: 55vw;
