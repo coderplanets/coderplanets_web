@@ -14,11 +14,16 @@ import {
   SolidTitle,
 } from './styles'
 
-type TProps = Pick<TTagProps, 'items' | 'mLeft' | 'size' | 'mode'>
+type TProps = Omit<TTagProps, 'withSetter' | 'max' | 'community' | 'thread'>
 
-const FullList: FC<TProps> = ({ items, mLeft, size, mode = 'default' }) => {
+const FullList: FC<TProps> = ({
+  items,
+  size,
+  mode = 'default',
+  ...restProps
+}) => {
   return (
-    <Wrapper mLeft={mLeft}>
+    <Wrapper {...restProps}>
       {sortByColor(items).map((tag) => (
         <Tag key={tag.title}>
           {mode === 'default' && <DotSign color={tag.color} size={size} />}

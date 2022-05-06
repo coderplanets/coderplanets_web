@@ -45,7 +45,6 @@ const Footer: FC<TProps> = ({
       <ArticleFooter>
         <TagsList
           items={tags}
-          mLeft={0}
           size="medium"
           community={community}
           thread={thread}

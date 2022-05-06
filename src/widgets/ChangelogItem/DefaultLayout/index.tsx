@@ -103,7 +103,7 @@ const DefaultLayout: FC<TProps> = ({ testid = 'changelog-item' }) => {
         <TagsWrapper>
           <TagsList
             items={tags}
-            mLeft={3}
+            left={3}
             mode={TAG_MODE.LABEL}
             size="small"
             max={5}

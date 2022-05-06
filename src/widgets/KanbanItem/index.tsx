@@ -36,7 +36,7 @@ const KanbanItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
   return (
     <Wrapper testid={testid}>
       <Header>
-        <TagsList items={tags} mLeft={2} />
+        <TagsList items={tags} left={2} />
         <IconButton path="shape/more.svg" />
       </Header>
       <Title>增加看板，发布日志，与常见问题的功能和其他</Title>

@@ -53,7 +53,6 @@ const Footer: FC<TProps> = ({ step, inputData, submitState, mode }) => {
           <FooterExtra>
             <TagsList
               items={[]}
-              mLeft={0}
               size="medium"
               // community={community}
               // thread={THREAD.WORKS}

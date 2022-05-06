@@ -4,7 +4,14 @@
 
 import { FC, memo } from 'react'
 
-import type { TTag, TSIZE_TSM, TCommunity, TThread, TTagMode } from '@/spec'
+import type {
+  TTag,
+  TSIZE_TSM,
+  TCommunity,
+  TThread,
+  TTagMode,
+  TSpace,
+} from '@/spec'
 import { SIZE, THREAD, TAG_MODE } from '@/constant'
 
 import { sortByColor } from '@/utils/helper'
@@ -23,7 +30,6 @@ const log = buildLog('c:TagsList:index')
 export type TProps = {
   items: TTag[]
   max?: number
-  mLeft?: number
   size?: TSIZE_TSM
   withSetter?: boolean
   mode?: TTagMode
@@ -31,21 +37,21 @@ export type TProps = {
   // if withSetter is set to true, MUST have community and thread
   community?: TCommunity
   thread?: TThread
-}
+} & TSpace
 
 const TagsList: FC<TProps> = ({
   items,
   max = 2,
-  mLeft = 8,
   size = SIZE.TINY,
   withSetter = false,
   mode = TAG_MODE.DEFAULT,
   community = { raw: 'home' },
   thread = THREAD.POST,
+  ...restProps
 }) => {
   if (items.length > max) {
     return (
-      <Wrapper mLeft={mLeft}>
+      <Wrapper {...restProps}>
         {sortByColor(items)
           .slice(0, max)
           .map((tag) => (
@@ -59,7 +65,7 @@ const TagsList: FC<TProps> = ({
         <Tooltip
           placement="bottom"
           content={
-            <FullList items={items} mLeft={mLeft} size={size} mode={mode} />
+            <FullList items={items} size={size} mode={mode} {...restProps} />
           }
         >
           <More>..</More>
@@ -74,7 +80,7 @@ const TagsList: FC<TProps> = ({
   return (
     <Wrapper>
       {items.length > 0 && (
-        <FullList items={items} mLeft={mLeft} size={size} mode={mode} />
+        <FullList items={items} size={size} mode={mode} {...restProps} />
       )}
       {withSetter && (
         <Setter
