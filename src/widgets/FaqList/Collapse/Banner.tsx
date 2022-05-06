@@ -50,7 +50,7 @@ const Banner: FC<TProps> = ({ menuOptions, setOpenedIDs, articles }) => {
           options={menuOptions}
           onClick={(key) => handleMenu(key)}
         >
-          <IconButton icon={SVG.MORE} mRight={0} />
+          <IconButton icon={SVG.MORE} />
         </MenuButton>
       </MenuWrapper>
     </Wrapper>

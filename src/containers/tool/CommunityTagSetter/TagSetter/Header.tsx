@@ -52,7 +52,7 @@ const Header: FC<TProps> = ({ view }) => {
         <IconButton
           path="shape/settings.svg"
           size={18}
-          mRight={8}
+          right={8}
           hintDelay={0}
           hint="设置标签"
           active={view === TAG_VIEW.SELECT}
@@ -61,7 +61,7 @@ const Header: FC<TProps> = ({ view }) => {
         <IconButton
           path="shape/add.svg"
           size={20}
-          mRight={8}
+          right={8}
           hintDelay={0}
           hint="新增标签"
           active={view === TAG_VIEW.CREATE_ITEM}
@@ -70,7 +70,7 @@ const Header: FC<TProps> = ({ view }) => {
         <IconButton
           path="edit/publish-pen.svg"
           size={18}
-          mRight={8}
+          right={8}
           hintDelay={0}
           hint="编辑标签"
           active={view === TAG_VIEW.UPDATE}
@@ -79,7 +79,6 @@ const Header: FC<TProps> = ({ view }) => {
         <IconButton
           path="shape/delete.svg"
           size={18}
-          mRight={0}
           hintDelay={0}
           hint="删除标签"
           active={view === TAG_VIEW.DELETE}

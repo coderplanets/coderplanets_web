@@ -60,7 +60,7 @@ const Footer: FC<TProps> = ({ title, onClick, onMenuClick, inactive }) => {
         {!inactive && (
           <MenuButton options={menuOptions} onClick={onMenuClick}>
             <MenuWrapper>
-              <IconButton path="shape/more-l.svg" mRight={0} />
+              <IconButton path="shape/more-l.svg" />
             </MenuWrapper>
           </MenuButton>
         )}

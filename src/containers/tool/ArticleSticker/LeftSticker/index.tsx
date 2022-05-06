@@ -45,7 +45,7 @@ const LeftSticker: FC<TProps> = ({
           onAction={handleUpvote}
         />
         <Divider />
-        <IconButton icon={SVG.SHARE} size={16} mRight={2} />
+        <IconButton icon={SVG.SHARE} size={16} right={2} />
       </InnerWrapper>
     </Wrapper>
   )

@@ -54,7 +54,7 @@ const KanbanThreadContainer: FC<TProps> = ({
             <Label>待办项</Label>
             <SubTitle>{getRandomInt(5, 20)}</SubTitle>
             <SpaceGrow />
-            <IconButton path="shape/add.svg" mRight={12} />
+            <IconButton path="shape/add.svg" right={12} />
           </Header>
           <Body>
             <KanbanItem />
@@ -71,7 +71,7 @@ const KanbanThreadContainer: FC<TProps> = ({
             <Label>正在完善</Label>
             <SubTitle>{getRandomInt(5, 20)}</SubTitle>
             <SpaceGrow />
-            <IconButton path="shape/add.svg" mRight={12} />
+            <IconButton path="shape/add.svg" right={12} />
           </Header>
           <Body>
             <KanbanItem />
@@ -88,7 +88,7 @@ const KanbanThreadContainer: FC<TProps> = ({
             <Label>已完成</Label>
             <SubTitle>{getRandomInt(5, 20)}</SubTitle>
             <SpaceGrow />
-            <IconButton path="shape/add.svg" mRight={12} />
+            <IconButton path="shape/add.svg" right={12} />
           </Header>
           <Body>
             <KanbanItem />

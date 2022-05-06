@@ -43,10 +43,10 @@ export const Wrapper = styled.div<TWrapper>`
   ${({ size }) => css.size(size)}
   ${css.flex('align-both')};
 
-  margin-left: ${({ mLeft }) => `${mLeft}px`};
-  margin-right: ${({ mRight }) => `${mRight}px`};
-  margin-top: ${({ mTop }) => `${mTop}px`};
-  margin-bottom: ${({ mBottom }) => `${mBottom}px`};
+  margin-left: ${({ left }) => `${left || 0}px`};
+  margin-right: ${({ right }) => `${right || 0}px`};
+  margin-top: ${({ top }) => `${top || 0}px`};
+  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
 
   /* &:before {
     content: '';

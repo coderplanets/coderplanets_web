@@ -24,7 +24,7 @@ const CopyButton: FC = () => {
       {!done && (
         <IconButton
           path="article/clipboard.svg"
-          mRight={5}
+          right={5}
           onClick={() => {
             setDone(true)
           }}

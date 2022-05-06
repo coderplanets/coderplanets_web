@@ -61,9 +61,9 @@ const ShareContainer: FC<TProps> = ({ share: store, testid = 'share' }) => {
         <IconButton
           path="article/share.svg"
           size={15}
-          mTop={9}
-          mRight={14}
-          mLeft={10}
+          top={9}
+          right={14}
+          left={10}
           dimWhenIdle
         />
       </MenuButton>

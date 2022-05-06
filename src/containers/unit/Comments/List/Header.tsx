@@ -70,7 +70,7 @@ const Header: FC<TProps> = ({
           <IconButton
             icon={SVG.LOCK}
             hint="关闭讨论"
-            mTop={-1}
+            top={-1}
             {...actionIconConfig}
           />
         )}

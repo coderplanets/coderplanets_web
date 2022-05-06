@@ -9,7 +9,7 @@ import { Wrapper } from '../styles/copy_button'
 const AnimatedCopyButton = dynamic(() => import('./Animate'), {
   /* eslint-disable react/display-name */
   loading: () => {
-    return <IconButton path="article/clipboard.svg" mRight={5} />
+    return <IconButton path="article/clipboard.svg" right={5} />
   },
   ssr: false,
 })
