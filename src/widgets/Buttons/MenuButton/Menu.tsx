@@ -1,5 +1,6 @@
-import { FC, memo } from 'react'
+import { FC, Fragment, memo } from 'react'
 import { isEmpty } from 'ramda'
+import QRCode from 'qrcode.react'
 
 import type { TMenuOption } from '@/spec'
 
@@ -10,6 +11,7 @@ import {
   Wrapper,
   Block,
   BlockA,
+  QRWrapper,
   Item,
   Icon,
   Title,
@@ -56,11 +58,14 @@ const Menu: FC<TProps> = ({
   return (
     <Wrapper panelMinWidth={panelMinWidth}>
       {options.map((item) => (
-        <OptionBlock
-          key={item.key}
-          item={item}
-          onClick={() => onClick(item.key)}
-        />
+        <Fragment key={item.key}>
+          <OptionBlock item={item} onClick={() => onClick(item.key)} />
+          {item.qrLink && (
+            <QRWrapper>
+              <QRCode value={item.qrLink} size={72} />
+            </QRWrapper>
+          )}
+        </Fragment>
       ))}
       {!isEmpty(extraOptions) && <Divider />}
       {extraOptions.map((item) => (

@@ -198,4 +198,5 @@ export type TMenuOption = {
   key: string
   icon?: string
   link?: string
+  qrLink?: string
 }

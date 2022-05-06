@@ -9,17 +9,30 @@ export const Wrapper = styled.div<{ panelMinWidth: string }>`
   min-width: ${({ panelMinWidth }) => panelMinWidth};
   max-height: 300px;
   overflow: hidden;
+  padding: 4px 3px;
 `
 export const Block = styled.div`
   ${css.flex('align-start')};
   width: 100%;
-  padding: 6px 10px;
+  padding: 4px 10px;
   padding-left: 15px;
+  border-radius: 4px;
 
   &:hover {
     background: ${theme('hoverBg')};
     cursor: pointer;
   }
+`
+export const QRWrapper = styled.div`
+  opacity: 0.55;
+  margin-top: 7px;
+  margin-left: 2px;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  transition: opacity 0.25s;
 `
 export const Divider = styled.div`
   width: 100%;

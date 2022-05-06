@@ -3,19 +3,21 @@
  */
 
 import { FC, Fragment } from 'react'
-import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import Modal from '@/widgets/Modal'
+import { ICON } from '@/config'
 
-import Platforms from './Platforms'
-import InfoPanel from './InfoPanel'
+import MenuButton from '@/widgets/Buttons/MenuButton'
+import IconButton from '@/widgets/Buttons/IconButton'
+
+import { MENU } from './constant'
+
+import Panel from './Panel'
 
 import type { TStore } from './store'
-import { Wrapper } from './styles'
-import { useInit, close } from './logic'
+import { useInit, handleMenu } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Share')
@@ -25,34 +27,55 @@ type TProps = {
   testid?: string
 }
 
-const ShareContainer: FC<TProps> = ({ share: store, testid }) => {
+const ShareContainer: FC<TProps> = ({ share: store, testid = 'share' }) => {
   useInit(store)
   const { show, offsetLeft, siteShareType, linksData, viewingArticle } = store
-  if (isMobile) {
-    return (
-      <Fragment>
-        <Wrapper testid={testid} type={siteShareType}>
-          <Platforms article={viewingArticle} />
-          <InfoPanel type={siteShareType} linksData={linksData} />
-        </Wrapper>
-      </Fragment>
-    )
-  }
+
+  const menuOptions = [
+    {
+      key: MENU.COPY_LINK,
+      icon: `${ICON}/edit/publish-pen.svg`,
+      title: '复制链接',
+    },
+    {
+      key: MENU.EMAIL,
+      icon: `${ICON}/menu/hot.svg`,
+      title: 'Email',
+    },
+    {
+      key: MENU.WECHAT,
+      icon: `${ICON}/menu/hot.svg`,
+      title: '微信',
+      qrLink: linksData.link,
+    },
+    {
+      key: MENU.MORE,
+      icon: `${ICON}/menu/hot.svg`,
+      title: '更多',
+    },
+  ]
 
   return (
     <Fragment>
-      <Modal
-        width="450px"
+      <MenuButton placement="bottom" options={menuOptions} onClick={handleMenu}>
+        <IconButton
+          path="article/share.svg"
+          size={15}
+          mTop={9}
+          mRight={14}
+          mLeft={10}
+          dimWhenIdle
+        />
+      </MenuButton>
+
+      {/* TODO: dynamic load */}
+      <Panel
         show={show}
         offsetLeft={offsetLeft}
-        onClose={close}
-        showCloseBtn
-      >
-        <Wrapper testid={testid} type={siteShareType}>
-          <Platforms article={viewingArticle} />
-          <InfoPanel type={siteShareType} linksData={linksData} />
-        </Wrapper>
-      </Modal>
+        siteShareType={siteShareType as string}
+        linksData={linksData}
+        article={viewingArticle}
+      />
     </Fragment>
   )
 }

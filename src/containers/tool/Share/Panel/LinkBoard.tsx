@@ -1,7 +1,7 @@
 import { FC, memo, Fragment, useState } from 'react'
 
 import CopyButton from '@/widgets/Buttons/CopyButton'
-import type { TLinksData } from './store'
+import type { TLinksData } from '../spec'
 
 import {
   Header,
@@ -9,7 +9,7 @@ import {
   TabName,
   BoxWrapper,
   Inputer,
-} from './styles/link_board'
+} from '../styles/panel/link_board'
 
 type TProps = {
   linksData: TLinksData

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
 
-import { getInfoPanelHeight } from './metric'
+import { getInfoPanelHeight } from '../metric'
 
 export const Wrapper = styled.div<{ type: string }>`
   padding: 20px 40px;

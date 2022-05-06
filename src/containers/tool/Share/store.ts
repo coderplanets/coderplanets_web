@@ -11,23 +11,11 @@ import type { TArticle, TCommunity, TRootStore, TThread } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
 
+import type { TLinksData, TShareData } from './spec'
 import { SITE_SHARE_TYPE } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:Share')
-
-export type TShareData = {
-  url: string
-  title: string
-  digest: string
-}
-
-export type TLinksData = {
-  link: string
-  html: string
-  md: string
-  orgMode: string
-}
 
 const Share = T.model('Share', {
   show: T.optional(T.boolean, false),

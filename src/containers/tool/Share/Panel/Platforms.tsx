@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { ICON } from '@/config'
 import type { TArticle } from '@/spec'
 
-import { SHARE_TYPE } from './constant'
+import { SHARE_TYPE } from '../constant'
 import {
   Wrapper,
   Header,
@@ -14,8 +14,8 @@ import {
   Logo,
   LogoWrapper,
   Title,
-} from './styles/platform'
-import { toPlatform } from './logic'
+} from '../styles/panel/platform'
+import { toPlatform } from '../logic'
 
 const medias = [
   {

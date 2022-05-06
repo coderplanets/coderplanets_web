@@ -209,12 +209,6 @@ export const closeDrawer = (type = ''): void =>
  */
 export const checkout = (amount: number, usage: TPaymentUsage): void =>
   send(EVENT.CALL_CASHIER, { amount, usage })
-/**
- * share articles
- */
-export const shareTo = (offsetLeft = 'none'): void => {
-  send(EVENT.SHARE, { offsetLeft })
-}
 
 export const addCollection = (): void => {
   send(EVENT.SET_FAVORITE_CONTENT, {

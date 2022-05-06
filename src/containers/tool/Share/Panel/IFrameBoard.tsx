@@ -8,7 +8,7 @@ import {
   Title,
   CodeWrapper,
   Inputer,
-} from './styles/iframe_board'
+} from '../styles/panel/iframe_board'
 
 const IFrameBoard: FC = () => {
   const code =

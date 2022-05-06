@@ -13,7 +13,7 @@ import {
   WORKS_TAB,
   SVG,
 } from '@/constant'
-import { shareTo, addCollection } from '@/utils/helper'
+import { addCollection } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
@@ -75,7 +75,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
                   size={18}
                   onClick={() => addCollection()}
                 />
-                <IconButton icon={SVG.SHARE} size={18} onClick={shareTo} />
+                <IconButton icon={SVG.SHARE} size={18} />
               </Actions>
             </Other>
           </Intro>
