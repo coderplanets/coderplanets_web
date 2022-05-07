@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import asyncSuit from '@/utils/async'
-import { openShareWindow } from '@/utils/helper'
+import { openShareWindow, toast } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { SHARE_TYPE, MENU } from './constant'
 
@@ -68,6 +68,8 @@ export const handleMenu = (key: TMenu): void => {
   switch (key) {
     case MENU.COPY_LINK: {
       console.log('do copy link')
+
+      toast('success', '已复制到剪切板', '' as string, 'topCenter', 2000)
       return
     }
 
@@ -76,8 +78,13 @@ export const handleMenu = (key: TMenu): void => {
       return
     }
 
+    case MENU.EMAIL: {
+      return toPlatform(SHARE_TYPE.EMAIL)
+    }
+
     default: {
-      console.log('do nothing')
+      // eslint-disable-next-line no-useless-return
+      return
     }
   }
 }

@@ -269,8 +269,9 @@ export const toast = (
   title: string,
   msg: string,
   position: TToastPos = 'topCenter',
+  duration = 3000,
 ): void => {
-  send(EVENT.TOAST, { type, title, msg, position })
+  send(EVENT.TOAST, { type, title, msg, position, duration })
 }
 
 /**

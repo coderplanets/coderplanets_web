@@ -353,13 +353,14 @@ const github = {
   },
   toast: {
     bg: contentBoxBg,
-    border: descText,
+    border,
     message: descText,
-    title: primaryColor,
-    infoBar: primaryColor,
+    title: threadTitle,
+    infoBar: '#E8F0FE',
     errorBar: '#f59381',
     successBar: '#9dd035',
     warnBar: '#f5a30e',
+    boxShadow: '-3px 5px 20px 0px rgb(155 155 155 / 20%)',
   },
   mailBox: {
     headHightBg: '#e8f9f8',

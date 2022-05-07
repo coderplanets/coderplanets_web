@@ -9,9 +9,9 @@
 import { types as T, Instance } from 'mobx-state-tree'
 import { merge, pickBy } from 'ramda'
 
-import type { TAccount, TRoute, TThread, TArticle } from '@/spec'
+import type { TAccount, TRoute, TThread, TArticle, TToastOption } from '@/spec'
 
-import { EVENT } from '@/constant'
+import { EVENT, DEFAULT_TOAST_OPTIONS } from '@/constant'
 import { markStates } from '@/utils/mobx'
 import { toast, toastBarColor } from '@/utils/toast'
 import { themeSkins } from '@/utils/themes'
@@ -260,11 +260,14 @@ const rootStore = T.model({
       self.footer.closeSponsor()
       self.cashier.callCashier(opt)
     },
-    toast(type, options = {}): void {
+    toast(type, options: TToastOption = DEFAULT_TOAST_OPTIONS): void {
       const themeData = themeSkins[self.theme.curTheme]
       const progressBarColor = toastBarColor(type, themeData)
 
-      const toastOpt = merge(options, { progressBarColor })
+      const toastOpt = merge(options, {
+        progressBarColor,
+        duration: options.duration || 3000,
+      })
       toast[type](toastOpt)
     },
     authWarning(options = {}): void {

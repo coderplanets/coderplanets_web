@@ -8,6 +8,8 @@ import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import { TSpace } from '@/spec'
+import { SVG } from '@/constant'
+
 import MenuButton from '@/widgets/Buttons/MenuButton'
 import IconButton from '@/widgets/Buttons/IconButton'
 
@@ -43,7 +45,7 @@ const ShareContainer: FC<TProps> = ({
   return (
     <Fragment>
       <MenuButton placement="bottom" options={menuOptions} onClick={handleMenu}>
-        <IconButton path="article/share.svg" dimWhenIdle {...restProps} />
+        <IconButton icon={SVG.SHARE} dimWhenIdle {...restProps} />
       </MenuButton>
 
       {/* TODO: dynamic condition load */}
