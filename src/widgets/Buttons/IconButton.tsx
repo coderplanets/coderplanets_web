@@ -10,7 +10,7 @@ import {
   Content,
   Icon,
   Hint,
-  getIcon,
+  getLocalIcon,
   HoverBg,
 } from './styles/icon_button'
 
@@ -51,7 +51,7 @@ const IconButton: FC<TProps> = ({
       />
     )
   } else {
-    const LocalIcon = getIcon(icon || SVG.UPVOTE)
+    const LocalIcon = getLocalIcon(icon || SVG.UPVOTE)
 
     realIcon = (
       <LocalIcon size={size} $active={active} $dimWhenIdle={dimWhenIdle} />

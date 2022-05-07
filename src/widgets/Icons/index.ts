@@ -13,11 +13,11 @@ import CommentIcon from './Comment'
 import ActivityIcon from './article/Activity'
 import ArchivedIcon from './article/Archived'
 
+import CloseCrossIcon from './CloseCross'
+import AirBalloonIcon from './AirBalloon'
 import CollectionIcon from './CollectionBookmark'
+
 import ShareIcon from './Share'
-import MoreLIcon from './menu/MoreL'
-import MoreIcon from './menu/More'
-import MoreDotIcon from './menu/MoreDot'
 
 // social
 import WechatIcon from './social/WeChat'
@@ -25,6 +25,9 @@ import EmailIcon from './social/Email'
 
 // Menu
 import CopyIcon from './menu/Copy'
+import MoreLIcon from './menu/MoreL'
+import MoreIcon from './menu/More'
+import MoreDotIcon from './menu/MoreDot'
 
 type TstyledFn = (comp: FC) => FC
 
@@ -83,13 +86,11 @@ export const getLocalSVG = (type: string, styledFn: TstyledFn): FC => {
     }
 
     case SVG.CLOSE: {
-      // @ts-ignore
-      return styledFn(CloseCross)
+      return styledFn(CloseCrossIcon)
     }
 
     case SVG.TO_TOP: {
-      // @ts-ignore
-      return styledFn(AirBalloon)
+      return styledFn(AirBalloonIcon)
     }
 
     case SVG.EMOTION: {
