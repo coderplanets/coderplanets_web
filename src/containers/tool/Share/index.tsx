@@ -2,7 +2,8 @@
  * Share
  */
 
-import { FC, Fragment } from 'react'
+import { FC, Fragment, useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
@@ -12,8 +13,6 @@ import { SVG } from '@/constant'
 
 import MenuButton from '@/widgets/Buttons/MenuButton'
 import IconButton from '@/widgets/Buttons/IconButton'
-
-import Panel from './Panel'
 
 import type { TStore } from './store'
 import { useInit, handleMenu } from './logic'
@@ -28,6 +27,8 @@ type TProps = {
   offsetLeft?: string
 } & TSpace
 
+let Panel = null
+
 const ShareContainer: FC<TProps> = ({
   share: store,
   testid = 'share',
@@ -37,6 +38,14 @@ const ShareContainer: FC<TProps> = ({
   useInit(store)
 
   const { show, menuOptions, siteShareType, linksData, viewingArticle } = store
+  const [panelLoad, setPanelLoad] = useState(false)
+
+  useEffect(() => {
+    if (show) {
+      Panel = dynamic(() => import('./Panel'), { ssr: false })
+      setPanelLoad(true)
+    }
+  }, [show, panelLoad])
 
   return (
     <Fragment>
@@ -44,14 +53,15 @@ const ShareContainer: FC<TProps> = ({
         <IconButton icon={SVG.SHARE} dimWhenIdle {...restProps} />
       </MenuButton>
 
-      {/* TODO: dynamic condition load */}
-      <Panel
-        show={show}
-        offsetLeft={offsetLeft}
-        siteShareType={siteShareType as string}
-        linksData={linksData}
-        article={viewingArticle}
-      />
+      {panelLoad && (
+        <Panel
+          show={show}
+          offsetLeft={offsetLeft}
+          siteShareType={siteShareType as string}
+          linksData={linksData}
+          article={viewingArticle}
+        />
+      )}
     </Fragment>
   )
 }
