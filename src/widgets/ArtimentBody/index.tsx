@@ -74,7 +74,7 @@ const ArtimentBody: FC<TProps> = ({
           }}
         />
       ) : (
-        <Br bottom={mode === 'article' ? 50 : 15} />
+        <Br bottom={mode === 'article' ? 0 : 15} />
       )}
     </Wrapper>
   )

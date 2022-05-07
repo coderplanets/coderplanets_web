@@ -7,14 +7,24 @@ import css, { theme } from '@/utils/css'
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
-  ${css.flex('justify-between')};
+  ${css.flexColumn()};
+  position: relative;
   border-top: 1px solid;
   border-bottom: 3px solid;
   border-color: ${theme('border')};
   padding: 26px 5px;
   padding-bottom: 32px;
+  margin-top: 72px;
 
   color: ${theme('thread.articleDigest')};
+`
+export const TabsWrapper = styled.div`
+  position: absolute;
+  top: -36px;
+  left: -10px;
+`
+export const ContentWrapper = styled.div`
+  ${css.flex('justify-between')};
 `
 export const TextIntro = styled.div`
   ${css.flexColumn('justify-start')};

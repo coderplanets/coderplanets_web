@@ -58,7 +58,7 @@ export const getPadding = (
 
   switch (size) {
     case SIZE.SMALL: {
-      return '5px 10px'
+      return '5px 14px'
     }
 
     default:

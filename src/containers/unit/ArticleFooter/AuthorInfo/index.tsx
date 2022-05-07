@@ -12,11 +12,14 @@ import { buildLog } from '@/utils/logger'
 
 import FollowButton from '@/widgets/Buttons/FollowButton'
 import ImgFallback from '@/widgets/ImgFallback'
+import Tabs from '@/widgets/Switcher/Tabs'
 
 import SocialList from './SocialList'
 
 import {
   Wrapper,
+  TabsWrapper,
+  ContentWrapper,
   TextIntro,
   IntroTitle,
   Name,
@@ -37,6 +40,21 @@ type TProps = {
   author: TAccount
 }
 
+export const TAB_ITEMS = [
+  {
+    title: '关于作者',
+    raw: 'a',
+  },
+  {
+    title: '活动',
+    raw: 'b',
+  },
+  {
+    title: '引用',
+    raw: 'c',
+  },
+]
+
 const AuthorInfo: FC<TProps> = ({
   testid = 'author-info',
   author,
@@ -52,29 +70,40 @@ const AuthorInfo: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <TextIntro>
-        <IntroTitle>关于作者</IntroTitle>
-        <Name>
-          {author.nickname}
-          {!isEmpty(socialItems) && <SocialList items={socialItems} />}
-        </Name>
-        <Bio>{author.bio}</Bio>
-      </TextIntro>
-      <AvatarIntro>
-        <Avatar
-          src={author.avatar}
-          fallback={<ImgFallback user={author} size={38} bottom={16} />}
+      <TabsWrapper>
+        <Tabs
+          items={TAB_ITEMS}
+          size="small"
+          activeKey="a"
+          bottomSpace={5}
+          onChange={(tab) => console.log(tab)}
         />
-        <FollowButton
-          size="tiny"
-          followText="&nbsp;关 注&nbsp;"
-          hasFollowed={hasFollowed}
-          followingOffset={-10}
-          userLogin={author.login}
-          onFollow={onFollow}
-          onUndoFollow={undoFollow}
-        />
-      </AvatarIntro>
+      </TabsWrapper>
+      <ContentWrapper>
+        <TextIntro>
+          <IntroTitle>关于作者</IntroTitle>
+          <Name>
+            {author.nickname}
+            {!isEmpty(socialItems) && <SocialList items={socialItems} />}
+          </Name>
+          <Bio>{author.bio}</Bio>
+        </TextIntro>
+        <AvatarIntro>
+          <Avatar
+            src={author.avatar}
+            fallback={<ImgFallback user={author} size={38} bottom={16} />}
+          />
+          <FollowButton
+            size="tiny"
+            followText="&nbsp;关 注&nbsp;"
+            hasFollowed={hasFollowed}
+            followingOffset={-10}
+            userLogin={author.login}
+            onFollow={onFollow}
+            onUndoFollow={undoFollow}
+          />
+        </AvatarIntro>
+      </ContentWrapper>
     </Wrapper>
   )
 }
