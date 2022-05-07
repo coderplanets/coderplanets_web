@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TActive } from '@/spec'
 import Img from '@/Img'
 import css, { theme } from '@/utils/css'
-import MoreSVG from '@/icons/More'
+import MoreSVG from '@/icons/menu/More'
 
 import { Divider } from '@/widgets/Common'
 

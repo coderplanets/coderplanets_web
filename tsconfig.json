@@ -34,6 +34,7 @@
       "@/spec": ["src/spec"],
       "@/Img": ["src/widgets/Img"],
       "@/SvgIcons/*": ["src/widgets/SvgIcons/*"],
+      "@/icons": ["src/widgets/Icons"],
       "@/icons/*": ["src/widgets/Icons/*"],
       "@/i18n": ["i18n"]
     },

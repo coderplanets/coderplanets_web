@@ -7,12 +7,9 @@ import { FC, Fragment } from 'react'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import { ICON } from '@/config'
-
+import { TSpace } from '@/spec'
 import MenuButton from '@/widgets/Buttons/MenuButton'
 import IconButton from '@/widgets/Buttons/IconButton'
-
-import { MENU } from './constant'
 
 import Panel from './Panel'
 
@@ -25,50 +22,31 @@ const log = buildLog('C:Share')
 type TProps = {
   share?: TStore
   testid?: string
-}
+  size?: number
+} & TSpace
 
-const ShareContainer: FC<TProps> = ({ share: store, testid = 'share' }) => {
+const ShareContainer: FC<TProps> = ({
+  share: store,
+  testid = 'share',
+  ...restProps
+}) => {
   useInit(store)
-  const { show, offsetLeft, siteShareType, linksData, viewingArticle } = store
-
-  const menuOptions = [
-    {
-      key: MENU.COPY_LINK,
-      icon: `${ICON}/edit/publish-pen.svg`,
-      title: '复制链接',
-    },
-    {
-      key: MENU.EMAIL,
-      icon: `${ICON}/menu/hot.svg`,
-      title: 'Email',
-    },
-    {
-      key: MENU.WECHAT,
-      icon: `${ICON}/menu/hot.svg`,
-      title: '微信',
-      qrLink: linksData.link,
-    },
-    {
-      key: MENU.MORE,
-      icon: `${ICON}/menu/hot.svg`,
-      title: '更多',
-    },
-  ]
+  const {
+    show,
+    offsetLeft,
+    menuOptions,
+    siteShareType,
+    linksData,
+    viewingArticle,
+  } = store
 
   return (
     <Fragment>
       <MenuButton placement="bottom" options={menuOptions} onClick={handleMenu}>
-        <IconButton
-          path="article/share.svg"
-          size={15}
-          top={9}
-          right={14}
-          left={10}
-          dimWhenIdle
-        />
+        <IconButton path="article/share.svg" dimWhenIdle {...restProps} />
       </MenuButton>
 
-      {/* TODO: dynamic load */}
+      {/* TODO: dynamic condition load */}
       <Panel
         show={show}
         offsetLeft={offsetLeft}

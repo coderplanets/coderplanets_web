@@ -5,6 +5,7 @@ import QRCode from 'qrcode.react'
 import type { TMenuOption } from '@/spec'
 
 import { ICON } from '@/config'
+import { SVG } from '@/constant'
 import { cutRest } from '@/utils/helper'
 
 import {
@@ -13,19 +14,21 @@ import {
   BlockA,
   QRWrapper,
   Item,
-  Icon,
   Title,
   LinkIcon,
   Divider,
+  getIcon,
 } from '../styles/menu_button/menu'
 
 // there is two types of block, normal block and link
 const OptionBlock = ({ item, onClick }) => {
+  const Icon = getIcon(item.icon || SVG.UPVOTE)
+
   if (item.link) {
     return (
       <BlockA as="a" href={item.link}>
         <Item>
-          <Icon src={item.icon} />
+          <Icon />
           <Title>{cutRest(item.title, 50)}</Title>
           <LinkIcon src={`${ICON}/shape/link-hint.svg`} />
         </Item>
@@ -35,7 +38,7 @@ const OptionBlock = ({ item, onClick }) => {
   return (
     <Block onClick={onClick}>
       <Item>
-        <Icon src={item.icon} />
+        <Icon />
         <Title>{cutRest(item.title, 50)}</Title>
       </Item>
     </Block>

@@ -200,3 +200,6 @@ export type TMenuOption = {
   link?: string
   qrLink?: string
 }
+
+// for local SVG icon usage
+export type TIcon = { size: number } & TActive

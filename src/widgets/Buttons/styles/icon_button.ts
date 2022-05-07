@@ -21,8 +21,8 @@ import ArchivedIcon from '@/icons/article/Archived'
 
 import CollectionIcon from '@/icons/CollectionBookmark'
 import ShareIcon from '@/icons/Share'
-import MoreLIcon from '@/icons/MoreL'
-import MoreIcon from '@/icons/More'
+import MoreLIcon from '@/icons/menu/MoreL'
+import MoreIcon from '@/widgets/Icons/menu/More'
 
 // import CloseCross from '@/icons/CloseCross'
 // import AirBalloon from '@/icons/AirBalloon'

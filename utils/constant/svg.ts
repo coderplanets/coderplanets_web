@@ -24,7 +24,15 @@ const SVG = {
   // utils
   MORE: 'more',
   MOREL: 'more-l',
+  MOREL_DOT: 'more-dot',
   JOIN_EYE: 'JoinEye',
+
+  // social
+  EMAIL: 'email',
+  WECHAT: 'wechat',
+
+  // menu
+  COPY: 'copy',
 }
 
 export default SVG

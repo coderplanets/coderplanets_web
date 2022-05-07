@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
 import ArrowSVG from '@/icons/ArrowSimple'
-import MoreSVG from '@/icons/MoreL'
+import MoreSVG from '@/icons/menu/MoreL'
 
 export const Wrapper = styled.div``
 export const Header = styled.div<TActive>`
