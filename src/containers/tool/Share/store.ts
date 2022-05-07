@@ -27,7 +27,6 @@ const log = buildLog('S:Share')
 
 const Share = T.model('Share', {
   show: T.optional(T.boolean, false),
-  offsetLeft: T.optional(T.string, 'none'),
   siteShareType: T.optional(
     T.enumeration(values(SITE_SHARE_TYPE)),
     SITE_SHARE_TYPE.LINKS,

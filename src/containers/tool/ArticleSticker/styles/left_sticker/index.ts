@@ -18,7 +18,7 @@ export const Wrapper = styled(FadeToggle).attrs(({ testid }: TTestable) => ({
   font-size: 13px;
 
   ${css.media.desktopL`
-    left: 18%;
+    left: 22%;
   `}
 
   ${css.media.laptopL`

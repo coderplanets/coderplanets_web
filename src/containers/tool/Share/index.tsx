@@ -25,22 +25,18 @@ type TProps = {
   share?: TStore
   testid?: string
   size?: number
+  offsetLeft?: string
 } & TSpace
 
 const ShareContainer: FC<TProps> = ({
   share: store,
   testid = 'share',
+  offsetLeft = 'none',
   ...restProps
 }) => {
   useInit(store)
-  const {
-    show,
-    offsetLeft,
-    menuOptions,
-    siteShareType,
-    linksData,
-    viewingArticle,
-  } = store
+
+  const { show, menuOptions, siteShareType, linksData, viewingArticle } = store
 
   return (
     <Fragment>
