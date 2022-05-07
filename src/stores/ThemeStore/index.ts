@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { keys, merge } from 'ramda'
 
-import type { TRootStore, TThemeName, TMembership } from '@/spec'
+import type { TRootStore, TThemeName, TMembership, TToastOption } from '@/spec'
 import { DEFAULT_THEME } from '@/config'
 
 import { markStates } from '@/utils/mobx'
@@ -47,7 +47,10 @@ export const ThemeStore = T.model('ThemeStore', {
         title: '保存主题设置失败',
         msg: '仅支持高级会员以打赏用户',
       }
-      root.toast('warn', merge({ position: 'topCenter' }, options))
+      root.toast(
+        'warn',
+        merge({ position: 'topCenter' }, options) as TToastOption,
+      )
     },
     changeTheme(name: TThemeName): void {
       self.curTheme = name

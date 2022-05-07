@@ -156,9 +156,6 @@ export type TTechStackCategory =
 
 export type TCommunitySetterStyle = 'normal' | TTechStackCategory
 
-export type TToastType = 'info' | 'error'
-export type TToastPos = 'topCenter'
-
 export type TUserActivity = {
   id?: TID
   insertedAt?: string
@@ -198,4 +195,17 @@ export type TMenuOption = {
   key: string
   icon?: string
   link?: string
+  qrLink?: string
+}
+
+export type TToastType = 'info' | 'error' | 'success'
+export type TToastPos = 'topCenter' | 'topRight'
+
+export type TToastOption = {
+  title: string
+  msg?: string
+  message?: string
+  progressBarColor?: string
+  position?: TToastPos
+  duration?: number
 }

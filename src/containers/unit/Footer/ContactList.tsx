@@ -14,7 +14,7 @@ const SocialList: FC = () => (
     </a>
 
     <Item onClick={() => joinUS()}>
-      <Icon.WeiChat />
+      <Icon.WeChat />
     </Item>
 
     <a href={`${GITHUB}`} rel="noopener noreferrer" target="_blank">

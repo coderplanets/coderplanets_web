@@ -52,7 +52,7 @@ const Header: FC<TProps> = ({ article }) => {
                 <IconButton
                   path={`social/${s.platform}.svg`}
                   size={13}
-                  mTop={s.platform === '邮箱' ? 2 : 0}
+                  top={s.platform === '邮箱' ? 2 : 0}
                 />
               </a>
             ))}

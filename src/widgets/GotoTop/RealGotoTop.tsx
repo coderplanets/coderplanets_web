@@ -19,7 +19,7 @@ const GotoTop: FC<TProps> = ({ testid = 'goto-top', type = 'body' }) => {
 
   return (
     <Wrapper testid={testid} onClick={handler}>
-      <IconButton icon={SVG.TO_TOP} hint="回到顶部" size={16} mLeft={5} />
+      <IconButton icon={SVG.TO_TOP} hint="回到顶部" size={16} left={5} />
     </Wrapper>
   )
 }

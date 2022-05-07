@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 
-import type { TSIZE_TSM } from '@/spec'
+import type { TSIZE_TSM, TSpace } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 import { getIconSize, getTitleSize } from './metric'
 
-export const Wrapper = styled.div<{ mLeft?: number }>`
+export const Wrapper = styled.div<TSpace>`
   ${css.flex('align-center')};
-  margin-left: ${({ mLeft }) => (mLeft ? `${mLeft}px` : 0)};
+
+  margin-left: ${({ left }) => `${left || 0}px`};
+  margin-right: ${({ right }) => `${right || 0}px`};
+  margin-top: ${({ top }) => `${top || 0}px`};
+  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
+
   position: relative;
   margin-top: 1px;
 `

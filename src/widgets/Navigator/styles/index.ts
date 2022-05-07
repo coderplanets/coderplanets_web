@@ -23,7 +23,7 @@ export const Logo = styled(SiteLogo)`
 `
 export const LogoLink = styled.div`
   position: absolute;
-  left: -240px;
+  left: -220px;
   top: 15px;
 
   ${css.flex('align-center')};

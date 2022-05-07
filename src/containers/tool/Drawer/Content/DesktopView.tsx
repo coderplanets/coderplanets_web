@@ -32,7 +32,7 @@ const Content: FC<TProps> = ({ visible, type, attUser, userListerType }) => {
         instanceKey={DRAWER_SCROLLER}
         direction="vertical"
         height="100vh"
-        shadowSize="small"
+        barSize="medium"
         showShadow={false}
       >
         {renderContent(type, attUser, userListerType)}

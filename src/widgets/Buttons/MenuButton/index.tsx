@@ -27,7 +27,7 @@ const MenuButton: FC<TProps> = ({
   extraOptions = [],
   onClick = log,
   placement = 'top-end',
-  panelMinWidth = '100px',
+  panelMinWidth = '110px',
 }) => {
   return (
     <Tooltip

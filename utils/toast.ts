@@ -4,52 +4,84 @@
 
 import { merge, reject } from 'ramda'
 
-import { TThemeMap } from '@/spec'
+import { TThemeMap, TToastOption } from '@/spec'
+import { DEFAULT_TOAST_OPTIONS } from '@/constant'
+
 import { Global } from './helper'
 import { nilOrEmpty } from './validator'
 
 type TToastType = 'success' | 'error' | 'warn'
 
-type TToastOption = {
-  title: string
-  msg: string
-  progressBarColor: string
-  position: 'bottom' | 'top'
-}
-
 const checkValid = () => (Global as any).iziToast || false
-
-const defaultOptions = {
-  title: 'coderplanets',
-  message: 'is Awesome!',
-  position: 'topRight',
-  timeout: 5000,
-  icon: '',
-  progressBarColor: 'yellogreen',
-  displayMode: 'replace',
-  transitionIn: 'fadeInDown',
-}
 
 const doNotify = (options = {}): void => {
   if (!checkValid()) {
     return
   }
   const { iziToast } = Global as any
-  iziToast.show(merge(defaultOptions, reject(nilOrEmpty, options)))
+  iziToast.show(merge(DEFAULT_TOAST_OPTIONS, reject(nilOrEmpty, options)))
 }
 
 export const toast = {
-  info: ({ title, msg, progressBarColor, position }: TToastOption): void => {
-    doNotify({ title, message: msg, progressBarColor, position })
+  info: ({
+    title,
+    msg,
+    progressBarColor,
+    position,
+    duration,
+  }: TToastOption): void => {
+    doNotify({
+      title,
+      message: msg,
+      progressBarColor,
+      position,
+      timeout: duration,
+    })
   },
-  error: ({ title, msg, progressBarColor, position }: TToastOption): void => {
-    doNotify({ title, message: msg, progressBarColor, position })
+  error: ({
+    title,
+    msg,
+    progressBarColor,
+    position,
+    duration,
+  }: TToastOption): void => {
+    doNotify({
+      title,
+      message: msg,
+      progressBarColor,
+      position,
+      timeout: duration,
+    })
   },
-  success: ({ title, msg, progressBarColor, position }: TToastOption): void => {
-    doNotify({ title, message: msg, progressBarColor, position })
+  success: ({
+    title,
+    msg,
+    progressBarColor,
+    position,
+    duration,
+  }: TToastOption): void => {
+    doNotify({
+      title,
+      message: msg,
+      progressBarColor,
+      position,
+      timeout: duration,
+    })
   },
-  warn: ({ title, msg, progressBarColor, position }: TToastOption): void => {
-    doNotify({ title, message: msg, progressBarColor, position })
+  warn: ({
+    title,
+    msg,
+    progressBarColor,
+    position,
+    duration,
+  }: TToastOption): void => {
+    doNotify({
+      title,
+      message: msg,
+      progressBarColor,
+      position,
+      timeout: duration,
+    })
   },
 }
 

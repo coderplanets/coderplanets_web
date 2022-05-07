@@ -4,7 +4,7 @@ import { isMobile } from 'react-device-detect'
 import useShortcut from '@/hooks/useShortcut'
 
 import { openDoraemon, logBuddha } from './logic'
-import { AbuseReport, Doraemon, Share, Drawer, ErrorBox } from './dynamic'
+import { AbuseReport, Doraemon, Drawer, ErrorBox } from './dynamic'
 
 const Addon: FC = () => {
   useEffect(() => logBuddha(), [])
@@ -17,7 +17,6 @@ const Addon: FC = () => {
       {/* @ts-ignore */}
       <Drawer />
       {/* @ts-ignore */}
-      {!isMobile && <Share />}
       {/* @ts-ignore */}
       {!isMobile && <Doraemon />}
       {/* @ts-ignore */}

@@ -39,11 +39,7 @@ const Header: FC<TIndex> = ({ data, thread }) => {
           <Br top={4} />
           <Title onClick={gotoArticle}>{cutRest(title, 100)}</Title>
           <Br top={6} />
-          <TagsList
-            items={articleTags}
-            mLeft={0}
-            size={isMobile ? 'small' : 'medium'}
-          />
+          <TagsList items={articleTags} size={isMobile ? 'small' : 'medium'} />
         </Wrapper>
       )
     }
@@ -53,11 +49,7 @@ const Header: FC<TIndex> = ({ data, thread }) => {
 
       return (
         <Wrapper>
-          <TagsList
-            items={articleTags}
-            mLeft={0}
-            size={isMobile ? 'small' : 'small'}
-          />
+          <TagsList items={articleTags} size={isMobile ? 'small' : 'small'} />
           <Br top={isMobile ? '4px' : '10px'} />
           {!isMobile && (
             <ExtraInfo>

@@ -4,7 +4,7 @@ import css, { theme } from '@/utils/css'
 
 import Input from '@/widgets/Input'
 import SearchSVG from '@/icons/HeaderSearch'
-import CloseSVG from '@/icons/CloseCross'
+import CloseSVG from '@/widgets/Icons/CloseCross'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};

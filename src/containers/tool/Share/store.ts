@@ -6,32 +6,27 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
 import { SITE_URL_SHORT } from '@/config'
-import { THREAD } from '@/constant'
-import type { TArticle, TCommunity, TRootStore, TThread } from '@/spec'
+import { SVG, THREAD } from '@/constant'
+
+import type {
+  TArticle,
+  TCommunity,
+  TRootStore,
+  TThread,
+  TMenuOption,
+} from '@/spec'
+
 import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
 
-import { SITE_SHARE_TYPE } from './constant'
+import type { TLinksData, TShareData } from './spec'
+import { SITE_SHARE_TYPE, MENU } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:Share')
 
-export type TShareData = {
-  url: string
-  title: string
-  digest: string
-}
-
-export type TLinksData = {
-  link: string
-  html: string
-  md: string
-  orgMode: string
-}
-
 const Share = T.model('Share', {
   show: T.optional(T.boolean, false),
-  offsetLeft: T.optional(T.string, 'none'),
   siteShareType: T.optional(
     T.enumeration(values(SITE_SHARE_TYPE)),
     SITE_SHARE_TYPE.LINKS,
@@ -75,6 +70,34 @@ const Share = T.model('Share', {
         md: `[${articleTitle}](${link})`,
         orgMode: `[[${link}][${articleTitle}]]`,
       }
+    },
+    get menuOptions(): TMenuOption[] {
+      const slf = self as TStore
+      const { linksData } = slf
+
+      return [
+        {
+          key: MENU.COPY_LINK,
+          icon: SVG.COPY,
+          title: '复制地址',
+        },
+        {
+          key: MENU.EMAIL,
+          icon: SVG.EMAIL,
+          title: 'Email',
+        },
+        {
+          key: MENU.WECHAT,
+          icon: SVG.WECHAT,
+          title: '微信',
+          qrLink: linksData.link,
+        },
+        {
+          key: MENU.MORE,
+          icon: SVG.MOREL_DOT,
+          title: '更多',
+        },
+      ]
     },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore

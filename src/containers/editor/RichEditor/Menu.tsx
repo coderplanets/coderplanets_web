@@ -38,7 +38,7 @@ const Menu: FC = () => {
       placement="bottom-end"
       onClick={console.log}
     >
-      <IconButton path="shape/more.svg" mLeft={16} />
+      <IconButton path="shape/more.svg" left={16} />
     </MenuButton>
   )
 }

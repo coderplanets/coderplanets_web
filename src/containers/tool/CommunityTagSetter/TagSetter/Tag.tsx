@@ -64,8 +64,8 @@ const Tag: FC<TProps> = ({ tag, view, checked, onTagSelect }) => {
         {updateable && (
           <IconButton
             path="edit/publish-pen.svg"
-            mLeft={8}
-            mRight={5}
+            left={8}
+            right={5}
             onClick={() => {
               changeTagView(TAG_VIEW.UPDATE_ITEM)
             }}

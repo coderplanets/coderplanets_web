@@ -9,10 +9,10 @@ import IconButton from '@/widgets/Buttons/IconButton'
 import { Wrapper, Title, Subtitle } from '../styles/content/rss_item'
 import { toStep } from '../logic'
 
-type TProps = TSpace & {
+type TProps = {
   rssInfo: TBlogRSS
   readonly?: boolean
-}
+} & TSpace
 
 const RSSItem: FC<TProps> = ({ rssInfo, readonly = false, ...restProps }) => {
   return (

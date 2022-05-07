@@ -29,7 +29,7 @@ type TProps = {
 }
 
 const actionIconConfig = {
-  mRight: 8,
+  right: 8,
   hintDelay: 200,
 }
 
@@ -70,7 +70,7 @@ const Header: FC<TProps> = ({
           <IconButton
             icon={SVG.LOCK}
             hint="关闭讨论"
-            mTop={-1}
+            top={-1}
             {...actionIconConfig}
           />
         )}
@@ -88,16 +88,16 @@ const Header: FC<TProps> = ({
             size={13}
             hint="展开全部"
             active
-            {...actionIconConfig}
             onClick={expandAllComments}
+            {...actionIconConfig}
           />
         ) : (
           <IconButton
             icon={SVG.FOLD}
             size={13}
             hint="折叠全部"
-            {...actionIconConfig}
             onClick={foldAllComments}
+            {...actionIconConfig}
           />
         )}
         {apiMode === API_MODE.ARTICLE && (

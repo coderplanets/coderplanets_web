@@ -29,7 +29,7 @@ const ActiveBadge: FC<TProps> = ({ item }) => {
             </TimeStr>
           </Hint>
         }
-        mRight={6}
+        right={6}
         hintPlacement="bottom"
         hintDelay={0}
       />

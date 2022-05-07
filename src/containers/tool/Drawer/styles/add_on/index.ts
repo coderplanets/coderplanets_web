@@ -25,7 +25,6 @@ export const TopArea = styled.div<{ showShare: boolean }>`
   ${css.flexColumn('align-both')}
   padding-left: 12px;
   z-index: 100000;
-  transform: rotate(2deg);
 
   &:before {
     content: '';

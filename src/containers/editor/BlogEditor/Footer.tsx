@@ -25,7 +25,6 @@ const Footer: FC<TProps> = ({ community, tags, submitState, mode }) => {
         {mode === 'publish' && (
           <TagsList
             items={tags}
-            mLeft={0}
             size="medium"
             community={community}
             thread={THREAD.BLOG}

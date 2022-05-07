@@ -81,6 +81,7 @@ export type {
   TASState,
   TTagMode,
   TMenuOption,
+  TToastOption,
 } from './utils'
 
 export type { TGQLError } from './graphql'

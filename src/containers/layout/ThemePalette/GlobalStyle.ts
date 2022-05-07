@@ -39,12 +39,24 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${theme('toast.bg')} !important;
     min-height: 36px !important;
     padding: 2px 45px 0px 0 !important;
+    box-shadow: none;
+
+    &:after {
+      box-shadow: ${theme('toast.boxShadow')};
+    }
+  }
+  /* make sure the toast will not show in custom bg */
+  .iziToast-wrapper {
+    align-items: center;
+  }
+  .iziToast-capsule {
+    /* general content page width, adjuust if need */
+    max-width: 1380px; 
+    padding-left:  30px;
+    padding-right:  30px;
   }
   .iziToast > .iziToast-body .iziToast-title {
     color: ${theme('toast.title')} !important;
-  }
-  .iziToast-wrapper-topRight {
-    top: 25px !important;
   }
   .iziToast > .iziToast-body .iziToast-message {
     color: ${theme('toast.message')} !important;

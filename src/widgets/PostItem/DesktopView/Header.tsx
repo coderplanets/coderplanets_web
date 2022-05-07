@@ -36,7 +36,7 @@ const Header: FC<TProps> = ({ item }) => {
           {item.title}
         </Title>
         {/*  @ts-ignore */}
-        <TagsList items={item.articleTags} mLeft={12} />
+        <TagsList items={item.articleTags} left={12} />
       </Brief>
       <AvatarsWrapper>
         <AvatarsRow

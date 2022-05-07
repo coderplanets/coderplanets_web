@@ -26,7 +26,6 @@ export {
   countWords,
   joinUS,
   closeDrawer,
-  shareTo,
   report,
   errRescue,
   debounce,

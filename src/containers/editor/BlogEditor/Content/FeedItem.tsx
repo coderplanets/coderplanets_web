@@ -59,7 +59,7 @@ const FeedItem: FC<TProps> = ({
           <IconButton
             icon={SVG.EDIT_PEN}
             onClick={() => toStep('STEP_2')}
-            mTop={3}
+            top={3}
           />
         )}
       </Header>

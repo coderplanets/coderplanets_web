@@ -34,8 +34,8 @@ const FoldLayout: FC<TProps> = ({ data }) => {
       <IconButton
         path="shape/expand-all.svg"
         hint="展开讨论"
-        mLeft={-1}
-        mRight={12}
+        left={-1}
+        right={12}
       />
       <Avatar
         src={data.author.avatar}

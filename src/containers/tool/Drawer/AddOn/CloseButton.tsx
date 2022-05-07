@@ -5,13 +5,7 @@ import { closeDrawer } from '../logic'
 
 const CloseButton: FC = () => {
   return (
-    <IconButton
-      icon="close"
-      onClick={closeDrawer}
-      mTop={4}
-      size={20}
-      mLeft={6}
-    />
+    <IconButton icon="close" onClick={closeDrawer} top={4} size={20} left={6} />
   )
 }
 

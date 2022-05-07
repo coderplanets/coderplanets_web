@@ -2,17 +2,15 @@ import { FC } from 'react'
 
 import type { TArticle } from '@/spec'
 
-import { SVG } from '@/constant'
-import { shareTo } from '@/utils/helper'
-import IconButton from '@/widgets/Buttons/IconButton'
+import Share from '@/containers/tool/Share'
 import Upvote from '@/widgets/Upvote'
 
 import {
   Wrapper,
   InnerWrapper,
-  BackWrapper,
-  ArrowIcon,
-  BackText,
+  // BackWrapper,
+  // ArrowIcon,
+  // BackText,
   Divider,
 } from '../styles/left_sticker'
 import { handleUpvote } from '../logic'
@@ -46,7 +44,7 @@ const LeftSticker: FC<TProps> = ({
           onAction={handleUpvote}
         />
         <Divider />
-        <IconButton icon={SVG.SHARE} onClick={shareTo} size={16} mRight={2} />
+        <Share left={5} size={17} right={3} />
       </InnerWrapper>
     </Wrapper>
   )

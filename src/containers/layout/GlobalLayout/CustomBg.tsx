@@ -75,7 +75,7 @@ const ComstomBg: FC = () => {
       bgColor: '#050139', // backgroundBg or fallback
     },
     k: {
-      bgImage: '/bg/CircleSapres.jpeg',
+      bgImage: '/bg/Squares.png',
     },
     m: {
       bgImage: '/bg/Antiquitarian.jpeg',
@@ -90,9 +90,14 @@ const ComstomBg: FC = () => {
       bgImage: '/bg/space.svg',
       bgColor: '#002630', // backgroundBg
     },
+    y: {
+      bgImage: '/bg/waves.png',
+    },
   }
 
-  const effect: TBackgroundEffect = effects.l
+  // e, h,
+  // y, g
+  const effect = effects.g
 
   // for linear/solid background colors
   if (isString(effect)) {
@@ -100,6 +105,7 @@ const ComstomBg: FC = () => {
     return <Wrapper effect={effect as string} />
   }
 
+  // @ts-ignore
   const { bgImage, bgColor = '', bgSize = 'contain' } = effect
 
   // for custom image/svg

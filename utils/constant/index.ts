@@ -34,6 +34,7 @@ export { COMMUNITY_MAP_ALIAS } from './alias'
 
 export { AS_STATE, AS_TYPE } from './article_state'
 
+export { default as DEFAULT_TOAST_OPTIONS } from './toast'
 /* some svg icon are sensitive to fill color */
 /* some community svg need fill color, like city etc.. */
 export const NON_FILL_COMMUNITY = ['javascript']

@@ -6,8 +6,8 @@ import ArticleNavi from './ArticleNavi'
 import type { TArticleNavi } from '../spec'
 import { ARTICLE_VIEWER_TYPES } from '../constant'
 
+import Share from '@/containers/tool/Share'
 import CloseButton from './CloseButton'
-import ShareButton from './ShareButton'
 import { Wrapper, TopArea } from '../styles/add_on'
 
 type TProps = {
@@ -23,7 +23,7 @@ const AddOn: FC<TProps> = ({ type, articleNavi }) => {
     <Wrapper>
       <TopArea showShare={showShare}>
         <CloseButton />
-        {showShare && <ShareButton />}
+        {showShare && <Share top={9} left={5} size={15} offsetLeft="50%" />}
       </TopArea>
 
       {showArticleNavi && <ArticleNavi articleNavi={articleNavi} />}

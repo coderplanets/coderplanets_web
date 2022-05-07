@@ -18,8 +18,6 @@ const EVENT = {
   },
 
   UPVOTE_ON_ARTICLE_LIST: 'UPVOTE_ON_ARTICLE_LIST',
-  // share
-  SHARE: 'SHARE',
 
   // report
   REPORT: 'REPORT',

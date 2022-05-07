@@ -1,12 +1,12 @@
 import { FC, memo } from 'react'
-
 import QRCode from 'qrcode.react'
+
 import {
   Wrapper,
   QRCodeWrapper,
   DescTitle,
   DescWrapper,
-} from './styles/wechat_board'
+} from '../styles/panel/wechat_board'
 
 const WechatBoard: FC = () => {
   return (

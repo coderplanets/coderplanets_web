@@ -1,13 +1,14 @@
 import { FC, memo } from 'react'
 
-import { SITE_SHARE_TYPE } from './constant'
+import { SITE_SHARE_TYPE } from '../constant'
+
+import type { TLinksData } from '../spec'
 
 import LinkBoard from './LinkBoard'
 import IFrameBoard from './IFrameBoard'
 import WechatBoard from './WechatBoard'
 
-import { Wrapper } from './styles/info_panel'
-import type { TLinksData } from './store'
+import { Wrapper } from '../styles/panel/info_panel'
 
 type TProps = {
   type: string

@@ -1,20 +1,18 @@
 import { useEffect } from 'react'
-// import { } from 'ramda'
+import copy from 'copy-to-clipboard'
 
 import asyncSuit from '@/utils/async'
-import { openShareWindow } from '@/utils/helper'
+import { openShareWindow, toast } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
-import { EVENT } from '@/constant'
-import { SHARE_TYPE } from './constant'
+import { SHARE_TYPE, MENU } from './constant'
 
+import type { TMenu } from './spec'
 // import S from './schma'
 import type { TStore } from './store'
 
-const { SR71, $solver, asyncRes } = asyncSuit
+const { SR71, $solver } = asyncSuit
 
-const sr71$ = new SR71({
-  receive: EVENT.SHARE,
-})
+const sr71$ = new SR71()
 
 let store: TStore | undefined
 let sub$ = null
@@ -66,6 +64,31 @@ export const toPlatform = (type: string): void => {
   }
 }
 
+export const handleMenu = (key: TMenu): void => {
+  const { linksData } = store
+  switch (key) {
+    case MENU.COPY_LINK: {
+      copy(linksData.link)
+      toast('success', '已复制到剪切板', '' as string, 'topCenter', 2000)
+      return
+    }
+
+    case MENU.MORE: {
+      store.mark({ show: true, offsetLeft: '50%' })
+      return
+    }
+
+    case MENU.EMAIL: {
+      return toPlatform(SHARE_TYPE.EMAIL)
+    }
+
+    default: {
+      // eslint-disable-next-line no-useless-return
+      return
+    }
+  }
+}
+
 export const close = (): void => {
   store.mark({ show: false, siteShareType: SHARE_TYPE.LINKS })
 }
@@ -74,15 +97,7 @@ export const close = (): void => {
 // init & uninit handlers
 // ###############################
 
-const DataResolver = [
-  {
-    match: asyncRes(EVENT.SHARE),
-    action: (data) => {
-      const payload = data[EVENT.SHARE]
-      store.mark({ show: true, offsetLeft: payload.offsetLeft })
-    },
-  },
-]
+const DataResolver = []
 
 export const useInit = (_store: TStore): void => {
   useEffect(() => {

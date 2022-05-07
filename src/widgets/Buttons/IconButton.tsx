@@ -1,5 +1,6 @@
 import { FC, memo, ReactNode } from 'react'
 
+import type { TSpace } from '@/spec'
 import { ICON } from '@/config'
 import { SVG } from '@/constant'
 
@@ -9,7 +10,7 @@ import {
   Content,
   Icon,
   Hint,
-  getIcon,
+  getLocalIcon,
   HoverBg,
 } from './styles/icon_button'
 
@@ -17,32 +18,25 @@ export type TProps = {
   path?: string | null
   icon?: string | null
   size?: number
-  mRight?: number
-  mLeft?: number
-  mTop?: number
-  mBottom?: number
   dimWhenIdle?: boolean
   active?: boolean
   hint?: ReactNode | null
   hintDelay?: number
   hintPlacement?: 'top' | 'bottom'
   onClick?: () => void
-}
+} & TSpace
 
 const IconButton: FC<TProps> = ({
   path = null,
   icon = null,
   size = 16,
-  mLeft = 0,
-  mRight = 10,
-  mTop = 0,
-  mBottom = 0,
   active = false,
   dimWhenIdle = false,
   hint = null,
   hintDelay = 500,
   hintPlacement = 'top',
   onClick = console.log,
+  ...restProps
 }) => {
   let realIcon = null
 
@@ -57,7 +51,7 @@ const IconButton: FC<TProps> = ({
       />
     )
   } else {
-    const LocalIcon = getIcon(icon || SVG.UPVOTE)
+    const LocalIcon = getLocalIcon(icon || SVG.UPVOTE)
 
     realIcon = (
       <LocalIcon size={size} $active={active} $dimWhenIdle={dimWhenIdle} />
@@ -65,14 +59,7 @@ const IconButton: FC<TProps> = ({
   }
 
   return (
-    <Wrapper
-      size={size}
-      mRight={mRight}
-      mLeft={mLeft}
-      mTop={mTop}
-      mBottom={mBottom}
-      onClick={onClick}
-    >
+    <Wrapper size={size} {...restProps} onClick={onClick}>
       {hint ? (
         <Tooltip
           placement={hintPlacement}

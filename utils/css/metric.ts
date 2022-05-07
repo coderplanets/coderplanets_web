@@ -34,8 +34,8 @@ export const WIDTH = {
     CONTENT_OFFSET: '290px',
     CONTENT_OFFSET_LAPTOPL: '260px',
     CONTENT_OFFSET_DESKTOPL: '400px',
-    STICKER: '260px',
-    STICKER_LAPTOPL: '240px',
+    STICKER: '240px',
+    STICKER_LAPTOPL: '220px',
   },
   BLOG_ARTICLE: {
     PAGE: '1460px',

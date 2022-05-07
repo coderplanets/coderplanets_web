@@ -209,12 +209,6 @@ export const closeDrawer = (type = ''): void =>
  */
 export const checkout = (amount: number, usage: TPaymentUsage): void =>
   send(EVENT.CALL_CASHIER, { amount, usage })
-/**
- * share articles
- */
-export const shareTo = (offsetLeft = 'none'): void => {
-  send(EVENT.SHARE, { offsetLeft })
-}
 
 export const addCollection = (): void => {
   send(EVENT.SET_FAVORITE_CONTENT, {
@@ -275,8 +269,9 @@ export const toast = (
   title: string,
   msg: string,
   position: TToastPos = 'topCenter',
+  duration = 3000,
 ): void => {
-  send(EVENT.TOAST, { type, title, msg, position })
+  send(EVENT.TOAST, { type, title, msg, position, duration })
 }
 
 /**

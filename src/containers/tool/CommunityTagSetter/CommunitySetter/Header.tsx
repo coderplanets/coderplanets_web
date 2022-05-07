@@ -21,7 +21,6 @@ const Header: FC<TProps> = ({ view, texts }) => {
         <IconButton
           path="article/community-mirror.svg"
           size={18}
-          mRight={8}
           hintDelay={0}
           hint="镜像到其他社区"
           active={action === COMMUNITY_ACTION.MIRROR}
@@ -29,7 +28,6 @@ const Header: FC<TProps> = ({ view, texts }) => {
         <IconButton
           path="article/community-move.svg"
           size={18}
-          mRight={0}
           hintDelay={0}
           hint="移动到其他社区"
           active={action === COMMUNITY_ACTION.MOVE}

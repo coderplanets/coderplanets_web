@@ -2,20 +2,20 @@
  * Share
  */
 
-import { FC, Fragment } from 'react'
-import { isMobile } from 'react-device-detect'
+import { FC, Fragment, useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import Modal from '@/widgets/Modal'
+import { TSpace } from '@/spec'
+import { SVG } from '@/constant'
 
-import Platforms from './Platforms'
-import InfoPanel from './InfoPanel'
+import MenuButton from '@/widgets/Buttons/MenuButton'
+import IconButton from '@/widgets/Buttons/IconButton'
 
 import type { TStore } from './store'
-import { Wrapper } from './styles'
-import { useInit, close } from './logic'
+import { useInit, handleMenu } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Share')
@@ -23,36 +23,45 @@ const log = buildLog('C:Share')
 type TProps = {
   share?: TStore
   testid?: string
-}
+  size?: number
+  offsetLeft?: string
+} & TSpace
 
-const ShareContainer: FC<TProps> = ({ share: store, testid }) => {
+let Panel = null
+
+const ShareContainer: FC<TProps> = ({
+  share: store,
+  testid = 'share',
+  offsetLeft = 'none',
+  ...restProps
+}) => {
   useInit(store)
-  const { show, offsetLeft, siteShareType, linksData, viewingArticle } = store
-  if (isMobile) {
-    return (
-      <Fragment>
-        <Wrapper testid={testid} type={siteShareType}>
-          <Platforms article={viewingArticle} />
-          <InfoPanel type={siteShareType} linksData={linksData} />
-        </Wrapper>
-      </Fragment>
-    )
-  }
+
+  const { show, menuOptions, siteShareType, linksData, viewingArticle } = store
+  const [panelLoad, setPanelLoad] = useState(false)
+
+  useEffect(() => {
+    if (show) {
+      Panel = dynamic(() => import('./Panel'), { ssr: false })
+      setPanelLoad(true)
+    }
+  }, [show, panelLoad])
 
   return (
     <Fragment>
-      <Modal
-        width="450px"
-        show={show}
-        offsetLeft={offsetLeft}
-        onClose={close}
-        showCloseBtn
-      >
-        <Wrapper testid={testid} type={siteShareType}>
-          <Platforms article={viewingArticle} />
-          <InfoPanel type={siteShareType} linksData={linksData} />
-        </Wrapper>
-      </Modal>
+      <MenuButton placement="bottom" options={menuOptions} onClick={handleMenu}>
+        <IconButton icon={SVG.SHARE} dimWhenIdle {...restProps} />
+      </MenuButton>
+
+      {panelLoad && (
+        <Panel
+          show={show}
+          offsetLeft={offsetLeft}
+          siteShareType={siteShareType as string}
+          linksData={linksData}
+          article={viewingArticle}
+        />
+      )}
     </Fragment>
   )
 }
