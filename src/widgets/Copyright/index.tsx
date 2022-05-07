@@ -64,7 +64,7 @@ const Copyright: FC<TProps> = ({
           )
         }
         placement="top"
-        trigger="click"
+        delay={800}
         noPadding
       >
         <Label type={type} />

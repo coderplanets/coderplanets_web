@@ -46,7 +46,7 @@ const CommentHeader: FC<TProps> = ({ data, showInnerRef }) => {
         <BaseInfo>
           <UserBase>
             <Nickname>{author.nickname}</Nickname>
-            {data.isArticleAuthor && <AuthorTag>作者</AuthorTag>}
+            {data.isArticleAuthor && <AuthorTag>发帖</AuthorTag>}
             {showInnerRef && meta.isReplyToOthers && (
               <RefToOther>
                 <RefLabel>回复</RefLabel>
