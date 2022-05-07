@@ -5,21 +5,18 @@ import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
-  background: ${theme('textBadge')}; // to-theme
   min-height: 30px;
   height: auto;
   border-radius: 10px;
-  border: 1px solid transparent;
+  border: 1px solid;
+  border-color: ${theme('border')};
+  padding-left: 15px;
 
   &:hover {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     cursor: pointer;
     border-color: ${theme('thread.articleDigest')};
   }
-
-  ${css.media.mobile`
-    background: #08303c;  /* TODO: same as comment background */
-  `};
 
   transition: all 0.2s;
 `
@@ -31,6 +28,6 @@ export const ExpandWrapper = styled.div`
   min-height: 300px;
   height: auto;
   border-bottom: 3px solid;
-  border-color: #00424f;
+  border-color: ${theme('border')};
   transition: all 0.2s;
 `

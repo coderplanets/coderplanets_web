@@ -13,11 +13,11 @@ export const AuthorWrapper = styled.div`
 `
 export const Avatar = styled(Img)`
   ${css.circle(18)};
+  margin-right: 10px;
 `
 export const AuthorName = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 15px;
-  margin-left: 10px;
 `
 export const PublishWrapper = styled.div`
   ${css.flex('align-center')}

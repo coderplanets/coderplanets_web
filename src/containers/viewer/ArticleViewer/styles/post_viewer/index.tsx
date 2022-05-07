@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import css, { theme } from '@/utils/css'
 import { FadeToggle } from '@/widgets/Common'
 
-export const Wrapper = styled.div`
-  padding: 0 8px;
-`
+export const Wrapper = styled.div``
 export const BodyWrapper = styled.div`
   min-height: 200px;
   margin-top: 22px;

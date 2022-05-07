@@ -29,8 +29,8 @@ const Label: FC<TProps> = ({ type }) => {
     default: {
       return (
         <Wrapper>
-          <Icon.CCApprove />
-          <Text>知识共享 4.0</Text>
+          <Icon.CC />
+          <Text>知识共享</Text>
         </Wrapper>
       )
     }

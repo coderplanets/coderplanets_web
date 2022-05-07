@@ -1,9 +1,6 @@
 import { FC, memo, Fragment } from 'react'
 import { isMobile } from 'react-device-detect'
 
-import { report, authWarn } from '@/utils/helper'
-import { useAccount } from '@/hooks'
-
 import DotDivider from '@/widgets/DotDivider'
 
 import { Wrapper, Item, ReferNum, Text } from '../styles/actions'
@@ -20,8 +17,6 @@ const Actions: FC<TProps> = ({
   showReferenceList,
   showOperationList,
 }) => {
-  const accountInfo = useAccount()
-
   return (
     <Wrapper>
       {citingCount !== 0 && (
@@ -41,14 +36,8 @@ const Actions: FC<TProps> = ({
         <Text active={showOperationList}>日志</Text>
       </Item> */}
       {/* <DotDivider space={8} /> */}
-      <Item
-        onClick={() => {
-          if (!accountInfo) return authWarn()
-
-          report('ARTICLE')
-        }}
-      >
-        <Text>举报</Text>
+      <Item>
+        <Text>表情...</Text>
       </Item>
     </Wrapper>
   )

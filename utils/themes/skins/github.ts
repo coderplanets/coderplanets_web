@@ -196,7 +196,7 @@ const github = {
     floor: '#8590a6',
     reply: '#93b3b5',
     replyBg: '#f3f3f3',
-    placeholder: descText,
+    placeholder: '#8c94a3',
     filter: 'grey',
     filterActive: primaryColor,
     action: actionText,

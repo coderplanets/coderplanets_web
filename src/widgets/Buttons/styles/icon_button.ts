@@ -15,20 +15,14 @@ import type { TProps as TIconButtonProps } from '../IconButton'
 
 type TWrapper = Omit<TIconButtonProps, 'path'>
 export const Wrapper = styled.div<TWrapper>`
-  position: relative;
   ${({ size }) => css.size(size)}
+  position: relative;
   ${css.flex('align-both')};
 
   margin-left: ${({ left }) => `${left || 0}px`};
   margin-right: ${({ right }) => `${right || 0}px`};
   margin-top: ${({ top }) => `${top || 0}px`};
   margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
-
-  /* &:before {
-    content: '';
-    ${({ size }) => css.circle(size + 2)};
-    background: ${theme('hoverBg')};
-  } */
 `
 export const Content = styled.div`
   z-index: 2;

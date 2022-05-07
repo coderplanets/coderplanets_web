@@ -29,7 +29,7 @@ type TProps = {
 }
 
 const actionIconConfig = {
-  right: 8,
+  right: 11,
   hintDelay: 200,
 }
 
@@ -57,10 +57,10 @@ const Header: FC<TProps> = ({
     <Wrapper>
       <TotalCountWrapper>
         <TotalTitle>
-          共{' '}
+          共
           <TotalNum highlight={basicState.isViewerJoined}>
             {basicState.totalCount}
-          </TotalNum>{' '}
+          </TotalNum>
           条讨论:
         </TotalTitle>
       </TotalCountWrapper>
@@ -70,8 +70,8 @@ const Header: FC<TProps> = ({
           <IconButton
             icon={SVG.LOCK}
             hint="关闭讨论"
-            top={-1}
             {...actionIconConfig}
+            top={-1}
           />
         )}
         {apiMode === API_MODE.ARTICLE && (
@@ -84,20 +84,20 @@ const Header: FC<TProps> = ({
 
         {isAllFolded ? (
           <IconButton
+            {...actionIconConfig}
             icon={SVG.EXPAND}
             size={13}
             hint="展开全部"
             active
             onClick={expandAllComments}
-            {...actionIconConfig}
           />
         ) : (
           <IconButton
             icon={SVG.FOLD}
+            {...actionIconConfig}
             size={13}
             hint="折叠全部"
             onClick={foldAllComments}
-            {...actionIconConfig}
           />
         )}
         {apiMode === API_MODE.ARTICLE && (

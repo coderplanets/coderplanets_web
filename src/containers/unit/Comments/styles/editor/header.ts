@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 import css, { theme } from '@/utils/css'
-import PublishSVG from '@/icons/EditPen'
+import CommentSVG from '@/icons/Comment'
+import UserSVG from '@/icons/User'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   height: 50px;
-  margin-left: 10px;
-  border: 1px solid transparent;
+  background: transparent;
 
   cursor: pointer;
 `
@@ -25,6 +25,10 @@ export const HintText = styled.div`
   font-size: 12px;
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
+`
+export const UnloginUser = styled(UserSVG)`
+  ${css.size(14)};
+  fill: ${theme('comment.placeholder')};
 `
 export const UserAvatar = styled(Img)`
   ${css.circle(20)};
@@ -49,14 +53,8 @@ export const LeaveResponseUsername = styled.div`
   margin-left: 12px;
   margin-right: 10px;
 `
-export const PenIcon = styled(PublishSVG)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(15)};
-  margin-right: 14px;
-
-  ${Wrapper}:hover & {
-    fill: ${theme('thread.articleTitle')};
-  }
-
-  transition: all 0.2s;
+export const PenIcon = styled(CommentSVG)`
+  fill: ${theme('comment.placeholder')};
+  ${css.size(14)};
+  margin-right: 15px;
 `

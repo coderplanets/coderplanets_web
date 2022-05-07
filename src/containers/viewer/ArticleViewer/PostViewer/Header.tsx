@@ -2,7 +2,6 @@ import { FC, memo, Fragment } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
-import { SpaceGrow } from '@/widgets/Common'
 
 import DotDivider from '@/widgets/DotDivider'
 import ArticleStateBadge from '@/widgets/ArticleStateBadge'
@@ -10,7 +9,7 @@ import ArticleStateBadge from '@/widgets/ArticleStateBadge'
 import {
   Wrapper,
   AuthorWrapper,
-  Avatar,
+  // Avatar,
   AuthorName,
   PublishWrapper,
   PubDate,
@@ -26,7 +25,7 @@ const Header: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <AuthorWrapper>
-        <Avatar src={author.avatar} />
+        {/* <Avatar src={author.avatar} /> */}
         <AuthorName>{author.nickname}</AuthorName>
       </AuthorWrapper>
       <DotDivider space={10} />

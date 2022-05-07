@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
 import type { TAccount } from '@/spec'
-import { ICON } from '@/config'
 
 import { SpaceGrow } from '@/widgets/Common'
 
@@ -10,6 +9,7 @@ import {
   ExpandWrapper,
   HintText,
   UserAvatar,
+  UnloginUser,
   LeaveResponseText,
   LeaveResponseUsername,
   PenIcon,
@@ -34,7 +34,11 @@ const EditorHeader: FC<TProps> = ({ accountInfo, showEditor }) => {
   }
   return (
     <Wrapper onClick={openEditor}>
-      <UserAvatar src={accountInfo.avatar || `${ICON}/edit/publish-pen.svg`} />
+      {accountInfo.avatar ? (
+        <UserAvatar src={accountInfo.avatar} />
+      ) : (
+        <UnloginUser />
+      )}
       <LeaveResponseText>参与讨论</LeaveResponseText>
       <SpaceGrow />
       <PenIcon />

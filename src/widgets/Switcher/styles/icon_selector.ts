@@ -23,8 +23,8 @@ export const AccessZone = styled.div`
 export const Tabs = styled.div`
   ${css.flex()};
   position: relative;
-  padding: 3px 5px;
-  border-radius: 6px;
+  padding: 2px;
+  border-radius: 5px;
   z-index: 2;
   border: 1px solid;
   border-color: transparent;
@@ -56,8 +56,7 @@ export const DescText = styled.div`
   padding: 5px 10px;
 `
 export const Icon = styled(Img)<{ checked: boolean }>`
-  fill: ${({ checked }) =>
-    checked ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
   width: ${({ checked }) => (checked ? '14px' : '12px')};
   height: ${({ checked }) => (checked ? '14px' : '12px')};
   display: block;

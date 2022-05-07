@@ -4,8 +4,8 @@ import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: 25px;
-  margin-bttom: 5px;
+  margin-top: 32px;
+  margin-bottom: 5px;
 
   ${css.media.mobile`
     border-bottom: 1px solid;
@@ -32,8 +32,9 @@ export const TotalTitle = styled.div`
 export const TotalNum = styled.span<{ highlight: boolean }>`
   color: ${({ highlight }) =>
     highlight ? theme('comment.number') : theme('thread.articleTitle')};
-  margin-left: 2px;
-  margin-right: 2px;
+  font-weight: bold;
+  margin-left: 6px;
+  margin-right: 6px;
 `
 export const CommentBlock = styled.div`
   ${css.flex()};

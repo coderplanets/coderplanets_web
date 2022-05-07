@@ -8,8 +8,10 @@ import { FC, memo } from 'react'
 import { isEmpty, pickBy } from 'ramda'
 
 import type { TAccount } from '@/spec'
+import { report, authWarn } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
+import { useAccount } from '@/hooks'
 import FollowButton from '@/widgets/Buttons/FollowButton'
 import ImgFallback from '@/widgets/ImgFallback'
 import Tabs from '@/widgets/Switcher/Tabs'
@@ -19,6 +21,7 @@ import SocialList from './SocialList'
 import {
   Wrapper,
   TabsWrapper,
+  ReportWrapper,
   ContentWrapper,
   TextIntro,
   IntroTitle,
@@ -46,7 +49,7 @@ export const TAB_ITEMS = [
     raw: 'a',
   },
   {
-    title: '活动',
+    title: '日志',
     raw: 'b',
   },
   {
@@ -60,6 +63,8 @@ const AuthorInfo: FC<TProps> = ({
   author,
   hasFollowedAuthor = null,
 }) => {
+  const accountInfo = useAccount()
+
   const socialItems = pickBy((v) => !!v, author.social) as Record<
     string,
     string
@@ -79,6 +84,15 @@ const AuthorInfo: FC<TProps> = ({
           onChange={(tab) => console.log(tab)}
         />
       </TabsWrapper>
+      <ReportWrapper
+        onClick={() => {
+          if (!accountInfo) return authWarn()
+
+          report('ARTICLE')
+        }}
+      >
+        举报
+      </ReportWrapper>
       <ContentWrapper>
         <TextIntro>
           <IntroTitle>关于作者</IntroTitle>

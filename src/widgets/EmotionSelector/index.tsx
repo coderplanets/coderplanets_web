@@ -41,7 +41,7 @@ const EmotionSelector: FC<TProps> = ({
           noPadding
         >
           <SelectEmotionWrapper>
-            <IconButton icon="emotion" dimWhenIdle size={14} />
+            <IconButton icon="emotion" dimWhenIdle size={18} />
           </SelectEmotionWrapper>
         </Tooltip>
       )}
