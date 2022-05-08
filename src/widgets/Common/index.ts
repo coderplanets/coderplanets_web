@@ -25,7 +25,7 @@ export const Divider = styled.div<TSpace>`
 type TLineDivider = TSpace & { height?: number }
 export const LineDivider = styled.div<TLineDivider>`
   background: ${theme('thread.articleDigest')};
-  opacity: 0.8;
+  opacity: 0.85;
   width: 1px;
   height: ${({ height }) => `${height || 12}px`};
 
