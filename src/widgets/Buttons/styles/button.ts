@@ -25,8 +25,12 @@ export const Wrapper = styled.button<TButton>`
   border: 1px solid transparent;
   white-space: nowrap;
   padding: ${({ size }) => getPadding(size)};
+  ${({ space }) =>
+    `${
+      space !== null ? `padding-left: ${space}px;padding-right: ${space}px` : ''
+    }`};
+
   font-size: ${({ size }) => getFontSize(size)};
-  /* font-size: 14px; */
   border-radius: 10px;
   height: ${({ size }) => getHeight(size)};
   user-select: none;
@@ -41,6 +45,18 @@ export const Wrapper = styled.button<TButton>`
 
   opacity: ${({ noBorder }) => (noBorder ? '0.8' : 1)};
 
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    width: 30px;
+    height: 100%;
+    top: 0;
+    filter: blur(5px);
+    transform: translateX(-100px) skewX(-15deg);
+  }
+
   &:hover {
     color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
     border-color: ${({ noBorder, disabled }) =>
@@ -49,6 +65,12 @@ export const Wrapper = styled.button<TButton>`
       getBackgroundColor(ghost, disabled, true)};
     opacity: 1;
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+
+    &::before,
+    &::after {
+      transform: translateX(300px) skewX(-15deg);
+      transition: ${({ disabled }) => (disabled ? 0 : '0.8s')};
+    }
   }
 
   &:focus {

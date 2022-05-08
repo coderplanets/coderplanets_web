@@ -22,6 +22,16 @@ export const Divider = styled.div<TSpace>`
   margin-bottom: ${({ bottom }) => `${bottom === undefined ? 20 : bottom}px`};
 `
 
+type TLineDivider = TSpace & { height?: number }
+export const LineDivider = styled.div<TLineDivider>`
+  background: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+  width: 1px;
+  height: ${({ height }) => `${height || 12}px`};
+
+  margin-left: ${({ left }) => `${left || 15}px`};
+  margin-right: ${({ right }) => `${right || 15}px`};
+`
 // see https://stackoverflow.com/questions/27900053/css-transition-with-visibility-not-working
 export const FadeToggle = styled.div<TActive>`
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};

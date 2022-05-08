@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
 
+import EditPenSVG from '@/icons/EditPen'
+
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: 32px;
   margin-bottom: 5px;
 
   ${css.media.mobile`
@@ -33,6 +34,7 @@ export const TotalNum = styled.span<{ highlight: boolean }>`
   color: ${({ highlight }) =>
     highlight ? theme('comment.number') : theme('thread.articleTitle')};
   font-weight: bold;
+  font-size: 17px;
   margin-left: 6px;
   margin-right: 6px;
 `
@@ -48,4 +50,9 @@ export const CommentBlock = styled.div`
 `
 export const ActionsWrapper = styled.div`
   ${css.flex('align-center')};
+`
+export const EditIcon = styled(EditPenSVG)`
+  ${css.size(12)};
+  fill: white;
+  margin-right: 5px;
 `

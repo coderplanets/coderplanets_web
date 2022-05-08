@@ -4,6 +4,8 @@ import type { TCommentsState } from '@/spec'
 import { ICON } from '@/config'
 import { SVG } from '@/constant'
 
+import { LineDivider } from '@/widgets/Common'
+import Button from '@/widgets/Buttons/Button'
 import IconButton from '@/widgets/Buttons/IconButton'
 import { IconSwitcher } from '@/widgets/Switcher'
 import { LavaLampLoading } from '@/widgets/Loading'
@@ -14,6 +16,7 @@ import {
   TotalCountWrapper,
   TotalNum,
   ActionsWrapper,
+  EditIcon,
 } from '../styles/list/header'
 
 import { MODE, API_MODE } from '../constant'
@@ -66,21 +69,29 @@ const Header: FC<TProps> = ({
       </TotalCountWrapper>
       <ActionsWrapper>
         {loading && <LavaLampLoading right={15} />}
-        {apiMode === API_MODE.ARTICLE && (
+
+        <Button size="small" space={10}>
+          <EditIcon />
+          讨论
+        </Button>
+        <LineDivider left={18} />
+
+        {/* {apiMode === API_MODE.ARTICLE && (
           <IconButton
             icon={SVG.LOCK}
             hint="关闭讨论"
             {...actionIconConfig}
             top={-1}
           />
-        )}
-        {apiMode === API_MODE.ARTICLE && (
+        )} */}
+
+        {/* {apiMode === API_MODE.ARTICLE && (
           <IconButton
             path="article/notify-on.svg"
             hint="订阅讨论"
             {...actionIconConfig}
           />
-        )}
+        )} */}
 
         {isAllFolded ? (
           <IconButton

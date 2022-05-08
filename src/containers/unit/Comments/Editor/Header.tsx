@@ -39,7 +39,7 @@ const EditorHeader: FC<TProps> = ({ accountInfo, showEditor }) => {
       ) : (
         <UnloginUser />
       )}
-      <LeaveResponseText>参与讨论</LeaveResponseText>
+      <LeaveResponseText>欢迎参与进来一起讨论 ~</LeaveResponseText>
       <SpaceGrow />
       <PenIcon />
     </Wrapper>

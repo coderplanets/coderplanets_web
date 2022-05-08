@@ -7,10 +7,21 @@ import UserSVG from '@/icons/User'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  height: 50px;
-  background: transparent;
+  height: 44px;
 
   cursor: pointer;
+  -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/300%
+    100%;
+
+  background-repeat: no-repeat;
+  animation: shimmer 3s infinite;
+  /* max-width: 300px; */
+
+  @keyframes shimmer {
+    100% {
+      -webkit-mask-position: left;
+    }
+  }
 `
 export const ExpandWrapper = styled.div`
   ${css.flex('align-center')};
@@ -27,7 +38,7 @@ export const HintText = styled.div`
   opacity: 0.8;
 `
 export const UnloginUser = styled(UserSVG)`
-  ${css.size(14)};
+  ${css.size(12)};
   fill: ${theme('comment.placeholder')};
 `
 export const UserAvatar = styled(Img)`
@@ -40,12 +51,6 @@ export const LeaveResponseText = styled.div`
   font-size: 14px;
   margin-left: 15px;
   color: ${theme('comment.placeholder')};
-
-  ${Wrapper}:hover & {
-    color: ${theme('thread.articleTitle')};
-  }
-
-  transition: all 0.2s;
 `
 export const LeaveResponseUsername = styled.div`
   color: ${theme('comment.username')};

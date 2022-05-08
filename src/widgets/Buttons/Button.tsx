@@ -15,6 +15,7 @@ type TProps = {
   className?: string
   ghost?: boolean
   type?: 'primary' | 'red' | 'ghost'
+  space?: number | null
   size?: TSIZE_TSM
   onClick?: () => void
   loading?: boolean
@@ -27,6 +28,7 @@ const Button: FC<TProps> = ({
   ghost = false,
   type = 'primary',
   onClick = log,
+  space = null,
   size = SIZE.MEDIUM,
   className = '',
   loading = false,
@@ -44,6 +46,7 @@ const Button: FC<TProps> = ({
           size={size}
           className={className}
           noBorder={noBorder}
+          space={space}
           disabled={disabled}
         >
           {children}
@@ -59,6 +62,7 @@ const Button: FC<TProps> = ({
           }}
           size={size}
           className={className}
+          space={space}
           noBorder={noBorder}
           disabled={disabled}
         >
