@@ -30,6 +30,7 @@ const SVG = {
   // social
   EMAIL: 'email',
   WECHAT: 'wechat',
+  QR_CODE: 'qr_code',
 
   // menu
   COPY: 'copy',

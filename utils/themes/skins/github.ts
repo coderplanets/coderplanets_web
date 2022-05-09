@@ -338,7 +338,8 @@ const github = {
     border: primaryColor,
     innerSelectBg: '#e4eeed45',
     subPanel: '#F5F5F5',
-    subPanelShadow: 'drop-shadow(3px 3px 6px #EAE9E9)',
+    // subPanelShadow: 'drop-shadow(3px 3px 6px #EAE9E9)',
+    subPanelShadow: 'none',
   },
   form: {
     inputBg: '#FFFFFF',

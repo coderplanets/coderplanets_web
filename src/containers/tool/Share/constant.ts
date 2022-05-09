@@ -22,6 +22,6 @@ export const SHARE_TYPE = {
 export const MENU = {
   COPY_LINK: 'copy-link',
   EMAIL: OUTSIDE_SHARE_TYPE.EMAIL,
-  WECHAT: OUTSIDE_SHARE_TYPE.WECHAT,
+  QR_CODE: 'qr-code',
   MORE: 'more',
 }
