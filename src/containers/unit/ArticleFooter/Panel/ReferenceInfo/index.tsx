@@ -1,14 +1,8 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
+import ActionItem from '../ActivityInfo/ActionItem'
 
-import ActionItem from './ActionItem'
-
-import {
-  Wrapper,
-  InnerWrapper,
-  IndexArrowIcon,
-} from '../styles/actions/refers_panel'
+import { Wrapper } from '../../styles/panel/activity_info'
 
 const tmpItems = [
   {
@@ -46,12 +40,9 @@ const tmpItems = [
 const RefersPanel: FC = () => {
   return (
     <Wrapper>
-      <IndexArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />
-      <InnerWrapper>
-        {tmpItems.map((item) => (
-          <ActionItem key={item.id} item={item} />
-        ))}
-      </InnerWrapper>
+      {tmpItems.map((item) => (
+        <ActionItem key={item.id} item={item} />
+      ))}
     </Wrapper>
   )
 }

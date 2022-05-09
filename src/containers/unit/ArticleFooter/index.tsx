@@ -18,14 +18,10 @@ import { SpaceGrow } from '@/widgets/Common'
 // import TagList from '@/widgets/TagList'
 
 import TagList from './TagList'
-import Actions from './Actions/index'
-import RefersPanel from './Actions/RefersPanel'
-import OperationPanel from './Actions/OperationPanel'
-
-import AuthorInfo from './AuthorInfo'
+import Panel from './Panel'
 
 import type { TStore } from './store'
-import { Wrapper, BaseInfo, Divider } from './styles'
+import { Wrapper, BaseInfo } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -43,16 +39,10 @@ const ArticleFooterContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE,
 }) => {
   useInit(store)
-  const {
-    viewingArticle,
-    showReferenceList,
-    showOperationList,
-    hasFollowedAuthor,
-  } = store
-  const { author, articleTags, meta } = viewingArticle
+  const { viewingArticle } = store
+  const { author, articleTags } = viewingArticle
 
   const [copyright, setCopyright] = useState('cc')
-  const showAuthorInfo = metric !== METRIC.BLOG_ARTICLE
 
   return (
     <Wrapper testid={testid}>
@@ -64,20 +54,9 @@ const ArticleFooterContainer: FC<TProps> = ({
           onChange={(key) => setCopyright(key)}
         />
         <SpaceGrow />
-        <Actions
-          citingCount={meta.citingCount}
-          showReferenceList={showReferenceList}
-          showOperationList={showOperationList}
-        />
       </BaseInfo>
 
-      {showReferenceList && <RefersPanel />}
-      {showOperationList && <OperationPanel />}
-
-      {!showAuthorInfo && <Divider />}
-      {showAuthorInfo && (
-        <AuthorInfo author={author} hasFollowedAuthor={hasFollowedAuthor} />
-      )}
+      <Panel author={author} />
     </Wrapper>
   )
 }

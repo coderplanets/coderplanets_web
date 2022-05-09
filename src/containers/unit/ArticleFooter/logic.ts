@@ -19,15 +19,6 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleFooter')
 
-export const toggleActionPanel = (curActionPanelType): void => {
-  const { showActionPanel, actionPanelType } = store
-  if (curActionPanelType === actionPanelType) {
-    store.mark({ showActionPanel: !showActionPanel, actionPanelType })
-  } else {
-    store.mark({ showActionPanel: true, actionPanelType: curActionPanelType })
-  }
-}
-
 export const onFollow = (login: string): void => {
   sr71$.mutate(S.follow, { login })
 }

@@ -13,8 +13,7 @@ import {
   AvatarIcon,
   UserName,
   ArticleTitle,
-  CommunityIcon,
-} from '../styles/actions/action_item'
+} from '../../styles/panel/activity_info/action_item'
 
 type TProps = {
   item: {
@@ -44,7 +43,6 @@ const ActionItem: FC<TProps> = ({
         <ArticleTitle>{article.title}</ArticleTitle>
         中提及本帖
       </MainInfo>
-      <CommunityIcon src={`${ICON_BASE}/pl/${community.raw}.svg`} />
     </Wrapper>
   )
 }
