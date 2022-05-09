@@ -8,7 +8,7 @@ export { Icon } from './label'
 export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 240px;
-  padding: 10px;
+  padding: 16px 10px;
   padding-left: 15px;
 `
 export const Header = styled.div`
@@ -17,7 +17,6 @@ export const Header = styled.div`
 export const Title = styled.div`
   font-size: 16px;
   color: ${theme('thread.articleTitle')};
-  margin-left: 8px;
 `
 export const Desc = styled.div`
   font-size: 13px;
@@ -31,6 +30,7 @@ export const Items = styled.div`
 `
 export const DescItem = styled(IconText)`
   margin-bottom: 3px;
+  color: ${theme('thread.extraInfo')};
 `
 export const Footer = styled.div`
   ${css.flex('align-center')};

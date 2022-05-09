@@ -10,7 +10,6 @@ import type { TArticle, TRootStore } from '@/spec'
 import { markStates } from '@/utils/mobx'
 
 const ArticleFooter = T.model('ArticleFooter', {
-  showActionPanel: T.optional(T.boolean, false),
   hasFollowedAuthor: T.optional(T.boolean, false),
   actionPanelType: T.optional(
     T.enumeration(['reference-list', 'operation-list']),
@@ -25,16 +24,6 @@ const ArticleFooter = T.model('ArticleFooter', {
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
       return root.viewingArticle
-    },
-    get showReferenceList(): boolean {
-      const { showActionPanel, actionPanelType } = self
-
-      return showActionPanel && actionPanelType === 'reference-list'
-    },
-    get showOperationList(): boolean {
-      const { showActionPanel, actionPanelType } = self
-
-      return showActionPanel && actionPanelType === 'operation-list'
     },
   }))
   .actions((self) => ({

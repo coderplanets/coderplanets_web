@@ -23,11 +23,7 @@ const PublishEditor: FC<TProps> = ({
   body,
 }) => {
   if (!showEditor) {
-    return (
-      <Wrapper>
-        <Header accountInfo={accountInfo} showEditor={showEditor} />
-      </Wrapper>
-    )
+    return <Wrapper />
   }
   return (
     <ExpandWrapper>

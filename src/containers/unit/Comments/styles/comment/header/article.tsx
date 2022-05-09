@@ -32,11 +32,11 @@ export const AuthorTag = styled.div`
   margin-bottom: 2px;
   padding: 1px 8px;
   /* padding-top: 2px; */
-  margin-left: 10px;
-  background-color: #e2f2f5;
-  color: #3c4057;
-  border-radius: 4px;
-  font-weight: 500;
+  margin-left: 7px;
+  background-color: #fff6dd;
+  color: #ff9800;
+  border-radius: 8px;
+  font-weight: bold;
   font-family: 'Audiowide';
 
   ${css.media.mobile`

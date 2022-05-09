@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
-  margin-left: 20px;
   margin-bottom: 10px;
   cursor: pointer;
 `
@@ -16,10 +15,10 @@ export const MainInfo = styled.div`
   ${css.flex('align-end')};
 `
 export const IconBgWrapper = styled.div`
-  background: #002a34;
-  position: absolute;
-  left: -28px;
-  top: 3px;
+  ${css.circle(18)};
+  ${css.flex('align-both')};
+  background: ${theme('hoverBg')};
+  margin-right: 10px;
 `
 export const ActionIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
@@ -46,7 +45,4 @@ export const AvatarIcon = styled(Img)`
 export const UserName = styled(HighlightLink)`
   font-size: 12px;
   margin-right: 3px;
-`
-export const CommunityIcon = styled(Img)`
-  ${css.size(16)};
 `

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   cursor: pointer;
 `
 const icon = `
-  ${css.size(13)};
+  ${css.size(12)};
 
   ${Wrapper}:hover & {
     fill: ${theme('thread.articleTitle')};
@@ -39,7 +39,7 @@ export const Icon = {
 }
 
 export const Text = styled.div`
-  font-size: 13px;
+  font-size: 12px;
   color: ${theme('thread.extraInfo')};
   margin-left: 6px;
 

@@ -87,9 +87,9 @@ const Share = T.model('Share', {
           title: 'Email',
         },
         {
-          key: MENU.WECHAT,
-          icon: SVG.WECHAT,
-          title: '微信',
+          key: MENU.QR_CODE,
+          icon: SVG.QR_CODE,
+          title: '二维码',
           qrLink: linksData.link,
         },
         {

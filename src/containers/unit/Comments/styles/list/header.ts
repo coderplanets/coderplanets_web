@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
 
+import EditPenSVG from '@/icons/EditPen'
+
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: 25px;
-  margin-bttom: 5px;
+  margin-bottom: 5px;
 
   ${css.media.mobile`
     border-bottom: 1px solid;
@@ -19,9 +20,9 @@ export const TotalCountWrapper = styled.div`
   flex-grow: 1;
 `
 export const TotalTitle = styled.div`
-  color: ${theme('comment.title')};
+  color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  margin-left: 2px;
+  margin-left: 1px;
 
   ${css.media.mobile`
     font-size: 13px;
@@ -32,8 +33,10 @@ export const TotalTitle = styled.div`
 export const TotalNum = styled.span<{ highlight: boolean }>`
   color: ${({ highlight }) =>
     highlight ? theme('comment.number') : theme('thread.articleTitle')};
-  margin-left: 2px;
-  margin-right: 2px;
+  font-weight: bold;
+  font-size: 17px;
+  margin-left: 6px;
+  margin-right: 6px;
 `
 export const CommentBlock = styled.div`
   ${css.flex()};
@@ -47,4 +50,9 @@ export const CommentBlock = styled.div`
 `
 export const ActionsWrapper = styled.div`
   ${css.flex('align-center')};
+`
+export const EditIcon = styled(EditPenSVG)`
+  ${css.size(12)};
+  fill: white;
+  margin-right: 5px;
 `

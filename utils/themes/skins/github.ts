@@ -196,7 +196,7 @@ const github = {
     floor: '#8590a6',
     reply: '#93b3b5',
     replyBg: '#f3f3f3',
-    placeholder: descText,
+    placeholder: '#8c94a3',
     filter: 'grey',
     filterActive: primaryColor,
     action: actionText,
@@ -338,7 +338,8 @@ const github = {
     border: primaryColor,
     innerSelectBg: '#e4eeed45',
     subPanel: '#F5F5F5',
-    subPanelShadow: 'drop-shadow(3px 3px 6px #EAE9E9)',
+    // subPanelShadow: 'drop-shadow(3px 3px 6px #EAE9E9)',
+    subPanelShadow: 'none',
   },
   form: {
     inputBg: '#FFFFFF',

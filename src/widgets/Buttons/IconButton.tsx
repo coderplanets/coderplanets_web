@@ -59,7 +59,7 @@ const IconButton: FC<TProps> = ({
   }
 
   return (
-    <Wrapper size={size} {...restProps} onClick={onClick}>
+    <Wrapper size={size} onClick={onClick} {...restProps}>
       {hint ? (
         <Tooltip
           placement={hintPlacement}

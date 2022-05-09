@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import Img from '@/Img'
 import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
@@ -11,14 +10,6 @@ export const Item = styled.div`
   ${css.flex('align-center')};
   cursor: pointer;
 `
-// const Icon = styled(Img)`
-//   fill: ${theme('thread.articleDigest')};
-//   ${css.size(13)};
-// `
-// export const ReferIcon = styled(Icon)``
-// export const RecordIcon = styled(Icon)`
-//   ${css.size(15)};
-// `
 export const ReferNum = styled.span`
   font-size: 13px;
   font-weight: bold;
@@ -50,13 +41,4 @@ export const PanelInnerWrapper = styled.div`
   padding-right: 25px;
   margin-left: 18px;
   min-height: 120px;
-`
-export const IndexArrowIcon = styled(Img)`
-  fill: #00424e;
-  position: absolute;
-  top: -18px;
-  right: 20px;
-  transform: rotate(-90deg);
-
-  ${css.size(24)};
 `

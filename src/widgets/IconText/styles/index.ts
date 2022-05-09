@@ -25,12 +25,13 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   }
 `
 export const Icon = styled(Img)<TIcon>`
-  fill: ${({ highlight }) =>
-    highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  width: ${({ size }) => getIconSize(size)};
-  height: ${({ size }) => getIconSize(size)};
+  fill: ${theme('thread.extraInfo')};
+  /* fill: ${({ highlight }) =>
+    highlight
+      ? theme('thread.articleTitle')
+      : theme('thread.articleDigest')}; */
+  ${({ size }) => css.size(getIconSize(size))};
   margin-right: ${({ size, margin }) => margin || getMargin(size)};
-  display: block;
   border-radius: ${({ round }) => (round ? '100%' : '0')};
 `
 type TText = {
@@ -40,7 +41,10 @@ type TText = {
 
 export const Text = styled.div<TText>`
   ${css.flex('align-center')};
-  color: ${({ highlight }) =>
-    highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
+  /* color: ${({ highlight }) =>
+    highlight
+      ? theme('thread.articleTitle')
+      : theme('thread.articleDigest')}; */
   font-size: ${({ size }) => getTextSize(size)};
 `

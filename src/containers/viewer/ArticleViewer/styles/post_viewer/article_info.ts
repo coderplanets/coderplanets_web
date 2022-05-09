@@ -39,4 +39,3 @@ export const BaseWrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;
 `
-export const UpvoteWrapper = styled.div``

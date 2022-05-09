@@ -30,9 +30,11 @@ const SVG = {
   // social
   EMAIL: 'email',
   WECHAT: 'wechat',
+  QR_CODE: 'qr_code',
 
   // menu
   COPY: 'copy',
+  REPORT: 'report',
 }
 
 export default SVG

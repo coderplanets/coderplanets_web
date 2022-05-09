@@ -3,13 +3,11 @@ import styled from 'styled-components'
 import css, { theme } from '@/utils/css'
 import { FadeToggle } from '@/widgets/Common'
 
-export const Wrapper = styled.div`
-  padding: 0 8px;
-`
+export const Wrapper = styled.div``
 export const BodyWrapper = styled.div`
-  padding: 20px 0;
-  min-height: 300px;
-  margin-top: 5px;
+  min-height: 200px;
+  margin-top: 22px;
+  margin-bottom: 14px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -37,13 +35,13 @@ const getLeftOffset = (count: number): string => {
       return '128px;'
     }
     case 1: {
-      return '128px;'
+      return '127px;'
     }
     case 2: {
       return '123px;'
     }
     default: {
-      return '115px;'
+      return '118px;'
     }
   }
 }
@@ -62,11 +60,10 @@ export const UpvoteWrapper = styled(FadeToggle)<TUpvoteWrapper>`
 export const GoTopWrapper = styled.div<{ show: boolean }>`
   ${css.flex('align-end', 'justify-center')};
   position: fixed;
-  bottom: 20px;
+  bottom: 40px;
   left: 65px;
   width: 140px;
   height: 400px;
-  padding-left: 17px;
   opacity: 0;
 
   &:hover {

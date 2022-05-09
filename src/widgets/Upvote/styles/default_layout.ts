@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import css, { theme } from '@/utils/css'
 
+import { LineDivider as LineDividerBase } from '@/widgets/Common'
+
 type TInnerWrapper = {
   testid: string
 }
@@ -28,15 +30,11 @@ export const Count = styled.div<{ noOne: boolean }>`
     noOne ? theme('thread.articleDigest') : theme('thread.extraInfo')};
   font-weight: ${({ noOne }) => (noOne ? 400 : 600)};
   font-size: 16px;
-  margin-right: 17px;
   margin-left: 3px;
   margin-top: 1px;
 `
-export const LineDivider = styled.div`
+export const LineDivider = styled(LineDividerBase)`
   height: 11px;
-  width: 1px;
   margin-top: 1px;
   background: ${theme('thread.extraInfo')};
-  opacity: 0.9;
-  margin-right: 13px;
 `

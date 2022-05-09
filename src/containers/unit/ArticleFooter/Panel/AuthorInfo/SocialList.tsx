@@ -2,7 +2,11 @@ import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
 import { ICON } from '@/config'
-import { Wrapper, CursorDivider, Icon } from '../styles/author_info/social_list'
+import {
+  Wrapper,
+  CursorDivider,
+  Icon,
+} from '../../styles/panel/author_info/social_list'
 
 type TProps = {
   items: Record<string, string>

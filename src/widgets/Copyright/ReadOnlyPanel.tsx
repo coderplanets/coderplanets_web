@@ -5,7 +5,6 @@ import ArrowLink from '@/widgets/Buttons/ArrowLink'
 import {
   Wrapper,
   Header,
-  Icon,
   Title,
   Desc,
   Items,
@@ -23,7 +22,6 @@ const ReadOnlyPanel: FC<TProps> = ({ type }) => {
       return (
         <Wrapper>
           <Header>
-            <Icon.CCApprove />
             <Title>转载需授权</Title>
           </Header>
           <Desc>
@@ -37,7 +35,6 @@ const ReadOnlyPanel: FC<TProps> = ({ type }) => {
       return (
         <Wrapper>
           <Header>
-            <Icon.CCForbid />
             <Title>禁止转载</Title>
           </Header>
           <Desc>
@@ -51,7 +48,6 @@ const ReadOnlyPanel: FC<TProps> = ({ type }) => {
       return (
         <Wrapper>
           <Header>
-            <Icon.CC />
             <Title>知识共享 4.0</Title>
           </Header>
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 import ArrowSVG from '@/icons/Arrow'
 
 import { getTextSize, getIconSize } from './metircs/arrow_link'
@@ -14,11 +14,11 @@ export const Wrapper = styled.a`
 `
 type TText = { $hoverColor: string; size: string }
 export const Text = styled.div<TText>`
-  color: ${({ color }) => color || '#327ca1'};
+  color: ${({ color }) => color || theme('link')};
   font-size: ${({ size }) => getTextSize(size)};
 
   ${Wrapper}:hover & {
-    color: ${({ $hoverColor }) => $hoverColor || '#327ca1'};
+    color: ${({ $hoverColor }) => $hoverColor || theme('link')};
     visibility: visible;
   }
 `
