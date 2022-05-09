@@ -34,6 +34,7 @@ const SVG = {
 
   // menu
   COPY: 'copy',
+  REPORT: 'report',
 }
 
 export default SVG

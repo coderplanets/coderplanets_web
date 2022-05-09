@@ -20,9 +20,9 @@ export const TotalCountWrapper = styled.div`
   flex-grow: 1;
 `
 export const TotalTitle = styled.div`
-  color: ${theme('comment.title')};
+  color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  margin-left: 2px;
+  margin-left: 1px;
 
   ${css.media.mobile`
     font-size: 13px;

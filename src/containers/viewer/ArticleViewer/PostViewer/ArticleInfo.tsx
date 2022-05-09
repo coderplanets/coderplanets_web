@@ -13,7 +13,6 @@ import {
   // CollectIcon,
   // CollectText,
   BaseWrapper,
-  UpvoteWrapper,
 } from '../styles/post_viewer/article_info'
 import { handleUpvote } from '../logic'
 
@@ -27,16 +26,14 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <BaseWrapper>
-        <UpvoteWrapper>
-          <Upvote
-            count={upvotesCount}
-            avatarList={meta.latestUpvotedUsers}
-            viewerHasUpvoted={viewerHasUpvoted}
-            onAction={(viewerHasUpvoted) =>
-              handleUpvote(article, viewerHasUpvoted)
-            }
-          />
-        </UpvoteWrapper>
+        <Upvote
+          count={upvotesCount}
+          avatarList={meta.latestUpvotedUsers}
+          viewerHasUpvoted={viewerHasUpvoted}
+          onAction={(viewerHasUpvoted) =>
+            handleUpvote(article, viewerHasUpvoted)
+          }
+        />
         <SpaceGrow />
         <ArticleBaseStats article={article} container="drawer" />
         {/* <Space right={18} />

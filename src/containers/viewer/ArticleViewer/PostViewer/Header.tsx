@@ -40,7 +40,7 @@ const Header: FC<TProps> = ({ article }) => {
           </Fragment>
         )}
       </PublishWrapper>
-      <DotDivider space={8} />
+      <DotDivider space={10} />
       {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
       {article.id === '231' && <ArticleStateBadge type="BUG" />}
       {article.id === '227' && <ArticleStateBadge type="BUG" state="TODO" />}

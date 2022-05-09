@@ -29,11 +29,16 @@ import MoreLIcon from './menu/MoreL'
 import MoreIcon from './menu/More'
 import MoreDotIcon from './menu/MoreDot'
 import QRCodeIcon from './menu/QRCode'
+import ReportIcon from './menu/Report'
 
 type TstyledFn = (comp: FC) => FC
 
 export const getLocalSVG = (type: string, styledFn: TstyledFn): FC => {
   switch (type) {
+    case SVG.REPORT: {
+      return styledFn(ReportIcon)
+    }
+
     case SVG.QR_CODE: {
       return styledFn(QRCodeIcon)
     }

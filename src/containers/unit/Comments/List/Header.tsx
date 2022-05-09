@@ -64,7 +64,7 @@ const Header: FC<TProps> = ({
           <TotalNum highlight={basicState.isViewerJoined}>
             {basicState.totalCount}
           </TotalNum>
-          条讨论:
+          条讨论
         </TotalTitle>
       </TotalCountWrapper>
       <ActionsWrapper>

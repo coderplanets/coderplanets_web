@@ -35,13 +35,13 @@ const getLeftOffset = (count: number): string => {
       return '128px;'
     }
     case 1: {
-      return '128px;'
+      return '127px;'
     }
     case 2: {
       return '123px;'
     }
     default: {
-      return '115px;'
+      return '118px;'
     }
   }
 }
@@ -60,11 +60,10 @@ export const UpvoteWrapper = styled(FadeToggle)<TUpvoteWrapper>`
 export const GoTopWrapper = styled.div<{ show: boolean }>`
   ${css.flex('align-end', 'justify-center')};
   position: fixed;
-  bottom: 20px;
+  bottom: 40px;
   left: 65px;
   width: 140px;
   height: 400px;
-  padding-left: 17px;
   opacity: 0;
 
   &:hover {
