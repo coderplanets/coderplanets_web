@@ -7,7 +7,7 @@ type TBackgroundEffect =
   | {
       bgImage: string
       bgColor?: string
-      bgSize?: 'contain' | 'cover'
+      bgSize?: 'contain' | 'cover' | 'auto'
     }
   | string
 
@@ -53,6 +53,7 @@ const ComstomBg: FC = () => {
     },
     tg: {
       bgImage: '/bg/tg-green.jpg',
+      bgSize: 'auto',
     },
     tg2: {
       bgImage: '/bg/tg-earth.jpg',

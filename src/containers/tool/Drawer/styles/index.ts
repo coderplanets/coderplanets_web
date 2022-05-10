@@ -79,9 +79,9 @@ export const DrawerWrapper = styled.div.attrs(
   opacity: ${({ visible, fromContentEdge }) =>
     !visible && !fromContentEdge ? 0 : 1};
 
-  max-width: ${({ visible, fromContentEdge }) =>
-    !visible && !fromContentEdge ? '60%' : '985px'};
-  /* max-width: 985px; */
+  /* max-width: ${({ visible, fromContentEdge }) =>
+    !visible && !fromContentEdge ? '60%' : '985px'}; */
+  max-width: 985px;
 
   ${({ fromContentEdge }) =>
     fromContentEdge
@@ -90,7 +90,7 @@ export const DrawerWrapper = styled.div.attrs(
 
   will-change: transform, max-width, opacity;
   // 在宽屏时滑出来时，是从内容页而不是实际的 window 页滑出, 加 delay 可以在视觉上抵消从外部滑入的跳动感
-  transition-delay: 0s, 0s, 0.1s;
+  transition-delay: 0s, 0s, 0.06s;
 
   ${css.media.mobile`
     right: 0;
