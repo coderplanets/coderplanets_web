@@ -21,7 +21,7 @@ export const TotalCountWrapper = styled.div`
 `
 export const TotalTitle = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 14px;
+  font-size: 13px;
   margin-left: 1px;
 
   ${css.media.mobile`
@@ -34,9 +34,9 @@ export const TotalNum = styled.span<{ highlight: boolean }>`
   color: ${({ highlight }) =>
     highlight ? theme('comment.number') : theme('thread.articleTitle')};
   font-weight: bold;
-  font-size: 17px;
-  margin-left: 6px;
-  margin-right: 6px;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
 `
 export const CommentBlock = styled.div`
   ${css.flex()};
