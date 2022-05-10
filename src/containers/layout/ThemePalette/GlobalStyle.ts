@@ -190,16 +190,16 @@ const GlobalStyle = createGlobalStyle`
     transition: all .25s ease-in-out !important;
   }
   .tippy-box[data-placement^=top][data-state='visible'] {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
   }
   .tippy-box[data-placement^=bottom][data-state='visible'] {
-    transform: translateY(4px);
+    transform: translateY(5px);
   }
   .tippy-box[data-placement^=left][data-state='visible'] {
-    transform: translateX(-4px);
+    transform: translateX(-5px);
   }
   .tippy-box[data-placement^=right][data-state='visible'] {
-    transform: translateX(4px);
+    transform: translateX(5px);
   }
   /* .tippy-box[data-state='hidden'] {
     opacity: 0;
