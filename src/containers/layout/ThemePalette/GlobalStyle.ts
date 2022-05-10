@@ -181,10 +181,13 @@ const GlobalStyle = createGlobalStyle`
     `};
   }
 
+  .tippy-box {
+    background: ${theme('popover.bg')} !important;
+  }
   /** customize tooltip animation globally */
   .tippy-box[data-state='visible'] {
     background: ${theme('popover.bg')} !important;
-    transition: all 0.2s ease-in-out !important;
+    transition: all .25s ease-in-out !important;
   }
   .tippy-box[data-placement^=top][data-state='visible'] {
     transform: translateY(-4px);

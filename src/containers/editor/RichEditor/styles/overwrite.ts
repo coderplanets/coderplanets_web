@@ -124,7 +124,7 @@ const RichEditorStyle = createGlobalStyle`
     }
   }
   .ce-inline-toolbar {
-    background: #03343F;
+    background: white;
     border: none;
   }
   .ce-settings {
@@ -331,7 +331,7 @@ const RichEditorStyle = createGlobalStyle`
     display: none;
   }
   .tippy-tooltip.light-theme, .tippy-box[data-theme~=light]{
-    background: ${theme('popover.bg')} !important;
+    /* background: ${theme('popover.bg')} !important; */
     border: 1px solid;
     border-color: ${theme('popover.borderColor')} !important; 
     box-shadow: ${theme('popover.boxShadow')} !important;
