@@ -16,7 +16,7 @@ const RichEditorStyle = createGlobalStyle`
   }
 
   .ce-paragraph[data-placeholder]:empty::before {
-    color: #4d666c !important;
+    color: #a2a2a2 !important;
   }
 
   .codex-editor svg {

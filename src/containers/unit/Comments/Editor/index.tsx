@@ -4,7 +4,6 @@ import Modal from '@/widgets/Modal'
 
 import ReplyEditor from './ReplyEditor'
 import UpdateEditor from './UpdateEditor'
-import PublishEditor from './PublishEditor'
 
 import type { TEditState } from '../spec'
 import { closeUpdateEditor, onReplyEditorClose } from '../logic'
@@ -15,10 +14,6 @@ type TProps = {
 
 const CommentEditor: FC<TProps> = ({ editState }) => {
   const {
-    // publish
-    commentBody,
-    showEditor,
-    accountInfo,
     // update
     showUpdateEditor,
     updateId,
@@ -61,13 +56,6 @@ const CommentEditor: FC<TProps> = ({ editState }) => {
           />
         )}
       </Modal>
-
-      <PublishEditor
-        body={commentBody}
-        showEditor={showEditor}
-        accountInfo={accountInfo}
-        submitState={submitState}
-      />
     </Fragment>
   )
 }

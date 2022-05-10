@@ -1,23 +1,14 @@
-import { FC, memo } from 'react'
+import { FC, memo, useState, Fragment } from 'react'
 
 import type { TCommentsState } from '@/spec'
 
-import { LineDivider } from '@/widgets/Common'
-import Button from '@/widgets/Buttons/Button'
-import { LavaLampLoading } from '@/widgets/Loading'
+import StateBar from './StateBar'
+import PublishBar from './PublishBar'
+import PublishEditor from '../Editor/PublishEditor'
 
-import Actions from './Actions'
+import { Wrapper } from '../styles/head_bar'
 
-import {
-  Wrapper,
-  TotalTitle,
-  TotalCountWrapper,
-  TotalNum,
-  ActionsWrapper,
-  EditIcon,
-} from '../styles/head_bar'
-
-import type { TMode, TAPIMode } from '../spec'
+import type { TMode, TAPIMode, TEditState } from '../spec'
 
 export type TProps = {
   mode: TMode
@@ -25,6 +16,7 @@ export type TProps = {
   isAllFolded: boolean
   loading: boolean
   basicState: TCommentsState
+  editState: TEditState
 }
 
 const Header: FC<TProps> = ({
@@ -33,29 +25,30 @@ const Header: FC<TProps> = ({
   isAllFolded,
   loading,
   apiMode,
+  editState,
 }) => {
+  const { commentBody, submitState } = editState
+  const [barMode, setBarMode] = useState('normal')
+
   return (
     <Wrapper>
-      <TotalCountWrapper>
-        <TotalTitle>
-          共
-          <TotalNum highlight={basicState.isViewerJoined}>
-            {basicState.totalCount}
-          </TotalNum>
-          条讨论
-        </TotalTitle>
-      </TotalCountWrapper>
-      <ActionsWrapper>
-        {loading && <LavaLampLoading right={15} />}
+      {barMode === 'normal' && (
+        <StateBar
+          apiMode={apiMode}
+          isAllFolded={isAllFolded}
+          basicState={basicState}
+          mode={mode}
+          loading={loading}
+          callEditor={() => setBarMode('publish')}
+        />
+      )}
 
-        <Button size="small" space={10}>
-          <EditIcon />
-          讨论
-        </Button>
-        <LineDivider left={18} />
-
-        <Actions mode={mode} isAllFolded={isAllFolded} apiMode={apiMode} />
-      </ActionsWrapper>
+      {barMode === 'publish' && (
+        <Fragment>
+          <PublishBar closeEditor={() => setBarMode('normal')} />
+          <PublishEditor body={commentBody} submitState={submitState} />
+        </Fragment>
+      )}
     </Wrapper>
   )
 }

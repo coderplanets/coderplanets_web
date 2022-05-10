@@ -73,6 +73,7 @@ const CommentsContainer: FC<TProps> = ({
           basicState={basicState}
           mode={mode}
           loading={loading}
+          editState={editState}
         />
       )}
 

@@ -1,4 +1,4 @@
-import { FC, memo, Fragment } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { SVG } from '@/constant'
@@ -6,10 +6,13 @@ import { SVG } from '@/constant'
 import IconButton from '@/widgets/Buttons/IconButton'
 import { IconSwitcher } from '@/widgets/Switcher'
 
-import { MODE, API_MODE } from '../constant'
-import type { TMode } from '../spec'
-import type { TProps as TBase } from './index'
-import { foldAllComments, expandAllComments, onModeChange } from '../logic'
+import { MODE, API_MODE } from '../../constant'
+
+import type { TMode } from '../../spec'
+import type { TProps as TBase } from '../index'
+
+import { Wrapper } from '../../styles/head_bar/state_bar/actions'
+import { foldAllComments, expandAllComments, onModeChange } from '../../logic'
 
 type TProps = Pick<TBase, 'mode' | 'apiMode' | 'isAllFolded'>
 
@@ -33,7 +36,7 @@ const switchItems = [
 
 const Actions: FC<TProps> = ({ mode, isAllFolded, apiMode }) => {
   return (
-    <Fragment>
+    <Wrapper>
       {/* {apiMode === API_MODE.ARTICLE && (
           <IconButton
             icon={SVG.LOCK}
@@ -69,6 +72,7 @@ const Actions: FC<TProps> = ({ mode, isAllFolded, apiMode }) => {
           onClick={foldAllComments}
         />
       )}
+
       {apiMode === API_MODE.ARTICLE && (
         <IconSwitcher
           items={switchItems}
@@ -76,7 +80,7 @@ const Actions: FC<TProps> = ({ mode, isAllFolded, apiMode }) => {
           onChange={({ key }) => onModeChange(key as TMode)}
         />
       )}
-    </Fragment>
+    </Wrapper>
   )
 }
 

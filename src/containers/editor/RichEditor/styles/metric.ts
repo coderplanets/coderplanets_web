@@ -1,7 +1,7 @@
 export const getWidth = (type) => {
   switch (type) {
     case 'comment': {
-      return '600px'
+      return '620px'
     }
     default: {
       return '680px'
