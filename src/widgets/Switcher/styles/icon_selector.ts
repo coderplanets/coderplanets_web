@@ -4,9 +4,6 @@ import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import css, { theme } from '@/utils/css'
 
-const width = '28px'
-const height = '25px'
-
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
@@ -39,7 +36,7 @@ export const Tabs = styled.div`
   transition: all 0.2s;
 `
 export const Label = styled.label`
-  ${css.size(26)};
+  ${css.size(25)};
   ${css.flex('align-both')};
   font-size: 15px;
   transition: color 0.15s ease-in;
@@ -67,9 +64,9 @@ export const Slider = styled.span<{ index: number }>`
   ${css.flex()};
   position: absolute;
   background-color: #fff; // to-theme
-  ${css.size(26)};
+  ${css.size(25)};
   z-index: 0;
-  border-radius: 6px;
+  border-radius: 4px;
 
   ${Wrapper}:hover & {
     background-color: #fff; // to-theme

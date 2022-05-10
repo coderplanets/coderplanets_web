@@ -13,7 +13,6 @@ import Tooltip from '@/widgets/Tooltip'
 
 import {
   Wrapper,
-  AccessZone,
   Tabs,
   DescText,
   Icon,
@@ -70,7 +69,7 @@ const IconSwitcher: FC<TProps> = ({ items, activeKey, onChange }) => {
 
   return (
     <Wrapper testid="selectors">
-      <AccessZone />
+      {/* <AccessZone /> */}
       <Tabs>
         {items.map((item) => (
           <Tooltip
@@ -84,7 +83,7 @@ const IconSwitcher: FC<TProps> = ({ items, activeKey, onChange }) => {
             <TabLabel item={item} activeKey={activeKey} onChange={onChange} />
           </Tooltip>
         ))}
-        <Slider index={slideIndex} />
+        {slideIndex !== -1 && <Slider index={slideIndex} />}
       </Tabs>
     </Wrapper>
   )
