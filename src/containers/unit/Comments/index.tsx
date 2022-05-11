@@ -22,6 +22,8 @@ import { API_MODE } from './constant'
 import { Wrapper } from './styles'
 import { useInit } from './logic'
 
+import HeadBar from './HeadBar'
+
 /* eslint-disable-next-line */
 const log = buildLog('C:Comments')
 
@@ -48,6 +50,9 @@ const CommentsContainer: FC<TProps> = ({
     basicState,
   } = store
 
+  const { isAllFolded } = foldState
+  const { totalCount } = pagedCommentsData
+
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
       {apiMode === API_MODE.ARTICLE && <Editor editState={editState} />}
@@ -61,8 +66,18 @@ const CommentsContainer: FC<TProps> = ({
         isArticleAuthor={false}
       /> */}
 
+      {totalCount > 0 && (
+        <HeadBar
+          apiMode={apiMode}
+          isAllFolded={isAllFolded}
+          basicState={basicState}
+          mode={mode}
+          loading={loading}
+          editState={editState}
+        />
+      )}
+
       <List
-        basicState={basicState}
         mode={mode}
         apiMode={apiMode}
         foldState={foldState}

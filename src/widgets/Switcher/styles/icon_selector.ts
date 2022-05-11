@@ -4,9 +4,6 @@ import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import css, { theme } from '@/utils/css'
 
-const width = '28px'
-const height = '25px'
-
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
@@ -39,9 +36,8 @@ export const Tabs = styled.div`
   transition: all 0.2s;
 `
 export const Label = styled.label`
+  ${css.size(25)};
   ${css.flex('align-both')};
-  width: ${width};
-  height: ${height};
   font-size: 15px;
   transition: color 0.15s ease-in;
 
@@ -57,23 +53,20 @@ export const DescText = styled.div`
 `
 export const Icon = styled(Img)<{ checked: boolean }>`
   fill: ${theme('thread.extraInfo')};
-  width: ${({ checked }) => (checked ? '14px' : '12px')};
-  height: ${({ checked }) => (checked ? '14px' : '12px')};
-  display: block;
+  ${({ checked }) => (checked ? css.size(14) : css.size(12))};
   transition: all 0.2s;
 
   &:hover {
-    fill: #66b5e8;
+    fill: ${theme('thread.extraInfo')};
   }
 `
 export const Slider = styled.span<{ index: number }>`
   ${css.flex()};
   position: absolute;
-  width: ${width};
-  height: ${height};
   background-color: #fff; // to-theme
+  ${css.size(25)};
   z-index: 0;
-  border-radius: 6px;
+  border-radius: 4px;
 
   ${Wrapper}:hover & {
     background-color: #fff; // to-theme

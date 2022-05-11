@@ -4,7 +4,6 @@ import type { TPagedComments, TCommentsState } from '@/spec'
 import Pagi from '@/widgets/Pagi'
 import { Br } from '@/widgets/Common'
 
-import Header from './Header'
 import List from './List'
 
 import type { TMode, TFoldState, TRepliesState, TAPIMode } from '../spec'
@@ -18,7 +17,7 @@ type TProps = {
   mode: TMode
   apiMode: TAPIMode
   repliesState: TRepliesState
-  basicState: TCommentsState
+  // basicState: TCommentsState
   loading: boolean
 }
 
@@ -28,23 +27,13 @@ const CommentsList: FC<TProps> = ({
   mode,
   apiMode,
   repliesState,
-  basicState,
   loading,
 }) => {
   const { entries, totalCount, pageSize, pageNumber } = pagedComments
-  const { foldedIds, isAllFolded } = foldState
+  const { foldedIds } = foldState
 
   return (
     <Fragment>
-      {totalCount > 0 && (
-        <Header
-          apiMode={apiMode}
-          isAllFolded={isAllFolded}
-          basicState={basicState}
-          mode={mode}
-          loading={loading}
-        />
-      )}
       <ListsWrapper>
         <List
           mode={mode}
