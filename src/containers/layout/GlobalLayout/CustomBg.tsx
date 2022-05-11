@@ -75,7 +75,7 @@ const ComstomBg: FC = () => {
     },
   }
 
-  const effect = effects.tg
+  const effect = effects.tg6
 
   // for linear/solid background colors
   if (isString(effect)) {

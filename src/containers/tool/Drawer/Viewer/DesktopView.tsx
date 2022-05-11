@@ -29,6 +29,8 @@ const DesktopView: FC<TProps> = ({
   articleNavi,
   children,
 }) => {
+  const visible2 = false
+
   return (
     <Fragment>
       <DrawerOverlay

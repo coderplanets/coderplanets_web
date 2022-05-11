@@ -23,12 +23,13 @@ export const DrawerOverlay = styled.div<TActive>`
   height: 100%;
   right: 0;
   top: 0;
-  z-index: ${({ visible }) => (visible ? css.zIndex.drawerOverlay : -1)};
+  z-index: ${css.zIndex.drawerOverlay};
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   background: ${({ visible }) => (visible ? theme('drawer.mask') : 'none')};
   opacity: ${({ visible }) => (visible ? 0.5 : 0)};
 
-  transition: visibility 0.3s linear, opacity 0.2s linear;
+  transition: visibility 0.25s linear, opacity 0.2s linear,
+    background 0.5s linear;
 `
 // see https://stackoverflow.com/questions/60079950/when-do-i-use-attrs-vs-passing-props-directly-with-styled-components
 
