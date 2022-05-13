@@ -23,7 +23,7 @@ const AddOn: FC<TProps> = ({ type, articleNavi }) => {
     <Wrapper>
       <TopArea showShare={showShare}>
         <CloseButton />
-        {showShare && <Share top={9} left={5} size={15} offsetLeft="50%" />}
+        {showShare && <Share top={9} left={6} size={15} offsetLeft="50%" />}
       </TopArea>
 
       {showArticleNavi && <ArticleNavi articleNavi={articleNavi} />}

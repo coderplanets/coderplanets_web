@@ -13,8 +13,7 @@ import { markStates, toJS } from '@/utils/mobx'
 const log = buildLog('S:HelpThread')
 
 const HelpThread = T.model('HelpThread', {
-  // mode: T.optional(T.enumeration(['full', 'helpcenter', 'faq']), 'full'),
-  mode: T.optional(T.enumeration(['full', 'helpcenter', 'faq']), 'faq'),
+  mode: T.optional(T.enumeration(['full', 'helpcenter', 'faq']), 'full'),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {

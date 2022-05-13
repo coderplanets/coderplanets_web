@@ -19,10 +19,6 @@ export const Wrapper = styled.div<TWrapper>`
   /* border: 1px solid; */
   padding-bottom: 5px;
 
-  &:hover {
-    cursor: pointer;
-  }
-
   ${css.media.mobile`
     margin-top: 18px;
     margin-bottom: 18px;
@@ -35,11 +31,12 @@ export const Hint = styled.div<{ mode: 'article' | 'comment' }>`
   color: ${theme('thread.extraInfo')};
   font-size: ${({ mode }) => (mode === 'article' ? '15px' : '13px')};
   padding-right: 5%;
-  font-weight: 400;
+  font-weight: bold;
+  opacity: 0.7;
 
-  ${Wrapper}:hover & {
-    font-weight: 500;
+  &:hover {
     opacity: 1;
+    cursor: pointer;
   }
   transition: all 0.2s;
 `
@@ -51,4 +48,9 @@ export const ArrowIcon = styled(Img)<{ reverse?: boolean }>`
   fill: ${theme('thread.extraInfo')};
   transform: ${({ reverse }) => (reverse ? 'rotate(90deg)' : 'rotate(-90deg)')};
   margin-left: 4px;
+  opacity: 0.8;
+
+  ${Hint}:hover {
+    opacity: 1;
+  }
 `
