@@ -17,7 +17,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 20px;
+  margin-top: -2px;
+  margin-bottom: 16px;
 `
 export const FAQIcon = styled(FAQSVG)`
   ${css.size(15)};
@@ -27,7 +28,9 @@ export const FAQIcon = styled(FAQSVG)`
   margin-top: 2px;
 `
 export const Title = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.articleTitle')};
+  font-weight: bold;
+  font-size: 15px;
 `
 export const Section = styled.div`
   ${css.lineClamp(2)}
