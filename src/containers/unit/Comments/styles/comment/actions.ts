@@ -12,9 +12,12 @@ export const Wrapper = styled.div`
   `};
 `
 export const ReplyAction = styled.div`
-  color: ${theme('comment.action')};
+  color: ${theme('thread.extraInfo')};
+  opacity: 0.7;
+  font-weight: bold;
+
   &:hover {
-    font-weight: 500;
+    opacity: 1;
     cursor: pointer;
   }
 

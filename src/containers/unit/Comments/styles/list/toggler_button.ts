@@ -18,9 +18,10 @@ export const SlashSign = styled.div`
 
 export const Text = styled.div`
   font-size: 12px;
-  opacity: 0.8;
   color: ${theme('thread.extraInfo')};
   margin-left: 14px;
+  font-weight: bold;
+  opacity: 0.85;
 
   &:hover {
     opacity: 1;

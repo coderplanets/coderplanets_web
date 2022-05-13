@@ -3,7 +3,6 @@ import { FC, memo } from 'react'
 import {
   Wrapper,
   Header,
-  FAQIcon,
   Title,
   Section,
   Footer,
@@ -18,7 +17,6 @@ const Sidebar: FC<TProps> = ({ articles }) => {
   return (
     <Wrapper>
       <Header>
-        <FAQIcon />
         <Title>常见问题</Title>
       </Header>
       {articles.map((item) => (

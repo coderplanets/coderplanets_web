@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   width: 100%;
   margin-top: 10px;
 `
-
 export const CatsWrapper = styled(MainWrapper)`
   ${css.flex()};
   flex-wrap: wrap;
@@ -16,10 +15,10 @@ export const CatsWrapper = styled(MainWrapper)`
   flex-grow: 1;
   width: 100%;
   min-height: 600px;
+  margin-top: 8px;
 
   background: transparent;
   border-radius: 6px;
-  margin-top: 5px;
   padding-left: 22px;
   padding-right: 50px;
 

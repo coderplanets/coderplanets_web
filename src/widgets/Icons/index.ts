@@ -13,7 +13,7 @@ import CommentIcon from './Comment'
 import ActivityIcon from './article/Activity'
 import ArchivedIcon from './article/Archived'
 
-import CloseCrossIcon from './CloseCross'
+import CloseCrossIcon from './CloseLight'
 import AirBalloonIcon from './AirBalloon'
 import CollectionIcon from './CollectionBookmark'
 
