@@ -56,7 +56,7 @@ export const AvatarsMore = styled.span<TAvatarsMore>`
   min-width: ${({ size }) => getAvatarSize(size)};
   height: ${({ size }) => getAvatarSize(size)};
 
-  padding-left: ${({ total }) => (total >= 1000 ? '5px' : '3px')};
+  padding-left: ${({ total }) => (total >= 1000 ? '5px' : '0')};
   padding-top: 1px;
 
   &:hover {
