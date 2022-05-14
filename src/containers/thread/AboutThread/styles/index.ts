@@ -16,21 +16,21 @@ export const MainWrapper = styled.div`
 
   background: transparent;
   border-radius: 6px;
-  margin-top: 14px;
-  padding-left: 25px;
+  margin-top: 25px;
+  padding-left: 22px;
 `
 export const Block = styled.div`
   margin-bottom: 30px;
   padding-bottom: 30px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('border')};
-  width: 660px;
+  width: 620px;
 `
 export const IntroBlock = styled(Block)`
   padding-right: 20px;
 `
 export const StateBlock = styled(Block)`
-  padding-right: 10px;
+  padding-right: 0;
 `
 export const MemberBlock = styled(Block)`
   border-bottom: none;

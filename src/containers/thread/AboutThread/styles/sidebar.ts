@@ -5,15 +5,13 @@ import css, { theme } from '@/utils/css'
 export const Wrapper = styled.div`
   width: 300px;
   height: auto;
-  /* background: #f1f3f4; */
-  border: 1px solid;
-  border-color: ${theme('border')};
-  border-radius: 5px;
-  padding: 20px;
-  padding-top: 24px;
+  border-left: 1px solid;
+  border-left-color: ${theme('border')};
+  padding-left: 40px;
+  padding-top: 10px;
   padding-bottom: 0;
   margin-top: 18px;
-  margin-left: 80px;
+  margin-left: 60px;
 `
 export const Block = styled.div`
   margin-bottom: 20px;
