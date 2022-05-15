@@ -6,7 +6,7 @@ import { EVENT } from '@/constant'
 
 import { send } from '@/utils/helper'
 
-import AvatarsRow from '@/widgets/AvatarsRow'
+import AvatarsGroup from '@/widgets/AvatarsGroup'
 // import TagsList from '@/widgets/TagsList'
 
 import {
@@ -39,7 +39,7 @@ const Header: FC<TProps> = ({ item }) => {
         <TagsList items={item.articleTags} left={12} />
       </Brief>
       <AvatarsWrapper>
-        <AvatarsRow
+        <AvatarsGroup
           users={item.commentsParticipants}
           total={item.commentsCount}
         />

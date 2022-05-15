@@ -25,7 +25,7 @@ export const Header = styled.div`
   margin-bottom: 30px;
 `
 export const Title = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   color: ${theme('thread.articleDigest')};
   font-weight: 600;
 `

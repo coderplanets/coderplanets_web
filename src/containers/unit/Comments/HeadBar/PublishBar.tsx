@@ -9,7 +9,7 @@ import {
   Avatar,
   UserName,
   ActionsWrapper,
-  EditIcon,
+  Publishcon,
 } from '../styles/head_bar/publish_bar'
 
 type TProps = {
@@ -35,7 +35,7 @@ const PublishBar: FC<TProps> = ({ closeEditor }) => {
         </Button>
 
         <Button size="small" space={10}>
-          <EditIcon />
+          <Publishcon />
           发布
         </Button>
       </ActionsWrapper>

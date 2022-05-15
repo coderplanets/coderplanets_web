@@ -21,7 +21,7 @@ const Sidebar: FC = () => {
       <Block>
         <Title>官方主页</Title>
         <Desc>
-          <Linker src="https://groupher.com" left={-2} />
+          <Linker src="https://groupher.com" left={-2} top={12} />
         </Desc>
       </Block>
       <Block>

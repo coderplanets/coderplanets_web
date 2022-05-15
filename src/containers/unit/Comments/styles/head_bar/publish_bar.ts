@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
-import EditPenSVG from '@/icons/EditPen'
+import EditPublishSVG from '@/icons/EditPublish'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
@@ -22,8 +22,8 @@ export const UserName = styled.div`
 export const ActionsWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const EditIcon = styled(EditPenSVG)`
-  ${css.size(12)};
+export const Publishcon = styled(EditPublishSVG)`
+  ${css.size(13)};
   fill: white;
-  margin-right: 5px;
+  margin-right: 6px;
 `

@@ -11,7 +11,7 @@ import { buildLog } from '@/utils/logger'
 
 import { UPVOTE_LAYOUT } from '@/constant'
 import AnimatedCount from '@/widgets/AnimatedCount'
-import AvatarsRow from '@/widgets/AvatarsRow'
+import AvatarsGroup from '@/widgets/AvatarsGroup'
 
 import UpvoteBtn from './UpvoteBtn'
 import {
@@ -54,7 +54,7 @@ const Upvote: FC<TProps> = ({
       </CountWrapper>
 
       <AvatarsWrapper count={count}>
-        <AvatarsRow users={avatarList} showMore={false} limit={3} />
+        <AvatarsGroup users={avatarList} showMore={false} limit={3} />
       </AvatarsWrapper>
     </Wrapper>
   )

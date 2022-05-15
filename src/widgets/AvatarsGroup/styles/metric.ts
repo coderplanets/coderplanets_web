@@ -47,8 +47,8 @@ export const getTotalCountSize = (total: number): string => {
 }
 
 export const getMoreTextWidth = (total: number): string => {
-  if (total < 10) return '23px'
-  if (total >= 10 && total <= 99) return '32px'
+  if (total < 10) return '22px'
+  if (total >= 10 && total <= 99) return '28px'
   if (total >= 100 && total <= 999) return '44px'
 
   return '52px'

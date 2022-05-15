@@ -53,7 +53,7 @@ const github = {
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#FFFEDE',
-  textBadge: '#f5f5f5',
+  textBadge: '#f6f6f6',
 
   gtdBadge: {
     feat: '#3871e0',

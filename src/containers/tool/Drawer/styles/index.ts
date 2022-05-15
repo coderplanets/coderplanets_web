@@ -28,8 +28,8 @@ export const DrawerOverlay = styled.div<TActive>`
   background: ${({ visible }) => (visible ? theme('drawer.mask') : 'none')};
   opacity: ${({ visible }) => (visible ? 0.5 : 0)};
 
-  transition: visibility 0.25s linear, opacity 0.2s linear,
-    background 0.5s linear;
+  transition: visibility 0.1s ease-in, opacity 0.1s ease-in,
+    background 0.1s ease-in;
 `
 // see https://stackoverflow.com/questions/60079950/when-do-i-use-attrs-vs-passing-props-directly-with-styled-components
 
@@ -91,7 +91,7 @@ export const DrawerWrapper = styled.div.attrs(
 
   will-change: transform, max-width, opacity;
   // 在宽屏时滑出来时，是从内容页而不是实际的 window 页滑出, 加 delay 可以在视觉上抵消从外部滑入的跳动感
-  transition-delay: 0s, 0s, 0.06s;
+  transition-delay: 0s, 0s, 0.14s;
 
   ${css.media.mobile`
     right: 0;

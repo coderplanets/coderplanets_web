@@ -12,9 +12,11 @@ export const Wrapper = styled(AvatarsMore)<TWrapper>`
   height: ${({ size }) => getAvatarSize(size)};
   width: ${({ total }) => getMoreTextWidth(total)};
   font-weight: 400;
-  padding-left: 2px;
+  padding-left: 1px;
+  padding-top: 0.5px;
   margin-left: 4px;
   border-radius: 0 10px 10px 0;
+  font-size: 13px;
 `
 export const HighlightNumber = styled.div`
   font-weight: 500;
