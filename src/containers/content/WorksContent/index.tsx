@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import Pagi from '@/widgets/Pagi'
-// import AvatarsRow from '@/widgets/AvatarsRow'
+// import AvatarsGroup from '@/widgets/AvatarsGroup'
 
 import type { TStore } from './store'
 
@@ -64,7 +64,7 @@ const WorksContentContainer: FC<TProps> = ({
           <Pagi margin={{ top: '60px', bottom: '80px' }} />
           {/* <PagiInfo>
               <PagiInfoTitle>活跃用户</PagiInfoTitle>
-              <AvatarsRow users={tmpUsers} total={10} showTotalNumber />
+              <AvatarsGroup users={tmpUsers} total={10} showTotalNumber />
             </PagiInfo> */}
         </MainContent>
         {!isMobile && <RightSidebar showSidebar={showSidebar} />}

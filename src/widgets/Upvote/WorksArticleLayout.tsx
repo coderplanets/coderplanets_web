@@ -10,7 +10,7 @@ import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { SIZE, UPVOTE_LAYOUT } from '@/constant'
 
-import AvatarsRow from '@/widgets/AvatarsRow'
+import AvatarsGroup from '@/widgets/AvatarsGroup'
 import AnimatedCount from '@/widgets/AnimatedCount'
 
 import Desc from './Desc'
@@ -69,7 +69,7 @@ const Upvote: FC<TProps> = ({
       <DescWrapper>
         {!noOne && (
           <Avatars>
-            <AvatarsRow
+            <AvatarsGroup
               users={avatarList}
               showMore={false}
               limit={7}

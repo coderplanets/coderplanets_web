@@ -4,7 +4,7 @@ import { ICON } from '@/config'
 import { mockUsers } from '@/utils/mock'
 
 import { IconSwitcher } from '@/widgets/Switcher'
-import AvatarsRow from '@/widgets/AvatarsRow'
+import AvatarsGroup from '@/widgets/AvatarsGroup'
 import { Space } from '@/widgets/Common'
 
 import {
@@ -51,7 +51,7 @@ const Actions: FC = () => {
         </ModeWrapper>
         <Space right={20} />
         <JoinTitle>参与者</JoinTitle>
-        <AvatarsRow size="medium" users={mockUsers(6)} total={20} />
+        <AvatarsGroup size="medium" users={mockUsers(6)} total={20} />
         {/* <Space right={25} /> */}
         {/* <NewButton size="medium">
           <BtnText>新增</BtnText>

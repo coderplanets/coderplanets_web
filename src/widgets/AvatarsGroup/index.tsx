@@ -1,6 +1,6 @@
 /*
  *
- * AvatarsRow
+ * AvatarsGroup
  *
  */
 
@@ -49,7 +49,7 @@ export const RealAvatar = dynamic(() => import('./RealAvatar'), {
 })
 
 /* eslint-disable-next-line */
-const log = buildLog('c:AvatarsRow:index')
+const log = buildLog('c:AvatarsGroup:index')
 
 const validUser = compose(not, isNil)
 
@@ -83,7 +83,7 @@ export type TProps = {
   onTotalSelect?: () => void
 }
 
-const AvatarsRow: FC<TProps> = ({
+const AvatarsGroup: FC<TProps> = ({
   size = SIZE.SMALL,
   total = null,
   users = [],
@@ -151,4 +151,4 @@ const AvatarsRow: FC<TProps> = ({
   )
 }
 
-export default trackWindowScroll(AvatarsRow)
+export default trackWindowScroll(AvatarsGroup)

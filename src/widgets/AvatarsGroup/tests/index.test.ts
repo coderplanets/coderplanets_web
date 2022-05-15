@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import AvatarsRow from '../index'
+// import AvatarsGroup from '../index'
 
-describe('<AvatarsRow />', () => {
+describe('<AvatarsGroup />', () => {
   it('TODO: Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })
