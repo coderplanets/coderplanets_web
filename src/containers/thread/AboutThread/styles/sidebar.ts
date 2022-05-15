@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   padding-left: 40px;
   padding-top: 10px;
   padding-bottom: 0;
-  margin-top: 18px;
+  margin-top: 19px;
   margin-left: 60px;
 `
 export const Block = styled.div`
