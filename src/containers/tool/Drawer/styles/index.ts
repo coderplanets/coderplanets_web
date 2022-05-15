@@ -28,8 +28,8 @@ export const DrawerOverlay = styled.div<TActive>`
   background: ${({ visible }) => (visible ? theme('drawer.mask') : 'none')};
   opacity: ${({ visible }) => (visible ? 0.5 : 0)};
 
-  transition: visibility 0.2s linear, opacity 0.2s ease-in,
-    background 0.2s ease-in;
+  transition: visibility 0.1s ease-in, opacity 0.1s ease-in,
+    background 0.1s ease-in;
 `
 // see https://stackoverflow.com/questions/60079950/when-do-i-use-attrs-vs-passing-props-directly-with-styled-components
 
