@@ -2,10 +2,10 @@
  * the entry of the App root store
  */
 
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo } from 'react'
 import { applySnapshot } from 'mobx-state-tree'
 
-import type { TRootStore, TAccountStore, TViewingStore } from '@/spec'
+import type { TRootStore } from '@/spec'
 import RootStore from './RootStore'
 
 let clientSideRootStore: TRootStore | undefined
@@ -32,9 +32,4 @@ export const useStore = (initialState = {}): TRootStore => {
   return store
 }
 
-export const useViewing = (): TViewingStore => {
-  const [substore, setSubstore] = useState(useStore({}).viewing)
-  useEffect(() => setSubstore(clientSideRootStore.viewing), [])
-
-  return substore
-}
+export const holder = 1

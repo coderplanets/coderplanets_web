@@ -16,6 +16,7 @@ import type {
 } from '@/spec'
 import { THREAD, ARTICLE_THREAD } from '@/constant'
 import { markStates } from '@/utils/mobx'
+import { viewingChanged } from '@/utils/helper'
 import { User, Community, Post, Blog, Job, Radar, Works } from '@/model'
 
 const ViewingStore = T.model('ViewingStore', {
@@ -63,8 +64,9 @@ const ViewingStore = T.model('ViewingStore', {
   }))
   .actions((self) => ({
     setViewing(sobj): void {
-      const { mark } = self as TStore
+      const { mark, viewingArticle } = self as TStore
       mark(sobj)
+      viewingChanged(viewingArticle.id)
     },
     changeCommunity(raw): void {
       self.community.raw = raw
@@ -75,6 +77,7 @@ const ViewingStore = T.model('ViewingStore', {
     resetViewing(): void {
       const { mark, viewingThread } = self as TStore
       mark({ [viewingThread]: {}, viewingThread: null })
+      viewingChanged(null)
     },
     updateUpvote(viewerHasUpvoted: boolean): void {
       const { currentThread } = self as TStore

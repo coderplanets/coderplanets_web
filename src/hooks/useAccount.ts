@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 // import { merge } from 'ramda'
 
+import { EVENT } from '@/constant'
 import type { TAccount } from '@/spec'
 
 import BStore from '@/utils/bstore'
@@ -21,10 +22,10 @@ const useAccount = (): TAccount | null => {
       }
     }
 
-    Global.addEventListener('storage', checkAccount)
+    Global.addEventListener(EVENT.SESSION_CHANGED, checkAccount)
 
     return () => {
-      Global.removeEventListener('storage', checkAccount)
+      Global.removeEventListener(EVENT.SESSION_CHANGED, checkAccount)
     }
   }, [])
 
