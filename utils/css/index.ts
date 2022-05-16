@@ -9,7 +9,6 @@ import { media, fitContentWidth, fitStickerWidth, fitPageWidth } from './media'
 import { flex, flexGrow, flexColumn, flexColumnGrow } from './flex'
 
 import { circle, size } from './shape'
-import zIndex from './zindex'
 
 const smokey = (initOpacity = 0.6): string => `
   opacity: ${initOpacity};
@@ -46,7 +45,6 @@ const css = {
   flexGrow,
   flexColumn,
   flexColumnGrow,
-  zIndex,
   mediaBreakPoints,
   media,
   fitContentWidth,
@@ -56,6 +54,7 @@ const css = {
 
 export { theme } from '../themes'
 export { WIDTH } from './metric'
+export { default as zIndex } from './zindex'
 
 export { default as animate } from './animations'
 

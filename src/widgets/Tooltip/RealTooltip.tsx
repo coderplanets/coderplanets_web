@@ -7,7 +7,7 @@
 import { FC, useState, useRef, memo } from 'react'
 import { hideAll } from 'tippy.js'
 
-import css from '@/utils/css'
+import { zIndex } from '@/utils/css'
 import { buildLog } from '@/utils/logger'
 import { isString } from '@/utils/validator'
 import { isDescendant } from '@/utils/dom'
@@ -113,7 +113,7 @@ const Tooltip: FC<TProps> = ({
     content: PopoverContent,
     placement,
     hideOnClick,
-    zIndex: css.zIndex.popover,
+    zIndex: zIndex.popover,
     active: true,
     delay: [delay, 0] as [number, number],
     offset,

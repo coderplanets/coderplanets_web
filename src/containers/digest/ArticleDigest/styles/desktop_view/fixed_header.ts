@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric, TActive, TThread } from '@/spec'
-import css, { theme } from '@/utils/css'
+import css, { theme, zIndex } from '@/utils/css'
 import Img from '@/Img'
 
 import { getFixStickerOffset, getFixStickerAlign } from './metric'
@@ -13,7 +13,7 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   ${css.flex('justify-center')};
   top: ${({ show }) => (show ? 0 : '-48px;')};
   opacity: ${({ show }) => (show ? 1 : 0)};
-  z-index: ${({ show }) => (show ? css.zIndex.articleFixedHeader : -1)};
+  z-index: ${({ show }) => (show ? zIndex.articleFixedHeader : -1)};
 
   position: fixed;
   top: 0;

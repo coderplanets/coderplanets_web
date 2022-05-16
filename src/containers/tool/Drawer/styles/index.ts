@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { contains } from 'ramda'
 
 import type { TActive } from '@/spec'
-import css, { theme } from '@/utils/css'
+import css, { theme, zIndex } from '@/utils/css'
 
 import type { TDrawer, TSwipe } from '../spec'
 import {
@@ -23,7 +23,7 @@ export const DrawerOverlay = styled.div<TActive>`
   height: 100%;
   right: 0;
   top: 0;
-  z-index: ${css.zIndex.drawerOverlay};
+  z-index: ${zIndex.drawerOverlay};
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   background: ${({ visible }) => (visible ? theme('drawer.mask') : 'none')};
   opacity: ${({ visible }) => (visible ? 0.5 : 0)};
@@ -74,7 +74,7 @@ export const DrawerWrapper = styled.div.attrs(
     contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
 
   min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
-  z-index: ${({ visible }) => (visible ? css.zIndex.drawer : -1)};
+  z-index: ${({ visible }) => (visible ? zIndex.drawer : -1)};
 
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   opacity: ${({ visible, fromContentEdge }) =>

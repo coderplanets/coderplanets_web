@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import css from '@/utils/css'
+import css, { zIndex } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex()};
   position: relative;
-  z-index: ${css.zIndex.img};
+  z-index: ${zIndex.img};
 `
 export const FallbackWrapper = styled.div`
   position: absolute;

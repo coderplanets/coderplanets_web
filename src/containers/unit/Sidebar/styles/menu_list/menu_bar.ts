@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import css, { theme } from '@/utils/css'
+import css, { theme, zIndex } from '@/utils/css'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
@@ -10,7 +10,7 @@ type TMenuItemTitle = TActive & { pin: boolean }
 export const Wrapper = styled.div`
   display: block;
   position: relative;
-  z-index: ${css.zIndex.sidebar + 1};
+  z-index: ${zIndex.sidebar + 1};
 
   transition: all 0.2s;
 `
