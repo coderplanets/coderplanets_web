@@ -18,6 +18,7 @@ import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
 import type {
+  TID,
   TGQLError,
   TReportType,
   TAttInfo,
@@ -193,7 +194,16 @@ export const sessionChanged = (user: TUser): void => {
   send(EVENT.SESSION_CHANGED)
   BStore.set('accountInfo', user as string)
   // see: https://stackoverflow.com/a/55349670/4050784
-  Global.dispatchEvent(new Event('storage'))
+  Global.dispatchEvent(new Event(EVENT.SESSION_CHANGED))
+}
+
+/**
+ * handle user account state change
+ */
+export const viewingChanged = (articleId: TID | null): void => {
+  BStore.set('viewingInfo', articleId)
+  // see: https://stackoverflow.com/a/55349670/4050784
+  Global.dispatchEvent(new Event(EVENT.VIEWING_CHANGED))
 }
 
 /**

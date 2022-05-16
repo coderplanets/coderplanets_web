@@ -6,11 +6,17 @@ import { UPVOTE_LAYOUT } from '@/constant'
 
 import { upvoteOnArticleList } from '@/utils/helper'
 import TheAvatar from '@/widgets/TheAvatar'
+import ViewingSign from './ViewingSign'
 
 import Header from './Header'
 import Body from './Body'
 
-import { AvatarWrapper, UpvoteWrapper, Main } from '../styles/desktop_view'
+import {
+  Wrapper,
+  AvatarWrapper,
+  UpvoteWrapper,
+  Main,
+} from '../styles/desktop_view'
 
 let Upvote = null
 let ArticleReadLabel = null
@@ -45,13 +51,14 @@ const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
   }, [])
 
   return (
-    <Fragment>
+    <Wrapper>
       {loaded && (
         <Fragment>
           <ArticleReadLabel entry={entry} />
           <ArticlePinLabel entry={entry} />
         </Fragment>
       )}
+      <ViewingSign article={entry} />
       <AvatarWrapper>
         <TheAvatar user={entry.author} />
         <UpvoteWrapper>
@@ -71,7 +78,7 @@ const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
         <Header item={entry} />
         <Body item={entry} curCommunity={curCommunity} />
       </Main>
-    </Fragment>
+    </Wrapper>
   )
 }
 
