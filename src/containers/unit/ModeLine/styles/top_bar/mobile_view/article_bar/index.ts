@@ -2,12 +2,12 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import Img from '@/Img'
-import css, { theme } from '@/utils/css'
+import css, { theme, zIndex } from '@/utils/css'
 
 export const Wrapper = styled.div<TActive>`
   ${css.flex('justify-start')};
   position: fixed;
-  z-index: ${css.zIndex.header};
+  z-index: ${zIndex.header};
   top: ${({ visible }) => (visible ? '0' : '-33px')};
   width: 100%;
   /* TODO: move namespace to modeline */

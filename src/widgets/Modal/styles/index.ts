@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import css, { theme, animate } from '@/utils/css'
+import css, { theme, animate, zIndex } from '@/utils/css'
 import CloseCrossSVG from '@/icons/CloseLight'
 
 // display: ${props => (props.show ? 'block' : 'none')};
@@ -12,7 +12,7 @@ export const Mask = styled.div<TActive>`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: ${css.zIndex.modalOverlay};
+  z-index: ${zIndex.modalOverlay};
   display: ${({ show }) => (show ? 'block' : 'none')};
   background: ${theme('modal.mask')};
 `
@@ -60,7 +60,7 @@ export const CloseBtn = styled(CloseCrossSVG)<TCloseBtn>`
   fill: ${({ mode }) =>
     mode === 'default' ? theme('thread.extraInfo') : theme('baseColor.red')};
   ${css.size(20)};
-  z-index: ${css.zIndex.modalCloseBtn};
+  z-index: ${zIndex.modalCloseBtn};
   opacity: 0.8;
 
   &:hover {

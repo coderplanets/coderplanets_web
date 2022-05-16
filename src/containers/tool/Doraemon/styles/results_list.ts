@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import Img from '@/Img'
-import css, { theme, animate } from '@/utils/css'
+import css, { theme, animate, zIndex } from '@/utils/css'
 
 export const Wrapper = styled.div<{ empty: boolean }>`
   position: relative;
@@ -28,7 +28,7 @@ export const PageOverlay = styled.div<TActive>`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: ${css.zIndex.doraemonOverlay};
+  z-index: ${zIndex.doraemonOverlay};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
@@ -38,7 +38,7 @@ export const PanelContainer = styled.div<TActive>`
   max-width: 550px;
   position: fixed;
   top: 12vh;
-  z-index: ${css.zIndex.doraemon};
+  z-index: ${zIndex.doraemon};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   left: 50%;
   margin-left: -19vw;

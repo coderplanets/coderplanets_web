@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
-import css, { theme, WIDTH } from '@/utils/css'
+import css, { theme, WIDTH, zIndex } from '@/utils/css'
 
 type TWrapper = TTestable & { noBorder: boolean; leftOffset: string }
 export const WrapperBase = styled.div.attrs(({ testid }: TTestable) => ({
@@ -29,7 +29,7 @@ export const InnerWrapperBase = styled.div`
 export const Wrapper = styled.div<TActive>`
   ${css.flex('justify-center')};
   position: fixed;
-  z-index: ${css.zIndex.header};
+  z-index: ${zIndex.header};
   top: ${({ visible }) => (visible ? '0' : '-33px')};
   width: 100%;
   max-width: ${WIDTH.COMMUNITY.PAGE};

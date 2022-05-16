@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
-import css, { theme } from '@/utils/css'
+import css, { theme, zIndex } from '@/utils/css'
 
 export const PageOverlay = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -12,7 +12,7 @@ export const PageOverlay = styled.div.attrs(({ testid }: TTestable) => ({
   position: fixed;
   right: 0;
   top: 0;
-  z-index: ${css.zIndex.doraemonOverlay};
+  z-index: ${zIndex.doraemonOverlay};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   background: ${({ visible }) =>
     visible ? '#000' : 'transparent'}; // to-theme
@@ -29,7 +29,7 @@ export const PanelContainer = styled.div.attrs(({ testid }: TTestable) => ({
   max-width: 550px;
   position: fixed;
   top: 12vh;
-  z-index: ${css.zIndex.doraemon};
+  z-index: ${zIndex.doraemon};
   margin: auto;
   left: 0;
   right: 0;

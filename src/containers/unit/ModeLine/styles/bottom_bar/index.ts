@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import { TYPE } from '@/constant'
-import css, { theme } from '@/utils/css'
+import css, { theme, zIndex } from '@/utils/css'
 
 type TMenuIcon = { active: boolean; colorTheme: string; raw?: string }
 
@@ -18,7 +18,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   width: 100%;
   height: 35px;
   background: #0e3b4a;
-  z-index: ${css.zIndex.modeLine};
+  z-index: ${zIndex.modeLine};
   box-shadow: ${({ isMenuActive }) =>
     !isMenuActive ? '' : '-5px 6px 37px -8px rgba(0, 0, 0, 0.42)'};
 `

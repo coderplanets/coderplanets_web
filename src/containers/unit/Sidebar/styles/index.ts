@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import css, { theme } from '@/utils/css'
+import css, { theme, zIndex } from '@/utils/css'
 
 import { getMainWidth, getShadow, SIDEBAR_WIDTH } from './metric'
 
@@ -14,7 +14,7 @@ export const Wrapper = styled.aside<TWrapper>`
   height: 100vh;
   border-right: 1px solid;
   border-color: ${theme('sidebar.borderColor')};
-  z-index: ${css.zIndex.sidebar};
+  z-index: ${zIndex.sidebar};
 
   transform: ${({ ispulled }) =>
     ispulled ? 'translateX(0)' : `translateX(-${SIDEBAR_WIDTH})`};
@@ -39,7 +39,7 @@ export const MainWrapper = styled.div.attrs(
 
   height: 100vh;
   background: ${theme('sidebar.bg')};
-  z-index: ${css.zIndex.sidebar};
+  z-index: ${zIndex.sidebar};
 
   transition: width 0.1s, box-shadow 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 `

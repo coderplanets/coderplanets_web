@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Tippy from '@tippyjs/react'
 
-import css, { theme } from '@/utils/css'
+import css, { theme, zIndex } from '@/utils/css'
 
 export const StyledTippy = styled(Tippy)`
   position: relative;
@@ -42,7 +42,7 @@ export const ContentWrapper = styled.div<{ hasMaxWidth: boolean }>`
 const Arrow = styled.div`
   position: absolute;
   ${css.circle(4)};
-  z-index: ${css.zIndex.popover};
+  z-index: ${zIndex.popover};
   background: #2d7eb1;
   box-shadow: ${theme('popover.boxShadow')};
 `
