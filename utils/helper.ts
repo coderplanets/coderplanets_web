@@ -258,7 +258,7 @@ export const listUsers = (data): void => {
   send(EVENT.DRAWER.OPEN, { type, data })
 }
 
-export const c11nSettins = (): void => {
+export const c11nSettings = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.C11N_SETTINGS })
 }
 

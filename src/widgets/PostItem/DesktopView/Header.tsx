@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import type { TPost } from '@/spec'
 import { EVENT } from '@/constant'
 
-import { send } from '@/utils/helper'
+import { send, c11nSettings } from '@/utils/helper'
 
 import AvatarsGroup from '@/widgets/AvatarsGroup'
 // import TagsList from '@/widgets/TagsList'
@@ -32,9 +32,8 @@ const Header: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Brief>
-        <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}>
-          {item.title}
-        </Title>
+        {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}> */}
+        <Title onClick={() => c11nSettings()}>{item.title}</Title>
         {/*  @ts-ignore */}
         <TagsList items={item.articleTags} left={12} />
       </Brief>

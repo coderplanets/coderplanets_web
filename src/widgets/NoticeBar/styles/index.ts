@@ -22,7 +22,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   padding-bottom: 8px;
   /* width: 100%; */
   min-height: 40px;
-  background: ${({ noBg }) => (noBg ? 'transparent' : '#00333f')};
+  background: ${({ noBg }) => (noBg ? 'transparent' : '#FDF6E8')};
   border-radius: 8px;
 
   margin-top: ${({ top }) => `${top || 0}px`};

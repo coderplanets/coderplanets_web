@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TAccount } from '@/spec'
 import { EVENT } from '@/constant'
 
-import { send, c11nSettins } from '@/utils/helper'
+import { send, c11nSettings } from '@/utils/helper'
 
 import UserAccount from './UserAccount'
 
@@ -33,7 +33,7 @@ const AddOns: FC<TProps> = ({ accountInfo }) => {
 
   return (
     <Wrapper>
-      <div onClick={() => c11nSettins()}>
+      <div onClick={() => c11nSettings()}>
         <SettingIcon />
       </div>
       <Divider>&nbsp;</Divider>
