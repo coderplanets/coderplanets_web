@@ -1,10 +1,12 @@
 import { Fragment, FC, ReactNode, memo } from 'react'
+import { contains } from 'ramda'
 
 import { ANCHOR } from '@/constant'
 
 import type { TSwipeOption, TArticleNavi } from '../spec'
 import AddOn from '../AddOn'
 
+import { VIEWER_TYPES } from '../styles/metrics'
 import { DrawerOverlay, DrawerWrapper, DrawerContent } from '../styles'
 import { closeDrawer } from '../logic'
 
@@ -46,7 +48,7 @@ const DesktopView: FC<TProps> = ({
         options={options}
       >
         <AddOn type={type} articleNavi={articleNavi} />
-        <DrawerContent>{children}</DrawerContent>
+        <DrawerContent type={type}>{children}</DrawerContent>
       </DrawerWrapper>
     </Fragment>
   )

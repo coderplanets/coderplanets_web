@@ -6,8 +6,8 @@ type Options = {
   direction?: 'bottom' | 'top'
 }
 
-export const WIDE_WIDTH = '70%'
-export const NARROW_WIDTH = '40%'
+export const VIEWER_WIDTH = '70%'
+export const NORMAL_WIDTH = '475px'
 
 export const SWIPE_THRESHOLD = {
   top: {
@@ -22,7 +22,7 @@ export const SWIPE_THRESHOLD = {
   },
 }
 
-export const WIDE_CASE = reduce(
+export const VIEWER_TYPES = reduce(
   concat,
   // @ts-ignore
   [TYPE.DRAWER.MAILS_VIEW],

@@ -3,12 +3,13 @@ import { contains } from 'ramda'
 
 import type { TActive } from '@/spec'
 import css, { theme, zIndex } from '@/utils/css'
+import { pixelAdd } from '@/utils/dom'
 
 import type { TDrawer, TSwipe } from '../spec'
 import {
-  WIDE_CASE,
-  WIDE_WIDTH,
-  NARROW_WIDTH,
+  VIEWER_TYPES,
+  VIEWER_WIDTH,
+  NORMAL_WIDTH,
   getTransform,
   getMobileContentHeight,
   getContentLinearGradient,
@@ -61,19 +62,20 @@ export const DrawerWrapper = styled.div.attrs(
 )<TDrawer>`
   ${css.flex()};
   position: fixed;
-  right: ${({ rightOffset }) => rightOffset};
-  top: 0px;
+  right: ${({ rightOffset, type }) =>
+    contains(type, VIEWER_TYPES) ? rightOffset : pixelAdd(rightOffset, -25)};
+  top: ${({ type }) => (contains(type, VIEWER_TYPES) ? 0 : '25px')};
 
   color: ${theme('drawer.font')};
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border-radius: 0px;
   height: 100%;
   width: ${({ type }) =>
-    contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
+    contains(type, VIEWER_TYPES) ? VIEWER_WIDTH : NORMAL_WIDTH};
 
-  min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
+  min-width: ${({ type }) =>
+    contains(type, VIEWER_TYPES) ? '700px' : '450px'};
   z-index: ${({ visible }) => (visible ? zIndex.drawer : -1)};
 
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
@@ -102,12 +104,18 @@ export const DrawerWrapper = styled.div.attrs(
   `};
 `
 
-export const DrawerContent = styled.div`
+export const DrawerContent = styled.div<{ type: string }>`
+  position: relative;
   /* 60 is the width of addon */
   width: calc(100% - 60px);
   background-color: ${theme('drawer.bg')};
-  height: 100vh;
-  box-shadow: ${theme('drawer.shadow')};
+  height: ${({ type }) =>
+    contains(type, VIEWER_TYPES) ? '100vh' : 'calc(100vh - 50px)'};
+  border-radius: ${({ type }) => (contains(type, VIEWER_TYPES) ? 0 : '10px')};
+  box-shadow: ${({ type }) =>
+    contains(type, VIEWER_TYPES)
+      ? theme('drawer.shadow')
+      : theme('drawer.shadowLite')};
 `
 type TDrawerMobile = { options: Record<string, unknown>; bgColor: string }
 export const DrawerMobileContent = styled.div<TDrawerMobile>`

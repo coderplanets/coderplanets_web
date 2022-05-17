@@ -161,6 +161,7 @@ const DataResolver = [
     match: asyncRes(EVENT.DRAWER.OPEN),
     action: (res) => {
       const payload = res[EVENT.DRAWER.OPEN]
+      console.log(' >>> payload >>> ', payload)
       /*
          log('should open payload thread: ', payload.thread)
          log('should open payload id: ', payload.data.id)
