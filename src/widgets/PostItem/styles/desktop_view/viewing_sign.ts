@@ -6,12 +6,11 @@ import ViewSVG from '@/icons/View'
 export const Wrapper = styled.div`
   ${css.flex()};
   position: absolute;
-  left: -28px;
-  top: 11px;
+  left: -30px;
+  top: 18px;
   animation: ${animate.fadeInRight} 0.25s linear;
 `
 export const ViewIcon = styled(ViewSVG)`
   ${css.size(10)};
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleDigest')};
 `
-export const Title = styled.div``

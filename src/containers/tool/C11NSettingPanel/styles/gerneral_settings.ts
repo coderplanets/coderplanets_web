@@ -24,9 +24,3 @@ export const Desc = styled.div`
   margin-bottom: 10px;
   opacity: 0.5;
 `
-export const Divider = styled.div`
-  margin: 30px 0;
-  width: 100%;
-  height: 1px;
-  background: #003541;
-`

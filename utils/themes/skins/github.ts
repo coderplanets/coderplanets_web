@@ -168,6 +168,7 @@ const github = {
     font: primaryColor,
     bg: contentBg,
     shadow: '-5px -1px 20px 0px rgb(143 143 143 / 27%)',
+    shadowLite: '-1px 3px 20px 0px rgb(143 143 143 / 27%)',
     closerShadow: '-7px 4px 20px 0px rgb(143 143 143 / 27%)',
     markdownHelperBg: '#F9FCFC',
     accountBg: '#FFFFFF',

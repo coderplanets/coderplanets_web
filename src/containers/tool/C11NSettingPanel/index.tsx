@@ -86,4 +86,4 @@ const C11NSettingPanelContainer: FC<TProps> = ({ c11NSettingPanel: store }) => {
   )
 }
 
-export default bond(C11NSettingPanelContainer, 'c11nSettingPanel') as FC<TProps>
+export default bond(C11NSettingPanelContainer, 'c11NSettingPanel') as FC<TProps>

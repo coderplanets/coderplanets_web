@@ -46,7 +46,7 @@ const DesktopView: FC<TProps> = ({
         options={options}
       >
         <AddOn type={type} articleNavi={articleNavi} />
-        <DrawerContent>{children}</DrawerContent>
+        <DrawerContent type={type}>{children}</DrawerContent>
       </DrawerWrapper>
     </Fragment>
   )

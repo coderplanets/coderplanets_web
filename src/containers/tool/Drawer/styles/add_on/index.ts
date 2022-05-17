@@ -3,6 +3,12 @@ import styled from 'styled-components'
 import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
+  position: absolute;
+  right: 82px;
+  top: 18px;
+  z-index: 1;
+`
+export const ViewerWrapper = styled.div`
   /* border: 1px solid tomato; */
   width: 60px;
   ${css.flexColumn('align-end')};

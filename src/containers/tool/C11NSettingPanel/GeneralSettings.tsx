@@ -5,10 +5,10 @@ import { isMobile } from 'react-device-detect'
 import type { TThread, TC11N } from '@/spec'
 import { THREAD, C11N } from '@/constant'
 
-import { Br } from '@/widgets/Common'
+import { Br, Divider } from '@/widgets/Common'
 import { Radio } from '@/widgets/Switcher'
 
-import { Wrapper, Title, Desc, Divider } from './styles/gerneral_settings'
+import { Wrapper, Title, Desc } from './styles/gerneral_settings'
 import { onC11NChange } from './logic'
 
 type TProps = {
@@ -45,7 +45,7 @@ const GeneralSettings: FC<TProps> = ({ curThread, customization }) => {
           })
         }
       />
-      <Divider />
+      <Divider top={25} bottom={25} />
 
       <Title>阅读辅助</Title>
       <Br top={10} />
@@ -95,10 +95,10 @@ const GeneralSettings: FC<TProps> = ({ curThread, customization }) => {
               })
             }
           />
-          <Divider />
+          <Divider top={25} bottom={25} />
         </>
       ) : (
-        <Divider />
+        <Divider top={25} bottom={25} />
       )}
 
       <Title>显示密度</Title>

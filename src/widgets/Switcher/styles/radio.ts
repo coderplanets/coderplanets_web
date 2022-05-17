@@ -29,6 +29,7 @@ export const Label = styled.label<TLabel>`
   font-size: ${({ size }) => getLabelFontsize(size)};
   margin-right: ${({ checked }) => (checked ? '16px' : '8px')};
   padding-left: ${({ checked }) => (checked ? '14px' : '24px')};
+  font-weight: ${({ checked }) => (checked ? 'bold' : 'normal')};
   padding-right: 14px;
   padding-top: 1px;
   padding-bottom: 1px;
