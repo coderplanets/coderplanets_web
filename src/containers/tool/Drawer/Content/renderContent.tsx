@@ -9,6 +9,7 @@ import {
   MailsViewer,
   // editors
   AccountEditor,
+  CustomBgEditor,
   // utils
   C11NSettingPanel,
   // userlister
@@ -38,6 +39,9 @@ const renderContent = (
     case TYPE.DRAWER.C11N_SETTINGS:
       // @ts-ignore
       return <C11NSettingPanel />
+
+    case TYPE.DRAWER.CUSTOM_BG_EDITOR:
+      return <CustomBgEditor />
 
     case TYPE.DRAWER.MODELINE_MENU:
       // @ts-ignore

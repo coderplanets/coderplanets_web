@@ -47,6 +47,9 @@ const TYPE = {
     // c11n settings
     C11N_SETTINGS: 'C11N_SETTINGS',
 
+    // custom background editor
+    CUSTOM_BG_EDITOR: 'CUSTOM_BG_EDITOR',
+
     // user lister
     USER_LISTER: 'USER_LISTER',
 

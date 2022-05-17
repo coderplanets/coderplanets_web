@@ -2,9 +2,8 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TPost } from '@/spec'
-import { EVENT } from '@/constant'
 
-import { send, c11nSettings } from '@/utils/helper'
+import { callCustomBgEditor } from '@/utils/helper'
 
 import AvatarsGroup from '@/widgets/AvatarsGroup'
 // import TagsList from '@/widgets/TagsList'
@@ -33,7 +32,7 @@ const Header: FC<TProps> = ({ item }) => {
     <Wrapper>
       <Brief>
         {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}> */}
-        <Title onClick={() => c11nSettings()}>{item.title}</Title>
+        <Title onClick={() => callCustomBgEditor()}>{item.title}</Title>
         {/*  @ts-ignore */}
         <TagsList items={item.articleTags} left={12} />
       </Brief>

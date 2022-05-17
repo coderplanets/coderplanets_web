@@ -83,3 +83,11 @@ export const C11NSettingPanel = dynamic(
     ssr: false,
   },
 )
+
+export const CustomBgEditor = dynamic(
+  () => import('@/containers/editor/CustomBgEditor'),
+  {
+    loading: () => <CommonLoading />,
+    ssr: false,
+  },
+)
