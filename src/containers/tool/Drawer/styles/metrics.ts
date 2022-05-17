@@ -1,4 +1,4 @@
-import { concat, keys, reduce } from 'ramda'
+import { concat, keys, reduce, contains } from 'ramda'
 import { TYPE, ARTICLE_THREAD } from '@/constant'
 
 type Options = {
@@ -6,8 +6,8 @@ type Options = {
   direction?: 'bottom' | 'top'
 }
 
-export const VIEWER_WIDTH = '70%'
-export const NORMAL_WIDTH = '475px'
+const VIEWER_WIDTH = '70%'
+const NORMAL_WIDTH = '475px'
 
 export const SWIPE_THRESHOLD = {
   top: {
@@ -22,7 +22,7 @@ export const SWIPE_THRESHOLD = {
   },
 }
 
-export const VIEWER_TYPES = reduce(
+const VIEWER_TYPES = reduce(
   concat,
   // @ts-ignore
   [TYPE.DRAWER.MAILS_VIEW],
@@ -32,6 +32,22 @@ export const VIEWER_TYPES = reduce(
     TYPE.DRAWER[`${T}_EDIT`],
   ]),
 )
+
+/**
+ * viewer-mode is wider, for aritlce viewer, editor staff
+ * normal-mode is for settings, user preview staff
+ */
+export const isViewerMode = (type: string): boolean => {
+  return contains(type, VIEWER_TYPES)
+}
+
+export const getDrawerWidth = (type: string): string => {
+  return isViewerMode(type) ? VIEWER_WIDTH : NORMAL_WIDTH
+}
+
+export const getDrawerMinWidth = (type: string): string => {
+  return isViewerMode(type) ? '700px' : '450px'
+}
 
 // export for modeline usage
 export const L_HEIGHT = '25vh'

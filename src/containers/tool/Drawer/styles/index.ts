@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { contains } from 'ramda'
 
 import type { TActive } from '@/spec'
 import css, { theme, zIndex } from '@/utils/css'
@@ -7,13 +6,13 @@ import { pixelAdd } from '@/utils/dom'
 
 import type { TDrawer, TSwipe } from '../spec'
 import {
-  VIEWER_TYPES,
-  VIEWER_WIDTH,
-  NORMAL_WIDTH,
   getTransform,
   getMobileContentHeight,
   getContentLinearGradient,
   getDim,
+  isViewerMode,
+  getDrawerWidth,
+  getDrawerMinWidth,
 } from './metrics'
 
 export const DrawerOverlay = styled.div<TActive>`
@@ -63,27 +62,22 @@ export const DrawerWrapper = styled.div.attrs(
   ${css.flex()};
   position: fixed;
   right: ${({ rightOffset, type }) =>
-    contains(type, VIEWER_TYPES) ? rightOffset : pixelAdd(rightOffset, -25)};
-  top: ${({ type }) => (contains(type, VIEWER_TYPES) ? 0 : '25px')};
+    isViewerMode(type) ? rightOffset : pixelAdd(rightOffset, -25)};
+  top: ${({ type }) => (isViewerMode(type) ? 0 : '25px')};
 
   color: ${theme('drawer.font')};
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   height: 100%;
-  width: ${({ type }) =>
-    contains(type, VIEWER_TYPES) ? VIEWER_WIDTH : NORMAL_WIDTH};
-
-  min-width: ${({ type }) =>
-    contains(type, VIEWER_TYPES) ? '700px' : '450px'};
+  width: ${({ type }) => getDrawerWidth(type)};
+  min-width: ${({ type }) => getDrawerMinWidth(type)};
   z-index: ${({ visible }) => (visible ? zIndex.drawer : -1)};
 
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   opacity: ${({ visible, fromContentEdge }) =>
     !visible && !fromContentEdge ? 0 : 1};
 
-  /* max-width: ${({ visible, fromContentEdge }) =>
-    !visible && !fromContentEdge ? '60%' : '985px'}; */
   max-width: 985px;
 
   ${({ fromContentEdge }) =>
@@ -110,12 +104,10 @@ export const DrawerContent = styled.div<{ type: string }>`
   width: calc(100% - 60px);
   background-color: ${theme('drawer.bg')};
   height: ${({ type }) =>
-    contains(type, VIEWER_TYPES) ? '100vh' : 'calc(100vh - 50px)'};
-  border-radius: ${({ type }) => (contains(type, VIEWER_TYPES) ? 0 : '10px')};
+    isViewerMode(type) ? '100vh' : 'calc(100vh - 50px)'};
+  border-radius: ${({ type }) => (isViewerMode(type) ? 0 : '10px')};
   box-shadow: ${({ type }) =>
-    contains(type, VIEWER_TYPES)
-      ? theme('drawer.shadow')
-      : theme('drawer.shadowLite')};
+    isViewerMode(type) ? theme('drawer.shadow') : theme('drawer.shadowLite')};
 `
 type TDrawerMobile = { options: Record<string, unknown>; bgColor: string }
 export const DrawerMobileContent = styled.div<TDrawerMobile>`

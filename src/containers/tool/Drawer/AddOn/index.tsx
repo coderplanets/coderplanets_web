@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 import { includes } from 'ramda'
 
-import { VIEWER_TYPES } from '../styles/metrics'
 import ArticleNavi from './ArticleNavi'
 
 import type { TArticleNavi } from '../spec'
@@ -12,7 +11,7 @@ import IconButton from '@/widgets/Buttons/IconButton'
 import Share from '@/containers/tool/Share'
 import CloseButton from './CloseButton'
 import { Wrapper, ViewerWrapper, TopArea } from '../styles/add_on'
-
+import { isViewerMode } from '../styles/metrics'
 import { closeDrawer } from '../logic'
 
 type TProps = {
@@ -24,7 +23,7 @@ const AddOn: FC<TProps> = ({ type, articleNavi }) => {
   const showArticleNavi = includes(type, ARTICLE_VIEWER_TYPES)
   const showShare = includes(type, ARTICLE_VIEWER_TYPES)
 
-  if (!includes(type, VIEWER_TYPES)) {
+  if (!isViewerMode(type)) {
     return (
       <Wrapper>
         <IconButton icon="close" onClick={closeDrawer} size={20} />
