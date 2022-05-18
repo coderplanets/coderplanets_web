@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 export const Block = styled.div<TActive>`
   position: relative;
   width: 168px;
-  height: 130px;
+  height: 110px;
   margin-right: 16px;
   margin-bottom: 10px;
   border-radius: 4px;
@@ -30,23 +30,26 @@ export const Block = styled.div<TActive>`
 
   transition: border-color 0.1s linear;
 `
-export const Image = styled(Img)`
+export const Image = styled(Img)<{ bgColor?: string }>`
   width: 100%;
   object-fit: cover;
+  background-color: ${({ bgColor }) => bgColor || 'transparent'};
 `
 export const ActiveSign = styled.div`
-  ${css.size(25)};
+  ${css.size(24)};
   background: ${theme('border')};
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -1px;
+  right: -1px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 30px;
   z-index: 3;
+  border: 1px solid;
+  border-color: ${theme('thread.articleTitle')};
 `
 export const CheckIcon = styled(CheckedSVG)`
   fill: ${theme('thread.articleTitle')};
-  ${css.size(18)};
+  ${css.size(16)};
   position: absolute;
   top: 2px;
   left: 6px;

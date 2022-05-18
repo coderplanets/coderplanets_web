@@ -55,8 +55,13 @@ const WallpaperEditorContainer: FC<TProps> = ({
         <PicGroup />
 
         <br />
-        <div>纯色</div>
-        <div>...</div>
+        <div>渐变</div>
+        <div>各种圆形渐变选项</div>
+        <div>parttern 叠加选项</div>
+
+        <br />
+        <div>其它</div>
+        <div>图片模糊</div>
       </Content>
     </Wrapper>
   )
