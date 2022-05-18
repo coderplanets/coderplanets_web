@@ -41,13 +41,13 @@ export const ActiveSign = styled.div`
   top: 0;
   right: 0;
   border-top-right-radius: 4px;
-  border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 30px;
   z-index: 3;
 `
 export const CheckIcon = styled(CheckedSVG)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(18)};
   position: absolute;
-  top: 3px;
+  top: 2px;
   left: 6px;
 `

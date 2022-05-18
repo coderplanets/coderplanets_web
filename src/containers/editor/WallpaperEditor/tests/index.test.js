@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import CustomBgEditor from '../index'
+// import WallpaperEditor from '../index'
 
-describe('TODO <CustomBgEditor />', () => {
+describe('TODO <WallpaperEditor />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

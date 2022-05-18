@@ -9,7 +9,7 @@ import type { TStore } from './store'
 let store: TStore | undefined
 
 /* eslint-disable-next-line */
-const log = buildLog('L:CustomBgEditor')
+const log = buildLog('L:WallpaperEditor')
 
 export const someMethod = (): void => {
   //

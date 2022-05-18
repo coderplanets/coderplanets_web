@@ -69,7 +69,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
-  CustomBgEditorStore,
+  WallpaperEditorStore,
   HelpThreadStore,
   AboutThreadStore,
   ChangelogThreadStore,
@@ -172,7 +172,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
-  customBgEditor: T.optional(CustomBgEditorStore, {}),
+  wallpaperEditor: T.optional(WallpaperEditorStore, {}),
   helpThread: T.optional(HelpThreadStore, {}),
   aboutThread: T.optional(AboutThreadStore, {}),
   changelogThread: T.optional(ChangelogThreadStore, {}),

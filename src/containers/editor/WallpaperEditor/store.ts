@@ -1,5 +1,5 @@
 /*
- * CustomBgEditor store
+ * WallpaperEditor store
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
@@ -10,9 +10,9 @@ import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:CustomBgEditor')
+const log = buildLog('S:WallpaperEditor')
 
-const CustomBgEditor = T.model('CustomBgEditor', {})
+const WallpaperEditor = T.model('WallpaperEditor', {})
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
@@ -26,6 +26,6 @@ const CustomBgEditor = T.model('CustomBgEditor', {})
     },
   }))
 
-export type TStore = Instance<typeof CustomBgEditor>
+export type TStore = Instance<typeof WallpaperEditor>
 
-export default CustomBgEditor
+export default WallpaperEditor

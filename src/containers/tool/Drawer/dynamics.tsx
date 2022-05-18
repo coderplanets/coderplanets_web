@@ -84,8 +84,8 @@ export const C11NSettingPanel = dynamic(
   },
 )
 
-export const CustomBgEditor = dynamic(
-  () => import('@/containers/editor/CustomBgEditor'),
+export const WallpaperEditor = dynamic(
+  () => import('@/containers/editor/WallpaperEditor'),
   {
     loading: () => <CommonLoading />,
     ssr: false,

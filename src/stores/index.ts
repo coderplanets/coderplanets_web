@@ -78,7 +78,7 @@ export { default as CommunityEditorStore } from '@/containers/editor/CommunityEd
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
-export { default as CustomBgEditorStore } from '@/containers/editor/CustomBgEditor/store'
+export { default as WallpaperEditorStore } from '@/containers/editor/WallpaperEditor/store'
 export { default as HelpThreadStore } from '@/containers/thread/HelpThread/store'
 export { default as AboutThreadStore } from '@/containers/thread/AboutThread/store'
 export { default as ChangelogThreadStore } from '@/containers/thread/ChangelogThread/store'

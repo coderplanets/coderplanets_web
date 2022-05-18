@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 
 import type { TPost } from '@/spec'
 
-import { callCustomBgEditor } from '@/utils/helper'
+import { callWallpaperEditor } from '@/utils/helper'
 
 import AvatarsGroup from '@/widgets/AvatarsGroup'
 // import TagsList from '@/widgets/TagsList'
@@ -32,7 +32,7 @@ const Header: FC<TProps> = ({ item }) => {
     <Wrapper>
       <Brief>
         {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}> */}
-        <Title onClick={() => callCustomBgEditor()}>{item.title}</Title>
+        <Title onClick={() => callWallpaperEditor()}>{item.title}</Title>
         {/*  @ts-ignore */}
         <TagsList items={item.articleTags} left={12} />
       </Brief>

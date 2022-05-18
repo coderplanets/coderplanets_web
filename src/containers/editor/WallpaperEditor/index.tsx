@@ -1,5 +1,5 @@
 /* *
- * CustomBgEditor
+ * WallpaperEditor
  *
  */
 
@@ -29,13 +29,13 @@ const TAB_OPTIONS = [
 ]
 
 type TProps = {
-  customBgEditor?: TStore
+  wallpaperEditor?: TStore
   testid?: string
 }
 
-const CustomBgEditorContainer: FC<TProps> = ({
-  customBgEditor: store,
-  testid = 'custom-bg-editor',
+const WallpaperEditorContainer: FC<TProps> = ({
+  wallpaperEditor: store,
+  testid = 'wallpaper-editor',
 }) => {
   useInit(store)
 
@@ -62,4 +62,4 @@ const CustomBgEditorContainer: FC<TProps> = ({
   )
 }
 
-export default bond(CustomBgEditorContainer, 'customBgEditor') as FC<TProps>
+export default bond(WallpaperEditorContainer, 'wallpaperEditor') as FC<TProps>

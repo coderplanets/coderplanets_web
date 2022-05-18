@@ -262,7 +262,7 @@ export const c11nSettings = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.C11N_SETTINGS })
 }
 
-export const callCustomBgEditor = (): void => {
+export const callWallpaperEditor = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.CUSTOM_BG_EDITOR })
 }
 
