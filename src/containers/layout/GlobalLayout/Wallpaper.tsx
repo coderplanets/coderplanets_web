@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { isString } from '@/utils/validator'
-import { Wrapper } from './styles/custom_bg'
+import { Wrapper } from './styles/wallpaper'
 
 type TBackgroundEffect =
   | {
