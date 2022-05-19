@@ -10,18 +10,20 @@ export const Wrapper = styled.div`
   width: calc(100% + 30px);
   flex-wrap: wrap;
   margin-top: 10px;
+  margin-left: 1px;
 `
-export const Block = styled.div<TActive>`
+
+type TBlock = {
+  bg: string
+} & TActive
+
+export const Block = styled.div<TBlock>`
   position: relative;
-  width: 168px;
-  height: 110px;
-  margin-right: 16px;
+  ${css.circle(32)};
+  margin-right: 18px;
   margin-bottom: 10px;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 2px solid;
-  border-color: ${({ $active }) =>
-    $active ? theme('thread.articleTitle') : 'transparent'};
+  ${({ bg }) => bg || 'transparent'};
+  background-size: 200px;
 
   &:hover {
     border-color: ${theme('thread.articleTitle')};
@@ -30,9 +32,10 @@ export const Block = styled.div<TActive>`
 
   transition: border-color 0.1s linear;
 `
-export const Image = styled(Img)`
+export const Image = styled(Img)<{ bgColor?: string }>`
   width: 100%;
   object-fit: cover;
+  background-color: ${({ bgColor }) => bgColor || 'transparent'};
 `
 export const ActiveSign = styled.div`
   ${css.size(24)};

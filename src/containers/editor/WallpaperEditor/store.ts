@@ -12,7 +12,9 @@ import { markStates, toJS } from '@/utils/mobx'
 /* eslint-disable-next-line */
 const log = buildLog('S:WallpaperEditor')
 
-const WallpaperEditor = T.model('WallpaperEditor', {})
+const WallpaperEditor = T.model('WallpaperEditor', {
+  current: T.optional(T.string, 'green'),
+})
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore

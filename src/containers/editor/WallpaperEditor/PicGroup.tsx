@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
-import { WALLPAPER } from '@/constant'
+import { keys } from 'ramda'
+import { PATTERN_WALLPAPER } from '@/constant'
 
 import {
   Wrapper,
@@ -9,36 +10,30 @@ import {
   CheckIcon,
 } from './styles/pic_group'
 
-const PicGroup: FC = () => {
+import { setCurrent } from './logic'
+
+type TProps = {
+  current: string
+}
+
+const PicGroup: FC<TProps> = ({ current }) => {
+  const patternKeys = keys(PATTERN_WALLPAPER)
+
   return (
     <Wrapper>
-      <Block $active>
-        <ActiveSign>
-          <CheckIcon />
-        </ActiveSign>
-        <Image src={WALLPAPER.bubbles.bgImage} />
-      </Block>
-      <Block>
-        <Image
-          src={WALLPAPER.curves.bgImage}
-          bgColor={WALLPAPER.curves.bgColor}
-        />
-      </Block>
-      <Block>
-        <Image src={WALLPAPER.cartoon.bgImage} />
-      </Block>
-      <Block>
-        <Image src={WALLPAPER.rainbow.bgImage} />
-      </Block>
-      <Block>
-        <Image src={WALLPAPER.earth.bgImage} />
-      </Block>
-      <Block>
-        <Image src={WALLPAPER.co2.bgImage} />
-      </Block>
-      <Block>
-        <Image src={WALLPAPER.code.bgImage} />
-      </Block>
+      {patternKeys.map((name) => (
+        <Block key={name} $active={name === current}>
+          {name === current && (
+            <ActiveSign>
+              <CheckIcon />
+            </ActiveSign>
+          )}
+          <Image
+            src={PATTERN_WALLPAPER[name].bgImage}
+            onClick={() => setCurrent(name)}
+          />
+        </Block>
+      ))}
     </Wrapper>
   )
 }

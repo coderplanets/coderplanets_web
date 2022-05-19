@@ -13,7 +13,7 @@ import { Wrapper } from './styles/wallpaper'
 //   | string
 
 const Wallpaper: FC = () => {
-  const effect = WALLPAPER.green
+  const effect = WALLPAPER.pink
 
   // for linear/solid background colors
   if (isString(effect)) {

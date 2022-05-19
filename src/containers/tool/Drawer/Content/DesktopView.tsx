@@ -5,6 +5,7 @@ import CustomScroller from '@/widgets/CustomScroller'
 
 import renderContent from './renderContent'
 import { Wrapper } from '../styles/content'
+import { isViewerMode } from '../styles/metrics'
 
 type TProps = {
   visible: boolean
@@ -26,19 +27,23 @@ const Content: FC<TProps> = ({ visible, type, attUser, userListerType }) => {
     }
   }, [visible, ref])
 
-  return (
-    <Wrapper>
-      <CustomScroller
-        instanceKey={DRAWER_SCROLLER}
-        direction="vertical"
-        height="100vh"
-        barSize="medium"
-        showShadow={false}
-      >
-        {renderContent(type, attUser, userListerType)}
-      </CustomScroller>
-    </Wrapper>
-  )
+  if (isViewerMode(type)) {
+    return (
+      <Wrapper>
+        <CustomScroller
+          instanceKey={DRAWER_SCROLLER}
+          direction="vertical"
+          height="100vh"
+          barSize="medium"
+          showShadow={false}
+        >
+          {renderContent(type, attUser, userListerType)}
+        </CustomScroller>
+      </Wrapper>
+    )
+  }
+
+  return <Wrapper>{renderContent(type, attUser, userListerType)}</Wrapper>
 }
 
 export default memo(Content)
