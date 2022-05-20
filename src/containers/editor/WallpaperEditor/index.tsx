@@ -18,15 +18,7 @@ import type { TStore } from './store'
 import PicGroup from './PicGroup'
 import GradientGroup from './GradientGroup'
 
-import {
-  Wrapper,
-  Banner,
-  BannerTitle,
-  Content,
-  Title,
-  SubTitle,
-  Footer,
-} from './styles'
+import { Wrapper, Banner, BannerTitle, Content, Title, Footer } from './styles'
 
 import { useInit } from './logic' /* eslint-disable-next-line */
 
@@ -53,7 +45,7 @@ const WallpaperEditorContainer: FC<TProps> = ({
   testid = 'wallpaper-editor',
 }) => {
   useInit(store)
-  const { current } = store
+  const { wallpaper } = store
 
   return (
     <Wrapper testid={testid}>
@@ -79,10 +71,10 @@ const WallpaperEditorContainer: FC<TProps> = ({
       >
         <Content>
           <Title>图案:</Title>
-          <PicGroup current={current} />
+          <PicGroup wallpaper={wallpaper} />
           <br />
           <Title>纯色渐变:</Title>
-          <GradientGroup current={current} />
+          <GradientGroup wallpaper={wallpaper} />
           <br />
           <br />
           <div>叠加花纹</div>

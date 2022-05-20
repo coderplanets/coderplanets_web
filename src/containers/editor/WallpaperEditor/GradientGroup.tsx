@@ -6,13 +6,13 @@ import { parseWallpaper } from '@/utils/wallpaper'
 
 import { Wrapper, Block, ColorBall } from './styles/gradient_group'
 
-import { setCurrent } from './logic'
+import { setWallpaper } from './logic'
 
 type TProps = {
-  current: string
+  wallpaper: string
 }
 
-const PicGroup: FC<TProps> = ({ current }) => {
+const PicGroup: FC<TProps> = ({ wallpaper }) => {
   const gradientKeys = keys(GRADIENT_WALLPAPER)
 
   return (
@@ -20,8 +20,8 @@ const PicGroup: FC<TProps> = ({ current }) => {
       {gradientKeys.map((name) => (
         <Block
           key={name}
-          $active={name === current}
-          onClick={() => setCurrent(name)}
+          $active={name === wallpaper}
+          onClick={() => setWallpaper(name)}
         >
           <ColorBall background={parseWallpaper(name).background} />
         </Block>

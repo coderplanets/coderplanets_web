@@ -43,7 +43,7 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
     },
     get wallpaper(): string {
       const root = getParent(self) as TRootStore
-      return root.wallpaperEditor.current
+      return root.wallpaperEditor.wallpaper
     },
   }))
   .actions((self) => ({

@@ -11,8 +11,8 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:WallpaperEditor')
 
-export const setCurrent = (current: string): void => {
-  store.mark({ current })
+export const setWallpaper = (wallpaper: string): void => {
+  store.mark({ wallpaper })
 }
 
 // ###############################

@@ -10,27 +10,27 @@ import {
   CheckIcon,
 } from './styles/pic_group'
 
-import { setCurrent } from './logic'
+import { setWallpaper } from './logic'
 
 type TProps = {
-  current: string
+  wallpaper: string
 }
 
-const PicGroup: FC<TProps> = ({ current }) => {
+const PicGroup: FC<TProps> = ({ wallpaper }) => {
   const patternKeys = keys(PATTERN_WALLPAPER)
 
   return (
     <Wrapper>
       {patternKeys.map((name) => (
-        <Block key={name} $active={name === current}>
-          {name === current && (
+        <Block key={name} $active={name === wallpaper}>
+          {name === wallpaper && (
             <ActiveSign>
               <CheckIcon />
             </ActiveSign>
           )}
           <Image
             src={PATTERN_WALLPAPER[name].bgImage}
-            onClick={() => setCurrent(name)}
+            onClick={() => setWallpaper(name)}
           />
         </Block>
       ))}

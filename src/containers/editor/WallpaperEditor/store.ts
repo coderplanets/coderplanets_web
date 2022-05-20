@@ -13,7 +13,7 @@ import { markStates, toJS } from '@/utils/mobx'
 const log = buildLog('S:WallpaperEditor')
 
 const WallpaperEditor = T.model('WallpaperEditor', {
-  current: T.optional(T.string, 'green'),
+  wallpaper: T.optional(T.string, 'green'),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
