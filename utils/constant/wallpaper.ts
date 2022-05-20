@@ -48,31 +48,51 @@ export const PATTERN_WALLPAPER = {
   // },
 }
 
+// demo: `
+//     background: url(${DIR}/patterns/1.png) repeat, linear-gradient(to bottom, #C6D183, #72B58C);
+//   `,
+
+const DEFAULT_GRADIENT_EFFECT = {
+  hasPattern: false,
+  hasBlur: false,
+  direction: 'to bottom',
+}
+
 export const GRADIENT_WALLPAPER = {
   // linear gradian
   // background: #2c3e50; /* fallback for old browsers */
   // background: -webkit-linear-gradient(#C6D183, #72B58C); /* Chrome 10-25, Safari 5.1-6 */
-  green: `
-      background: url(${DIR}/patterns/1.png) repeat, linear-gradient(to bottom, #C6D183, #72B58C);
-    `,
-  purple: `
-    background: url(${DIR}/patterns/1.png) repeat, linear-gradient(to bottom, #BBA4C9, #8390CD);
-  `,
-  yellow: `
-    background: url(${DIR}/patterns/1.png) repeat, linear-gradient(to bottom, #F7CE7E, #E17D43);
-  `,
-  cyan: `
-    background: url(${DIR}/patterns/1.png) repeat, linear-gradient(to bottom, #6EC0C2, #222937);
-  `,
-  red: `
-    background: url(${DIR}/patterns/1.png) repeat, linear-gradient(to bottom, #E76B66, #6E3837);
-  `,
-  blue: `
-    background: url(${DIR}/patterns/1.png) repeat, linear-gradient(to bottom, #85AADA, #274AA1);
-  `,
-  pink: `
-    background: url(${DIR}/patterns/1.png) repeat, linear-gradient(to bottom, #D6C4BA, #C5BADB);
-  `,
+
+  green: {
+    colors: ['#C6D183', '#72B58C'],
+    ...DEFAULT_GRADIENT_EFFECT,
+    hasPattern: true,
+  },
+  purple: {
+    colors: ['#BBA4C9', '#8390CD'],
+    ...DEFAULT_GRADIENT_EFFECT,
+  },
+  yellow: {
+    colors: ['#F7CE7E', '#E17D43'],
+    ...DEFAULT_GRADIENT_EFFECT,
+  },
+  cyan: {
+    colors: ['#6EC0C2', '#222937'],
+    ...DEFAULT_GRADIENT_EFFECT,
+  },
+  red: {
+    colors: ['#E76B66', '#6E3837'],
+    ...DEFAULT_GRADIENT_EFFECT,
+  },
+  blue: {
+    colors: ['#85AADA', '#274AA1'],
+    ...DEFAULT_GRADIENT_EFFECT,
+  },
+  pink: {
+    colors: ['#D6C4BA', '#C5BADB'],
+    ...DEFAULT_GRADIENT_EFFECT,
+    hasBlur: true,
+  },
 }
 
 export const WALLPAPER = {

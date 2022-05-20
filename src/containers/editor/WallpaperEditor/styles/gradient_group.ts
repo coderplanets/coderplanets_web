@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 `
 
 type TBlock = {
-  bg: string
+  background: string
 } & TActive
 
 export const Block = styled.div<TBlock>`
@@ -22,7 +22,7 @@ export const Block = styled.div<TBlock>`
   ${css.circle(32)};
   margin-right: 18px;
   margin-bottom: 10px;
-  ${({ bg }) => bg || 'transparent'};
+  background: ${({ background }) => background || 'transparent'};
   background-size: 200px;
 
   &:hover {

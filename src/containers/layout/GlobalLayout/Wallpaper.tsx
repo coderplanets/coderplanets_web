@@ -1,40 +1,18 @@
 import { FC, memo } from 'react'
 
 import { WALLPAPER } from '@/constant'
-import { isString } from '@/utils/validator'
+import { parseWallpaper } from '@/utils/wallpaper'
+
 import { Wrapper } from './styles/wallpaper'
 
-// type TBackgroundEffect =
-//   | {
-//       bgImage: string
-//       bgColor?: string
-//       bgSize?: 'contain' | 'cover' | 'auto'
-//     }
-//   | string
-
 const Wallpaper: FC = () => {
-  const effect = WALLPAPER.pink
-
-  // for linear/solid background colors
-  if (isString(effect)) {
-    // @ts-ignore
-    return <Wrapper effect={effect as string} />
-  }
-
-  // @ts-ignore
-  const { bgImage, bgColor = '', bgSize = 'contain' } = effect
+  const wallpaper = WALLPAPER.rainbow
+  const { background, effect } = parseWallpaper(wallpaper)
 
   // for custom image/svg
   // for use style object not passing props
   // @link see https://github.com/styled-components/styled-components/issues/3315#issuecomment-885977691
-  return (
-    <Wrapper
-      effect={`background-color: ${bgColor}; background-size: ${bgSize}`}
-      style={{
-        backgroundImage: `url(${bgImage})`,
-      }}
-    />
-  )
+  return <Wrapper style={{ background }} effect={effect} />
 }
 
 export default memo(Wallpaper)
