@@ -131,6 +131,13 @@ export type { TAccountStore, TViewingStore } from './store'
 
 export type { TEmotion, TEmotionType } from './emotion'
 
+export type {
+  TWallpaperPic,
+  TWallpaperGradient,
+  TWallpaperFmt,
+  TWallpaper,
+} from './wallpaper'
+
 export type TRoute = {
   communityPath?: string
   threadPath?: string

@@ -1,3 +1,5 @@
+import type { TWallpaper } from '@/spec'
+
 const DIR = '/wallpaper'
 
 export const PATTERN_WALLPAPER = {
@@ -93,7 +95,7 @@ export const GRADIENT_WALLPAPER = {
     ...DEFAULT_GRADIENT_EFFECT,
     hasBlur: true,
   },
-}
+} as Record<string, TWallpaper>
 
 export const WALLPAPER = {
   ...PATTERN_WALLPAPER,

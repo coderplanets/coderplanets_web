@@ -1,26 +1,10 @@
 import { WALLPAPER } from '@/constant'
-
-type TWallpaperFmt = {
-  effect: string
-  background: string
-}
-
-type TWallpaperGradient = {
-  colors?: string[]
-  hasPattern?: boolean
-  hasBlur?: boolean
-  direction?: string
-}
-
-type TWallpaperPic = {
-  bgImage?: string
-  bgColor?: string
-  bgSize?: 'contain' | 'cover' | 'auto'
-  // for ts check
-  colors?: string[]
-}
-
-type TWallpaper = TWallpaperGradient | TWallpaperPic
+import type {
+  TWallpaperFmt,
+  TWallpaperGradient,
+  TWallpaperPic,
+  TWallpaper,
+} from '@/spec'
 
 /**
  * parse wallpaper both for gradient and picture background

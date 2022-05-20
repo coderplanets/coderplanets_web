@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
-import { GRADIENT_WALLPAPER } from '@/constant'
+import type { TWallpaper } from '@/spec'
 import { parseWallpaper } from '@/utils/wallpaper'
 
 import { Wrapper, Block, ColorBall } from './styles/gradient_group'
@@ -10,10 +10,11 @@ import { setWallpaper } from './logic'
 
 type TProps = {
   wallpaper: string
+  gradientWallpapers: Record<string, TWallpaper>
 }
 
-const PicGroup: FC<TProps> = ({ wallpaper }) => {
-  const gradientKeys = keys(GRADIENT_WALLPAPER)
+const PicGroup: FC<TProps> = ({ wallpaper, gradientWallpapers }) => {
+  const gradientKeys = keys(gradientWallpapers)
 
   return (
     <Wrapper>

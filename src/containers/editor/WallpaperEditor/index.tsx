@@ -45,7 +45,7 @@ const WallpaperEditorContainer: FC<TProps> = ({
   testid = 'wallpaper-editor',
 }) => {
   useInit(store)
-  const { wallpaper } = store
+  const { wallpaper, gradientWallpapers } = store
 
   return (
     <Wrapper testid={testid}>
@@ -74,7 +74,10 @@ const WallpaperEditorContainer: FC<TProps> = ({
           <PicGroup wallpaper={wallpaper} />
           <br />
           <Title>纯色渐变:</Title>
-          <GradientGroup wallpaper={wallpaper} />
+          <GradientGroup
+            wallpaper={wallpaper}
+            gradientWallpapers={gradientWallpapers}
+          />
           <br />
           <br />
           <div>叠加花纹</div>
