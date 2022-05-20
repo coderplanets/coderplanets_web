@@ -41,6 +41,10 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
       const root = getParent(self) as TRootStore
       return root.sidebar.pin
     },
+    get wallpaper(): string {
+      const root = getParent(self) as TRootStore
+      return root.wallpaperEditor.current
+    },
   }))
   .actions((self) => ({
     toast(type, options): void {

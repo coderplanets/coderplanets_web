@@ -25,20 +25,24 @@ type TWallpaper = TWallpaperGradient | TWallpaperPic
 /**
  * parse wallpaper both for gradient and picture background
  */
-export const parseWallpaperByName = (name: string): TWallpaperFmt => {
-  return parseWallpaper(WALLPAPER[name])
+export const parseWallpaper = (name: string): TWallpaperFmt => {
+  return _parseWallpaper(WALLPAPER[name])
 }
+
+export const holder = 1
 
 /**
  * parse wallpaper both for gradient and picture background
  */
-export const parseWallpaper = (wallpaper: TWallpaper): TWallpaperFmt => {
+const _parseWallpaper = (wallpaper: TWallpaper): TWallpaperFmt => {
   return wallpaper.colors
-    ? gotGradientBackground(wallpaper)
-    : getPicBackground(wallpaper)
+    ? _parseGradientBackground(wallpaper)
+    : _parsePicBackground(wallpaper)
 }
 
-const gotGradientBackground = (gradient: TWallpaperGradient): TWallpaperFmt => {
+const _parseGradientBackground = (
+  gradient: TWallpaperGradient,
+): TWallpaperFmt => {
   const DIR = '/wallpaper'
   const { direction, hasPattern, hasBlur } = gradient
   let background = `linear-gradient(${direction}, ${gradient.colors.join(',')})`
@@ -56,7 +60,7 @@ const gotGradientBackground = (gradient: TWallpaperGradient): TWallpaperFmt => {
   }
 }
 
-const getPicBackground = (pic: TWallpaperPic): TWallpaperFmt => {
+const _parsePicBackground = (pic: TWallpaperPic): TWallpaperFmt => {
   const { bgImage, bgColor = '', bgSize = 'contain' } = pic
   const background = `url(${bgImage})`
 

@@ -2,17 +2,11 @@ import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
 import { GRADIENT_WALLPAPER } from '@/constant'
-import { parseWallpaperByName } from '@/utils/wallpaper'
+import { parseWallpaper } from '@/utils/wallpaper'
 
-import {
-  Wrapper,
-  Block,
-  // Image,
-  // ActiveSign,
-  // CheckIcon,
-} from './styles/gradient_group'
+import { Wrapper, Block, ColorBall } from './styles/gradient_group'
 
-// import { setCurrent } from './logic'
+import { setCurrent } from './logic'
 
 type TProps = {
   current: string
@@ -27,18 +21,9 @@ const PicGroup: FC<TProps> = ({ current }) => {
         <Block
           key={name}
           $active={name === current}
-          background={parseWallpaperByName(name).background}
+          onClick={() => setCurrent(name)}
         >
-          {/* {name === current && (
-            <ActiveSign>
-              <CheckIcon />
-            </ActiveSign>
-          )} */}
-          {/* <Image
-            src={GRADIENT_WALLPAPER[name].bgImage}
-            bgColor={GRADIENT_WALLPAPER[name].bgColor}
-            onClick={() => setCurrent(name)}
-          /> */}
+          <ColorBall background={parseWallpaper(name).background} />
         </Block>
       ))}
     </Wrapper>

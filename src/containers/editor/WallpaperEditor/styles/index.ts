@@ -37,6 +37,7 @@ export const Content = styled.div`
   padding: 0 30px;
   height: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
 `
 export const Footer = styled.div`
   ${css.flex('align-center', 'justify-between')};

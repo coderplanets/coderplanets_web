@@ -1,12 +1,14 @@
 import { FC, memo } from 'react'
 
-import { WALLPAPER } from '@/constant'
 import { parseWallpaper } from '@/utils/wallpaper'
 
 import { Wrapper } from './styles/wallpaper'
 
-const Wallpaper: FC = () => {
-  const wallpaper = WALLPAPER.rainbow
+type TProps = {
+  wallpaper: string
+}
+
+const Wallpaper: FC<TProps> = ({ wallpaper }) => {
   const { background, effect } = parseWallpaper(wallpaper)
 
   // for custom image/svg
