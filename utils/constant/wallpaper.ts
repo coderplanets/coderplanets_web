@@ -1,6 +1,12 @@
-import type { TWallpaper } from '@/spec'
+import type { TWallpaper, TWallpaperType } from '@/spec'
 
 const DIR = '/wallpaper'
+
+export const WALLPAPER_TYPE = {
+  PATTERN: 'pattern',
+  GRADIENT: 'gradient',
+  CUSTOM: 'custom',
+} as Record<Uppercase<TWallpaperType>, TWallpaperType>
 
 export const PATTERN_WALLPAPER = {
   // bubbles: {

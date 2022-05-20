@@ -22,6 +22,10 @@ export const togglePattern = (hasPattern: boolean): void => {
   store.mark({ hasPattern })
 }
 
+export const toggleBlur = (hasBlur: boolean): void => {
+  store.mark({ hasBlur })
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################

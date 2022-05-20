@@ -3,11 +3,11 @@
  *
  */
 
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 
 // import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
-import { VIEW, DRAWER_SCROLLER } from '@/constant'
+import { VIEW, DRAWER_SCROLLER, WALLPAPER_TYPE } from '@/constant'
 
 import { Br } from '@/widgets/Common'
 import Checker from '@/widgets/Checker'
@@ -31,7 +31,7 @@ import {
   ConfirmBtn,
 } from './styles'
 
-import { useInit, togglePattern } from './logic'
+import { useInit, togglePattern, toggleBlur } from './logic'
 
 const TAB_OPTIONS = [
   {
@@ -56,8 +56,14 @@ const WallpaperEditorContainer: FC<TProps> = ({
   testid = 'wallpaper-editor',
 }) => {
   useInit(store)
-  const { wallpaper, gradientWallpapers, patternWallpapers, hasPattern } = store
-  console.log('bbb hasPattern -> ', hasPattern)
+  const {
+    wallpaper,
+    wallpaperType,
+    gradientWallpapers,
+    patternWallpapers,
+    hasPattern,
+    hasBlur,
+  } = store
 
   return (
     <Wrapper testid={testid}>
@@ -96,12 +102,19 @@ const WallpaperEditorContainer: FC<TProps> = ({
           <Br top={25} />
           <Title>附加效果:</Title>
           <SettingWrapper>
-            <Br top={20} />
-            <Checker checked={hasPattern} onChange={togglePattern}>
-              叠加花纹
-            </Checker>
+            {wallpaperType === WALLPAPER_TYPE.GRADIENT && (
+              <Fragment>
+                <Br top={20} />
+                <Checker checked={hasPattern} onChange={togglePattern}>
+                  叠加印纹
+                </Checker>
+              </Fragment>
+            )}
+
             <Br top={10} />
-            <Checker checked={false}>模糊效果</Checker>
+            <Checker checked={hasBlur} onChange={toggleBlur}>
+              模糊效果
+            </Checker>
             <Br top={50} />
           </SettingWrapper>
         </Content>

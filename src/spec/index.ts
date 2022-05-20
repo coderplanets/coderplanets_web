@@ -136,6 +136,7 @@ export type {
   TWallpaperGradient,
   TWallpaperFmt,
   TWallpaper,
+  TWallpaperType,
 } from './wallpaper'
 
 export type TRoute = {

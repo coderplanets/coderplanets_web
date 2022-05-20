@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
-import type { TWallpaper } from '@/spec'
+import type { TWallpaperPic } from '@/spec'
 
 import {
   Wrapper,
@@ -15,7 +15,7 @@ import { setWallpaper } from './logic'
 
 type TProps = {
   wallpaper: string
-  patternWallpapers: Record<string, TWallpaper>
+  patternWallpapers: Record<string, TWallpaperPic>
 }
 
 const PicGroup: FC<TProps> = ({ wallpaper, patternWallpapers }) => {

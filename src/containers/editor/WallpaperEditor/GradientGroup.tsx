@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
-import type { TWallpaper } from '@/spec'
-import { parseWallpaper2 } from '@/utils/wallpaper'
+import type { TWallpaperGradient } from '@/spec'
+import { parseWallpaper } from '@/utils/wallpaper'
 
 import { Wrapper, Block, ColorBall } from './styles/gradient_group'
 
@@ -10,7 +10,7 @@ import { setWallpaper } from './logic'
 
 type TProps = {
   wallpaper: string
-  gradientWallpapers: Record<string, TWallpaper>
+  gradientWallpapers: Record<string, TWallpaperGradient>
 }
 
 const PicGroup: FC<TProps> = ({ wallpaper, gradientWallpapers }) => {
@@ -25,7 +25,7 @@ const PicGroup: FC<TProps> = ({ wallpaper, gradientWallpapers }) => {
           onClick={() => setWallpaper(name)}
         >
           <ColorBall
-            background={parseWallpaper2(gradientWallpapers, name).background}
+            background={parseWallpaper(gradientWallpapers, name).background}
           />
         </Block>
       ))}

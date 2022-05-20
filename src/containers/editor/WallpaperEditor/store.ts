@@ -6,9 +6,17 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { keys, clone, forEach } from 'ramda'
 
 import { GRADIENT_WALLPAPER, PATTERN_WALLPAPER } from '@/constant'
-import type { TCommunity, TRootStore, TWallpaper } from '@/spec'
+import type {
+  TCommunity,
+  TRootStore,
+  TWallpaper,
+  TWallpaperType,
+  TWallpaperGradient,
+  TWallpaperPic,
+} from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
+import { getWallpaperType } from '@/utils/wallpaper'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:WallpaperEditor')
@@ -29,7 +37,16 @@ const WallpaperEditor = T.model('WallpaperEditor', {
     },
 
     get patternWallpapers(): Record<string, TWallpaper> {
-      return PATTERN_WALLPAPER
+      const slf = self as TStore
+      const wallpapers = clone(PATTERN_WALLPAPER)
+      const paperKeys = keys(PATTERN_WALLPAPER)
+
+      forEach((key) => {
+        const wallpaperObj = wallpapers[key] as TWallpaperPic
+        wallpaperObj.hasBlur = slf.hasBlur
+      }, paperKeys)
+
+      return wallpapers
     },
 
     get gradientWallpapers(): Record<string, TWallpaper> {
@@ -38,7 +55,10 @@ const WallpaperEditor = T.model('WallpaperEditor', {
       const paperKeys = keys(GRADIENT_WALLPAPER)
 
       forEach((key) => {
-        wallpapers[key].hasPattern = slf.hasPattern
+        const wallpaperObj = wallpapers[key] as TWallpaperGradient
+
+        wallpaperObj.hasPattern = slf.hasPattern
+        wallpaperObj.hasBlur = slf.hasBlur
       }, paperKeys)
 
       return wallpapers
@@ -51,6 +71,10 @@ const WallpaperEditor = T.model('WallpaperEditor', {
         ...slf.gradientWallpapers,
         ...slf.patternWallpapers,
       }
+    },
+    get wallpaperType(): TWallpaperType {
+      const slf = self as TStore
+      return getWallpaperType(slf.wallpaper)
     },
   }))
   .actions((self) => ({
