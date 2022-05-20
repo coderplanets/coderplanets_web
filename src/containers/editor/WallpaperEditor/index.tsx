@@ -123,7 +123,9 @@ const WallpaperEditorContainer: FC<TProps> = ({
         <Button size="small" ghost noBorder>
           不设背景
         </Button>
-        <ConfirmBtn size="small">确定</ConfirmBtn>
+        <ConfirmBtn size="small" space={13}>
+          确定
+        </ConfirmBtn>
       </Footer>
     </Wrapper>
   )

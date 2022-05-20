@@ -56,7 +56,5 @@ export const Footer = styled.div`
   height: 65px;
 `
 export const ConfirmBtn = styled(Button)`
-  padding-left: 12px;
-  padding-right: 12px;
   height: 28px;
 `

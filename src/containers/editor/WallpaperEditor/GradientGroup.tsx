@@ -25,6 +25,7 @@ const PicGroup: FC<TProps> = ({ wallpaper, gradientWallpapers }) => {
           onClick={() => setWallpaper(name)}
         >
           <ColorBall
+            $active={name === wallpaper}
             background={parseWallpaper(gradientWallpapers, name).background}
           />
         </Block>

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import css, { theme } from '@/utils/css'
+import css, { animate, theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex()};
@@ -16,22 +16,34 @@ export const Block = styled.div<TActive>`
   /* position: relative; */
   border: 1px solid;
   border-color: ${({ $active }) =>
-    $active ? theme('thread.articleDigest') : 'transparent'};
+    $active ? theme('thread.articleTitle') : 'transparent'};
   padding: 3px;
-  margin-right: 12px;
+  background: ${({ $active }) => ($active ? theme('border') : 'transparent')};
+
+  margin-right: ${({ $active }) => ($active ? '13px' : '12px')};
   margin-bottom: 10px;
 
   &:hover {
     border-color: ${theme('thread.articleTitle')};
+    background: ${theme('border')};
     cursor: pointer;
   }
 
-  transition: border-color 0.2s linear;
+  transition: all 0.1s linear;
 `
-export const ColorBall = styled.div<{ background: string }>`
+type TColorBall = { background: string } & TActive
+export const ColorBall = styled.div<TColorBall>`
   ${css.circle(30)};
+  ${({ $active }) => ($active ? css.circle(28) : css.circle(30))};
+
   background: ${({ background }) => background || 'transparent'};
   background-size: 200px;
+
+  &:active {
+    animation: ${animate.breath} 2s linear;
+  }
+
+  transition: all 0.1s linear;
 `
 export const ActiveSign = styled.div`
   ${css.size(24)};
