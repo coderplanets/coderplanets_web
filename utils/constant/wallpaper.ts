@@ -15,9 +15,9 @@ export const PATTERN_WALLPAPER = {
   //   bgImage: `${DIR}/curves.png`,
   //   bgColor: '#050139', // backgroundBg or fallback
   // },
-  // newspaper: {
-  //   bgImage: `${DIR}/newspaper.jpeg`,
-  // },
+  newspaper: {
+    bgImage: `${DIR}/newspaper.jpeg`,
+  },
   rainbow: {
     bgImage: `${DIR}/rainbow.jpeg`,
   },

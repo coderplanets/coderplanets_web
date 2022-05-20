@@ -64,7 +64,7 @@ const _parsePicBackground = (pic: TWallpaperPic): TWallpaperFmt => {
   const { bgImage, bgColor = '', bgSize = 'contain' } = pic
   const background = `url(${bgImage})`
 
-  const effect = `background-color: ${bgColor}; background-size: ${bgSize}`
+  const effect = `background-color: ${bgColor}; background-size: ${bgSize} !important;`
 
   return {
     effect,
