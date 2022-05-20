@@ -8,23 +8,22 @@ export const Wrapper = styled.div`
   width: calc(100% + 30px);
   flex-wrap: wrap;
   margin-top: 10px;
-  margin-left: 1px;
 `
-export const Block = styled.div<TActive>`
+export const Block = styled.div`
+  margin-right: 12px;
+`
+export const BallWrapper = styled.div<TActive>`
+  ${css.size(36)};
   ${css.flex('align-both')};
   border-radius: 100%;
-  /* position: relative; */
-  border: 1px solid;
+  border: 1.5px solid;
   border-color: ${({ $active }) =>
     $active ? theme('thread.articleTitle') : 'transparent'};
   padding: 3px;
   background: ${({ $active }) => ($active ? theme('border') : 'transparent')};
-
-  margin-right: ${({ $active }) => ($active ? '13px' : '12px')};
   margin-bottom: 10px;
 
   &:hover {
-    border-color: ${theme('thread.articleTitle')};
     background: ${theme('border')};
     cursor: pointer;
   }

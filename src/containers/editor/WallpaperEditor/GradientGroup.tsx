@@ -4,7 +4,7 @@ import { keys } from 'ramda'
 import type { TWallpaperGradient } from '@/spec'
 import { parseWallpaper } from '@/utils/wallpaper'
 
-import { Wrapper, Block, ColorBall } from './styles/gradient_group'
+import { Wrapper, Block, BallWrapper, ColorBall } from './styles/gradient_group'
 
 import { setWallpaper } from './logic'
 
@@ -19,15 +19,16 @@ const PicGroup: FC<TProps> = ({ wallpaper, gradientWallpapers }) => {
   return (
     <Wrapper>
       {gradientKeys.map((name) => (
-        <Block
-          key={name}
-          $active={name === wallpaper}
-          onClick={() => setWallpaper(name)}
-        >
-          <ColorBall
+        <Block key={name}>
+          <BallWrapper
             $active={name === wallpaper}
-            background={parseWallpaper(gradientWallpapers, name).background}
-          />
+            onClick={() => setWallpaper(name)}
+          >
+            <ColorBall
+              $active={name === wallpaper}
+              background={parseWallpaper(gradientWallpapers, name).background}
+            />
+          </BallWrapper>
         </Block>
       ))}
     </Wrapper>
