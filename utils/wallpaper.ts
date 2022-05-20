@@ -13,7 +13,12 @@ export const parseWallpaper = (name: string): TWallpaperFmt => {
   return _parseWallpaper(WALLPAPER[name])
 }
 
-export const holder = 1
+export const parseWallpaper2 = (
+  wallpapers: Record<string, TWallpaper>,
+  name: string,
+): TWallpaperFmt => {
+  return _parseWallpaper(wallpapers[name])
+}
 
 /**
  * parse wallpaper both for gradient and picture background

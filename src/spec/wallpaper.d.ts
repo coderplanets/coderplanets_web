@@ -13,9 +13,7 @@ export type TWallpaperGradient = {
 export type TWallpaperPic = {
   bgImage?: string
   bgColor?: string
-  bgSize?: 'contain' | 'cover' | 'auto'
-  // for ts check
-  colors?: string[]
+  bgSize?: string // 'contain' | 'cover' | 'auto'
 }
 
-export type TWallpaper = TWallpaperGradient | TWallpaperPic
+export type TWallpaper = TWallpaperGradient & TWallpaperPic

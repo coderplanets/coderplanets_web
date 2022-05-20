@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
 import type { TWallpaper } from '@/spec'
-import { parseWallpaper } from '@/utils/wallpaper'
+import { parseWallpaper2 } from '@/utils/wallpaper'
 
 import { Wrapper, Block, ColorBall } from './styles/gradient_group'
 
@@ -24,7 +24,9 @@ const PicGroup: FC<TProps> = ({ wallpaper, gradientWallpapers }) => {
           $active={name === wallpaper}
           onClick={() => setWallpaper(name)}
         >
-          <ColorBall background={parseWallpaper(name).background} />
+          <ColorBall
+            background={parseWallpaper2(gradientWallpapers, name).background}
+          />
         </Block>
       ))}
     </Wrapper>

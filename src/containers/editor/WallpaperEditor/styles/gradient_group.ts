@@ -10,16 +10,13 @@ export const Wrapper = styled.div`
   margin-top: 10px;
   margin-left: 1px;
 `
-
 export const Block = styled.div<TActive>`
-  /* ${css.circle(35)}; */
   ${css.flex('align-both')};
   border-radius: 100%;
   /* position: relative; */
-  border: 2px solid;
+  border: 1.5px solid;
   border-color: ${({ $active }) =>
     $active ? theme('thread.articleDigest') : 'transparent'};
-  /* padding: ${({ $active }) => ($active ? '3px' : '2px')}; */
   padding: 3px;
   margin-right: 12px;
   margin-bottom: 10px;

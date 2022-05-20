@@ -56,11 +56,11 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // load debug graph
   useInit(store, { isMobile })
 
-  const { accountInfo, sidebarPin, curCommunity, wallpaper } = store
+  const { accountInfo, sidebarPin, curCommunity, wallpaper, wallpapers } = store
 
   return (
     <ThemePalette>
-      <Wallpaper wallpaper={wallpaper} />
+      <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers} />
       <Wrapper>
         <SEO metric={metric} config={seoConfig} />
         <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
