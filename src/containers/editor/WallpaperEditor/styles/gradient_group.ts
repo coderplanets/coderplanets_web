@@ -14,7 +14,7 @@ export const Block = styled.div<TActive>`
   ${css.flex('align-both')};
   border-radius: 100%;
   /* position: relative; */
-  border: 1.5px solid;
+  border: 1px solid;
   border-color: ${({ $active }) =>
     $active ? theme('thread.articleDigest') : 'transparent'};
   padding: 3px;

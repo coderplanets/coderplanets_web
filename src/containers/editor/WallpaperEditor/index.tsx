@@ -9,6 +9,8 @@ import { FC } from 'react'
 import { bond } from '@/utils/mobx'
 import { VIEW, DRAWER_SCROLLER } from '@/constant'
 
+import { Br } from '@/widgets/Common'
+import Checker from '@/widgets/Checker'
 import { Tabs } from '@/widgets/Switcher'
 import CustomScroller from '@/widgets/CustomScroller'
 import Button from '@/widgets/Buttons/Button'
@@ -18,9 +20,18 @@ import type { TStore } from './store'
 import PicGroup from './PicGroup'
 import GradientGroup from './GradientGroup'
 
-import { Wrapper, Banner, BannerTitle, Content, Title, Footer } from './styles'
+import {
+  Wrapper,
+  Banner,
+  BannerTitle,
+  Content,
+  Title,
+  SettingWrapper,
+  Footer,
+  ConfirmBtn,
+} from './styles'
 
-import { useInit } from './logic' /* eslint-disable-next-line */
+import { useInit, togglePattern } from './logic'
 
 const TAB_OPTIONS = [
   {
@@ -45,9 +56,8 @@ const WallpaperEditorContainer: FC<TProps> = ({
   testid = 'wallpaper-editor',
 }) => {
   useInit(store)
-  const { wallpaper, gradientWallpapers, patternWallpapers } = store
-
-  console.log('>> gradientWallpapers---> ', gradientWallpapers)
+  const { wallpaper, gradientWallpapers, patternWallpapers, hasPattern } = store
+  console.log('bbb hasPattern -> ', hasPattern)
 
   return (
     <Wrapper testid={testid}>
@@ -67,7 +77,7 @@ const WallpaperEditorContainer: FC<TProps> = ({
         instanceKey={DRAWER_SCROLLER}
         direction="vertical"
         height="calc(100vh - 226px)"
-        barSize="medium"
+        barSize="small"
         showShadow={false}
         autoHide={false}
       >
@@ -77,23 +87,30 @@ const WallpaperEditorContainer: FC<TProps> = ({
             wallpaper={wallpaper}
             patternWallpapers={patternWallpapers}
           />
-          <br />
+          <Br top={20} />
           <Title>纯色渐变:</Title>
           <GradientGroup
             wallpaper={wallpaper}
             gradientWallpapers={gradientWallpapers}
           />
-          <br />
-          <br />
-          <div>叠加花纹</div>
-          <div>模糊效果</div>
+          <Br top={25} />
+          <Title>附加效果:</Title>
+          <SettingWrapper>
+            <Br top={20} />
+            <Checker checked={hasPattern} onChange={togglePattern}>
+              叠加花纹
+            </Checker>
+            <Br top={10} />
+            <Checker checked={false}>模糊效果</Checker>
+            <Br top={50} />
+          </SettingWrapper>
         </Content>
       </CustomScroller>
       <Footer>
         <Button size="small" ghost noBorder>
           不设背景
         </Button>
-        <Button size="medium">确定</Button>
+        <ConfirmBtn size="small">确定</ConfirmBtn>
       </Footer>
     </Wrapper>
   )

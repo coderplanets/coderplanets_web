@@ -15,6 +15,13 @@ export const setWallpaper = (wallpaper: string): void => {
   store.mark({ wallpaper })
 }
 
+/**
+ * toggle pattern mark only for gradient backgrounds
+ */
+export const togglePattern = (hasPattern: boolean): void => {
+  store.mark({ hasPattern })
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################

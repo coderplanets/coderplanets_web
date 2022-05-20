@@ -22,21 +22,23 @@ export const Wrapper = styled.div<TWrapper>`
 `
 export const IconWrapper = styled.div<TItem>`
   position: relative;
-  background: ${({ checked }) => (checked ? '#0d3d4e' : '#0b2631')};
+  background: ${({ checked }) =>
+    checked ? theme('thread.articleDigest') : 'transparent'};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   ${css.flex('align-both')};
 
   border: ${({ disabled }) => (!disabled ? '1px solid' : 'none')};
 
-  border-color: ${({ checked }) => (checked ? '#246b8c' : '#1c5975')};
+  border-color: ${({ checked }) =>
+    checked ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   border-radius: ${({ size }) => getBorderRadius(size)};
 
   transition: all 0.2s;
 `
 export const CheckIcon = styled(CheckedSVG)<TItem>`
   position: absolute;
-  fill: #327faf;
+  fill: ${({ checked }) => (checked ? 'white' : 'none')};
   display: ${({ checked }) => (checked ? 'block' : 'none')};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
@@ -48,7 +50,7 @@ export const ChildWrapper = styled.div<TItem>`
   color: ${({ checked }) =>
     checked ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: ${({ size }) => getFontSize(size)};
-  margin-left: 6px;
+  margin-left: 8px;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
