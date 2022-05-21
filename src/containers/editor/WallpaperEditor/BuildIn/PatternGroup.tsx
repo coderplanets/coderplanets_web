@@ -9,16 +9,16 @@ import {
   Image,
   ActiveSign,
   CheckIcon,
-} from './styles/pic_group'
+} from '../styles/build_in/pattern_group'
 
-import { setWallpaper } from './logic'
+import { changeWallpaper } from '../logic'
 
 type TProps = {
   wallpaper: string
   patternWallpapers: Record<string, TWallpaperPic>
 }
 
-const PicGroup: FC<TProps> = ({ wallpaper, patternWallpapers }) => {
+const PatternGroup: FC<TProps> = ({ wallpaper, patternWallpapers }) => {
   const patternKeys = keys(patternWallpapers)
 
   return (
@@ -32,7 +32,7 @@ const PicGroup: FC<TProps> = ({ wallpaper, patternWallpapers }) => {
           )}
           <Image
             src={patternWallpapers[name].bgImage}
-            onClick={() => setWallpaper(name)}
+            onClick={() => changeWallpaper(name)}
           />
         </Block>
       ))}
@@ -40,4 +40,4 @@ const PicGroup: FC<TProps> = ({ wallpaper, patternWallpapers }) => {
   )
 }
 
-export default memo(PicGroup)
+export default memo(PatternGroup)

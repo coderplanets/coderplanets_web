@@ -9,19 +9,13 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   position: relative;
   height: 100%;
 `
-export const Banner = styled.div`
-  padding: 20px 30px;
-`
 export const Title = styled.div`
-  font-size: 17px;
-  color: ${theme('thread.articleTitle')};
+  font-size: 14px;
+  color: ${theme('thread.articleDigest')};
   font-weight: bold;
   margin-bottom: 16px;
   margin-left: 2px;
 `
-export const Content = styled.div`
-  padding: 0 30px;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+export const SettingWrapper = styled.div`
+  margin-left: 3px;
 `

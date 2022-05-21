@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { buildLog } from '@/utils/logger'
 
 // import S from './schma'
+import type { TTab } from './spec'
 import type { TStore } from './store'
 
 let store: TStore | undefined
@@ -11,7 +12,11 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:WallpaperEditor')
 
-export const setWallpaper = (wallpaper: string): void => {
+export const changeTab = (tab: TTab): void => {
+  store.mark({ tab })
+}
+
+export const changeWallpaper = (wallpaper: string): void => {
   store.mark({ wallpaper })
 }
 

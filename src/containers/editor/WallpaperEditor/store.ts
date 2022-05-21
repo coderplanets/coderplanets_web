@@ -3,7 +3,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { keys, clone, forEach } from 'ramda'
+import { keys, values, clone, forEach, pick } from 'ramda'
 
 import { GRADIENT_WALLPAPER, PATTERN_WALLPAPER } from '@/constant'
 import type {
@@ -18,10 +18,14 @@ import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 import { getWallpaperType } from '@/utils/wallpaper'
 
+import type { TWallpaperData } from './spec'
+import { TAB } from './constant'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:WallpaperEditor')
 
 const WallpaperEditor = T.model('WallpaperEditor', {
+  tab: T.optional(T.enumeration(values(TAB)), TAB.BUILDIN),
   wallpaper: T.optional(T.string, 'green'),
 
   // for gradient colors
@@ -72,9 +76,26 @@ const WallpaperEditor = T.model('WallpaperEditor', {
         ...slf.patternWallpapers,
       }
     },
+
     get wallpaperType(): TWallpaperType {
       const slf = self as TStore
       return getWallpaperType(slf.wallpaper)
+    },
+
+    get wallpaperData(): TWallpaperData {
+      const slf = self as TStore
+
+      return pick(
+        [
+          'wallpaper',
+          'patternWallpapers',
+          'gradientWallpapers',
+          'wallpaperType',
+          'hasPattern',
+          'hasBlur',
+        ],
+        slf,
+      )
     },
   }))
   .actions((self) => ({

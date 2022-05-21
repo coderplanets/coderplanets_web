@@ -85,7 +85,7 @@ export const GRADIENT_WALLPAPER = {
     ...DEFAULT_GRADIENT_EFFECT,
   },
   cyan: {
-    colors: ['#6EC0C2', '#222937'],
+    colors: ['#568A79', '#295054'],
     ...DEFAULT_GRADIENT_EFFECT,
   },
   red: {

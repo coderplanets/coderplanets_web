@@ -3,48 +3,23 @@
  *
  */
 
-import { FC, Fragment } from 'react'
+import { FC } from 'react'
 
-// import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
-import { VIEW, DRAWER_SCROLLER, WALLPAPER_TYPE } from '@/constant'
+import { VIEW, DRAWER_SCROLLER } from '@/constant'
 
-import { Br } from '@/widgets/Common'
-import Checker from '@/widgets/Checker'
 import { Tabs } from '@/widgets/Switcher'
 import CustomScroller from '@/widgets/CustomScroller'
-import Button from '@/widgets/Buttons/Button'
 
 import type { TStore } from './store'
+import { TAB, TAB_OPTIONS } from './constant'
 
-import PicGroup from './PicGroup'
-import GradientGroup from './GradientGroup'
+import BuildIn from './BuildIn'
+import Custom from './Custom'
+import Footer from './Footer'
 
-import {
-  Wrapper,
-  Banner,
-  BannerTitle,
-  Content,
-  Title,
-  SettingWrapper,
-  Footer,
-  ConfirmBtn,
-} from './styles'
-
-import { useInit, togglePattern, toggleBlur } from './logic'
-
-const TAB_OPTIONS = [
-  {
-    title: '内置壁纸',
-    raw: 'buildin',
-    localIcon: 'settings',
-  },
-  {
-    title: '上传壁纸',
-    raw: 'custom',
-    localIcon: 'settings',
-  },
-]
+import { Wrapper, Banner, Title, Content } from './styles'
+import { useInit, changeTab } from './logic'
 
 type TProps = {
   wallpaperEditor?: TStore
@@ -56,27 +31,18 @@ const WallpaperEditorContainer: FC<TProps> = ({
   testid = 'wallpaper-editor',
 }) => {
   useInit(store)
-  const {
-    wallpaper,
-    wallpaperType,
-    gradientWallpapers,
-    patternWallpapers,
-    hasPattern,
-    hasBlur,
-  } = store
+  const { tab, wallpaperData } = store
 
   return (
     <Wrapper testid={testid}>
       <Banner>
-        <BannerTitle>壁纸设置</BannerTitle>
-        <div>
-          <Tabs
-            items={TAB_OPTIONS}
-            activeKey="buildin"
-            onChange={console.log}
-            view={VIEW.DRAWER}
-          />
-        </div>
+        <Title>壁纸设置</Title>
+        <Tabs
+          items={TAB_OPTIONS}
+          activeKey={tab}
+          onChange={changeTab}
+          view={VIEW.DRAWER}
+        />
       </Banner>
 
       <CustomScroller
@@ -88,45 +54,11 @@ const WallpaperEditorContainer: FC<TProps> = ({
         autoHide={false}
       >
         <Content>
-          <Title>图案:</Title>
-          <PicGroup
-            wallpaper={wallpaper}
-            patternWallpapers={patternWallpapers}
-          />
-          <Br top={20} />
-          <Title>纯色渐变:</Title>
-          <GradientGroup
-            wallpaper={wallpaper}
-            gradientWallpapers={gradientWallpapers}
-          />
-          <Br top={25} />
-          <Title>附加效果:</Title>
-          <SettingWrapper>
-            {wallpaperType === WALLPAPER_TYPE.GRADIENT && (
-              <Fragment>
-                <Br top={20} />
-                <Checker checked={hasPattern} onChange={togglePattern}>
-                  叠加印纹
-                </Checker>
-              </Fragment>
-            )}
-
-            <Br top={10} />
-            <Checker checked={hasBlur} onChange={toggleBlur}>
-              模糊效果
-            </Checker>
-            <Br top={50} />
-          </SettingWrapper>
+          {tab === TAB.BUILDIN && <BuildIn wallpaperData={wallpaperData} />}
+          {tab === TAB.CUSTOM && <Custom />}
         </Content>
       </CustomScroller>
-      <Footer>
-        <Button size="small" ghost noBorder>
-          不设背景
-        </Button>
-        <ConfirmBtn size="small" space={13}>
-          确定
-        </ConfirmBtn>
-      </Footer>
+      <Footer />
     </Wrapper>
   )
 }
