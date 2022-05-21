@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import { theme } from '@/utils/css'
+import css, { theme } from '@/utils/css'
+import { LineDivider } from '@/widgets/Common'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -17,5 +18,19 @@ export const Title = styled.div`
   margin-left: 2px;
 `
 export const SettingWrapper = styled.div`
+  ${css.flex()};
   margin-left: 3px;
+`
+export const Divider = styled(LineDivider)`
+  height: 70px;
+  margin-left: 10px;
+  margin-right: 65px;
+  opacity: 0.3;
+  margin-top: 30px;
+`
+export const GeneralSettings = styled.div`
+  width: 45%;
+`
+export const AngleSettings = styled.div`
+  margin-top: -1px;
 `

@@ -31,7 +31,7 @@ const WallpaperEditor = T.model('WallpaperEditor', {
   // for gradient colors
   hasPattern: T.optional(T.boolean, true),
   hasBlur: T.optional(T.boolean, false),
-  direction: T.optional(T.string, 'to bottom'),
+  direction: T.optional(T.string, 'bottom'),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
@@ -63,6 +63,7 @@ const WallpaperEditor = T.model('WallpaperEditor', {
 
         wallpaperObj.hasPattern = slf.hasPattern
         wallpaperObj.hasBlur = slf.hasBlur
+        wallpaperObj.direction = slf.direction
       }, paperKeys)
 
       return wallpapers
@@ -93,6 +94,7 @@ const WallpaperEditor = T.model('WallpaperEditor', {
           'wallpaperType',
           'hasPattern',
           'hasBlur',
+          'direction',
         ],
         slf,
       )

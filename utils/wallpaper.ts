@@ -41,7 +41,8 @@ const _parseGradientBackground = (
 ): TWallpaperFmt => {
   const DIR = '/wallpaper'
   const { direction, hasPattern, hasBlur } = gradient
-  let background = `linear-gradient(${direction}, ${gradient.colors.join(',')})`
+  const colors = gradient.colors.join(',')
+  let background = `linear-gradient(to ${direction}, ${colors})`
 
   const patternPic = `${DIR}/patterns/1.png`
   background = hasPattern

@@ -16,6 +16,10 @@ export const changeTab = (tab: TTab): void => {
   store.mark({ tab })
 }
 
+export const changeDirection = (direction: string): void => {
+  store.mark({ direction })
+}
+
 export const changeWallpaper = (wallpaper: string): void => {
   store.mark({ wallpaper })
 }
