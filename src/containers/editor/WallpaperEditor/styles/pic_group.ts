@@ -22,13 +22,15 @@ export const Block = styled.div<TActive>`
   border: 2px solid;
   border-color: ${({ $active }) =>
     $active ? theme('thread.articleTitle') : 'transparent'};
+  opacity: ${({ $active }) => ($active ? 1 : 0.85)};
 
   &:hover {
     border-color: ${theme('thread.articleTitle')};
     cursor: pointer;
+    opacity: 0.85;
   }
 
-  transition: border-color 0.1s linear;
+  transition: all 0.2s linear;
 `
 export const Image = styled(Img)`
   width: 100%;

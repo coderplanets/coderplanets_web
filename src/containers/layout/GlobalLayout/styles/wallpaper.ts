@@ -10,6 +10,7 @@ export const Wrapper = styled.div<{ effect: string }>`
   /* see https://www.zhangxinxu.com/wordpress/2015/11/css3-will-change-improve-paint/ */
   will-change: transform;
   ${({ effect }) => effect || ''};
+  transition: all 0.25s;
 `
 
 export const holder = 1
