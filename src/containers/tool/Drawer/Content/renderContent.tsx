@@ -41,6 +41,7 @@ const renderContent = (
       return <C11NSettingPanel />
 
     case TYPE.DRAWER.CUSTOM_BG_EDITOR:
+      // @ts-ignore
       return <WallpaperEditor />
 
     case TYPE.DRAWER.MODELINE_MENU:
