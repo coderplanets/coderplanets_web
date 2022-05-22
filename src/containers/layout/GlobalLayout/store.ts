@@ -5,7 +5,13 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import type { TRootStore, TAccount, TC11N, TCommunity } from '@/spec'
+import type {
+  TRootStore,
+  TAccount,
+  TC11N,
+  TCommunity,
+  TWallpaper,
+} from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 
 const Platform = T.model('Platform', {
@@ -40,6 +46,14 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
     get sidebarPin(): boolean {
       const root = getParent(self) as TRootStore
       return root.sidebar.pin
+    },
+    get wallpaper(): string {
+      const root = getParent(self) as TRootStore
+      return root.wallpaperEditor.wallpaper
+    },
+    get wallpapers(): Record<string, TWallpaper> {
+      const root = getParent(self) as TRootStore
+      return root.wallpaperEditor.wallpapers
     },
   }))
   .actions((self) => ({

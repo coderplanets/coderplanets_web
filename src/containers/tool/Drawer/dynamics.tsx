@@ -83,3 +83,11 @@ export const C11NSettingPanel = dynamic(
     ssr: false,
   },
 )
+
+export const WallpaperEditor = dynamic(
+  () => import('@/containers/editor/WallpaperEditor'),
+  {
+    loading: () => <CommonLoading />,
+    ssr: false,
+  },
+)

@@ -24,7 +24,7 @@ import Header from '@/widgets/Header'
 
 import type { TStore } from './store'
 import SEO from './SEO'
-import CustomBg from './CustomBg'
+import Wallpaper from './Wallpaper'
 
 import { CustomScroller, Footer, ModeLine } from './dynamic'
 
@@ -56,11 +56,11 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // load debug graph
   useInit(store, { isMobile })
 
-  const { accountInfo, sidebarPin, curCommunity } = store
+  const { accountInfo, sidebarPin, curCommunity, wallpaper, wallpapers } = store
 
   return (
     <ThemePalette>
-      <CustomBg />
+      <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers} />
       <Wrapper>
         <SEO metric={metric} config={seoConfig} />
         <InnerWrapper metric={metric} sidebarPin={sidebarPin}>

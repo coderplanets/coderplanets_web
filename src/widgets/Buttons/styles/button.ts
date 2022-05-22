@@ -17,6 +17,8 @@ export const Wrapper = styled.button<TButton>`
   ${css.flex('align-both')};
   -webkit-appearance: button;
   outline: none;
+  // otherwise the slim effect will appear outside
+  overflow: hidden;
 
   line-height: 1.5;
   text-align: center;
