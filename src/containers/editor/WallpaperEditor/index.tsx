@@ -58,7 +58,7 @@ const WallpaperEditorContainer: FC<TProps> = ({
           {tab === TAB.CUSTOM && <Custom />}
         </Content>
       </CustomScroller>
-      <Footer />
+      <Footer wallpaperType={wallpaperData.wallpaperType} />
     </Wrapper>
   )
 }

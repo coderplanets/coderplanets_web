@@ -1,4 +1,4 @@
-import { keys, includes } from 'ramda'
+import { isEmpty, keys, includes } from 'ramda'
 import { PATTERN_WALLPAPER, WALLPAPER_TYPE } from '@/constant'
 
 import type {
@@ -16,13 +16,20 @@ export const parseWallpaper = (
   wallpapers: Record<string, TWallpaper>,
   name: string,
 ): TWallpaperFmt => {
+  if (isEmpty(name)) {
+    return {
+      effect: '',
+      background: '',
+    }
+  }
+
   return _parseWallpaper(wallpapers[name])
 }
 
 export const getWallpaperType = (name: string): TWallpaperType => {
-  if (includes(name, keys(PATTERN_WALLPAPER))) {
-    return WALLPAPER_TYPE.PATTERN
-  }
+  if (isEmpty(name)) return WALLPAPER_TYPE.NONE
+  if (includes(name, keys(PATTERN_WALLPAPER))) return WALLPAPER_TYPE.PATTERN
+
   return WALLPAPER_TYPE.GRADIENT
 }
 

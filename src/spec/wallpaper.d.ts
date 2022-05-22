@@ -19,4 +19,4 @@ export type TWallpaperPic = {
 
 export type TWallpaper = TWallpaperGradient | TWallpaperPic
 
-export type TWallpaperType = 'pattern' | 'gradient' | 'custom'
+export type TWallpaperType = 'pattern' | 'gradient' | 'custom' | 'none'

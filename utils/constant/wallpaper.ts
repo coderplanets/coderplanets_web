@@ -6,6 +6,7 @@ export const WALLPAPER_TYPE = {
   PATTERN: 'pattern',
   GRADIENT: 'gradient',
   CUSTOM: 'custom',
+  NONE: 'none',
 } as Record<Uppercase<TWallpaperType>, TWallpaperType>
 
 export const PATTERN_WALLPAPER = {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
 import { LineDivider } from '@/widgets/Common'
 
@@ -17,8 +17,9 @@ export const Title = styled.div`
   margin-bottom: 16px;
   margin-left: 2px;
 `
-export const SettingWrapper = styled.div`
+export const SettingWrapper = styled.div<TActive>`
   ${css.flex()};
+  display: ${({ show }) => (show ? 'flex' : 'none')};
   margin-left: 3px;
 `
 export const Divider = styled(LineDivider)`

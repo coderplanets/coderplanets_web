@@ -54,7 +54,7 @@ const BuildIn: FC<TProps> = ({ wallpaperData }) => {
         gradientWallpapers={gradientWallpapers}
       />
       <Br top={25} />
-      <SettingWrapper>
+      <SettingWrapper show={wallpaperType !== WALLPAPER_TYPE.NONE}>
         <GeneralSettings>
           <Title>附加效果:</Title>
           {wallpaperType === WALLPAPER_TYPE.GRADIENT && (
