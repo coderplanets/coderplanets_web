@@ -43,7 +43,6 @@ export const Needle = styled.div<{ direction: string }>`
 
   transform: ${({ direction }) => `rotate(${metric[direction].rotate}) `};
   transform-origin: right;
-  transition: all 0.4s;
 `
 const Point = styled.div<TActive>`
   position: absolute;

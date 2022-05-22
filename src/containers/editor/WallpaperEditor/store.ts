@@ -104,6 +104,9 @@ const WallpaperEditor = T.model('WallpaperEditor', {
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
+    reset(): void {
+      self.tab = TAB.BUILDIN
+    },
   }))
 
 export type TStore = Instance<typeof WallpaperEditor>
