@@ -30,7 +30,7 @@ const TagItem: FC<TProps> = ({ tag, active, onSelect }) => {
         <DotSign color={tag.color} $active={active} />
       </DotWrapper>
       <Tag $active={active} color={tag.color} onClick={() => onSelect(tag)}>
-        <Title color={tag.color}>{cutRest(Trans(tag.title), 10)}</Title>
+        <Title>{cutRest(Trans(tag.title), 10)}</Title>
         <RawWrapper $active={active}>
           {/* <DotDivider radius={2} space={6} /> */}
           <Raw>{tag.raw}</Raw>

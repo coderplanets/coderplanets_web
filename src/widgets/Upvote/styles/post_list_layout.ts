@@ -12,13 +12,16 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TInnerWrapper>`
   ${css.flexColumn('align-both')};
   margin-left: -11px;
-  margin-top: 2px;
+  margin-top: 1px;
 `
 export const UpWrapper = styled.div`
-  margin-left: 7px;
-  transform: scale(0.95);
+  margin-left: 8px;
+  transform: scale(0.9);
 `
 export const CountWrapper = styled.div`
+  min-width: 18px;
+  text-align: center;
+
   margin-top: -6px;
-  margin-left: 2px;
+  margin-left: 3px;
 `

@@ -16,7 +16,7 @@ export const Wrapper = styled.div<TTag>`
   max-width: 180px;
   border-radius: 5px;
 
-  background: ${({ $active }) => (!$active ? 'transparent' : '#0e303d')};
+  background: ${({ $active }) => (!$active ? 'transparent' : theme('hoverBg'))};
 
   &:hover {
     background: ${theme('textBadge')}; // to-theme
@@ -69,10 +69,8 @@ export const Tag = styled.div<TTag>`
   width: 100%;
   font-size: 14px;
   padding-left: 4px;
-  color: ${({ color, $active }) =>
-    !$active ? theme('tags.text') : theme(`baseColor.${color.toLowerCase()}`)};
 
-  /* color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)}; */
+  font-weight: ${({ $active }) => (!$active ? 'bold' : 'normal')};
 
   ${Wrapper}:hover & {
     cursor: pointer;
@@ -80,10 +78,10 @@ export const Tag = styled.div<TTag>`
 
   transition: all 0.1s;
 `
-export const Title = styled.div<THashSign>`
+export const Title = styled.div`
   letter-spacing: 1px;
   font-weight: 400;
-  color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
+  color: ${theme('tags.text')};
   filter: saturate(0);
 
   ${Wrapper}:hover & {
