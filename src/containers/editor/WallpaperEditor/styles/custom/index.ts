@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
-  ${css.flex()};
+  ${css.flexColumn()};
+  margin-top: 15px;
 `
-
-export const Title = styled.div``
+export const holder = 1
