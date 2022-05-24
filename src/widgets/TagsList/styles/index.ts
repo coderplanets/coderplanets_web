@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TSIZE_TSM, TSpace } from '@/spec'
 import css, { theme } from '@/utils/css'
 
-import { getIconSize, getTitleSize } from './metric'
+import { getIconSize, getTitleSize, getInnerSpace } from './metric'
 
 export const Wrapper = styled.div<TSpace>`
   ${css.flex('align-center')};
@@ -26,6 +26,7 @@ export const DotSign = styled.div<THashSign>`
   background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
   ${({ size }) => css.circle(getIconSize(size))};
   margin-right: 2px;
+  margin-right: ${({ size }) => `${getInnerSpace(size)}px`};
 `
 export const LabelDotSign = styled.div<THashSign>`
   background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};

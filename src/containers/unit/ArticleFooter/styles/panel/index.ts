@@ -21,7 +21,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const TabsWrapper = styled.div`
   position: absolute;
   top: -36px;
-  left: -15px;
+  left: -14px;
 `
 export const ReportWrapper = styled.div`
   position: absolute;
