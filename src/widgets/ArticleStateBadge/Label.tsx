@@ -19,11 +19,11 @@ type TProps = Pick<
 const Label: FC<TProps> = ({ type, kanbanLayout, articleInfoLayout }) => {
   switch (type) {
     case AS_TYPE.FEATURE: {
-      return <Wrapper kanbanLayout={kanbanLayout}>功能需求</Wrapper>
+      return <Wrapper kanbanLayout={kanbanLayout}>功能建议</Wrapper>
     }
 
     case AS_TYPE.BUG: {
-      return <BugWrapper kanbanLayout={kanbanLayout}>缺陷/吐槽</BugWrapper>
+      return <BugWrapper kanbanLayout={kanbanLayout}>Bug/吐槽</BugWrapper>
     }
 
     case AS_TYPE.QUESTION: {

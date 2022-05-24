@@ -109,6 +109,7 @@ export type {
   TPagedComments,
   TArticleFilter,
   TCopyright,
+  TArticleCat,
   TUpvoteLayout,
   TCommentsState,
   TWorksTab,

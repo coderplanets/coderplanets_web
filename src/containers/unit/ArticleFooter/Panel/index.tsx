@@ -37,7 +37,7 @@ type TProps = {
 
 export const TAB_ITEMS = [
   {
-    title: '关于作者',
+    title: '帖作者',
     raw: 'author-info',
   },
   {

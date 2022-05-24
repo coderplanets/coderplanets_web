@@ -6,22 +6,20 @@
 
 import { FC, useState } from 'react'
 
-import type { TCopyright, TMetric } from '@/spec'
+import type { TArticleCat, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import Copyright from '@/widgets/Copyright'
+import ArticleCatLabel from '@/widgets/ArticleCatLabel'
 import { SpaceGrow } from '@/widgets/Common'
+import TagsList from '@/widgets/TagsList'
 
-// import TagList from '@/widgets/TagList'
-
-import TagList from './TagList'
 import Panel from './Panel'
 
 import type { TStore } from './store'
-import { Wrapper, BaseInfo } from './styles'
+import { Wrapper, BaseInfo, CatLabelWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -42,18 +40,20 @@ const ArticleFooterContainer: FC<TProps> = ({
   const { viewingArticle } = store
   const { author, articleTags } = viewingArticle
 
-  const [copyright, setCopyright] = useState('cc')
+  const [cat, setCat] = useState('feature')
 
   return (
     <Wrapper testid={testid}>
       <BaseInfo>
-        <TagList items={articleTags} />
-        <Copyright
-          type={copyright as TCopyright}
-          mode="readonly"
-          onChange={(key) => setCopyright(key)}
-        />
-        <SpaceGrow />
+        <TagsList items={articleTags} size="small" />
+        <CatLabelWrapper>
+          <ArticleCatLabel
+            type={cat as TArticleCat}
+            mode="readonly"
+            onChange={(key) => setCat(key)}
+          />
+        </CatLabelWrapper>
+        <div>Emoji</div>
       </BaseInfo>
 
       <Panel author={author} />

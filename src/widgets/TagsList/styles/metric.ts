@@ -13,8 +13,28 @@ export const getIconSize = (size: TSIZE_TSM): number => {
   }
 }
 
+export const getInnerSpace = (size: TSIZE_TSM): number => {
+  switch (size) {
+    case SIZE.SMALL: {
+      return 4
+    }
+
+    case SIZE.MEDIUM: {
+      return 6
+    }
+
+    default: {
+      return 2
+    }
+  }
+}
+
 export const getTitleSize = (size: TSIZE_TSM): string => {
   switch (size) {
+    case SIZE.SMALL: {
+      return '12px'
+    }
+
     case SIZE.MEDIUM: {
       return '13px'
     }

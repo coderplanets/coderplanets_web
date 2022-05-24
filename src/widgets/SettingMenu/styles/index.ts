@@ -17,16 +17,16 @@ export const Option = styled.div<TActive>`
   position: relative;
   padding: 10px 15px;
   padding-left: 40px;
-  background: ${({ $active }) => ($active ? '#0d3b4a' : 'transparent')};
+  background: ${({ $active }) => ($active ? theme('hoverBg') : 'transparent')};
 
   &:hover {
     cursor: pointer;
-    background: #0d3b4a;
+    background: ${theme('hoverBg')};
   }
 `
 export const ActiveDot = styled.div`
   ${css.circle(6)};
-  background: #107eae;
+  background: ${theme('thread.extraInfo')};
   position: absolute;
   left: 20px;
   top: 18px;
