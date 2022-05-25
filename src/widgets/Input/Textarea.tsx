@@ -35,6 +35,7 @@ const Textarea: FC<TProps> = ({
       onChange={handleOnChange}
       minRows={1}
       spellCheck="false"
+      // @ts-ignore
       {...validProps}
     />
   )

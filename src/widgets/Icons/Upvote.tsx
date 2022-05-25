@@ -1,6 +1,6 @@
 import { memo, SVGProps } from 'react'
 
-const Upvote = (props: SVGProps<SVGSVGElement>) => {
+const SVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       className="icon"
@@ -15,4 +15,4 @@ const Upvote = (props: SVGProps<SVGSVGElement>) => {
   )
 }
 
-export default memo(Upvote)
+export default memo(SVG)
