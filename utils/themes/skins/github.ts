@@ -54,6 +54,7 @@ const github = {
   bodyBg: contentBg,
   selectionBg: '#FFFEDE',
   textBadge: '#f6f6f6',
+  lightText: '#949494',
 
   gtdBadge: {
     feat: '#3871e0',
