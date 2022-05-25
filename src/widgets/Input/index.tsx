@@ -79,6 +79,7 @@ const Input: FC<TProps> = ({
         hasPrefix={!nilOrEmpty(prefixIcon)}
         hasSuffix={!nilOrEmpty(suffixIcon)}
         autoFocus={autoFocus}
+        // @ts-ignore
         {...validProps}
       />
       <SuffixWrapper show={!nilOrEmpty(suffixIcon)}>
