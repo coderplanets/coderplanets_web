@@ -41,7 +41,7 @@ export type TProps = {
   noPadding?: boolean
   showArrow?: boolean
   behavior?: 'default' | 'confirm' | 'delete-confirm' | 'add'
-  // currently only for AvatarsGroup, it will collapse the height
+  // currently only for Facepile, it will collapse the height
   // for same reason, figure out later
   contentHeight?: string
 

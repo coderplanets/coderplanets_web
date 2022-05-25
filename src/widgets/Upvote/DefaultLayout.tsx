@@ -11,7 +11,7 @@ import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import { Space } from '@/widgets/Common'
-import AvatarsGroup from '@/widgets/AvatarsGroup'
+import Facepile from '@/widgets/Facepile'
 
 import UpvoteBtn from './UpvoteBtn'
 import Desc from './Desc'
@@ -60,9 +60,7 @@ const Upvote: FC<TProps> = ({
       <Space right={3} />
       <Count noOne={noOne}>{count}</Count>
       {!noOne && <LineDivider />}
-      {!noOne && !isMobile && (
-        <AvatarsGroup users={avatarList} showMore={false} />
-      )}
+      {!noOne && !isMobile && <Facepile users={avatarList} showMore={false} />}
       {!noOne && (
         <Desc
           noOne={noOne}

@@ -5,7 +5,7 @@ import type { TPost } from '@/spec'
 
 import { callWallpaperEditor } from '@/utils/helper'
 
-import AvatarsGroup from '@/widgets/AvatarsGroup'
+import Facepile from '@/widgets/Facepile'
 // import TagsList from '@/widgets/TagsList'
 
 import {
@@ -37,7 +37,7 @@ const Header: FC<TProps> = ({ item }) => {
         <TagsList items={item.articleTags} left={12} />
       </Brief>
       <AvatarsWrapper>
-        <AvatarsGroup
+        <Facepile
           users={item.commentsParticipants}
           total={item.commentsCount}
         />
