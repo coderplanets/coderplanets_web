@@ -3,7 +3,10 @@ import { FC, memo } from 'react'
 import type { TPost } from '@/spec'
 import useViewing from '@/hooks/useViewing'
 
-import { Wrapper, ViewIcon } from '../styles/desktop_view/viewing_sign'
+import {
+  Wrapper,
+  ViewIcon,
+} from '../../styles/comment_fist_layout/desktop_view/viewing_sign'
 
 type TProps = {
   article: TPost

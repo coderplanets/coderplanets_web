@@ -13,7 +13,7 @@ import {
   Brief,
   Title,
   AvatarsWrapper,
-} from '../styles/desktop_view/header'
+} from '../../styles/comment_fist_layout/desktop_view/header'
 
 const TagsList = dynamic(() => import('@/widgets/TagsList'), {
   ssr: false,

@@ -6,7 +6,7 @@ import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
 
-import { Wrapper } from '../styles/mobile_view'
+import { Wrapper } from '../../styles/comment_fist_layout/mobile_view'
 
 type TProps = {
   entry: TPost

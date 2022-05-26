@@ -6,7 +6,11 @@ import { SVG } from '@/constant'
 import IconButton from '@/widgets/Buttons/IconButton'
 import ReadableDate from '@/widgets/ReadableDate'
 
-import { Wrapper, Hint, TimeStr } from '../styles/desktop_view/active_badge'
+import {
+  Wrapper,
+  Hint,
+  TimeStr,
+} from '../../styles/comment_fist_layout/desktop_view/active_badge'
 
 type TProps = {
   item: TArticle

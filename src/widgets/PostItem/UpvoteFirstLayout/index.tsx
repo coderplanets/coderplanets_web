@@ -4,14 +4,17 @@
  *
  */
 
-import { FC, memo, Fragment } from 'react'
+import { FC, memo } from 'react'
 
 import type { TCommunity, TPost, TUser, TAccount, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
+import { isMobile } from 'react-device-detect'
 
-import CommentFirstLayout from './CommentFirstLayout'
-import UpvoteFirstLayout from './UpvoteFirstLayout'
+import DesktopView from './DesktopView'
+import MobileView from './MobileView'
 // import ListView from './ListView'
+
+import { Wrapper } from '../styles/upvote_fist_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PostItem:index')
@@ -20,7 +23,6 @@ type TProps = {
   curCommunity: TCommunity | null
   entry: TPost
   c11n: TC11N
-  layout?: string
 
   onUserSelect?: (obj: TUser) => void
   onAuthorSelect?: (obj: TAccount) => void
@@ -31,27 +33,20 @@ const PostItem: FC<TProps> = ({
   entry,
   onUserSelect = log,
   onAuthorSelect = log,
-  layout = 'upvote-first',
   c11n,
 }) => {
   return (
-    <Fragment>
-      {layout === 'upvote-first' ? (
-        <UpvoteFirstLayout
-          c11n={c11n}
-          entry={entry}
-          curCommunity={curCommunity}
-          onAuthorSelect={onAuthorSelect}
-        />
+    <Wrapper entry={entry} c11n={c11n}>
+      {!isMobile ? (
+        <DesktopView entry={entry} curCommunity={curCommunity} />
       ) : (
-        <CommentFirstLayout
-          c11n={c11n}
+        <MobileView
           entry={entry}
           curCommunity={curCommunity}
           onAuthorSelect={onAuthorSelect}
         />
       )}
-    </Fragment>
+    </Wrapper>
   )
 }
 

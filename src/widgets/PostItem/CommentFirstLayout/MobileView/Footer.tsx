@@ -13,7 +13,7 @@ import {
   ExtraIcon,
   ExtraTexts,
   BodyDigest,
-} from '../styles/mobile_view/footer'
+} from '../../styles/comment_fist_layout/mobile_view/footer'
 
 type TProps = {
   item: TPost

@@ -5,7 +5,12 @@ import type { TPost } from '@/spec'
 import { parseDomain } from '@/utils/route'
 import { ARTICLE_THREAD } from '@/constant'
 
-import { Wrapper, TitleLink, LinkIcon, Title } from '../styles/mobile_view/body'
+import {
+  Wrapper,
+  TitleLink,
+  LinkIcon,
+  Title,
+} from '../../styles/comment_fist_layout/mobile_view/body'
 
 type TProps = {
   item: TPost

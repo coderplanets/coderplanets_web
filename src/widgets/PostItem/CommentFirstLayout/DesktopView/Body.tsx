@@ -26,7 +26,7 @@ import {
   LabelDivider,
   AuthorName,
   ArticleStateBadgeWrapper,
-} from '../styles/desktop_view/body'
+} from '../../styles/comment_fist_layout/desktop_view/body'
 
 const CommunityCard = dynamic(() => import('@/widgets/Cards/CommunityCard'), {
   ssr: false,

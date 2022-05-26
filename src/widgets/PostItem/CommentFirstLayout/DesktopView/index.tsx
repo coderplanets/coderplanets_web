@@ -16,7 +16,7 @@ import {
   AvatarWrapper,
   UpvoteWrapper,
   Main,
-} from '../styles/desktop_view'
+} from '../../styles/comment_fist_layout/desktop_view'
 
 let Upvote = null
 let ArticleReadLabel = null

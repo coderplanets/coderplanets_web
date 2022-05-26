@@ -13,6 +13,7 @@ import {
   Highlight,
   Label,
   Content,
+  HelpHint,
 } from '../../styles/panel/activity_info'
 
 const tmpItems = [
@@ -65,6 +66,7 @@ const ActivityInfo: FC = () => {
       {tmpItems.map((item) => (
         <ActionItem key={item.id} item={item} />
       ))}
+      <HelpHint>关于日志</HelpHint>
     </Wrapper>
   )
 }
