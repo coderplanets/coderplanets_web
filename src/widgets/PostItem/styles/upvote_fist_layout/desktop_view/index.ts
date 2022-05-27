@@ -12,7 +12,7 @@ export const Main = styled.div`
   margin-left: 6px;
 `
 export const DigestWrapper = styled.div`
-  ${css.cutRest('500px')};
+  ${css.cutRest('530px')};
   color: ${theme('thread.articleDigest')};
   margin-top: 6px;
   margin-bottom: 12px;

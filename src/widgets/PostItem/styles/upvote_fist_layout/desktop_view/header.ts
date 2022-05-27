@@ -64,6 +64,7 @@ export const AuthorName = styled.a`
   }
 `
 export const PublishTime = styled.div`
+  color: ${theme('thread.extraInfo')};
   font-size: 11px;
 `
 export const Dot = styled(DotDivider)`

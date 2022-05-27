@@ -23,7 +23,7 @@ const Label: FC<TProps> = ({ type, kanbanLayout, articleInfoLayout }) => {
     }
 
     case AS_TYPE.BUG: {
-      return <BugWrapper kanbanLayout={kanbanLayout}>Bug/吐槽</BugWrapper>
+      return <BugWrapper kanbanLayout={kanbanLayout}>Bug / 吐槽</BugWrapper>
     }
 
     case AS_TYPE.QUESTION: {

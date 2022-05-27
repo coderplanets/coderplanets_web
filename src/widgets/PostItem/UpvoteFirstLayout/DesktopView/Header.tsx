@@ -8,7 +8,7 @@ import { callWallpaperEditor } from '@/utils/helper'
 import { SIZE } from '@/constant'
 
 import Tooltip from '@/widgets/Tooltip'
-import { SpaceGrow } from '@/widgets/Common'
+import { SpaceGrow, Space } from '@/widgets/Common'
 
 import CommentsCount from '../../CommentsCount'
 
@@ -50,7 +50,8 @@ const Header: FC<TProps> = ({ article }) => {
             <AuthorName>{author.nickname}</AuthorName>
           </Link>
         </Tooltip>
-        <Dot radius={3} space={15} />
+        <Dot radius={2.5} space={10} />
+        <Space right={2} />
         <PublishTime>
           <TimeAgo datetime={article.insertedAt} locale="zh_CN" />
         </PublishTime>
