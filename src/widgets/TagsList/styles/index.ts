@@ -10,8 +10,8 @@ export const Wrapper = styled.div<TSpace>`
 
   margin-left: ${({ left }) => `${left || 0}px`};
   margin-right: ${({ right }) => `${right || 0}px`};
-  margin-top: ${({ top }) => `${top || 0}px`};
-  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
+  margin-top: ${({ top }) => `${top}px` || 0};
+  margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
 
   position: relative;
   margin-top: 1px;

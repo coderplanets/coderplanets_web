@@ -25,8 +25,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   background: ${({ noBg }) => (noBg ? 'transparent' : '#FDF6E8')};
   border-radius: 8px;
 
-  margin-top: ${({ top }) => `${top || 0}px`};
-  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
+  margin-top: ${({ top }) => `${top}px` || 0};
+  margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
   margin-left: ${({ left }) => `${left}px` || 0};
   margin-right: ${({ right }) => `${right}px` || 0};
 `

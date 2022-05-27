@@ -61,13 +61,15 @@ export const GoTopWrapper = styled.div<{ show: boolean }>`
   ${css.flex('align-end', 'justify-center')};
   position: fixed;
   bottom: 40px;
-  left: 65px;
-  width: 140px;
-  height: 400px;
-  opacity: 0;
+  left: 102px;
+  width: 60px;
+  height: 40px;
+  opacity: 0.8;
+
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
 
   &:hover {
-    opacity: ${({ show }) => (show ? 1 : 0)};
+    opacity: 1;
   }
   transition: opacity 0.2s;
 `

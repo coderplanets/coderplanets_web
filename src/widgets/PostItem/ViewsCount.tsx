@@ -1,10 +1,6 @@
 import { FC, memo, Fragment } from 'react'
 
-import {
-  Wrapper,
-  ViewsIcon,
-  HighlightWrapper,
-} from '../../styles/upvote_fist_layout/desktop_view/views_count'
+import { Wrapper, ViewsIcon, HighlightWrapper } from './styles/views_count'
 
 type TProps = {
   count: number

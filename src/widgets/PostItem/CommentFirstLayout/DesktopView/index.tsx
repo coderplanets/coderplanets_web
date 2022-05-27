@@ -6,7 +6,7 @@ import { UPVOTE_LAYOUT } from '@/constant'
 
 import { upvoteOnArticleList } from '@/utils/helper'
 import TheAvatar from '@/widgets/TheAvatar'
-import ViewingSign from './ViewingSign'
+import ViewingSign from '../../ViewingSign'
 
 import Header from './Header'
 import Body from './Body'
@@ -58,7 +58,7 @@ const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
           <ArticlePinLabel entry={entry} />
         </Fragment>
       )}
-      <ViewingSign article={entry} />
+      <ViewingSign article={entry} top={18} />
       <AvatarWrapper>
         <TheAvatar user={entry.author} />
         <UpvoteWrapper>

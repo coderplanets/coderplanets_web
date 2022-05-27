@@ -14,7 +14,7 @@ import DigestSentence from '@/widgets/DigestSentence'
 // import UserCard from '@/widgets/Cards/UserCard'
 import Tooltip from '@/widgets/Tooltip'
 import ArticleStateBadge from '@/widgets/ArticleStateBadge'
-import ViewsCount from './ViewsCount'
+import ViewsCount from '../../ViewsCount'
 
 import {
   Wrapper,

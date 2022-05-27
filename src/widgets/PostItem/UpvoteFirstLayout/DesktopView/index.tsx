@@ -1,24 +1,22 @@
 import { FC, Fragment, memo, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
+import { EVENT } from '@/constant'
 import type { TCommunity, TPost } from '@/spec'
-import { UPVOTE_LAYOUT } from '@/constant'
 
-import { upvoteOnArticleList } from '@/utils/helper'
-import TheAvatar from '@/widgets/TheAvatar'
-import ViewingSign from './ViewingSign'
+import { send } from '@/utils/helper'
+
+import ViewingSign from '../../ViewingSign'
 
 import Header from './Header'
-import Body from './Body'
+import Footer from './Footer'
 
 import {
   Wrapper,
-  AvatarWrapper,
-  UpvoteWrapper,
   Main,
+  DigestWrapper,
 } from '../../styles/upvote_fist_layout/desktop_view'
 
-let Upvote = null
 let ArticleReadLabel = null
 let ArticlePinLabel = null
 
@@ -37,7 +35,6 @@ const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
   // 尤其是在 Tab 切换的时候。手机端因为目前没有这些组件，性能暂无问题。
   // 本不应该存在的无聊问题，蛋疼的解决办法，
   useEffect(() => {
-    Upvote = dynamic(() => import('@/widgets/Upvote'), { ssr: false })
     ArticleReadLabel = dynamic(() => import('@/widgets/ArticleReadLabel'), {
       ssr: false,
     })
@@ -45,9 +42,7 @@ const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
       ssr: false,
     })
 
-    setTimeout(() => {
-      setLoaded(true)
-    }, 200)
+    setTimeout(() => setLoaded(true), 200)
   }, [])
 
   return (
@@ -59,24 +54,14 @@ const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
         </Fragment>
       )}
       <ViewingSign article={entry} />
-      {/* <AvatarWrapper>
-        <TheAvatar user={entry.author} />
-        <UpvoteWrapper>
-          {loaded && (
-            <Upvote
-              type={UPVOTE_LAYOUT.POST_LIST}
-              count={entry.upvotesCount}
-              viewerHasUpvoted={entry.viewerHasUpvoted}
-              onAction={(viewerHasUpvoted) =>
-                upvoteOnArticleList(entry, viewerHasUpvoted)
-              }
-            />
-          )}
-        </UpvoteWrapper>
-      </AvatarWrapper> */}
       <Main>
         <Header item={entry} />
-        <Body item={entry} />
+        <DigestWrapper
+          onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: entry })}
+        >
+          {entry.digest}
+        </DigestWrapper>
+        <Footer item={entry} />
       </Main>
     </Wrapper>
   )

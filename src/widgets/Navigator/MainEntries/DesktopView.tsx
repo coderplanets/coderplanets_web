@@ -36,7 +36,7 @@ const DesktopView: FC = () => {
           active={mainPath === ROUTE.COOL_GUIDE}
           testid={`header-${ROUTE.COOL_GUIDE}`}
         >
-          发布日志
+          更新日志
         </SiteLink>
       </Link>
       {/* <DotDivider space={splitMargin} />

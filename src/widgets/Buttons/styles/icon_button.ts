@@ -21,8 +21,8 @@ export const Wrapper = styled.div<TWrapper>`
 
   margin-left: ${({ left }) => `${left || 0}px`};
   margin-right: ${({ right }) => `${right || 0}px`};
-  margin-top: ${({ top }) => `${top || 0}px`};
-  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
+  margin-top: ${({ top }) => `${top}px` || 0};
+  margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
 `
 export const Content = styled.div`
   z-index: 2;
