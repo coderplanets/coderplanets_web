@@ -36,7 +36,7 @@ const PostItem: FC<TProps> = ({
 }) => {
   return (
     <Fragment>
-      {layout === 'upvote2-first' ? (
+      {layout === 'upvote-first' ? (
         <UpvoteFirstLayout
           c11n={c11n}
           article={article}

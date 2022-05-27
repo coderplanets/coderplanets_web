@@ -9,15 +9,17 @@ import { EVENT } from '@/constant'
 import { send, changeToCommunity } from '@/utils/helper'
 
 import { Space, SpaceGrow } from '@/widgets/Common'
-import DigestSentence from '@/widgets/DigestSentence'
 // import CommunityCard from '@/widgets/Cards/CommunityCard'
 // import UserCard from '@/widgets/Cards/UserCard'
 import Tooltip from '@/widgets/Tooltip'
 import ArticleStateBadge from '@/widgets/ArticleStateBadge'
 import ViewsCount from '../../ViewsCount'
+import CommentsCount from '../../CommentsCount'
 
 import {
   Wrapper,
+  Digest,
+  Footer,
   Dot,
   PublishTime,
   Extra,
@@ -90,13 +92,17 @@ const Body: FC<TProps> = ({ article, curCommunity }) => {
           <PublishTime>
             <TimeAgo datetime={article.insertedAt} locale="zh_CN" />
           </PublishTime>
-          <Space right={10} />
-          <ViewsCount count={article.views} />
         </LeftPart>
         <SpaceGrow />
 
         {/*  @ts-ignore */}
         <ActiveBadge article={article} />
+      </Extra>
+
+      <Digest onClick={() => send(EVENT.PREVIEW_ARTICLE, { article })}>
+        {article.digest}
+      </Digest>
+      <Footer>
         <ArticleStateBadgeWrapper>
           {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
           {article.id === '231' && <ArticleStateBadge type="BUG" />}
@@ -113,15 +119,11 @@ const Body: FC<TProps> = ({ article, curCommunity }) => {
             <ArticleStateBadge type="LOCK" state="LOCK" />
           )}
         </ArticleStateBadgeWrapper>
-      </Extra>
-
-      <DigestSentence
-        top={2}
-        right={140}
-        onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article })}
-      >
-        {article.digest}
-      </DigestSentence>
+        <Space right={12} />
+        <ViewsCount count={article.views} />
+        <Space right={16} />
+        <CommentsCount count={article.commentsCount} />
+      </Footer>
     </Wrapper>
   )
 }

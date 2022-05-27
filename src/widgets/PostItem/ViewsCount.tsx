@@ -9,7 +9,7 @@ type TProps = {
 const ViewsCount: FC<TProps> = ({ count }) => {
   return (
     <Fragment>
-      {count >= 100 ? (
+      {count >= 400 ? (
         <HighlightWrapper>
           <ViewsIcon highlight />
           {count}

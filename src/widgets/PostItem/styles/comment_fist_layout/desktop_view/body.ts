@@ -15,6 +15,22 @@ export const Extra = styled.li`
   margin-top: 5px;
   font-size: 12px;
 `
+export const Footer = styled.div`
+  margin-top: 6px;
+  ${css.flex('align-center')};
+`
+export const Digest = styled.div`
+  ${css.cutRest('450px')};
+  color: ${theme('thread.articleDigest')};
+  margin-top: 2px;
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+  }
+
+  transition: all 0.2s;
+`
 export const LeftPart = styled.div`
   ${css.flex('align-center')};
 `
@@ -72,7 +88,8 @@ export const Dot = styled(DotDivider)`
   margin-right: 8px;
 `
 export const ArticleStateBadgeWrapper = styled.div`
-  position: absolute;
+  margin-left: -2px;
+  /* position: absolute;
   top: 41px;
-  right: -5px;
+  right: -5px; */
 `

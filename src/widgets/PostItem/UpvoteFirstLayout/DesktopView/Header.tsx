@@ -5,9 +5,12 @@ import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
 import { callWallpaperEditor } from '@/utils/helper'
+import { SIZE } from '@/constant'
 
 import Tooltip from '@/widgets/Tooltip'
 import { SpaceGrow } from '@/widgets/Common'
+
+import CommentsCount from '../../CommentsCount'
 
 import {
   Wrapper,
@@ -16,9 +19,6 @@ import {
   Dot,
   Title,
   PublishTime,
-  CommentWrapper,
-  CommentIcon,
-  CommentCount,
   AuthorName,
 } from '../../styles/upvote_fist_layout/desktop_view/header'
 
@@ -62,10 +62,7 @@ const Header: FC<TProps> = ({ article }) => {
         <TagsList items={article.articleTags} left={12} />
         <SpaceGrow />
         {commentsCount !== 0 && (
-          <CommentWrapper>
-            <CommentIcon />
-            <CommentCount>{commentsCount}</CommentCount>
-          </CommentWrapper>
+          <CommentsCount count={commentsCount} size={SIZE.MEDIUM} />
         )}
       </Main>
     </Wrapper>

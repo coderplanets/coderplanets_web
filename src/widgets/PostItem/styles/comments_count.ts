@@ -2,22 +2,22 @@ import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
 
-import ViewedSVG from '@/icons/article/Viewed'
+import CommentSVG from '@/icons/Comment'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
+  color: ${theme('thread.extraInfo')};
   font-size: 13px;
+  font-weight: 500;
 `
 export const HighlightWrapper = styled(Wrapper)`
-  font-weight: 500;
   background: ${theme('heightGradient')};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
-export const ViewsIcon = styled(ViewedSVG)<{ highlight?: boolean }>`
+export const CommentsIcon = styled(CommentSVG)<{ highlight?: boolean }>`
   fill: ${({ highlight }) =>
     highlight ? theme('heightIcon') : theme('thread.extraInfo')};
-  ${css.size(13)};
-  margin-top: -1px;
+  ${css.size(11)};
   margin-right: 5px;
 `

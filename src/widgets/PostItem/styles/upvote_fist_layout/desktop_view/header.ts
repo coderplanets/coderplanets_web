@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
-import CommentSVG from '@/icons/Comment'
 import DotDivider from '@/widgets/DotDivider'
 
 export const Wrapper = styled.div`
@@ -50,20 +49,7 @@ export const TitleLink = styled.div`
   opacity: 0.8;
   text-decoration: underline;
 `
-export const CommentWrapper = styled.div`
-  ${css.flex('align-center')};
-`
-export const CommentIcon = styled(CommentSVG)`
-  ${css.size(11)};
-  fill: ${theme('thread.articleDigest')};
-  opacity: 0.8;
-`
-export const CommentCount = styled.div`
-  font-size: 14px;
-  color: ${theme('thread.articleTitle')};
-  margin-left: 10px;
-  margin-top: -1px;
-`
+
 export const AuthorName = styled.a`
   display: block;
   color: ${theme('thread.extraInfo')};
