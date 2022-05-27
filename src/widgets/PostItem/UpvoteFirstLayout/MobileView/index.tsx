@@ -9,17 +9,17 @@ import Footer from './Footer'
 import { Wrapper } from '../../styles/comment_fist_layout/mobile_view'
 
 type TProps = {
-  entry: TPost
+  article: TPost
   curCommunity: TCommunity | null
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const MobileView: FC<TProps> = ({ entry, curCommunity, onAuthorSelect }) => {
+const MobileView: FC<TProps> = ({ article, curCommunity, onAuthorSelect }) => {
   return (
     <Wrapper>
-      <Header item={entry} onAuthorSelect={onAuthorSelect} />
-      <Body item={entry} />
-      <Footer item={entry} curCommunity={curCommunity} />
+      <Header article={article} onAuthorSelect={onAuthorSelect} />
+      <Body article={article} />
+      <Footer article={article} curCommunity={curCommunity} />
     </Wrapper>
   )
 }

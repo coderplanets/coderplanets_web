@@ -42,12 +42,12 @@ const ActiveBadge = dynamic(() => import('./ActiveBadge'), {
 
 type TProps = {
   curCommunity: TCommunity | null
-  item: TPost
+  article: TPost
 }
 
-const Body: FC<TProps> = ({ item, curCommunity }) => {
+const Body: FC<TProps> = ({ article, curCommunity }) => {
   // console.log('# originalCommunity: ', originalCommunity)
-  const { originalCommunity, author } = item
+  const { originalCommunity, author } = article
   const showOriginalCommunity =
     curCommunity === null || curCommunity.raw !== originalCommunity.raw
 
@@ -59,7 +59,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
             <Fragment>
               <Tooltip
                 //  @ts-ignore
-                content={<CommunityCard item={originalCommunity} />}
+                content={<CommunityCard article={originalCommunity} />}
                 placement="right"
                 delay={1500}
               >
@@ -88,35 +88,39 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
 
           <Dot radius={3} space={10} />
           <PublishTime>
-            <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
+            <TimeAgo datetime={article.insertedAt} locale="zh_CN" />
           </PublishTime>
           <Space right={10} />
-          <ViewsCount count={item.views} />
+          <ViewsCount count={article.views} />
         </LeftPart>
         <SpaceGrow />
 
         {/*  @ts-ignore */}
-        <ActiveBadge item={item} />
+        <ActiveBadge article={article} />
         <ArticleStateBadgeWrapper>
-          {item.id === '239' && <ArticleStateBadge type="FEATURE" />}
-          {item.id === '231' && <ArticleStateBadge type="BUG" />}
-          {item.id === '227' && <ArticleStateBadge type="BUG" state="TODO" />}
-          {item.id === '228' && (
+          {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
+          {article.id === '231' && <ArticleStateBadge type="BUG" />}
+          {article.id === '227' && (
+            <ArticleStateBadge type="BUG" state="TODO" />
+          )}
+          {article.id === '228' && (
             <ArticleStateBadge type="FEATURE" state="WIP" />
           )}
-          {item.id === '226' && (
+          {article.id === '226' && (
             <ArticleStateBadge type="QUESTION" state="RESOLVE" />
           )}
-          {item.id === '225' && <ArticleStateBadge type="LOCK" state="LOCK" />}
+          {article.id === '225' && (
+            <ArticleStateBadge type="LOCK" state="LOCK" />
+          )}
         </ArticleStateBadgeWrapper>
       </Extra>
 
       <DigestSentence
         top={2}
         right={140}
-        onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}
+        onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article })}
       >
-        {item.digest}
+        {article.digest}
       </DigestSentence>
     </Wrapper>
   )

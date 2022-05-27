@@ -17,28 +17,28 @@ import {
 } from '../../styles/comment_fist_layout/mobile_view/header'
 
 type TProps = {
-  item: TPost
+  article: TPost
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const Header: FC<TProps> = ({ item, onAuthorSelect }) => {
+const Header: FC<TProps> = ({ article, onAuthorSelect }) => {
   return (
     <Wrapper>
       <AuthorInfo>
-        <AvatarWrapper onClick={() => onAuthorSelect(item.author)}>
+        <AvatarWrapper onClick={() => onAuthorSelect(article.author)}>
           <Avatar
-            src={item.author.avatar}
-            fallback={<ImgFallback user={item.author} size={16} right={6} />}
+            src={article.author.avatar}
+            fallback={<ImgFallback user={article.author} size={16} right={6} />}
           />
         </AvatarWrapper>
-        <div>{item.author.nickname}</div>
+        <div>{article.author.nickname}</div>
         <DotDivider radius={3} space={6} />
         <TimeStamp>
-          <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
+          <TimeAgo datetime={article.insertedAt} locale="zh_CN" />
         </TimeStamp>
       </AuthorInfo>
       <TagListWrapper>
-        <TagsList items={item.articleTags} />
+        <TagsList items={article.articleTags} />
       </TagListWrapper>
     </Wrapper>
   )

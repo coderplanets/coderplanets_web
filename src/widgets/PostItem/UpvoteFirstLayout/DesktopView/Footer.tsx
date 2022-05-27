@@ -13,11 +13,11 @@ import ViewsCount from '../../ViewsCount'
 import { Wrapper } from '../../styles/upvote_fist_layout/desktop_view/footer'
 
 type TProps = {
-  item: TPost
+  article: TPost
 }
 
-const Footer: FC<TProps> = ({ item }) => {
-  const { upvotesCount, meta, viewerHasUpvoted } = item
+const Footer: FC<TProps> = ({ article }) => {
+  const { upvotesCount, meta, viewerHasUpvoted } = article
 
   return (
     <Wrapper>
@@ -29,23 +29,23 @@ const Footer: FC<TProps> = ({ item }) => {
         left={-2}
       />
 
-      {item.id === '239' && <ArticleStateBadge type="FEATURE" left={14} />}
-      {item.id === '231' && <ArticleStateBadge type="BUG" left={14} />}
-      {item.id === '227' && (
+      {article.id === '239' && <ArticleStateBadge type="FEATURE" left={14} />}
+      {article.id === '231' && <ArticleStateBadge type="BUG" left={14} />}
+      {article.id === '227' && (
         <ArticleStateBadge type="BUG" state="TODO" left={14} />
       )}
-      {item.id === '228' && (
+      {article.id === '228' && (
         <ArticleStateBadge type="FEATURE" state="WIP" left={14} />
       )}
-      {item.id === '226' && (
+      {article.id === '226' && (
         <ArticleStateBadge type="QUESTION" state="RESOLVE" left={14} />
       )}
-      {item.id === '225' && (
+      {article.id === '225' && (
         <ArticleStateBadge type="LOCK" state="LOCK" left={14} />
       )}
 
       <Space right={15} />
-      <ViewsCount count={item.views} />
+      <ViewsCount count={article.views} />
     </Wrapper>
   )
 }

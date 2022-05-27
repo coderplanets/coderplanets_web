@@ -11,7 +11,7 @@ import {
   Wrapper,
   Avatar,
   Info,
-  ShortBio,
+  // ShortBio,
   Header,
   Title,
   Nickname,

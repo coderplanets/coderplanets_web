@@ -22,13 +22,13 @@ let ArticlePinLabel = null
 
 type TProps = {
   curCommunity: TCommunity | null
-  entry: TPost
+  article: TPost
 
   // onUserSelect?: (obj: TUser) => void
   // onAuthorSelect?: (obj: TAccount) => void
 }
 
-const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
+const DigestView: FC<TProps> = ({ curCommunity, article }) => {
   const [loaded, setLoaded] = useState(false)
 
   // 如果同步渲染 Upvote, ArticleReadLabel, ArticlePinLabel 等组件会导致难以忍受的卡顿
@@ -49,19 +49,17 @@ const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
     <Wrapper>
       {loaded && (
         <Fragment>
-          <ArticleReadLabel entry={entry} />
-          <ArticlePinLabel entry={entry} />
+          <ArticleReadLabel article={article} />
+          <ArticlePinLabel article={article} />
         </Fragment>
       )}
-      <ViewingSign article={entry} />
+      <ViewingSign article={article} />
       <Main>
-        <Header item={entry} />
-        <DigestWrapper
-          onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: entry })}
-        >
-          {entry.digest}
+        <Header article={article} />
+        <DigestWrapper onClick={() => send(EVENT.PREVIEW_ARTICLE, { article })}>
+          {article.digest}
         </DigestWrapper>
-        <Footer item={entry} />
+        <Footer article={article} />
       </Main>
     </Wrapper>
   )

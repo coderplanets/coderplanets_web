@@ -70,7 +70,7 @@ const ArticleList = (props) => {
           {entries.map((entry) => (
             <PostItem
               key={entry.id}
-              entry={entry}
+              article={entry}
               c11n={c11n}
               curCommunity={curCommunity}
             />

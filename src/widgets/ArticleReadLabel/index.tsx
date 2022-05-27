@@ -16,18 +16,18 @@ const log = buildLog('c:ArticleReadLabel:index')
 export type TProps = {
   top?: number
   left?: number
-  entry: {
+  article: {
     viewerHasViewed?: boolean
-    pin?: boolean
+    isPinned?: boolean
   }
 }
-const ArticleReadLabel: FC<TProps> = ({ entry, top = 24, left = -30 }) => {
+const ArticleReadLabel: FC<TProps> = ({ article, top = 24, left = -30 }) => {
   const accountInfo = useAccount()
+  const { isPinned, viewerHasViewed } = article
 
-  if (nilOrEmpty(accountInfo) || entry.pin) return null
+  if (nilOrEmpty(accountInfo) || isPinned) return null
 
   const { markViewed } = accountInfo.customization
-  const { viewerHasViewed } = entry
 
   // return <ReadedLabel top={top} left={left} />
   if (markViewed && !viewerHasViewed) {

@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-import type { TPost, TC11N } from '@/spec'
+import type { TC11N } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 type TWrapper = {
-  entry: TPost
   c11n: TC11N
 }
 

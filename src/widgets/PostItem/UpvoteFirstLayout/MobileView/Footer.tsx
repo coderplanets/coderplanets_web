@@ -16,12 +16,12 @@ import {
 } from '../../styles/comment_fist_layout/mobile_view/footer'
 
 type TProps = {
-  item: TPost
+  article: TPost
   curCommunity: TCommunity
 }
 
-const Footer: FC<TProps> = ({ item, curCommunity }) => {
-  const { originalCommunity } = item
+const Footer: FC<TProps> = ({ article, curCommunity }) => {
+  const { originalCommunity } = article
   const showOriginalCommunity =
     curCommunity === null || curCommunity?.raw !== originalCommunity.raw
 
@@ -40,13 +40,13 @@ const Footer: FC<TProps> = ({ item, curCommunity }) => {
 
         <ExtraTexts>
           <ExtraIcon src={`${ICON_CMD}/view_solid.svg`} />
-          {item.views}
+          {article.views}
           <DotDivider radius={3} space={6} />
           <ExtraIcon src={`${ICON_CMD}/comment_solid.svg`} />
-          {item.commentsCount}
+          {article.commentsCount}
         </ExtraTexts>
       </Extra>
-      <BodyDigest>{cutRest(item.digest, 20)}</BodyDigest>
+      <BodyDigest>{cutRest(article.digest, 20)}</BodyDigest>
     </Wrapper>
   )
 }

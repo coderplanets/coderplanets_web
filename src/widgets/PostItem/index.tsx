@@ -18,7 +18,7 @@ const log = buildLog('c:PostItem:index')
 
 type TProps = {
   curCommunity: TCommunity | null
-  entry: TPost
+  article: TPost
   c11n: TC11N
   layout?: string
 
@@ -28,7 +28,7 @@ type TProps = {
 
 const PostItem: FC<TProps> = ({
   curCommunity,
-  entry,
+  article,
   onUserSelect = log,
   onAuthorSelect = log,
   layout = 'upvote-first',
@@ -39,14 +39,14 @@ const PostItem: FC<TProps> = ({
       {layout === 'upvote2-first' ? (
         <UpvoteFirstLayout
           c11n={c11n}
-          entry={entry}
+          article={article}
           curCommunity={curCommunity}
           onAuthorSelect={onAuthorSelect}
         />
       ) : (
         <CommentFirstLayout
           c11n={c11n}
-          entry={entry}
+          article={article}
           curCommunity={curCommunity}
           onAuthorSelect={onAuthorSelect}
         />

@@ -13,15 +13,15 @@ import {
 } from '../../styles/comment_fist_layout/desktop_view/active_badge'
 
 type TProps = {
-  item: TArticle
+  article: TArticle
 }
 
-const ActiveBadge: FC<TProps> = ({ item }) => {
-  const isArchived = item.commentsCount === 24
+const ActiveBadge: FC<TProps> = ({ article }) => {
+  const isArchived = article.commentsCount === 24
   const icon = isArchived ? SVG.ARCHIVED : SVG.ACTIVITY
 
   return (
-    <Wrapper hasComments={item.commentsCount > 0}>
+    <Wrapper hasComments={article.commentsCount > 0}>
       <IconButton
         icon={icon}
         size={14}
@@ -29,7 +29,7 @@ const ActiveBadge: FC<TProps> = ({ item }) => {
           <Hint>
             <div>最后回复时间: </div>
             <TimeStr>
-              <ReadableDate date={item.activeAt} fmt="absolute" />
+              <ReadableDate date={article.activeAt} fmt="absolute" />
             </TimeStr>
           </Hint>
         }
@@ -37,7 +37,7 @@ const ActiveBadge: FC<TProps> = ({ item }) => {
         hintPlacement="bottom"
         hintDelay={0}
       />
-      <TimeAgo datetime={item.activeAt} locale="zh_CN" />
+      <TimeAgo datetime={article.activeAt} locale="zh_CN" />
     </Wrapper>
   )
 }

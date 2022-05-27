@@ -20,26 +20,26 @@ const TagsList = dynamic(() => import('@/widgets/TagsList'), {
 })
 
 type TProps = {
-  item: TPost
+  article: TPost
 }
 
-const Header: FC<TProps> = ({ item }) => {
+const Header: FC<TProps> = ({ article }) => {
   // const gotoArticle = useCallback(() => {
-  //   Router.push(`/${ARTICLE_THREAD.POST}/${item.id}`)
-  // }, [item.id])
+  //   Router.push(`/${ARTICLE_THREAD.POST}/${article.id}`)
+  // }, [article.id])
 
   return (
     <Wrapper>
       <Brief>
-        {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}> */}
-        <Title onClick={() => callWallpaperEditor()}>{item.title}</Title>
+        {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: article })}> */}
+        <Title onClick={() => callWallpaperEditor()}>{article.title}</Title>
         {/*  @ts-ignore */}
-        <TagsList items={item.articleTags} left={12} />
+        <TagsList items={article.articleTags} left={12} />
       </Brief>
       <AvatarsWrapper>
         <Facepile
-          users={item.commentsParticipants}
-          total={item.commentsCount}
+          users={article.commentsParticipants}
+          total={article.commentsCount}
         />
       </AvatarsWrapper>
     </Wrapper>

@@ -31,11 +31,11 @@ const TagsList = dynamic(() => import('@/widgets/TagsList'), {
 })
 
 type TProps = {
-  item: TPost
+  article: TPost
 }
 
-const Header: FC<TProps> = ({ item }) => {
-  const { author, commentsCount } = item
+const Header: FC<TProps> = ({ article }) => {
+  const { author, commentsCount } = article
 
   return (
     <Wrapper>
@@ -52,14 +52,14 @@ const Header: FC<TProps> = ({ item }) => {
         </Tooltip>
         <Dot radius={3} space={15} />
         <PublishTime>
-          <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
+          <TimeAgo datetime={article.insertedAt} locale="zh_CN" />
         </PublishTime>
       </Topping>
       <Main>
-        {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}> */}
-        <Title onClick={() => callWallpaperEditor()}>{item.title}</Title>
+        {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: article})}> */}
+        <Title onClick={() => callWallpaperEditor()}>{article.title}</Title>
         {/*  @ts-ignore */}
-        <TagsList items={item.articleTags} left={12} />
+        <TagsList items={article.articleTags} left={12} />
         <SpaceGrow />
         {commentsCount !== 0 && (
           <CommentWrapper>

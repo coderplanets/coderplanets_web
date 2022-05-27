@@ -21,7 +21,7 @@ const log = buildLog('c:PostItem:index')
 
 type TProps = {
   curCommunity: TCommunity | null
-  entry: TPost
+  article: TPost
   c11n: TC11N
 
   onUserSelect?: (obj: TUser) => void
@@ -30,18 +30,18 @@ type TProps = {
 
 const PostItem: FC<TProps> = ({
   curCommunity,
-  entry,
+  article,
   onUserSelect = log,
   onAuthorSelect = log,
   c11n,
 }) => {
   return (
-    <Wrapper entry={entry} c11n={c11n}>
+    <Wrapper c11n={c11n}>
       {!isMobile ? (
-        <DesktopView entry={entry} curCommunity={curCommunity} />
+        <DesktopView article={article} curCommunity={curCommunity} />
       ) : (
         <MobileView
-          entry={entry}
+          article={article}
           curCommunity={curCommunity}
           onAuthorSelect={onAuthorSelect}
         />
