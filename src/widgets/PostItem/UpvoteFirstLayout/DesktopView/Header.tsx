@@ -42,7 +42,7 @@ const Header: FC<TProps> = ({ article }) => {
       <Topping>
         <Tooltip
           //  @ts-ignore
-          content={<UserCard item={author} />}
+          content={<UserCard user={author} />}
           placement="right"
           delay={500}
         >

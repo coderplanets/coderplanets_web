@@ -43,7 +43,7 @@ const ArticleHeader: FC<TProps> = ({ metric, community, accountInfo }) => {
             </LoginHint>
           ) : (
             <Tooltip
-              content={<UserCard item={accountInfo as TUser} />}
+              content={<UserCard user={accountInfo as TUser} />}
               delay={0}
               placement="bottom"
               interactive={false}

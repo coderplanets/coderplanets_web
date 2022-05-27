@@ -75,7 +75,7 @@ const Body: FC<TProps> = ({ article, curCommunity }) => {
 
           <Tooltip
             //  @ts-ignore
-            content={<UserCard item={author} />}
+            content={<UserCard user={author} />}
             placement="right"
             delay={500}
           >

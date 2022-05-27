@@ -48,7 +48,7 @@ const CommentSticker: FC<TProps> = ({ show, commentsState }) => {
             <Tooltip
               key={user.login}
               placement="bottom"
-              content={<UserCard item={user} />}
+              content={<UserCard user={user} />}
             >
               <Avatar
                 src={user.avatar}

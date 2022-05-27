@@ -20,11 +20,11 @@ import {
 } from './styles/user_card'
 
 type TProps = {
-  item: TUser | TAccount
+  user: TUser | TAccount
 }
 
-const UserCard: FC<TProps> = ({ item }) => {
-  const { avatar, nickname, login, bio } = item
+const UserCard: FC<TProps> = ({ user }) => {
+  const { avatar, nickname, login, bio } = user
   return (
     <Wrapper>
       <Header>
