@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TArticle, TMetric, TThread } from '@/spec'
 import { METRIC } from '@/constant'
 
-import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ArticleCatState from '@/widgets/ArticleCatState'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 
 import {
@@ -36,19 +36,19 @@ const FixedHeader: FC<TProps> = ({
         <ContentWrapper metric={metric}>
           <Title>{article.title}</Title>
           <ArticleStateBadgeWrapper>
-            {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
-            {article.id === '231' && <ArticleStateBadge type="BUG" />}
+            {article.id === '239' && <ArticleCatState type="FEATURE" />}
+            {article.id === '231' && <ArticleCatState type="BUG" />}
             {article.id === '227' && (
-              <ArticleStateBadge type="BUG" state="TODO" />
+              <ArticleCatState type="BUG" state="TODO" />
             )}
             {article.id === '228' && (
-              <ArticleStateBadge type="FEATURE" state="WIP" />
+              <ArticleCatState type="FEATURE" state="WIP" />
             )}
             {article.id === '226' && (
-              <ArticleStateBadge type="QUESTION" state="RESOLVE" />
+              <ArticleCatState type="QUESTION" state="RESOLVE" />
             )}
             {article.id === '225' && (
-              <ArticleStateBadge type="LOCK" state="LOCK" />
+              <ArticleCatState type="LOCK" state="LOCK" />
             )}
           </ArticleStateBadgeWrapper>
         </ContentWrapper>

@@ -15,6 +15,9 @@ export const pagedPosts = `
         ${F.article}
         meta {
           thread
+          latestUpvotedUsers {
+            ${F.author}
+          }
         }
         digest
         linkAddr

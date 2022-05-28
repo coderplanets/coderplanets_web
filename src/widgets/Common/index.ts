@@ -4,8 +4,8 @@ import type { TActive, TSpace } from '@/spec'
 import { theme } from '@/utils/css'
 
 export const Br = styled.div<TSpace>`
-  margin-top: ${({ top }) => `${top || 0}px`};
-  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
+  margin-top: ${({ top }) => `${top}px` || 0};
+  margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
 `
 export const Space = styled.span<TSpace>`
   margin-left: ${({ left }) => `${left}px` || 0};

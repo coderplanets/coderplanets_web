@@ -47,7 +47,7 @@ const Body: FC<TProps> = ({ item }) => {
           </Tooltip>
           <LabelDivider />
           <Tooltip
-            content={<UserCard item={author} />}
+            content={<UserCard user={author} />}
             placement="bottom-start"
             delay={500}
           >

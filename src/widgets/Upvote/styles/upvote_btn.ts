@@ -41,7 +41,7 @@ type TWrapper = {
 
 export const Wrapper = styled.div<TWrapper>`
   display: inline-block;
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.extraInfo')};
   font-size: 15px;
   /* padding: 5px 0; */
   margin-top: 0;

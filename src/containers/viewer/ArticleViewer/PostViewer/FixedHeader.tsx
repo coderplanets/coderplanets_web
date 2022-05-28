@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import type { TArticle } from '@/spec'
 
 import Upvote from '@/widgets/Upvote'
-import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ArticleCatState from '@/widgets/ArticleCatState'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 
 import {
@@ -35,20 +35,16 @@ const FixedHeader: FC<TProps> = ({ article, visible, footerVisible }) => {
 
         <ArticleTitle>{article.title}</ArticleTitle>
         <ArticleStateBadgeWrapper>
-          {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
-          {article.id === '231' && <ArticleStateBadge type="BUG" />}
-          {article.id === '227' && (
-            <ArticleStateBadge type="BUG" state="TODO" />
-          )}
+          {article.id === '239' && <ArticleCatState type="FEATURE" />}
+          {article.id === '231' && <ArticleCatState type="BUG" />}
+          {article.id === '227' && <ArticleCatState type="BUG" state="TODO" />}
           {article.id === '228' && (
-            <ArticleStateBadge type="FEATURE" state="WIP" />
+            <ArticleCatState type="FEATURE" state="WIP" />
           )}
           {article.id === '226' && (
-            <ArticleStateBadge type="QUESTION" state="RESOLVE" />
+            <ArticleCatState type="QUESTION" state="RESOLVE" />
           )}
-          {article.id === '225' && (
-            <ArticleStateBadge type="LOCK" state="LOCK" />
-          )}
+          {article.id === '225' && <ArticleCatState type="LOCK" state="LOCK" />}
         </ArticleStateBadgeWrapper>
       </LeftPart>
       <ArticleBaseStats article={article} container="drawer" />

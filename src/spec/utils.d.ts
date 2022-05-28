@@ -184,8 +184,14 @@ export type TModelineType =
   | 'search'
   | 'more'
 
-export type TASType = 'BUG' | 'FEATURE' | 'DEFAULT' | 'QUESTION' | 'LOCK'
-export type TASState = 'TODO' | 'WIP' | 'DONE' | 'DEFAULT' | 'RESOLVE' | 'LOCK'
+export type TArticleCat = 'BUG' | 'FEATURE' | 'DEFAULT' | 'QUESTION' | 'LOCK'
+export type TArticleState =
+  | 'TODO'
+  | 'WIP'
+  | 'DONE'
+  | 'DEFAULT'
+  | 'RESOLVE'
+  | 'LOCK'
 
 export type TTagMode = 'default' | 'label'
 

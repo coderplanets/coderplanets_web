@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 import type { TPost } from '@/spec'
 
 import DotDivider from '@/widgets/DotDivider'
-import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ArticleCatState from '@/widgets/ArticleCatState'
 
 import {
   Wrapper,
@@ -41,15 +41,21 @@ const Header: FC<TProps> = ({ article }) => {
         )}
       </PublishWrapper>
       <DotDivider space={10} />
-      {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
-      {article.id === '231' && <ArticleStateBadge type="BUG" />}
-      {article.id === '227' && <ArticleStateBadge type="BUG" state="TODO" />}
-      {article.id === '228' && <ArticleStateBadge type="FEATURE" state="WIP" />}
+      {article.id === '239' && (
+        <ArticleCatState type="FEATURE" smaller={false} />
+      )}
+      {article.id === '231' && <ArticleCatState type="BUG" />}
+      {article.id === '227' && (
+        <ArticleCatState type="BUG" state="TODO" smaller={false} />
+      )}
+      {article.id === '228' && (
+        <ArticleCatState type="FEATURE" state="WIP" smaller={false} />
+      )}
       {article.id === '226' && (
-        <ArticleStateBadge type="QUESTION" state="RESOLVE" articleInfoLayout />
+        <ArticleCatState type="QUESTION" state="RESOLVE" smaller={false} />
       )}
       {article.id === '225' && (
-        <ArticleStateBadge type="LOCK" state="LOCK" articleInfoLayout />
+        <ArticleCatState type="LOCK" state="LOCK" smaller={false} />
       )}
     </Wrapper>
   )

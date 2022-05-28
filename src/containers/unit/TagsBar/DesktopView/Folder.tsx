@@ -1,7 +1,7 @@
 import { FC, useState, useRef, useEffect } from 'react'
 import { findIndex, reverse } from 'ramda'
 
-import type { TTag, TTagMode } from '@/spec'
+import type { TTag } from '@/spec'
 import { sortByColor } from '@/utils/helper'
 
 import TagItem from './TagItem'
@@ -79,7 +79,7 @@ const Folder: FC<TProps> = ({
       >
         <ArrowIcon $isOpen={isFolderOpen} />
         <Title>
-          <FolderTitle>{title}</FolderTitle>
+          <FolderTitle $isOpen={isFolderOpen}>{title}</FolderTitle>
           {!isFolderOpen && <Count>{sortedTags.length}</Count>}
         </Title>
         {!isFolderOpen && isActiveTagInFolder && (

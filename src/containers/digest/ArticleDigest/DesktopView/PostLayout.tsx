@@ -17,7 +17,7 @@ import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 import DotDivider from '@/widgets/DotDivider'
 // import ArticleMenu from '@/widgets/ArticleMenu'
 import ReadableDate from '@/widgets/ReadableDate'
-import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ArticleCatState from '@/widgets/ArticleCatState'
 
 import {
   Main,
@@ -69,19 +69,19 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
           )} */}
           <DotDivider space={12} />
           <div>
-            {article.id === '239' && <ArticleStateBadge type="FEATURE" />}
-            {article.id === '231' && <ArticleStateBadge type="BUG" />}
+            {article.id === '239' && <ArticleCatState type="FEATURE" />}
+            {article.id === '231' && <ArticleCatState type="BUG" />}
             {article.id === '227' && (
-              <ArticleStateBadge type="BUG" state="TODO" />
+              <ArticleCatState type="BUG" state="TODO" />
             )}
             {article.id === '228' && (
-              <ArticleStateBadge type="FEATURE" state="WIP" />
+              <ArticleCatState type="FEATURE" state="WIP" />
             )}
             {article.id === '226' && (
-              <ArticleStateBadge type="QUESTION" state="RESOLVE" />
+              <ArticleCatState type="QUESTION" state="RESOLVE" />
             )}
             {article.id === '225' && (
-              <ArticleStateBadge type="LOCK" state="LOCK" />
+              <ArticleCatState type="LOCK" state="LOCK" />
             )}
           </div>
         </Header>

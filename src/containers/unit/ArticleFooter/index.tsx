@@ -6,20 +6,19 @@
 
 import { FC, useState } from 'react'
 
-import type { TArticleCat, TMetric } from '@/spec'
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import ArticleCatLabel from '@/widgets/ArticleCatLabel'
-import { SpaceGrow } from '@/widgets/Common'
+// import { SpaceGrow } from '@/widgets/Common'
 import TagsList from '@/widgets/TagsList'
 
 import Panel from './Panel'
 
 import type { TStore } from './store'
-import { Wrapper, BaseInfo, CatLabelWrapper } from './styles'
+import { Wrapper, BaseInfo } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -46,13 +45,6 @@ const ArticleFooterContainer: FC<TProps> = ({
     <Wrapper testid={testid}>
       <BaseInfo>
         <TagsList items={articleTags} size="small" />
-        <CatLabelWrapper>
-          <ArticleCatLabel
-            type={cat as TArticleCat}
-            mode="readonly"
-            onChange={(key) => setCat(key)}
-          />
-        </CatLabelWrapper>
         <div>Emoji</div>
       </BaseInfo>
 

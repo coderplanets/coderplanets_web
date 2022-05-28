@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TUser, TUpvoteLayout } from '@/spec'
+import type { TUser, TUpvoteLayout, TSpace } from '@/spec'
 import { UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -18,9 +18,11 @@ import PostListLayout from './PostListLayout'
 import GuideListLayout from './GuideListLayout'
 import BlogListLayout from './BlogListLayout'
 import ArticleLayout from './ArticleLayout'
-import WorksArticleLayout from './WorksArticleLayout'
-import WorksCardLayout from './WorksCardLayout'
+// import WorksArticleLayout from './WorksArticleLayout'
+// import WorksCardLayout from './WorksCardLayout'
 import StickerLayout from './StickerLayout'
+
+import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
@@ -34,44 +36,70 @@ type TProps = {
   alias?: string // 觉得很赞(default), 觉得很酷(works), 学到了(blog), 感兴趣(meetup), 有意思(Radar)
   avatarList?: TUser[]
   onAction?: (did: boolean) => void
-}
+} & TSpace
 
-const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
+const Upvote: FC<TProps> = ({
+  type = UPVOTE_LAYOUT.DEFAULT,
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
+  ...restProps
+}) => {
+  let Layout = null
+
   switch (type) {
     case UPVOTE_LAYOUT.COMMENT: {
-      return <CommentLayout {...restProps} />
+      Layout = CommentLayout
+      break
     }
     case UPVOTE_LAYOUT.POST_LIST: {
-      return <PostListLayout {...restProps} />
+      Layout = PostListLayout
+      break
     }
     case UPVOTE_LAYOUT.GUIDE_LIST: {
-      return <GuideListLayout {...restProps} />
+      Layout = GuideListLayout
+      break
     }
     case UPVOTE_LAYOUT.BLOG_LIST: {
-      return <BlogListLayout {...restProps} />
+      Layout = BlogListLayout
+      break
     }
-    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
-      return <WorksArticleLayout {...restProps} />
-    }
-    case UPVOTE_LAYOUT.WORKS_CARD: {
-      return <WorksCardLayout {...restProps} />
-    }
+    // case UPVOTE_LAYOUT.WORKS_ARTICLE: {
+    //   Layout = WorksArticleLayout
+    //   break
+    // }
+    // case UPVOTE_LAYOUT.WORKS_CARD: {
+    //   Layout = WorksCardLayout
+    //   break
+    // }
     case UPVOTE_LAYOUT.ARTICLE: {
-      return <ArticleLayout {...restProps} />
+      Layout = ArticleLayout
+      break
     }
     case UPVOTE_LAYOUT.KANBAN: {
-      return <KanbanLayout {...restProps} />
+      Layout = KanbanLayout
+      break
     }
     case UPVOTE_LAYOUT.FIXED_HEADER: {
-      return <FixedHeaderLayout {...restProps} />
+      Layout = FixedHeaderLayout
+      break
     }
     case UPVOTE_LAYOUT.STICKER: {
-      return <StickerLayout {...restProps} />
+      Layout = StickerLayout
+      break
     }
     default: {
-      return <DefaultLayout {...restProps} />
+      Layout = DefaultLayout
+      break
     }
   }
+
+  return (
+    <Wrapper left={left} right={right} top={top} bottom={bottom}>
+      <Layout {...restProps} />
+    </Wrapper>
+  )
 }
 
 export default memo(Upvote)

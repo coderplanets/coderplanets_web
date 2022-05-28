@@ -15,12 +15,12 @@ const log = buildLog('c:ArticlePinLabel:index')
 export type TProps = {
   top?: number
   left?: number
-  entry: {
+  article: {
     isPinned?: boolean
   }
 }
-const ArticlePinLabel: FC<TProps> = ({ entry, top = 24, left = -30 }) => {
-  if (entry.isPinned) return <PinIcon top={top} left={left} />
+const ArticlePinLabel: FC<TProps> = ({ article, top = 24, left = -30 }) => {
+  if (article.isPinned) return <PinIcon top={top} left={left} />
 
   return null
 }

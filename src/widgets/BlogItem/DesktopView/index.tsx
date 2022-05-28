@@ -21,8 +21,8 @@ type TProps = {
 const DigestView: FC<TProps> = ({ entry }) => {
   return (
     <Wrapper>
-      <ArticleReadLabel entry={entry} left={-29} top={18} />
-      <ArticlePinLabel entry={entry} />
+      <ArticleReadLabel article={entry} left={-29} top={18} />
+      <ArticlePinLabel article={entry} />
       <Upvote type={UPVOTE_LAYOUT.BLOG_LIST} count={entry.upvotesCount} />
       <Main>
         <Header item={entry} />

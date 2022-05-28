@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 import EditPenSVG from '@/icons/Calendar'
@@ -9,6 +8,8 @@ import UpdateTimeSVG from '@/icons/UpdateTime'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
+  position: relative;
+  width: 100%;
 `
 export const Item = styled.div`
   ${css.flex('align-center')};
@@ -38,41 +39,23 @@ export const CommentIcon = styled(CommentSVG)`
   margin-right: 10px;
   opacity: 0.8;
 `
-
 export const Content = styled.div``
 export const Highlight = styled.span`
   color: ${theme('thread.articleTitle')};
 `
+export const HelpHint = styled.div`
+  position: absolute;
+  right: 8px;
+  top: -1px;
+  font-size: 11px;
+  color: ${theme('lightText')};
+  opacity: 0.8;
 
-export const ReferNum = styled.span`
-  font-size: 13px;
-  font-weight: bold;
-  color: #00a59b;
-  margin-right: 5px;
-`
-export const Text = styled.div<TActive>`
-  color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.extraInfo')};
-  font-size: 13px;
-
-  ${Item}:hover & {
+  &:hover {
     color: ${theme('thread.articleTitle')};
+    opacity: 1;
+    cursor: pointer;
   }
 
-  transition: color 0.25s;
-`
-export const PanelWrapper = styled.div`
-  ${css.flexColumn()};
-  position: relative;
-  border-top: 1px solid;
-  border-top-color: #00424f;
-`
-export const PanelInnerWrapper = styled.div`
-  height: 100%;
-  border-left: 1px solid;
-  border-left-color: #00424f;
-  padding: 25px 0;
-  padding-right: 25px;
-  margin-left: 18px;
-  min-height: 120px;
+  transition: color 0.2s;
 `

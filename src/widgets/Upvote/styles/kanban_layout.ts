@@ -28,7 +28,7 @@ export const Text = styled.div`
   margin-top: 1px;
 `
 export const Count = styled.div<{ noOne: boolean }>`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-weight: ${({ noOne }) => (noOne ? 400 : 600)};
   font-size: 14px;
   margin-left: -3px;

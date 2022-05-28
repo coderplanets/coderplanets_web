@@ -36,17 +36,17 @@ export const Title = styled.div`
   ${css.flex('align-center')};
   margin-left: 7px;
 `
-export const FolderTitle = styled.div`
-  color: ${theme('thread.extraInfo')};
-  opacity: 0.65;
+export const FolderTitle = styled.div<{ $isOpen: boolean }>`
+  color: ${({ $isOpen }) =>
+    !$isOpen ? theme('thread.articleDigest') : theme('lightText')};
+
   margin-left: 4px;
-  font-weight: 500;
   font-size: 13px;
   margin-right: 8px;
   ${css.cutRest('85px')};
 
   ${Header}:hover & {
-    opacity: 1;
+    color: ${theme('thread.articleDigest')};
   }
 `
 export const Count = styled.div`
@@ -74,22 +74,26 @@ export const SubToggle = styled.div`
   ${css.flex('align-center')};
   margin-top: 5px;
   margin-left: 3px;
-  opacity: 0.8;
 
   &:hover {
-    opacity: 1;
     cursor: pointer;
   }
 `
 export const SubToggleTitle = styled.div`
-  color: ${theme('thread.extraInfo')};
+  color: ${theme('lightText')};
   font-size: 12px;
-  margin-left: 10px;
+  margin-left: 11px;
   padding: 2px;
   border-radius: 5px;
+
+  &:hover {
+    color: ${theme('thread.articleDigest')};
+  }
+
+  transition: color 0.2s;
 `
 export const SubTogglePrefixIcon = styled(MoreSVG)`
-  fill: ${theme('thread.extraInfo')};
+  fill: ${theme('lightText')};
   ${css.size(12)};
   margin-right: 2px;
 `

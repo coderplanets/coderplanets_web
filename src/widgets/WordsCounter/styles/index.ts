@@ -7,8 +7,8 @@ export const Wrapper = styled.div<TSpace>`
   ${css.flex('align-end')};
   margin-left: ${({ left }) => `${left}px` || 0};
   margin-right: ${({ right }) => `${right}px` || 0};
-  margin-top: ${({ top }) => `${top || 0}px`};
-  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
+  margin-top: ${({ top }) => `${top}px` || 0};
+  margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
 `
 
 export const Hint = styled.div`

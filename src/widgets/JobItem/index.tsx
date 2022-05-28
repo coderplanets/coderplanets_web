@@ -27,8 +27,8 @@ type TProps = {
 const JobItem: FC<TProps> = ({ entry, c11n }) => {
   return (
     <Wrapper entry={entry} c11n={c11n}>
-      <ArticleReadLabel entry={entry} top={-3} left={-3} />
-      <ArticlePinLabel entry={entry} />
+      <ArticleReadLabel article={entry} top={-3} left={-3} />
+      <ArticlePinLabel article={entry} />
       <ArticleCard data={entry} />
     </Wrapper>
   )

@@ -11,7 +11,7 @@ import { mockUsers } from '@/utils/mock'
 import { UPVOTE_LAYOUT } from '@/constant'
 
 import IconButton from '@/widgets/Buttons/IconButton'
-import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ArticleCatState from '@/widgets/ArticleCatState'
 import Upvote from '@/widgets/Upvote'
 import TagsList from '@/widgets/TagsList'
 
@@ -39,7 +39,7 @@ const KanbanItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
         <TagsList items={tags} left={2} />
         <IconButton path="shape/more.svg" />
       </Header>
-      <Title>增加看板，发布日志，与常见问题的功能和其他</Title>
+      <Title>增加看板，更新日志，与常见问题的功能和其他</Title>
       <Desc>
         服务于团队开发流程，以社区服务为基础，提供反馈社区工具箱，各种个性化设置等等
       </Desc>
@@ -49,9 +49,9 @@ const KanbanItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
           avatarList={mockUsers(3)}
           type={UPVOTE_LAYOUT.KANBAN}
         />
-        <ArticleStateBadge type="FEATURE" kanbanLayout />
-        {/* <ArticleStateBadge type="LOCK" state="LOCK" noBg /> */}
-        {/* <ArticleStateBadge type="QUESTION" state="RESOLVE" noBg /> */}
+        <ArticleCatState type="FEATURE" kanbanLayout />
+        {/* <ArticleCatState type="LOCK" state="LOCK" noBg /> */}
+        {/* <ArticleCatState type="QUESTION" state="RESOLVE" noBg /> */}
       </Footer>
     </Wrapper>
   )
