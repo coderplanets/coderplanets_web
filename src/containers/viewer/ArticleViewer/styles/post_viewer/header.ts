@@ -16,19 +16,19 @@ export const Avatar = styled(Img)`
   margin-right: 10px;
 `
 export const AuthorName = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-size: 15px;
 `
 export const PublishWrapper = styled.div`
   ${css.flex('align-center')}
 `
 export const PubDate = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
   font-size: 13px;
 `
 export const EditedHint = styled.div`
   font-size: 13px;
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.extraInfo')};
 
   &:before {
     content: '(';

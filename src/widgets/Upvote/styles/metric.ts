@@ -5,7 +5,6 @@ import { theme } from '@/utils/css'
 
 export const getIconColor = ($active: boolean, count: number): string => {
   if ($active) return theme('thread.articleTitle')
-  if (count === 0) return theme('thread.articleDigest')
 
   return theme('thread.extraInfo')
 }

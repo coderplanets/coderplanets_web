@@ -17,7 +17,3 @@ export const BaseInfo = styled.div`
     margin-top: 20px;
   `};
 `
-
-export const CatLabelWrapper = styled.div`
-  margin-left: -25px;
-`

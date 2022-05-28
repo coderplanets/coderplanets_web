@@ -11,7 +11,7 @@ import { mockUsers } from '@/utils/mock'
 import { UPVOTE_LAYOUT } from '@/constant'
 
 import IconButton from '@/widgets/Buttons/IconButton'
-import ArticleStateBadge from '@/widgets/ArticleStateBadge'
+import ArticleCatState from '@/widgets/ArticleCatState'
 import Upvote from '@/widgets/Upvote'
 import TagsList from '@/widgets/TagsList'
 
@@ -49,9 +49,9 @@ const KanbanItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
           avatarList={mockUsers(3)}
           type={UPVOTE_LAYOUT.KANBAN}
         />
-        <ArticleStateBadge type="FEATURE" kanbanLayout />
-        {/* <ArticleStateBadge type="LOCK" state="LOCK" noBg /> */}
-        {/* <ArticleStateBadge type="QUESTION" state="RESOLVE" noBg /> */}
+        <ArticleCatState type="FEATURE" kanbanLayout />
+        {/* <ArticleCatState type="LOCK" state="LOCK" noBg /> */}
+        {/* <ArticleCatState type="QUESTION" state="RESOLVE" noBg /> */}
       </Footer>
     </Wrapper>
   )

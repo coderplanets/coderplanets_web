@@ -18,6 +18,6 @@ export const HighlightWrapper = styled(Wrapper)`
 export const CommentsIcon = styled(CommentSVG)<{ highlight?: boolean }>`
   fill: ${({ highlight }) =>
     highlight ? theme('heightIcon') : theme('thread.extraInfo')};
-  ${css.size(11)};
-  margin-right: 5px;
+  ${css.size(10)};
+  margin-right: 6px;
 `

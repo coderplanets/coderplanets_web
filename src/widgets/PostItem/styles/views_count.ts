@@ -6,6 +6,7 @@ import ViewedSVG from '@/icons/article/Viewed'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
+  color: ${theme('thread.extraInfo')};
   font-size: 13px;
 `
 export const HighlightWrapper = styled(Wrapper)`

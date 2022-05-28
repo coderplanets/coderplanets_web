@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import Copyright from '../index'
+// import ArticleCatState from '../index'
 
-describe('TODO <Copyright />', () => {
+describe('TODO <ArticleCatState />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

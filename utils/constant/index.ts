@@ -32,7 +32,7 @@ export { WORKS_TAB, WORKS_TAB_ITEMS, BLOG_TAB, BLOG_TAB_ITEMS } from './tab'
 
 export { COMMUNITY_MAP_ALIAS } from './alias'
 
-export { AS_STATE, AS_TYPE } from './article_state'
+export { ARTICLE_STATE, ARTICLE_CAT } from './article_cat_state'
 
 export { default as DEFAULT_TOAST_OPTIONS } from './toast'
 
