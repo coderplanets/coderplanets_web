@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
+import { pixelAdd } from '@/utils/dom'
 
 import { Wrapper as BaseWrapper, AvatarsMore } from './index'
 import { getAvatarSize } from './metric'
@@ -13,7 +14,7 @@ const BaseAvatarItem = styled.li<{ size: string }>`
   z-index: 0;
   ${BaseWrapper}:hover & {
     margin-left: 0;
-    z-index: 1;
+    z-index: 0;
   }
 `
 export const Wrapper = styled(BaseAvatarItem)`
@@ -22,9 +23,16 @@ export const Wrapper = styled(BaseAvatarItem)`
 export const TextMore = styled(AvatarsMore)`
   font-size: 20px;
   padding-left: 4px;
+
+  ${({ size }) => css.circle(pixelAdd(getAvatarSize(size) as string, -2))};
+  ${css.flex('align-both')};
+  margin-left: 1px;
 `
 export const DotText = styled.div`
-  margin-top: -8px;
+  color: ${theme('thread.articleTitle')};
+  margin-top: -10px;
+  letter-spacing: -1px;
+  padding-right: 2px;
 `
 export const StateInfoWrapper = styled.div`
   width: 95px;

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
-import { Br } from '@/widgets/Common'
-import Tooltip from '@/widgets/Tooltip'
+// import { Br } from '@/widgets/Common'
+// import Tooltip from '@/widgets/Tooltip'
 
 import type { TProps as TAvatarsProps } from './index'
 
@@ -11,9 +11,9 @@ import {
   Wrapper,
   TextMore,
   DotText,
-  StateInfoWrapper,
-  TotalCommentStateHint,
-  Focus,
+  // StateInfoWrapper,
+  // TotalCommentStateHint,
+  // Focus,
 } from './styles/more_item'
 
 type TProps = Pick<
@@ -29,7 +29,15 @@ const MoreItem: FC<TProps> = ({
 }) => {
   return (
     <Wrapper size={size} onClick={() => onTotalSelect()}>
-      <Tooltip
+      {!showTotalNumber ? (
+        <TextMore size={size} total={total}>
+          <DotText>..</DotText>
+        </TextMore>
+      ) : (
+        <RealNumber total={total} size={size} />
+      )}
+
+      {/* <Tooltip
         content={
           showTotalNumber ? (
             '更多'
@@ -49,14 +57,8 @@ const MoreItem: FC<TProps> = ({
         placement="bottom-end"
         noPadding
       >
-        {showTotalNumber ? (
-          <TextMore size={size} total={total}>
-            <DotText>...</DotText>
-          </TextMore>
-        ) : (
-          <RealNumber total={total} size={size} />
-        )}
-      </Tooltip>
+        <div>...</div>
+      </Tooltip> */}
     </Wrapper>
   )
 }

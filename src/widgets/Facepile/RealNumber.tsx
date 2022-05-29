@@ -10,7 +10,7 @@ type TProps = Pick<TAvatarsProps, 'size' | 'total'>
 const RealNumber: FC<TProps> = ({ total, size }) => {
   return (
     <Wrapper total={total} size={size}>
-      {total > 15 ? (
+      {total > 100 ? (
         <HighlightNumber>{prettyNum(total)}</HighlightNumber>
       ) : (
         <Fragment>{prettyNum(total)}</Fragment>
