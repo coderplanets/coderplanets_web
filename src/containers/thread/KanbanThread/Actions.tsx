@@ -51,7 +51,12 @@ const Actions: FC = () => {
         </ModeWrapper>
         <Space right={20} />
         <JoinTitle>参与者</JoinTitle>
-        <Facepile size="medium" users={mockUsers(6)} total={20} />
+        <Facepile
+          size="medium"
+          users={mockUsers(6)}
+          total={20}
+          showTotalNumber
+        />
         {/* <Space right={25} /> */}
         {/* <NewButton size="medium">
           <BtnText>新增</BtnText>

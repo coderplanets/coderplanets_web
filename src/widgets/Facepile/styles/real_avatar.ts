@@ -14,7 +14,6 @@ export const Wrapper = styled.li<TWrapper>`
   padding: 0px 0px 0px 0px;
   position: relative;
   width: ${({ size }) => getLiSize(size)};
-  /* z-index: 2; */
 
   &:hover {
     z-index: 3;

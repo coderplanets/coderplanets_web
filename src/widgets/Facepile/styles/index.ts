@@ -23,17 +23,14 @@ export const TotalOneOffset = styled.span`
 `
 type TAvatarsMore = { size: TAvatarSize; total: number }
 export const AvatarsMore = styled.span<TAvatarsMore>`
+  ${({ size }) => css.circle(getAvatarSize(size))};
   ${css.flex('align-both')};
   font-size: 14px;
-  border-color: ${theme('textBadge')}; // to-theme
+  border-color: ${theme('textBadge')};
   color: ${theme('thread.articleTitle')};
-  background-color: ${theme('textBadge')}; // to-theme
-  border-radius: 100px 100px 100px 100px;
+  background-color: ${theme('textBadge')};
   font-family: sans-serif;
   font-weight: ${({ total }) => (total >= 1000 ? 600 : 200)};
-
-  min-width: ${({ size }) => getAvatarSize(size)};
-  height: ${({ size }) => getAvatarSize(size)};
 
   padding-left: ${({ total }) => (total >= 1000 ? '5px' : '3px')};
 
