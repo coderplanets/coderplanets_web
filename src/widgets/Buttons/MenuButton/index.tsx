@@ -18,6 +18,7 @@ type TProps = {
   extraOptions?: TMenuOption[]
   placement?: TTooltipPlacement
   panelMinWidth?: string
+  offset?: [number, number]
   onClick?: (key?: string) => void
 }
 
@@ -25,6 +26,7 @@ const MenuButton: FC<TProps> = ({
   children,
   options,
   extraOptions = [],
+  offset = [5, 5],
   onClick = log,
   placement = 'top-end',
   panelMinWidth = '110px',
@@ -34,6 +36,7 @@ const MenuButton: FC<TProps> = ({
       placement={placement}
       trigger="click"
       hideOnClick
+      offset={offset}
       content={
         <Menu
           options={options}

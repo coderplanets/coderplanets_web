@@ -215,3 +215,5 @@ export type TToastOption = {
   position?: TToastPos
   duration?: number
 }
+
+export type TPublishMode = 'default' | 'changelog' | 'help'
