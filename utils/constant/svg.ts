@@ -35,6 +35,11 @@ const SVG = {
   // menu
   COPY: 'copy',
   REPORT: 'report',
+
+  //
+  QUESTION: 'question',
+  FEATURE: 'feature',
+  BUG: 'bug',
 }
 
 export default SVG

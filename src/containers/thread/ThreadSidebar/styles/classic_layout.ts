@@ -52,8 +52,8 @@ export const CommunityNoteWrapper = styled.div`
 `
 export const PublishWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
-  width: 160px;
-  max-width: 180px;
+  width: 185px;
+  max-width: 185px;
 `
 export const NoteWrapper = styled.div`
   color: ${theme('thread.articleDigest')};

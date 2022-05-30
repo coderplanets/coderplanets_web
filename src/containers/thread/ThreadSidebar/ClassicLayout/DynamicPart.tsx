@@ -86,7 +86,7 @@ const ClassicLayout: FC<TProps> = ({
             <PublishButton
               thread={thread}
               community={community.raw}
-              text="反馈/建议/问题"
+              text="参与讨论"
             />
           ) : (
             <NoteWrapper>

@@ -82,6 +82,7 @@ export type {
   TTagMode,
   TMenuOption,
   TToastOption,
+  TPublishMode,
 } from './utils'
 
 export type { TGQLError } from './graphql'
