@@ -32,22 +32,22 @@ const Footer: FC<TProps> = ({ article }) => {
       />
 
       {!includes(article.id, demoList) ? (
-        <ArticleCatState left={20} type="QUESTION" />
+        <ArticleCatState left={18} type="QUESTION" />
       ) : (
         <Fragment>
-          {article.id === '239' && <ArticleCatState type="FEATURE" left={20} />}
-          {article.id === '231' && <ArticleCatState type="BUG" left={20} />}
+          {article.id === '239' && <ArticleCatState type="FEATURE" left={18} />}
+          {article.id === '231' && <ArticleCatState type="BUG" left={18} />}
           {article.id === '227' && (
-            <ArticleCatState type="BUG" state="TODO" left={20} />
+            <ArticleCatState type="BUG" state="TODO" left={18} />
           )}
           {article.id === '228' && (
-            <ArticleCatState type="FEATURE" state="WIP" left={20} />
+            <ArticleCatState type="FEATURE" state="WIP" left={18} />
           )}
           {article.id === '226' && (
-            <ArticleCatState type="QUESTION" state="RESOLVE" left={20} />
+            <ArticleCatState type="QUESTION" state="RESOLVE" left={18} />
           )}
           {article.id === '225' && (
-            <ArticleCatState type="LOCK" state="LOCK" left={20} />
+            <ArticleCatState type="LOCK" state="LOCK" left={18} />
           )}
         </Fragment>
       )}
