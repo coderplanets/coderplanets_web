@@ -6,21 +6,20 @@ import css, { theme } from '@/utils/css'
 export const Wrapper = styled.div<TActive>`
   ${css.flex('align-center')};
   cursor: pointer;
-  margin-right: 14px;
-  margin-right: 5px;
-  padding: 2px 5px;
-  border-radius: 5px;
-  margin-left: -1px;
-  background: ${({ $active }) => ($active ? '#00333D' : 'transparent')};
+  margin-right: 6px;
+  padding: 2px 8px;
+  margin-left: 2px;
+  border-radius: 15px;
+  /* background: ${({ $active }) => ($active ? '#00333D' : 'transparent')}; */
+  background: ${theme('hoverBg')};
 
   &:hover {
-    background: ${theme('textBadge')}; // to-theme
+    background: ${theme('border')};
   }
+
+  transition: all 0.2s;
 `
 
 export const Count = styled.div`
   color: ${theme('thread.extraInfo')};
-  ${Wrapper}:hover & {
-    color: #00a59b;
-  }
 `

@@ -15,7 +15,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-top: -1px;
 `
 export const SelectEmotionWrapper = styled.div`
-  ${css.circle(22)};
+  ${css.circle(24)};
   ${css.flex('align-both')};
   background: ${theme('hoverBg')};
+  margin-left: 2px;
 `
