@@ -25,10 +25,10 @@ export const THREAD = {
   PRODUCT: 'product',
   GUIDE: 'guide',
   ACCOUNT: 'account',
-  SETTING: 'setting',
   // for groupher
   KANBAN: 'kanban',
   CHANGELOG: 'changelog',
   HELP: 'help',
   ABOUT: 'about',
+  DASHBOARD: 'dashboard',
 } as Record<Uppercase<TThread>, TThread>

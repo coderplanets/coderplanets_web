@@ -15,7 +15,7 @@ export type TArticleThread =
 export type TThread =
   | TArticleThread
   | 'cper'
-  | 'setting'
+  | 'dashboard'
   | 'map'
   | 'kanban'
   | 'product'

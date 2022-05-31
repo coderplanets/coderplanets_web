@@ -10,6 +10,7 @@ import ChangeThread from '@/containers//thread/ChangelogThread'
 import CperMapThread from '@/containers/thread/CperMapThread'
 import AboutThread from '@/containers/thread/AboutThread'
 import HelpThread from '@/containers/thread/HelpThread'
+import DashboardThread from '@/containers/thread/DashboardThread'
 
 import WipThread from './WipThread'
 
@@ -61,6 +62,10 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
 
     case THREAD.HELP: {
       return <HelpThread />
+    }
+
+    case THREAD.DASHBOARD: {
+      return <DashboardThread />
     }
 
     default:
