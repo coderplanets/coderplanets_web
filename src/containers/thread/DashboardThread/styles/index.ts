@@ -16,7 +16,7 @@ export const MainWrapper = styled.div`
 
   background: transparent;
   border-radius: 6px;
-  margin-top: 12px;
+  margin-top: 30px;
   padding-left: 25px;
   padding-right: 65px;
   margin-right: 60px;

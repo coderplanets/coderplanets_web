@@ -3,16 +3,20 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-// import {} from 'ramda'
+import { values } from 'ramda'
 
 import type { TCommunity, TRootStore } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 
+import { TAB } from './constant'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:DashboardThread')
 
-const DashboardThread = T.model('DashboardThread', {})
+const DashboardThread = T.model('DashboardThread', {
+  curTab: T.optional(T.enumeration(values(TAB)), TAB.OVERVIEW),
+})
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore

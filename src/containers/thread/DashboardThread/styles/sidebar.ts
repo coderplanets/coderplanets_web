@@ -24,20 +24,24 @@ export const Folder = styled.div`
 `
 const BasicIcon = styled(InfoSVG)`
   ${css.size(15)};
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleDigest')};
+  opacity: 0.8;
 `
 const PulseIcon = styled(PulseSVG)`
   ${css.size(15)};
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleDigest')};
+  opacity: 0.8;
 `
 const ManagementIcon = styled(ManagementSVG)`
   ${css.size(18)};
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleDigest')};
+  opacity: 0.8;
   margin-left: -2px;
 `
 const BindIcon = styled(BindSVG)`
   ${css.size(15)};
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleDigest')};
+  opacity: 0.8;
 `
 
 export const Icon = {

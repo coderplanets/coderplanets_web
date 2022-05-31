@@ -1,13 +1,18 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
 import { Br } from '@/widgets/Common'
+
 import { TAB } from './constant'
+import type { TTab } from './spec'
 
 import { Wrapper, Folder, Icon, Title, Item } from './styles/sidebar'
+import { tabOnChange } from './logic'
 
-const Sidebar: FC = () => {
-  const [curTab, setCurTab] = useState('')
+type TProps = {
+  curTab: TTab
+}
 
+const Sidebar: FC<TProps> = ({ curTab }) => {
   return (
     <Wrapper>
       <Folder>
@@ -16,22 +21,22 @@ const Sidebar: FC = () => {
       </Folder>
       <Item
         $active={TAB.BASIC_INFO === curTab}
-        onClick={() => setCurTab(TAB.BASIC_INFO)}
+        onClick={() => tabOnChange(TAB.BASIC_INFO)}
       >
         基本信息
       </Item>
-      <Item $active={TAB.UI === curTab} onClick={() => setCurTab(TAB.UI)}>
+      <Item $active={TAB.UI === curTab} onClick={() => tabOnChange(TAB.UI)}>
         外观样式
       </Item>
       <Item
         $active={TAB.THREADS === curTab}
-        onClick={() => setCurTab(TAB.THREADS)}
+        onClick={() => tabOnChange(TAB.THREADS)}
       >
         社区板块
       </Item>
       <Item
         $active={TAB.ADMINS === curTab}
-        onClick={() => setCurTab(TAB.ADMINS)}
+        onClick={() => tabOnChange(TAB.ADMINS)}
       >
         管理员
       </Item>
@@ -55,19 +60,19 @@ const Sidebar: FC = () => {
       </Folder>
       <Item
         $active={TAB.DOMAIN === curTab}
-        onClick={() => setCurTab(TAB.DOMAIN)}
+        onClick={() => tabOnChange(TAB.DOMAIN)}
       >
         域名
       </Item>
       <Item
         $active={TAB.THIRD_PART === curTab}
-        onClick={() => setCurTab(TAB.THIRD_PART)}
+        onClick={() => tabOnChange(TAB.THIRD_PART)}
       >
         外部应用
       </Item>
       <Item
         $active={TAB.WIDGETS === curTab}
-        onClick={() => setCurTab(TAB.WIDGETS)}
+        onClick={() => tabOnChange(TAB.WIDGETS)}
       >
         网站组件
       </Item>
