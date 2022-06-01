@@ -1,28 +1,24 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
+import { BaseSection } from '.'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
 `
-export const Section = styled.section`
-  margin: 0 70px;
-  padding-bottom: 50px;
-  border-bottom: 1px solid;
-  border-bottom-color: ${theme('border')};
-`
+export const Section = styled(BaseSection)``
+
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
+  margin-bottom: 20px;
 `
 export const PreviewWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: 20px;
 `
 export const PreviewImage = styled.div<{ effect: string }>`
   border: 1px solid;
   border-color: ${theme('border')};
   background-color: ${theme('hoverBg')};
-  margin-right: 20px;
 
   width: 230px;
   height: 150px;
@@ -58,7 +54,6 @@ export const ContentBar = styled.div<{ long: number }>`
   z-index: 3;
   border-radius: 5px;
 `
-
 export const Desc = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};

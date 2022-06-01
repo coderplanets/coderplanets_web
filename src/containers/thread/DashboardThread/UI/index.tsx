@@ -1,9 +1,10 @@
 import { FC, memo } from 'react'
 
 import Wallpaper from './Wallpaper'
-import { Wrapper } from '../styles/ui'
+import PostListLayout from './PostListLayout'
 
 import type { TUiSettings } from '../spec'
+import { Wrapper } from '../styles/ui'
 
 type TProps = {
   settings: TUiSettings
@@ -12,6 +13,7 @@ type TProps = {
 const UI: FC<TProps> = ({ settings }) => {
   return (
     <Wrapper>
+      <PostListLayout />
       <Wallpaper wallpaper={settings.wallpaper} />
     </Wrapper>
   )

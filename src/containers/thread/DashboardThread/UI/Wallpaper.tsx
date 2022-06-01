@@ -5,6 +5,8 @@ import { WIDTH } from '@/utils/css'
 import { callWallpaperEditor } from '@/utils/helper'
 import { parseWallpaperRaw } from '@/utils/wallpaper'
 
+import { Space } from '@/widgets/Common'
+
 import {
   Wrapper,
   Section,
@@ -36,6 +38,7 @@ const Wallpaper: FC<TProps> = ({ wallpaper }) => {
             style={{ background }}
             effect={effect}
           />
+          <Space right={20} />
           <RealPreview>
             <PreviewImage
               onClick={handleCallEditor}
