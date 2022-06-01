@@ -9,19 +9,31 @@ import type { TCommunity, TRootStore } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 
+import type { TUiSettings } from './spec'
+
 import { TAB } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:DashboardThread')
 
 const DashboardThread = T.model('DashboardThread', {
-  curTab: T.optional(T.enumeration(values(TAB)), TAB.OVERVIEW),
+  curTab: T.optional(T.enumeration(values(TAB)), TAB.UI),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
       return toJS(root.viewing.community)
+    },
+    get uiSettings(): TUiSettings {
+      const root = getParent(self) as TRootStore
+      const {
+        wallpaperEditor: { wallpapers, wallpaper },
+      } = root
+
+      return {
+        wallpaper: wallpapers[wallpaper],
+      }
     },
   }))
   .actions((self) => ({

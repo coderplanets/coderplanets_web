@@ -3,7 +3,8 @@ import dynamic from 'next/dynamic'
 
 import type { TPost } from '@/spec'
 
-import { callWallpaperEditor } from '@/utils/helper'
+import { EVENT } from '@/constant'
+import { send } from '@/utils/helper'
 
 import Facepile from '@/widgets/Facepile'
 // import TagsList from '@/widgets/TagsList'
@@ -31,8 +32,9 @@ const Header: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <Brief>
-        {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: article })}> */}
-        <Title onClick={() => callWallpaperEditor()}>{article.title}</Title>
+        <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article })}>
+          {article.title}
+        </Title>
         {/*  @ts-ignore */}
         <TagsList items={article.articleTags} left={12} />
       </Brief>
