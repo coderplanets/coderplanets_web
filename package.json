@@ -64,7 +64,7 @@
     "express": "^4.16.4",
     "g2": "^2.3.13",
     "glob": "^7.1.2",
-    "graphql": "^15.5.1",
+    "graphql": "^16.5.0",
     "graphql-request": "3.5.0",
     "graphql-voyager": "^1.0.0-rc.31",
     "izitoast": "^1.4.0",
