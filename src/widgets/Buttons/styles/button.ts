@@ -39,7 +39,8 @@ export const Wrapper = styled.button<TButton>`
   transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: relative;
 
-  color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
+  color: ${({ ghost, disabled, noBorder }) =>
+    getColor(ghost, disabled, noBorder)};
   background-color: ${({ ghost, disabled }) =>
     getBackgroundColor(ghost, disabled)};
   border-color: ${({ noBorder, disabled }) =>
@@ -60,7 +61,8 @@ export const Wrapper = styled.button<TButton>`
   }
 
   &:hover {
-    color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
+    color: ${({ ghost, disabled, noBorder }) =>
+      getColor(ghost, disabled, noBorder)};
     border-color: ${({ noBorder, disabled }) =>
       getBorderColor(noBorder, disabled, true)};
     background-color: ${({ ghost, disabled }) =>
@@ -76,7 +78,8 @@ export const Wrapper = styled.button<TButton>`
   }
 
   &:focus {
-    color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
+    color: ${({ ghost, disabled, noBorder }) =>
+      getColor(ghost, disabled, noBorder)};
     border-color: ${({ noBorder, disabled }) =>
       getBorderColor(noBorder, disabled, true)};
     background-color: ${({ ghost, disabled }) =>
@@ -85,7 +88,8 @@ export const Wrapper = styled.button<TButton>`
   }
 
   &:active {
-    color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
+    color: ${({ ghost, disabled, noBorder }) =>
+      getColor(ghost, disabled, noBorder)};
     background-color: ${({ ghost, disabled }) =>
       getBackgroundColor(ghost, disabled, true)};
     opacity: 1;

@@ -111,6 +111,7 @@ export type {
   TArticleFilter,
   TCopyright,
   TUpvoteLayout,
+  TPostLayout,
   TCommentsState,
   TWorksTab,
   TBlogTab,

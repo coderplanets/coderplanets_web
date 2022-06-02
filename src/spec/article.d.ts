@@ -218,6 +218,8 @@ export type TUpvoteLayout =
   | 'fixed-header'
   | 'sticker'
 
+export type TPostLayout = 'upvote_first' | 'comment_first'
+
 export type TCollectionFolder = {
   id: TID
   title: string

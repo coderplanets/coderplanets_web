@@ -23,6 +23,16 @@ export const SelectWrapper = styled.div`
 export const Row = styled.div`
   ${css.flex('align-center')};
 `
+
+export const ExampleBtn = styled.div`
+  margin-bottom: 15px;
+  margin-right: 10px;
+  opacity: 0;
+  ${Section}:hover & {
+    opacity: 1;
+  }
+  transition: all 0.2s;
+`
 type TColumn = { center?: boolean; grow?: boolean }
 export const Column = styled.div<TColumn>`
   ${css.flexColumn()};
@@ -48,7 +58,7 @@ export const Block = styled.div<TActive>`
   opacity: ${({ $active }) => ($active ? 0.65 : 0.2)};
   width: 300px;
   height: 94px;
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 7px;
   border-color: ${theme('thread.articleTitle')};
   padding: 16px 15px;
@@ -77,6 +87,7 @@ export const Circle = styled.div<{ radius?: number }>`
 export const UpvoteIcon = styled(UpvoteSVG)<{ size: number }>`
   ${({ size }) => css.size(size)};
   fill: ${theme('thread.articleTitle')};
+  transform: scaleY(0.8);
 `
 export const CommentIcon = styled(CommentSVG)`
   ${css.size(12)};

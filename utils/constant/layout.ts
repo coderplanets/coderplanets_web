@@ -1,4 +1,4 @@
-import type { TUpvoteLayout, SnakeUpperCase } from '@/spec'
+import type { TUpvoteLayout, TPostLayout, SnakeUpperCase } from '@/spec'
 
 export const UPVOTE_LAYOUT = {
   DEFAULT: 'default',
@@ -14,4 +14,7 @@ export const UPVOTE_LAYOUT = {
   STICKER: 'sticker',
 } as Record<SnakeUpperCase<TUpvoteLayout>, TUpvoteLayout>
 
-export const holder = 1
+export const POST_LAYOUT = {
+  UPVOTE_FIRST: 'upvote_first',
+  COMMENT_FIRST: 'comment_first',
+} as Record<SnakeUpperCase<TPostLayout>, TPostLayout>

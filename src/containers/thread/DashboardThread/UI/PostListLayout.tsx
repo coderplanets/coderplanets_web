@@ -1,11 +1,16 @@
 import { FC, memo, useState } from 'react'
 
+import type { TPostLayout } from '@/spec'
+import { POST_LAYOUT } from '@/constant'
+
+import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow } from '@/widgets/Common'
 
 import {
   Wrapper,
   Section,
   SelectWrapper,
+  ExampleBtn,
   Title,
   Layout,
   LayoutTitle,
@@ -23,15 +28,23 @@ type TProps = {
 }
 
 const PostListLayout: FC<TProps> = ({ testid = 'PostListLayout' }) => {
-  const [layout, setLayout] = useState('A')
+  const [layout, setLayout] = useState<TPostLayout>(POST_LAYOUT.UPVOTE_FIRST)
 
   return (
     <Wrapper>
       <Section>
-        <Title>讨论列表</Title>
+        <Row>
+          <Title>讨论列表</Title>
+          <SpaceGrow />
+          <ExampleBtn>
+            <Button size="tiny" ghost noBorder>
+              查看示例
+            </Button>
+          </ExampleBtn>
+        </Row>
         <SelectWrapper>
-          <Layout onClick={() => setLayout('A')}>
-            <Block $active={layout === 'A'}>
+          <Layout onClick={() => setLayout(POST_LAYOUT.UPVOTE_FIRST)}>
+            <Block $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
               <Bar thin long={30} />
               <Br bottom={7} />
               <Row>
@@ -53,17 +66,19 @@ const PostListLayout: FC<TProps> = ({ testid = 'PostListLayout' }) => {
                 <Bar long={12} thin />
               </Row>
             </Block>
-            <LayoutTitle $active={layout === 'A'}>布局 A</LayoutTitle>
+            <LayoutTitle $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
+              布局 A
+            </LayoutTitle>
           </Layout>
           <Space right={40} />
-          <Layout onClick={() => setLayout('B')}>
-            <Block $active={layout === 'B'}>
+          <Layout onClick={() => setLayout(POST_LAYOUT.COMMENT_FIRST)}>
+            <Block $active={layout === POST_LAYOUT.COMMENT_FIRST}>
               <Row>
                 <Column center>
                   <Circle />
                   <Br bottom={8} />
                   <UpvoteIcon size={13} />
-                  <Br bottom={5} />
+                  <Br bottom={3} />
                   <Bar long={50} />
                 </Column>
 
@@ -90,7 +105,9 @@ const PostListLayout: FC<TProps> = ({ testid = 'PostListLayout' }) => {
                 </Column>
               </Row>
             </Block>
-            <LayoutTitle $active={layout === 'B'}>布局 B</LayoutTitle>
+            <LayoutTitle $active={layout === POST_LAYOUT.COMMENT_FIRST}>
+              布局 B
+            </LayoutTitle>
           </Layout>
         </SelectWrapper>
       </Section>

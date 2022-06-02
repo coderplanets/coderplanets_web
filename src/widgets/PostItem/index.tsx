@@ -7,6 +7,7 @@
 import { FC, memo, Fragment } from 'react'
 
 import type { TCommunity, TPost, TUser, TAccount, TC11N } from '@/spec'
+import { POST_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import CommentFirstLayout from './CommentFirstLayout'
@@ -31,12 +32,12 @@ const PostItem: FC<TProps> = ({
   article,
   onUserSelect = log,
   onAuthorSelect = log,
-  layout = 'upvote-first',
+  layout = POST_LAYOUT.UPVOTE_FIRST,
   c11n,
 }) => {
   return (
     <Fragment>
-      {layout === 'upvote-first' ? (
+      {layout === POST_LAYOUT.UPVOTE_FIRST ? (
         <UpvoteFirstLayout
           c11n={c11n}
           article={article}
