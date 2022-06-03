@@ -6,7 +6,7 @@ import TimeAgo from 'timeago-react'
 import Link from 'next/link'
 
 import type { TCommunity, TPost } from '@/spec'
-import { EVENT } from '@/constant'
+import { EVENT, ARTICLE_CAT } from '@/constant'
 import { send, changeToCommunity } from '@/utils/helper'
 
 import { Space, SpaceGrow } from '@/widgets/Common'
@@ -105,6 +105,15 @@ const Body: FC<TProps> = ({ article, curCommunity }) => {
         {article.digest}
       </Digest>
       <Footer>
+        {article.category !== ARTICLE_CAT.DEFAULT && (
+          <ArticleCatState
+            type={article.category}
+            state={article.state}
+            left={-1}
+            right={20}
+          />
+        )}
+
         {!includes(article.id, demoList) ? (
           <ArticleCatState left={-1} />
         ) : (

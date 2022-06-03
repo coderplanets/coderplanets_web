@@ -50,6 +50,9 @@ type TBaseArticle = {
   isArchived?: boolean
   archivedAt?: string
   activeAt?: string
+
+  category?: TArticleCat
+  state?: TArticleState
 }
 
 export type TPost = TBaseArticle & {
@@ -233,3 +236,13 @@ export type TCommentsState = {
   totalCount: number
   participants: TSimpleUser[]
 }
+
+export type TArticleCat = 'BUG' | 'FEATURE' | 'QUESTION' | 'LOCK' | 'DEFAULT'
+
+export type TArticleState =
+  | 'TODO'
+  | 'WIP'
+  | 'DONE'
+  | 'RESOLVE'
+  | 'LOCK'
+  | 'DEFAULT'

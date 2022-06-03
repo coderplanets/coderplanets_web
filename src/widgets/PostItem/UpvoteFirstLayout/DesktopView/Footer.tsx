@@ -1,7 +1,7 @@
 import { memo, FC, Fragment } from 'react'
 import { includes } from 'ramda'
 
-import { UPVOTE_LAYOUT } from '@/constant'
+import { UPVOTE_LAYOUT, ARTICLE_CAT } from '@/constant'
 import type { TPost } from '@/spec'
 
 import Upvote from '@/widgets/Upvote'
@@ -30,6 +30,14 @@ const Footer: FC<TProps> = ({ article }) => {
         type={UPVOTE_LAYOUT.KANBAN}
         left={-2}
       />
+
+      {article.category !== ARTICLE_CAT.DEFAULT && (
+        <ArticleCatState
+          type={article.category}
+          state={article.state}
+          left={18}
+        />
+      )}
 
       {!includes(article.id, demoList) ? (
         <ArticleCatState left={18} type="QUESTION" />

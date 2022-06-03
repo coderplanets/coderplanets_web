@@ -184,15 +184,6 @@ export type TModelineType =
   | 'search'
   | 'more'
 
-export type TArticleCat = 'BUG' | 'FEATURE' | 'DEFAULT' | 'QUESTION' | 'LOCK'
-export type TArticleState =
-  | 'TODO'
-  | 'WIP'
-  | 'DONE'
-  | 'DEFAULT'
-  | 'RESOLVE'
-  | 'LOCK'
-
 export type TTagMode = 'default' | 'label'
 
 // for menu button

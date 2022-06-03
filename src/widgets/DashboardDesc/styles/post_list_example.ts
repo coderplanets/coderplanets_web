@@ -16,8 +16,9 @@ export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   margin-left: 3px;
-  margin-top: 8px;
-  margin-bottom: 18px;
+  margin-top: 6px;
+  margin-bottom: 22px;
+  opacity: 0.7;
 `
 export const DividerLine = styled.div`
   margin-top: 40px;

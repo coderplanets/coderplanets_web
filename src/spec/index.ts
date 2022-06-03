@@ -77,8 +77,6 @@ export type {
   TEditMode,
   TOnlineStatus,
   TModelineType,
-  TArticleCat,
-  TArticleState,
   TTagMode,
   TMenuOption,
   TToastOption,
@@ -115,6 +113,8 @@ export type {
   TCommentsState,
   TWorksTab,
   TBlogTab,
+  TArticleCat,
+  TArticleState,
 } from './article'
 
 export type {

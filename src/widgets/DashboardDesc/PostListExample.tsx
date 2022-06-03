@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import { POST_LAYOUT } from '@/constant'
+import { POST_LAYOUT, ARTICLE_CAT, ARTICLE_STATE } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { mockUsers } from '@/utils/mock'
@@ -27,6 +27,8 @@ const demoPost = {
   upvotesCount: 10,
   commentsCount: 15,
   articleTags: [],
+  category: ARTICLE_CAT.FEATURE,
+  state: ARTICLE_STATE.TODO,
   originalCommunity: {
     raw: 'demo',
   },
