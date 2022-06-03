@@ -69,19 +69,17 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
           )} */}
           <DotDivider space={12} />
           <div>
-            {article.id === '239' && <ArticleCatState type="FEATURE" />}
-            {article.id === '231' && <ArticleCatState type="BUG" />}
-            {article.id === '227' && (
-              <ArticleCatState type="BUG" state="TODO" />
-            )}
+            {article.id === '239' && <ArticleCatState cat="FEATURE" />}
+            {article.id === '231' && <ArticleCatState cat="BUG" />}
+            {article.id === '227' && <ArticleCatState cat="BUG" state="TODO" />}
             {article.id === '228' && (
-              <ArticleCatState type="FEATURE" state="WIP" />
+              <ArticleCatState cat="FEATURE" state="WIP" />
             )}
             {article.id === '226' && (
-              <ArticleCatState type="QUESTION" state="RESOLVE" />
+              <ArticleCatState cat="QUESTION" state="RESOLVE" />
             )}
             {article.id === '225' && (
-              <ArticleCatState type="LOCK" state="LOCK" />
+              <ArticleCatState cat="LOCK" state="LOCK" />
             )}
           </div>
         </Header>

@@ -107,7 +107,7 @@ const Body: FC<TProps> = ({ article, curCommunity }) => {
       <Footer>
         {article.category !== ARTICLE_CAT.DEFAULT && (
           <ArticleCatState
-            type={article.category}
+            cat={article.category}
             state={article.state}
             left={-1}
             right={20}
@@ -118,19 +118,17 @@ const Body: FC<TProps> = ({ article, curCommunity }) => {
           <ArticleCatState left={-1} />
         ) : (
           <ArticleStateBadgeWrapper>
-            {article.id === '239' && <ArticleCatState type="FEATURE" />}
-            {article.id === '231' && <ArticleCatState type="BUG" />}
-            {article.id === '227' && (
-              <ArticleCatState type="BUG" state="TODO" />
-            )}
+            {article.id === '239' && <ArticleCatState cat="FEATURE" />}
+            {article.id === '231' && <ArticleCatState cat="BUG" />}
+            {article.id === '227' && <ArticleCatState cat="BUG" state="TODO" />}
             {article.id === '228' && (
-              <ArticleCatState type="FEATURE" state="WIP" />
+              <ArticleCatState cat="FEATURE" state="WIP" />
             )}
             {article.id === '226' && (
-              <ArticleCatState type="QUESTION" state="RESOLVE" />
+              <ArticleCatState cat="QUESTION" state="RESOLVE" />
             )}
             {article.id === '225' && (
-              <ArticleCatState type="LOCK" state="LOCK" />
+              <ArticleCatState cat="LOCK" state="LOCK" />
             )}
           </ArticleStateBadgeWrapper>
         )}

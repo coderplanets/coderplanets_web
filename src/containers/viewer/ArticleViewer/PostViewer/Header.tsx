@@ -42,20 +42,20 @@ const Header: FC<TProps> = ({ article }) => {
       </PublishWrapper>
       <DotDivider space={10} />
       {article.id === '239' && (
-        <ArticleCatState type="FEATURE" smaller={false} />
+        <ArticleCatState cat="FEATURE" smaller={false} />
       )}
-      {article.id === '231' && <ArticleCatState type="BUG" />}
+      {article.id === '231' && <ArticleCatState cat="BUG" />}
       {article.id === '227' && (
-        <ArticleCatState type="BUG" state="TODO" smaller={false} />
+        <ArticleCatState cat="BUG" state="TODO" smaller={false} />
       )}
       {article.id === '228' && (
-        <ArticleCatState type="FEATURE" state="WIP" smaller={false} />
+        <ArticleCatState cat="FEATURE" state="WIP" smaller={false} />
       )}
       {article.id === '226' && (
-        <ArticleCatState type="QUESTION" state="RESOLVE" smaller={false} />
+        <ArticleCatState cat="QUESTION" state="RESOLVE" smaller={false} />
       )}
       {article.id === '225' && (
-        <ArticleCatState type="LOCK" state="LOCK" smaller={false} />
+        <ArticleCatState cat="LOCK" state="LOCK" smaller={false} />
       )}
     </Wrapper>
   )

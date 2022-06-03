@@ -49,9 +49,9 @@ const KanbanItem: FC<TProps> = ({ testid = 'gtd-item' }) => {
           avatarList={mockUsers(3)}
           type={UPVOTE_LAYOUT.KANBAN}
         />
-        <ArticleCatState type="FEATURE" kanbanLayout />
-        {/* <ArticleCatState type="LOCK" state="LOCK" noBg /> */}
-        {/* <ArticleCatState type="QUESTION" state="RESOLVE" noBg /> */}
+        <ArticleCatState cat="FEATURE" kanbanLayout />
+        {/* <ArticleCatState cat="LOCK" state="LOCK" noBg /> */}
+        {/* <ArticleCatState cat="QUESTION" state="RESOLVE" noBg /> */}
       </Footer>
     </Wrapper>
   )
