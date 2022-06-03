@@ -17,7 +17,7 @@ const log = buildLog('L:Preview')
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   /* @ts-ignore */
-  receive: [...values(EVENT.DRAWER)],
+  receive: values(EVENT.DRAWER),
 })
 
 let store: TStore | undefined

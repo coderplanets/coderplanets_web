@@ -2,7 +2,7 @@ import { FC, useEffect, useRef, useState, memo } from 'react'
 
 import CustomScroller from '@/widgets/CustomScroller'
 
-import type { TSwipeOption } from '../spec'
+import type { TSwipeOption, TExtraInfo } from '../spec'
 import renderContent from './renderContent'
 import { getMobileContentHeight } from '../styles/metrics'
 import { Wrapper } from '../styles/content'
@@ -13,10 +13,16 @@ type TProps = {
   options: TSwipeOption
   type: string // TODO
   attUser: any // TODO
-  mmType: string // TODO
+  extraInfo: TExtraInfo
 }
 
-const Content: FC<TProps> = ({ visible, options, type, attUser, mmType }) => {
+const Content: FC<TProps> = ({
+  visible,
+  options,
+  type,
+  attUser,
+  extraInfo,
+}) => {
   const ref = useRef(null)
 
   const [topEnterTimer, setTopEnterTimer] = useState(null)
@@ -90,7 +96,7 @@ const Content: FC<TProps> = ({ visible, options, type, attUser, mmType }) => {
       onBottomLeave={() => toggleSwipeAviliable('up', false)}
       autoHide
     >
-      <Wrapper ref={ref}>{renderContent(type, attUser, '', mmType)}</Wrapper>
+      <Wrapper ref={ref}>{renderContent(type, attUser, extraInfo)}</Wrapper>
     </CustomScroller>
   )
 }

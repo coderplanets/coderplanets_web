@@ -2,7 +2,7 @@ import { FC, memo, useState } from 'react'
 
 import type { TPostLayout } from '@/spec'
 
-import { POST_LAYOUT } from '@/constant'
+import { POST_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
 import Button from '@/widgets/Buttons/Button'
@@ -44,7 +44,7 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
               size="tiny"
               ghost
               noBorder
-              onClick={() => callDashboardDesc()}
+              onClick={() => callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)}
             >
               查看示例
             </Button>

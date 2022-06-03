@@ -266,8 +266,8 @@ export const callWallpaperEditor = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.CUSTOM_BG_EDITOR })
 }
 
-export const callDashboardDesc = (): void => {
-  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.DASHBOARD_DESC })
+export const callDashboardDesc = (data): void => {
+  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.DASHBOARD_DESC, data })
 }
 
 export const upvoteOnArticleList = (

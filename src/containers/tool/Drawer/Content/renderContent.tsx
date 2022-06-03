@@ -2,7 +2,7 @@ import { TYPE } from '@/constant'
 import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 import type { TUser } from '@/spec'
 
-import DashboardDesc from '@/widgets/DashboardDesc'
+import type { TExtraInfo } from '../spec'
 // import PlaceHolder from './PlaceHolder'
 
 import {
@@ -15,14 +15,14 @@ import {
   C11NSettingPanel,
   // userlister
   UserLister,
+  DashboardDesc,
 } from '../dynamics'
 
 const renderContent = (
   type: string,
   attUser: TUser,
-  userListerType: string,
-  mmType?,
-) => {
+  extraInfo: TExtraInfo,
+): any => {
   if (!type) return <div />
   const { DRAWER } = TYPE
 
@@ -43,7 +43,7 @@ const renderContent = (
       return <C11NSettingPanel />
 
     case DRAWER.DASHBOARD_DESC:
-      return <DashboardDesc />
+      return <DashboardDesc layout={extraInfo.dashboardDescLayout} />
 
     case DRAWER.CUSTOM_BG_EDITOR:
       // @ts-ignore
@@ -51,11 +51,11 @@ const renderContent = (
 
     case DRAWER.MODELINE_MENU:
       // @ts-ignore
-      return <ModeLineMenu type={mmType} />
+      return <ModeLineMenu type={extraInfo.mmType} />
 
     case DRAWER.USER_LISTER: {
       // @ts-ignore
-      return <UserLister type={userListerType} />
+      return <UserLister type={extraInfo.userListerType} />
     }
 
     default:

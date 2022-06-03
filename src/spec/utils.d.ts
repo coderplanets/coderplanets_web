@@ -208,3 +208,5 @@ export type TToastOption = {
 }
 
 export type TPublishMode = 'default' | 'changelog' | 'help'
+
+export type TDashboardLayout = 'post_list' | 'banner' | 'changelog_list'

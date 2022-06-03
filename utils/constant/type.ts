@@ -79,6 +79,7 @@ const TYPE = {
     MORE: 'more',
     UPVOTE: 'upvote',
   },
+
   RES_STATE: {
     LOADING: 'LOADING',
     DONE: 'DONE',

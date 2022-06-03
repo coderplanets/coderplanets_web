@@ -81,6 +81,7 @@ export type {
   TMenuOption,
   TToastOption,
   TPublishMode,
+  TDashboardLayout,
 } from './utils'
 
 export type { TGQLError } from './graphql'
