@@ -20,7 +20,7 @@ const log = buildLog('c:ArticleCatState:index')
 
 export type TProps = {
   testid?: string
-  type?: TArticleCat
+  cat?: TArticleCat
   state?: TArticleState
   kanbanLayout?: boolean
   smaller?: boolean
@@ -29,7 +29,7 @@ export type TProps = {
 
 const ArticleCatState: FC<TProps> = ({
   testid = 'article-cat-state',
-  type = ARTICLE_CAT.DEFAULT,
+  cat = ARTICLE_CAT.DEFAULT,
   state = ARTICLE_STATE.DEFAULT,
   kanbanLayout = false,
   smaller = true,
@@ -37,10 +37,10 @@ const ArticleCatState: FC<TProps> = ({
 }) => {
   return (
     <Wrapper testid={testid} {...restProps}>
-      {type && <State state={state} type={type} smaller={smaller} />}
-      {type && (
+      {cat && <State state={state} cat={cat} smaller={smaller} />}
+      {cat && (
         <Label
-          type={type}
+          cat={cat}
           state={state}
           kanbanLayout={kanbanLayout}
           smaller={smaller}

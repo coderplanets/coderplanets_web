@@ -1,5 +1,5 @@
 import { isEmpty, keys, includes } from 'ramda'
-import { PATTERN_WALLPAPER, WALLPAPER_TYPE } from '@/constant'
+import { WALLPAPER, PATTERN_WALLPAPER, WALLPAPER_TYPE } from '@/constant'
 
 import type {
   TWallpaperFmt,
@@ -26,6 +26,10 @@ export const parseWallpaper = (
   return _parseWallpaper(wallpapers[name])
 }
 
+export const parseWallpaperRaw = (wallpaper: TWallpaper): TWallpaperFmt => {
+  return _parseWallpaper(wallpaper)
+}
+
 export const getWallpaperType = (name: string): TWallpaperType => {
   if (isEmpty(name)) return WALLPAPER_TYPE.NONE
   if (includes(name, keys(PATTERN_WALLPAPER))) return WALLPAPER_TYPE.PATTERN
@@ -49,6 +53,7 @@ const _parseGradientBackground = (
   const DIR = '/wallpaper'
   const { direction, hasPattern, hasBlur } = gradient
   const colors = gradient.colors.join(',')
+  // let background = `linear-gradient(to ${direction}, ${colors})`
   let background = `linear-gradient(to ${direction}, ${colors})`
 
   const patternPic = `${DIR}/patterns/1.png`

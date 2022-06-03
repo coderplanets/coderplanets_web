@@ -41,6 +41,7 @@ const TYPE = {
     ACCOUNT_EDIT: 'ACCOUNT_EDIT',
 
     MAILS_VIEW: 'MAILS_VIEW',
+    DASHBOARD_DESC: 'DASHBOARD_DESC',
 
     ...DRAWER_ARTICLE_CRUD,
 
@@ -78,6 +79,7 @@ const TYPE = {
     MORE: 'more',
     UPVOTE: 'upvote',
   },
+
   RES_STATE: {
     LOADING: 'LOADING',
     DONE: 'DONE',

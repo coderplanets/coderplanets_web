@@ -1,5 +1,4 @@
 import { FC, memo } from 'react'
-import TimeAgo from 'timeago-react'
 
 import type { TArticle } from '@/spec'
 import { SVG } from '@/constant'
@@ -9,6 +8,7 @@ import ReadableDate from '@/widgets/ReadableDate'
 import {
   Wrapper,
   Hint,
+  TimeStamp,
   TimeStr,
 } from '../../styles/comment_fist_layout/desktop_view/active_badge'
 
@@ -24,7 +24,7 @@ const ActiveBadge: FC<TProps> = ({ article }) => {
     <Wrapper hasComments={article.commentsCount > 0}>
       <IconButton
         icon={icon}
-        size={14}
+        size={12}
         hint={
           <Hint>
             <div>最后回复时间: </div>
@@ -35,9 +35,10 @@ const ActiveBadge: FC<TProps> = ({ article }) => {
         }
         right={6}
         hintPlacement="bottom"
+        dimWhenIdle
         hintDelay={0}
       />
-      <TimeAgo datetime={article.activeAt} locale="zh_CN" />
+      <TimeStamp datetime={article.activeAt} locale="zh_CN" />
     </Wrapper>
   )
 }

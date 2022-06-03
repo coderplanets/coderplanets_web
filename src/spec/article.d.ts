@@ -11,13 +11,7 @@ export type TArticleMeta = {
   isCommentLocked?: boolean
   isEdited?: boolean
   lastActiveAt?: string
-  latestUpvotedUsers?: {
-    login: string
-    nickname: string
-    avatar?: string
-    bio?: string | null
-  }[]
-
+  latestUpvotedUsers?: TUser[]
   isLegal?: boolean
   illegalReason?: string[]
   illegalWords?: string[]
@@ -56,6 +50,9 @@ type TBaseArticle = {
   isArchived?: boolean
   archivedAt?: string
   activeAt?: string
+
+  category?: TArticleCat
+  state?: TArticleState
 }
 
 export type TPost = TBaseArticle & {
@@ -218,6 +215,8 @@ export type TUpvoteLayout =
   | 'fixed-header'
   | 'sticker'
 
+export type TPostLayout = 'upvote_first' | 'comment_first'
+
 export type TCollectionFolder = {
   id: TID
   title: string
@@ -237,3 +236,13 @@ export type TCommentsState = {
   totalCount: number
   participants: TSimpleUser[]
 }
+
+export type TArticleCat = 'BUG' | 'FEATURE' | 'QUESTION' | 'LOCK' | 'DEFAULT'
+
+export type TArticleState =
+  | 'TODO'
+  | 'WIP'
+  | 'DONE'
+  | 'RESOLVE'
+  | 'LOCK'
+  | 'DEFAULT'

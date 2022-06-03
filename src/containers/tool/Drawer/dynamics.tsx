@@ -91,3 +91,8 @@ export const WallpaperEditor = dynamic(
     ssr: false,
   },
 )
+
+export const DashboardDesc = dynamic(() => import('@/widgets/DashboardDesc'), {
+  loading: () => <CommonLoading />,
+  ssr: false,
+})

@@ -19,7 +19,7 @@ type TProps = {
 const CommentsCount: FC<TProps> = ({ count, size = SIZE.SMALL }) => {
   return (
     <Fragment>
-      {count >= 25 ? (
+      {count >= 100 ? (
         <HighlightWrapper>
           <CommentsIcon highlight />
           {size === SIZE.MEDIUM && <Space right={2} />}

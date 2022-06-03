@@ -16,30 +16,30 @@ import {
   NoBgIcon,
 } from './styles/state'
 
-type TProps = Pick<TArticleStateBadgeProps, 'state' | 'type' | 'smaller'>
+type TProps = Pick<TArticleStateBadgeProps, 'state' | 'cat' | 'smaller'>
 
-const State: FC<TProps> = ({ state, type, smaller }) => {
+const State: FC<TProps> = ({ state, cat, smaller }) => {
   switch (state) {
     case ARTICLE_STATE.DONE: {
       return (
-        <Wrapper type={type} smaller={smaller}>
-          <DoneIcon type={type} smaller={smaller} />
+        <Wrapper cat={cat} smaller={smaller}>
+          <DoneIcon cat={cat} smaller={smaller} />
         </Wrapper>
       )
     }
 
     case ARTICLE_STATE.WIP: {
       return (
-        <Wrapper type={type} smaller={smaller}>
-          <WipIcon type={type} smaller={smaller} />
+        <Wrapper cat={cat} smaller={smaller}>
+          <WipIcon cat={cat} smaller={smaller} />
         </Wrapper>
       )
     }
 
     case ARTICLE_STATE.TODO: {
       return (
-        <Wrapper type={type} smaller={smaller}>
-          <TODOIcon type={type} smaller={smaller} />
+        <Wrapper cat={cat} smaller={smaller}>
+          <TODOIcon cat={cat} smaller={smaller} />
         </Wrapper>
       )
     }
@@ -47,7 +47,7 @@ const State: FC<TProps> = ({ state, type, smaller }) => {
     case ARTICLE_STATE.RESOLVE: {
       return (
         <NoBgWrapper>
-          <ResolveIcon type={type} smaller={smaller} />
+          <ResolveIcon smaller={smaller} />
         </NoBgWrapper>
       )
     }
@@ -55,13 +55,13 @@ const State: FC<TProps> = ({ state, type, smaller }) => {
     case ARTICLE_STATE.LOCK: {
       return (
         <NoBgWrapper>
-          <LockIcon type={type} smaller={smaller} />
+          <LockIcon smaller={smaller} />
         </NoBgWrapper>
       )
     }
 
     default: {
-      const Icon = NoBgIcon[type]
+      const Icon = NoBgIcon[cat]
       if (!Icon) return null
 
       return (

@@ -35,6 +35,7 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
     attUserData,
     userListerType,
     mmType,
+    extraInfo,
     rightOffset,
     fromContentEdge,
     optionsData,
@@ -65,6 +66,7 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
         attUser={attUserData}
         userListerType={userListerType}
         mmType={mmType}
+        extraInfo={extraInfo}
       />
     </Viewer>
   )

@@ -7,7 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, contains, values, findIndex } from 'ramda'
 
 import type { TRootStore, TCommunity, TThread, TArticle, TWorks } from '@/spec'
-import { TYPE, ARTICLE_THREAD, THREAD } from '@/constant'
+import { TYPE, ARTICLE_THREAD, THREAD, DASHBOARD_DESC_LAYOUT } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
 import { lockPage, unlockPage } from '@/utils/dom'
@@ -15,7 +15,7 @@ import { Global, plural } from '@/utils/helper'
 import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
 import { User } from '@/model'
 
-import { TSwipeOption, TArticleNavi } from './spec'
+import { TSwipeOption, TArticleNavi, TExtraInfo } from './spec'
 import { ARTICLE_VIEWER_TYPES, ARTICLE_THREAD_CURD_TYPES } from './constant'
 import { SWIPE_THRESHOLD } from './styles/metrics'
 
@@ -57,6 +57,7 @@ const DrawerStore = T.model('DrawerStore', {
       TYPE.DRAWER.CUSTOM_BG_EDITOR,
       TYPE.DRAWER.MODELINE_MENU,
       TYPE.DRAWER.USER_LISTER,
+      TYPE.DRAWER.DASHBOARD_DESC,
 
       ...ARTICLE_THREAD_CURD_TYPES,
     ]),
@@ -65,9 +66,11 @@ const DrawerStore = T.model('DrawerStore', {
   userListerType: T.optional(T.string, ''),
 
   // shortcut for modelineMenuType
-  mmType: T.optional(
-    T.enumeration([...values(TYPE.MM_TYPE)]),
-    TYPE.MM_TYPE.MORE,
+  mmType: T.optional(T.enumeration(values(TYPE.MM_TYPE)), TYPE.MM_TYPE.MORE),
+
+  dashboardDescLayout: T.optional(
+    T.enumeration(values(DASHBOARD_DESC_LAYOUT)),
+    DASHBOARD_DESC_LAYOUT.POST_LIST,
   ),
   // header:
   // body:
@@ -157,17 +160,31 @@ const DrawerStore = T.model('DrawerStore', {
         next: pagedArticles.entries[curIndex + 1] || null,
       }
     },
+
+    get extraInfo(): TExtraInfo {
+      const slf = self as TStore
+
+      return {
+        mmType: slf.mmType,
+        userListerType: slf.userListerType,
+        dashboardDescLayout: slf.dashboardDescLayout,
+      }
+    },
   }))
   .actions((self) => ({
     open({ type, data, options = {} }): void {
       const slf = self as TStore
       const thread = data?.meta?.thread?.toLowerCase()
+      const { DRAWER } = TYPE
 
-      if (type === TYPE.DRAWER.MODELINE_MENU) {
+      if (type === DRAWER.MODELINE_MENU) {
         slf.mmType = data
       }
-      if (type === TYPE.DRAWER.USER_LISTER) {
+      if (type === DRAWER.USER_LISTER) {
         slf.userListerType = data
+      }
+      if (type === DRAWER.DASHBOARD_DESC) {
+        slf.dashboardDescLayout = data
       }
 
       if (contains(thread, values(ARTICLE_THREAD))) {
@@ -185,9 +202,10 @@ const DrawerStore = T.model('DrawerStore', {
       }
 
       if (
-        type !== TYPE.DRAWER.ACCOUNT_EDIT &&
-        type !== TYPE.DRAWER.C11N_SETTINGS &&
-        type !== TYPE.DRAWER.CUSTOM_BG_EDITOR
+        type !== DRAWER.ACCOUNT_EDIT &&
+        type !== DRAWER.C11N_SETTINGS &&
+        type !== DRAWER.DASHBOARD_DESC &&
+        type !== DRAWER.CUSTOM_BG_EDITOR
       ) {
         slf.markPreviewURLIfNeed(data)
       }

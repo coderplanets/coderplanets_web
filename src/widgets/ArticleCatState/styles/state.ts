@@ -15,13 +15,13 @@ import LightSVG from '@/icons/Light'
 import BugSVG from '@/icons/Bug'
 import QuestionSVG from '@/icons/Question'
 
-type TType = { type: TArticleCat; smaller: boolean }
+type TType = { cat: TArticleCat; smaller: boolean }
 
 export const Wrapper = styled.div<TType>`
   ${({ smaller }) => (smaller ? css.size(14) : css.size(18))};
   ${css.flex('align-both')};
-  background: ${({ type }) =>
-    type === ARTICLE_CAT.BUG
+  background: ${({ cat }) =>
+    cat === ARTICLE_CAT.BUG
       ? theme('gtdBadge.bugBg')
       : theme('gtdBadge.featBg')};
   border-top-left-radius: 6px;
@@ -34,18 +34,18 @@ export const NoBgWrapper = styled.div`
 `
 export const WipIcon = styled(GtdWipSVG)<TType>`
   ${({ smaller }) => (smaller ? css.size(7) : css.size(9))};
-  fill: ${({ type }) =>
-    type === ARTICLE_CAT.BUG ? theme('gtdBadge.bug') : theme('gtdBadge.feat')};
+  fill: ${({ cat }) =>
+    cat === ARTICLE_CAT.BUG ? theme('gtdBadge.bug') : theme('gtdBadge.feat')};
 `
 export const DoneIcon = styled(GtdDoneSVG)<TType>`
   ${({ smaller }) => (smaller ? css.size(8) : css.size(10))};
-  fill: ${({ type }) =>
-    type === ARTICLE_CAT.BUG ? theme('gtdBadge.bug') : theme('gtdBadge.feat')};
+  fill: ${({ cat }) =>
+    cat === ARTICLE_CAT.BUG ? theme('gtdBadge.bug') : theme('gtdBadge.feat')};
 `
 export const TODOIcon = styled(GtdTodoSVG)<TType>`
   ${({ smaller }) => (smaller ? css.size(8) : css.size(10))};
-  fill: ${({ type }) =>
-    type === ARTICLE_CAT.BUG ? theme('gtdBadge.bug') : theme('gtdBadge.feat')};
+  fill: ${({ cat }) =>
+    cat === ARTICLE_CAT.BUG ? theme('gtdBadge.bug') : theme('gtdBadge.feat')};
 `
 export const ResolveIcon = styled(ResolveSVG)<{ smaller: boolean }>`
   ${({ smaller }) => (smaller ? css.size(16) : css.size(18))};

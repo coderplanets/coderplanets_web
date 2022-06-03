@@ -64,7 +64,7 @@ export const PATTERN_WALLPAPER = {
 const DEFAULT_GRADIENT_EFFECT = {
   hasPattern: false,
   hasBlur: false,
-  direction: 'to bottom',
+  direction: 'bottom',
 }
 
 export const GRADIENT_WALLPAPER = {

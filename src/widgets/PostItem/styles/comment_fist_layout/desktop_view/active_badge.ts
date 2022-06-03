@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import TimeAgo from 'timeago-react'
 
 import css, { theme } from '@/utils/css'
 
@@ -17,6 +18,10 @@ export const Hint = styled.div`
   width: 180px;
   padding-left: 5px;
   font-size: 13px;
+`
+// @ts-ignore
+export const TimeStamp = styled(TimeAgo)`
+  font-size: 11px;
 `
 export const TimeStr = styled.div`
   color: ${theme('thread.articleTitle')};

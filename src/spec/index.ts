@@ -77,12 +77,11 @@ export type {
   TEditMode,
   TOnlineStatus,
   TModelineType,
-  TArticleCat,
-  TArticleState,
   TTagMode,
   TMenuOption,
   TToastOption,
   TPublishMode,
+  TDashboardLayout,
 } from './utils'
 
 export type { TGQLError } from './graphql'
@@ -111,9 +110,12 @@ export type {
   TArticleFilter,
   TCopyright,
   TUpvoteLayout,
+  TPostLayout,
   TCommentsState,
   TWorksTab,
   TBlogTab,
+  TArticleCat,
+  TArticleState,
 } from './article'
 
 export type {

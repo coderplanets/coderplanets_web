@@ -1,4 +1,9 @@
-import type { TUpvoteLayout, SnakeUpperCase } from '@/spec'
+import type {
+  TUpvoteLayout,
+  TDashboardLayout,
+  TPostLayout,
+  SnakeUpperCase,
+} from '@/spec'
 
 export const UPVOTE_LAYOUT = {
   DEFAULT: 'default',
@@ -14,4 +19,13 @@ export const UPVOTE_LAYOUT = {
   STICKER: 'sticker',
 } as Record<SnakeUpperCase<TUpvoteLayout>, TUpvoteLayout>
 
-export const holder = 1
+export const POST_LAYOUT = {
+  UPVOTE_FIRST: 'upvote_first',
+  COMMENT_FIRST: 'comment_first',
+} as Record<SnakeUpperCase<TPostLayout>, TPostLayout>
+
+export const DASHBOARD_DESC_LAYOUT = {
+  POST_LIST: 'post_list',
+  BANNER: 'banner',
+  CHANGELOG_LIST: 'changelog_list',
+} as Record<SnakeUpperCase<TDashboardLayout>, TDashboardLayout>

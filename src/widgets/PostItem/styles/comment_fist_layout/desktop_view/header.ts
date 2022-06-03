@@ -57,4 +57,5 @@ export const LinkIcon = styled(LinkSVG)`
 
 export const AvatarsWrapper = styled.div`
   margin-top: -1px;
+  margin-right: -8px;
 `

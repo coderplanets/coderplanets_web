@@ -1,3 +1,5 @@
+import type { TWallpaper } from '@/spec'
+
 export type TTab =
   | 'overview'
   | 'basic_info'
@@ -7,3 +9,7 @@ export type TTab =
   | 'third_part'
   | 'admins'
   | 'widgets'
+
+export type TUiSettings = {
+  wallpaper: TWallpaper
+}

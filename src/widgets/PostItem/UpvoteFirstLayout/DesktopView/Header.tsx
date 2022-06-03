@@ -4,8 +4,8 @@ import Link from 'next/link'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
-import { callWallpaperEditor } from '@/utils/helper'
-import { SIZE } from '@/constant'
+import { SIZE, EVENT } from '@/constant'
+import { send } from '@/utils/helper'
 
 import Tooltip from '@/widgets/Tooltip'
 import { SpaceGrow, Space } from '@/widgets/Common'
@@ -57,8 +57,9 @@ const Header: FC<TProps> = ({ article }) => {
         </PublishTime>
       </Topping>
       <Main>
-        {/* <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article: article})}> */}
-        <Title onClick={() => callWallpaperEditor()}>{article.title}</Title>
+        <Title onClick={() => send(EVENT.PREVIEW_ARTICLE, { article })}>
+          {article.title}{' '}
+        </Title>
         {/*  @ts-ignore */}
         <TagsList items={article.articleTags} left={12} />
         <SpaceGrow />

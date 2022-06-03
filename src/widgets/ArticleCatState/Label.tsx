@@ -14,11 +14,11 @@ import {
 
 type TProps = Pick<
   TArticleStateBadgeProps,
-  'type' | 'kanbanLayout' | 'smaller' | 'state'
+  'cat' | 'kanbanLayout' | 'smaller' | 'state'
 >
 
-const Label: FC<TProps> = ({ type, state, kanbanLayout, smaller }) => {
-  switch (type) {
+const Label: FC<TProps> = ({ cat, state, kanbanLayout, smaller }) => {
+  switch (cat) {
     case ARTICLE_CAT.FEATURE: {
       return (
         <Wrapper kanbanLayout={kanbanLayout} state={state} smaller={smaller}>

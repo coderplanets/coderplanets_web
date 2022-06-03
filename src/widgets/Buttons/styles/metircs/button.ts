@@ -3,10 +3,19 @@ import { theme } from '@/utils/css'
 
 import type { TTheme } from '@/spec'
 
-export const getColor = (ghost: boolean, disabled: boolean): TTheme => {
+export const getColor = (
+  ghost: boolean,
+  disabled: boolean,
+  noBorder: boolean,
+): TTheme => {
+  if (ghost && noBorder) {
+    return theme('thread.extraInfo')
+  }
+
   if (ghost) {
     return theme('button.primary')
   }
+
   if (disabled) {
     return theme('thread.articleDigest')
   }

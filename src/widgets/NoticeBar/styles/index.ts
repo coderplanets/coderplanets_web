@@ -18,10 +18,10 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     noBg ? theme('thread.articleDigest') : theme('thread.articleTitle')};
   padding-left: ${({ noBg }) => (noBg ? '5px' : '12px')};
   padding-right: 15px;
-  padding-top: 9px;
-  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 7px;
   /* width: 100%; */
-  min-height: 40px;
+  min-height: 36px;
   background: ${({ noBg }) => (noBg ? 'transparent' : '#FDF6E8')};
   border-radius: 8px;
 
@@ -32,7 +32,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 `
 export const Main = styled.div`
   flex-grow: 1;
-  font-size: 14px;
+  font-size: 13px;
+  margin-top: 1px;
   line-height: 1.85;
   width: calc(100% - 18px);
 `

@@ -1,4 +1,4 @@
-import type { TTestable, TActive, TArticle } from '@/spec'
+import type { TTestable, TActive, TArticle, TDashboardLayout } from '@/spec'
 
 export type TSwipeOption = {
   direction: 'bottom' | 'top'
@@ -25,4 +25,10 @@ export type TDrawer = TTestable &
 export type TArticleNavi = {
   previous: TArticle | null
   next: TArticle | null
+}
+
+export type TExtraInfo = {
+  mmType: string
+  userListerType: string
+  dashboardDescLayout: TDashboardLayout
 }

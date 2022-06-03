@@ -1,15 +1,20 @@
 import { FC, memo } from 'react'
 
+import Wallpaper from './Wallpaper'
+import PostListLayout from './PostListLayout'
+
+import type { TUiSettings } from '../spec'
 import { Wrapper } from '../styles/ui'
 
 type TProps = {
-  testid?: string
+  settings: TUiSettings
 }
 
-const UI: FC<TProps> = ({ testid = 'ui' }) => {
+const UI: FC<TProps> = ({ settings }) => {
   return (
     <Wrapper>
-      <div>UI</div>
+      <PostListLayout />
+      <Wallpaper wallpaper={settings.wallpaper} />
     </Wrapper>
   )
 }

@@ -3,6 +3,7 @@ import { FC, useEffect, useRef, memo } from 'react'
 import { DRAWER_SCROLLER } from '@/constant'
 import CustomScroller from '@/widgets/CustomScroller'
 
+import type { TExtraInfo } from '../spec'
 import renderContent from './renderContent'
 import { Wrapper } from '../styles/content'
 import { isViewerMode } from '../styles/metrics'
@@ -11,10 +12,10 @@ type TProps = {
   visible: boolean
   type: string // TODO:
   attUser: any // TODO:
-  userListerType: string
+  extraInfo: TExtraInfo
 }
 
-const Content: FC<TProps> = ({ visible, type, attUser, userListerType }) => {
+const Content: FC<TProps> = ({ visible, type, attUser, extraInfo }) => {
   const ref = useRef(null)
 
   /*
@@ -37,13 +38,13 @@ const Content: FC<TProps> = ({ visible, type, attUser, userListerType }) => {
           barSize="medium"
           showShadow={false}
         >
-          {renderContent(type, attUser, userListerType)}
+          {renderContent(type, attUser, extraInfo)}
         </CustomScroller>
       </Wrapper>
     )
   }
 
-  return <Wrapper>{renderContent(type, attUser, userListerType)}</Wrapper>
+  return <Wrapper>{renderContent(type, attUser, extraInfo)}</Wrapper>
 }
 
 export default memo(Content)
