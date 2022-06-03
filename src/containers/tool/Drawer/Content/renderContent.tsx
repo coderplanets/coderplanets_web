@@ -43,6 +43,7 @@ const renderContent = (
       return <C11NSettingPanel />
 
     case DRAWER.DASHBOARD_DESC:
+      // @ts-ignore
       return <DashboardDesc layout={extraInfo.dashboardDescLayout} />
 
     case DRAWER.CUSTOM_BG_EDITOR:
