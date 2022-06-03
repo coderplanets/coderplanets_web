@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive } from '@/spec'
+import type { TActive } from '@/spec'
 
 import css, { theme } from '@/utils/css'
 
@@ -43,10 +43,7 @@ export const Layout = styled.div`
   ${css.flexColumn('align-both')};
 `
 export const LayoutTitle = styled.div<TActive>`
-  margin-top: 10px;
   opacity: ${({ $active }) => ($active ? 1 : 0.65)};
-  color: ${({ $active }) =>
-    $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
 
   ${Layout}:hover & {
     opacity: 1;

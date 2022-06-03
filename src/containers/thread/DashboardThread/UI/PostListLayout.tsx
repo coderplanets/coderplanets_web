@@ -8,6 +8,7 @@ import { POST_LAYOUT } from '@/constant'
 import { mockUsers } from '@/utils/mock'
 import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow } from '@/widgets/Common'
+import CheckLabel from '@/widgets/CheckLabel'
 
 import {
   Wrapper,
@@ -97,7 +98,12 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
               </Row>
             </Block>
             <LayoutTitle $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
-              布局 A
+              <CheckLabel
+                title="布局 A"
+                $active={layout === POST_LAYOUT.UPVOTE_FIRST}
+                top={10}
+                left={-15}
+              />
             </LayoutTitle>
           </Layout>
           <Space right={40} />
@@ -136,7 +142,12 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
               </Row>
             </Block>
             <LayoutTitle $active={layout === POST_LAYOUT.COMMENT_FIRST}>
-              布局 B
+              <CheckLabel
+                title="布局 B"
+                $active={layout === POST_LAYOUT.COMMENT_FIRST}
+                top={10}
+                left={-15}
+              />
             </LayoutTitle>
           </Layout>
         </SelectWrapper>
