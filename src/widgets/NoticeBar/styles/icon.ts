@@ -5,7 +5,7 @@ import css, { theme } from '@/utils/css'
 import ArchivedSVG from '@/icons/Archived'
 import LockSVG from '@/icons/Lock'
 import NoticeSVG from '@/icons/Notice'
-import LightSVG from '@/icons/Light'
+import InfoSVG from '@/icons/Info'
 
 const baseIcon = `
   ${css.size(15)};
@@ -20,8 +20,8 @@ export const NoticeIcon = styled(NoticeSVG)`
   fill: #a57a32;
   ${baseIcon};
 `
-export const InfoIcon = styled(LightSVG)`
-  fill: ${theme('button.primary')};
+export const InfoIcon = styled(InfoSVG)`
+  fill: ${theme('thread.articleDigest')};
   ${baseIcon};
 `
 export const ArchivedIcon = styled(ArchivedSVG)`

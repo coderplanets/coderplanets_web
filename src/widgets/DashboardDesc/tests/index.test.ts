@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import ALertBar from '../index'
+// import DashboardDesc from '../index'
 
-describe('TODO <ALertBar />', () => {
+describe('TODO <DashboardDesc />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

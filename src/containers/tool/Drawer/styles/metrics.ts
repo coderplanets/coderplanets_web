@@ -38,7 +38,7 @@ const VIEWER_TYPES = reduce(
  * normal-mode is for settings, user preview staff
  */
 export const isViewerMode = (type: string): boolean => {
-  return contains(type, VIEWER_TYPES)
+  return contains(type, VIEWER_TYPES) || type === TYPE.DRAWER.DASHBOARD_DESC
 }
 
 export const getDrawerWidth = (type: string): string => {

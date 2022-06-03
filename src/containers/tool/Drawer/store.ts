@@ -57,6 +57,7 @@ const DrawerStore = T.model('DrawerStore', {
       TYPE.DRAWER.CUSTOM_BG_EDITOR,
       TYPE.DRAWER.MODELINE_MENU,
       TYPE.DRAWER.USER_LISTER,
+      TYPE.DRAWER.DASHBOARD_DESC,
 
       ...ARTICLE_THREAD_CURD_TYPES,
     ]),
@@ -187,6 +188,7 @@ const DrawerStore = T.model('DrawerStore', {
       if (
         type !== TYPE.DRAWER.ACCOUNT_EDIT &&
         type !== TYPE.DRAWER.C11N_SETTINGS &&
+        type !== TYPE.DRAWER.DASHBOARD_DESC &&
         type !== TYPE.DRAWER.CUSTOM_BG_EDITOR
       ) {
         slf.markPreviewURLIfNeed(data)

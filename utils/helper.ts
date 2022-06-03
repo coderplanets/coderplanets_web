@@ -266,6 +266,10 @@ export const callWallpaperEditor = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.CUSTOM_BG_EDITOR })
 }
 
+export const callDashboardDesc = (): void => {
+  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.DASHBOARD_DESC })
+}
+
 export const upvoteOnArticleList = (
   article: TArticle,
   viewerHasUpvoted: boolean,
@@ -475,7 +479,6 @@ export const findDeepMatch = (data, key, value) => {
       // end the recursive function
       if (result) return result
     }
-    // console.log('-- d --')
   } else {
     const theKeys = keys(data)
     for (let index = 0; index < theKeys.length; index += 1) {

@@ -2,10 +2,9 @@ import { FC, memo, useState } from 'react'
 
 import type { TPostLayout } from '@/spec'
 
-import PostItem from '@/widgets/PostItem'
 import { POST_LAYOUT } from '@/constant'
+import { callDashboardDesc } from '@/utils/helper'
 
-import { mockUsers } from '@/utils/mock'
 import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
@@ -31,44 +30,22 @@ type TProps = {
   _layout?: TPostLayout
 }
 
-const demoPost = {
-  id: '0',
-  title: '这是一篇测试帖子',
-  digest: '这是玉兰信息',
-  views: 200,
-  upvotesCount: 10,
-  commentsCount: 15,
-  articleTags: [],
-  originalCommunity: {
-    raw: 'demo',
-  },
-  commentsParticipants: mockUsers(3),
-
-  meta: {
-    latestUpvotedUsers: mockUsers(3),
-  },
-  author: mockUsers(1)[0],
-}
-
 const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
   const [layout, setLayout] = useState<TPostLayout>(POST_LAYOUT.UPVOTE_FIRST)
 
   return (
     <Wrapper>
-      <PostItem article={demoPost} c11n={{}} curCommunity={{ raw: 'demo' }} />
-      <PostItem
-        article={demoPost}
-        c11n={{}}
-        curCommunity={{ raw: 'demo' }}
-        layout={POST_LAYOUT.COMMENT_FIRST}
-      />
-
       <Section>
         <Row>
           <Title>讨论列表</Title>
           <SpaceGrow />
           <ExampleBtn>
-            <Button size="tiny" ghost noBorder>
+            <Button
+              size="tiny"
+              ghost
+              noBorder
+              onClick={() => callDashboardDesc()}
+            >
               查看示例
             </Button>
           </ExampleBtn>
@@ -130,9 +107,9 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
                   </Row>
                   <Br bottom={8} />
                   <Bar thin long={20} />
-                  <Br bottom={8} />
+                  <Br bottom={11} />
                   <Bar thin long={80} />
-                  <Br bottom={12} />
+                  <Br bottom={10} />
                   <Row>
                     <Bar long={20} />
                     <Space right={12} />
