@@ -11,13 +11,7 @@ export type TArticleMeta = {
   isCommentLocked?: boolean
   isEdited?: boolean
   lastActiveAt?: string
-  latestUpvotedUsers?: {
-    login: string
-    nickname: string
-    avatar?: string
-    bio?: string | null
-  }[]
-
+  latestUpvotedUsers?: TUser[]
   isLegal?: boolean
   illegalReason?: string[]
   illegalWords?: string[]

@@ -1,8 +1,11 @@
 import { FC, memo, useState } from 'react'
 
 import type { TPostLayout } from '@/spec'
+
+import PostItem from '@/widgets/PostItem'
 import { POST_LAYOUT } from '@/constant'
 
+import { mockUsers } from '@/utils/mock'
 import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow } from '@/widgets/Common'
 
@@ -24,14 +27,41 @@ import {
 } from '../styles/ui/post_list_layout'
 
 type TProps = {
-  testid?: string
+  _layout?: TPostLayout
 }
 
-const PostListLayout: FC<TProps> = ({ testid = 'PostListLayout' }) => {
+const demoPost = {
+  id: '0',
+  title: '这是一篇测试帖子',
+  digest: '这是玉兰信息',
+  views: 200,
+  upvotesCount: 10,
+  commentsCount: 15,
+  articleTags: [],
+  originalCommunity: {
+    raw: 'demo',
+  },
+  commentsParticipants: mockUsers(3),
+
+  meta: {
+    latestUpvotedUsers: mockUsers(3),
+  },
+  author: mockUsers(1)[0],
+}
+
+const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
   const [layout, setLayout] = useState<TPostLayout>(POST_LAYOUT.UPVOTE_FIRST)
 
   return (
     <Wrapper>
+      <PostItem article={demoPost} c11n={{}} curCommunity={{ raw: 'demo' }} />
+      <PostItem
+        article={demoPost}
+        c11n={{}}
+        curCommunity={{ raw: 'demo' }}
+        layout={POST_LAYOUT.COMMENT_FIRST}
+      />
+
       <Section>
         <Row>
           <Title>讨论列表</Title>
@@ -82,7 +112,7 @@ const PostListLayout: FC<TProps> = ({ testid = 'PostListLayout' }) => {
                   <Bar long={50} />
                 </Column>
 
-                <Space right={18} />
+                <Space right={12} />
 
                 <Column grow>
                   <Row>

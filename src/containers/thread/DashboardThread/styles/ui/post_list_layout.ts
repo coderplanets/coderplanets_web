@@ -63,8 +63,9 @@ export const Block = styled.div<TActive>`
   border-color: ${theme('thread.articleTitle')};
   padding: 16px 15px;
 
-  ${Layout}:hover & {
-    opacity: 0.65;
+  &:hover {
+    /* ${Layout}:hover & { */
+    opacity: ${({ $active }) => ($active ? 0.65 : 0.3)};
     cursor: pointer;
   }
 
