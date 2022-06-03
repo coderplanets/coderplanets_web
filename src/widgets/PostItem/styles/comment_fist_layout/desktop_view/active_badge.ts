@@ -19,6 +19,7 @@ export const Hint = styled.div`
   padding-left: 5px;
   font-size: 13px;
 `
+// @ts-ignore
 export const TimeStamp = styled(TimeAgo)`
   font-size: 11px;
 `
