@@ -23,6 +23,7 @@ export const Digest = styled.div`
   ${css.cutRest('450px')};
   color: ${theme('thread.articleDigest')};
   margin-top: 2px;
+  font-size: 13px;
 
   &:hover {
     color: ${theme('thread.articleTitle')};

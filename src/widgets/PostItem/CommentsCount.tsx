@@ -1,6 +1,6 @@
 import { FC, memo, Fragment } from 'react'
 
-import { TSIZE_SM } from '@/spec'
+import type { TSIZE_SM } from '@/spec'
 import { SIZE } from '@/constant'
 
 import { Space } from '@/widgets/Common'
@@ -20,13 +20,13 @@ const CommentsCount: FC<TProps> = ({ count, size = SIZE.SMALL }) => {
   return (
     <Fragment>
       {count >= 100 ? (
-        <HighlightWrapper>
+        <HighlightWrapper size={size}>
           <CommentsIcon highlight />
           {size === SIZE.MEDIUM && <Space right={2} />}
           {count}
         </HighlightWrapper>
       ) : (
-        <Wrapper>
+        <Wrapper size={size}>
           <CommentsIcon />
           {size === SIZE.MEDIUM && <Space right={2} />}
           {count}
