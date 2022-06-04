@@ -5,8 +5,8 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
+import type { TCommunity, TTheme, TRootStore } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
-import { TCommunity, TTheme, TRootStore } from '@/spec'
 
 const Geo = T.model('Thread', {
   city: T.string,

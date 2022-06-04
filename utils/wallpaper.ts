@@ -1,5 +1,5 @@
 import { isEmpty, keys, includes } from 'ramda'
-import { WALLPAPER, PATTERN_WALLPAPER, WALLPAPER_TYPE } from '@/constant'
+import { PATTERN_WALLPAPER, WALLPAPER_TYPE } from '@/constant'
 
 import type {
   TWallpaperFmt,

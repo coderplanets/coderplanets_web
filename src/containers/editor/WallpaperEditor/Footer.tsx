@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { TWallpaperType } from '@/spec'
+import type { TWallpaperType } from '@/spec'
 import { WALLPAPER_TYPE } from '@/constant'
 
 import Button from '@/widgets/Buttons/Button'

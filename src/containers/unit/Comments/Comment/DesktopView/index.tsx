@@ -1,8 +1,7 @@
 import { FC, memo, Fragment } from 'react'
 import { includes } from 'ramda'
-import { TID } from '@/spec'
 
-import type { TAccount, TComment } from '@/spec'
+import type { TID, TAccount, TComment } from '@/spec'
 import type { TAPIMode } from '../../spec'
 
 import DefaultLayout from './DefaultLayout'

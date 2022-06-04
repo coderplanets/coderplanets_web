@@ -37,7 +37,7 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
     <Wrapper>
       <Section>
         <Row>
-          <Title>讨论列表</Title>
+          <Title>帖子列表布局</Title>
           <SpaceGrow />
           <ExampleBtn>
             <Button

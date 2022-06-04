@@ -75,7 +75,7 @@ const PostListExample: FC = () => {
       />
 
       <Title>布局 A</Title>
-      <Desc>侧重展示标题与参与 Upvotes 的用户</Desc>
+      <Desc>默认布局，侧重展示标题与参与 Upvotes 的用户</Desc>
       <PostItem article={demoPost} c11n={{}} curCommunity={{ raw: 'demo' }} />
       <PostItem article={article1} c11n={{}} curCommunity={{ raw: 'demo' }} />
       <PostItem article={article2} c11n={{}} curCommunity={{ raw: 'demo' }} />

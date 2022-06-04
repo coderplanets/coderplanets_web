@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import { FC, memo } from 'react'
-
 import Link from 'next/link'
 
 import type { TArticle, TC11NLayout, TMetric } from '@/spec'
 import { ICON, GITHUB, ABOUT_LINK } from '@/config'
 import { METRIC, ROUTE } from '@/constant'
+
 import { joinUS } from '@/utils/helper'
 
 import TopInfo from './TopInfo'

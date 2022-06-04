@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { TSelectOption, TTechCommunities, TEditMode, TUser } from '@/spec'
+import type { TSelectOption, TTechCommunities, TEditMode, TUser } from '@/spec'
 
 import type { TStep, TInputData } from '../spec'
 import { STEP } from '../constant'

@@ -1,5 +1,7 @@
 import { merge, keys, reduce } from 'ramda'
-import { TArticleThread } from '@/spec'
+
+import type { TArticleThread } from '@/spec'
+
 import { ARTICLE_THREAD } from './thread'
 
 type TArticleOpt =

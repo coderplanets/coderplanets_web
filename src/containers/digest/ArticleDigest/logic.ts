@@ -6,8 +6,6 @@ import asyncSuit from '@/utils/async'
 import { send, errRescue } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
-import uid from '@/utils/uid'
-
 import type { TStore } from './store'
 import S from './schema'
 

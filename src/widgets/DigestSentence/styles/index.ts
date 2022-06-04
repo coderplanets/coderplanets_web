@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import type { TTestable, TSpace, TSIZE_SM } from '@/spec'
+import css, { theme } from '@/utils/css'
 
 import Img from '@/Img'
 import ThunderSVG from '@/icons/Thunder'
-import css, { theme } from '@/utils/css'
 
 import { getFontSize } from './metric'
 

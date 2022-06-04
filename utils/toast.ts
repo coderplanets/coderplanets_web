@@ -4,7 +4,7 @@
 
 import { merge, reject } from 'ramda'
 
-import { TThemeMap, TToastOption } from '@/spec'
+import type { TThemeMap, TToastOption } from '@/spec'
 import { DEFAULT_TOAST_OPTIONS } from '@/constant'
 
 import { Global } from './helper'

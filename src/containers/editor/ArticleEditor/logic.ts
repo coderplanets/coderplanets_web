@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Router from 'next/router'
 import { values } from 'ramda'
 
-import type { TEditValue, TEditMode, TCommunity, TTag } from '@/spec'
+import type { TEditValue, TCommunity, TTag } from '@/spec'
 import { HCN, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'

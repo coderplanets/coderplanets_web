@@ -6,7 +6,7 @@
 
 import { FC } from 'react'
 
-import { TMetric } from '@/spec'
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'

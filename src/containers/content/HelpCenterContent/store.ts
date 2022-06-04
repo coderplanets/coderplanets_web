@@ -7,9 +7,9 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
 import type { TRootStore, TCommunity } from '@/spec'
-import type { TVisibles } from './spec'
 import { markStates, toJS } from '@/utils/mobx'
 
+import type { TVisibles } from './spec'
 import { VIEW } from './constant'
 
 export const HelpCenterContent = T.model('HelpCenterContent', {

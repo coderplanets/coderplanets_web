@@ -1,9 +1,8 @@
 import { FC, ReactNode, memo } from 'react'
 
-import { buildLog } from '@/utils/logger'
-
 import type { TTooltipPlacement, TMenuOption } from '@/spec'
 
+import { buildLog } from '@/utils/logger'
 import Tooltip from '@/widgets/Tooltip'
 
 import Menu from './Menu'

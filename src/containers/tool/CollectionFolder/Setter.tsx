@@ -1,5 +1,6 @@
 import { FC, memo, useCallback } from 'react'
-import { TID, TArticle } from '@/spec'
+
+import type { TID, TArticle } from '@/spec'
 
 import NoticeBar from '@/widgets/NoticeBar'
 import Button from '@/widgets/Buttons/Button'
