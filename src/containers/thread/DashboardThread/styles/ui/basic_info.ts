@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
 
+import Input from '@/widgets/Input'
+
 import { BaseSection } from '.'
 
 export const Wrapper = styled.div`
@@ -13,25 +15,14 @@ export const Title = styled.div`
   margin-bottom: 20px;
 `
 export const SelectWrapper = styled.div`
-  ${css.flex('align-center')};
+  ${css.flexColumn()};
   width: 100%;
 `
 export const Row = styled.div`
   ${css.flex('align-center')};
 `
-
-export const ExampleBtn = styled.div`
-  margin-bottom: 15px;
-  margin-right: 10px;
-  opacity: 0;
-  ${Section}:hover & {
-    opacity: 1;
-  }
-  transition: all 0.2s;
-`
-type TColumn = { center?: boolean; grow?: boolean }
-export const Column = styled.div<TColumn>`
-  ${css.flexColumn()};
-  ${({ center }) => (center ? 'align-items: center;' : '')};
-  ${({ grow }) => (grow ? 'flex-grow: 1;' : '')};
+export const Inputer = styled(Input)`
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 300px;
 `

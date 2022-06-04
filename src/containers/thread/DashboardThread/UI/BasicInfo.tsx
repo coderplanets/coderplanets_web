@@ -4,15 +4,14 @@ import type { TPostLayout } from '@/spec'
 
 import { POST_LAYOUT } from '@/constant'
 
-import Button from '@/widgets/Buttons/Button'
-import { SpaceGrow } from '@/widgets/Common'
+import { SpaceGrow, Br } from '@/widgets/Common'
 // import CheckLabel from '@/widgets/CheckLabel'
 
 import {
   Wrapper,
   Section,
   SelectWrapper,
-  ExampleBtn,
+  Inputer,
   Title,
   Row,
 } from '../styles/ui/basic_info'
@@ -28,14 +27,15 @@ const BasicInfo: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
         <Row>
           <Title>基本信息</Title>
           <SpaceGrow />
-          <ExampleBtn>
-            <Button size="tiny" ghost noBorder>
-              查看示例
-            </Button>
-          </ExampleBtn>
         </Row>
         <SelectWrapper>
-          <div>Logo / alias</div>
+          <div>Site Logo</div>
+          <Br bottom={20} />
+          <div>社区名称</div>
+          <Inputer />
+          <div>社区 URL</div>
+          <Inputer />
+          <div>主题色</div>
         </SelectWrapper>
       </Section>
     </Wrapper>
