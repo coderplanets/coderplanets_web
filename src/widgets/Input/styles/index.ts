@@ -70,6 +70,8 @@ export const InputWrapper = styled.input<IInput>`
   padding-right: ${({ hasSuffix }) => (hasSuffix ? '26px' : '8px')};
   border: 1px solid;
   border-color: ${theme('editor.border')};
+  border-radius: 4px;
+
   ::placeholder {
     color: ${theme('thread.articleDigest')};
     opacity: 0.5;

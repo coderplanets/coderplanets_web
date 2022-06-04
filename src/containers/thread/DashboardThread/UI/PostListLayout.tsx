@@ -9,12 +9,13 @@ import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
+import SectionLabel from '../SectionLabel'
+
 import {
   Wrapper,
   Section,
   SelectWrapper,
   ExampleBtn,
-  Title,
   Layout,
   LayoutTitle,
   Block,
@@ -36,20 +37,26 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
   return (
     <Wrapper>
       <Section>
-        <Row>
-          <Title>帖子列表布局</Title>
-          <SpaceGrow />
-          <ExampleBtn>
-            <Button
-              size="tiny"
-              ghost
-              noBorder
-              onClick={() => callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)}
-            >
-              查看示例
-            </Button>
-          </ExampleBtn>
-        </Row>
+        <SectionLabel
+          title="帖子布局"
+          desc={
+            <>
+              帖子列表展现形式，可根据社区内容及团队理解选择合适的展现形式。
+              <ExampleBtn>
+                <Button
+                  onClick={() =>
+                    callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)
+                  }
+                  size="small"
+                  ghost
+                  noBorder
+                >
+                  查看示例
+                </Button>
+              </ExampleBtn>
+            </>
+          }
+        />
         <SelectWrapper>
           <Layout onClick={() => setLayout(POST_LAYOUT.UPVOTE_FIRST)}>
             <Block $active={layout === POST_LAYOUT.UPVOTE_FIRST}>

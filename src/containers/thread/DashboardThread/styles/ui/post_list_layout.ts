@@ -12,10 +12,6 @@ export const Wrapper = styled.div`
   ${css.flexColumn()};
 `
 export const Section = styled(BaseSection)``
-export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
-  margin-bottom: 20px;
-`
 export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;
@@ -25,13 +21,7 @@ export const Row = styled.div`
 `
 
 export const ExampleBtn = styled.div`
-  margin-bottom: 15px;
-  margin-right: 10px;
-  opacity: 0;
-  ${Section}:hover & {
-    opacity: 1;
-  }
-  transition: all 0.2s;
+  display: inline-block;
 `
 type TColumn = { center?: boolean; grow?: boolean }
 export const Column = styled.div<TColumn>`

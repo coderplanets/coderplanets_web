@@ -8,11 +8,11 @@ import { parseWallpaperRaw } from '@/utils/wallpaper'
 import CheckLabel from '@/widgets/CheckLabel'
 import { Space } from '@/widgets/Common'
 
+import SectionLabel from '../SectionLabel'
+
 import {
   Wrapper,
   Section,
-  Title,
-  Desc,
   PreviewWrapper,
   HoverMask,
   UploadIcon,
@@ -34,11 +34,12 @@ const Wallpaper: FC<TProps> = ({ wallpaper }) => {
   return (
     <Wrapper>
       <Section>
-        <Title>壁纸设置</Title>
-        <Desc>
-          壁纸为宽屏（屏幕尺寸大于 {WIDTH.COMMUNITY.PAGE}
-          ）下显示的背景图片，除内置壁纸外，你可以上传和社区话题相关的自定义图片。点击可更换。
-        </Desc>
+        <SectionLabel
+          title="壁纸设置"
+          desc={`壁纸为宽屏（屏幕尺寸大于 ${WIDTH.COMMUNITY.PAGE}
+        ）下显示的背景图片，除内置壁纸外，你可以上传和社区话题相关的自定义图片。点击可更换。`}
+        />
+
         <PreviewWrapper>
           <HoverMask onClick={handleCallEditor}>
             <UploadIcon />

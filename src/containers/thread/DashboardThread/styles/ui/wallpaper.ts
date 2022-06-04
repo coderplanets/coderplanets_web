@@ -9,10 +9,6 @@ export const Wrapper = styled.div`
 `
 export const Section = styled(BaseSection)``
 
-export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
-  margin-bottom: 12px;
-`
 export const PreviewWrapper = styled.div`
   ${css.flex('align-center')};
 `
@@ -73,9 +69,4 @@ export const ContentBar = styled.div<{ long: number }>`
   margin-bottom: 10px;
   z-index: 3;
   border-radius: 5px;
-`
-export const Desc = styled.div`
-  font-size: 13px;
-  color: ${theme('thread.articleDigest')};
-  margin-bottom: 20px;
 `

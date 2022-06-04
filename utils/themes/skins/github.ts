@@ -220,7 +220,7 @@ const github = {
     placeholder: '#B3CFD0',
     headerBg: '#F9FCFC',
     contentBg: '#F9FCFC',
-    border: '#EAE9E9',
+    border: '#D6D6D6',
     borderActive: descText,
     borderNormal: '#e2eaea',
     footer: '#a6bebf',
