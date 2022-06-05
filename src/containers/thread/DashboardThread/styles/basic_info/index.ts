@@ -6,6 +6,7 @@ import Input from '@/widgets/Input'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
+  padding: 0 150px;
 `
 export const Section = styled.div`
   padding-bottom: 30px;

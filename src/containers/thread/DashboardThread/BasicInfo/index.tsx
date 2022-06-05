@@ -8,6 +8,7 @@ import { Br } from '@/widgets/Common'
 import OSSUploader from '@/widgets/OSSUploader'
 
 import Portal from '../Portal'
+import SectionLabel from '../SectionLabel'
 // import CheckLabel from '@/widgets/CheckLabel'
 
 import {
@@ -28,8 +29,9 @@ type TProps = {
 const BasicInfo: FC<TProps> = ({ testid = 'basic-info' }) => {
   return (
     <Wrapper>
-      <Portal title="基本信息" desc="社区基本信息，关于页面主要信息等。" />
+      <Portal title="关于社区" desc="社区基本信息，关于页面主要信息等。" />
       <Section>
+        <SectionLabel title="基本信息" />
         <Title>LOGO</Title>
         <LogoWrapper>
           <OSSUploader>
@@ -40,9 +42,22 @@ const BasicInfo: FC<TProps> = ({ testid = 'basic-info' }) => {
         <Br bottom={30} />
         <Label>社区名称</Label>
         <Inputer />
+        <Label>官方主页</Label>
+        <Inputer />
         <Label>社区 URL</Label>
         <Inputer />
         <Label>主题色</Label>
+
+        <Br bottom={40} />
+        <SectionLabel title="其它信息" />
+        <Label>社交媒体</Label>
+        <Inputer />
+        <Label>城市</Label>
+        <Inputer />
+        <Label>技术栈</Label>
+        <Inputer />
+        <Label>媒体报道</Label>
+        <Inputer />
       </Section>
     </Wrapper>
   )

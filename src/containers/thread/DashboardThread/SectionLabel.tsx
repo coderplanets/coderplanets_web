@@ -10,7 +10,7 @@ type TProps = {
 const SectionLabel: FC<TProps> = ({ title, desc = null }) => {
   return (
     <Wrapper>
-      <Title>{title}</Title>
+      <Title noDesc={desc === null}>{title}</Title>
       {desc && <Desc>{desc}</Desc>}
     </Wrapper>
   )
