@@ -46,7 +46,6 @@ const BasicInfo: FC<TProps> = ({ testid = 'basic-info' }) => {
         <Inputer />
         <Label>社区 URL</Label>
         <Inputer />
-        <Label>主题色</Label>
 
         <Br bottom={40} />
         <SectionLabel title="其它信息" />

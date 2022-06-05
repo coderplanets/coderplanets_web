@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 
 import Portal from '../Portal'
+import PrimaryColor from './PrimaryColor'
 import Wallpaper from './Wallpaper'
 import PostListLayout from './PostListLayout'
 
@@ -19,6 +20,7 @@ const UI: FC<TProps> = ({ settings }) => {
         desc="社区基本外观，主题色，以及常见布局自定义。"
       />
 
+      <PrimaryColor />
       <PostListLayout />
       <Wallpaper wallpaper={settings.wallpaper} />
     </Wrapper>
