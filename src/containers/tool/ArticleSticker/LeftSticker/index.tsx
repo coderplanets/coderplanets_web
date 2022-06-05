@@ -5,14 +5,7 @@ import type { TArticle } from '@/spec'
 import Share from '@/containers/tool/Share'
 import Upvote from '@/widgets/Upvote'
 
-import {
-  Wrapper,
-  InnerWrapper,
-  // BackWrapper,
-  // ArrowIcon,
-  // BackText,
-  Divider,
-} from '../styles/left_sticker'
+import { Wrapper, InnerWrapper, Divider } from '../styles/left_sticker'
 import { handleUpvote } from '../logic'
 
 type TProps = {

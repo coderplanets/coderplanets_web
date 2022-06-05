@@ -21,7 +21,8 @@ export const UpWrapper = styled.div`
 export const CountWrapper = styled.div`
   min-width: 18px;
   text-align: center;
+  font-weight: bold;
 
-  margin-top: -6px;
+  margin-top: -4px;
   margin-left: 3px;
 `

@@ -4,12 +4,12 @@
 
 import { FC, memo, useState, useCallback } from 'react'
 
-import { TID, TSIZE_TSM } from '@/spec'
+import type { TID, TSIZE_TSM } from '@/spec'
 import { SIZE } from '@/constant'
-import { buildLog } from '@/utils/logger'
-
-import { authWarn } from '@/utils/helper'
 import { useAccount } from '@/hooks'
+
+import { buildLog } from '@/utils/logger'
+import { authWarn } from '@/utils/helper'
 
 import FollowingBtn from './FollowingBtn'
 import FollowedBtn from './FollowedBtn'

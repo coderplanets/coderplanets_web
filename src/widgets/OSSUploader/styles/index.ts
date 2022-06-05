@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import css, { theme, animate } from '@/utils/css'
+import css, { animate } from '@/utils/css'
 
 import UploadIcon from '@/icons/ImgUpload'
 import TurboSVG from '@/icons/Turbo'
@@ -21,10 +21,10 @@ export const Label = styled.label<{ $loading: boolean }>`
   display: block;
   cursor: pointer;
 
-  filter: ${({ $loading }) => ($loading ? 'blur(4px)' : 'none')};
+  filter: ${({ $loading }) => ($loading ? 'brightness(0.8)' : 'none')};
 
   ${Wrapper}:hover & {
-    filter: blur(4px);
+    filter: brightness(0.8);
   }
   transition: all 0.1s;
 `
@@ -33,7 +33,7 @@ export const HintIcon = styled(UploadIcon)`
   position: absolute;
   top: calc(50% - 12px);
   left: calc(50% - 12px);
-  fill: ${theme('thread.articleTitle')};
+  fill: white;
   ${css.size(24)};
 
   ${Wrapper}:hover & {
@@ -46,7 +46,7 @@ export const TurboIcon = styled(TurboSVG)`
   ${css.size(30)};
   top: calc(50% - 15px);
   left: calc(50% - 15px);
-  fill: ${theme('thread.articleTitle')};
+  fill: white;
   z-index: 2;
 
   animation: ${animate.rotate360} 0.5s linear infinite;

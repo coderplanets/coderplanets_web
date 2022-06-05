@@ -1,6 +1,6 @@
 import { FC, memo, useEffect, useRef } from 'react'
 
-import { TEditMode } from '@/spec'
+import type { TEditMode } from '@/spec'
 import { nilOrEmpty } from '@/utils/validator'
 
 import PublishRules from './PublishRules'

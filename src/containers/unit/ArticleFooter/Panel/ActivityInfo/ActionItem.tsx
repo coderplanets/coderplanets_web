@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TAccount, TArticle, TCommunity } from '@/spec'
-import { ICON, ICON_BASE } from '@/config'
+import { ICON } from '@/config'
 
 import ImgFallback from '@/widgets/ImgFallback'
 

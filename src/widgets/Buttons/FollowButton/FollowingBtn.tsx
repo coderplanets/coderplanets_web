@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { TSIZE_TSM } from '@/spec'
+import type { TSIZE_TSM } from '@/spec'
 
 import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import Tooltip from '@/widgets/Tooltip'

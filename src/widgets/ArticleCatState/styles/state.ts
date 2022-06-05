@@ -8,7 +8,7 @@ import css, { theme } from '@/utils/css'
 import GtdWipSVG from '@/icons/GtdWip'
 import GtdDoneSVG from '@/icons/GtdDone'
 import GtdTodoSVG from '@/icons/GtdTodo'
-import ResolveSVG from '@/icons/Checked'
+import ResolveSVG from '@/icons/Hook'
 import LockSVG from '@/icons/Lock'
 
 import LightSVG from '@/icons/Light'
@@ -48,7 +48,8 @@ export const TODOIcon = styled(GtdTodoSVG)<TType>`
     cat === ARTICLE_CAT.BUG ? theme('gtdBadge.bug') : theme('gtdBadge.feat')};
 `
 export const ResolveIcon = styled(ResolveSVG)<{ smaller: boolean }>`
-  ${({ smaller }) => (smaller ? css.size(16) : css.size(18))};
+  ${({ smaller }) => (smaller ? css.size(12) : css.size(17))};
+  margin-right: 2px;
   fill: ${theme('baseColor.green')};
 `
 export const LockIcon = styled(LockSVG)<{ smaller: boolean }>`

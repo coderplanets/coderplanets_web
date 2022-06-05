@@ -68,9 +68,10 @@ export const InputWrapper = styled.input<IInput>`
   color: ${theme('thread.articleTitle')};
   padding-left: ${({ hasPrefix }) => (hasPrefix ? '26px' : '8px')};
   padding-right: ${({ hasSuffix }) => (hasSuffix ? '26px' : '8px')};
-  border: none;
-  border-bottom: 1px solid;
-  border-bottom-color: ${theme('editor.border')};
+  border: 1px solid;
+  border-color: ${theme('editor.border')};
+  border-radius: 4px;
+
   ::placeholder {
     color: ${theme('thread.articleDigest')};
     opacity: 0.5;

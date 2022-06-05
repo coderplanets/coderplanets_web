@@ -7,10 +7,10 @@
 import { FC, ReactNode, memo, useRef, useEffect, useState } from 'react'
 
 import type { TSIZE_SM, TSpace } from '@/spec'
-import { SIZE } from '@/constant'
-// import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
+import { SIZE } from '@/constant'
 
+// import { ICON } from '@/config'
 import { Space } from '@/widgets/Common'
 
 import {

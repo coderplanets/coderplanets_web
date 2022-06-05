@@ -8,7 +8,7 @@ import { FC, memo } from 'react'
 import { includes } from 'ramda'
 import { isMobile } from 'react-device-detect'
 
-import { TThread } from '@/spec'
+import type { TThread } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import CommunityDigest from '@/containers/digest/CommunityDigest'

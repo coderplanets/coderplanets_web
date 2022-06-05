@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
-import { TTheme } from '@/spec'
+import type { TTheme } from '@/spec'
 
 const dotColor = (scale: string): TTheme => {
   let key = `heatmap.scale_${scale}`

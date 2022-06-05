@@ -23,7 +23,7 @@ const Sidebar: FC<TProps> = ({ curTab }) => {
         $active={TAB.BASIC_INFO === curTab}
         onClick={() => tabOnChange(TAB.BASIC_INFO)}
       >
-        基本信息
+        关于社区
       </Item>
       <Item $active={TAB.UI === curTab} onClick={() => tabOnChange(TAB.UI)}>
         外观样式
@@ -52,7 +52,33 @@ const Sidebar: FC<TProps> = ({ curTab }) => {
         <Icon.Management />
         <Title>内容管理</Title>
       </Folder>
-      <Item>--</Item>
+      <Item $active={TAB.TAGS === curTab} onClick={() => tabOnChange(TAB.TAGS)}>
+        标签
+      </Item>
+      <Item $active={TAB.POST === curTab} onClick={() => tabOnChange(TAB.POST)}>
+        帖子
+      </Item>
+      <Item
+        $active={TAB.KANBAN === curTab}
+        onClick={() => tabOnChange(TAB.KANBAN)}
+      >
+        看板
+      </Item>
+      <Item
+        $active={TAB.CHANGELOG === curTab}
+        onClick={() => tabOnChange(TAB.CHANGELOG)}
+      >
+        更新日志
+      </Item>
+      <Item $active={TAB.HELP === curTab} onClick={() => tabOnChange(TAB.HELP)}>
+        帮助台
+      </Item>
+      <Item
+        $active={TAB.BLACKHOUSE === curTab}
+        onClick={() => tabOnChange(TAB.BLACKHOUSE)}
+      >
+        小黑屋
+      </Item>
       <Br top={30} />
       <Folder>
         <Icon.Bind />

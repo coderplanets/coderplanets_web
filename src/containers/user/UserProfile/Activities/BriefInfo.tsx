@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 
-import { TUserActivity } from '@/spec'
+import type { TUserActivity } from '@/spec'
+
 import {
   Wrapper,
   DateInfo,

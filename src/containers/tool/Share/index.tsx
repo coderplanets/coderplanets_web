@@ -5,11 +5,11 @@
 import { FC, Fragment, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TSpace } from '@/spec'
+import { SVG } from '@/constant'
+
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
-
-import { TSpace } from '@/spec'
-import { SVG } from '@/constant'
 
 import MenuButton from '@/widgets/Buttons/MenuButton'
 import IconButton from '@/widgets/Buttons/IconButton'

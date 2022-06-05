@@ -1,6 +1,6 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TPagedComments, TCommentsState } from '@/spec'
+import type { TPagedComments } from '@/spec'
 import Pagi from '@/widgets/Pagi'
 import { Br } from '@/widgets/Common'
 

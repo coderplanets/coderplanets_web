@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 import { reduce, add, values } from 'ramda'
 
 import type { TUser, TArticleThread } from '@/spec'
