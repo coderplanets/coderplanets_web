@@ -2,6 +2,7 @@ import type {
   TUpvoteLayout,
   TDashboardLayout,
   TPostLayout,
+  TBannerLayout,
   SnakeUpperCase,
 } from '@/spec'
 
@@ -18,6 +19,11 @@ export const UPVOTE_LAYOUT = {
   FIXED_HEADER: 'fixed-header',
   STICKER: 'sticker',
 } as Record<SnakeUpperCase<TUpvoteLayout>, TUpvoteLayout>
+
+export const BANNER_LAYOUT = {
+  HEADER: 'header',
+  TABBER: 'tabber',
+} as Record<SnakeUpperCase<TBannerLayout>, TBannerLayout>
 
 export const POST_LAYOUT = {
   UPVOTE_FIRST: 'upvote_first',

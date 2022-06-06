@@ -216,6 +216,7 @@ export type TUpvoteLayout =
   | 'sticker'
 
 export type TPostLayout = 'upvote_first' | 'comment_first'
+export type TBannerLayout = 'header' | 'tabber'
 
 export type TCollectionFolder = {
   id: TID

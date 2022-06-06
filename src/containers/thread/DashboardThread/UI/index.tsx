@@ -3,6 +3,7 @@ import { FC, memo } from 'react'
 import Portal from '../Portal'
 import PrimaryColor from './PrimaryColor'
 import Wallpaper from './Wallpaper'
+import BannerLayout from './BannerLayout'
 import PostListLayout from './PostListLayout'
 import ChangelogLayout from './ChangelogLayout'
 
@@ -22,6 +23,7 @@ const UI: FC<TProps> = ({ settings }) => {
       />
 
       <PrimaryColor />
+      <BannerLayout />
       <PostListLayout />
       <ChangelogLayout />
       <Wallpaper wallpaper={settings.wallpaper} />
