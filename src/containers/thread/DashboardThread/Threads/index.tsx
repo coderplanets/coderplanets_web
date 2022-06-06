@@ -30,7 +30,7 @@ const Threads: FC<TProps> = ({ testid = 'threads' }) => {
             xx
           </Desc>
         }
-        addon={<ToggleSwitch />}
+        addon={<ToggleSwitch checked />}
       />
       <Divider top={25} bottom={30} />
       <SectionLabel
@@ -63,7 +63,7 @@ const Threads: FC<TProps> = ({ testid = 'threads' }) => {
             xx
           </Desc>
         }
-        addon={<ToggleSwitch />}
+        addon={<ToggleSwitch checked />}
       />
       <HelpThread />
     </Wrapper>

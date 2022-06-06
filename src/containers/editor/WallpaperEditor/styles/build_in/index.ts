@@ -22,6 +22,16 @@ export const SettingWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'flex' : 'none')};
   margin-left: 3px;
 `
+export const SwitchWrapper = styled.div`
+  ${css.flex('align-center', 'justify-between')};
+  padding-right: 10px;
+`
+export const ToggleTitle = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
+  margin-left: 1px;
+  margin-top: 2px;
+`
 export const Divider = styled(LineDivider)`
   height: 70px;
   margin-left: 10px;

@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Space, SpaceGrow } from '@/widgets/Common'
+import { SpaceGrow } from '@/widgets/Common'
 import ToggleSwitch from '@/widgets/Buttons/ToggleSwitch'
 
 import {
@@ -19,7 +19,7 @@ const HelpThread: FC = () => {
         <Header>
           <Title>常见问题</Title>
           <SpaceGrow />
-          <ToggleSwitch />
+          <ToggleSwitch checked />
         </Header>
         <Desc>FAQ 列表，适合常见的一句话问答等，参考 xxx</Desc>
       </Section>
