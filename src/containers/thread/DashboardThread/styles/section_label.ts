@@ -5,6 +5,9 @@ import css, { theme } from '@/utils/css'
 export const Wrapper = styled.div`
   ${css.flexColumn()};
 `
+export const Header = styled.div`
+  ${css.flex('align-center')};
+`
 export const Title = styled.div<{ noDesc: boolean }>`
   color: ${theme('thread.articleTitle')};
   font-size: 16px;

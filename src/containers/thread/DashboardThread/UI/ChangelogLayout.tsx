@@ -24,19 +24,21 @@ import {
   Column,
   UpvoteIcon,
   CommentIcon,
-} from '../styles/ui/post_list_layout'
+} from '../styles/ui/changelog_layout'
 
 type TProps = {
   _layout?: TPostLayout
 }
 
-const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
+const ChangelogLayout: FC<TProps> = ({
+  _layout = POST_LAYOUT.UPVOTE_FIRST,
+}) => {
   const [layout, setLayout] = useState<TPostLayout>(POST_LAYOUT.UPVOTE_FIRST)
 
   return (
     <Wrapper>
       <SectionLabel
-        title="帖子布局"
+        title="更新日志布局"
         desc={
           <>
             帖子列表展现形式，可根据社区内容及团队理解选择合适的展现形式。
@@ -137,4 +139,4 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
   )
 }
 
-export default memo(PostListLayout)
+export default memo(ChangelogLayout)

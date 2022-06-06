@@ -43,7 +43,7 @@ export const LayoutTitle = styled.div<TActive>`
 export const Block = styled.div<TActive>`
   opacity: ${({ $active }) => ($active ? 0.65 : 0.2)};
   width: 300px;
-  height: 94px;
+  height: 300px;
   border: 1px solid;
   border-radius: 7px;
   border-color: ${theme('thread.articleTitle')};
