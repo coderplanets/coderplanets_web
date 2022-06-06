@@ -1,12 +1,12 @@
 import { FC, memo, useState } from 'react'
 
-import type { TPostLayout } from '@/spec'
+import type { TChangelogLayout } from '@/spec'
 
-import { POST_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
+import { CHANGELOG_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
 import Button from '@/widgets/Buttons/Button'
-import { Br, Space, SpaceGrow } from '@/widgets/Common'
+import { Br, Space, SpaceGrow, Divider } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
 import SectionLabel from '../SectionLabel'
@@ -19,21 +19,23 @@ import {
   LayoutTitle,
   Block,
   Bar,
-  Circle,
+  MiniBar,
+  MiniItem,
+  MiniIntro,
+  Cover,
+  MiniPic,
   Row,
   Column,
   UpvoteIcon,
-  CommentIcon,
+  Picture,
 } from '../styles/ui/changelog_layout'
 
 type TProps = {
-  _layout?: TPostLayout
+  _layout?: TChangelogLayout
 }
 
-const ChangelogLayout: FC<TProps> = ({
-  _layout = POST_LAYOUT.UPVOTE_FIRST,
-}) => {
-  const [layout, setLayout] = useState<TPostLayout>(POST_LAYOUT.UPVOTE_FIRST)
+const ChangelogLayout: FC<TProps> = ({ _layout = CHANGELOG_LAYOUT.FOLD }) => {
+  const [layout, setLayout] = useState<TChangelogLayout>(CHANGELOG_LAYOUT.FOLD)
 
   return (
     <Wrapper>
@@ -41,7 +43,7 @@ const ChangelogLayout: FC<TProps> = ({
         title="更新日志布局"
         desc={
           <>
-            帖子列表展现形式，可根据社区内容及团队理解选择合适的展现形式。
+            更新日志展现形式，可根据社区内容及团队理解选择合适的展现形式。
             <ExampleBtn>
               <Button
                 onClick={() =>
@@ -58,21 +60,167 @@ const ChangelogLayout: FC<TProps> = ({
         }
       />
       <SelectWrapper>
-        <Layout onClick={() => setLayout(POST_LAYOUT.UPVOTE_FIRST)}>
-          <Block $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
-            <Bar thin long={30} />
-            <Br bottom={7} />
-            <Row>
-              <Bar long={60} />
-              <Space right={5} />
-              <Bar thin long={8} />
-              <SpaceGrow />
-              <CommentIcon />
-            </Row>
-            <Br bottom={10} />
-
+        <Layout onClick={() => setLayout(CHANGELOG_LAYOUT.FOLD)}>
+          <Block $active={layout === CHANGELOG_LAYOUT.FOLD}>
+            <Column>
+              <Picture />
+              <Br top={14} />
+              <Row>
+                <Bar long={60} />
+                <Space right={10} />
+                <Bar thin long={10} />
+              </Row>
+              <Br top={10} />
+              <Row>
+                <Bar thin long={20} />
+                <SpaceGrow />
+                <Bar thin long={10} />
+              </Row>
+            </Column>
+            <Br bottom={15} />
             <Bar long={80} thin />
-            <Br bottom={10} />
+            <Br top={10} />
+            <Bar long={30} thin />
+            <Br top={10} />
+            <Bar long={60} thin />
+            <Br top={15} />
+            <Row>
+              <UpvoteIcon size={15} />
+              <Space right={5} />
+              <Bar long={12} />
+              <Space right={15} />
+              <Bar long={12} thin />
+            </Row>
+
+            <Divider />
+
+            <MiniItem>
+              <Cover>
+                <MiniPic />
+                <Br top={4} />
+                <MiniBar thin long={80} />
+                <Br top={2} />
+                <MiniBar thin long={80} />
+                <Br top={2} />
+              </Cover>
+              <MiniIntro>
+                <Row>
+                  <MiniBar long={46} />
+                  <Space right={5} />
+                  <MiniBar thin long={8} />
+                  <SpaceGrow />
+                  <MiniBar thin long={10} />
+                </Row>
+                <Br top={8} />
+                <MiniBar thin long={70} />
+              </MiniIntro>
+            </MiniItem>
+            <Br top={12} />
+            <MiniItem>
+              <Cover>
+                <MiniPic />
+                <Br top={4} />
+                <MiniBar thin long={80} />
+                <Br top={2} />
+                <MiniBar thin long={80} />
+                <Br top={2} />
+              </Cover>
+              <MiniIntro>
+                <Row>
+                  <MiniBar long={32} />
+                  <Space right={5} />
+                  <MiniBar thin long={8} />
+                  <SpaceGrow />
+                  <MiniBar thin long={10} />
+                </Row>
+                <Br top={8} />
+                <MiniBar thin long={70} />
+              </MiniIntro>
+            </MiniItem>
+
+            <Br top={12} />
+            <MiniItem>
+              <Cover>
+                <MiniPic />
+                <Br top={4} />
+                <MiniBar thin long={80} />
+                <Br top={2} />
+                <MiniBar thin long={80} />
+                <Br top={2} />
+              </Cover>
+              <MiniIntro>
+                <Row>
+                  <MiniBar long={62} />
+                  <Space right={5} />
+                  <MiniBar thin long={8} />
+                  <SpaceGrow />
+                  <MiniBar thin long={10} />
+                </Row>
+                <Br top={8} />
+                <MiniBar thin long={70} />
+              </MiniIntro>
+            </MiniItem>
+          </Block>
+          <LayoutTitle $active={layout === CHANGELOG_LAYOUT.FOLD}>
+            <CheckLabel
+              title="布局 A"
+              $active={layout === CHANGELOG_LAYOUT.FOLD}
+              top={10}
+              left={-15}
+            />
+          </LayoutTitle>
+        </Layout>
+        <Space right={40} />
+        <Layout onClick={() => setLayout(CHANGELOG_LAYOUT.NORMAL)}>
+          <Block $active={layout === CHANGELOG_LAYOUT.NORMAL}>
+            <Column>
+              <Picture small />
+              <Br top={14} />
+              <Row>
+                <Bar long={60} />
+                <Space right={10} />
+                <Bar thin long={10} />
+              </Row>
+              <Br top={10} />
+              <Row>
+                <Bar thin long={20} />
+                <SpaceGrow />
+                <Bar thin long={10} />
+              </Row>
+            </Column>
+            <Br bottom={15} />
+            <Bar long={80} thin />
+            <Br top={10} />
+            <Bar long={30} thin />
+            <Br top={10} />
+            <Row>
+              <UpvoteIcon size={15} />
+              <Space right={5} />
+              <Bar long={12} />
+              <Space right={15} />
+              <Bar long={12} thin />
+            </Row>
+            <Divider />
+            <Column>
+              <Picture small />
+              <Br top={14} />
+              <Row>
+                <Bar long={60} />
+                <Space right={10} />
+                <Bar thin long={10} />
+              </Row>
+              <Br top={10} />
+              <Row>
+                <Bar thin long={20} />
+                <SpaceGrow />
+                <Bar thin long={10} />
+              </Row>
+            </Column>
+            <Br bottom={15} />
+            <Bar long={80} thin />
+            <Br top={10} />
+            <Bar long={30} thin />
+            <Br top={10} />
             <Row>
               <UpvoteIcon size={15} />
               <Space right={5} />
@@ -81,54 +229,10 @@ const ChangelogLayout: FC<TProps> = ({
               <Bar long={12} thin />
             </Row>
           </Block>
-          <LayoutTitle $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
-            <CheckLabel
-              title="布局 A"
-              $active={layout === POST_LAYOUT.UPVOTE_FIRST}
-              top={10}
-              left={-15}
-            />
-          </LayoutTitle>
-        </Layout>
-        <Space right={40} />
-        <Layout onClick={() => setLayout(POST_LAYOUT.COMMENT_FIRST)}>
-          <Block $active={layout === POST_LAYOUT.COMMENT_FIRST}>
-            <Row>
-              <Column center>
-                <Circle />
-                <Br bottom={8} />
-                <UpvoteIcon size={13} />
-                <Br bottom={3} />
-                <Bar long={50} />
-              </Column>
-
-              <Space right={12} />
-
-              <Column grow>
-                <Row>
-                  <Bar long={50} />
-                  <Space right={5} />
-                  <Bar thin long={8} />
-                  <SpaceGrow />
-                  <Bar long={20} />
-                </Row>
-                <Br bottom={8} />
-                <Bar thin long={20} />
-                <Br bottom={11} />
-                <Bar thin long={80} />
-                <Br bottom={10} />
-                <Row>
-                  <Bar long={20} />
-                  <Space right={12} />
-                  <Bar thin long={20} />
-                </Row>
-              </Column>
-            </Row>
-          </Block>
-          <LayoutTitle $active={layout === POST_LAYOUT.COMMENT_FIRST}>
+          <LayoutTitle $active={layout === CHANGELOG_LAYOUT.NORMAL}>
             <CheckLabel
               title="布局 B"
-              $active={layout === POST_LAYOUT.COMMENT_FIRST}
+              $active={layout === CHANGELOG_LAYOUT.NORMAL}
               top={10}
               left={-15}
             />

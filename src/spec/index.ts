@@ -112,6 +112,7 @@ export type {
   TUpvoteLayout,
   TBannerLayout,
   TPostLayout,
+  TChangelogLayout,
   TCommentsState,
   TWorksTab,
   TBlogTab,

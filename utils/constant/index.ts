@@ -20,6 +20,7 @@ export {
   UPVOTE_LAYOUT,
   BANNER_LAYOUT,
   POST_LAYOUT,
+  CHANGELOG_LAYOUT,
   DASHBOARD_DESC_LAYOUT,
 } from './layout'
 export { default as ANCHOR } from './anchor'

@@ -5,7 +5,7 @@ import type { TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 import { Divider } from '@/widgets/Common'
-import { BaseSection } from '.'
+import { BaseSection, BlockBase } from '.'
 
 export const Wrapper = styled(BaseSection)`
   margin-bottom: 35px;
@@ -45,22 +45,10 @@ export const LayoutTitle = styled.div<TActive>`
   }
   transition: all 0.2s;
 `
-export const Block = styled.div<TActive>`
-  opacity: ${({ $active }) => ($active ? 0.65 : 0.2)};
+export const Block = styled(BlockBase)`
   width: 300px;
   height: 200px;
-  border: 1px solid;
-  border-radius: 7px;
-  border-color: ${theme('thread.articleTitle')};
   padding: 12px 25px;
-
-  &:hover {
-    /* ${Layout}:hover & { */
-    opacity: ${({ $active }) => ($active ? 0.65 : 0.3)};
-    cursor: pointer;
-  }
-
-  transition: all 0.2s;
 `
 export const DividerLine = styled(Divider)`
   opacity: 0.8;

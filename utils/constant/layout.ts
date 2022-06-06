@@ -1,8 +1,9 @@
 import type {
   TUpvoteLayout,
   TDashboardLayout,
-  TPostLayout,
   TBannerLayout,
+  TPostLayout,
+  TChangelogLayout,
   SnakeUpperCase,
 } from '@/spec'
 
@@ -29,6 +30,11 @@ export const POST_LAYOUT = {
   UPVOTE_FIRST: 'upvote_first',
   COMMENT_FIRST: 'comment_first',
 } as Record<SnakeUpperCase<TPostLayout>, TPostLayout>
+
+export const CHANGELOG_LAYOUT = {
+  FOLD: 'fold',
+  NORMAL: 'normal',
+} as Record<SnakeUpperCase<TChangelogLayout>, TChangelogLayout>
 
 export const DASHBOARD_DESC_LAYOUT = {
   POST_LIST: 'post_list',

@@ -6,7 +6,7 @@ import css, { theme } from '@/utils/css'
 
 import UpvoteSVG from '@/icons/Upvote'
 import CommentSVG from '@/icons/Comment'
-import { BaseSection } from '.'
+import { BaseSection, BlockBase } from '.'
 
 export const Wrapper = styled(BaseSection)`
   margin-bottom: 35px;
@@ -40,22 +40,10 @@ export const LayoutTitle = styled.div<TActive>`
   }
   transition: all 0.2s;
 `
-export const Block = styled.div<TActive>`
-  opacity: ${({ $active }) => ($active ? 0.65 : 0.2)};
+export const Block = styled(BlockBase)`
   width: 300px;
   height: 94px;
-  border: 1px solid;
-  border-radius: 7px;
-  border-color: ${theme('thread.articleTitle')};
   padding: 16px 15px;
-
-  &:hover {
-    /* ${Layout}:hover & { */
-    opacity: ${({ $active }) => ($active ? 0.65 : 0.3)};
-    cursor: pointer;
-  }
-
-  transition: all 0.2s;
 `
 type TBar = { long: number; thin?: boolean }
 export const Bar = styled.div<TBar>`
