@@ -49,7 +49,7 @@ const Wallpaper: FC<TProps> = ({ wallpaper }) => {
 
           <Space right={48} />
           <RealPreview>
-            <PreviewImage style={{ background }} effect={effect} />
+            <PreviewImage style={{ background }} effect={effect} noHover />
             <ContentBlock>
               <ContentBar long={30} />
               <ContentBar long={80} />

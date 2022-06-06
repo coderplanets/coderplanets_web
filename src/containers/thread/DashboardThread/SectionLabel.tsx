@@ -1,16 +1,23 @@
 import { FC, memo, ReactNode } from 'react'
 
-import { Wrapper, Title, Desc } from './styles/section_label'
+import { SpaceGrow } from '@/widgets/Common'
+
+import { Wrapper, Header, Title, Desc } from './styles/section_label'
 
 type TProps = {
   title: string
   desc?: ReactNode
+  addon?: ReactNode
 }
 
-const SectionLabel: FC<TProps> = ({ title, desc = null }) => {
+const SectionLabel: FC<TProps> = ({ title, desc = null, addon = null }) => {
   return (
     <Wrapper>
-      <Title noDesc={desc === null}>{title}</Title>
+      <Header>
+        <Title noDesc={desc === null}>{title}</Title>
+        <SpaceGrow />
+        {addon}
+      </Header>
       {desc && <Desc>{desc}</Desc>}
     </Wrapper>
   )

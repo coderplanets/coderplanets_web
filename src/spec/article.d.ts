@@ -215,7 +215,9 @@ export type TUpvoteLayout =
   | 'fixed-header'
   | 'sticker'
 
+export type TBannerLayout = 'header' | 'tabber'
 export type TPostLayout = 'upvote_first' | 'comment_first'
+export type TChangelogLayout = 'fold' | 'normal'
 
 export type TCollectionFolder = {
   id: TID

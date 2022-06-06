@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
-import css from '@/utils/css'
+// import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
-  ${css.flex()};
+  padding: 0 80px;
 `
-
-export const Title = styled.div``
+export const Desc = styled.div`
+  width: 80%;
+  line-height: 1.65;
+`

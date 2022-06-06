@@ -8,7 +8,7 @@ import { FC, Fragment } from 'react'
 import { WALLPAPER_TYPE } from '@/constant'
 
 import { Br } from '@/widgets/Common'
-import Checker from '@/widgets/Checker'
+import ToggleSwitch from '@/widgets/Buttons/ToggleSwitch'
 
 import PatternGroup from './PatternGroup'
 import GradientGroup from './GradientGroup'
@@ -19,6 +19,8 @@ import {
   Wrapper,
   Title,
   SettingWrapper,
+  SwitchWrapper,
+  ToggleTitle,
   GeneralSettings,
   Divider,
   AngleSettings,
@@ -58,18 +60,16 @@ const BuildIn: FC<TProps> = ({ wallpaperData }) => {
         <GeneralSettings>
           <Title>附加效果:</Title>
           {wallpaperType === WALLPAPER_TYPE.GRADIENT && (
-            <Fragment>
-              <Br top={20} />
-              <Checker checked={hasPattern} onChange={togglePattern}>
-                叠加印纹
-              </Checker>
-            </Fragment>
+            <SwitchWrapper>
+              <ToggleTitle>叠加印纹</ToggleTitle>
+              <ToggleSwitch checked={hasPattern} onChange={togglePattern} />
+            </SwitchWrapper>
           )}
-
-          <Br top={10} />
-          <Checker checked={hasBlur} onChange={toggleBlur}>
-            模糊效果
-          </Checker>
+          <Br top={6} />
+          <SwitchWrapper>
+            <ToggleTitle>模糊效果</ToggleTitle>
+            <ToggleSwitch checked={hasBlur} onChange={toggleBlur} />
+          </SwitchWrapper>
         </GeneralSettings>
 
         {wallpaperType === WALLPAPER_TYPE.GRADIENT && (

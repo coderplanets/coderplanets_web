@@ -26,7 +26,7 @@ const Sidebar: FC<TProps> = ({ curTab }) => {
         关于社区
       </Item>
       <Item $active={TAB.UI === curTab} onClick={() => tabOnChange(TAB.UI)}>
-        外观样式
+        外观布局
       </Item>
       <Item
         $active={TAB.THREADS === curTab}

@@ -15,11 +15,6 @@ export const PreviewWrapper = styled.div`
 export const HoverMask = styled.div`
   ${css.flexColumn('align-center')};
   position: relative;
-  &:hover {
-    filter: brightness(0.8);
-    cursor: pointer;
-  }
-  transition: all 0.2s;
 `
 export const UploadIcon = styled(SettingSVG)`
   position: absolute;
@@ -28,13 +23,15 @@ export const UploadIcon = styled(SettingSVG)`
   ${css.size(25)};
   fill: white;
   opacity: 0;
+  z-index: 10;
 
   ${HoverMask}:hover & {
     opacity: 1;
   }
   transition: all 0.2s;
 `
-export const PreviewImage = styled.div<{ effect: string }>`
+type TPreviewImage = { effect: string; noHover?: boolean }
+export const PreviewImage = styled.div<TPreviewImage>`
   border: 1px solid;
   border-color: ${theme('border')};
   background-color: ${theme('hoverBg')};
@@ -43,6 +40,14 @@ export const PreviewImage = styled.div<{ effect: string }>`
   height: 180px;
   border-radius: 8px;
   ${({ effect }) => effect || ''};
+
+  ${({ noHover }) =>
+    !noHover
+      ? `&:hover {
+    filter: brightness(0.8);
+    cursor: pointer;
+  }`
+      : ''};
 
   transition: all 0.2s;
 `
