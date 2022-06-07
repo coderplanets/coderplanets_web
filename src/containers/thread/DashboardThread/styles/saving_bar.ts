@@ -12,7 +12,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('align-center')};
   width: 100%;
   height: 42px;
-  background-color: #f7f7f7; // to-theme
+  background: linear-gradient(to right, #f7f7f7 60%, transparent); // to-theme
   padding: 10px 16px;
   border-radius: 10px;
 
@@ -25,10 +25,10 @@ export const HintWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const InfoIcon = styled(InfoSVG)`
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.extraInfo')};
   ${css.size(14)};
-  margin-right: 5px;
-  opacity: 0.5;
+  margin-right: 6px;
+  opacity: 0.6;
 `
 export const HintText = styled.div`
   font-size: 13px;

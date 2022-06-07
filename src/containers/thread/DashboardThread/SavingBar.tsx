@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, ReactNode } from 'react'
 
 import type { TSpace } from '@/spec'
 import { SpaceGrow } from '@/widgets/Common'
@@ -12,14 +12,16 @@ import {
   ActionWrapper,
 } from './styles/saving_bar'
 
-type TProps = TSpace
+type TProps = {
+  hint?: ReactNode
+} & TSpace
 
-const SavingBar: FC<TProps> = ({ ...restProps }) => {
+const SavingBar: FC<TProps> = ({ hint = '是否保存该设置？', ...restProps }) => {
   return (
     <Wrapper {...restProps}>
       <HintWrapper>
         <InfoIcon />
-        <HintText>是否保存该设置？</HintText>
+        <HintText>{hint}</HintText>
       </HintWrapper>
       <SpaceGrow />
       <ActionWrapper>
