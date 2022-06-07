@@ -6,7 +6,7 @@ import { POST_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
 import Button from '@/widgets/Buttons/Button'
-import { Br, Space, SpaceGrow } from '@/widgets/Common'
+import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
 import SectionLabel from '../SectionLabel'
@@ -14,7 +14,6 @@ import SectionLabel from '../SectionLabel'
 import {
   Wrapper,
   SelectWrapper,
-  ExampleBtn,
   Layout,
   LayoutTitle,
   Block,
@@ -36,11 +35,11 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
   return (
     <Wrapper>
       <SectionLabel
-        title="帖子布局"
+        title="讨论区布局"
         desc={
           <>
-            帖子列表展现形式，可根据社区内容及团队理解选择合适的展现形式。
-            <ExampleBtn>
+            「讨论区」列表的展现形式，可根据讨论内容侧重或偏好选择，切换布局不影响已发布内容。
+            <Inline>
               <Button
                 onClick={() =>
                   callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)
@@ -51,7 +50,7 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
               >
                 查看示例
               </Button>
-            </ExampleBtn>
+            </Inline>
           </>
         }
       />
@@ -83,7 +82,7 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
             <CheckLabel
               title="布局 A"
               $active={layout === POST_LAYOUT.UPVOTE_FIRST}
-              top={10}
+              top={15}
               left={-15}
             />
           </LayoutTitle>
@@ -127,7 +126,7 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
             <CheckLabel
               title="布局 B"
               $active={layout === POST_LAYOUT.COMMENT_FIRST}
-              top={10}
+              top={15}
               left={-15}
             />
           </LayoutTitle>

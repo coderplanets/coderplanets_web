@@ -38,3 +38,9 @@ export const FadeToggle = styled.div<TActive>`
   opacity: ${({ show }) => (show ? 1 : 0)};
   transition: visibility 0.3s linear, opacity 0.3s linear;
 `
+
+export const Inline = styled.div<TSpace>`
+  display: inline-block;
+  margin-left: ${({ left }) => `${left || 0}px`};
+  margin-right: ${({ right }) => `${right || 0}px`};
+`

@@ -12,7 +12,7 @@ const fontColor = primaryColor
 const sidebarBg = '#23292E'
 const markdownFont = '#9eb8bd'
 const border = '#EAE9E9'
-const link = '#0062b0'
+const link = '#6d9bd3'
 
 const actionText = '#647392'
 const descText = '#666'

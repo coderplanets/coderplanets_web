@@ -9,7 +9,7 @@ export const getColor = (
   noBorder: boolean,
 ): TTheme => {
   if (ghost && noBorder) {
-    return theme('thread.extraInfo')
+    return theme('link')
   }
 
   if (ghost) {
