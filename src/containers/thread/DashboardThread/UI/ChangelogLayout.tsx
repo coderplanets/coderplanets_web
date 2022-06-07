@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
 import type { TChangelogLayout } from '@/spec'
 
@@ -6,7 +6,7 @@ import { CHANGELOG_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
 import Button from '@/widgets/Buttons/Button'
-import { Br, Space, SpaceGrow, Divider } from '@/widgets/Common'
+import { Br, Space, SpaceGrow, Divider, Inline } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
 import SectionLabel from '../SectionLabel'
@@ -14,7 +14,6 @@ import SectionLabel from '../SectionLabel'
 import {
   Wrapper,
   SelectWrapper,
-  ExampleBtn,
   Layout,
   LayoutTitle,
   Block,
@@ -30,21 +29,21 @@ import {
   Picture,
 } from '../styles/ui/changelog_layout'
 
+import { edit } from '../logic'
+
 type TProps = {
-  _layout?: TChangelogLayout
+  layout: TChangelogLayout
 }
 
-const ChangelogLayout: FC<TProps> = ({ _layout = CHANGELOG_LAYOUT.FOLD }) => {
-  const [layout, setLayout] = useState<TChangelogLayout>(CHANGELOG_LAYOUT.FOLD)
-
+const ChangelogLayout: FC<TProps> = ({ layout }) => {
   return (
     <Wrapper>
       <SectionLabel
         title="更新日志布局"
         desc={
           <>
-            更新日志展现形式，可根据社区内容及团队理解选择合适的展现形式。
-            <ExampleBtn>
+            「更新日志」列表的展现形式，切换布局不影响已发布内容。
+            <Inline>
               <Button
                 onClick={() =>
                   callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)
@@ -55,12 +54,12 @@ const ChangelogLayout: FC<TProps> = ({ _layout = CHANGELOG_LAYOUT.FOLD }) => {
               >
                 查看示例
               </Button>
-            </ExampleBtn>
+            </Inline>
           </>
         }
       />
       <SelectWrapper>
-        <Layout onClick={() => setLayout(CHANGELOG_LAYOUT.FOLD)}>
+        <Layout onClick={() => edit(CHANGELOG_LAYOUT.FOLD, 'changelogLayout')}>
           <Block $active={layout === CHANGELOG_LAYOUT.FOLD}>
             <Column>
               <Picture />
@@ -165,13 +164,15 @@ const ChangelogLayout: FC<TProps> = ({ _layout = CHANGELOG_LAYOUT.FOLD }) => {
             <CheckLabel
               title="布局 A"
               $active={layout === CHANGELOG_LAYOUT.FOLD}
-              top={10}
+              top={15}
               left={-15}
             />
           </LayoutTitle>
         </Layout>
         <Space right={40} />
-        <Layout onClick={() => setLayout(CHANGELOG_LAYOUT.NORMAL)}>
+        <Layout
+          onClick={() => edit(CHANGELOG_LAYOUT.NORMAL, 'changelogLayout')}
+        >
           <Block $active={layout === CHANGELOG_LAYOUT.NORMAL}>
             <Column>
               <Picture small />
@@ -233,7 +234,7 @@ const ChangelogLayout: FC<TProps> = ({ _layout = CHANGELOG_LAYOUT.FOLD }) => {
             <CheckLabel
               title="布局 B"
               $active={layout === CHANGELOG_LAYOUT.NORMAL}
-              top={10}
+              top={15}
               left={-15}
             />
           </LayoutTitle>

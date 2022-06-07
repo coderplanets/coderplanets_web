@@ -1,4 +1,10 @@
-import type { TWallpaper } from '@/spec'
+import type {
+  TWallpaper,
+  TColorName,
+  TPostLayout,
+  TChangelogLayout,
+  TBannerLayout,
+} from '@/spec'
 
 export type TTab =
   | 'overview'
@@ -23,4 +29,8 @@ export type TTab =
 
 export type TUiSettings = {
   wallpaper: TWallpaper
+  primaryColor: TColorName
+  bannerLayout: TBannerLayout
+  postLayout: TPostLayout
+  changelogLayout: TChangelogLayout
 }

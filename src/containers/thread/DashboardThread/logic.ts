@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
+import type { TEditValue } from '@/spec'
 import { buildLog } from '@/utils/logger'
+import { updateEditing } from '@/utils/mobx'
 
 import type { TTab } from './spec'
 // import S from './schma'
@@ -14,6 +16,10 @@ const log = buildLog('L:DashboardThread')
 
 export const tabOnChange = (curTab: TTab): void => {
   store.mark({ curTab })
+}
+
+export const edit = (e: TEditValue, key: string): void => {
+  updateEditing(store, key, e)
 }
 
 // ###############################

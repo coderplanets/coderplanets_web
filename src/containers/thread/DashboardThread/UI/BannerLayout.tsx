@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
 import type { TBannerLayout } from '@/spec'
 
@@ -6,7 +6,7 @@ import { BANNER_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
 import Button from '@/widgets/Buttons/Button'
-import { Br, Space, SpaceGrow } from '@/widgets/Common'
+import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
 import SectionLabel from '../SectionLabel'
@@ -14,7 +14,6 @@ import SectionLabel from '../SectionLabel'
 import {
   Wrapper,
   SelectWrapper,
-  ExampleBtn,
   Layout,
   LayoutTitle,
   DividerLine,
@@ -26,14 +25,13 @@ import {
   ListsWrapper,
   TagssWrapper,
 } from '../styles/ui/banner_layout'
+import { edit } from '../logic'
 
 type TProps = {
-  _layout?: TBannerLayout
+  layout: TBannerLayout
 }
 
-const BannerLayout: FC<TProps> = ({ _layout = BANNER_LAYOUT.HEADER }) => {
-  const [layout, setLayout] = useState<TBannerLayout>(BANNER_LAYOUT.HEADER)
-
+const BannerLayout: FC<TProps> = ({ layout }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -41,7 +39,7 @@ const BannerLayout: FC<TProps> = ({ _layout = BANNER_LAYOUT.HEADER }) => {
         desc={
           <>
             整体页面的 Header 布局，适用于除文章页的所有页面。
-            <ExampleBtn>
+            <Inline>
               <Button
                 onClick={() =>
                   callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)
@@ -52,12 +50,12 @@ const BannerLayout: FC<TProps> = ({ _layout = BANNER_LAYOUT.HEADER }) => {
               >
                 查看示例
               </Button>
-            </ExampleBtn>
+            </Inline>
           </>
         }
       />
       <SelectWrapper>
-        <Layout onClick={() => setLayout(BANNER_LAYOUT.HEADER)}>
+        <Layout onClick={() => edit(BANNER_LAYOUT.HEADER, 'bannerLayout')}>
           <Block $active={layout === BANNER_LAYOUT.HEADER}>
             <Row>
               <Bar thin long={16} />
@@ -106,13 +104,13 @@ const BannerLayout: FC<TProps> = ({ _layout = BANNER_LAYOUT.HEADER }) => {
             <CheckLabel
               title="布局 A"
               $active={layout === BANNER_LAYOUT.HEADER}
-              top={10}
+              top={15}
               left={-15}
             />
           </LayoutTitle>
         </Layout>
         <Space right={40} />
-        <Layout onClick={() => setLayout(BANNER_LAYOUT.TABBER)}>
+        <Layout onClick={() => edit(BANNER_LAYOUT.TABBER, 'bannerLayout')}>
           <Block $active={layout === BANNER_LAYOUT.TABBER}>
             <Row>
               <Bar long={16} />
@@ -167,7 +165,7 @@ const BannerLayout: FC<TProps> = ({ _layout = BANNER_LAYOUT.HEADER }) => {
             <CheckLabel
               title="布局 B"
               $active={layout === BANNER_LAYOUT.TABBER}
-              top={10}
+              top={15}
               left={-15}
             />
           </LayoutTitle>

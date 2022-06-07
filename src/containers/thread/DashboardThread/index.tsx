@@ -39,6 +39,7 @@ const DashboardThreadContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { curTab, uiSettings } = store
+  console.log('uiSettings: ', uiSettings)
 
   return (
     <Wrapper testid={testid}>

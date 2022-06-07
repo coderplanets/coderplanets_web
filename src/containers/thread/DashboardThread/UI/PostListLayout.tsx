@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
 import type { TPostLayout } from '@/spec'
 
@@ -6,7 +6,7 @@ import { POST_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
 import Button from '@/widgets/Buttons/Button'
-import { Br, Space, SpaceGrow } from '@/widgets/Common'
+import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
 import SectionLabel from '../SectionLabel'
@@ -14,7 +14,6 @@ import SectionLabel from '../SectionLabel'
 import {
   Wrapper,
   SelectWrapper,
-  ExampleBtn,
   Layout,
   LayoutTitle,
   Block,
@@ -25,22 +24,21 @@ import {
   UpvoteIcon,
   CommentIcon,
 } from '../styles/ui/post_list_layout'
+import { edit } from '../logic'
 
 type TProps = {
-  _layout?: TPostLayout
+  layout: TPostLayout
 }
 
-const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
-  const [layout, setLayout] = useState<TPostLayout>(POST_LAYOUT.UPVOTE_FIRST)
-
+const PostListLayout: FC<TProps> = ({ layout }) => {
   return (
     <Wrapper>
       <SectionLabel
-        title="帖子布局"
+        title="讨论区布局"
         desc={
           <>
-            帖子列表展现形式，可根据社区内容及团队理解选择合适的展现形式。
-            <ExampleBtn>
+            「讨论区」列表的展现形式，可根据讨论内容侧重或偏好选择，切换布局不影响已发布内容。
+            <Inline>
               <Button
                 onClick={() =>
                   callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)
@@ -51,12 +49,12 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
               >
                 查看示例
               </Button>
-            </ExampleBtn>
+            </Inline>
           </>
         }
       />
       <SelectWrapper>
-        <Layout onClick={() => setLayout(POST_LAYOUT.UPVOTE_FIRST)}>
+        <Layout onClick={() => edit(POST_LAYOUT.UPVOTE_FIRST, 'postLayout')}>
           <Block $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
             <Bar thin long={30} />
             <Br bottom={7} />
@@ -83,13 +81,13 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
             <CheckLabel
               title="布局 A"
               $active={layout === POST_LAYOUT.UPVOTE_FIRST}
-              top={10}
+              top={15}
               left={-15}
             />
           </LayoutTitle>
         </Layout>
         <Space right={40} />
-        <Layout onClick={() => setLayout(POST_LAYOUT.COMMENT_FIRST)}>
+        <Layout onClick={() => edit(POST_LAYOUT.COMMENT_FIRST, 'postLayout')}>
           <Block $active={layout === POST_LAYOUT.COMMENT_FIRST}>
             <Row>
               <Column center>
@@ -127,7 +125,7 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
             <CheckLabel
               title="布局 B"
               $active={layout === POST_LAYOUT.COMMENT_FIRST}
-              top={10}
+              top={15}
               left={-15}
             />
           </LayoutTitle>

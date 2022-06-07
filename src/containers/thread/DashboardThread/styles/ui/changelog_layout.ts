@@ -18,10 +18,6 @@ export const SelectWrapper = styled.div`
 export const Row = styled.div`
   ${css.flex('align-center')};
 `
-
-export const ExampleBtn = styled.div`
-  display: inline-block;
-`
 type TColumn = { center?: boolean; grow?: boolean }
 export const Column = styled.div<TColumn>`
   ${css.flexColumn()};

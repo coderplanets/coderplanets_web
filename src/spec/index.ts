@@ -144,6 +144,8 @@ export type {
   TWallpaperType,
 } from './wallpaper'
 
+export type { TColorName } from './color'
+
 export type TRoute = {
   communityPath?: string
   threadPath?: string
