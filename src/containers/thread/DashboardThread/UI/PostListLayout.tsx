@@ -10,6 +10,7 @@ import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
 import SectionLabel from '../SectionLabel'
+import SavingBar from '../SavingBar'
 
 import {
   Wrapper,
@@ -131,6 +132,7 @@ const PostListLayout: FC<TProps> = ({ layout }) => {
           </LayoutTitle>
         </Layout>
       </SelectWrapper>
+      <SavingBar top={20} />
     </Wrapper>
   )
 }
