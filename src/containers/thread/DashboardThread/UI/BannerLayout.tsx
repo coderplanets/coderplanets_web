@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
 import type { TBannerLayout } from '@/spec'
 
@@ -25,14 +25,13 @@ import {
   ListsWrapper,
   TagssWrapper,
 } from '../styles/ui/banner_layout'
+import { edit } from '../logic'
 
 type TProps = {
-  _layout?: TBannerLayout
+  layout: TBannerLayout
 }
 
-const BannerLayout: FC<TProps> = ({ _layout = BANNER_LAYOUT.HEADER }) => {
-  const [layout, setLayout] = useState<TBannerLayout>(BANNER_LAYOUT.HEADER)
-
+const BannerLayout: FC<TProps> = ({ layout }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -56,7 +55,7 @@ const BannerLayout: FC<TProps> = ({ _layout = BANNER_LAYOUT.HEADER }) => {
         }
       />
       <SelectWrapper>
-        <Layout onClick={() => setLayout(BANNER_LAYOUT.HEADER)}>
+        <Layout onClick={() => edit(BANNER_LAYOUT.HEADER, 'bannerLayout')}>
           <Block $active={layout === BANNER_LAYOUT.HEADER}>
             <Row>
               <Bar thin long={16} />
@@ -111,7 +110,7 @@ const BannerLayout: FC<TProps> = ({ _layout = BANNER_LAYOUT.HEADER }) => {
           </LayoutTitle>
         </Layout>
         <Space right={40} />
-        <Layout onClick={() => setLayout(BANNER_LAYOUT.TABBER)}>
+        <Layout onClick={() => edit(BANNER_LAYOUT.TABBER, 'bannerLayout')}>
           <Block $active={layout === BANNER_LAYOUT.TABBER}>
             <Row>
               <Bar long={16} />

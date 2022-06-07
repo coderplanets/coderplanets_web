@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
 import type { TChangelogLayout } from '@/spec'
 
@@ -29,13 +29,13 @@ import {
   Picture,
 } from '../styles/ui/changelog_layout'
 
+import { edit } from '../logic'
+
 type TProps = {
-  _layout?: TChangelogLayout
+  layout: TChangelogLayout
 }
 
-const ChangelogLayout: FC<TProps> = ({ _layout = CHANGELOG_LAYOUT.FOLD }) => {
-  const [layout, setLayout] = useState<TChangelogLayout>(CHANGELOG_LAYOUT.FOLD)
-
+const ChangelogLayout: FC<TProps> = ({ layout }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -59,7 +59,7 @@ const ChangelogLayout: FC<TProps> = ({ _layout = CHANGELOG_LAYOUT.FOLD }) => {
         }
       />
       <SelectWrapper>
-        <Layout onClick={() => setLayout(CHANGELOG_LAYOUT.FOLD)}>
+        <Layout onClick={() => edit(CHANGELOG_LAYOUT.FOLD, 'changelogLayout')}>
           <Block $active={layout === CHANGELOG_LAYOUT.FOLD}>
             <Column>
               <Picture />
@@ -170,7 +170,9 @@ const ChangelogLayout: FC<TProps> = ({ _layout = CHANGELOG_LAYOUT.FOLD }) => {
           </LayoutTitle>
         </Layout>
         <Space right={40} />
-        <Layout onClick={() => setLayout(CHANGELOG_LAYOUT.NORMAL)}>
+        <Layout
+          onClick={() => edit(CHANGELOG_LAYOUT.NORMAL, 'changelogLayout')}
+        >
           <Block $active={layout === CHANGELOG_LAYOUT.NORMAL}>
             <Column>
               <Picture small />

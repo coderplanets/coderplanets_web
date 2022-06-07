@@ -1,12 +1,19 @@
 import { FC, memo } from 'react'
 
+import type { TColorName } from '@/spec'
 import Button from '@/widgets/Buttons/Button'
 import { Inline } from '@/widgets/Common'
+import ColorSelector from '@/widgets/ColorSelector'
 
 import SectionLabel from '../SectionLabel'
 import { Wrapper, Label, TheColor } from '../styles/ui/primary_color'
+import { edit } from '../logic'
 
-const PrimaryColor: FC = () => {
+type TProps = {
+  primaryColor: TColorName
+}
+
+const PrimaryColor: FC<TProps> = ({ primaryColor }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -22,8 +29,14 @@ const PrimaryColor: FC = () => {
           </>
         }
       />
-      <Label>
-        <TheColor />
+      <Label color={primaryColor}>
+        <ColorSelector
+          activeColor={primaryColor}
+          onChange={(color) => edit(color, 'primaryColor')}
+          placement="right"
+        >
+          <TheColor color={primaryColor} />
+        </ColorSelector>
       </Label>
     </Wrapper>
   )

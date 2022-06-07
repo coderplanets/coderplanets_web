@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
 import type { TPostLayout } from '@/spec'
 
@@ -24,14 +24,13 @@ import {
   UpvoteIcon,
   CommentIcon,
 } from '../styles/ui/post_list_layout'
+import { edit } from '../logic'
 
 type TProps = {
-  _layout?: TPostLayout
+  layout: TPostLayout
 }
 
-const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
-  const [layout, setLayout] = useState<TPostLayout>(POST_LAYOUT.UPVOTE_FIRST)
-
+const PostListLayout: FC<TProps> = ({ layout }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -55,7 +54,7 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
         }
       />
       <SelectWrapper>
-        <Layout onClick={() => setLayout(POST_LAYOUT.UPVOTE_FIRST)}>
+        <Layout onClick={() => edit(POST_LAYOUT.UPVOTE_FIRST, 'postLayout')}>
           <Block $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
             <Bar thin long={30} />
             <Br bottom={7} />
@@ -88,7 +87,7 @@ const PostListLayout: FC<TProps> = ({ _layout = POST_LAYOUT.UPVOTE_FIRST }) => {
           </LayoutTitle>
         </Layout>
         <Space right={40} />
-        <Layout onClick={() => setLayout(POST_LAYOUT.COMMENT_FIRST)}>
+        <Layout onClick={() => edit(POST_LAYOUT.COMMENT_FIRST, 'postLayout')}>
           <Block $active={layout === POST_LAYOUT.COMMENT_FIRST}>
             <Row>
               <Column center>

@@ -15,6 +15,9 @@ type TProps = {
 }
 
 const UI: FC<TProps> = ({ settings }) => {
+  const { primaryColor, bannerLayout, postLayout, changelogLayout, wallpaper } =
+    settings
+
   return (
     <Wrapper>
       <Portal
@@ -22,11 +25,11 @@ const UI: FC<TProps> = ({ settings }) => {
         desc="社区基本外观，主题色，以及常见布局自定义。"
       />
 
-      <PrimaryColor />
-      <BannerLayout />
-      <PostListLayout />
-      <ChangelogLayout />
-      <Wallpaper wallpaper={settings.wallpaper} />
+      <PrimaryColor primaryColor={primaryColor} />
+      <BannerLayout layout={bannerLayout} />
+      <PostListLayout layout={postLayout} />
+      <ChangelogLayout layout={changelogLayout} />
+      <Wallpaper wallpaper={wallpaper} />
     </Wrapper>
   )
 }
