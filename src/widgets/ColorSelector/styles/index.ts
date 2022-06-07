@@ -8,9 +8,7 @@ import css from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>``
-
-export const Panel = styled.div`
+}))<TTestable>`
   ${css.flex('align-center')};
   padding: 5px;
 `

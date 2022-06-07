@@ -34,6 +34,7 @@ const PrimaryColor: FC<TProps> = ({ primaryColor }) => {
           activeColor={primaryColor}
           onChange={(color) => edit(color, 'primaryColor')}
           placement="right"
+          offset={[0, 15]}
         >
           <TheColor color={primaryColor} />
         </ColorSelector>

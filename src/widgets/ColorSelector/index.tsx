@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { COLORS } from '@/constant'
 
 import Tooltip from '@/widgets/Tooltip'
-import { Panel, DotWrapper, Dot, HookIcon } from './styles'
+import { Wrapper, DotWrapper, Dot, HookIcon } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ColorSelector:index')
@@ -23,22 +23,25 @@ type TProps = {
   children: ReactNode
   onChange: (color: TColorName) => void
   placement?: TTooltipPlacement
+  offset?: [number, number]
 }
 
 const ColorSelector: FC<TProps> = ({
-  activeColor,
   testid = 'color-selector',
+  activeColor,
   children,
   onChange,
   placement = 'bottom',
+  offset = [5, 5],
 }) => {
   return (
     <Tooltip
       placement={placement}
       trigger="click"
       hideOnClick={false}
+      offset={offset}
       content={
-        <Panel>
+        <Wrapper testid={testid}>
           {keys(COLORS).map((name) => (
             <DotWrapper key={name} onClick={() => onChange(name)}>
               <Dot color={COLORS[name]} $active={name === activeColor}>
@@ -46,7 +49,7 @@ const ColorSelector: FC<TProps> = ({
               </Dot>
             </DotWrapper>
           ))}
-        </Panel>
+        </Wrapper>
       }
     >
       {children}
