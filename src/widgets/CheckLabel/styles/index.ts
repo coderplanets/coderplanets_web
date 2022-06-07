@@ -19,8 +19,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-right: ${({ right }) => `${right}px` || 0};
 `
 export const CheckIcon = styled(HookSVG)<TActive>`
-  ${css.size(12)}
-  fill: ${theme('thread.articleDigest')};
+  ${css.size(13)}
+  fill: ${theme('baseColor.green')};
   margin-right: 8px;
 
   visibility: ${({ $active }) => ($active ? 'visible' : 'hidden')};
