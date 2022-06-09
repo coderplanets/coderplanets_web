@@ -5,7 +5,7 @@ import css, { theme } from '@/utils/css'
 type TWrapper = { align: 'center' | 'right' }
 export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
-  width: 100%;
+  width: auto;
   justify-content: ${({ align }) =>
     align === 'center' ? 'center' : 'flex-end'};
 `

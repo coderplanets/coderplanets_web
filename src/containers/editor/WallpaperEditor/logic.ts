@@ -32,6 +32,8 @@ export const changeWallpaper = (wallpaper: string): void => {
   store.mark({ wallpaper })
 }
 
+export const rollbackEdit = (): void => store.rollbackEdit()
+
 /**
  * toggle pattern mark only for gradient backgrounds
  */

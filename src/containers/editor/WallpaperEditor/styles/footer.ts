@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import css, { theme } from '@/utils/css'
 
 import ForbidSVG from '@/icons/ForbidImg'
-import Button from '@/widgets/Buttons/Button'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
@@ -19,9 +18,6 @@ export const Wrapper = styled.div`
 `
 export const ForbidImgIcon = styled(ForbidSVG)`
   fill: ${theme('thread.articleDigest')};
-  ${css.size(15)};
+  ${css.size(14)};
   margin-right: 10px;
-`
-export const ConfirmBtn = styled(Button)`
-  height: 28px;
 `
