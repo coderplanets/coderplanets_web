@@ -34,3 +34,16 @@ export type TUiSettings = {
   postLayout: TPostLayout
   changelogLayout: TChangelogLayout
 }
+
+export type TTouched = {
+  primaryColor: boolean
+  bannerLayout: boolean
+  postLayout: boolean
+  changelogLayout: boolean
+}
+
+export type TSettingField =
+  | 'primaryColor'
+  | 'postLayout'
+  | 'bannerLayout'
+  | 'changelogLayout'

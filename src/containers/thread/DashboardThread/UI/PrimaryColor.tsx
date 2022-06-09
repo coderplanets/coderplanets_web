@@ -6,14 +6,18 @@ import { Inline } from '@/widgets/Common'
 import ColorSelector from '@/widgets/ColorSelector'
 
 import SectionLabel from '../SectionLabel'
+import SavingBar from '../SavingBar'
+
+import { SETTING_FIELD } from '../constant'
 import { Wrapper, Label, TheColor } from '../styles/ui/primary_color'
 import { edit } from '../logic'
 
 type TProps = {
   primaryColor: TColorName
+  isTouched: boolean
 }
 
-const PrimaryColor: FC<TProps> = ({ primaryColor }) => {
+const PrimaryColor: FC<TProps> = ({ primaryColor, isTouched }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -39,6 +43,7 @@ const PrimaryColor: FC<TProps> = ({ primaryColor }) => {
           <TheColor color={primaryColor} />
         </ColorSelector>
       </Label>
+      {isTouched && <SavingBar top={20} field={SETTING_FIELD.PRIMARY_COLOR} />}
     </Wrapper>
   )
 }

@@ -38,14 +38,13 @@ const DashboardThreadContainer: FC<TProps> = ({
   testid = 'dashboard-thread',
 }) => {
   useInit(store)
-  const { curTab, uiSettings } = store
-  console.log('uiSettings: ', uiSettings)
+  const { curTab, uiSettings, touched } = store
 
   return (
     <Wrapper testid={testid}>
       <MainWrapper>
         {curTab === TAB.BASIC_INFO && <BasicInfo />}
-        {curTab === TAB.UI && <UI settings={uiSettings} />}
+        {curTab === TAB.UI && <UI settings={uiSettings} touched={touched} />}
         {curTab === TAB.ADMINS && <Admin />}
         {curTab === TAB.THREADS && <Threads />}
 

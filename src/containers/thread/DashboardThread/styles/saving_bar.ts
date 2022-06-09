@@ -32,7 +32,11 @@ export const InfoIcon = styled(InfoSVG)`
 `
 export const HintText = styled.div`
   font-size: 13px;
+  color: ${theme('thread.articleDigest')};
+`
+export const Hint = styled.span`
   color: ${theme('thread.articleTitle')};
+  margin-left: 2px;
 `
 export const ActionWrapper = styled.div`
   ${css.flex('align-center')};

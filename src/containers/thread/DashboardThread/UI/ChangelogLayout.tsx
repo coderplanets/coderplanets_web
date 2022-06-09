@@ -9,7 +9,9 @@ import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow, Divider, Inline } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
+import { SETTING_FIELD } from '../constant'
 import SectionLabel from '../SectionLabel'
+import SavingBar from '../SavingBar'
 
 import {
   Wrapper,
@@ -33,9 +35,10 @@ import { edit } from '../logic'
 
 type TProps = {
   layout: TChangelogLayout
+  isTouched: boolean
 }
 
-const ChangelogLayout: FC<TProps> = ({ layout }) => {
+const ChangelogLayout: FC<TProps> = ({ layout, isTouched }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -162,7 +165,7 @@ const ChangelogLayout: FC<TProps> = ({ layout }) => {
           </Block>
           <LayoutTitle $active={layout === CHANGELOG_LAYOUT.FOLD}>
             <CheckLabel
-              title="布局 A"
+              title="折叠历史发布"
               $active={layout === CHANGELOG_LAYOUT.FOLD}
               top={15}
               left={-15}
@@ -232,7 +235,7 @@ const ChangelogLayout: FC<TProps> = ({ layout }) => {
           </Block>
           <LayoutTitle $active={layout === CHANGELOG_LAYOUT.NORMAL}>
             <CheckLabel
-              title="布局 B"
+              title="全展开"
               $active={layout === CHANGELOG_LAYOUT.NORMAL}
               top={15}
               left={-15}
@@ -240,6 +243,10 @@ const ChangelogLayout: FC<TProps> = ({ layout }) => {
           </LayoutTitle>
         </Layout>
       </SelectWrapper>
+
+      {isTouched && (
+        <SavingBar top={20} field={SETTING_FIELD.CHANGELOG_LAYOUT} />
+      )}
     </Wrapper>
   )
 }
