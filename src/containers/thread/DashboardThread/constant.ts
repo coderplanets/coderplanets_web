@@ -1,4 +1,6 @@
-import type { TTab } from './spec'
+import type { SnakeUpperCase } from '@/spec'
+
+import type { TTab, TSettingField } from './spec'
 
 export const TAB = {
   OVERVIEW: 'overview',
@@ -22,4 +24,9 @@ export const TAB = {
   WIDGETS: 'widgets',
 } as Record<Uppercase<TTab>, TTab>
 
-export const holder = 1
+export const SETTING_FIELD = {
+  PRIMARY_COLOR: 'primaryColor',
+  POST_LAYOUT: 'postLayout',
+  BANNER_LAYOUT: 'bannerLayout',
+  CHANGELOG_LAYOUT: 'changelogLayout',
+} as Record<SnakeUpperCase<TSettingField>, TSettingField>

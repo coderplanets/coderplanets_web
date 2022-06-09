@@ -13,6 +13,7 @@ type TProps = {
   disabled?: boolean
   onCancel?: () => void
   onConfirm?: () => void
+  space?: number
 }
 
 const YesOrNoButton: FC<TProps> = ({
@@ -23,6 +24,7 @@ const YesOrNoButton: FC<TProps> = ({
   onConfirm = console.log,
   disabled = false,
   loading = false,
+  space = 1,
 }) => {
   return (
     <Wrapper align={align}>
@@ -38,7 +40,9 @@ const YesOrNoButton: FC<TProps> = ({
         disabled={disabled}
         onClick={() => onConfirm?.()}
       >
+        <Space left={space} />
         {confirmText}
+        <Space right={space - 1} />
       </Button>
     </Wrapper>
   )

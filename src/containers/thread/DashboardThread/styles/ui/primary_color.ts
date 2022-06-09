@@ -11,7 +11,7 @@ export const Wrapper = styled(BaseSection)``
 export const Label = styled.div<{ color: TColorName }>`
   ${css.flex('align-both')};
   width: 100px;
-  height: 32px;
+  height: 30px;
   border: 1px solid;
   border-radius: 8px;
   border-color: ${({ color }) => COLORS[color]};

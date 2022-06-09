@@ -9,7 +9,9 @@ import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
+import { SETTING_FIELD } from '../constant'
 import SectionLabel from '../SectionLabel'
+import SavingBar from '../SavingBar'
 
 import {
   Wrapper,
@@ -28,9 +30,10 @@ import { edit } from '../logic'
 
 type TProps = {
   layout: TPostLayout
+  isTouched: boolean
 }
 
-const PostListLayout: FC<TProps> = ({ layout }) => {
+const PostListLayout: FC<TProps> = ({ layout, isTouched }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -79,7 +82,7 @@ const PostListLayout: FC<TProps> = ({ layout }) => {
           </Block>
           <LayoutTitle $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
             <CheckLabel
-              title="布局 A"
+              title="紧凑式"
               $active={layout === POST_LAYOUT.UPVOTE_FIRST}
               top={15}
               left={-15}
@@ -123,7 +126,7 @@ const PostListLayout: FC<TProps> = ({ layout }) => {
           </Block>
           <LayoutTitle $active={layout === POST_LAYOUT.COMMENT_FIRST}>
             <CheckLabel
-              title="布局 B"
+              title="三列式"
               $active={layout === POST_LAYOUT.COMMENT_FIRST}
               top={15}
               left={-15}
@@ -131,6 +134,7 @@ const PostListLayout: FC<TProps> = ({ layout }) => {
           </LayoutTitle>
         </Layout>
       </SelectWrapper>
+      {isTouched && <SavingBar top={20} field={SETTING_FIELD.POST_LAYOUT} />}
     </Wrapper>
   )
 }

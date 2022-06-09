@@ -9,7 +9,9 @@ import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
 import CheckLabel from '@/widgets/CheckLabel'
 
+import { SETTING_FIELD } from '../constant'
 import SectionLabel from '../SectionLabel'
+import SavingBar from '../SavingBar'
 
 import {
   Wrapper,
@@ -29,9 +31,10 @@ import { edit } from '../logic'
 
 type TProps = {
   layout: TBannerLayout
+  isTouched: boolean
 }
 
-const BannerLayout: FC<TProps> = ({ layout }) => {
+const BannerLayout: FC<TProps> = ({ layout, isTouched }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -102,7 +105,7 @@ const BannerLayout: FC<TProps> = ({ layout }) => {
           </Block>
           <LayoutTitle $active={layout === BANNER_LAYOUT.HEADER}>
             <CheckLabel
-              title="布局 A"
+              title="标题式"
               $active={layout === BANNER_LAYOUT.HEADER}
               top={15}
               left={-15}
@@ -163,7 +166,7 @@ const BannerLayout: FC<TProps> = ({ layout }) => {
           </Block>
           <LayoutTitle $active={layout === BANNER_LAYOUT.TABBER}>
             <CheckLabel
-              title="布局 B"
+              title="标签卡式"
               $active={layout === BANNER_LAYOUT.TABBER}
               top={15}
               left={-15}
@@ -171,6 +174,7 @@ const BannerLayout: FC<TProps> = ({ layout }) => {
           </LayoutTitle>
         </Layout>
       </SelectWrapper>
+      {isTouched && <SavingBar top={20} field={SETTING_FIELD.BANNER_LAYOUT} />}
     </Wrapper>
   )
 }

@@ -5,7 +5,7 @@ import type { TEditValue } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { updateEditing } from '@/utils/mobx'
 
-import type { TTab } from './spec'
+import type { TTab, TSettingField } from './spec'
 // import S from './schma'
 import type { TStore } from './store'
 
@@ -16,6 +16,13 @@ const log = buildLog('L:DashboardThread')
 
 export const tabOnChange = (curTab: TTab): void => {
   store.mark({ curTab })
+}
+
+/**
+ * rollback editing value to init value
+ */
+export const rollbackEdit = (field: TSettingField): void => {
+  store.rollbackEdit(field)
 }
 
 export const edit = (e: TEditValue, key: string): void => {
