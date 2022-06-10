@@ -8,7 +8,6 @@ import css, { theme } from '@/utils/css'
 // background: #3b5456;
 export const Wrapper = styled.div`
   ${css.flex('justify-center')};
-  background-color: ${theme('spaceBg')};
 `
 
 type TInner = { metric: TMetric; sidebarPin: boolean }

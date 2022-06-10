@@ -4,7 +4,7 @@
  * otherwhise the render will not be triggled
  */
 
-import { FC, ReactNode } from 'react'
+import { FC, Fragment, ReactNode } from 'react'
 // import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 
@@ -55,7 +55,7 @@ const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
         }}
         showOnShallow
       />
-      <div>{children}</div>
+      <Fragment>{children}</Fragment>
       {/* @ts-ignore */}
       <CodeSyxHighlight />
       <ThirdPartyOverWrite />
