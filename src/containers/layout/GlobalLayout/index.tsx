@@ -63,6 +63,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
       {/* @ts-ignore */}
       <Addon />
       <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers}>
+        {/* @ts-ignore */}
         <CustomScroller
           instanceKey={BODY_SCROLLER}
           direction="vertical"
