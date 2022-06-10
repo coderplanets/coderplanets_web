@@ -60,6 +60,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
 
   return (
     <ThemePalette>
+      {/* @ts-ignore */}
       <Addon />
       <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers}>
         <CustomScroller
