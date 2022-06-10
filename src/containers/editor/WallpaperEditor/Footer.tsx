@@ -29,7 +29,7 @@ const Footer: FC<TProps> = ({ wallpaperType, isTouched }) => {
 
       {isTouched ? (
         <YesOrNoButtons
-          cancelText="重置"
+          cancelText="放弃变更"
           confirmText="确定"
           space={4}
           onCancel={() => rollbackEdit()}
