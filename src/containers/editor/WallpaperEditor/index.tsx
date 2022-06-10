@@ -31,7 +31,7 @@ const WallpaperEditorContainer: FC<TProps> = ({
   testid = 'wallpaper-editor',
 }) => {
   useInit(store)
-  const { tab, wallpaperData } = store
+  const { tab, wallpaperData, isTouched } = store
 
   return (
     <Wrapper testid={testid}>
@@ -58,7 +58,10 @@ const WallpaperEditorContainer: FC<TProps> = ({
           {tab === TAB.CUSTOM && <Custom />}
         </Content>
       </CustomScroller>
-      <Footer wallpaperType={wallpaperData.wallpaperType} />
+      <Footer
+        wallpaperType={wallpaperData.wallpaperType}
+        isTouched={isTouched}
+      />
     </Wrapper>
   )
 }

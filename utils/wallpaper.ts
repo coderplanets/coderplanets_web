@@ -70,6 +70,14 @@ const _parseGradientBackground = (
 }
 
 const _parsePicBackground = (pic: TWallpaperPic): TWallpaperFmt => {
+  if (!pic) {
+    // for BLANK background settings
+    return {
+      effect: '',
+      background: '',
+    }
+  }
+
   const { bgImage, bgColor = '', bgSize = 'contain', hasBlur } = pic
   const background = `url(${bgImage})`
 

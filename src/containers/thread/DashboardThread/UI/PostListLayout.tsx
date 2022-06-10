@@ -82,7 +82,7 @@ const PostListLayout: FC<TProps> = ({ layout, isTouched }) => {
           </Block>
           <LayoutTitle $active={layout === POST_LAYOUT.UPVOTE_FIRST}>
             <CheckLabel
-              title="紧凑式"
+              title="紧凑简洁"
               $active={layout === POST_LAYOUT.UPVOTE_FIRST}
               top={15}
               left={-15}
@@ -126,7 +126,7 @@ const PostListLayout: FC<TProps> = ({ layout, isTouched }) => {
           </Block>
           <LayoutTitle $active={layout === POST_LAYOUT.COMMENT_FIRST}>
             <CheckLabel
-              title="三列式"
+              title="三段式"
               $active={layout === POST_LAYOUT.COMMENT_FIRST}
               top={15}
               left={-15}

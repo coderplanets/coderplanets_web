@@ -74,14 +74,14 @@ const PostListExample: FC = () => {
         bottom={40}
       />
 
-      <Title>布局 A</Title>
+      <Title>紧凑简洁</Title>
       <Desc>默认布局，侧重展示标题与参与 Upvotes 的用户</Desc>
       <PostItem article={demoPost} c11n={{}} curCommunity={{ raw: 'demo' }} />
       <PostItem article={article1} c11n={{}} curCommunity={{ raw: 'demo' }} />
       <PostItem article={article2} c11n={{}} curCommunity={{ raw: 'demo' }} />
 
       <DividerLine />
-      <Title>布局 B</Title>
+      <Title>三段式</Title>
       <Desc>侧重展示发帖者与参与讨论的用户</Desc>
 
       <PostItem

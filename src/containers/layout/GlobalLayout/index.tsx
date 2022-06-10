@@ -60,39 +60,43 @@ const GlobalLayoutContainer: FC<TProps> = ({
 
   return (
     <ThemePalette>
-      <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers} />
-      <Wrapper>
-        <SEO metric={metric} config={seoConfig} />
-        <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
-          {/* @ts-ignore */}
-          <Addon />
-          <ContentWrapper offsetLeft={sidebarPin}>
-            {/* @ts-ignore */}
-            <CustomScroller
-              instanceKey={BODY_SCROLLER}
-              direction="vertical"
-              height="100vh"
-              barSize={SIZE.MEDIUM}
-              showShadow={false}
-              onScrollDirectionChange={onPageScrollDirhange}
-              autoHide
-            >
-              <Header
-                metric={metric}
-                accountInfo={accountInfo}
-                community={curCommunity}
-              />
-              <BodyWrapper isMobile={isMobile}>
-                {childrenWithProps(children, { metric })}
-              </BodyWrapper>
-              {/* @ts-ignore */}
-              {!noFooter && <Footer metric={metric} />}
-            </CustomScroller>
-          </ContentWrapper>
-        </InnerWrapper>
+      {/* @ts-ignore */}
+      <Addon />
+      <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers}>
         {/* @ts-ignore */}
-        {isMobile && <ModeLine metric={metric} />}
-      </Wrapper>
+        <CustomScroller
+          instanceKey={BODY_SCROLLER}
+          direction="vertical"
+          height="100vh"
+          barSize={SIZE.MEDIUM}
+          showShadow={false}
+          onScrollDirectionChange={onPageScrollDirhange}
+          autoHide
+        >
+          <Wrapper>
+            <SEO metric={metric} config={seoConfig} />
+            <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
+              {/* @ts-ignore */}
+              <ContentWrapper offsetLeft={sidebarPin}>
+                {/* @ts-ignore */}
+
+                <Header
+                  metric={metric}
+                  accountInfo={accountInfo}
+                  community={curCommunity}
+                />
+                <BodyWrapper isMobile={isMobile}>
+                  {childrenWithProps(children, { metric })}
+                </BodyWrapper>
+                {/* @ts-ignore */}
+                {!noFooter && <Footer metric={metric} />}
+              </ContentWrapper>
+            </InnerWrapper>
+            {/* @ts-ignore */}
+            {isMobile && <ModeLine metric={metric} />}
+          </Wrapper>
+        </CustomScroller>
+      </Wallpaper>
     </ThemePalette>
   )
 }

@@ -18,7 +18,7 @@ export const HoverMask = styled.div`
 `
 export const UploadIcon = styled(SettingSVG)`
   position: absolute;
-  top: calc(50% - 22px);
+  top: calc(50% - 30px);
   left: calc(50% - 13px);
   ${css.size(25)};
   fill: white;

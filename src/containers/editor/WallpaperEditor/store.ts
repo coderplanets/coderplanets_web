@@ -24,14 +24,20 @@ import { TAB } from './constant'
 /* eslint-disable-next-line */
 const log = buildLog('S:WallpaperEditor')
 
-const WallpaperEditor = T.model('WallpaperEditor', {
-  tab: T.optional(T.enumeration(values(TAB)), TAB.BUILDIN),
+const initWallpaperModalFields = {
   wallpaper: T.optional(T.string, 'green'),
-
   // for gradient colors
   hasPattern: T.optional(T.boolean, true),
   hasBlur: T.optional(T.boolean, false),
   direction: T.optional(T.string, 'bottom'),
+}
+
+const InitWallpaper = T.model('WallpaperInit', initWallpaperModalFields)
+
+const WallpaperEditor = T.model('WallpaperEditor', {
+  tab: T.optional(T.enumeration(values(TAB)), TAB.BUILDIN),
+  ...initWallpaperModalFields,
+  initWallpaper: T.optional(InitWallpaper, {}),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
@@ -39,7 +45,17 @@ const WallpaperEditor = T.model('WallpaperEditor', {
 
       return toJS(root.viewing.community)
     },
+    get isTouched(): boolean {
+      const slf = self as TStore
+      const init = slf.initWallpaper
 
+      return (
+        self.wallpaper !== init.wallpaper ||
+        self.hasPattern !== init.hasPattern ||
+        self.hasBlur !== init.hasBlur ||
+        self.direction !== init.direction
+      )
+    },
     get patternWallpapers(): Record<string, TWallpaper> {
       const slf = self as TStore
       const wallpapers = clone(PATTERN_WALLPAPER)
@@ -101,6 +117,16 @@ const WallpaperEditor = T.model('WallpaperEditor', {
     },
   }))
   .actions((self) => ({
+    rollbackEdit(): void {
+      const slf = self as TStore
+      const init = slf.initWallpaper
+
+      self.wallpaper = init.wallpaper
+      self.hasPattern = init.hasPattern
+      self.hasBlur = init.hasBlur
+      self.direction = init.direction
+    },
+
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

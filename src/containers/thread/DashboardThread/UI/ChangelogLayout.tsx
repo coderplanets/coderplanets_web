@@ -235,7 +235,7 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched }) => {
           </Block>
           <LayoutTitle $active={layout === CHANGELOG_LAYOUT.NORMAL}>
             <CheckLabel
-              title="全展开"
+              title="全部展开"
               $active={layout === CHANGELOG_LAYOUT.NORMAL}
               top={15}
               left={-15}
