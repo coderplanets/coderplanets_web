@@ -95,11 +95,12 @@ export const Wrapper = styled.button<TButton>`
     opacity: 1;
   }
 `
-export const ChildrenWrapper = styled.div<{ size: TSIZE }>`
+type TChildrenWrapper = { size: TSIZE; ghost: boolean; noBorder: boolean }
+export const ChildrenWrapper = styled.div<TChildrenWrapper>`
   ${css.flex('align-both')};
   width: 100%;
   font-size: ${({ size }) => getFontSize(size)};
-  font-weight: 600;
+  font-weight: ${({ ghost, noBorder }) => (ghost && noBorder ? 400 : 600)};
   position: relative;
   z-index: 2;
 `

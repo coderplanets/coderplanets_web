@@ -57,16 +57,16 @@ const Button: FC<TProps> = ({
       return (
         <Wrapper
           ghost={ghost}
-          onClick={() => {
-            if (!disabled) onClick()
-          }}
+          onClick={() => !disabled && onClick()}
           size={size}
           className={className}
           space={space}
           noBorder={noBorder}
           disabled={disabled}
         >
-          <ChildrenWrapper size={size}>{children}</ChildrenWrapper>
+          <ChildrenWrapper size={size} ghost={ghost} noBorder={noBorder}>
+            {children}
+          </ChildrenWrapper>
         </Wrapper>
       )
     }
