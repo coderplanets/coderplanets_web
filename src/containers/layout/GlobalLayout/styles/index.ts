@@ -5,6 +5,15 @@ import type { TMetric } from '@/spec'
 // import { ASSETS_ENDPOINT } from '@/config'
 import css, { theme } from '@/utils/css'
 
+/**
+ * see layout details:
+ " @link https://css-tricks.com/the-fixed-background-attachment-hack/
+ */
+export const Skeleton = styled.div`
+  height: 100vh;
+  width: 100vw;
+`
+
 // background: #3b5456;
 export const Wrapper = styled.div`
   ${css.flex('justify-center')};
@@ -26,6 +35,7 @@ export const InnerWrapper = styled.div<TInner>`
   background: ${theme('bodyBg')};
   transition: all 0.2s;
   overflow-x: ${({ sidebarPin }) => (sidebarPin ? 'hidden' : '')};
+  z-index: 1;
   ${css.media.tablet`
     position: relative;
     padding-left: 0;
