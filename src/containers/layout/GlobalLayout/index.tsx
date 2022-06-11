@@ -69,6 +69,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
       {/* @ts-ignore */}
       <Addon />
       <Skeleton>
+        <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers} />
         {/* @ts-ignore */}
         <CustomScroller
           instanceKey={BODY_SCROLLER}
@@ -81,7 +82,6 @@ const GlobalLayoutContainer: FC<TProps> = ({
         >
           <Wrapper>
             <SEO metric={metric} config={seoConfig} />
-            <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers} />
             <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
               {/* @ts-ignore */}
               <ContentWrapper offsetLeft={sidebarPin}>
