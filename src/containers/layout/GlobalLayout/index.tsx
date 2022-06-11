@@ -28,7 +28,13 @@ import Wallpaper from './Wallpaper'
 
 import { CustomScroller, Footer, ModeLine } from './dynamic'
 
-import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
+import {
+  Skeleton,
+  Wrapper,
+  InnerWrapper,
+  BodyWrapper,
+  ContentWrapper,
+} from './styles'
 import { useInit, onPageScrollDirhange, childrenWithProps } from './logic'
 
 const Addon = dynamic(() => import('./Addon'), {
@@ -62,7 +68,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
     <ThemePalette>
       {/* @ts-ignore */}
       <Addon />
-      <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers}>
+      <Skeleton>
         {/* @ts-ignore */}
         <CustomScroller
           instanceKey={BODY_SCROLLER}
@@ -75,6 +81,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
         >
           <Wrapper>
             <SEO metric={metric} config={seoConfig} />
+            <Wallpaper wallpaper={wallpaper} wallpapers={wallpapers} />
             <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
               {/* @ts-ignore */}
               <ContentWrapper offsetLeft={sidebarPin}>
@@ -96,7 +103,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
             {isMobile && <ModeLine metric={metric} />}
           </Wrapper>
         </CustomScroller>
-      </Wallpaper>
+      </Skeleton>
     </ThemePalette>
   )
 }
