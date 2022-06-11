@@ -1,5 +1,15 @@
 import { keyframes } from 'styled-components'
 
+const animatedBg = keyframes`
+  from {
+    background-position: 0 0;
+  }
+/*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: -10000px 0;
+  }
+`
+
 const shake = keyframes`
   from,
   to {
@@ -110,6 +120,7 @@ const animate = {
   breath,
   blink,
   jump,
+  animatedBg,
 }
 
 export default animate
