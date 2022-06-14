@@ -5,7 +5,7 @@ import { WIDTH } from '@/utils/css'
 import { callWallpaperEditor } from '@/utils/helper'
 import { parseWallpaperRaw } from '@/utils/wallpaper'
 
-import Button from '@/widgets/Buttons/Button'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import CheckLabel from '@/widgets/CheckLabel'
 import { Space, Inline } from '@/widgets/Common'
 
@@ -42,9 +42,13 @@ const Wallpaper: FC<TProps> = ({ wallpaper }) => {
               「壁纸」为宽屏（屏幕尺寸大于 ${WIDTH.COMMUNITY.PAGE}
               ）下，超出内容部分显示的背景图片，除内置壁纸外，你还可以上传和社区话题相关的自定义图片。
               <Inline>
-                <Button onClick={handleCallEditor} size="small" ghost noBorder>
-                  更换壁纸。
-                </Button>
+                <ArrowButton
+                  onClick={handleCallEditor}
+                  size="tiny"
+                  arrowStyle="simple"
+                >
+                  更换壁纸
+                </ArrowButton>
               </Inline>
             </>
           }

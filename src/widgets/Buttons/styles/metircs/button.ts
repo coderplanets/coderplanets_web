@@ -3,15 +3,7 @@ import { theme } from '@/utils/css'
 
 import type { TTheme } from '@/spec'
 
-export const getColor = (
-  ghost: boolean,
-  disabled: boolean,
-  noBorder: boolean,
-): TTheme => {
-  if (ghost && noBorder) {
-    return theme('link')
-  }
-
+export const getColor = (ghost: boolean, disabled: boolean): TTheme => {
   if (ghost) {
     return theme('button.primary')
   }
