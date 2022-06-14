@@ -85,7 +85,7 @@ export const Wrapper = styled.button<TButton>`
   }
 
   &:active {
-    color: ${({ ghost, disabled, noBorder }) => getColor(ghost, disabled)};
+    color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
     background-color: ${({ ghost, disabled }) =>
       getBackgroundColor(ghost, disabled, true)};
     opacity: 1;
