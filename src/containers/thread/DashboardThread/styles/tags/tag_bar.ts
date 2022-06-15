@@ -23,7 +23,7 @@ export const Wrapper = styled.div<{ editing: boolean }>`
       !editing ? theme('hoverBg') : 'transparent'};
   }
 
-  transition: all 0.2s;
+  transition: background 0.2s;
 `
 type TDot = { color: string; editing?: boolean }
 export const Dot = styled.div<TDot>`
