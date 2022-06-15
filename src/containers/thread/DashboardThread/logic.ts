@@ -25,11 +25,12 @@ export const rollbackEdit = (field: TSettingField): void => {
   store.rollbackEdit(field)
 }
 
-export const onSave = (field: TSettingField): void => {
-  store.onSave(field)
-}
+/**
+ * confirm callback for SavingBar
+ */
+export const onSave = (field: TSettingField): void => store.onSave(field)
 
-export const markEditingTag = (tag: TTag): void => {
+export const updateEditingTag = (tag: TTag): void => {
   store.mark({ editingTag: tag })
 }
 

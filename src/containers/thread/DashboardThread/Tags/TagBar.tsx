@@ -20,7 +20,7 @@ import {
   EditIcon,
   CloseIcon,
 } from '../styles/tags/tag_bar'
-import { markEditingTag } from '../logic'
+import { updateEditingTag } from '../logic'
 
 type TProps = {
   tag: TTag
@@ -36,7 +36,7 @@ const TagBar: FC<TProps> = ({ tag, editingTag }) => {
         {editing ? (
           <ColorSelector
             activeColor={editingTag.color}
-            onChange={(color) => markEditingTag({ ...editingTag, color })}
+            onChange={(color) => updateEditingTag({ ...editingTag, color })}
             placement="bottom-start"
             offset={[-8, 0]}
           >
@@ -52,8 +52,9 @@ const TagBar: FC<TProps> = ({ tag, editingTag }) => {
             <Inputer
               value={editingTag.title}
               onChange={(e) =>
-                markEditingTag({ ...editingTag, title: e.target.value })
+                updateEditingTag({ ...editingTag, title: e.target.value })
               }
+              autoFocus
             />
           </InputWrapper>
         ) : (
@@ -62,7 +63,7 @@ const TagBar: FC<TProps> = ({ tag, editingTag }) => {
         <SpaceGrow />
         {!editing && (
           <Actions>
-            <EditIcon onClick={() => markEditingTag(tag)} />
+            <EditIcon onClick={() => updateEditingTag(tag)} />
             <Space right={4} />
             <CloseIcon />
           </Actions>
