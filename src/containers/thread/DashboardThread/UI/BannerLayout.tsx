@@ -173,7 +173,11 @@ const BannerLayout: FC<TProps> = ({ layout, isTouched }) => {
           </LayoutTitle>
         </Layout>
       </SelectWrapper>
-      {isTouched && <SavingBar top={20} field={SETTING_FIELD.BANNER_LAYOUT} />}
+      <SavingBar
+        isTouched={isTouched}
+        field={SETTING_FIELD.BANNER_LAYOUT}
+        top={20}
+      />
     </Wrapper>
   )
 }

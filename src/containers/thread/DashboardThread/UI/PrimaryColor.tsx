@@ -34,17 +34,18 @@ const PrimaryColor: FC<TProps> = ({ primaryColor, isTouched }) => {
           </>
         }
       />
-      <Label color={primaryColor}>
-        <ColorSelector
-          activeColor={primaryColor}
-          onChange={(color) => edit(color, 'primaryColor')}
-          placement="right"
-          offset={[-1, 15]}
-        >
-          <TheColor color={primaryColor} />
-        </ColorSelector>
-      </Label>
-      {isTouched && <SavingBar top={20} field={SETTING_FIELD.PRIMARY_COLOR} />}
+      <SavingBar isTouched={isTouched} field={SETTING_FIELD.PRIMARY_COLOR}>
+        <Label color={primaryColor}>
+          <ColorSelector
+            activeColor={primaryColor}
+            onChange={(color) => edit(color, 'primaryColor')}
+            placement="right"
+            offset={[-1, 15]}
+          >
+            <TheColor color={primaryColor} />
+          </ColorSelector>
+        </Label>
+      </SavingBar>
     </Wrapper>
   )
 }

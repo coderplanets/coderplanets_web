@@ -243,9 +243,11 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched }) => {
         </Layout>
       </SelectWrapper>
 
-      {isTouched && (
-        <SavingBar top={20} field={SETTING_FIELD.CHANGELOG_LAYOUT} />
-      )}
+      <SavingBar
+        isTouched={isTouched}
+        field={SETTING_FIELD.CHANGELOG_LAYOUT}
+        top={20}
+      />
     </Wrapper>
   )
 }

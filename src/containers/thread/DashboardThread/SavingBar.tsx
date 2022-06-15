@@ -1,4 +1,4 @@
-import { FC, memo, ReactNode } from 'react'
+import { FC, memo, Fragment, ReactNode } from 'react'
 
 import type { TSpace } from '@/spec'
 import { SpaceGrow } from '@/widgets/Common'
@@ -20,16 +20,42 @@ type TProps = {
   field: TSettingField
   prefix?: string
   hint?: ReactNode
+  children?: ReactNode
+  isTouched?: boolean
 } & TSpace
 
 const SavingBar: FC<TProps> = ({
   field,
   prefix = '是否保存',
   hint = null,
+  children = null,
+  isTouched = false,
   ...restProps
 }) => {
+  if (children !== null) {
+    if (isTouched) {
+      return (
+        <Wrapper gradientDirection="left" {...restProps}>
+          <Fragment>{children}</Fragment>
+          <SpaceGrow />
+          <ActionWrapper>
+            <YesOrNoButtons
+              cancelText="取消"
+              confirmText="确定"
+              space={4}
+              onCancel={() => rollbackEdit(field)}
+            />
+          </ActionWrapper>
+        </Wrapper>
+      )
+    }
+    return <Fragment>{children}</Fragment>
+  }
+
+  if (!isTouched) return null
+
   return (
-    <Wrapper {...restProps}>
+    <Wrapper gradientDirection="right" {...restProps}>
       <HintWrapper>
         <InfoIcon />
         <HintText>
