@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import css from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
 import {
   getIconSize,
@@ -38,10 +38,10 @@ export const Wrapper = styled.div<TWrapper>`
 `
 export const Text = styled.div<{ size: string }>`
   font-size: ${({ size }) => getFontSize(size)};
-  color: #327ca1;
+  color: ${theme('link')};
 `
 export const Icon = styled(Img)<{ size: string }>`
-  fill: #327ca1;
+  fill: ${theme('link')};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   display: block;
@@ -53,7 +53,7 @@ export const LeftIcon = styled(Icon)<TIcon>`
   top: ${({ size }) => getArrowTopOffset(size)};
   left: ${({ size }) => `-${getArrowInitWidth(size)}`};
 
-  opacity: 0.6;
+  opacity: 0.9;
   margin-right: ${({ size, arrowStyle }) =>
     arrowStyle === 'default' ? getMargin(size) : getSimpleMargin(size)};
 
@@ -69,7 +69,7 @@ export const RightIcon = styled(Icon)<TIcon>`
   top: ${({ size }) => getArrowTopOffset(size)};
   right: ${({ size }) => `-${getArrowInitWidth(size)}`};
 
-  opacity: 0.6;
+  opacity: 0.9;
   margin-left: ${({ size, arrowStyle }) =>
     arrowStyle === 'default' ? getMargin(size) : getSimpleMargin(size)};
 

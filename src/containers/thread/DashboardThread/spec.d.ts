@@ -4,6 +4,7 @@ import type {
   TPostLayout,
   TChangelogLayout,
   TBannerLayout,
+  TTag,
 } from '@/spec'
 
 export type TTab =
@@ -27,6 +28,11 @@ export type TTab =
   | 'admins'
   | 'widgets'
 
+export type TTagSettings = {
+  tags: TTag[]
+  editingTag: TTag
+}
+
 export type TUiSettings = {
   wallpaper: TWallpaper
   primaryColor: TColorName
@@ -47,3 +53,4 @@ export type TSettingField =
   | 'postLayout'
   | 'bannerLayout'
   | 'changelogLayout'
+  | 'tag'

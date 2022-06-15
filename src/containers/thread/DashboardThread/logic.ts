@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import type { TEditValue } from '@/spec'
+import type { TEditValue, TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { updateEditing } from '@/utils/mobx'
 
@@ -23,6 +23,15 @@ export const tabOnChange = (curTab: TTab): void => {
  */
 export const rollbackEdit = (field: TSettingField): void => {
   store.rollbackEdit(field)
+}
+
+/**
+ * confirm callback for SavingBar
+ */
+export const onSave = (field: TSettingField): void => store.onSave(field)
+
+export const updateEditingTag = (tag: TTag): void => {
+  store.mark({ editingTag: tag })
 }
 
 export const edit = (e: TEditValue, key: string): void => {

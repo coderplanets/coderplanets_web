@@ -5,15 +5,17 @@ import css, { theme } from '@/utils/css'
 
 import InfoSVG from '@/icons/Info'
 
-type TWrapper = TTestable & TSpace
+type TWrapper = { gradientDirection: 'left' | 'right' } & TTestable & TSpace
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
   ${css.flex('align-center')};
   width: 100%;
   height: 42px;
-  background: linear-gradient(to right, #f7f7f7 60%, transparent); // to-theme
-  padding: 10px 16px;
+  /* background: linear-gradient(to right, #f7f7f7 60%, transparent); // to-theme */
+  background: ${({ gradientDirection }) =>
+    `linear-gradient(to ${gradientDirection}, #f7f7f7 60%, transparent)`};
+  padding: 0 10px;
   border-radius: 10px;
 
   margin-top: ${({ top }) => `${top}px` || 0};

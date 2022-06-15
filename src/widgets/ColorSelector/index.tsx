@@ -18,10 +18,10 @@ import { Wrapper, DotWrapper, Dot, HookIcon } from './styles'
 const log = buildLog('c:ColorSelector:index')
 
 type TProps = {
-  activeColor?: TColorName
+  activeColor?: TColorName | string
   testid?: string
   children: ReactNode
-  onChange: (color: TColorName) => void
+  onChange?: (color: TColorName) => void
   placement?: TTooltipPlacement
   offset?: [number, number]
 }
@@ -30,7 +30,7 @@ const ColorSelector: FC<TProps> = ({
   testid = 'color-selector',
   activeColor,
   children,
-  onChange,
+  onChange = log,
   placement = 'bottom',
   offset = [5, 5],
 }) => {
@@ -41,13 +41,17 @@ const ColorSelector: FC<TProps> = ({
       offset={offset}
       content={
         <Wrapper testid={testid}>
-          {keys(COLORS).map((name) => (
-            <DotWrapper key={name} onClick={() => onChange(name)}>
-              <Dot color={COLORS[name]} $active={name === activeColor}>
-                {name === activeColor && <HookIcon />}
-              </Dot>
-            </DotWrapper>
-          ))}
+          {keys(COLORS).map((name) => {
+            const $active = name === activeColor || COLORS[name] === activeColor
+
+            return (
+              <DotWrapper key={name} onClick={() => onChange(name)}>
+                <Dot color={COLORS[name]} $active={$active}>
+                  {$active && <HookIcon />}
+                </Dot>
+              </DotWrapper>
+            )
+          })}
         </Wrapper>
       }
     >

@@ -1,8 +1,9 @@
 import { FC, memo } from 'react'
 
 import type { TColorName } from '@/spec'
-import Button from '@/widgets/Buttons/Button'
+
 import { Inline } from '@/widgets/Common'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import ColorSelector from '@/widgets/ColorSelector'
 
 import SectionLabel from '../SectionLabel'
@@ -25,25 +26,26 @@ const PrimaryColor: FC<TProps> = ({ primaryColor, isTouched }) => {
         desc={
           <>
             设置后会在常见组件，功能性文字等位置显示该个性化主题色。参考
-            <Inline left={-4}>
-              <Button size="small" ghost noBorder>
+            <Inline left={4}>
+              <ArrowButton size="tiny" arrowStyle="simple">
                 影响范围
-              </Button>
+              </ArrowButton>
             </Inline>
           </>
         }
       />
-      <Label color={primaryColor}>
-        <ColorSelector
-          activeColor={primaryColor}
-          onChange={(color) => edit(color, 'primaryColor')}
-          placement="right"
-          offset={[-1, 15]}
-        >
-          <TheColor color={primaryColor} />
-        </ColorSelector>
-      </Label>
-      {isTouched && <SavingBar top={20} field={SETTING_FIELD.PRIMARY_COLOR} />}
+      <SavingBar isTouched={isTouched} field={SETTING_FIELD.PRIMARY_COLOR}>
+        <Label color={primaryColor}>
+          <ColorSelector
+            activeColor={primaryColor}
+            onChange={(color) => edit(color, 'primaryColor')}
+            placement="right"
+            offset={[-1, 15]}
+          >
+            <TheColor color={primaryColor} />
+          </ColorSelector>
+        </Label>
+      </SavingBar>
     </Wrapper>
   )
 }

@@ -20,6 +20,7 @@ import BasicInfo from './BasicInfo'
 import UI from './UI'
 import Admin from './Admin'
 import Threads from './Threads'
+import Tags from './Tags'
 
 // integrates
 import Domain from './Domain'
@@ -38,7 +39,7 @@ const DashboardThreadContainer: FC<TProps> = ({
   testid = 'dashboard-thread',
 }) => {
   useInit(store)
-  const { curTab, uiSettings, touched } = store
+  const { curTab, uiSettings, tagSettings, touched } = store
 
   return (
     <Wrapper testid={testid}>
@@ -47,6 +48,7 @@ const DashboardThreadContainer: FC<TProps> = ({
         {curTab === TAB.UI && <UI settings={uiSettings} touched={touched} />}
         {curTab === TAB.ADMINS && <Admin />}
         {curTab === TAB.THREADS && <Threads />}
+        {curTab === TAB.TAGS && <Tags settings={tagSettings} />}
 
         {curTab === TAB.DOMAIN && <Domain />}
         {curTab === TAB.THIRD_PART && <ThirdPart />}

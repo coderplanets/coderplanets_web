@@ -5,8 +5,8 @@ import type { TChangelogLayout } from '@/spec'
 import { CHANGELOG_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
-import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow, Divider, Inline } from '@/widgets/Common'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import CheckLabel from '@/widgets/CheckLabel'
 
 import { SETTING_FIELD } from '../constant'
@@ -47,16 +47,15 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched }) => {
           <>
             「更新日志」列表的展现形式，切换布局不影响已发布内容。
             <Inline>
-              <Button
+              <ArrowButton
                 onClick={() =>
                   callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)
                 }
-                size="small"
-                ghost
-                noBorder
+                size="tiny"
+                arrowStyle="simple"
               >
                 查看示例
-              </Button>
+              </ArrowButton>
             </Inline>
           </>
         }
@@ -244,9 +243,11 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched }) => {
         </Layout>
       </SelectWrapper>
 
-      {isTouched && (
-        <SavingBar top={20} field={SETTING_FIELD.CHANGELOG_LAYOUT} />
-      )}
+      <SavingBar
+        isTouched={isTouched}
+        field={SETTING_FIELD.CHANGELOG_LAYOUT}
+        top={20}
+      />
     </Wrapper>
   )
 }

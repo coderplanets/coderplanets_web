@@ -5,8 +5,8 @@ import type { TPostLayout } from '@/spec'
 import { POST_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
-import Button from '@/widgets/Buttons/Button'
 import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import CheckLabel from '@/widgets/CheckLabel'
 
 import { SETTING_FIELD } from '../constant'
@@ -42,16 +42,15 @@ const PostListLayout: FC<TProps> = ({ layout, isTouched }) => {
           <>
             「讨论区」列表的展现形式，可根据讨论内容侧重或偏好选择，切换布局不影响已发布内容。
             <Inline>
-              <Button
+              <ArrowButton
                 onClick={() =>
                   callDashboardDesc(DASHBOARD_DESC_LAYOUT.POST_LIST)
                 }
-                size="small"
-                ghost
-                noBorder
+                size="tiny"
+                arrowStyle="simple"
               >
                 查看示例
-              </Button>
+              </ArrowButton>
             </Inline>
           </>
         }
@@ -134,7 +133,12 @@ const PostListLayout: FC<TProps> = ({ layout, isTouched }) => {
           </LayoutTitle>
         </Layout>
       </SelectWrapper>
-      {isTouched && <SavingBar top={20} field={SETTING_FIELD.POST_LAYOUT} />}
+
+      <SavingBar
+        isTouched={isTouched}
+        field={SETTING_FIELD.POST_LAYOUT}
+        top={20}
+      />
     </Wrapper>
   )
 }
