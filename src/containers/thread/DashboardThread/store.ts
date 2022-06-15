@@ -3,9 +3,11 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { keys, values, pick } from 'ramda'
+import { keys, values, pick, findIndex, clone } from 'ramda'
 
-import type { TCommunity, TRootStore } from '@/spec'
+import type { TCommunity, TRootStore, TTag } from '@/spec'
+import { mockTags } from '@/utils/mock'
+
 import {
   BANNER_LAYOUT,
   CHANGELOG_LAYOUT,
@@ -14,10 +16,11 @@ import {
 } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
+import { Tag } from '@/model'
 
-import type { TUiSettings, TTouched, TSettingField } from './spec'
+import type { TUiSettings, TTagSettings, TTouched, TSettingField } from './spec'
 
-import { TAB } from './constant'
+import { TAB, SETTING_FIELD } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:DashboardThread')
@@ -36,12 +39,14 @@ const settingsModalFields = {
     T.enumeration(values(CHANGELOG_LAYOUT)),
     CHANGELOG_LAYOUT.FOLD,
   ),
+  tags: T.optional(T.array(Tag), mockTags(12)),
 }
 
 const InitSettings = T.model('DashboardInit', settingsModalFields)
 
 const DashboardThread = T.model('DashboardThread', {
   curTab: T.optional(T.enumeration(values(TAB)), TAB.UI),
+  editingTag: T.maybeNull(Tag),
   ...settingsModalFields,
   initSettings: T.optional(InitSettings, {}),
 })
@@ -63,6 +68,14 @@ const DashboardThread = T.model('DashboardThread', {
           slf.changelogLayout !== slf.initSettings.changelogLayout,
       }
     },
+    get tagSettings(): TTagSettings {
+      const slf = self as TStore
+
+      return {
+        editingTag: toJS(slf.editingTag),
+        tags: toJS(slf.tags),
+      }
+    },
 
     get uiSettings(): TUiSettings {
       const slf = self as TStore
@@ -82,8 +95,38 @@ const DashboardThread = T.model('DashboardThread', {
     },
   }))
   .actions((self) => ({
+    onSave(field: TSettingField): void {
+      const slf = self as TStore
+
+      if (field === SETTING_FIELD.TAG) {
+        const { tags, editingTag } = slf
+        const targetIdx = findIndex(
+          (item: TTag) => item.id === editingTag.id,
+          toJS(tags),
+        )
+        if (targetIdx <= 0) return
+
+        slf.tags[targetIdx] = clone(toJS(editingTag))
+        slf.editingTag = null
+      }
+    },
+
     rollbackEdit(field: TSettingField): void {
       const slf = self as TStore
+
+      if (field === SETTING_FIELD.TAG) {
+        const { tags, editingTag } = slf
+        const targetIdx = findIndex(
+          (item: TTag) => item.id === editingTag.id,
+          toJS(tags),
+        )
+        if (targetIdx <= 0) return
+
+        slf.tags[targetIdx] = toJS(slf.tags[targetIdx])
+        slf.editingTag = null
+        return
+      }
+
       const initValue = slf.initSettings[field]
 
       // @ts-ignore

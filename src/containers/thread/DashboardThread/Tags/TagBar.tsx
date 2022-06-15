@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TTag } from '@/spec'
+import { COLORS } from '@/constant'
 
 import { SETTING_FIELD } from '../constant'
 import { Space, SpaceGrow } from '@/widgets/Common'
@@ -19,34 +20,41 @@ import {
   EditIcon,
   CloseIcon,
 } from '../styles/tags/tag_bar'
+import { markEditingTag } from '../logic'
 
 type TProps = {
   tag: TTag
+  editingTag: TTag
 }
 
-const TagBar: FC<TProps> = ({ tag }) => {
-  const editing = tag.id === '2'
+const TagBar: FC<TProps> = ({ tag, editingTag }) => {
+  const editing = editingTag?.id === tag.id
 
   return (
     <Wrapper key={tag.id} editing={editing}>
       <SavingBar isTouched={editing} field={SETTING_FIELD.TAG}>
         {editing ? (
           <ColorSelector
-            activeColor={tag.color}
-            // onChange={(color) => edit(color, 'primaryColor')}
+            activeColor={editingTag.color}
+            onChange={(color) => markEditingTag({ ...editingTag, color })}
             placement="bottom-start"
             offset={[-8, 0]}
           >
             <DotSelector>
-              <Dot color={tag.color} editing={editing} />
+              <Dot color={COLORS[editingTag.color]} editing={editing} />
             </DotSelector>
           </ColorSelector>
         ) : (
-          <Dot color={tag.color} />
+          <Dot color={COLORS[tag.color]} />
         )}
         {editing ? (
           <InputWrapper>
-            <Inputer value={tag.title} />
+            <Inputer
+              value={editingTag.title}
+              onChange={(e) =>
+                markEditingTag({ ...editingTag, title: e.target.value })
+              }
+            />
           </InputWrapper>
         ) : (
           <Title>{tag.title}</Title>
@@ -54,7 +62,7 @@ const TagBar: FC<TProps> = ({ tag }) => {
         <SpaceGrow />
         {!editing && (
           <Actions>
-            <EditIcon />
+            <EditIcon onClick={() => markEditingTag(tag)} />
             <Space right={4} />
             <CloseIcon />
           </Actions>

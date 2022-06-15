@@ -38,8 +38,8 @@ export const DotSelector = styled.div`
   border-color: ${theme('editor.border')};
   background: white;
   border-radius: 4px;
-  margin-left: -7px;
-  margin-right: 2px;
+  margin-left: -6px;
+  margin-right: 4px;
   cursor: pointer;
 `
 export const Title = styled.div`
@@ -57,7 +57,7 @@ export const Actions = styled.div`
 
   transition: all 0.2s;
 `
-export const EditIcon = styled(EditSVG)`
+export const EditIcon = styled(EditSVG)<{ onClick: () => void }>`
   ${css.size(12)};
   fill: ${theme('thread.articleDigest')};
 

@@ -1,7 +1,7 @@
 import type { TUser, TTag, TCommunity, TFilterTag, TNaviTag } from '@/spec'
 import { SITE_LOGO, ICON, ICON_BASE, ICON_CMD, ASSETS_ENDPOINT } from '@/config'
 
-import { COLORS } from '@/constant'
+import { COLOR_NAME } from '@/constant'
 import { getRandomInt } from './helper'
 
 const users = [
@@ -114,70 +114,70 @@ const tags = [
     id: '0',
     raw: 'help',
     title: '求助',
-    color: COLORS.RED,
+    color: COLOR_NAME.RED,
     group: '技术与人文',
   },
   {
     id: '1',
     raw: 'tech',
     title: '技术',
-    color: COLORS.ORANGE,
+    color: COLOR_NAME.ORANGE,
     group: '技术与人文',
   },
   {
     id: '2',
     raw: 'maker',
     title: '创作者',
-    color: COLORS.YELLOW,
+    color: COLOR_NAME.YELLOW,
     group: '技术与人文',
   },
   {
     id: '3',
     raw: 'geek',
     title: '极客',
-    color: COLORS.GREEN,
+    color: COLOR_NAME.GREEN,
     group: '技术与人文',
   },
   {
     id: '4',
     raw: 'IxD',
     title: '交互设计',
-    color: COLORS.CYAN,
+    color: COLOR_NAME.CYAN,
     group: '技术与人文',
   },
   {
     id: '5',
     raw: 'DF',
     title: '黑暗森林',
-    color: COLORS.CYAN_LIGHT,
+    color: COLOR_NAME.CYAN_LIGHT,
     group: '技术与人文',
-  },
-  {
-    id: '9',
-    raw: 'thoughts',
-    title: '迷思',
-    color: COLORS.BLUE,
-    group: '技术与人文',
-  },
-  {
-    id: '8',
-    raw: 'city',
-    title: '城市',
-    color: COLORS.PURPLE,
-    group: '生活与职场',
   },
   {
     id: '6',
-    raw: 'pantry',
-    title: '茶水间',
-    color: COLORS.PINK,
-    group: '生活与职场',
+    raw: 'thoughts',
+    title: '迷思',
+    color: COLOR_NAME.BLUE,
+    group: '技术与人文',
   },
   {
     id: '7',
+    raw: 'city',
+    title: '城市',
+    color: COLOR_NAME.PURPLE,
+    group: '生活与职场',
+  },
+  {
+    id: '8',
+    raw: 'pantry',
+    title: '茶水间',
+    color: COLOR_NAME.PINK,
+    group: '生活与职场',
+  },
+  {
+    id: '9',
     raw: 'afterwork',
     title: '下班后',
-    color: COLORS.GREEN_LIGHT,
+    color: COLOR_NAME.GREEN_LIGHT,
     group: '生活与职场',
   },
   {
@@ -185,28 +185,28 @@ const tags = [
     index: 10,
     raw: 'WTF',
     title: '吐槽',
-    color: COLORS.RED,
+    color: COLOR_NAME.RED,
     group: '其他',
   },
   {
     id: '11',
     raw: 'REC',
     title: '推荐',
-    color: COLORS.ORANGE,
+    color: COLOR_NAME.ORANGE,
     group: '其他',
   },
   {
     id: '12',
     raw: 'idea',
     title: '脑洞',
-    color: COLORS.BROWN,
+    color: COLOR_NAME.BROWN,
     group: '其他',
   },
   {
     id: '13',
     raw: 'feedback',
     title: '站务',
-    color: COLORS.BLACK,
+    color: COLOR_NAME.BLACK,
     group: '其他',
   },
 ]

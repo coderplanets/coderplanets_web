@@ -1,21 +1,20 @@
 import { FC, memo } from 'react'
 
-import { mockTags } from '@/utils/mock'
-
 import Portal from '../Portal'
 
 import ThreadSelector from './ThreadSelector'
 import CategorySelector from './CategorySelector'
 import TagBar from './TagBar'
 
+import type { TTagSettings } from '../spec'
 import { Wrapper, InnerWrapper, ContentWrapper } from '../styles/tags'
 
 type TProps = {
-  testid?: string
+  settings: TTagSettings
 }
 
-const Tags: FC<TProps> = ({ testid = 'tags' }) => {
-  const tags = mockTags(12)
+const Tags: FC<TProps> = ({ settings }) => {
+  const { tags, editingTag } = settings
 
   return (
     <Wrapper>
@@ -28,7 +27,7 @@ const Tags: FC<TProps> = ({ testid = 'tags' }) => {
         <ContentWrapper>
           <CategorySelector />
           {tags.map((tag) => (
-            <TagBar key={tag.id} tag={tag} />
+            <TagBar key={tag.id} tag={tag} editingTag={editingTag} />
           ))}
         </ContentWrapper>
       </InnerWrapper>
