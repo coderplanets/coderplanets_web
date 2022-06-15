@@ -1,26 +1,22 @@
 import { FC, memo } from 'react'
 
-import { COLORS } from '@/constant'
+import { mockTags } from '@/utils/mock'
 
 import Portal from '../Portal'
 
 import ThreadSelector from './ThreadSelector'
 import CategorySelector from './CategorySelector'
+import TagBar from './TagBar'
 
-import {
-  Wrapper,
-  InnerWrapper,
-  ContentWrapper,
-  LabelBlock,
-  Dot,
-  LabelTitle,
-} from '../styles/tags'
+import { Wrapper, InnerWrapper, ContentWrapper } from '../styles/tags'
 
 type TProps = {
   testid?: string
 }
 
 const Tags: FC<TProps> = ({ testid = 'tags' }) => {
+  const tags = mockTags(12)
+
   return (
     <Wrapper>
       <Portal
@@ -31,42 +27,9 @@ const Tags: FC<TProps> = ({ testid = 'tags' }) => {
         <ThreadSelector />
         <ContentWrapper>
           <CategorySelector />
-          <LabelBlock>
-            <Dot color={COLORS.RED} />
-            <LabelTitle>标签名称 1</LabelTitle>
-          </LabelBlock>
-          <LabelBlock>
-            <Dot color={COLORS.PINK} />
-            <LabelTitle>标签名称 6</LabelTitle>
-          </LabelBlock>
-          <LabelBlock>
-            <Dot color={COLORS.ORANGE} />
-            <LabelTitle>标签名称 2</LabelTitle>
-          </LabelBlock>
-          <LabelBlock>
-            <Dot color={COLORS.YELLOW} />
-            <LabelTitle>标签名称 3</LabelTitle>
-          </LabelBlock>
-          <LabelBlock>
-            <Dot color={COLORS.GREEN} />
-            <LabelTitle>标签名称 4</LabelTitle>
-          </LabelBlock>
-          <LabelBlock>
-            <Dot color={COLORS.GREEN_LIGHT} />
-            <LabelTitle>标签名称 5</LabelTitle>
-          </LabelBlock>
-          <LabelBlock>
-            <Dot color={COLORS.CYAN} />
-            <LabelTitle>标签名称 6</LabelTitle>
-          </LabelBlock>
-          <LabelBlock>
-            <Dot color={COLORS.BLUE} />
-            <LabelTitle>标签名称 6</LabelTitle>
-          </LabelBlock>
-          <LabelBlock>
-            <Dot color={COLORS.PURPLE} />
-            <LabelTitle>标签名称 6</LabelTitle>
-          </LabelBlock>
+          {tags.map((tag) => (
+            <TagBar key={tag.id} tag={tag} />
+          ))}
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>

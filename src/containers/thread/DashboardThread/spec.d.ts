@@ -47,3 +47,4 @@ export type TSettingField =
   | 'postLayout'
   | 'bannerLayout'
   | 'changelogLayout'
+  | 'tag'

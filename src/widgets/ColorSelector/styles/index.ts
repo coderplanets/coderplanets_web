@@ -21,6 +21,8 @@ export const Dot = styled.div<TDot>`
   ${({ $active }) => ($active ? css.circle(20) : css.circle(16))};
   ${css.flex('align-both')};
   background-color: ${({ color }) => color};
+  box-shadow: ${({ $active }) =>
+    $active ? '0px 0px 7px 0px rgb(151 151 151 / 30%)' : ''};
 
   &:hover {
     ${css.circle(20)};

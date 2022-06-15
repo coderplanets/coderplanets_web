@@ -2,8 +2,6 @@ import { FC, memo } from 'react'
 
 import type { TPostLayout } from '@/spec'
 
-import { POST_LAYOUT } from '@/constant'
-
 import { Br } from '@/widgets/Common'
 import OSSUploader from '@/widgets/OSSUploader'
 

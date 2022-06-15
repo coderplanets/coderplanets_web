@@ -29,4 +29,5 @@ export const SETTING_FIELD = {
   POST_LAYOUT: 'postLayout',
   BANNER_LAYOUT: 'bannerLayout',
   CHANGELOG_LAYOUT: 'changelogLayout',
+  TAG: 'tag',
 } as Record<SnakeUpperCase<TSettingField>, TSettingField>

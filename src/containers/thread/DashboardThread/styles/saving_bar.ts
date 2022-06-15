@@ -15,7 +15,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   /* background: linear-gradient(to right, #f7f7f7 60%, transparent); // to-theme */
   background: ${({ gradientDirection }) =>
     `linear-gradient(to ${gradientDirection}, #f7f7f7 60%, transparent)`};
-  padding: 10px 16px;
+  padding: 0 10px;
   border-radius: 10px;
 
   margin-top: ${({ top }) => `${top}px` || 0};

@@ -1,6 +1,7 @@
 import type { TUser, TTag, TCommunity, TFilterTag, TNaviTag } from '@/spec'
 import { SITE_LOGO, ICON, ICON_BASE, ICON_CMD, ASSETS_ENDPOINT } from '@/config'
 
+import { COLORS } from '@/constant'
 import { getRandomInt } from './helper'
 
 const users = [
@@ -113,70 +114,70 @@ const tags = [
     id: '0',
     raw: 'help',
     title: '求助',
-    color: 'red',
+    color: COLORS.RED,
     group: '技术与人文',
   },
   {
     id: '1',
     raw: 'tech',
     title: '技术',
-    color: 'orange',
+    color: COLORS.ORANGE,
     group: '技术与人文',
   },
   {
     id: '2',
     raw: 'maker',
     title: '创作者',
-    color: 'yellow',
+    color: COLORS.YELLOW,
     group: '技术与人文',
   },
   {
     id: '3',
     raw: 'geek',
     title: '极客',
-    color: 'green',
+    color: COLORS.GREEN,
     group: '技术与人文',
   },
   {
     id: '4',
     raw: 'IxD',
     title: '交互设计',
-    color: 'cyan',
+    color: COLORS.CYAN,
     group: '技术与人文',
   },
   {
     id: '5',
     raw: 'DF',
     title: '黑暗森林',
-    color: 'blue',
+    color: COLORS.CYAN_LIGHT,
     group: '技术与人文',
   },
   {
     id: '9',
     raw: 'thoughts',
     title: '迷思',
-    color: 'grey',
+    color: COLORS.BLUE,
     group: '技术与人文',
   },
   {
     id: '8',
     raw: 'city',
     title: '城市',
-    color: 'green',
+    color: COLORS.PURPLE,
     group: '生活与职场',
   },
   {
     id: '6',
     raw: 'pantry',
     title: '茶水间',
-    color: 'purple',
+    color: COLORS.PINK,
     group: '生活与职场',
   },
   {
     id: '7',
     raw: 'afterwork',
     title: '下班后',
-    color: 'pink',
+    color: COLORS.GREEN_LIGHT,
     group: '生活与职场',
   },
   {
@@ -184,28 +185,28 @@ const tags = [
     index: 10,
     raw: 'WTF',
     title: '吐槽',
-    color: 'red',
+    color: COLORS.RED,
     group: '其他',
   },
   {
     id: '11',
     raw: 'REC',
     title: '推荐',
-    color: 'orange',
+    color: COLORS.ORANGE,
     group: '其他',
   },
   {
     id: '12',
     raw: 'idea',
     title: '脑洞',
-    color: 'yellow',
+    color: COLORS.BROWN,
     group: '其他',
   },
   {
     id: '13',
     raw: 'feedback',
     title: '站务',
-    color: 'green',
+    color: COLORS.BLACK,
     group: '其他',
   },
 ]
