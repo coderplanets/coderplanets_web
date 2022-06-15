@@ -104,7 +104,7 @@ const DashboardThread = T.model('DashboardThread', {
           (item: TTag) => item.id === editingTag.id,
           toJS(tags),
         )
-        if (targetIdx <= 0) return
+        if (targetIdx < 0) return
 
         slf.tags[targetIdx] = clone(toJS(editingTag))
         slf.editingTag = null
@@ -120,7 +120,7 @@ const DashboardThread = T.model('DashboardThread', {
           (item: TTag) => item.id === editingTag.id,
           toJS(tags),
         )
-        if (targetIdx <= 0) return
+        if (targetIdx < 0) return
 
         slf.tags[targetIdx] = toJS(slf.tags[targetIdx])
         slf.editingTag = null
