@@ -6,7 +6,7 @@
 
 import { FC, ReactNode, memo, useRef, useEffect, useState } from 'react'
 
-import type { TSIZE_SM, TSpace } from '@/spec'
+import type { TSizeSM, TSpace } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { SIZE } from '@/constant'
 
@@ -32,7 +32,7 @@ const log = buildLog('c:DigestSentence:index')
 type TProps = {
   testid?: string
   children: ReactNode
-  size?: TSIZE_SM
+  size?: TSizeSM
   interactive?: boolean
   lineClamp?: number
   onPreview: () => void

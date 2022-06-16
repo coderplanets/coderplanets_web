@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import type { TSIZE_SM, TActive } from '@/spec'
+import type { TSizeSM, TActive } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 
 type TTab = {
-  size: TSIZE_SM
+  size: TSizeSM
   mobileView: boolean
   holyGrailView: boolean
   wrapMode: boolean
@@ -60,7 +60,7 @@ export const Nav = styled.nav`
 `
 
 type TLabel = TActive & {
-  size: TSIZE_SM
+  size: TSizeSM
   bottomSpace: number
 }
 export const Label = styled.span<TLabel>`

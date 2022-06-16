@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TSIZE_TSM } from '@/spec'
+import type { TSizeTSM } from '@/spec'
 
 import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import Tooltip from '@/widgets/Tooltip'
@@ -14,7 +14,7 @@ import {
 } from '../styles/follow_button'
 
 type TProps = {
-  size: TSIZE_TSM
+  size: TSizeTSM
   loading: boolean
   followingOffset: number
   text: string

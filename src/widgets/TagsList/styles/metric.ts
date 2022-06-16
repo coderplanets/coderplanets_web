@@ -1,7 +1,7 @@
-import type { TSIZE_TSM } from '@/spec'
+import type { TSizeTSM } from '@/spec'
 import { SIZE } from '@/constant'
 
-export const getIconSize = (size: TSIZE_TSM): number => {
+export const getIconSize = (size: TSizeTSM): number => {
   switch (size) {
     case SIZE.MEDIUM: {
       return 14
@@ -13,7 +13,7 @@ export const getIconSize = (size: TSIZE_TSM): number => {
   }
 }
 
-export const getInnerSpace = (size: TSIZE_TSM): number => {
+export const getInnerSpace = (size: TSizeTSM): number => {
   switch (size) {
     case SIZE.SMALL: {
       return 4
@@ -29,7 +29,7 @@ export const getInnerSpace = (size: TSIZE_TSM): number => {
   }
 }
 
-export const getTitleSize = (size: TSIZE_TSM): string => {
+export const getTitleSize = (size: TSizeTSM): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '12px'

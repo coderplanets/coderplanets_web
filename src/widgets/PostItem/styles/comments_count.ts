@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import type { TSIZE_SM } from '@/spec'
+import type { TSizeSM } from '@/spec'
 import { SIZE } from '@/constant'
 
 import css, { theme } from '@/utils/css'
 
 import CommentSVG from '@/icons/Comment'
 
-export const Wrapper = styled.div<{ size: TSIZE_SM }>`
+export const Wrapper = styled.div<{ size: TSizeSM }>`
   ${css.flex('align-center')};
   color: ${theme('thread.extraInfo')};
   font-size: ${({ size }) => (size === SIZE.MEDIUM ? '14px' : '13px')};

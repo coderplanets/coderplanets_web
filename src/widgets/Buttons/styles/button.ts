@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 
 import css, { theme } from '@/utils/css'
-import type { TSIZE, TButton } from '@/spec'
+import type { TSize, TButton } from '@/spec'
 
 import {
   getColor,
@@ -91,7 +91,7 @@ export const Wrapper = styled.button<TButton>`
     opacity: 1;
   }
 `
-type TChildrenWrapper = { size: TSIZE; ghost: boolean; noBorder: boolean }
+type TChildrenWrapper = { size: TSize; ghost: boolean; noBorder: boolean }
 export const ChildrenWrapper = styled.div<TChildrenWrapper>`
   ${css.flex('align-both')};
   width: 100%;

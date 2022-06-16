@@ -1,10 +1,10 @@
-import type { TSIZE_T, TSIZE_S, TSIZE_M, TSIZE_L } from '@/spec'
+import type { TSizeT, TSizeS, TSizeM, TSizeL } from '@/spec'
 
 const SIZE = {
-  TINY: 'tiny' as TSIZE_T,
-  SMALL: 'small' as TSIZE_S,
-  MEDIUM: 'medium' as TSIZE_M,
-  LARGE: 'large' as TSIZE_L,
+  TINY: 'tiny' as TSizeT,
+  SMALL: 'small' as TSizeS,
+  MEDIUM: 'medium' as TSizeM,
+  LARGE: 'large' as TSizeL,
 }
 
 export default SIZE

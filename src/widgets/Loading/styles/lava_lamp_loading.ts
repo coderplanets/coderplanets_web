@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
-import type { TSpace, TSIZE_TSM } from '@/spec'
+import type { TSpace, TSizeTSM } from '@/spec'
 import { getRandomInt } from '@/utils/helper'
 import css, { theme } from '@/utils/css'
 
@@ -15,7 +15,7 @@ const move = keyframes`
   to {transform: translateX(80px)}
 `
 
-type TWrapper = TSpace & { size: TSIZE_TSM }
+type TWrapper = TSpace & { size: TSizeTSM }
 export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-both')};
   overflow: hidden;

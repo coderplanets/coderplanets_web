@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TSIZE_SM } from '@/spec'
+import type { TSizeSM } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
 
@@ -30,7 +30,7 @@ const defaultItems = [
 ]
 
 type TProps = {
-  size?: TSIZE_SM
+  size?: TSizeSM
   testid?: string
   items?: {
     iconSrc: string

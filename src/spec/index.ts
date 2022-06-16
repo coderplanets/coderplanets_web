@@ -7,15 +7,15 @@ export type { SnakeUpperCase } from './enhance'
 
 export type { TMetric } from './metric'
 export type {
-  TSIZE,
-  TSIZE_T,
-  TSIZE_S,
-  TSIZE_M,
-  TSIZE_L,
-  TSIZE_TS,
-  TSIZE_TSM,
-  TSIZE_SML,
-  TSIZE_SM,
+  TSize,
+  TSizeT,
+  TSizeS,
+  TSizeM,
+  TSizeL,
+  TSizeTS,
+  TSizeTSM,
+  TSizeSML,
+  TSizeSM,
 } from './size'
 export type { TButton, TFiltersMenuItems } from './comp'
 export type { TTheme, TThemeMap, TThemeName } from './theme'

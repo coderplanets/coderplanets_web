@@ -1,12 +1,12 @@
 // all size
-export type TSIZE = 'tiny' | 'small' | 'medium' | 'large'
+export type TSize = 'tiny' | 'small' | 'medium' | 'large'
 
-export type TSIZE_T = 'tiny'
-export type TSIZE_S = 'small'
-export type TSIZE_M = 'medium'
-export type TSIZE_L = 'large'
+export type TSizeT = 'tiny'
+export type TSizeS = 'small'
+export type TSizeM = 'medium'
+export type TSizeL = 'large'
 
-export type TSIZE_TS = TSIZE_T | TSIZE_S
-export type TSIZE_SM = TSIZE_S | TSIZE_M
-export type TSIZE_TSM = TSIZE_T | TSIZE_S | TSIZE_M
-export type TSIZE_SML = TSIZE_S | TSIZE_M | TSIZE_L
+export type TSizeTS = TSizeT | TSizeS
+export type TSizeSM = TSizeS | TSizeM
+export type TSizeTSM = TSizeT | TSizeS | TSizeM
+export type TSizeSML = TSizeS | TSizeM | TSizeL

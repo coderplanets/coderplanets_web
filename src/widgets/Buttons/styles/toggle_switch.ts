@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import type { TSIZE_SM } from '@/spec'
+import type { TSizeSM } from '@/spec'
 import { SIZE } from '@/constant'
 
 import HookSVG from '@/icons/Hook'
 import css, { theme } from '@/utils/css'
 
-export const Wrapper = styled.div<{ size: TSIZE_SM }>`
+export const Wrapper = styled.div<{ size: TSizeSM }>`
   ${css.flex('align-center')};
   width: 42px;
 

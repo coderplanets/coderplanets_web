@@ -1,8 +1,8 @@
-import { TSIZE } from './size'
+import { TSize } from './size'
 
 // @/widgets/button
 export type TButton = {
-  size?: TSIZE
+  size?: TSize
   active?: boolean
   space?: number
   ghost?: boolean

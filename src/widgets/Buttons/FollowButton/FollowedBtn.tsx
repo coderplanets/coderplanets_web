@@ -1,12 +1,12 @@
 import { FC, memo } from 'react'
 
-import { TSIZE_TSM } from '@/spec'
+import { TSizeTSM } from '@/spec'
 import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import { BtnWrapper, FollowedButton } from '../styles/follow_button'
 
 type TProps = {
-  size: TSIZE_TSM
+  size: TSizeTSM
   loading: boolean
   text: string
   onClick: () => void

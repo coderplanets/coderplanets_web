@@ -6,7 +6,7 @@
 
 import { FC, ReactNode, memo } from 'react'
 
-import type { TSIZE } from '@/spec'
+import type { TSize } from '@/spec'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -18,7 +18,7 @@ const log = buildLog('c:Buttons:ArrowLink')
 type TProps = {
   className?: string
   children?: ReactNode
-  size?: TSIZE
+  size?: TSize
   href: string
   target?: '_blank' | ''
   color?: string

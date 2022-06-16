@@ -1,7 +1,7 @@
-import type { TSIZE } from '@/spec'
+import type { TSize } from '@/spec'
 import { SIZE } from '@/constant'
 
-export const getIconSize = (size: TSIZE): string => {
+export const getIconSize = (size: TSize): string => {
   switch (size) {
     case SIZE.LARGE: {
       return '16px'
@@ -21,7 +21,7 @@ export const getIconSize = (size: TSIZE): string => {
   }
 }
 
-export const getTextSize = (size: TSIZE): string => {
+export const getTextSize = (size: TSize): string => {
   switch (size) {
     case SIZE.LARGE: {
       return '15px'
@@ -38,7 +38,7 @@ export const getTextSize = (size: TSIZE): string => {
   }
 }
 
-export const getMargin = (size: TSIZE): string => {
+export const getMargin = (size: TSize): string => {
   switch (size) {
     case SIZE.LARGE: {
       return '8px'

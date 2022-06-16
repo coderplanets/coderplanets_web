@@ -8,7 +8,7 @@ import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
 import { isEmpty, findIndex } from 'ramda'
 import { isMobile } from 'react-device-detect'
 
-import type { TSIZE_SM, TTabItem, TC11NLayout } from '@/spec'
+import type { TSizeSM, TTabItem, TC11NLayout } from '@/spec'
 import { SIZE, C11N } from '@/constant'
 import { isString } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
@@ -55,7 +55,7 @@ type TProps = {
   layout?: TC11NLayout
   onChange: () => void
   activeKey?: string
-  size: TSIZE_SM
+  size: TSizeSM
   slipHeight: '1px' | '2px'
   bottomSpace?: number
 }

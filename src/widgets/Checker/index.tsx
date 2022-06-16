@@ -6,7 +6,7 @@
 
 import { FC, ReactNode, memo } from 'react'
 
-import type { TSIZE_SM } from '@/spec'
+import type { TSizeSM } from '@/spec'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -19,7 +19,7 @@ type TProps = {
   children?: ReactNode | null
   checked?: boolean
   hiddenMode?: boolean
-  size?: TSIZE_SM
+  size?: TSizeSM
   dimWhenIdle?: boolean
   disabled?: boolean
   onChange?: (checked: boolean) => void

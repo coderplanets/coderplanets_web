@@ -6,7 +6,7 @@
  */
 
 import { FC, memo } from 'react'
-import { TSIZE_SM } from '@/spec'
+import { TSizeSM } from '@/spec'
 
 import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
@@ -26,7 +26,7 @@ type TProps = {
   updatedAt?: string
   lock?: boolean
   editable?: boolean
-  size?: TSIZE_SM
+  size?: TSizeSM
   inactive?: boolean
   onEdit?: () => void
   onSelect?: () => void

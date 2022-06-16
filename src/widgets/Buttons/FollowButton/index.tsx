@@ -4,7 +4,7 @@
 
 import { FC, memo, useState, useCallback } from 'react'
 
-import type { TID, TSIZE_TSM } from '@/spec'
+import type { TID, TSizeTSM } from '@/spec'
 import { SIZE } from '@/constant'
 import { useAccount } from '@/hooks'
 
@@ -20,7 +20,7 @@ const log = buildLog('c:FollowButton:index')
 type TProps = {
   hasFollowed?: boolean
   userLogin?: TID
-  size?: TSIZE_TSM
+  size?: TSizeTSM
   loading?: boolean
   simuLoading?: boolean
   followText?: string

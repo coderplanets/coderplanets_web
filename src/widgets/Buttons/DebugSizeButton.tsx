@@ -6,12 +6,12 @@
 
 import { FC } from 'react'
 
-import type { TSIZE } from '@/spec'
+import type { TSize } from '@/spec'
 
 type TProps = {
   // children?: any
   // onClick?: () => void
-  size?: TSIZE
+  size?: TSize
   // direction?: 'left' | 'right'
   // dimWhenIdle?: boolean
   // disabled?: boolean

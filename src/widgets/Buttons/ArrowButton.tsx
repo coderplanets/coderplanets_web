@@ -6,7 +6,7 @@
 
 import { FC, ReactNode, memo } from 'react'
 
-import type { TSIZE } from '@/spec'
+import type { TSize } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
@@ -19,7 +19,7 @@ const log = buildLog('c:Buttons:ArrowButton')
 type TProps = {
   children?: ReactNode
   onClick?: () => void
-  size?: TSIZE
+  size?: TSize
   direction?: 'left' | 'right'
   dimWhenIdle?: boolean
   disabled?: boolean

@@ -1,7 +1,7 @@
 import { FC, memo, createContext, useContext } from 'react'
 import dynamic from 'next/dynamic'
 
-import type { TSIZE } from '@/spec'
+import type { TSize } from '@/spec'
 import { SIZE } from '@/constant'
 import { Wrapper } from './styles'
 
@@ -16,7 +16,7 @@ const AnimatedCount = dynamic(() => import('./AnimatedCount'), {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { count, size, active } = useContext(LoadingValueContext) as {
       count: number
-      size: TSIZE
+      size: TSize
       active: boolean
     }
     return (
@@ -30,7 +30,7 @@ const AnimatedCount = dynamic(() => import('./AnimatedCount'), {
 
 export type TProps = {
   count?: number
-  size?: TSIZE
+  size?: TSize
   active?: boolean
 }
 
