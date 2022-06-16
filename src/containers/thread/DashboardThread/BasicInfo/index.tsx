@@ -4,6 +4,7 @@ import type { TPostLayout } from '@/spec'
 
 import { Br } from '@/widgets/Common'
 import OSSUploader from '@/widgets/OSSUploader'
+import SocialEditor from '@/widgets/SocialEditor'
 
 import Portal from '../Portal'
 import SectionLabel from '../SectionLabel'
@@ -44,6 +45,7 @@ const BasicInfo: FC<TProps> = ({ testid = 'basic-info' }) => {
         <Inputer />
         <Label>社区 URL</Label>
         <Inputer />
+        <SocialEditor />
 
         <Br bottom={40} />
         <SectionLabel title="其它信息" />
