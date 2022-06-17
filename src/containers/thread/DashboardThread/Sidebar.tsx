@@ -16,7 +16,7 @@ type TProps = {
 const Sidebar: FC<TProps> = ({ curTab }) => {
   return (
     <Wrapper>
-      <Sticky>
+      <Sticky offsetTop={30}>
         <Folder>
           <Icon.Basic />
           <Title>基础设置</Title>

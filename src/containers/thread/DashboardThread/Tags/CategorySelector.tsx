@@ -1,13 +1,7 @@
 import { FC, memo, useState } from 'react'
 
-import { Space } from '@/widgets/Common'
-
-import {
-  Wrapper,
-  CatsWrapper,
-  CatButton,
-  Hint,
-} from '../styles/tags/category_selector'
+import Button from '@/widgets/Buttons/Button'
+import { Wrapper, CatsWrapper, Hint } from '../styles/tags/category_selector'
 
 const TagCats = [
   {
@@ -50,23 +44,22 @@ type TProps = {
 
 const CategorySelector: FC<TProps> = () => {
   const [cat, setCat] = useState('0')
-  const CAT_SPACE = 12
 
   return (
     <Wrapper>
-      <Hint>分组:</Hint>
+      <Hint>标签分组:</Hint>
       <CatsWrapper>
-        <CatButton
+        <Button
           ghost
           size="small"
           noBorder={cat !== '0'}
           onClick={() => setCat('0')}
         >
           全部
-        </CatButton>
-        <Space right={CAT_SPACE} />
+        </Button>
+
         {TagCats.map((item) => (
-          <CatButton
+          <Button
             key={item.raw}
             ghost
             size="small"
@@ -74,7 +67,7 @@ const CategorySelector: FC<TProps> = () => {
             onClick={() => setCat(item.raw)}
           >
             {item.title}
-          </CatButton>
+          </Button>
         ))}
       </CatsWrapper>
     </Wrapper>

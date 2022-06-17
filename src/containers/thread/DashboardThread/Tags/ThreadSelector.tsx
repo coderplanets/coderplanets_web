@@ -14,7 +14,7 @@ const ThreadSelector: FC = () => {
 
   return (
     <Wrapper>
-      <Hint>板块</Hint>
+      <Hint>社区板块:</Hint>
       <CatsWrapper>
         <CatButton
           ghost={thread !== THREAD.POST}

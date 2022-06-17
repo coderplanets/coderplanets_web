@@ -9,8 +9,8 @@ import Input from '@/widgets/Input'
 
 export const Wrapper = styled.div<{ editing: boolean }>`
   ${css.flex('align-center')};
-  height: ${({ editing }) => (editing ? '46px' : '40px')};
   width: 100%;
+  height: ${({ editing }) => (editing ? '46px' : '40px')};
   margin-left: -8px;
   padding: ${({ editing }) => (editing ? 0 : '10px')};
   border: ${({ editing }) => (editing ? 'none' : '1px solid')};
