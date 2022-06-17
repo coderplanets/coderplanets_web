@@ -18,10 +18,16 @@ export const Inputer = styled(Input)`
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 `
-export const DeleteIcon = styled(DeleteSVG)`
+export const DeleteWrapper = styled.div`
+  ${css.circle(20)};
+  ${css.flex('align-both')};
   position: absolute;
   top: 7px;
-  right: -30px;
+  right: -8px;
+  background: white;
+  z-index: 2;
+`
+export const DeleteIcon = styled(DeleteSVG)`
   ${css.size(20)};
   fill: ${theme('thread.articleDigest')};
   opacity: 0.5;
@@ -30,6 +36,12 @@ export const DeleteIcon = styled(DeleteSVG)`
     fill: ${theme('baseColor.red')};
     opacity: 1;
     cursor: pointer;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    ${css.size(20)};
   }
 
   transition: all 0.2s;

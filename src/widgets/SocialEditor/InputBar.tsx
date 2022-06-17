@@ -12,11 +12,11 @@ import { buildLog } from '@/utils/logger'
 import {
   Wrapper,
   IconWrapper,
+  DeleteWrapper,
   DeleteIcon,
   Inputer,
   Icon,
 } from './styles/input_bar'
-import { onCategoryDelete } from '@/containers/tool/CollectionFolder/logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:SocialEditor:index')
@@ -35,7 +35,9 @@ const InputBar: FC<TProps> = ({ social, onDelete }) => {
         <SocalIcon $active />
       </IconWrapper>
       <Inputer placeholder={social.title} />
-      <DeleteIcon onClick={() => onDelete(social)} />
+      <DeleteWrapper onClick={() => onDelete(social)}>
+        <DeleteIcon />
+      </DeleteWrapper>
     </Wrapper>
   )
 }
