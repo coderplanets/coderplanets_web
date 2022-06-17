@@ -82,6 +82,7 @@ export type {
   TToastOption,
   TPublishMode,
   TDashboardLayout,
+  TSocial,
 } from './utils'
 
 export type { TGQLError } from './graphql'

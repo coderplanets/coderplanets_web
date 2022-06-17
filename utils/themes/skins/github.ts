@@ -17,7 +17,7 @@ const link = '#005196' // '#6494cd'
 const actionText = '#647392'
 const descText = '#666'
 const threadTitle = '#333333'
-const hoverBg = '#F5F5F5'
+const hoverBg = '#f9f9f9'
 // const primaryMate = 'orange'
 
 const github = {

@@ -4,19 +4,23 @@
  *
  */
 
-import { FC, memo, useState } from 'react'
+import { FC, memo, useState, useCallback } from 'react'
 
+import { includes, reject } from 'ramda'
+
+import type { TSocial } from '@/spec'
+import { SOCIAL_LIST } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import AddButton from '@/widgets/Buttons/AddButton'
+
+import InputBar from './InputBar'
 
 import {
   Wrapper,
   Hint,
   PlatformWrapper,
+  InputsWrapper,
   Label,
-  InputWrapper,
-  IconWrapper,
-  Inputer,
   Icon,
 } from './styles'
 
@@ -28,19 +32,34 @@ type TProps = {
 }
 
 const SocialEditor: FC<TProps> = ({ testid = 'social-editor' }) => {
-  const [showPlatformPool, togglePlatformPool] = useState(true)
+  const [showPlatformPool, togglePlatformPool] = useState(false)
+  const [selected, setSelected] = useState([])
 
-  const list = ['Twitter', 'Weibo', 'Telegram']
+  const remove = useCallback(
+    (social) => {
+      const after: TSocial[] = reject(
+        (item: TSocial) => item.raw === social.raw,
+        selected,
+      )
+      setSelected(after)
+    },
+    [selected],
+  )
 
   return (
     <Wrapper testid={testid}>
       <Label>社交账号</Label>
-      <InputWrapper>
-        <IconWrapper>
-          <Icon.Telegram />
-        </IconWrapper>
-        <Inputer placeholder="twitter" />
-      </InputWrapper>
+
+      <InputsWrapper>
+        {selected.map((item) => (
+          <InputBar
+            key={item?.raw}
+            social={item}
+            onDelete={(social) => remove(social)}
+          />
+        ))}
+      </InputsWrapper>
+
       {showPlatformPool ? (
         <Hint>请选择社交平台:</Hint>
       ) : (
@@ -55,9 +74,20 @@ const SocialEditor: FC<TProps> = ({ testid = 'social-editor' }) => {
 
       {showPlatformPool && (
         <PlatformWrapper>
-          {list.map((name) => {
-            const SocialIcon = Icon[name]
-            return <SocialIcon key={name} />
+          {SOCIAL_LIST.map((social) => {
+            const SocialIcon = Icon[social.raw]
+
+            return (
+              <SocialIcon
+                key={social.raw}
+                $active={includes(social, selected)}
+                onClick={() => {
+                  if (!includes(social, selected)) {
+                    setSelected([...selected, social])
+                  }
+                }}
+              />
+            )
           })}
         </PlatformWrapper>
       )}
@@ -65,6 +95,7 @@ const SocialEditor: FC<TProps> = ({ testid = 'social-editor' }) => {
       {showPlatformPool && (
         <AddButton
           top={15}
+          left={2}
           dimWhenIdle
           withIcon={false}
           onClick={() => togglePlatformPool(false)}
