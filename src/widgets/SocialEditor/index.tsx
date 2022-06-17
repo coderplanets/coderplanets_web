@@ -6,18 +6,17 @@
 
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
-
 import AddButton from '@/widgets/Buttons/AddButton'
 
 import {
   Wrapper,
+  SelectWrapper,
   Label,
   InputWrapper,
   IconWrapper,
-  SocialIcon,
   Inputer,
+  Icon,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -28,18 +27,26 @@ type TProps = {
 }
 
 const SocialEditor: FC<TProps> = ({ testid = 'social-editor' }) => {
+  const list = ['Twitter', 'Weibo']
+
   return (
     <Wrapper testid={testid}>
       <Label>社交账号</Label>
       <InputWrapper>
         <IconWrapper>
-          <SocialIcon src={`${ICON}/social/twitter-share.png`} />
+          <Icon.Twitter />
         </IconWrapper>
-        <Inputer />
+        <Inputer placeholder="twitter" />
       </InputWrapper>
       <AddButton top={10} dimWhenIdle>
         添加
       </AddButton>
+      <SelectWrapper>
+        {list.map((name) => {
+          const SocialIcon = Icon[name]
+          return <SocialIcon key={name} />
+        })}
+      </SelectWrapper>
     </Wrapper>
   )
 }

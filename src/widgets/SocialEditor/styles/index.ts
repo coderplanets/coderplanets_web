@@ -4,8 +4,10 @@ import type { TTestable } from '@/spec'
 
 import css, { theme } from '@/utils/css'
 
+import TwitterSVG from '@/icons/social/Twitter'
+import WeiboSVG from '@/icons/social/Weibo'
+
 import Input from '@/widgets/Input'
-import Img from '@/Img'
 
 // import { theme } from '@/utils/themes'
 
@@ -37,6 +39,19 @@ export const IconWrapper = styled.div`
   border-bottom-left-radius: 5px;
   border-right: none;
 `
-export const SocialIcon = styled(Img)`
+export const SelectWrapper = styled.div`
+  ${css.flex('align-center')};
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+`
+const TwitterIcon = styled(TwitterSVG)`
   ${css.size(16)};
 `
+const WeiboIcon = styled(WeiboSVG)`
+  ${css.size(18)};
+`
+export const Icon = {
+  Twitter: TwitterIcon,
+  Weibo: WeiboIcon,
+}
