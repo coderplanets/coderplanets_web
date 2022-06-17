@@ -6,7 +6,7 @@
 
 import { FC, ReactNode, memo } from 'react'
 
-import type { TSIZE } from '@/spec'
+import type { TSize } from '@/spec'
 import { ICON } from '@/config'
 import { nilOrEmpty } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
@@ -22,7 +22,7 @@ type TProps = {
   path?: string | null
   round?: boolean
   children: ReactNode
-  size?: TSIZE
+  size?: TSize
   margin?: string
   highlight?: boolean
   className?: string

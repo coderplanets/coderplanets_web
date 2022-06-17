@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TSIZE_SML } from '@/spec'
+import type { TSizeSML } from '@/spec'
 
 import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
@@ -19,7 +19,7 @@ const log = buildLog('c:EmptyLabel:index')
 
 type TProps = {
   iconSrc?: string
-  size?: TSIZE_SML
+  size?: TSizeSML
   text?: string
 }
 

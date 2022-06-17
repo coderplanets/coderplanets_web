@@ -43,6 +43,7 @@ const DashboardThreadContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
+      <Sidebar curTab={curTab} />
       <MainWrapper>
         {curTab === TAB.BASIC_INFO && <BasicInfo />}
         {curTab === TAB.UI && <UI settings={uiSettings} touched={touched} />}
@@ -54,7 +55,6 @@ const DashboardThreadContainer: FC<TProps> = ({
         {curTab === TAB.THIRD_PART && <ThirdPart />}
         {curTab === TAB.WIDGETS && <Widgets />}
       </MainWrapper>
-      <Sidebar curTab={curTab} />
     </Wrapper>
   )
 }

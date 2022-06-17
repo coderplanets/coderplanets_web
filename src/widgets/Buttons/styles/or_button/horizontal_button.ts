@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 // import { lighten } from 'polished'
 
-import type { TButton, TSIZE } from '@/spec'
+import type { TButton, TSize } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 import { Wrapper as BaseBtnWrapper } from '../button'
 import { OrSignBase } from './index'
 
-export const Wrapper = styled.div<{ size: TSIZE }>`
+export const Wrapper = styled.div<{ size: TSize }>`
   ${css.flex('align-center')};
   position: relative;
 `

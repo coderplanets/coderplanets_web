@@ -8,7 +8,7 @@ import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
 import { isEmpty, findIndex } from 'ramda'
 import { isMobile } from 'react-device-detect'
 
-import type { TSIZE_SM, TTabItem } from '@/spec'
+import type { TSizeSM, TTabItem } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
 import { isString } from '@/utils/validator'
@@ -60,7 +60,7 @@ const getDefaultActiveTabIndex = (
 type TProps = {
   items?: TTabItem[]
   activeKey?: string
-  size: TSIZE_SM
+  size: TSizeSM
   slipHeight: '1px' | '2px'
 
   toggleExpand: () => void

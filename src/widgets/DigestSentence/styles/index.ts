@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable, TSpace, TSIZE_SM } from '@/spec'
+import type { TTestable, TSpace, TSizeSM } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 import Img from '@/Img'
@@ -8,7 +8,7 @@ import ThunderSVG from '@/icons/Thunder'
 
 import { getFontSize } from './metric'
 
-type TWrapper = TTestable & TSpace & { size: TSIZE_SM; interactive: boolean }
+type TWrapper = TTestable & TSpace & { size: TSizeSM; interactive: boolean }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`

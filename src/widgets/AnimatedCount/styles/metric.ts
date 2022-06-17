@@ -1,9 +1,9 @@
-import type { TSIZE } from '@/spec'
+import type { TSize } from '@/spec'
 import { SIZE } from '@/constant'
 
 import { theme } from '@/utils/css'
 
-export const getFontSize = (size: TSIZE): string => {
+export const getFontSize = (size: TSize): string => {
   switch (size) {
     case SIZE.TINY: {
       return '14px'

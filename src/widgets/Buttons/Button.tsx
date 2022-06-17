@@ -1,6 +1,6 @@
 import { FC, ReactNode, memo } from 'react'
 
-import type { TSIZE_TSM } from '@/spec'
+import type { TSizeTSM } from '@/spec'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -16,7 +16,7 @@ type TProps = {
   ghost?: boolean
   type?: 'primary' | 'red' | 'ghost'
   space?: number | null
-  size?: TSIZE_TSM
+  size?: TSizeTSM
   onClick?: () => void
   loading?: boolean
   noBorder?: boolean

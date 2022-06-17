@@ -1,12 +1,12 @@
 import { FC, memo } from 'react'
 import { range, merge } from 'ramda'
 
-import type { TSpace, TSIZE_TSM } from '@/spec'
+import type { TSpace, TSizeTSM } from '@/spec'
 import { SIZE } from '@/constant'
 
 import { Wrapper, Container, Circle } from './styles/lava_lamp_loading'
 
-type TProps = TSpace & { size?: TSIZE_TSM }
+type TProps = TSpace & { size?: TSizeTSM }
 
 const LavaLampLoading: FC<TProps> = (props) => {
   const { size } = props

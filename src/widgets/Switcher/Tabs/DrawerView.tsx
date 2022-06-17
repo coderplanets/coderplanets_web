@@ -6,7 +6,7 @@
 
 import { FC, useCallback, memo } from 'react'
 
-import type { TSIZE_SM, TTabItem } from '@/spec'
+import type { TSizeSM, TTabItem } from '@/spec'
 import { isString } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
 import { SIZE } from '@/constant'
@@ -28,7 +28,7 @@ type TProps = {
   items?: TTabItem[]
   onChange: () => void
   activeKey?: string
-  size: TSIZE_SM
+  size: TSizeSM
   // slipHeight: '1px' | '2px'
 }
 

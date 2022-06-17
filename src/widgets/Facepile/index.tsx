@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import { compose, not, isNil, filter, reverse as reverseFn, slice } from 'ramda'
 import { trackWindowScroll } from 'react-lazy-load-image-component'
 
-import type { TUser, TSIZE } from '@/spec'
+import type { TUser, TSize } from '@/spec'
 import type { TAvatarSize } from './spec'
 import { AVATARS_LIST_LENGTH } from '@/config'
 import { SIZE } from '@/constant'
@@ -35,7 +35,7 @@ export const RealAvatar = dynamic(() => import('./RealAvatar'), {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { size, user } = useContext(RealAvatarContext) as {
       user: TUser
-      size: TSIZE
+      size: TSize
     }
 
     return (

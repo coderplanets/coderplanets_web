@@ -6,7 +6,7 @@
 
 import { FC, memo, useState, ReactNode } from 'react'
 
-import type { TSIZE_SM } from '@/spec'
+import type { TSizeSM } from '@/spec'
 
 import { isString } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
@@ -25,7 +25,7 @@ type TProps = {
   icon?: ReactNode | string
   hideOnClick?: boolean
   hideTextOnInit?: boolean
-  size?: TSIZE_SM
+  size?: TSizeSM
   type?: 'default' | 'green'
 }
 

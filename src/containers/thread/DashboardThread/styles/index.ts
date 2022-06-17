@@ -15,9 +15,8 @@ export const MainWrapper = styled.div`
 
   background: transparent;
   margin-top: 30px;
-  padding-left: 25px;
-  padding-right: 80px;
-  margin-right: 68px;
-  border-right: 1px solid;
-  border-right-color: ${theme('border')};
+  padding-left: 80px;
+  margin-left: 42px;
+  border-left: 1px solid;
+  border-left-color: ${theme('border')};
 `

@@ -1,6 +1,6 @@
 import { FC, ReactNode, memo } from 'react'
 
-import type { TSIZE_SML } from '@/spec'
+import type { TSizeSML } from '@/spec'
 import type { TDirection, TScrollDirection } from './spec'
 
 import HorizontalScroller from './HorizontalScroller'
@@ -13,8 +13,8 @@ export type TProps = {
   innerHeight?: string
   width?: string
   showShadow?: boolean
-  shadowSize?: TSIZE_SML
-  barSize?: TSIZE_SML
+  shadowSize?: TSizeSML
+  barSize?: TSizeSML
   // hack for custom scrollbar
   autoHide?: boolean
   showOnHover?: boolean

@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import type { TTestable, TSIZE } from '@/spec'
+import type { TTestable, TSize } from '@/spec'
 import Img from '@/Img'
 import css, { theme } from '@/utils/css'
 
 import { getIconSize, getTextSize, getMargin } from './metric'
 
 type TIcon = {
-  size: TSIZE
+  size: TSize
   margin: string
   round: boolean
   highlight: boolean
@@ -35,7 +35,7 @@ export const Icon = styled(Img)<TIcon>`
   border-radius: ${({ round }) => (round ? '100%' : '0')};
 `
 type TText = {
-  size: TSIZE
+  size: TSize
   highlight: boolean
 }
 

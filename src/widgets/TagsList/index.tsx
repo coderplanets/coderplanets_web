@@ -6,7 +6,7 @@ import { FC, memo } from 'react'
 
 import type {
   TTag,
-  TSIZE_TSM,
+  TSizeTSM,
   TCommunity,
   TThread,
   TTagMode,
@@ -30,7 +30,7 @@ const log = buildLog('c:TagsList:index')
 export type TProps = {
   items: TTag[]
   max?: number
-  size?: TSIZE_TSM
+  size?: TSizeTSM
   withSetter?: boolean
   mode?: TTagMode
 

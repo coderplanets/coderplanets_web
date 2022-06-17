@@ -1,3 +1,3 @@
-import type { TSIZE_SM } from '@/spec'
+import type { TSizeSM } from '@/spec'
 
-export type TAvatarSize = TSIZE_SM
+export type TAvatarSize = TSizeSM

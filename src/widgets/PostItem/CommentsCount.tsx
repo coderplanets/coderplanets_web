@@ -1,6 +1,6 @@
 import { FC, memo, Fragment } from 'react'
 
-import type { TSIZE_SM } from '@/spec'
+import type { TSizeSM } from '@/spec'
 import { SIZE } from '@/constant'
 
 import { Space } from '@/widgets/Common'
@@ -13,7 +13,7 @@ import {
 
 type TProps = {
   count: number
-  size?: TSIZE_SM
+  size?: TSizeSM
 }
 
 const CommentsCount: FC<TProps> = ({ count, size = SIZE.SMALL }) => {

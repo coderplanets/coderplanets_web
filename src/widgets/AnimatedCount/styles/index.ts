@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import type { TSIZE, TActive } from '@/spec'
+import type { TSize, TActive } from '@/spec'
 
 import { getFontSize, getCountColor } from './metric'
 
-type TWrapper = { size: TSIZE; count: number } & TActive
+type TWrapper = { size: TSize; count: number } & TActive
 
 export const Wrapper = styled.div<TWrapper>`
   color: ${({ $active, count }) => getCountColor($active, count)};

@@ -54,3 +54,5 @@ export const NON_FILL_COMMUNITY = ['javascript']
 
 export { PUBLISH_MODE } from './publish'
 export { COLORS, COLOR_NAME } from './colors'
+
+export { default as SOCIAL_LIST } from './social'

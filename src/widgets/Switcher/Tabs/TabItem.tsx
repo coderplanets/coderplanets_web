@@ -6,7 +6,7 @@
 
 import { FC, useEffect, useCallback, useRef, memo } from 'react'
 
-import type { TSIZE_SM, TTabItem } from '@/spec'
+import type { TSizeSM, TTabItem } from '@/spec'
 import { Trans } from '@/utils/i18n'
 import { isString } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
@@ -29,7 +29,7 @@ type TProps = {
   wrapMode?: boolean
   item: TTabItem
   index: number
-  size: TSIZE_SM
+  size: TSizeSM
   activeKey: string
   bottomSpace?: number
   setItemWidth?: (index: number, width: number) => void

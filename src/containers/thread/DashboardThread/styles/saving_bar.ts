@@ -10,9 +10,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
   ${css.flex('align-center')};
-  width: 100%;
+  width: ${({ gradientDirection }) =>
+    gradientDirection === 'right' ? 'calc(100% + 10px)' : '100%'};
   height: 42px;
-  /* background: linear-gradient(to right, #f7f7f7 60%, transparent); // to-theme */
   background: ${({ gradientDirection }) =>
     `linear-gradient(to ${gradientDirection}, #f7f7f7 60%, transparent)`};
   padding: 0 10px;

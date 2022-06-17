@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TSIZE_TSM, TSpace } from '@/spec'
+import type { TSizeTSM, TSpace } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 import { getIconSize, getTitleSize, getInnerSpace } from './metric'
@@ -21,7 +21,7 @@ export const Tag = styled.div`
   margin-right: 5px;
   min-width: 40px;
 `
-type THashSign = { color: string; size: TSIZE_TSM }
+type THashSign = { color: string; size: TSizeTSM }
 export const DotSign = styled.div<THashSign>`
   background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
   ${({ size }) => css.circle(getIconSize(size))};
@@ -33,14 +33,14 @@ export const LabelDotSign = styled.div<THashSign>`
   ${css.circle(8)};
   margin-right: 4px;
 `
-export const Title = styled.div<{ size: TSIZE_TSM }>`
+export const Title = styled.div<{ size: TSizeTSM }>`
   color: ${theme('thread.extraInfo')};
   font-size: ${({ size }) => getTitleSize(size)};
   margin-left: 3px;
   word-break: keep-all;
   letter-spacing: 0.06em;
 `
-export const SolidTitle = styled.div<{ size: TSIZE_TSM; color: string }>`
+export const SolidTitle = styled.div<{ size: TSizeTSM; color: string }>`
   /* color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)}; */
   color: ${theme('thread.extraInfo')};
   font-size: 13px;

@@ -1,13 +1,13 @@
 import { FC } from 'react'
 
-import type { TSIZE_SM } from '@/spec'
+import type { TSizeSM } from '@/spec'
 
 import HorizontalButton from './HorizontalButton'
 import VerticalButton from './VerticalButton'
 
 export type TProps = {
   direction?: 'row' | 'column'
-  size?: TSIZE_SM
+  size?: TSizeSM
   activeKey: string
   onClick?: (key: string) => void
   group: {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable, TSIZE_SM } from '@/spec'
+import type { TTestable, TSizeSM } from '@/spec'
 import css, { theme } from '@/utils/css'
 
 import Img from '@/Img'
@@ -28,7 +28,7 @@ export const SocialWrapper = styled.div`
     cursor: pointer;
   }
 `
-export const Icon = styled(Img)<{ size: TSIZE_SM }>`
+export const Icon = styled(Img)<{ size: TSizeSM }>`
   fill: ${theme('banner.desc')};
   border-radius: 50%;
   width: ${({ size }) => (size === 'small' ? '13px;' : '17px')};

@@ -7,7 +7,7 @@
 import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
 import { isMobile } from 'react-device-detect'
 
-import type { TSIZE_SM, TTabItem } from '@/spec'
+import type { TSizeSM, TTabItem } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
 import { isString } from '@/utils/validator'
@@ -27,7 +27,7 @@ const log = buildLog('c:Tabs:index')
 type TProps = {
   items: TTabItem[]
   activeKey: string
-  size: TSIZE_SM
+  size: TSizeSM
   toggleExpand: () => void
   onChange: () => void
 }

@@ -4,7 +4,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TSIZE_SM, TC11NLayout } from '@/spec'
+import type { TSizeSM, TC11NLayout } from '@/spec'
 import { HCN, ANCHOR, THREAD, C11N, SIZE } from '@/constant'
 import { sortByIndex, aliasMapIfNeed } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
@@ -20,7 +20,7 @@ type TProps = {
   active: string
   layout: TC11NLayout
   communityRaw: string
-  size: TSIZE_SM
+  size: TSizeSM
   onChange?: () => void
 }
 
