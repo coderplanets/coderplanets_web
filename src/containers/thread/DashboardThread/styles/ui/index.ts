@@ -5,6 +5,8 @@ import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
+  padding-left: 20px;
+  padding-right: 90px;
 `
 export const BaseSection = styled.section`
   /* margin: 0 50px; */

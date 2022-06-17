@@ -13,10 +13,11 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn()};
-  width: 184px;
-  min-width: 184px;
+  width: 154px;
+  min-width: 154px;
   color: ${theme('thread.articleDigest')};
-  padding-top: 25px;
+  padding-top: 32px;
+  padding-left: 25px;
 `
 export const Folder = styled.div`
   ${css.flex('align-center')};
