@@ -19,6 +19,7 @@ type TProps = {
   onClick?: () => void
   dimWhenIdle?: boolean
   disabled?: boolean
+  withIcon?: boolean
 } & TSpace
 
 const AddButton: FC<TProps> = ({
@@ -26,6 +27,7 @@ const AddButton: FC<TProps> = ({
   onClick = log,
   dimWhenIdle = false,
   disabled = false,
+  withIcon = true,
   ...restProps
 }) => {
   return (
@@ -35,7 +37,7 @@ const AddButton: FC<TProps> = ({
       disabled={disabled}
       {...restProps}
     >
-      <PlusIcon />
+      {withIcon && <PlusIcon />}
       <Text>{children}</Text>
     </Wrapper>
   )

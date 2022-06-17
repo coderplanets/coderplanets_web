@@ -6,6 +6,7 @@ import css, { theme } from '@/utils/css'
 
 import TwitterSVG from '@/icons/social/Twitter'
 import WeiboSVG from '@/icons/social/Weibo'
+import TelegramSVG from '@/icons/social/Telegram'
 
 import Input from '@/widgets/Input'
 
@@ -39,7 +40,13 @@ export const IconWrapper = styled.div`
   border-bottom-left-radius: 5px;
   border-right: none;
 `
-export const SelectWrapper = styled.div`
+export const Hint = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.extraInfo')};
+  opacity: 0.8;
+  margin-top: 15px;
+`
+export const PlatformWrapper = styled.div`
   ${css.flex('align-center')};
   flex-wrap: wrap;
   gap: 6px;
@@ -47,11 +54,19 @@ export const SelectWrapper = styled.div`
 `
 const TwitterIcon = styled(TwitterSVG)`
   ${css.size(16)};
+  cursor: pointer;
 `
 const WeiboIcon = styled(WeiboSVG)`
   ${css.size(18)};
+  cursor: pointer;
 `
+const TelegramIcon = styled(TelegramSVG)`
+  ${css.size(15)};
+  cursor: pointer;
+`
+
 export const Icon = {
   Twitter: TwitterIcon,
   Weibo: WeiboIcon,
+  Telegram: TelegramIcon,
 }
