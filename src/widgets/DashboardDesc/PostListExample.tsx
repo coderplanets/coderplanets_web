@@ -6,16 +6,24 @@
 
 import { FC, memo } from 'react'
 
-import { POST_LAYOUT, ARTICLE_CAT, ARTICLE_STATE } from '@/constant'
+import { POST_LAYOUT, ARTICLE_CAT, ARTICLE_STATE, SVG } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { mockUsers } from '@/utils/mock'
 import { getRandomInt } from '@/utils/helper'
 
+import { IconSwitcher } from '@/widgets/Switcher'
 import NoticeBar from '@/widgets/NoticeBar'
 import PostItem from '@/widgets/PostItem'
 
-import { Wrapper, Title, Desc, DividerLine } from './styles/post_list_example'
+import {
+  Wrapper,
+  MediaWrapper,
+  Title,
+  SubTitle,
+  Desc,
+  DividerLine,
+} from './styles/post_list_example'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:DashboardDesc:index')
@@ -41,6 +49,19 @@ const demoPost = {
   },
   author: mockUsers(1)[0],
 }
+
+const switchItems = [
+  {
+    key: 'desktop',
+    icon: SVG.DESKTOP,
+    desc: '桌面端',
+  },
+  {
+    key: 'mobile',
+    icon: SVG.MOBILE,
+    desc: '手机端',
+  },
+]
 
 const PostListExample: FC = () => {
   const article1 = {
@@ -71,10 +92,17 @@ const PostListExample: FC = () => {
       <NoticeBar
         type="info"
         content="列表中的帖子仅为展示布局参考，非真实存在。"
-        bottom={40}
+        bottom={30}
       />
 
-      <Title>紧凑简洁</Title>
+      <MediaWrapper>
+        <IconSwitcher items={switchItems} activeKey="desktop" />
+      </MediaWrapper>
+
+      <Title>
+        紧凑简洁
+        <SubTitle>(默认)</SubTitle>
+      </Title>
       <Desc>默认布局，侧重展示标题与参与 Upvotes 的用户</Desc>
       <PostItem article={demoPost} c11n={{}} curCommunity={{ raw: 'demo' }} />
       <PostItem article={article1} c11n={{}} curCommunity={{ raw: 'demo' }} />

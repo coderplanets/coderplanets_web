@@ -4,10 +4,10 @@
  *
  */
 
-import { FC, ReactNode, memo } from 'react'
+import { FC, memo } from 'react'
 import { findIndex, propEq } from 'ramda'
 
-import { nilOrEmpty } from '@/utils/validator'
+import { SVG } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import Tooltip from '@/widgets/Tooltip'
 
@@ -15,74 +15,51 @@ import {
   Wrapper,
   Tabs,
   DescText,
-  Icon,
   Label,
   Slider,
+  getLocalIcon,
 } from './styles/icon_selector'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:IconSwitcher:index')
 
 type TItem = {
-  iconSrc?: string
-  localIcon?: ReactNode
+  icon?: string
   key: string
   desc?: string
-}
-
-type TTabLabel = {
-  item: TItem
-  activeKey: string
-  onChange: (item: TItem) => void
-}
-
-const TabLabel: React.FC<TTabLabel> = ({ item, activeKey, onChange }) => {
-  if (!item.desc) {
-    return (
-      <Label onClick={() => onChange(item)}>
-        {!nilOrEmpty(item.localIcon) && <>{item.localIcon}</>}
-        {!nilOrEmpty(item.iconSrc) && (
-          <Icon src={item.iconSrc} checked={activeKey === item.key} />
-        )}
-      </Label>
-    )
-  }
-
-  return (
-    <Label onClick={() => onChange(item)}>
-      {!nilOrEmpty(item.localIcon) && <>{item.localIcon}</>}
-      {!nilOrEmpty(item.iconSrc) && (
-        <Icon src={item.iconSrc} checked={activeKey === item.key} />
-      )}
-    </Label>
-  )
 }
 
 type TProps = {
   items: TItem[]
   activeKey: string
-  onChange: (item: TItem) => void
+  onChange?: (item: TItem) => void
 }
 
-const IconSwitcher: FC<TProps> = ({ items, activeKey, onChange }) => {
+const IconSwitcher: FC<TProps> = ({ items, activeKey, onChange = log }) => {
   const slideIndex = findIndex(propEq('key', activeKey), items)
 
   return (
     <Wrapper testid="selectors">
       {/* <AccessZone /> */}
       <Tabs>
-        {items.map((item) => (
-          <Tooltip
-            key={item.key}
-            content={<DescText>{item.desc}</DescText>}
-            placement="top"
-            delay={500}
-            forceZIndex
-            noPadding
-          >
-            <TabLabel item={item} activeKey={activeKey} onChange={onChange} />
-          </Tooltip>
-        ))}
+        {items.map((item) => {
+          const LocalIcon = getLocalIcon(item.icon || SVG.UPVOTE)
+
+          return (
+            <Tooltip
+              key={item.key}
+              content={<DescText>{item.desc}</DescText>}
+              placement="top"
+              delay={500}
+              forceZIndex
+              noPadding
+            >
+              <Label onClick={() => onChange(item)}>
+                <LocalIcon $active={activeKey === item.key} />
+              </Label>
+            </Tooltip>
+          )
+        })}
         {slideIndex !== -1 && <Slider index={slideIndex} />}
       </Tabs>
     </Wrapper>
