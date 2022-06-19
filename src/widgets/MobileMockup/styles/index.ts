@@ -12,8 +12,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin: 40px auto;
   padding: 20px;
   padding-top: 40px;
-  width: 360px;
-  height: 780px;
+  width: 320px; // 360px;
+  height: 680px; // 780px;
   border-radius: 40px;
   box-shadow: 0px 0px 0px 11px ${theme('border')},
     0px 0px 0px 12px ${theme('border')}, 0px 0px 0px 6px ${theme('border')};

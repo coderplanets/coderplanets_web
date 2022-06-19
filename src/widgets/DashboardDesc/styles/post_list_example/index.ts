@@ -7,6 +7,10 @@ import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div``
 
+export const MobileWrapper = styled.div`
+  ${css.flexColumn('align-both')};
+`
+
 export const MediaWrapper = styled.div`
   ${css.flex('align-both')};
   margin-bottom: 30px;

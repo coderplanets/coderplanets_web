@@ -30,7 +30,7 @@ const PostListExample: FC<TProps> = ({ articles }) => {
         紧凑简洁
         <SubTitle>(默认)</SubTitle>
       </Title>
-      <Desc>默认布局，侧重展示标题与参与 Upvotes 的用户</Desc>
+      <Desc>侧重展示标题与参与 Upvotes 的用户</Desc>
       <Divider />
       {articles.map((item) => (
         <PostItem
