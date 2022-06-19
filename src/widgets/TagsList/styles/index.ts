@@ -27,6 +27,7 @@ export const DotSign = styled.div<THashSign>`
   ${({ size }) => css.circle(getIconSize(size))};
   margin-right: 2px;
   margin-right: ${({ size }) => `${getInnerSpace(size)}px`};
+  margin-top: -1px;
 `
 export const LabelDotSign = styled.div<THashSign>`
   background: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};

@@ -26,10 +26,10 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     //
 
     top: 0px;
-    width: 56%;
+    width: 54%;
     height: 25px;
     background-color: ${theme('border')};
-    border-radius: 0px 0px 30px 30px;
+    border-radius: 0px 0px 40px 40px;
   }
 
   &:after {

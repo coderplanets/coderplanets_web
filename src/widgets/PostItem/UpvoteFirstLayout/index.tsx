@@ -23,6 +23,7 @@ type TProps = {
   curCommunity: TCommunity | null
   article: TPost
   c11n: TC11N
+  isMobilePreview: boolean
 
   onUserSelect?: (obj: TUser) => void
   onAuthorSelect?: (obj: TAccount) => void
@@ -33,18 +34,19 @@ const PostItem: FC<TProps> = ({
   article,
   onUserSelect = log,
   onAuthorSelect = log,
+  isMobilePreview,
   c11n,
 }) => {
   return (
     <Wrapper c11n={c11n}>
-      {!isMobile ? (
-        <DesktopView article={article} curCommunity={curCommunity} />
-      ) : (
+      {isMobile || isMobilePreview ? (
         <MobileView
           article={article}
           curCommunity={curCommunity}
           onAuthorSelect={onAuthorSelect}
         />
+      ) : (
+        <DesktopView article={article} curCommunity={curCommunity} />
       )}
     </Wrapper>
   )

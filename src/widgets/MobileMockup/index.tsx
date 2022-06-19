@@ -4,7 +4,7 @@
  *
  */
 
-import { FC, memo } from 'react'
+import { FC, memo, ReactNode } from 'react'
 
 import { buildLog } from '@/utils/logger'
 
@@ -15,15 +15,13 @@ const log = buildLog('c:MobileMockup:index')
 
 type TProps = {
   testid?: string
+  children: ReactNode
 }
 
-const MobileMockup: FC<TProps> = ({ testid = 'mobile-mockup' }) => {
+const MobileMockup: FC<TProps> = ({ testid = 'mobile-mockup', children }) => {
   return (
     <Wrapper testid={testid}>
-      <Content>
-        <h2>MobileMockup widgets</h2>
-        <p>impress me</p>
-      </Content>
+      <Content>{children}</Content>
     </Wrapper>
   )
 }

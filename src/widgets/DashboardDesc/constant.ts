@@ -12,7 +12,13 @@ const demoPost = {
   views: getRandomInt(50, 399),
   upvotesCount: getRandomInt(50, 99),
   commentsCount: getRandomInt(50, 99),
-  articleTags: [],
+  articleTags: [
+    {
+      color: 'GREEN',
+      title: 'UI交互',
+      raw: 'roadmap',
+    },
+  ],
   category: ARTICLE_CAT.FEATURE,
   state: ARTICLE_STATE.TODO,
   originalCommunity: {
@@ -36,6 +42,13 @@ export const DEMO_POSTS = [
       '手机端帖子标题换行有错位问题，看起来不够直观，建议参考电商常见的搜索热榜等展示形式。',
     category: ARTICLE_CAT.BUG,
     state: ARTICLE_STATE.WIP,
+    articleTags: [
+      {
+        color: 'ORANGE',
+        title: '移动端',
+        raw: 'mobile',
+      },
+    ],
     views: getRandomInt(50, 399),
     upvotesCount: getRandomInt(50, 99),
     commentsCount: getRandomInt(50, 99),
@@ -47,6 +60,13 @@ export const DEMO_POSTS = [
     digest: '用户主页能否展示在社区内的历史发帖或评论，提高用户参与的热情？',
     category: ARTICLE_CAT.QUESTION,
     state: ARTICLE_STATE.RESOLVE,
+    articleTags: [
+      {
+        color: 'CYAN',
+        title: '账户设置',
+        raw: 'account',
+      },
+    ],
     views: getRandomInt(50, 399),
     upvotesCount: getRandomInt(50, 99),
     commentsCount: getRandomInt(50, 99),

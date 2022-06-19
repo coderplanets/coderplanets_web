@@ -1,19 +1,23 @@
 import { FC } from 'react'
 
 import type { TPost, TCommunity } from '@/spec'
-import { cutRest, changeToCommunity } from '@/utils/helper'
-import { ICON_CMD } from '@/config'
+import { UPVOTE_LAYOUT, ARTICLE_CAT } from '@/constant'
 
-import DotDivider from '@/widgets/DotDivider'
+import { cutRest } from '@/utils/helper'
+
+import ArticleCatState from '@/widgets/ArticleCatState'
+import Upvote from '@/widgets/Upvote'
+import { Space, SpaceGrow } from '@/widgets/Common'
 
 import {
   Wrapper,
-  CommunityLabel,
   Extra,
-  ExtraIcon,
-  ExtraTexts,
+  UpvotesWrapper,
+  BasicState,
   BodyDigest,
-} from '../../styles/comment_fist_layout/mobile_view/footer'
+  ViewIcon,
+  CommentIcon,
+} from '../../styles/upvote_fist_layout/mobile_view/footer'
 
 type TProps = {
   article: TPost
@@ -21,32 +25,35 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({ article, curCommunity }) => {
-  const { originalCommunity } = article
-  const showOriginalCommunity =
-    curCommunity === null || curCommunity?.raw !== originalCommunity.raw
+  const { upvotesCount, meta, viewerHasUpvoted } = article
 
   return (
     <Wrapper>
-      <Extra>
-        {showOriginalCommunity && (
-          <CommunityLabel
-            onClick={() => changeToCommunity(originalCommunity.raw)}
-          >
-            {originalCommunity.title}
-          </CommunityLabel>
-        )}
-
-        {showOriginalCommunity && <DotDivider radius={3} space={6} />}
-
-        <ExtraTexts>
-          <ExtraIcon src={`${ICON_CMD}/view_solid.svg`} />
-          {article.views}
-          <DotDivider radius={3} space={6} />
-          <ExtraIcon src={`${ICON_CMD}/comment_solid.svg`} />
-          {article.commentsCount}
-        </ExtraTexts>
-      </Extra>
       <BodyDigest>{cutRest(article.digest, 20)}</BodyDigest>
+      <Extra>
+        <UpvotesWrapper>
+          <Upvote
+            count={upvotesCount}
+            avatarList={meta.latestUpvotedUsers}
+            viewerHasUpvoted={viewerHasUpvoted}
+            type={UPVOTE_LAYOUT.KANBAN}
+            left={-2}
+          />
+        </UpvotesWrapper>
+
+        {article.category !== ARTICLE_CAT.DEFAULT && (
+          <ArticleCatState cat={article.category} state={article.state} />
+        )}
+        <SpaceGrow />
+
+        <BasicState>
+          <ViewIcon />
+          <div>{article.views}</div>
+          <Space right={12} />
+          <CommentIcon />
+          <div>{article.commentsCount}</div>
+        </BasicState>
+      </Extra>
     </Wrapper>
   )
 }

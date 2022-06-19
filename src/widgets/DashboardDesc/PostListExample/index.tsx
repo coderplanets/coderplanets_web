@@ -55,7 +55,7 @@ const PostListExample: FC = () => {
       </MediaWrapper>
 
       {mode === PREVIEW_MODE.DESKTOP && <Desktop articles={DEMO_POSTS} />}
-      {mode === PREVIEW_MODE.MOBILE && <Mobile />}
+      {mode === PREVIEW_MODE.MOBILE && <Mobile articles={DEMO_POSTS} />}
     </Wrapper>
   )
 }

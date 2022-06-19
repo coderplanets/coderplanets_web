@@ -8,7 +8,7 @@ export const getIconSize = (size: TSizeTSM): number => {
     }
 
     default: {
-      return 7
+      return 6
     }
   }
 }
