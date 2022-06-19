@@ -1,8 +1,11 @@
+import { FC } from 'react'
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TActive } from '@/spec'
 import Img from '@/Img'
 import css, { theme } from '@/utils/css'
+
+import { getLocalSVG } from '@/icons'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -60,6 +63,25 @@ export const Icon = styled(Img)<{ checked: boolean }>`
     fill: ${theme('thread.extraInfo')};
   }
 `
+
+const styledIcon = (comp: FC): FC<TActive> => {
+  return styled(comp)<TActive>`
+    fill: ${theme('thread.extraInfo')};
+    ${({ $active }) => ($active ? css.size(14) : css.size(12))};
+    transition: all 0.2s;
+
+    &:hover {
+      fill: ${theme('thread.extraInfo')};
+    }
+
+    transition: all 0.2s;
+  `
+}
+
+export const getLocalIcon = (type: string): FC<TActive> => {
+  return getLocalSVG(type, styledIcon)
+}
+
 export const Slider = styled.span<{ index: number }>`
   ${css.flex()};
   position: absolute;

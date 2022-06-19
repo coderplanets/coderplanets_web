@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 import css, { theme } from '@/utils/css'
-import Img from '@/Img'
 
-export const Wrapper = styled.div`
-  margin-top: -10px;
-`
+import ViewSVG from '@/icons/View'
+import CommentSVG from '@/icons/Comment'
+
+export const Wrapper = styled.div``
 export const CommunityLabel = styled.div`
   color: inherit;
   padding-left: 14px;
@@ -41,36 +41,28 @@ export const Extra = styled.li`
   font-size: 13px;
   color: ${theme('thread.extraInfo')};
 `
-export const ExtraIcon = styled(Img)`
-  ${css.size(15)};
-  fill: #28a49b;
-  margin-right: 4px;
-  opacity: 0.8;
+export const UpvotesWrapper = styled.div`
+  transform: scale(0.9);
 `
-export const ExtraTexts = styled.div`
+export const ViewIcon = styled(ViewSVG)`
+  ${css.size(10)};
+  fill: ${theme('thread.extraInfo')};
+  margin-right: 4px;
+`
+export const CommentIcon = styled(CommentSVG)`
+  ${css.size(8)};
+  fill: ${theme('thread.extraInfo')};
+  margin-right: 6px;
+`
+export const BasicState = styled.div`
   ${css.flex('align-center')};
-  opacity: 0.7;
+  font-size: 12px;
+  color: ${theme('thread.extraInfo')};
 `
 export const BodyDigest = styled.li`
-  margin-top: 5px;
   color: ${theme('thread.articleDigest')};
-  white-space: normal;
-  display: block;
+  ${css.lineClamp(1)};
   font-size: 12px;
-  max-width: 96%;
-`
-export const CommentWrapper = styled.div`
-  ${css.flex('align-center')};
-  align-self: flex-start;
-`
-export const CommentIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(14)};
-  margin-right: 4px;
-`
-export const CommentNum = styled.div`
-  color: ${theme('thread.articleTitle')};
-  font-size: 0.9rem;
 `
 export const PublishLabel = styled.span`
   display: inline;

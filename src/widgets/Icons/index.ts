@@ -36,10 +36,33 @@ import LightIcon from './Light'
 import BugIcon from './Bug'
 import QuestionIcon from './Question'
 
+// comments
+import ReplyModeIcon from './CommentReplyMode'
+import TimelineModeIcon from './CommentTimelineMode'
+
+import DesktopIcon from './Desktop'
+import MobileIcon from './Mobile'
+
 type TstyledFn = (comp: FC) => FC
 
 export const getLocalSVG = (type: string, styledFn: TstyledFn): FC => {
   switch (type) {
+    case SVG.DESKTOP: {
+      return styledFn(DesktopIcon)
+    }
+
+    case SVG.MOBILE: {
+      return styledFn(MobileIcon)
+    }
+
+    case SVG.REPLY_MODE: {
+      return styledFn(ReplyModeIcon)
+    }
+
+    case SVG.TIMELINE_MODE: {
+      return styledFn(TimelineModeIcon)
+    }
+
     case SVG.FEATURE: {
       return styledFn(LightIcon)
     }

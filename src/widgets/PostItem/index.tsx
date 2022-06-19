@@ -22,6 +22,7 @@ type TProps = {
   article: TPost
   c11n: TC11N
   layout?: string
+  isMobilePreview?: boolean
 
   onUserSelect?: (obj: TUser) => void
   onAuthorSelect?: (obj: TAccount) => void
@@ -33,6 +34,7 @@ const PostItem: FC<TProps> = ({
   onUserSelect = log,
   onAuthorSelect = log,
   layout = POST_LAYOUT.UPVOTE_FIRST,
+  isMobilePreview = false,
   c11n,
 }) => {
   return (
@@ -43,6 +45,7 @@ const PostItem: FC<TProps> = ({
           article={article}
           curCommunity={curCommunity}
           onAuthorSelect={onAuthorSelect}
+          isMobilePreview={isMobilePreview}
         />
       ) : (
         <CommentFirstLayout
@@ -50,6 +53,7 @@ const PostItem: FC<TProps> = ({
           article={article}
           curCommunity={curCommunity}
           onAuthorSelect={onAuthorSelect}
+          isMobilePreview={isMobilePreview}
         />
       )}
     </Fragment>

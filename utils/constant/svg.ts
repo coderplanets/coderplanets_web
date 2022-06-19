@@ -40,6 +40,10 @@ const SVG = {
   QUESTION: 'question',
   FEATURE: 'feature',
   BUG: 'bug',
+
+  //
+  DESKTOP: 'desktop',
+  MOBILE: 'mobile',
 }
 
 export default SVG

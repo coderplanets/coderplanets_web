@@ -5,16 +5,13 @@ import type { TPost, TAccount } from '@/spec'
 
 import TagsList from '@/widgets/TagsList'
 import DotDivider from '@/widgets/DotDivider'
-import ImgFallback from '@/widgets/ImgFallback'
 
 import {
   Wrapper,
-  AvatarWrapper,
-  Avatar,
   AuthorInfo,
   TimeStamp,
   TagListWrapper,
-} from '../../styles/comment_fist_layout/mobile_view/header'
+} from '../../styles/upvote_fist_layout/mobile_view/header'
 
 type TProps = {
   article: TPost
@@ -25,14 +22,11 @@ const Header: FC<TProps> = ({ article, onAuthorSelect }) => {
   return (
     <Wrapper>
       <AuthorInfo>
-        <AvatarWrapper onClick={() => onAuthorSelect(article.author)}>
-          <Avatar
-            src={article.author.avatar}
-            fallback={<ImgFallback user={article.author} size={16} right={6} />}
-          />
-        </AvatarWrapper>
-        <div>{article.author.nickname}</div>
-        <DotDivider radius={3} space={6} />
+        <div onClick={() => onAuthorSelect(article.author)}>
+          {article?.author.nickname}
+        </div>
+        <DotDivider radius={2} space={8} />
+
         <TimeStamp>
           <TimeAgo datetime={article.insertedAt} locale="zh_CN" />
         </TimeStamp>

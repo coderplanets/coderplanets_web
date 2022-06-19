@@ -47,7 +47,7 @@ const PagiOptionSwitcher = ({ title, items, activeKey, onChange }) => {
     () =>
       items.map((item) => ({
         ...item,
-        localIcon: getLocalIcon(item, activeKey),
+        icon: getLocalIcon(item, activeKey),
       })),
     [items, activeKey],
   )

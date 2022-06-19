@@ -1,6 +1,5 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
 import { SVG } from '@/constant'
 
 import IconButton from '@/widgets/Buttons/IconButton'
@@ -24,12 +23,12 @@ const actionIconConfig = {
 const switchItems = [
   {
     key: MODE.REPLIES,
-    iconSrc: `${ICON}/article/comment-reply-mode.svg`,
+    icon: SVG.REPLY_MODE,
     desc: '回复模式',
   },
   {
     key: MODE.TIMELINE,
-    iconSrc: `${ICON}/article/comment-timeline-mode.svg`,
+    icon: SVG.TIMELINE_MODE,
     desc: '时间线模式',
   },
 ]

@@ -1,18 +1,19 @@
 import { FC } from 'react'
 
 import type { TPost, TCommunity } from '@/spec'
-import { cutRest, changeToCommunity } from '@/utils/helper'
-import { ICON_CMD } from '@/config'
+import { ARTICLE_CAT } from '@/constant'
 
-import DotDivider from '@/widgets/DotDivider'
+import { cutRest } from '@/utils/helper'
+
+import ArticleCatState from '@/widgets/ArticleCatState'
+import { Space } from '@/widgets/Common'
 
 import {
   Wrapper,
-  CommunityLabel,
   Extra,
-  ExtraIcon,
-  ExtraTexts,
+  BasicState,
   BodyDigest,
+  CommentIcon,
 } from '../../styles/comment_fist_layout/mobile_view/footer'
 
 type TProps = {
@@ -21,32 +22,19 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({ article, curCommunity }) => {
-  const { originalCommunity } = article
-  const showOriginalCommunity =
-    curCommunity === null || curCommunity?.raw !== originalCommunity.raw
-
   return (
     <Wrapper>
+      <BodyDigest>{article.digest}</BodyDigest>
       <Extra>
-        {showOriginalCommunity && (
-          <CommunityLabel
-            onClick={() => changeToCommunity(originalCommunity.raw)}
-          >
-            {originalCommunity.title}
-          </CommunityLabel>
+        {article.category !== ARTICLE_CAT.DEFAULT && (
+          <ArticleCatState cat={article.category} state={article.state} />
         )}
-
-        {showOriginalCommunity && <DotDivider radius={3} space={6} />}
-
-        <ExtraTexts>
-          <ExtraIcon src={`${ICON_CMD}/view_solid.svg`} />
-          {article.views}
-          <DotDivider radius={3} space={6} />
-          <ExtraIcon src={`${ICON_CMD}/comment_solid.svg`} />
-          {article.commentsCount}
-        </ExtraTexts>
+        <BasicState>
+          <Space right={18} />
+          <CommentIcon />
+          <div>{article.commentsCount}</div>
+        </BasicState>
       </Extra>
-      <BodyDigest>{cutRest(article.digest, 20)}</BodyDigest>
     </Wrapper>
   )
 }
