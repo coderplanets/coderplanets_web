@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
-  ${css.flex('align-end', 'justify-between')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
-  margin-left: 0;
-  margin-bottom: 3px;
+  margin-left: 1px;
+  margin-bottom: 5px;
 `
 export const AuthorInfo = styled.div`
   ${css.flex('align-center')};
@@ -15,7 +15,6 @@ export const AuthorInfo = styled.div`
 `
 export const TimeStamp = styled.div`
   font-size: 12px;
-  margin-top: 2px;
 `
 export const Brief = styled.div`
   ${css.flexGrow('align-center')};
@@ -26,5 +25,5 @@ export const Brief = styled.div`
   }
 `
 export const TagListWrapper = styled.div`
-  margin-right: -3px;
+  margin-left: 14px;
 `

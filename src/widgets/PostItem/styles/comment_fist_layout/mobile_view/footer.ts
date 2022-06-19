@@ -61,10 +61,8 @@ export const BasicState = styled.div`
 `
 export const BodyDigest = styled.li`
   color: ${theme('thread.articleDigest')};
-  white-space: normal;
-  display: block;
+  ${css.lineClamp(1)};
   font-size: 12px;
-  max-width: 96%;
 `
 export const PublishLabel = styled.span`
   display: inline;

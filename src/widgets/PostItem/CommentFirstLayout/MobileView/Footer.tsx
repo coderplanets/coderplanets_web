@@ -1,18 +1,16 @@
 import { FC } from 'react'
 
 import type { TPost, TCommunity } from '@/spec'
-import { UPVOTE_LAYOUT, ARTICLE_CAT } from '@/constant'
+import { ARTICLE_CAT } from '@/constant'
 
 import { cutRest } from '@/utils/helper'
 
 import ArticleCatState from '@/widgets/ArticleCatState'
-import Upvote from '@/widgets/Upvote'
 import { Space } from '@/widgets/Common'
 
 import {
   Wrapper,
   Extra,
-  UpvotesWrapper,
   BasicState,
   BodyDigest,
   CommentIcon,
@@ -24,23 +22,10 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({ article, curCommunity }) => {
-  const { upvotesCount, meta, viewerHasUpvoted } = article
-
   return (
     <Wrapper>
-      <BodyDigest>{cutRest(article.digest, 20)}</BodyDigest>
+      <BodyDigest>{article.digest}</BodyDigest>
       <Extra>
-        <UpvotesWrapper>
-          <Upvote
-            count={upvotesCount}
-            avatarList={meta.latestUpvotedUsers}
-            viewerHasUpvoted={viewerHasUpvoted}
-            type={UPVOTE_LAYOUT.KANBAN}
-            left={-6}
-            right={5}
-          />
-        </UpvotesWrapper>
-
         {article.category !== ARTICLE_CAT.DEFAULT && (
           <ArticleCatState cat={article.category} state={article.state} />
         )}

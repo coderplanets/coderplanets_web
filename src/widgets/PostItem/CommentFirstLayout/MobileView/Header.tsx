@@ -18,7 +18,7 @@ type TProps = {
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const Header: FC<TProps> = ({ article, onAuthorSelect }) => {
+const Body: FC<TProps> = ({ article, onAuthorSelect }) => {
   return (
     <Wrapper>
       <AuthorInfo>
@@ -26,7 +26,6 @@ const Header: FC<TProps> = ({ article, onAuthorSelect }) => {
           {article?.author.nickname}
         </div>
         <DotDivider radius={2} space={8} />
-
         <TimeStamp>
           <TimeAgo datetime={article.insertedAt} locale="zh_CN" />
         </TimeStamp>
@@ -38,4 +37,4 @@ const Header: FC<TProps> = ({ article, onAuthorSelect }) => {
   )
 }
 
-export default memo(Header)
+export default memo(Body)

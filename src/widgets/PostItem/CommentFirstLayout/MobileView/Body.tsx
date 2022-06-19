@@ -13,7 +13,7 @@ type TProps = {
   article: TPost
 }
 
-const Body: FC<TProps> = ({ article }) => {
+const Header: FC<TProps> = ({ article }) => {
   const gotoArticle = useCallback(() => {
     Router.push(`/${ARTICLE_THREAD.POST}/${article.id}`)
   }, [article.id])
@@ -25,4 +25,4 @@ const Body: FC<TProps> = ({ article }) => {
   )
 }
 
-export default memo(Body)
+export default memo(Header)
