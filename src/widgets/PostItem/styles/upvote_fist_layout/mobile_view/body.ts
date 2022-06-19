@@ -10,7 +10,8 @@ export const Wrapper = styled.div`
 export const Title = styled.a`
   color: ${theme('thread.articleTitle')};
   text-decoration: none;
-  font-size: 15.5px;
+  font-size: 15px;
+  font-weight: 600;
 
   &:hover {
     text-decoration: none;

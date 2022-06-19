@@ -7,7 +7,7 @@ import { cutRest } from '@/utils/helper'
 
 import ArticleCatState from '@/widgets/ArticleCatState'
 import Upvote from '@/widgets/Upvote'
-import { Space, SpaceGrow } from '@/widgets/Common'
+import { Space } from '@/widgets/Common'
 
 import {
   Wrapper,
@@ -15,7 +15,6 @@ import {
   UpvotesWrapper,
   BasicState,
   BodyDigest,
-  ViewIcon,
   CommentIcon,
 } from '../../styles/upvote_fist_layout/mobile_view/footer'
 
@@ -37,19 +36,16 @@ const Footer: FC<TProps> = ({ article, curCommunity }) => {
             avatarList={meta.latestUpvotedUsers}
             viewerHasUpvoted={viewerHasUpvoted}
             type={UPVOTE_LAYOUT.KANBAN}
-            left={-2}
+            left={-6}
+            right={5}
           />
         </UpvotesWrapper>
 
         {article.category !== ARTICLE_CAT.DEFAULT && (
           <ArticleCatState cat={article.category} state={article.state} />
         )}
-        <SpaceGrow />
-
         <BasicState>
-          <ViewIcon />
-          <div>{article.views}</div>
-          <Space right={12} />
+          <Space right={18} />
           <CommentIcon />
           <div>{article.commentsCount}</div>
         </BasicState>

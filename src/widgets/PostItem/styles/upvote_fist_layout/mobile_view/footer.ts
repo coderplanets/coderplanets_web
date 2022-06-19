@@ -42,8 +42,7 @@ export const Extra = styled.li`
   color: ${theme('thread.extraInfo')};
 `
 export const UpvotesWrapper = styled.div`
-  margin-left: -10px;
-  transform: scale(0.85);
+  transform: scale(0.9);
 `
 export const ViewIcon = styled(ViewSVG)`
   ${css.size(10)};
@@ -53,7 +52,7 @@ export const ViewIcon = styled(ViewSVG)`
 export const CommentIcon = styled(CommentSVG)`
   ${css.size(8)};
   fill: ${theme('thread.extraInfo')};
-  margin-right: 4px;
+  margin-right: 6px;
 `
 export const BasicState = styled.div`
   ${css.flex('align-center')};
@@ -66,15 +65,6 @@ export const BodyDigest = styled.li`
   display: block;
   font-size: 12px;
   max-width: 96%;
-`
-export const CommentWrapper = styled.div`
-  ${css.flex('align-center')};
-  align-self: flex-start;
-`
-
-export const CommentNum = styled.div`
-  color: ${theme('thread.articleTitle')};
-  font-size: 0.9rem;
 `
 export const PublishLabel = styled.span`
   display: inline;
