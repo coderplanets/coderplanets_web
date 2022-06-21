@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 import type {
   TWallpaper,
   TColorName,
@@ -7,12 +9,26 @@ import type {
   TTag,
 } from '@/spec'
 
+type TMenuGroupName = 'BASIC' | 'ANALYSIS' | 'MANAGEMENT' | 'INTEGRATE'
+
+export type TMenuGroup = {
+  title: string
+  icon: ReactNode
+  children: TMenuItem[]
+}
+type TMenuItem = { title: string; raw: TTab }
+
+export type TMenu = {
+  [k: TMenuGroupName]: TMenuGroup
+}
+
 export type TTab =
   | 'overview'
   // basic-info
   | 'basic_info'
   | 'ui'
   | 'threads'
+  | 'alias'
   | 'domain'
   // analysis
   // --
@@ -46,6 +62,8 @@ export type TTouched = {
   bannerLayout: boolean
   postLayout: boolean
   changelogLayout: boolean
+  // sidebar
+  ui: boolean
 }
 
 export type TSettingField =

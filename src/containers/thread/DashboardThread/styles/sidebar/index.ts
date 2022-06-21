@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable, TActive } from '@/spec'
+import type { TTestable } from '@/spec'
 
 import InfoSVG from '@/icons/Info'
 import PulseSVG from '@/icons/Pulse'
@@ -51,32 +51,3 @@ export const Icon = {
   Management: ManagementIcon,
   Bind: BindIcon,
 }
-
-export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
-  font-size: 15px;
-  margin-left: 12px;
-  font-weight: 500;
-`
-
-export const Item = styled.div<TActive>`
-  position: relative;
-  color: ${({ $active }) =>
-    $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  background: ${({ $active }) => ($active ? theme('hoverBg') : 'transparent')};
-  font-weight: ${({ $active }) => ($active ? 500 : 400)};
-  padding: 3px 5px;
-  padding-left: 26px;
-  border-radius: 8px;
-  font-size: 14px;
-  margin-bottom: 2px;
-  /* margin-left: 24px; */
-
-  &:hover {
-    cursor: pointer;
-    color: ${theme('thread.articleTitle')};
-    background: ${theme('hoverBg')};
-  }
-
-  transition: all 0.2s;
-`
