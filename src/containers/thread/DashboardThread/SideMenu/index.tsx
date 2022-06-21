@@ -9,14 +9,14 @@ import type { TTab, TTouched, TMenuGroup } from '../spec'
 
 import Group from './Group'
 
-import { Wrapper } from '../styles/sidebar'
+import { Wrapper } from '../styles/side_menu'
 
 type TProps = {
   curTab: TTab
   touched: TTouched
 }
 
-const Sidebar: FC<TProps> = ({ curTab, touched }) => {
+const SideMenu: FC<TProps> = ({ curTab, touched }) => {
   const groupKeys = keys(MENU)
 
   return (
@@ -37,4 +37,4 @@ const Sidebar: FC<TProps> = ({ curTab, touched }) => {
   )
 }
 
-export default memo(Sidebar)
+export default memo(SideMenu)

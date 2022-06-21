@@ -2,7 +2,7 @@ import type { SnakeUpperCase } from '@/spec'
 
 import type { TTab, TSettingField } from './spec'
 
-import { Icon } from './styles/sidebar'
+import { Icon } from './styles/side_menu'
 
 export const TAB = {
   OVERVIEW: 'overview',

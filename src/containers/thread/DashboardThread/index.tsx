@@ -9,7 +9,7 @@ import { FC } from 'react'
 import { bond } from '@/utils/mobx'
 
 import { TAB } from './constant'
-import Sidebar from './Sidebar'
+import SideMenu from './SideMenu'
 
 import type { TStore } from './store'
 import { Wrapper, MainWrapper } from './styles'
@@ -44,7 +44,7 @@ const DashboardThreadContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <Sidebar curTab={curTab} touched={touched} />
+      <SideMenu curTab={curTab} touched={touched} />
       <MainWrapper>
         {curTab === TAB.BASIC_INFO && <BasicInfo />}
         {curTab === TAB.UI && <UI settings={uiSettings} touched={touched} />}

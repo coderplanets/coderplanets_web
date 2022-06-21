@@ -2,7 +2,7 @@ import { FC, memo, Fragment } from 'react'
 
 import type { TTab, TMenuGroup, TTouched } from '../spec'
 
-import { Folder, Item, Title, TouchedDot } from '../styles/sidebar/group'
+import { Folder, Item, Title, TouchedDot } from '../styles/side_menu/group'
 import { tabOnChange } from '../logic'
 
 type TProps = {
