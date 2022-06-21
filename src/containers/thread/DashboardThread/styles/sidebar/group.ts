@@ -39,7 +39,7 @@ export const Item = styled.div<TActive>`
 `
 export const TouchedDot = styled.div`
   ${css.circle(5)};
-  background-color: ${theme('thread.articleDigest')};
+  background-color: ${theme('thread.extraInfo')};
   opacity: 0.8;
   position: absolute;
   top: 11px;
