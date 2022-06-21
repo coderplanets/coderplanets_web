@@ -60,12 +60,26 @@ const DashboardThread = T.model('DashboardThread', {
     get touched(): TTouched {
       const slf = self as TStore
 
+      const { initSettings } = slf
+
+      const primaryColorTouched = slf.primaryColor !== initSettings.primaryColor
+      const bannerLayoutTouched = slf.bannerLayout !== initSettings.bannerLayout
+      const postLayoutTouched = slf.postLayout !== initSettings.postLayout
+      const changelogLayoutTouched =
+        slf.changelogLayout !== initSettings.changelogLayout
+
       return {
-        primaryColor: slf.primaryColor !== slf.initSettings.primaryColor,
-        bannerLayout: slf.bannerLayout !== slf.initSettings.bannerLayout,
-        postLayout: slf.postLayout !== slf.initSettings.postLayout,
-        changelogLayout:
-          slf.changelogLayout !== slf.initSettings.changelogLayout,
+        primaryColor: primaryColorTouched,
+        bannerLayout: bannerLayoutTouched,
+        postLayout: postLayoutTouched,
+        changelogLayout: changelogLayoutTouched,
+
+        // sidebar-item
+        ui:
+          primaryColorTouched ||
+          bannerLayoutTouched ||
+          postLayoutTouched ||
+          changelogLayoutTouched,
       }
     },
     get tagSettings(): TTagSettings {

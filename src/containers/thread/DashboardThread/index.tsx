@@ -18,6 +18,7 @@ import { useInit } from './logic' /* eslint-disable-next-line */
 // basic
 import BasicInfo from './BasicInfo'
 import UI from './UI'
+import Alias from './Alias'
 import Admin from './Admin'
 import Threads from './Threads'
 import Tags from './Tags'
@@ -43,10 +44,11 @@ const DashboardThreadContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <Sidebar curTab={curTab} />
+      <Sidebar curTab={curTab} touched={touched} />
       <MainWrapper>
         {curTab === TAB.BASIC_INFO && <BasicInfo />}
         {curTab === TAB.UI && <UI settings={uiSettings} touched={touched} />}
+        {curTab === TAB.ALIAS && <Alias />}
         {curTab === TAB.ADMINS && <Admin />}
         {curTab === TAB.THREADS && <Threads />}
         {curTab === TAB.TAGS && <Tags settings={tagSettings} />}
