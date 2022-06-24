@@ -50,7 +50,7 @@ const Tabs: FC<TProps> = ({
       {items.map((item) => (
         <TabItem
           key={isString(item) ? item : item.raw || item.title}
-          active={activeKey === item.raw}
+          $active={activeKey === item.raw}
           onClick={() => handleItemClick(item)}
         >
           {item.title}
