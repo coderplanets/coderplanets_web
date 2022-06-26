@@ -1,17 +1,9 @@
 import { FC, memo } from 'react'
 
 import type { TUser } from '@/spec'
+import AdminAvatar from '@/widgets/AdminAvatar'
 
-import {
-  Wrapper,
-  AvatarWrapper,
-  Avatar,
-  BadgeWrapper,
-  BadgeIcon,
-  Info,
-  Name,
-  Bio,
-} from '../styles/members/admin_member'
+import { Wrapper, Info, Name, Bio } from '../styles/members/admin_member'
 
 type TProps = {
   user: TUser
@@ -20,12 +12,7 @@ type TProps = {
 const AdminMember: FC<TProps> = ({ user }) => {
   return (
     <Wrapper>
-      <AvatarWrapper>
-        <Avatar src={user.avatar} />
-        <BadgeWrapper>
-          <BadgeIcon />
-        </BadgeWrapper>
-      </AvatarWrapper>
+      <AdminAvatar user={user} right={10} />
       <Info>
         <Name>{user.nickname}</Name>
         <Bio>{user.bio}</Bio>
