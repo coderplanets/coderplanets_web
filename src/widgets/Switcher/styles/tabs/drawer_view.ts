@@ -10,27 +10,29 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   position: relative;
   overflow: hidden;
   width: 100%;
+  height: 36px;
+  border: 2px solid;
+  border-color: ${theme('border')};
+  border-radius: 8px;
+  background: ${theme('border')};
+  padding: 0 1px;
 `
-// #093542
 export const TabItem = styled.div<TActive>`
-  ${css.flex('justify-center')};
-  padding-top: 4px;
-  padding-bottom: 4px;
-  color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  background: ${({ active }) => (active ? theme('border') : theme('hoverBg'))};
-  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
+  ${css.flex('align-both')};
+  height: 30px;
+
+  color: ${({ $active }) =>
+    $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  background: ${({ $active }) => ($active ? theme('hoverBg') : 'transparent')};
+  font-weight: ${({ $active }) => ($active ? 600 : 'normal')};
   font-size: 12px;
   flex-grow: 1;
-  cursor: pointer;
+  border-radius: 6px;
 
-  :first-child {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+  &:hover {
+    font-weight: 600;
+    cursor: pointer;
   }
 
-  :last-child {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
+  transition: all 0.2s;
 `

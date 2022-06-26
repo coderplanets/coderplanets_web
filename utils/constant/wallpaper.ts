@@ -98,7 +98,7 @@ export const GRADIENT_WALLPAPER = {
     ...DEFAULT_GRADIENT_EFFECT,
   },
   pink: {
-    colors: ['#D6C4BA', '#C5BADB'],
+    colors: ['#FBEFDE', '#D8B9E3'],
     ...DEFAULT_GRADIENT_EFFECT,
     hasBlur: true,
   },
