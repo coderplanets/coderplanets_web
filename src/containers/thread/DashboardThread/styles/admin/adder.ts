@@ -14,13 +14,12 @@ export const Inputer = styled(Input)`
   font-size: 13px;
 `
 export const PlusIcon = styled(PlusSVG)`
-  ${css.size(13)};
+  ${css.size(11)};
   fill: white;
   margin-right: 8px;
 `
 export const AddButton = styled(Button)`
   border-radius: 5px;
-  height: 32px;
-  padding: 4px 15px;
-  width: 130px;
+  height: 30px;
+  width: 100px;
 `
