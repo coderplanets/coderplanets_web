@@ -33,6 +33,7 @@ export const SETTING_FIELD = {
   BANNER_LAYOUT: 'bannerLayout',
   CHANGELOG_LAYOUT: 'changelogLayout',
   TAG: 'tag',
+  ALIAS: 'alias',
 } as Record<SnakeUpperCase<TSettingField>, TSettingField>
 
 export const MENU = {
@@ -117,3 +118,21 @@ export const MENU = {
     ],
   },
 }
+
+export const BUILDIN_ALIAS = [
+  {
+    raw: 'posts',
+    name: '讨论',
+    original: '讨论',
+  },
+  {
+    raw: 'changelog',
+    name: '更新日志',
+    original: '更新日志',
+  },
+  {
+    raw: 'kanban',
+    name: '看板',
+    original: '看板',
+  },
+]

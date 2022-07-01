@@ -49,6 +49,16 @@ export type TTagSettings = {
   editingTag: TTag
 }
 
+export type TAlias = {
+  raw: string
+  name: string
+  original?: string
+}
+export type TAliasSettings = {
+  alias: TAlias[]
+  editingAlias: TAlias
+}
+
 export type TUiSettings = {
   wallpaper: TWallpaper
   primaryColor: TColorName
@@ -72,3 +82,4 @@ export type TSettingField =
   | 'bannerLayout'
   | 'changelogLayout'
   | 'tag'
+  | 'alias'

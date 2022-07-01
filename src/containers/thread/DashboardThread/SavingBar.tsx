@@ -22,6 +22,7 @@ type TProps = {
   hint?: ReactNode
   children?: ReactNode
   isTouched?: boolean
+  onCancel?: () => void
 } & TSpace
 
 const SavingBar: FC<TProps> = ({
@@ -30,6 +31,7 @@ const SavingBar: FC<TProps> = ({
   hint = null,
   children = null,
   isTouched = false,
+  onCancel = console.log,
   ...restProps
 }) => {
   if (children !== null) {
@@ -43,7 +45,10 @@ const SavingBar: FC<TProps> = ({
               cancelText="取消"
               confirmText="确定"
               space={4}
-              onCancel={() => rollbackEdit(field)}
+              onCancel={() => {
+                onCancel?.()
+                rollbackEdit(field)
+              }}
               onConfirm={() => onSave(field)}
             />
           </ActionWrapper>
@@ -70,7 +75,10 @@ const SavingBar: FC<TProps> = ({
           cancelText="取消"
           confirmText="确定"
           space={4}
-          onCancel={() => rollbackEdit(field)}
+          onCancel={() => {
+            onCancel?.()
+            rollbackEdit(field)
+          }}
         />
       </ActionWrapper>
     </Wrapper>

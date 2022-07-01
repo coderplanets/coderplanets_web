@@ -7,29 +7,29 @@ import CloseSVG from '@/icons/CloseLight'
 
 import Input from '@/widgets/Input'
 
-export const Wrapper = styled.div<{ editing: boolean }>`
+export const Wrapper = styled.div<{ isEditMode: boolean }>`
   ${css.flex('align-center')};
   width: 100%;
-  height: ${({ editing }) => (editing ? '46px' : '40px')};
+  height: ${({ isEditMode }) => (isEditMode ? '46px' : '40px')};
   margin-left: -8px;
-  padding: ${({ editing }) => (editing ? 0 : '10px')};
-  border: ${({ editing }) => (editing ? 'none' : '1px solid')};
+  padding: ${({ isEditMode }) => (isEditMode ? 0 : '10px')};
+  border: ${({ isEditMode }) => (isEditMode ? 'none' : '1px solid')};
   border-color: ${theme('border')};
   border-radius: 5px;
   margin-bottom: 12px;
 
   &:hover {
-    background: ${({ editing }) =>
-      !editing ? theme('hoverBg') : 'transparent'};
+    background: ${({ isEditMode }) =>
+      !isEditMode ? theme('hoverBg') : 'transparent'};
   }
 
   transition: background 0.2s;
 `
-type TDot = { color: string; editing?: boolean }
+type TDot = { color: string; isEditMode?: boolean }
 export const Dot = styled.div<TDot>`
-  ${({ editing }) => (!editing ? css.circle(11) : css.size(18))};
+  ${({ isEditMode }) => (!isEditMode ? css.circle(11) : css.size(18))};
   background: ${({ color }) => color};
-  border-radius: ${({ editing }) => (editing ? '4px' : '100%')};
+  border-radius: ${({ isEditMode }) => (isEditMode ? '4px' : '100%')};
 `
 export const DotSelector = styled.div`
   ${css.size(26)};

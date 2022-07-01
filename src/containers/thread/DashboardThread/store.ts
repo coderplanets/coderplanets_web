@@ -18,12 +18,25 @@ import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 import { Tag } from '@/model'
 
-import type { TUiSettings, TTagSettings, TTouched, TSettingField } from './spec'
+import type {
+  TUiSettings,
+  TTagSettings,
+  TAliasSettings,
+  TTouched,
+  TSettingField,
+  TAlias,
+} from './spec'
 
-import { TAB, SETTING_FIELD } from './constant'
+import { TAB, SETTING_FIELD, BUILDIN_ALIAS } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:DashboardThread')
+
+const Alias = T.model('Alias', {
+  raw: T.optional(T.string, ''),
+  name: T.optional(T.string, ''),
+  original: T.optional(T.string, ''),
+})
 
 const settingsModalFields = {
   primaryColor: T.optional(T.enumeration(keys(COLORS)), 'BLACK'),
@@ -40,6 +53,7 @@ const settingsModalFields = {
     CHANGELOG_LAYOUT.FOLD,
   ),
   tags: T.optional(T.array(Tag), mockTags(12)),
+  alias: T.optional(T.array(Alias), BUILDIN_ALIAS),
 }
 
 const InitSettings = T.model('DashboardInit', settingsModalFields)
@@ -47,6 +61,7 @@ const InitSettings = T.model('DashboardInit', settingsModalFields)
 const DashboardThread = T.model('DashboardThread', {
   curTab: T.optional(T.enumeration(values(TAB)), TAB.UI),
   editingTag: T.maybeNull(Tag),
+  editingAlias: T.maybeNull(Alias),
   ...settingsModalFields,
   initSettings: T.optional(InitSettings, {}),
 })
@@ -82,12 +97,22 @@ const DashboardThread = T.model('DashboardThread', {
           changelogLayoutTouched,
       }
     },
+
     get tagSettings(): TTagSettings {
       const slf = self as TStore
 
       return {
         editingTag: toJS(slf.editingTag),
         tags: toJS(slf.tags),
+      }
+    },
+
+    get aliasSettings(): TAliasSettings {
+      const slf = self as TStore
+
+      return {
+        editingAlias: toJS(slf.editingAlias),
+        alias: toJS(slf.alias),
       }
     },
 
@@ -113,15 +138,22 @@ const DashboardThread = T.model('DashboardThread', {
       const slf = self as TStore
 
       if (field === SETTING_FIELD.TAG) {
-        const { tags, editingTag } = slf
-        const targetIdx = findIndex(
-          (item: TTag) => item.id === editingTag.id,
-          toJS(tags),
-        )
+        const { editingTag } = slf
+        const targetIdx = slf._findTagIdx()
         if (targetIdx < 0) return
 
         slf.tags[targetIdx] = clone(toJS(editingTag))
         slf.editingTag = null
+      }
+
+      if (field === SETTING_FIELD.ALIAS) {
+        const { editingAlias } = slf
+
+        const targetIdx = slf._findAliasIdx()
+        if (targetIdx < 0) return
+
+        slf.alias[targetIdx] = clone(toJS(editingAlias))
+        slf.editingAlias = null
       }
     },
 
@@ -129,11 +161,7 @@ const DashboardThread = T.model('DashboardThread', {
       const slf = self as TStore
 
       if (field === SETTING_FIELD.TAG) {
-        const { tags, editingTag } = slf
-        const targetIdx = findIndex(
-          (item: TTag) => item.id === editingTag.id,
-          toJS(tags),
-        )
+        const targetIdx = slf._findTagIdx()
         if (targetIdx < 0) return
 
         slf.tags[targetIdx] = toJS(slf.tags[targetIdx])
@@ -141,10 +169,57 @@ const DashboardThread = T.model('DashboardThread', {
         return
       }
 
+      if (field === SETTING_FIELD.ALIAS) {
+        const targetIdx = slf._findAliasIdx()
+        if (targetIdx < 0) return
+
+        slf.alias[targetIdx] = toJS(slf.alias[targetIdx])
+        slf.editingAlias = null
+        return
+      }
+
       const initValue = slf.initSettings[field]
 
       // @ts-ignore
       self[field] = initValue
+    },
+
+    resetEdit(field: TSettingField): void {
+      const slf = self as TStore
+
+      if (field === SETTING_FIELD.ALIAS) {
+        const targetIdx = slf._findAliasIdx()
+        if (targetIdx < 0) return
+
+        slf.alias[targetIdx] = {
+          ...slf.alias[targetIdx],
+          name: slf.alias[targetIdx].original,
+        }
+        slf.editingAlias = null
+      }
+    },
+
+    _findTagIdx(): number {
+      const slf = self as TStore
+
+      const { tags, editingTag } = slf
+      const targetIdx = findIndex(
+        (item: TTag) => item.id === editingTag.id,
+        toJS(tags),
+      )
+      return targetIdx
+    },
+
+    _findAliasIdx(): number {
+      const slf = self as TStore
+
+      const { alias, editingAlias } = slf
+      const targetIdx = findIndex(
+        (item: TAlias) => item.raw === editingAlias.raw,
+        toJS(alias),
+      )
+
+      return targetIdx
     },
 
     updateEditing(sobj): void {
