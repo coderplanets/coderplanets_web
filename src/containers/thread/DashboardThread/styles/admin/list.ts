@@ -4,6 +4,7 @@ import css, { theme } from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
+  padding-right: 5px;
 `
 export const User = styled.div`
   ${css.flex()};

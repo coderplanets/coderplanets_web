@@ -10,7 +10,7 @@ const Adder: FC = () => {
       <Space right={30} />
       <AddButton size="small">
         <PlusIcon />
-        管理员
+        新增
       </AddButton>
     </Wrapper>
   )

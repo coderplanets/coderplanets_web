@@ -5,7 +5,7 @@ import type { TEditValue, TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { updateEditing } from '@/utils/mobx'
 
-import type { TTab, TSettingField } from './spec'
+import type { TTab, TSettingField, TAlias } from './spec'
 // import S from './schma'
 import type { TStore } from './store'
 
@@ -33,6 +33,12 @@ export const onSave = (field: TSettingField): void => store.onSave(field)
 export const updateEditingTag = (tag: TTag): void => {
   store.mark({ editingTag: tag })
 }
+
+export const updateEditingAlias = (alias: TAlias): void => {
+  store.mark({ editingAlias: alias })
+}
+
+export const resetEdit = (field: TSettingField): void => store.resetEdit(field)
 
 export const edit = (e: TEditValue, key: string): void => {
   updateEditing(store, key, e)

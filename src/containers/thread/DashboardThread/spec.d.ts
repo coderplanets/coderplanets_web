@@ -49,6 +49,17 @@ export type TTagSettings = {
   editingTag: TTag
 }
 
+export type TAlias = {
+  raw: string
+  name: string
+  original?: string
+  suggestions?: string[]
+}
+export type TAliasSettings = {
+  alias: TAlias[]
+  editingAlias: TAlias
+}
+
 export type TUiSettings = {
   wallpaper: TWallpaper
   primaryColor: TColorName
@@ -62,6 +73,8 @@ export type TTouched = {
   bannerLayout: boolean
   postLayout: boolean
   changelogLayout: boolean
+  alias: boolean
+  tags: boolean
   // sidebar
   ui: boolean
 }
@@ -72,3 +85,4 @@ export type TSettingField =
   | 'bannerLayout'
   | 'changelogLayout'
   | 'tag'
+  | 'alias'

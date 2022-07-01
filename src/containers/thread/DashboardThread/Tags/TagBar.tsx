@@ -28,12 +28,12 @@ type TProps = {
 }
 
 const TagBar: FC<TProps> = ({ tag, editingTag }) => {
-  const editing = editingTag?.id === tag.id
+  const isEditMode = editingTag?.id === tag.id
 
   return (
-    <Wrapper key={tag.id} editing={editing}>
-      <SavingBar isTouched={editing} field={SETTING_FIELD.TAG}>
-        {editing ? (
+    <Wrapper key={tag.id} isEditMode={isEditMode}>
+      <SavingBar isTouched={isEditMode} field={SETTING_FIELD.TAG}>
+        {isEditMode ? (
           <ColorSelector
             activeColor={editingTag.color}
             onChange={(color) => updateEditingTag({ ...editingTag, color })}
@@ -41,13 +41,13 @@ const TagBar: FC<TProps> = ({ tag, editingTag }) => {
             offset={[-8, 0]}
           >
             <DotSelector>
-              <Dot color={COLORS[editingTag.color]} editing={editing} />
+              <Dot color={COLORS[editingTag.color]} isEditMode={isEditMode} />
             </DotSelector>
           </ColorSelector>
         ) : (
           <Dot color={COLORS[tag.color]} />
         )}
-        {editing ? (
+        {isEditMode ? (
           <InputWrapper>
             <Inputer
               value={editingTag.title}
@@ -61,7 +61,7 @@ const TagBar: FC<TProps> = ({ tag, editingTag }) => {
           <Title>{tag.title}</Title>
         )}
         <SpaceGrow />
-        {!editing && (
+        {!isEditMode && (
           <Actions>
             <EditIcon onClick={() => updateEditingTag(tag)} />
             <Space right={4} />
