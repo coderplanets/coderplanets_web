@@ -83,12 +83,16 @@ const DashboardThread = T.model('DashboardThread', {
       const postLayoutTouched = slf.postLayout !== initSettings.postLayout
       const changelogLayoutTouched =
         slf.changelogLayout !== initSettings.changelogLayout
+      const aliasTouched = slf.editingAlias !== null
+      const tagsTouched = slf.editingTag !== null
 
       return {
         primaryColor: primaryColorTouched,
         bannerLayout: bannerLayoutTouched,
         postLayout: postLayoutTouched,
         changelogLayout: changelogLayoutTouched,
+        alias: aliasTouched,
+        tags: tagsTouched,
 
         // sidebar-item
         ui:

@@ -73,6 +73,8 @@ export type TTouched = {
   bannerLayout: boolean
   postLayout: boolean
   changelogLayout: boolean
+  alias: boolean
+  tags: boolean
   // sidebar
   ui: boolean
 }
