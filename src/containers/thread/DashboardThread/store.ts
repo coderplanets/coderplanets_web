@@ -36,6 +36,7 @@ const Alias = T.model('Alias', {
   raw: T.optional(T.string, ''),
   name: T.optional(T.string, ''),
   original: T.optional(T.string, ''),
+  suggestions: T.optional(T.array(T.string), []),
 })
 
 const settingsModalFields = {

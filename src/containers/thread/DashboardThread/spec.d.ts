@@ -53,6 +53,7 @@ export type TAlias = {
   raw: string
   name: string
   original?: string
+  suggestions?: string[]
 }
 export type TAliasSettings = {
   alias: TAlias[]

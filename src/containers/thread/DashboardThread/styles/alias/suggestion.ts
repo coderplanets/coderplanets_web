@@ -9,17 +9,20 @@ export const Wrapper = styled.div`
   margin-top: 10px;
 `
 export const Hint = styled.div`
-  font-size: 13px;
-  color: ${theme('thread.articleDigest')};
+  font-size: 12px;
+  color: ${theme('lightText')};
+  margin-left: 2px;
 `
 export const List = styled.div`
   ${css.flex('align-center')};
   margin-left: 12px;
 `
 export const Item = styled(Button)`
+  ${css.flex('align-center')};
+  height: 18px;
   opacity: 0.8;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding: 3px 6px;
+  padding-bottom: 0;
   margin-right: 10px;
 
   &:hover {

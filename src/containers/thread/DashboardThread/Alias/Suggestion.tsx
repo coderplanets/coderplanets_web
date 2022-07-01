@@ -1,20 +1,22 @@
 import { FC, memo } from 'react'
+import { isEmpty } from 'ramda'
 
 import { Wrapper, Hint, List, Item } from '../styles/alias/suggestion'
 
 type TProps = {
-  testid?: string
+  items: string[]
+  onChange: (item: string) => void
 }
 
-const Suggestion: FC<TProps> = ({ testid = 'Suggestion' }) => {
-  const words = ['讨论区', '文档', '帖子']
+const Suggestion: FC<TProps> = ({ items, onChange }) => {
+  if (isEmpty(items)) return null
 
   return (
     <Wrapper>
-      <Hint>常用:</Hint>
+      <Hint>常用别名:</Hint>
       <List>
-        {words.map((item) => (
-          <Item key={item} size="tiny" ghost>
+        {items.map((item) => (
+          <Item key={item} size="tiny" ghost onClick={() => onChange(item)}>
             {item}
           </Item>
         ))}

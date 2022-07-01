@@ -63,7 +63,12 @@ const Item: FC<TProps> = ({ alias, editingAlias }) => {
       </Header>
       <Footer>
         {isEditMode ? (
-          <Suggestion />
+          <Suggestion
+            items={alias.suggestions}
+            onChange={(name) => {
+              updateEditingAlias({ ...alias, name })
+            }}
+          />
         ) : (
           <Fragment>
             <AddButton

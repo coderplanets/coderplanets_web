@@ -124,15 +124,18 @@ export const BUILDIN_ALIAS = [
     raw: 'posts',
     name: '讨论',
     original: '讨论',
+    suggestions: ['帖子', '讨论区', '论坛'],
   },
   {
     raw: 'changelog',
     name: '更新日志',
     original: '更新日志',
+    suggestions: ['新功能', '发布日志', '里程碑'],
   },
   {
     raw: 'kanban',
     name: '看板',
     original: '看板',
+    suggestions: ['路线图', '规划', '蓝图'],
   },
 ]
