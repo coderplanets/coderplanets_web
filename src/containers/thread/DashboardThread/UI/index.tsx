@@ -16,8 +16,14 @@ type TProps = {
 }
 
 const UI: FC<TProps> = ({ settings, touched }) => {
-  const { primaryColor, bannerLayout, postLayout, changelogLayout, wallpaper } =
-    settings
+  const {
+    primaryColor,
+    bannerLayout,
+    postLayout,
+    changelogLayout,
+    wallpaper,
+    saving,
+  } = settings
 
   return (
     <Wrapper>
@@ -29,12 +35,22 @@ const UI: FC<TProps> = ({ settings, touched }) => {
       <PrimaryColor
         primaryColor={primaryColor}
         isTouched={touched.primaryColor}
+        saving={saving}
       />
-      <BannerLayout layout={bannerLayout} isTouched={touched.bannerLayout} />
-      <PostListLayout layout={postLayout} isTouched={touched.postLayout} />
+      <BannerLayout
+        layout={bannerLayout}
+        isTouched={touched.bannerLayout}
+        saving={saving}
+      />
+      <PostListLayout
+        layout={postLayout}
+        isTouched={touched.postLayout}
+        saving={saving}
+      />
       <ChangelogLayout
         layout={changelogLayout}
         isTouched={touched.changelogLayout}
+        saving={saving}
       />
       <Wallpaper wallpaper={wallpaper} />
     </Wrapper>

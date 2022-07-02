@@ -25,11 +25,6 @@ export const rollbackEdit = (field: TSettingField): void => {
   store.rollbackEdit(field)
 }
 
-/**
- * confirm callback for SavingBar
- */
-export const onSave = (field: TSettingField): void => store.onSave(field)
-
 export const updateEditingTag = (tag: TTag): void => {
   store.mark({ editingTag: tag })
 }
@@ -42,6 +37,21 @@ export const resetEdit = (field: TSettingField): void => store.resetEdit(field)
 
 export const edit = (e: TEditValue, key: string): void => {
   updateEditing(store, key, e)
+}
+
+/**
+ * save to server
+ */
+export const confirm = (field: TSettingField): void => {
+  store.mark({ saving: true })
+  store.onSave(field)
+
+  setTimeout(() => {
+    store.mark({ saving: false })
+    const initSettings = { ...store.initSettings, [field]: store[field] }
+
+    store.mark({ initSettings })
+  }, 1200)
 }
 
 // ###############################

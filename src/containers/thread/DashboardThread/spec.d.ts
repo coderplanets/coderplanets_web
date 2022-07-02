@@ -45,6 +45,7 @@ export type TTab =
   | 'widgets'
 
 export type TTagSettings = {
+  saving: boolean
   tags: TTag[]
   editingTag: TTag
 }
@@ -56,11 +57,13 @@ export type TAlias = {
   suggestions?: string[]
 }
 export type TAliasSettings = {
+  saving: boolean
   alias: TAlias[]
   editingAlias: TAlias
 }
 
 export type TUiSettings = {
+  saving: boolean
   wallpaper: TWallpaper
   primaryColor: TColorName
   bannerLayout: TBannerLayout

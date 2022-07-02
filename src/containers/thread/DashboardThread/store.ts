@@ -60,6 +60,7 @@ const settingsModalFields = {
 const InitSettings = T.model('DashboardInit', settingsModalFields)
 
 const DashboardThread = T.model('DashboardThread', {
+  saving: T.optional(T.boolean, false),
   curTab: T.optional(T.enumeration(values(TAB)), TAB.UI),
   editingTag: T.maybeNull(Tag),
   editingAlias: T.maybeNull(Alias),
@@ -109,6 +110,7 @@ const DashboardThread = T.model('DashboardThread', {
       return {
         editingTag: toJS(slf.editingTag),
         tags: toJS(slf.tags),
+        saving: slf.saving,
       }
     },
 
@@ -118,6 +120,7 @@ const DashboardThread = T.model('DashboardThread', {
       return {
         editingAlias: toJS(slf.editingAlias),
         alias: toJS(slf.alias),
+        saving: slf.saving,
       }
     },
 
@@ -132,7 +135,13 @@ const DashboardThread = T.model('DashboardThread', {
       return {
         wallpaper: wallpapers[wallpaper],
         ...pick(
-          ['primaryColor', 'bannerLayout', 'postLayout', 'changelogLayout'],
+          [
+            'saving',
+            'primaryColor',
+            'bannerLayout',
+            'postLayout',
+            'changelogLayout',
+          ],
           slf,
         ),
       }
