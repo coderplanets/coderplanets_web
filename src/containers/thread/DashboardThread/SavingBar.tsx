@@ -14,7 +14,7 @@ import {
   ActionWrapper,
 } from './styles/saving_bar'
 
-import { rollbackEdit, confirm } from './logic'
+import { rollbackEdit, onSave } from './logic'
 
 type TProps = {
   field: TSettingField
@@ -52,7 +52,7 @@ const SavingBar: FC<TProps> = ({
                 onCancel?.()
                 rollbackEdit(field)
               }}
-              onConfirm={() => confirm(field)}
+              onConfirm={() => onSave(field)}
             />
           </ActionWrapper>
         </Wrapper>
@@ -79,7 +79,7 @@ const SavingBar: FC<TProps> = ({
           confirmText="确定"
           loading={loading}
           space={4}
-          onConfirm={() => confirm(field)}
+          onConfirm={() => onSave(field)}
           onCancel={() => {
             onCancel?.()
             rollbackEdit(field)

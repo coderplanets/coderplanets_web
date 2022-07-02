@@ -42,7 +42,7 @@ export const edit = (e: TEditValue, key: string): void => {
 /**
  * save to server
  */
-export const confirm = (field: TSettingField): void => {
+export const onSave = (field: TSettingField): void => {
   store.mark({ saving: true })
   store.onSave(field)
 
