@@ -5,6 +5,7 @@ import css, { theme } from '@/utils/css'
 import Button from '@/widgets/Buttons/Button'
 import Img from '@/Img'
 import NotifySVG from '@/icons/Notify'
+import DashboardSVG from '@/icons/Dashboard'
 import SearchSVG from '@/icons/HeaderSearch'
 
 export const Wrapper = styled.div`
@@ -31,6 +32,18 @@ export const NotifyIcon = styled(NotifySVG)`
   ${css.size(22)};
   margin-right: 18px;
   opacity: 0.8;
+`
+export const DashboardIcon = styled(DashboardSVG)`
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(20)};
+  margin-right: 16px;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  transition: all 0.2s;
 `
 export const SearchIcon = styled(SearchSVG)`
   fill: ${theme('thread.articleDigest')};
