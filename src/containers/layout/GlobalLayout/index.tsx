@@ -13,9 +13,8 @@ import { SIZE, BODY_SCROLLER } from '@/constant'
 import { bond } from '@/utils/mobx'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-import Header from '@/widgets/Header'
+// import Header from '@/widgets/Header'
 
-// import Header from '@/containers/unit/Header'
 // import Footer from '@/containers/unit/Footer'
 // import ModeLine from '@/containers/unit/ModeLine'
 
@@ -62,7 +61,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // load debug graph
   useInit(store, { isMobile })
 
-  const { accountInfo, sidebarPin, curCommunity, wallpaper, wallpapers } = store
+  const { sidebarPin, wallpaper, wallpapers } = store
 
   return (
     <ThemePalette>
@@ -87,11 +86,11 @@ const GlobalLayoutContainer: FC<TProps> = ({
               <ContentWrapper offsetLeft={sidebarPin}>
                 {/* @ts-ignore */}
 
-                <Header
+                {/* <Header
                   metric={metric}
                   accountInfo={accountInfo}
                   community={curCommunity}
-                />
+                /> */}
                 <BodyWrapper isMobile={isMobile}>
                   {childrenWithProps(children, { metric })}
                 </BodyWrapper>

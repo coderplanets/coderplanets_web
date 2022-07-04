@@ -5,7 +5,7 @@
  */
 
 import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
-import { isEmpty, findIndex } from 'ramda'
+import { isEmpty, findIndex, pluck, includes } from 'ramda'
 import { isMobile } from 'react-device-detect'
 
 import type { TSizeSM, TTabItem, TC11NLayout } from '@/spec'
@@ -70,6 +70,8 @@ const Tabs: FC<TProps> = ({
   bottomSpace = 0,
 }) => {
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
+  // @ts-ignore
+  const hasActiveItem: boolean = includes(activeKey, pluck('raw', items))
 
   const [active, setActive] = useState(defaultActiveTabIndex)
   const [slipWidth, setSlipWidth] = useState(0)
@@ -87,7 +89,7 @@ const Tabs: FC<TProps> = ({
       setSlipWidth(activeSlipWidth)
     }
     setActive(defaultActiveTabIndex)
-  }, [defaultActiveTabIndex])
+  }, [defaultActiveTabIndex, hasActiveItem])
 
   // set slipbar with for current nav item
   // 为下面的滑动条设置当前 TabItem 的宽度
@@ -133,15 +135,15 @@ const Tabs: FC<TProps> = ({
           />
         ))}
 
-        <SlipBar
-          translateX={translateX}
-          width={`${tabWidthList[active]}px`}
-          slipHeight={slipHeight}
-        >
-          <RealBar
-            width={`${size === SIZE.MEDIUM ? slipWidth : slipWidth - 6}px`}
-          />
-        </SlipBar>
+        {hasActiveItem && (
+          <SlipBar
+            translateX={translateX}
+            width={`${tabWidthList[active]}px`}
+            slipHeight={slipHeight}
+          >
+            <RealBar width={`${slipWidth}px`} />
+          </SlipBar>
+        )}
       </Nav>
     </Wrapper>
   )
