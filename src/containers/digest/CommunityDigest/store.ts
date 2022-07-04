@@ -10,8 +10,8 @@ import type {
   TViewing,
   TRoute,
   TCommunity,
-  TAccount,
   TThread,
+  TGlobalLayout,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 
@@ -37,10 +37,6 @@ const CommunityDigest = T.model('CommunityDigest', {
       const root = getParent(self) as TRootStore
       return root.footer.realtimeVisitors
     },
-    get accountInfo(): TAccount {
-      const root = getParent(self) as TRootStore
-      return root.accountInfo
-    },
     get curThread(): TThread {
       const root = getParent(self) as TRootStore
       return root.viewing.activeThread
@@ -49,6 +45,10 @@ const CommunityDigest = T.model('CommunityDigest', {
       const root = getParent(self) as TRootStore
 
       return toJS(root.viewing.community)
+    },
+    get globalLayout(): TGlobalLayout {
+      const root = getParent(self) as TRootStore
+      return root.dashboardThread.globalLayout
     },
   }))
   .actions((self) => ({

@@ -37,6 +37,7 @@ const UserPublishedArticlesContainer: FC<TProps> = ({
     c11n,
     resState,
     hasContentBg,
+    globalLayout,
   } = store
 
   // console.log('pagedArticlesData: ', pagedArticlesData)
@@ -49,6 +50,7 @@ const UserPublishedArticlesContainer: FC<TProps> = ({
           thread={thread}
           resState={resState as TResState}
           c11n={c11n}
+          globalLayout={globalLayout}
         />
       </ArticlesWrapper>
     </Fragment>

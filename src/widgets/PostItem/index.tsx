@@ -6,7 +6,14 @@
 
 import { FC, memo, Fragment } from 'react'
 
-import type { TCommunity, TPost, TUser, TAccount, TC11N } from '@/spec'
+import type {
+  TCommunity,
+  TPost,
+  TUser,
+  TAccount,
+  TC11N,
+  TPostLayout,
+} from '@/spec'
 import { POST_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -21,7 +28,7 @@ type TProps = {
   curCommunity: TCommunity | null
   article: TPost
   c11n: TC11N
-  layout?: string
+  layout?: TPostLayout
   isMobilePreview?: boolean
 
   onUserSelect?: (obj: TUser) => void

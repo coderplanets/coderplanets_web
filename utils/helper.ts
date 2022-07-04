@@ -628,6 +628,7 @@ export const plural = (value: string, opt = null): string => {
       THREAD.HELP,
       THREAD.KANBAN,
       THREAD.ABOUT,
+      THREAD.DASHBOARD,
     ])
   ) {
     return doCovert(value, opt)

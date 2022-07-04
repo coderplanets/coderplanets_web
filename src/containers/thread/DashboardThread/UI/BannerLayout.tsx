@@ -32,9 +32,10 @@ import { edit } from '../logic'
 type TProps = {
   layout: TBannerLayout
   isTouched: boolean
+  saving: boolean
 }
 
-const BannerLayout: FC<TProps> = ({ layout, isTouched }) => {
+const BannerLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -176,6 +177,7 @@ const BannerLayout: FC<TProps> = ({ layout, isTouched }) => {
       <SavingBar
         isTouched={isTouched}
         field={SETTING_FIELD.BANNER_LAYOUT}
+        loading={saving}
         top={20}
       />
     </Wrapper>

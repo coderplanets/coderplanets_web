@@ -5,7 +5,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import type { TCommunity, TRootStore } from '@/spec'
+import type { TCommunity, TRootStore, TGlobalLayout } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 
@@ -18,6 +18,10 @@ const ChangelogThread = T.model('ChangelogThread', {})
       const root = getParent(self) as TRootStore
 
       return toJS(root.viewing.community)
+    },
+    get globalLayout(): TGlobalLayout {
+      const root = getParent(self) as TRootStore
+      return root.dashboardThread.globalLayout
     },
   }))
   .actions((self) => ({

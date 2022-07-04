@@ -5,7 +5,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { keys, values, pick, findIndex, clone } from 'ramda'
 
-import type { TCommunity, TRootStore, TTag } from '@/spec'
+import type { TCommunity, TRootStore, TTag, TGlobalLayout } from '@/spec'
 import { mockTags } from '@/utils/mock'
 
 import {
@@ -60,6 +60,7 @@ const settingsModalFields = {
 const InitSettings = T.model('DashboardInit', settingsModalFields)
 
 const DashboardThread = T.model('DashboardThread', {
+  saving: T.optional(T.boolean, false),
   curTab: T.optional(T.enumeration(values(TAB)), TAB.UI),
   editingTag: T.maybeNull(Tag),
   editingAlias: T.maybeNull(Alias),
@@ -67,6 +68,19 @@ const DashboardThread = T.model('DashboardThread', {
   initSettings: T.optional(InitSettings, {}),
 })
   .views((self) => ({
+    get globalLayout(): TGlobalLayout {
+      const slf = self as TStore
+      const { initSettings } = slf
+      const { primaryColor, changelogLayout, postLayout, bannerLayout } =
+        initSettings
+
+      return {
+        primaryColor,
+        post: postLayout,
+        changelog: changelogLayout,
+        banner: bannerLayout,
+      }
+    },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
@@ -109,6 +123,7 @@ const DashboardThread = T.model('DashboardThread', {
       return {
         editingTag: toJS(slf.editingTag),
         tags: toJS(slf.tags),
+        saving: slf.saving,
       }
     },
 
@@ -118,6 +133,7 @@ const DashboardThread = T.model('DashboardThread', {
       return {
         editingAlias: toJS(slf.editingAlias),
         alias: toJS(slf.alias),
+        saving: slf.saving,
       }
     },
 
@@ -132,7 +148,13 @@ const DashboardThread = T.model('DashboardThread', {
       return {
         wallpaper: wallpapers[wallpaper],
         ...pick(
-          ['primaryColor', 'bannerLayout', 'postLayout', 'changelogLayout'],
+          [
+            'saving',
+            'primaryColor',
+            'bannerLayout',
+            'postLayout',
+            'changelogLayout',
+          ],
           slf,
         ),
       }

@@ -16,9 +16,10 @@ import { edit } from '../logic'
 type TProps = {
   primaryColor: TColorName
   isTouched: boolean
+  saving: boolean
 }
 
-const PrimaryColor: FC<TProps> = ({ primaryColor, isTouched }) => {
+const PrimaryColor: FC<TProps> = ({ primaryColor, isTouched, saving }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -34,7 +35,11 @@ const PrimaryColor: FC<TProps> = ({ primaryColor, isTouched }) => {
           </>
         }
       />
-      <SavingBar isTouched={isTouched} field={SETTING_FIELD.PRIMARY_COLOR}>
+      <SavingBar
+        isTouched={isTouched}
+        field={SETTING_FIELD.PRIMARY_COLOR}
+        loading={saving}
+      >
         <Label color={primaryColor}>
           <ColorSelector
             activeColor={primaryColor}

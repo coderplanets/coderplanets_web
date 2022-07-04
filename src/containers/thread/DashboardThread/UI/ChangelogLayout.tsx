@@ -36,9 +36,10 @@ import { edit } from '../logic'
 type TProps = {
   layout: TChangelogLayout
   isTouched: boolean
+  saving: boolean
 }
 
-const ChangelogLayout: FC<TProps> = ({ layout, isTouched }) => {
+const ChangelogLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -246,6 +247,7 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched }) => {
       <SavingBar
         isTouched={isTouched}
         field={SETTING_FIELD.CHANGELOG_LAYOUT}
+        loading={saving}
         top={20}
       />
     </Wrapper>

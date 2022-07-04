@@ -1,8 +1,12 @@
 import { FC, memo } from 'react'
 
+import { EVENT, THREAD } from '@/constant'
+import { send } from '@/utils/helper'
+
 import {
   Wrapper,
   Avatar,
+  DashboardIcon,
   NotifyIcon,
   SubscribeButton,
 } from '../styles/simple_layout/account_unit'
@@ -17,6 +21,11 @@ const AccountUnit: FC = () => {
         订阅
       </SubscribeButton>
 
+      <DashboardIcon
+        onClick={() =>
+          send(EVENT.COMMUNITY_THREAD_CHANGE, { data: THREAD.DASHBOARD })
+        }
+      />
       <NotifyIcon />
       <Avatar src={`${mockUsers(1)[0].avatar}`} />
     </Wrapper>

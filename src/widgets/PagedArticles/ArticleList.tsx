@@ -1,8 +1,10 @@
 /* eslint-disable react/display-name */
 
-import { Fragment, memo } from 'react'
+import { Fragment, memo, FC } from 'react'
 
 import { THREAD, TYPE } from '@/constant'
+import type { TArticleEntries } from '@/spec'
+
 import PostItem from '@/widgets/PostItem'
 import JobItem from '@/widgets/JobItem'
 import BlogItem from '@/widgets/BlogItem'
@@ -12,9 +14,18 @@ import MasonryCards from '@/widgets/MasonryCards'
 import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import { EmptyThread } from './dynamic'
 
-const ArticleList = (props) => {
-  const { curCommunity, thread, resState, entries, c11n } = props
+import type { TProps as TBaseTProps } from '.'
 
+type TProps = { entries: TArticleEntries } & Omit<TBaseTProps, 'data'>
+
+const ArticleList: FC<TProps> = ({
+  curCommunity,
+  thread,
+  resState,
+  entries,
+  c11n,
+  globalLayout,
+}) => {
   // switch between threads
   if (resState === TYPE.RES_STATE.LOADING && entries.length === 0) {
     return <LavaLampLoading top={20} left={30} />
@@ -73,6 +84,7 @@ const ArticleList = (props) => {
               article={entry}
               c11n={c11n}
               curCommunity={curCommunity}
+              layout={globalLayout.post}
             />
           ))}
         </Fragment>

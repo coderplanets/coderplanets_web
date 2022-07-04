@@ -21,6 +21,7 @@ type TProps = {
   prefix?: string
   hint?: ReactNode
   children?: ReactNode
+  loading?: boolean
   isTouched?: boolean
   onCancel?: () => void
 } & TSpace
@@ -31,6 +32,7 @@ const SavingBar: FC<TProps> = ({
   hint = null,
   children = null,
   isTouched = false,
+  loading = false,
   onCancel = console.log,
   ...restProps
 }) => {
@@ -44,6 +46,7 @@ const SavingBar: FC<TProps> = ({
             <YesOrNoButtons
               cancelText="取消"
               confirmText="确定"
+              loading={loading}
               space={4}
               onCancel={() => {
                 onCancel?.()
@@ -74,7 +77,9 @@ const SavingBar: FC<TProps> = ({
         <YesOrNoButtons
           cancelText="取消"
           confirmText="确定"
+          loading={loading}
           space={4}
+          onConfirm={() => onSave(field)}
           onCancel={() => {
             onCancel?.()
             rollbackEdit(field)

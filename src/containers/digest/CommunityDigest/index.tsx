@@ -6,7 +6,7 @@
 import { FC, Fragment } from 'react'
 
 import type { TMetric } from '@/spec'
-import { METRIC, C11N } from '@/constant'
+import { METRIC, BANNER_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
@@ -30,17 +30,11 @@ const CommunityDigestContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const {
-    accountInfo: {
-      customization: { bannerLayout },
-    },
-    curThread,
-    curCommunity,
-  } = store
+  const { curThread, curCommunity, globalLayout } = store
 
   return (
     <Fragment>
-      {bannerLayout === C11N.CLASSIC ? (
+      {globalLayout.banner === BANNER_LAYOUT.TABBER ? (
         <ClassicLayout
           metric={metric}
           community={curCommunity}

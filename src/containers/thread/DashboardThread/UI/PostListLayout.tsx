@@ -31,9 +31,10 @@ import { edit } from '../logic'
 type TProps = {
   layout: TPostLayout
   isTouched: boolean
+  saving: boolean
 }
 
-const PostListLayout: FC<TProps> = ({ layout, isTouched }) => {
+const PostListLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
   return (
     <Wrapper>
       <SectionLabel
@@ -137,6 +138,7 @@ const PostListLayout: FC<TProps> = ({ layout, isTouched }) => {
       <SavingBar
         isTouched={isTouched}
         field={SETTING_FIELD.POST_LAYOUT}
+        loading={saving}
         top={20}
       />
     </Wrapper>

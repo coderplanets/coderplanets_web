@@ -55,6 +55,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     c11n,
     resState,
     mode,
+    globalLayout,
   } = store
   const { pageNumber, totalCount } = pagedArticlesData
 
@@ -92,6 +93,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
             thread={curThread}
             resState={resState as TResState}
             c11n={c11n}
+            globalLayout={globalLayout}
           />
         )}
         {mode === 'search' && <FaqList mode="search-hint" />}

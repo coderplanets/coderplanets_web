@@ -2,6 +2,7 @@ import type { TCommunity, TTag } from './index'
 import type { TUser, TAccount, TSimpleUser, TRSSAuthor } from './account'
 import type { TID } from './utils'
 import type { TEmotion } from './emotion'
+import type { TColorName } from './color'
 
 export type TCopyright = 'cc' | 'approve' | 'forbid'
 
@@ -135,6 +136,7 @@ export type TJob = TBaseArticle & {
 }
 
 export type TArticle = TPost | TJob | TBlog | TRadar
+export type TArticleEntries = TPost[] | TJob[] | TBlog[] | TRadar[]
 
 type TPagi = {
   totalCount: number
@@ -144,7 +146,7 @@ type TPagi = {
 }
 
 export type TPagedArticles = {
-  entries: TPost[] | TJob[] | TBlog[] | TRadar[]
+  entries: TArticleEntries
 } & TPagi
 
 export type TPagedWorks = {
@@ -218,6 +220,13 @@ export type TUpvoteLayout =
 export type TBannerLayout = 'header' | 'tabber'
 export type TPostLayout = 'upvote_first' | 'comment_first'
 export type TChangelogLayout = 'fold' | 'normal'
+
+export type TGlobalLayout = {
+  primaryColor: TColorName
+  post: TPostLayout
+  banner: TBannerLayout
+  changelog: TChangelogLayout
+}
 
 export type TCollectionFolder = {
   id: TID
