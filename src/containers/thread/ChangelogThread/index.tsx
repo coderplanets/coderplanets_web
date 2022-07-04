@@ -5,10 +5,11 @@
 
 import { FC } from 'react'
 
-// import { buildLog } from '@/utils/logger'
+import { CHANGELOG_LAYOUT } from '@/constant'
 import { bond } from '@/utils/mobx'
 
 import ChangelogItem from '@/widgets/ChangelogItem'
+
 import Filters from './Filters'
 
 import type { TStore } from './store'
@@ -27,23 +28,26 @@ const ChangelogThreadContainer: FC<TProps> = ({
   testid = 'changelog-thread',
 }) => {
   useInit(store)
+  const { globalLayout } = store
 
-  const layout = 'outline'
   return (
     <Wrapper testid={testid}>
       <MainWrapper>
-        <ChangelogItem />
+        <ChangelogItem layout={globalLayout.changelog} />
 
-        {layout === 'outline' && <PreviousTitle>历史版本</PreviousTitle>}
-        <ChangelogItem layout={layout} />
-        <ChangelogItem layout={layout} />
-        <ChangelogItem layout={layout} />
-        <ChangelogItem layout={layout} />
-        <ChangelogItem layout={layout} />
-        <ChangelogItem layout={layout} />
-        <ChangelogItem layout={layout} />
-        <ChangelogItem layout={layout} />
-        <ChangelogItem layout={layout} />
+        {globalLayout.changelog === CHANGELOG_LAYOUT.FOLD && (
+          <PreviousTitle>历史版本</PreviousTitle>
+        )}
+
+        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={globalLayout.changelog} />
       </MainWrapper>
       <Filters />
     </Wrapper>
