@@ -5,7 +5,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { keys, values, pick, findIndex, clone } from 'ramda'
 
-import type { TCommunity, TRootStore, TTag } from '@/spec'
+import type { TCommunity, TRootStore, TTag, TGlobalLayout } from '@/spec'
 import { mockTags } from '@/utils/mock'
 
 import {
@@ -68,6 +68,19 @@ const DashboardThread = T.model('DashboardThread', {
   initSettings: T.optional(InitSettings, {}),
 })
   .views((self) => ({
+    get globalLayout(): TGlobalLayout {
+      const slf = self as TStore
+      const { initSettings } = slf
+      const { primaryColor, changelogLayout, postLayout, bannerLayout } =
+        initSettings
+
+      return {
+        primaryColor,
+        post: postLayout,
+        changelog: changelogLayout,
+        banner: bannerLayout,
+      }
+    },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 

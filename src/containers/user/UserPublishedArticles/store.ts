@@ -12,6 +12,7 @@ import type {
   TArticleThread,
   TPagedArticles,
   TC11N,
+  TGlobalLayout,
 } from '@/spec'
 import { TYPE, ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
@@ -76,6 +77,10 @@ const UserPublishedArticles = T.model('UserPublishedArticles', {
 
     get hasContentBg(): boolean {
       return !includes(self.thread, [ARTICLE_THREAD.JOB, ARTICLE_THREAD.RADAR])
+    },
+    get globalLayout(): TGlobalLayout {
+      const root = getParent(self) as TRootStore
+      return root.dashboardThread.globalLayout
     },
   }))
   .actions((self) => ({

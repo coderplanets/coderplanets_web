@@ -17,6 +17,7 @@ import type {
   TThread,
   TArticleFilter,
   TC11N,
+  TGlobalLayout,
 } from '@/spec'
 
 import { TYPE } from '@/constant'
@@ -109,13 +110,15 @@ const ArticlesThread = T.model('ArticlesThread', {
       const slf = self as TStore
       return `paged${plural(slf.curThread, 'titleCase')}`
     },
+    get globalLayout(): TGlobalLayout {
+      const root = getParent(self) as TRootStore
+      return root.dashboardThread.globalLayout
+    },
   }))
   .actions((self) => ({
     afterInitLoading(): void {
       const slf = self as TStore
       const { totalCount } = slf.pagedArticlesData
-
-      console.log('totalCount -> ', totalCount)
 
       if (totalCount === 0) {
         self.resState = TYPE.RES_STATE.EMPTY

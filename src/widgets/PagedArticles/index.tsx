@@ -13,6 +13,7 @@ import type {
   TPagedArticles,
   TResState,
   TC11N,
+  TGlobalLayout,
 } from '@/spec'
 import { EVENT } from '@/constant'
 import { send } from '@/utils/helper'
@@ -24,7 +25,7 @@ import ArticleList from './ArticleList'
 /* eslint-disable-next-line */
 const log = buildLog('c:PagedArticles:index')
 
-type TProps = {
+export type TProps = {
   curCommunity?: TCommunity | null
   thread: TThread
   data: TPagedArticles
@@ -32,6 +33,7 @@ type TProps = {
   // TODO: remove
   emptyPrefix?: string
   c11n: TC11N
+  globalLayout: TGlobalLayout
 }
 
 const PagedArticles: FC<TProps> = ({
@@ -41,6 +43,7 @@ const PagedArticles: FC<TProps> = ({
   resState,
   emptyPrefix,
   c11n,
+  globalLayout,
 }) => {
   const { entries, ...pagi } = data
 
@@ -53,6 +56,7 @@ const PagedArticles: FC<TProps> = ({
         resState={resState}
         emptyPrefix={emptyPrefix}
         c11n={c11n}
+        globalLayout={globalLayout}
       />
 
       <Pagi
