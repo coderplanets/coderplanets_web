@@ -7,9 +7,7 @@ import css, { theme } from '@/utils/css'
 import { Divider } from '@/widgets/Common'
 import { BaseSection, BlockBase } from '.'
 
-export const Wrapper = styled(BaseSection)`
-  margin-bottom: 35px;
-`
+export const Wrapper = styled(BaseSection)``
 export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;

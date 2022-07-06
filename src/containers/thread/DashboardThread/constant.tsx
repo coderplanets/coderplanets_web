@@ -30,6 +30,7 @@ export const TAB = {
 export const SETTING_FIELD = {
   PRIMARY_COLOR: 'primaryColor',
   POST_LAYOUT: 'postLayout',
+  BRAND_LAYOUT: 'brandLayout',
   BANNER_LAYOUT: 'bannerLayout',
   CHANGELOG_LAYOUT: 'changelogLayout',
   TAG: 'tag',

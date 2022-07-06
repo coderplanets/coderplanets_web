@@ -18,6 +18,7 @@ export { default as GALLERY } from './gallery'
 export { default as VIEW } from './view'
 export {
   UPVOTE_LAYOUT,
+  BRAND_LAYOUT,
   BANNER_LAYOUT,
   POST_LAYOUT,
   CHANGELOG_LAYOUT,

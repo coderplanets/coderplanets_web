@@ -217,12 +217,14 @@ export type TUpvoteLayout =
   | 'fixed-header'
   | 'sticker'
 
+export type TBrandLayout = 'both' | 'logo' | 'text'
 export type TBannerLayout = 'header' | 'tabber'
 export type TPostLayout = 'upvote_first' | 'comment_first'
 export type TChangelogLayout = 'fold' | 'normal'
 
 export type TGlobalLayout = {
   primaryColor: TColorName
+  brand: TBrandLayout
   post: TPostLayout
   banner: TBannerLayout
   changelog: TChangelogLayout
