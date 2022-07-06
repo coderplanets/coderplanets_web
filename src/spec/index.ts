@@ -112,6 +112,7 @@ export type {
   TArticleFilter,
   TCopyright,
   TUpvoteLayout,
+  TBrandLayout,
   TBannerLayout,
   TPostLayout,
   TChangelogLayout,

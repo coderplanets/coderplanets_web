@@ -8,9 +8,7 @@ import UpvoteSVG from '@/icons/Upvote'
 import CommentSVG from '@/icons/Comment'
 import { BaseSection, BlockBase } from '.'
 
-export const Wrapper = styled(BaseSection)`
-  margin-bottom: 35px;
-`
+export const Wrapper = styled(BaseSection)``
 export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;

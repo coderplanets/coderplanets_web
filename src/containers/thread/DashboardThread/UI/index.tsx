@@ -1,8 +1,11 @@
 import { FC, memo } from 'react'
 
+import { Divider } from '@/widgets/Common'
+
 import Portal from '../Portal'
 import PrimaryColor from './PrimaryColor'
 import Wallpaper from './Wallpaper'
+import BrandLayout from './BrandLayout'
 import BannerLayout from './BannerLayout'
 import PostListLayout from './PostListLayout'
 import ChangelogLayout from './ChangelogLayout'
@@ -18,6 +21,7 @@ type TProps = {
 const UI: FC<TProps> = ({ settings, touched }) => {
   const {
     primaryColor,
+    brandLayout,
     bannerLayout,
     postLayout,
     changelogLayout,
@@ -31,27 +35,36 @@ const UI: FC<TProps> = ({ settings, touched }) => {
         title="外观布局"
         desc="社区基本外观，主题色，以及常见布局自定义。"
       />
-
       <PrimaryColor
         primaryColor={primaryColor}
         isTouched={touched.primaryColor}
         saving={saving}
       />
+      <Divider top={0} bottom={60} />
+      <BrandLayout
+        layout={brandLayout}
+        isTouched={touched.brandLayout}
+        saving={saving}
+      />
+      <Divider top={20} bottom={60} />
       <BannerLayout
         layout={bannerLayout}
         isTouched={touched.bannerLayout}
         saving={saving}
       />
+      <Divider top={20} bottom={60} />
       <PostListLayout
         layout={postLayout}
         isTouched={touched.postLayout}
         saving={saving}
       />
+      <Divider top={20} bottom={60} />
       <ChangelogLayout
         layout={changelogLayout}
         isTouched={touched.changelogLayout}
         saving={saving}
       />
+      <Divider top={30} bottom={60} />
       <Wallpaper wallpaper={wallpaper} />
     </Wrapper>
   )

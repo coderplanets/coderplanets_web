@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 export const BaseSection = styled.section`
   /* margin: 0 50px; */
   padding-bottom: 30px;
-  margin-bottom: 20px;
   /* border-bottom: 1px solid;
   border-bottom-color: ${theme('border')}; */
 `

@@ -9,6 +9,7 @@ import type { TCommunity, TRootStore, TTag, TGlobalLayout } from '@/spec'
 import { mockTags } from '@/utils/mock'
 
 import {
+  BRAND_LAYOUT,
   BANNER_LAYOUT,
   CHANGELOG_LAYOUT,
   POST_LAYOUT,
@@ -45,6 +46,10 @@ const settingsModalFields = {
     T.enumeration(values(POST_LAYOUT)),
     POST_LAYOUT.UPVOTE_FIRST,
   ),
+  brandLayout: T.optional(
+    T.enumeration(values(BRAND_LAYOUT)),
+    BRAND_LAYOUT.BOTH,
+  ),
   bannerLayout: T.optional(
     T.enumeration(values(BANNER_LAYOUT)),
     BANNER_LAYOUT.HEADER,
@@ -71,11 +76,17 @@ const DashboardThread = T.model('DashboardThread', {
     get globalLayout(): TGlobalLayout {
       const slf = self as TStore
       const { initSettings } = slf
-      const { primaryColor, changelogLayout, postLayout, bannerLayout } =
-        initSettings
+      const {
+        primaryColor,
+        changelogLayout,
+        postLayout,
+        bannerLayout,
+        brandLayout,
+      } = initSettings
 
       return {
         primaryColor,
+        brand: brandLayout,
         post: postLayout,
         changelog: changelogLayout,
         banner: bannerLayout,
@@ -93,6 +104,7 @@ const DashboardThread = T.model('DashboardThread', {
       const { initSettings } = slf
 
       const primaryColorTouched = slf.primaryColor !== initSettings.primaryColor
+      const brandLayoutTouched = slf.brandLayout !== initSettings.brandLayout
       const bannerLayoutTouched = slf.bannerLayout !== initSettings.bannerLayout
       const postLayoutTouched = slf.postLayout !== initSettings.postLayout
       const changelogLayoutTouched =
@@ -102,6 +114,7 @@ const DashboardThread = T.model('DashboardThread', {
 
       return {
         primaryColor: primaryColorTouched,
+        brandLayout: brandLayoutTouched,
         bannerLayout: bannerLayoutTouched,
         postLayout: postLayoutTouched,
         changelogLayout: changelogLayoutTouched,
@@ -111,6 +124,7 @@ const DashboardThread = T.model('DashboardThread', {
         // sidebar-item
         ui:
           primaryColorTouched ||
+          brandLayoutTouched ||
           bannerLayoutTouched ||
           postLayoutTouched ||
           changelogLayoutTouched,
@@ -151,6 +165,7 @@ const DashboardThread = T.model('DashboardThread', {
           [
             'saving',
             'primaryColor',
+            'brandLayout',
             'bannerLayout',
             'postLayout',
             'changelogLayout',
