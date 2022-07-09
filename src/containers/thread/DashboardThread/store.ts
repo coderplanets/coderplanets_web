@@ -59,6 +59,7 @@ const settingsModalFields = {
     T.enumeration(values(BANNER_NOTIFY_LAYOUT)),
     BANNER_NOTIFY_LAYOUT.DEFAULT,
   ),
+  bannerNotifyBg: T.optional(T.enumeration(keys(COLORS)), 'BLACK'),
   changelogLayout: T.optional(
     T.enumeration(values(CHANGELOG_LAYOUT)),
     CHANGELOG_LAYOUT.FOLD,
@@ -87,6 +88,7 @@ const DashboardThread = T.model('DashboardThread', {
         postLayout,
         bannerLayout,
         bannerNotifyLayout,
+        bannerNotifyBg,
         brandLayout,
       } = initSettings
 
@@ -97,6 +99,7 @@ const DashboardThread = T.model('DashboardThread', {
         changelog: changelogLayout,
         banner: bannerLayout,
         bannerNotify: bannerNotifyLayout,
+        bannerNotifyBg,
       }
     },
     get curCommunity(): TCommunity {
@@ -116,6 +119,9 @@ const DashboardThread = T.model('DashboardThread', {
       const bannerNotifyLayoutTouched =
         slf.bannerNotifyLayout !== initSettings.bannerNotifyLayout
 
+      const bannerNotifyBgTouched =
+        slf.bannerNotifyBg !== initSettings.bannerNotifyBg
+
       const postLayoutTouched = slf.postLayout !== initSettings.postLayout
       const changelogLayoutTouched =
         slf.changelogLayout !== initSettings.changelogLayout
@@ -127,6 +133,7 @@ const DashboardThread = T.model('DashboardThread', {
         brandLayout: brandLayoutTouched,
         bannerLayout: bannerLayoutTouched,
         bannerNotifyLayout: bannerNotifyLayoutTouched,
+        bannerNotifyBg: bannerNotifyBgTouched,
         postLayout: postLayoutTouched,
         changelogLayout: changelogLayoutTouched,
         alias: aliasTouched,
@@ -179,6 +186,7 @@ const DashboardThread = T.model('DashboardThread', {
             'brandLayout',
             'bannerLayout',
             'bannerNotifyLayout',
+            'bannerNotifyBg',
             'postLayout',
             'changelogLayout',
           ],

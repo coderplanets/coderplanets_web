@@ -14,6 +14,7 @@ import { bond } from '@/utils/mobx'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import BannerNotify from '@/widgets/BannerNotify'
+// import Header from '@/widgets/Header'
 
 // import Footer from '@/containers/unit/Footer'
 // import ModeLine from '@/containers/unit/ModeLine'
@@ -85,6 +86,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
               <BannerNotify
                 metric={metric}
                 layout={globalLayout.bannerNotify}
+                bg={globalLayout.bannerNotifyBg}
               />
               {/* @ts-ignore */}
               <ContentWrapper offsetLeft={sidebarPin}>

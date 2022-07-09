@@ -1,6 +1,9 @@
 import styled from 'styled-components'
+import { lighten, darken } from 'polished'
+import { includes } from 'ramda'
 
-import type { TActive } from '@/spec'
+import type { TActive, TColorName } from '@/spec'
+import { COLORS, COLOR_NAME } from '@/constant'
 
 import css, { theme } from '@/utils/css'
 
@@ -15,14 +18,19 @@ export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;
 `
-export const NotifyBar = styled.div<{ center?: boolean }>`
+type TNotifyBar = { center?: boolean; bg: TColorName }
+export const NotifyBar = styled.div<TNotifyBar>`
   ${css.flex('align-center')};
   justify-content: ${({ center }) => (center ? 'center' : 'flex-start')};
-  width: 100%;
+  width: calc(100% + 2px);
   height: 17px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  background: ${theme('thread.articleTitle')};
+  margin-top: -1px;
+  margin-left: -1px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border: 1px solid;
+  border-color: ${({ bg }) => COLORS[bg]};
+  background: ${({ bg }) => COLORS[bg]};
   padding: 0 20px;
   padding-bottom: 2px;
 `
@@ -34,8 +42,13 @@ export const NotifyDesc = styled.div`
 export const NotifyLink = styled(NotifyDesc)`
   text-decoration: underline;
 `
-export const NotifySolidLink = styled.div`
-  background: white;
+export const NotifySolidLink = styled.div<{ bg: TColorName }>`
+  background: ${({ bg }) =>
+    includes(bg, [COLOR_NAME.BLACK])
+      ? lighten(0.06, COLORS[bg])
+      : darken(0.1, COLORS[bg])};
+
+  color: white;
   border-radius: 5px;
   font-size: 6px;
   color: ${'theme.articleTitle'};
@@ -107,4 +120,19 @@ export const Bar = styled.div<TBar>`
 export const Circle = styled.div<{ radius?: number }>`
   ${({ radius }) => `${css.circle(radius || 22)}`};
   background: ${theme('thread.articleTitle')};
+`
+export const BgWrapper = styled.div`
+  ${css.flex('align-center')};
+`
+export const BgLabel = styled.div<{ bg: TColorName }>`
+  ${css.circle(24)}
+  ${css.flex('align-both')};
+  border: 1px solid;
+  border-color: ${({ bg }) => COLORS[bg]};
+  cursor: pointer;
+  margin-left: 10px;
+`
+export const TheColor = styled.div<{ color: TColorName }>`
+  ${css.circle(18)};
+  background-color: ${({ color }) => COLORS[color]};
 `

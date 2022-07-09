@@ -71,6 +71,7 @@ export type TUiSettings = {
   brandLayout: TBrandLayout
   bannerLayout: TBannerLayout
   bannerNotifyLayout: TBannerNotifyLayout
+  bannerNotifyBg: TColorName
   postLayout: TPostLayout
   changelogLayout: TChangelogLayout
 }
@@ -80,6 +81,7 @@ export type TTouched = {
   brandLayout: boolean
   bannerLayout: boolean
   bannerNotifyLayout: boolean
+  bannerNotifyBg: boolean
   postLayout: boolean
   changelogLayout: boolean
   alias: boolean
@@ -94,6 +96,7 @@ export type TSettingField =
   | 'brandLayout'
   | 'bannerLayout'
   | 'bannerNotifyLayout'
+  | 'bannerNotifyBg'
   | 'changelogLayout'
   | 'tag'
   | 'alias'

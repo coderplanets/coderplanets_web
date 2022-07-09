@@ -25,6 +25,7 @@ const UI: FC<TProps> = ({ settings, touched }) => {
     brandLayout,
     bannerLayout,
     bannerNotifyLayout,
+    bannerNotifyBg,
     postLayout,
     changelogLayout,
     wallpaper,
@@ -69,7 +70,9 @@ const UI: FC<TProps> = ({ settings, touched }) => {
       <Divider top={30} bottom={60} />
       <BannerNotifyLayout
         layout={bannerNotifyLayout}
-        isTouched={touched.bannerNotifyLayout}
+        bg={bannerNotifyBg}
+        isLayoutTouched={touched.bannerNotifyLayout}
+        isBgTouched={touched.bannerNotifyBg}
         saving={saving}
       />
       <Divider top={20} bottom={60} />

@@ -230,6 +230,7 @@ export type TGlobalLayout = {
   banner: TBannerLayout
   changelog: TChangelogLayout
   bannerNotify: TBannerNotifyLayout
+  bannerNotifyBg: TColorName
 }
 
 export type TCollectionFolder = {

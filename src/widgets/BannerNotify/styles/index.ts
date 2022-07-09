@@ -1,18 +1,22 @@
 import styled from 'styled-components'
+import { lighten, darken } from 'polished'
+import { includes } from 'ramda'
 
-import type { TMetric, TTestable } from '@/spec'
+import type { TMetric, TTestable, TColorName } from '@/spec'
+import { COLORS, COLOR_NAME } from '@/constant'
 
-import css, { theme } from '@/utils/css'
+import css from '@/utils/css'
 import CrossSVG from '@/icons/CloseCross'
 import ArrowSVG from '@/icons/Arrow'
 
+type TWrapper = TTestable & { bg: TColorName }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   ${css.flex('align-both')};
   width: 100%;
-  height: 32px;
-  background: ${theme('thread.articleTitle')};
+  height: 33px;
+  background: ${({ bg }) => COLORS[bg]};
   color: white;
 `
 type TInner = { metric: TMetric; center: boolean }
@@ -26,19 +30,29 @@ export const InnerWrapper = styled.div<TInner>`
 `
 export const Desc = styled.div`
   font-size: 13px;
+  font-weight: 500;
 `
 export const LinkText = styled(Desc)`
   color: white;
   font-size: 12px;
   text-decoration: underline;
 `
-export const LinkBtn = styled.div`
-  background: white;
-  color: ${theme('thread.articleTitle')};
-  height: 16px;
-  padding: 0 10px;
+export const LinkBtn = styled.div<{ bg: TColorName }>`
+  background: ${({ bg }) =>
+    includes(bg, [COLOR_NAME.BLACK])
+      ? lighten(0.06, COLORS[bg])
+      : darken(0.1, COLORS[bg])};
+  color: white;
+  height: 18px;
+  padding: 1px 12px;
   font-size: 11px;
   border-radius: 4px;
+  font-weight: 500;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `
 export const Row = styled.div`
   ${css.flex('align-center')};

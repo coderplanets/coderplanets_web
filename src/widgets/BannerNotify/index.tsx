@@ -6,7 +6,7 @@
 
 import { FC, memo, Fragment } from 'react'
 
-import type { TMetric, TBannerNotifyLayout } from '@/spec'
+import type { TMetric, TBannerNotifyLayout, TColorName } from '@/spec'
 import { BANNER_NOTIFY_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -28,15 +28,17 @@ type TProps = {
   testid?: string
   metric: TMetric
   layout: TBannerNotifyLayout
+  bg: TColorName
 }
 
 const BannerNotify: FC<TProps> = ({
   testid = 'banner-notify',
   metric,
   layout,
+  bg,
 }) => {
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testid={testid} bg={bg}>
       <InnerWrapper
         metric={metric}
         center={layout === BANNER_NOTIFY_LAYOUT.CENTER}
@@ -45,7 +47,7 @@ const BannerNotify: FC<TProps> = ({
         <Row>
           {layout === BANNER_NOTIFY_LAYOUT.DEFAULT ? (
             <Fragment>
-              <LinkBtn>查看详情</LinkBtn>
+              <LinkBtn bg={bg}>查看详情</LinkBtn>
               <CrossIcon />
             </Fragment>
           ) : (
