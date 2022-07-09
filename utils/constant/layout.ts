@@ -3,6 +3,7 @@ import type {
   TDashboardLayout,
   TBrandLayout,
   TBannerLayout,
+  TBannerNotifyLayout,
   TPostLayout,
   TChangelogLayout,
   SnakeUpperCase,
@@ -32,6 +33,11 @@ export const BANNER_LAYOUT = {
   HEADER: 'header',
   TABBER: 'tabber',
 } as Record<SnakeUpperCase<TBannerLayout>, TBannerLayout>
+
+export const BANNER_NOTIFY_LAYOUT = {
+  DEFAULT: 'default',
+  CENTER: 'center',
+} as Record<SnakeUpperCase<TBannerNotifyLayout>, TBannerNotifyLayout>
 
 export const POST_LAYOUT = {
   UPVOTE_FIRST: 'upvote_first',

@@ -32,6 +32,8 @@ export const SETTING_FIELD = {
   POST_LAYOUT: 'postLayout',
   BRAND_LAYOUT: 'brandLayout',
   BANNER_LAYOUT: 'bannerLayout',
+  BANNER_NOTIFY_LAYOUT: 'bannerNotifyLayout',
+  BANNER_NOTIFY_BG: 'bannerNotifyBg',
   CHANGELOG_LAYOUT: 'changelogLayout',
   TAG: 'tag',
   ALIAS: 'alias',

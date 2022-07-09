@@ -7,6 +7,7 @@ import type {
   TChangelogLayout,
   TBrandLayout,
   TBannerLayout,
+  TBannerNotifyLayout,
   TTag,
 } from '@/spec'
 
@@ -69,6 +70,8 @@ export type TUiSettings = {
   primaryColor: TColorName
   brandLayout: TBrandLayout
   bannerLayout: TBannerLayout
+  bannerNotifyLayout: TBannerNotifyLayout
+  bannerNotifyBg: TColorName
   postLayout: TPostLayout
   changelogLayout: TChangelogLayout
 }
@@ -77,6 +80,8 @@ export type TTouched = {
   primaryColor: boolean
   brandLayout: boolean
   bannerLayout: boolean
+  bannerNotifyLayout: boolean
+  bannerNotifyBg: boolean
   postLayout: boolean
   changelogLayout: boolean
   alias: boolean
@@ -90,6 +95,8 @@ export type TSettingField =
   | 'postLayout'
   | 'brandLayout'
   | 'bannerLayout'
+  | 'bannerNotifyLayout'
+  | 'bannerNotifyBg'
   | 'changelogLayout'
   | 'tag'
   | 'alias'

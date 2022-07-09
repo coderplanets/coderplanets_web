@@ -114,6 +114,7 @@ export type {
   TUpvoteLayout,
   TBrandLayout,
   TBannerLayout,
+  TBannerNotifyLayout,
   TPostLayout,
   TChangelogLayout,
   TGlobalLayout,

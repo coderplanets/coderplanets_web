@@ -13,6 +13,7 @@ import { SIZE, BODY_SCROLLER } from '@/constant'
 import { bond } from '@/utils/mobx'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
+import BannerNotify from '@/widgets/BannerNotify'
 // import Header from '@/widgets/Header'
 
 // import Footer from '@/containers/unit/Footer'
@@ -61,7 +62,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // load debug graph
   useInit(store, { isMobile })
 
-  const { sidebarPin, wallpaper, wallpapers } = store
+  const { sidebarPin, wallpaper, wallpapers, globalLayout } = store
 
   return (
     <ThemePalette>
@@ -82,6 +83,11 @@ const GlobalLayoutContainer: FC<TProps> = ({
           <Wrapper>
             <SEO metric={metric} config={seoConfig} />
             <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
+              <BannerNotify
+                metric={metric}
+                layout={globalLayout.bannerNotify}
+                bg={globalLayout.bannerNotifyBg}
+              />
               {/* @ts-ignore */}
               <ContentWrapper offsetLeft={sidebarPin}>
                 {/* @ts-ignore */}

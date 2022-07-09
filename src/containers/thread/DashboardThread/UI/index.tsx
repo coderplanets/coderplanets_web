@@ -9,6 +9,7 @@ import BrandLayout from './BrandLayout'
 import BannerLayout from './BannerLayout'
 import PostListLayout from './PostListLayout'
 import ChangelogLayout from './ChangelogLayout'
+import BannerNotifyLayout from './BannerNotifyLayout'
 
 import type { TUiSettings, TTouched } from '../spec'
 import { Wrapper } from '../styles/ui'
@@ -23,6 +24,8 @@ const UI: FC<TProps> = ({ settings, touched }) => {
     primaryColor,
     brandLayout,
     bannerLayout,
+    bannerNotifyLayout,
+    bannerNotifyBg,
     postLayout,
     changelogLayout,
     wallpaper,
@@ -65,6 +68,14 @@ const UI: FC<TProps> = ({ settings, touched }) => {
         saving={saving}
       />
       <Divider top={30} bottom={60} />
+      <BannerNotifyLayout
+        layout={bannerNotifyLayout}
+        bg={bannerNotifyBg}
+        isLayoutTouched={touched.bannerNotifyLayout}
+        isBgTouched={touched.bannerNotifyBg}
+        saving={saving}
+      />
+      <Divider top={20} bottom={60} />
       <Wallpaper wallpaper={wallpaper} />
     </Wrapper>
   )
