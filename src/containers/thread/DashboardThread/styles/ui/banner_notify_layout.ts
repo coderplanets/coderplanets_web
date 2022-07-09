@@ -20,7 +20,8 @@ export const NotifyBar = styled.div<{ center?: boolean }>`
   justify-content: ${({ center }) => (center ? 'center' : 'flex-start')};
   width: 100%;
   height: 17px;
-  border-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   background: ${theme('thread.articleTitle')};
   padding: 0 20px;
   padding-bottom: 2px;
@@ -75,7 +76,6 @@ export const ExampleBtn = styled.div`
 `
 export const Layout = styled.div`
   ${css.flexColumn('align-both')};
-  height: 180px;
 `
 export const LayoutTitle = styled.div<TActive>`
   opacity: ${({ $active }) => ($active ? 1 : 0.65)};

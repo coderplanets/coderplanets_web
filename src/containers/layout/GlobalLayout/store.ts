@@ -11,6 +11,7 @@ import type {
   TC11N,
   TCommunity,
   TWallpaper,
+  TGlobalLayout,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 
@@ -54,6 +55,10 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
     get wallpapers(): Record<string, TWallpaper> {
       const root = getParent(self) as TRootStore
       return root.wallpaperEditor.wallpapers
+    },
+    get globalLayout(): TGlobalLayout {
+      const root = getParent(self) as TRootStore
+      return root.dashboardThread.globalLayout
     },
   }))
   .actions((self) => ({
