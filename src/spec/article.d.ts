@@ -219,6 +219,7 @@ export type TUpvoteLayout =
 
 export type TBrandLayout = 'both' | 'logo' | 'text'
 export type TBannerLayout = 'header' | 'tabber'
+export type TBannerNotifyLayout = 'default' | 'center'
 export type TPostLayout = 'upvote_first' | 'comment_first'
 export type TChangelogLayout = 'fold' | 'normal'
 
@@ -228,6 +229,7 @@ export type TGlobalLayout = {
   post: TPostLayout
   banner: TBannerLayout
   changelog: TChangelogLayout
+  bannerNotify: TBannerNotifyLayout
 }
 
 export type TCollectionFolder = {

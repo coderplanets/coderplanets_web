@@ -11,6 +11,7 @@ import { mockTags } from '@/utils/mock'
 import {
   BRAND_LAYOUT,
   BANNER_LAYOUT,
+  BANNER_NOTIFY_LAYOUT,
   CHANGELOG_LAYOUT,
   POST_LAYOUT,
   COLORS,
@@ -54,6 +55,10 @@ const settingsModalFields = {
     T.enumeration(values(BANNER_LAYOUT)),
     BANNER_LAYOUT.HEADER,
   ),
+  bannerNotifyLayout: T.optional(
+    T.enumeration(values(BANNER_NOTIFY_LAYOUT)),
+    BANNER_NOTIFY_LAYOUT.DEFAULT,
+  ),
   changelogLayout: T.optional(
     T.enumeration(values(CHANGELOG_LAYOUT)),
     CHANGELOG_LAYOUT.FOLD,
@@ -81,6 +86,7 @@ const DashboardThread = T.model('DashboardThread', {
         changelogLayout,
         postLayout,
         bannerLayout,
+        bannerNotifyLayout,
         brandLayout,
       } = initSettings
 
@@ -90,6 +96,7 @@ const DashboardThread = T.model('DashboardThread', {
         post: postLayout,
         changelog: changelogLayout,
         banner: bannerLayout,
+        bannerNotify: bannerNotifyLayout,
       }
     },
     get curCommunity(): TCommunity {
@@ -106,6 +113,9 @@ const DashboardThread = T.model('DashboardThread', {
       const primaryColorTouched = slf.primaryColor !== initSettings.primaryColor
       const brandLayoutTouched = slf.brandLayout !== initSettings.brandLayout
       const bannerLayoutTouched = slf.bannerLayout !== initSettings.bannerLayout
+      const bannerNotifyLayoutTouched =
+        slf.bannerNotifyLayout !== initSettings.bannerNotifyLayout
+
       const postLayoutTouched = slf.postLayout !== initSettings.postLayout
       const changelogLayoutTouched =
         slf.changelogLayout !== initSettings.changelogLayout
@@ -116,6 +126,7 @@ const DashboardThread = T.model('DashboardThread', {
         primaryColor: primaryColorTouched,
         brandLayout: brandLayoutTouched,
         bannerLayout: bannerLayoutTouched,
+        bannerNotifyLayout: bannerNotifyLayoutTouched,
         postLayout: postLayoutTouched,
         changelogLayout: changelogLayoutTouched,
         alias: aliasTouched,
@@ -167,6 +178,7 @@ const DashboardThread = T.model('DashboardThread', {
             'primaryColor',
             'brandLayout',
             'bannerLayout',
+            'bannerNotifyLayout',
             'postLayout',
             'changelogLayout',
           ],
