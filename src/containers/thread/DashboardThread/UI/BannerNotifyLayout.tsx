@@ -118,7 +118,7 @@ const BannerNotifyLayout: FC<TProps> = ({
           </Block>
           <LayoutTitle $active={layout === BANNER_NOTIFY_LAYOUT.DEFAULT}>
             <CheckLabel
-              title="常规式"
+              title="间隔式"
               $active={layout === BANNER_NOTIFY_LAYOUT.DEFAULT}
               top={15}
               left={-15}

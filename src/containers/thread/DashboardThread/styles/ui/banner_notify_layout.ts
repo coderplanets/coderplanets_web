@@ -130,16 +130,21 @@ export const Circle = styled.div<{ radius?: number }>`
 `
 export const BgWrapper = styled.div`
   ${css.flex('align-center')};
+  font-size: 12px;
 `
 export const BgLabel = styled.div<{ bg: TColorName }>`
-  ${css.circle(24)}
+  width: 44px;
+  height: 24px;
   ${css.flex('align-both')};
   border: 1px solid;
   border-color: ${({ bg }) => COLORS[bg]};
+  border-radius: 6px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 15px;
 `
 export const TheColor = styled.div<{ color: TColorName }>`
-  ${css.circle(18)};
+  width: 38px;
+  height: 18px;
+  border-radius: 6px;
   background-color: ${({ color }) => COLORS[color]};
 `
