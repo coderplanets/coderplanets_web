@@ -17,6 +17,7 @@ import {
   LinkText,
   LinkBtn,
   Row,
+  NotifyIcon,
   CrossIcon,
   ArrowIcon,
 } from './styles'
@@ -43,7 +44,11 @@ const BannerNotify: FC<TProps> = ({
         metric={metric}
         center={layout === BANNER_NOTIFY_LAYOUT.CENTER}
       >
-        <Desc>我们将在 10 月发布新的版本，敬请期待。</Desc>
+        <Row>
+          <NotifyIcon />
+          <Desc>我们将在 10 月发布新的版本，敬请期待。</Desc>
+        </Row>
+
         <Row>
           {layout === BANNER_NOTIFY_LAYOUT.DEFAULT ? (
             <Fragment>

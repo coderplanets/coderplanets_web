@@ -10,6 +10,7 @@ import css, { theme } from '@/utils/css'
 import { Divider } from '@/widgets/Common'
 import CrossSVG from '@/icons/CloseCross'
 import ArrowSVG from '@/icons/Arrow'
+import NotifySVG from '@/icons/Trumpet'
 
 import { BaseSection, BlockBase } from '.'
 
@@ -39,9 +40,6 @@ export const NotifyDesc = styled.div`
   font-size: 8px;
   font-weight: 600;
 `
-export const NotifyLink = styled(NotifyDesc)`
-  text-decoration: underline;
-`
 export const NotifySolidLink = styled.div<{ bg: TColorName }>`
   background: ${({ bg }) =>
     includes(bg, [COLOR_NAME.BLACK])
@@ -54,6 +52,11 @@ export const NotifySolidLink = styled.div<{ bg: TColorName }>`
   color: ${'theme.articleTitle'};
   font-weight: bold;
   padding: 0 4px;
+`
+export const NotifyIcon = styled(NotifySVG)`
+  ${css.size(8)};
+  fill: white;
+  margin-right: 6px;
 `
 export const CrossIcon = styled(CrossSVG)`
   fill: white;
@@ -116,6 +119,10 @@ export const Bar = styled.div<TBar>`
   z-index: 3;
   border-radius: 5px;
   opacity: ${({ thin }) => (thin ? 0.6 : 1)};
+`
+export const NotifyTextBar = styled(Bar)`
+  width: ${({ long }) => `${long || 10}px`};
+  background: white;
 `
 export const Circle = styled.div<{ radius?: number }>`
   ${({ radius }) => `${css.circle(radius || 22)}`};

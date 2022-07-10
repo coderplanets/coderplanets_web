@@ -20,11 +20,13 @@ import {
   Layout,
   LayoutTitle,
   Block,
+  Row,
   Bar,
+  NotifyTextBar,
   NotifyBar,
   NotifyDesc,
-  NotifyLink,
   NotifySolidLink,
+  NotifyIcon,
   CrossIcon,
   ArrowIcon,
   Main,
@@ -80,9 +82,14 @@ const BannerNotifyLayout: FC<TProps> = ({
         >
           <Block $active={layout === BANNER_NOTIFY_LAYOUT.DEFAULT}>
             <NotifyBar bg={bg}>
-              <NotifyDesc>这是一条全局通知，全站可见。</NotifyDesc>
+              <NotifyIcon />
+              <NotifyDesc>
+                <NotifyTextBar long={120} thin />
+              </NotifyDesc>
               <SpaceGrow />
-              <NotifySolidLink bg={bg}>查看详情</NotifySolidLink>
+              <NotifySolidLink bg={bg}>
+                <NotifyTextBar long={30} thin />
+              </NotifySolidLink>
               <Space left={5} />
               <CrossIcon />
             </NotifyBar>
@@ -126,10 +133,19 @@ const BannerNotifyLayout: FC<TProps> = ({
         >
           <Block $active={layout === BANNER_NOTIFY_LAYOUT.CENTER}>
             <NotifyBar bg={bg} center>
-              <NotifyDesc>这是一条全局通知，全站可见。</NotifyDesc>
-              <NotifyLink>查看详情</NotifyLink>
-              <Space left={5} />
-              <ArrowIcon />
+              <SpaceGrow />
+              <Row>
+                <NotifyIcon />
+                <NotifyDesc>
+                  <NotifyTextBar long={80} thin />
+                </NotifyDesc>
+                <Space right={10} />
+                <NotifyTextBar long={20} thin />
+                <Space left={5} />
+                <ArrowIcon />
+              </Row>
+              <SpaceGrow />
+              <CrossIcon />
             </NotifyBar>
 
             <Main>

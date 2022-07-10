@@ -8,6 +8,7 @@ import { COLORS, COLOR_NAME } from '@/constant'
 import css from '@/utils/css'
 import CrossSVG from '@/icons/CloseCross'
 import ArrowSVG from '@/icons/Arrow'
+import NotifySVG from '@/icons/Trumpet'
 
 type TWrapper = TTestable & { bg: TColorName }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -57,6 +58,11 @@ export const LinkBtn = styled.div<{ bg: TColorName }>`
 export const Row = styled.div`
   ${css.flex('align-center')};
   margin-left: 10px;
+`
+export const NotifyIcon = styled(NotifySVG)`
+  ${css.size(15)};
+  margin-right: 12px;
+  fill: white;
 `
 export const CrossIcon = styled(CrossSVG)`
   ${css.size(12)};
