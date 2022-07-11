@@ -103,7 +103,7 @@ export const MENU = {
   },
 
   INTEGRATE: {
-    title: '绑定即成',
+    title: '绑定集成',
     icon: <Icon.Bind />,
     children: [
       {

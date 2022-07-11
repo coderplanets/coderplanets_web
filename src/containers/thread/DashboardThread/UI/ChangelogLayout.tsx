@@ -82,9 +82,7 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
             <Bar long={80} thin />
             <Br top={10} />
             <Bar long={30} thin />
-            <Br top={10} />
-            <Bar long={60} thin />
-            <Br top={15} />
+            <Br top={14} />
             <Row>
               <UpvoteIcon size={15} />
               <Space right={5} />
@@ -93,7 +91,7 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
               <Bar long={12} thin />
             </Row>
 
-            <Divider />
+            <Divider top={30} bottom={30} />
 
             <MiniItem>
               <Cover>

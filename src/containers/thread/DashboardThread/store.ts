@@ -3,7 +3,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { keys, values, pick, findIndex, clone } from 'ramda'
+import { keys, values, pick, findIndex, clone, isNil } from 'ramda'
 
 import type { TCommunity, TRootStore, TTag, TGlobalLayout } from '@/spec'
 import { mockTags } from '@/utils/mock'
@@ -111,22 +111,22 @@ const DashboardThread = T.model('DashboardThread', {
     get touched(): TTouched {
       const slf = self as TStore
 
-      const { initSettings } = slf
+      const { initSettings: init } = slf
 
-      const primaryColorTouched = slf.primaryColor !== initSettings.primaryColor
-      const brandLayoutTouched = slf.brandLayout !== initSettings.brandLayout
-      const bannerLayoutTouched = slf.bannerLayout !== initSettings.bannerLayout
+      const primaryColorTouched = slf.primaryColor !== init.primaryColor
+      const brandLayoutTouched = slf.brandLayout !== init.brandLayout
+      const bannerLayoutTouched = slf.bannerLayout !== init.bannerLayout
+      const bannerNotifyBgTouched = slf.bannerNotifyBg !== init.bannerNotifyBg
+      const postLayoutTouched = slf.postLayout !== init.postLayout
+
       const bannerNotifyLayoutTouched =
-        slf.bannerNotifyLayout !== initSettings.bannerNotifyLayout
+        slf.bannerNotifyLayout !== init.bannerNotifyLayout
 
-      const bannerNotifyBgTouched =
-        slf.bannerNotifyBg !== initSettings.bannerNotifyBg
-
-      const postLayoutTouched = slf.postLayout !== initSettings.postLayout
       const changelogLayoutTouched =
-        slf.changelogLayout !== initSettings.changelogLayout
-      const aliasTouched = slf.editingAlias !== null
-      const tagsTouched = slf.editingTag !== null
+        slf.changelogLayout !== init.changelogLayout
+
+      const aliasTouched = !isNil(slf.editingAlias)
+      const tagsTouched = !isNil(slf.editingTag)
 
       return {
         primaryColor: primaryColorTouched,
@@ -144,6 +144,8 @@ const DashboardThread = T.model('DashboardThread', {
           primaryColorTouched ||
           brandLayoutTouched ||
           bannerLayoutTouched ||
+          bannerNotifyLayoutTouched ||
+          bannerNotifyBgTouched ||
           postLayoutTouched ||
           changelogLayoutTouched,
       }
