@@ -5,7 +5,7 @@ import type { TChangelogLayout } from '@/spec'
 import { CHANGELOG_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
-import { Br, Space, SpaceGrow, Divider, Inline } from '@/widgets/Common'
+import { Row, Br, Space, SpaceGrow, Divider, Inline } from '@/widgets/Common'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import CheckLabel from '@/widgets/CheckLabel'
 
@@ -25,7 +25,6 @@ import {
   MiniIntro,
   Cover,
   MiniPic,
-  Row,
   Column,
   UpvoteIcon,
   Picture,

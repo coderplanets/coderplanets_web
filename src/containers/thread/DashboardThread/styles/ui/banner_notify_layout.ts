@@ -12,7 +12,9 @@ import CrossSVG from '@/icons/CloseCross'
 import ArrowSVG from '@/icons/Arrow'
 import NotifySVG from '@/icons/Trumpet'
 
-import { BaseSection, BlockBase } from '.'
+import { BaseSection, BlockBase, Bar } from '.'
+
+export { Bar, Circle } from '.'
 
 export const Wrapper = styled(BaseSection)``
 export const SelectWrapper = styled.div`
@@ -70,9 +72,6 @@ export const ArrowIcon = styled(ArrowSVG)`
   opacity: 0.8;
   transform: rotate(180deg);
 `
-export const Row = styled.div`
-  ${css.flex('align-center')};
-`
 export const Main = styled.div`
   ${css.flex()};
   padding: 0 20px;
@@ -110,23 +109,9 @@ export const Block = styled(BlockBase)`
 export const DividerLine = styled(Divider)`
   opacity: 0.8;
 `
-type TBar = { long: number; thin?: boolean }
-export const Bar = styled.div<TBar>`
-  width: ${({ long }) => `${long || 10}%`};
-  height: ${({ thin }) => (thin ? '4px' : '10px;')};
-  background: ${({ thin }) =>
-    thin ? theme('thread.articleDigest') : theme('thread.articleTitle')};
-  z-index: 3;
-  border-radius: 5px;
-  opacity: ${({ thin }) => (thin ? 0.6 : 1)};
-`
 export const NotifyTextBar = styled(Bar)`
   width: ${({ long }) => `${long || 10}px`};
   background: white;
-`
-export const Circle = styled.div<{ radius?: number }>`
-  ${({ radius }) => `${css.circle(radius || 22)}`};
-  background: ${theme('thread.articleTitle')};
 `
 export const BgWrapper = styled.div`
   ${css.flex('align-center')};

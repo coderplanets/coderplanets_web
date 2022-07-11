@@ -6,15 +6,15 @@ import css, { theme } from '@/utils/css'
 
 import UpvoteSVG from '@/icons/Upvote'
 import CommentSVG from '@/icons/Comment'
+
 import { BaseSection, BlockBase } from '.'
+
+export { Bar, Circle } from '.'
 
 export const Wrapper = styled(BaseSection)``
 export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;
-`
-export const Row = styled.div`
-  ${css.flex('align-center')};
 `
 type TColumn = { center?: boolean; grow?: boolean }
 export const Column = styled.div<TColumn>`
@@ -38,20 +38,6 @@ export const Block = styled(BlockBase)`
   width: 300px;
   height: 94px;
   padding: 16px 15px;
-`
-type TBar = { long: number; thin?: boolean }
-export const Bar = styled.div<TBar>`
-  width: ${({ long }) => `${long || 10}%`};
-  height: ${({ thin }) => (thin ? '4px' : '10px;')};
-  background: ${({ thin }) =>
-    thin ? theme('thread.articleDigest') : theme('thread.articleTitle')};
-  z-index: 3;
-  border-radius: 5px;
-  opacity: ${({ thin }) => (thin ? 0.6 : 1)};
-`
-export const Circle = styled.div<{ radius?: number }>`
-  ${({ radius }) => `${css.circle(radius || 22)}`};
-  background: ${theme('thread.articleTitle')};
 `
 export const UpvoteIcon = styled(UpvoteSVG)<{ size: number }>`
   ${({ size }) => css.size(size)};

@@ -5,7 +5,7 @@ import type { TBannerNotifyLayout, TColorName } from '@/spec'
 import { BANNER_NOTIFY_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
-import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
+import { Row, Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
 import ColorSelector from '@/widgets/ColorSelector'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import CheckLabel from '@/widgets/CheckLabel'
@@ -20,7 +20,6 @@ import {
   Layout,
   LayoutTitle,
   Block,
-  Row,
   Bar,
   NotifyTextBar,
   NotifyBar,
