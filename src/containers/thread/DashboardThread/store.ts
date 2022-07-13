@@ -160,8 +160,8 @@ const DashboardThread = T.model('DashboardThread', {
       const widgetsSizeTouched = _isChanged('widgetsSize')
 
       const widgetsThreadsTouched = !equals(
-        toJS(slf.widgetsThreads),
-        toJS(init.widgetsThreads),
+        toJS(slf.widgetsThreads).sort(),
+        toJS(init.widgetsThreads).sort(),
       )
 
       return {
@@ -299,7 +299,7 @@ const DashboardThread = T.model('DashboardThread', {
         return
       }
 
-      const initValue = slf.initSettings[field]
+      const initValue = toJS(slf.initSettings[field])
 
       // @ts-ignore
       self[field] = initValue
