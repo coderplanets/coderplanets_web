@@ -19,20 +19,24 @@ export const Item = styled.div<TActive>`
   position: relative;
   color: ${({ $active }) =>
     $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  background: ${({ $active }) => ($active ? theme('hoverBg') : 'transparent')};
+  background: ${({ $active }) =>
+    $active ? theme('menuActive') : 'transparent'};
   font-weight: ${({ $active }) => ($active ? 500 : 400)};
-  padding: 3px 5px;
+  width: 116px;
+  padding: 2px 5px;
   padding-left: 30px;
   margin-left: -2px;
   border-radius: 8px;
   font-size: 14px;
-  margin-bottom: 2px;
-  /* margin-left: 24px; */
+
+  margin-top: ${({ $active }) => ($active ? '4px' : '2px')};
+  margin-bottom: ${({ $active }) => ($active ? '8px' : '6px')};
 
   &:hover {
     cursor: pointer;
     color: ${theme('thread.articleTitle')};
-    background: ${theme('hoverBg')};
+    background: ${({ $active }) =>
+      $active ? theme('menuActive') : theme('hoverBg')};
   }
 
   transition: all 0.2s;

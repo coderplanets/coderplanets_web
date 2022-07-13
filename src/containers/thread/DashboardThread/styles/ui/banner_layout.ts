@@ -7,13 +7,12 @@ import css, { theme } from '@/utils/css'
 import { Divider } from '@/widgets/Common'
 import { BaseSection, BlockBase } from '.'
 
+export { Bar, Circle } from '.'
+
 export const Wrapper = styled(BaseSection)``
 export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;
-`
-export const Row = styled.div`
-  ${css.flex('align-center')};
 `
 export const Main = styled.div`
   ${css.flex()};
@@ -50,18 +49,4 @@ export const Block = styled(BlockBase)`
 `
 export const DividerLine = styled(Divider)`
   opacity: 0.8;
-`
-type TBar = { long: number; thin?: boolean }
-export const Bar = styled.div<TBar>`
-  width: ${({ long }) => `${long || 10}%`};
-  height: ${({ thin }) => (thin ? '4px' : '10px;')};
-  background: ${({ thin }) =>
-    thin ? theme('thread.articleDigest') : theme('thread.articleTitle')};
-  z-index: 3;
-  border-radius: 5px;
-  opacity: ${({ thin }) => (thin ? 0.6 : 1)};
-`
-export const Circle = styled.div<{ radius?: number }>`
-  ${({ radius }) => `${css.circle(radius || 22)}`};
-  background: ${theme('thread.articleTitle')};
 `

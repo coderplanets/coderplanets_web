@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 import type { TActive, TSpace } from '@/spec'
-import { theme } from '@/utils/css'
+import css, { theme } from '@/utils/css'
 
+export const Row = styled.div`
+  ${css.flex('align-center')};
+`
 export const Br = styled.div<TSpace>`
   margin-top: ${({ top }) => `${top}px` || 0};
   margin-bottom: ${({ bottom }) => `${bottom}px` || 0};

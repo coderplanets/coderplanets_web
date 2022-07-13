@@ -6,7 +6,10 @@ import css, { theme } from '@/utils/css'
 
 import UpvoteSVG from '@/icons/Heart'
 import CommentSVG from '@/icons/Comment'
-import { BaseSection, BlockBase } from '.'
+
+import { Bar, BaseSection, BlockBase } from '.'
+
+export { Bar } from '.'
 
 export const Wrapper = styled(BaseSection)``
 
@@ -14,9 +17,7 @@ export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
   width: 100%;
 `
-export const Row = styled.div`
-  ${css.flex('align-center')};
-`
+
 type TColumn = { center?: boolean; grow?: boolean }
 export const Column = styled.div<TColumn>`
   ${css.flexColumn()};
@@ -40,16 +41,7 @@ export const Block = styled(BlockBase)`
   height: 430px;
   padding: 16px 15px;
 `
-type TBar = { long: number; thin?: boolean }
-export const Bar = styled.div<TBar>`
-  width: ${({ long }) => `${long || 10}%`};
-  height: ${({ thin }) => (thin ? '4px' : '10px;')};
-  background: ${({ thin }) =>
-    thin ? theme('thread.articleDigest') : theme('thread.articleTitle')};
-  z-index: 3;
-  border-radius: 5px;
-  opacity: ${({ thin }) => (thin ? 0.6 : 1)};
-`
+
 export const Picture = styled.div<{ small?: boolean }>`
   width: 100%;
   height: ${({ small }) => (small ? '80px;' : '100px;')};

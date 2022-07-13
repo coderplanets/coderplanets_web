@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import type { TEditValue, TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { updateEditing } from '@/utils/mobx'
+import { updateEditing, toJS } from '@/utils/mobx'
 
 import type { TTab, TSettingField, TAlias } from './spec'
 // import S from './schma'
@@ -42,16 +42,18 @@ export const edit = (e: TEditValue, key: string): void => {
 /**
  * save to server
  */
-export const onSave = (field: TSettingField): void => {
+export const onSave = (field: TSettingField, force = false): void => {
   store.mark({ saving: true })
   store.onSave(field)
 
+  const time = force ? 0 : 1200
+
   setTimeout(() => {
     store.mark({ saving: false })
-    const initSettings = { ...store.initSettings, [field]: store[field] }
+    const initSettings = { ...store.initSettings, [field]: toJS(store[field]) }
 
     store.mark({ initSettings })
-  }, 1200)
+  }, time)
 }
 
 // ###############################

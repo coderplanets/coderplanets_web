@@ -46,6 +46,7 @@ const github = {
   link,
   border,
   hoverBg,
+  menuActive: '#f3f3f3',
   linkHover: lighten(0.05, link),
   heightIcon: '#e48a3d',
   heightGradient:

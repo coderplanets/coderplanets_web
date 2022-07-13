@@ -3,9 +3,16 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { keys, values, pick, findIndex, clone } from 'ramda'
+import { keys, values, pick, findIndex, clone, isNil, equals } from 'ramda'
 
-import type { TCommunity, TRootStore, TTag, TGlobalLayout } from '@/spec'
+import type {
+  TCommunity,
+  TRootStore,
+  TTag,
+  TGlobalLayout,
+  TThread,
+  TSizeSML,
+} from '@/spec'
 import { mockTags } from '@/utils/mock'
 
 import {
@@ -15,6 +22,8 @@ import {
   CHANGELOG_LAYOUT,
   POST_LAYOUT,
   COLORS,
+  THREAD,
+  SIZE,
 } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
@@ -27,9 +36,11 @@ import type {
   TTouched,
   TSettingField,
   TAlias,
+  TWidgetsSettings,
+  TWidgetType,
 } from './spec'
 
-import { TAB, SETTING_FIELD, BUILDIN_ALIAS } from './constant'
+import { TAB, SETTING_FIELD, BUILDIN_ALIAS, WIDGET_TYPE } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:DashboardThread')
@@ -66,6 +77,22 @@ const settingsModalFields = {
   ),
   tags: T.optional(T.array(Tag), mockTags(12)),
   alias: T.optional(T.array(Alias), BUILDIN_ALIAS),
+
+  // widgets
+  widgetsPrimaryColor: T.optional(T.enumeration(keys(COLORS)), 'BLACK'),
+  widgetsThreads: T.optional(T.array(T.string), [
+    THREAD.POST,
+    THREAD.KANBAN,
+    THREAD.CHANGELOG,
+  ]),
+  widgetsSize: T.optional(
+    T.enumeration([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
+    SIZE.MEDIUM,
+  ),
+  widgetsType: T.optional(
+    T.enumeration(values(WIDGET_TYPE)),
+    WIDGET_TYPE.SIDEBAR,
+  ),
 }
 
 const InitSettings = T.model('DashboardInit', settingsModalFields)
@@ -111,22 +138,31 @@ const DashboardThread = T.model('DashboardThread', {
     get touched(): TTouched {
       const slf = self as TStore
 
-      const { initSettings } = slf
+      const { initSettings: init } = slf
 
-      const primaryColorTouched = slf.primaryColor !== initSettings.primaryColor
-      const brandLayoutTouched = slf.brandLayout !== initSettings.brandLayout
-      const bannerLayoutTouched = slf.bannerLayout !== initSettings.bannerLayout
-      const bannerNotifyLayoutTouched =
-        slf.bannerNotifyLayout !== initSettings.bannerNotifyLayout
+      const _isChanged = (field: TSettingField): boolean => {
+        return slf[field] !== init[field]
+      }
 
-      const bannerNotifyBgTouched =
-        slf.bannerNotifyBg !== initSettings.bannerNotifyBg
+      const primaryColorTouched = _isChanged('primaryColor')
+      const brandLayoutTouched = _isChanged('brandLayout')
 
-      const postLayoutTouched = slf.postLayout !== initSettings.postLayout
-      const changelogLayoutTouched =
-        slf.changelogLayout !== initSettings.changelogLayout
-      const aliasTouched = slf.editingAlias !== null
-      const tagsTouched = slf.editingTag !== null
+      const bannerLayoutTouched = _isChanged('bannerLayout')
+      const bannerNotifyBgTouched = _isChanged('bannerNotifyBg')
+      const postLayoutTouched = _isChanged('postLayout')
+      const bannerNotifyLayoutTouched = _isChanged('bannerNotifyLayout')
+      const changelogLayoutTouched = _isChanged('changelogLayout')
+
+      const aliasTouched = !isNil(slf.editingAlias)
+      const tagsTouched = !isNil(slf.editingTag)
+
+      const widgetsPrimaryColorTouched = _isChanged('widgetsPrimaryColor')
+      const widgetsSizeTouched = _isChanged('widgetsSize')
+
+      const widgetsThreadsTouched = !equals(
+        toJS(slf.widgetsThreads),
+        toJS(init.widgetsThreads),
+      )
 
       return {
         primaryColor: primaryColorTouched,
@@ -139,13 +175,24 @@ const DashboardThread = T.model('DashboardThread', {
         alias: aliasTouched,
         tags: tagsTouched,
 
+        widgetsPrimaryColor: widgetsPrimaryColorTouched,
+        widgetsThreads: widgetsThreadsTouched,
+        widgetsSize: widgetsSizeTouched,
+
         // sidebar-item
         ui:
           primaryColorTouched ||
           brandLayoutTouched ||
           bannerLayoutTouched ||
+          bannerNotifyLayoutTouched ||
+          bannerNotifyBgTouched ||
           postLayoutTouched ||
           changelogLayoutTouched,
+
+        widgets:
+          widgetsPrimaryColorTouched ||
+          widgetsThreadsTouched ||
+          widgetsSizeTouched,
       }
     },
 
@@ -192,6 +239,18 @@ const DashboardThread = T.model('DashboardThread', {
           ],
           slf,
         ),
+      }
+    },
+
+    get widgetsSettings(): TWidgetsSettings {
+      const slf = self as TStore
+
+      return {
+        saving: slf.saving,
+        widgetsPrimaryColor: slf.widgetsPrimaryColor,
+        widgetsThreads: toJS(slf.widgetsThreads) as TThread[],
+        widgetsSize: slf.widgetsSize as TSizeSML,
+        widgetsType: slf.widgetsType as TWidgetType,
       }
     },
   }))

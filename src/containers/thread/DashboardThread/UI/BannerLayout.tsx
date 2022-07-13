@@ -5,7 +5,7 @@ import type { TBannerLayout } from '@/spec'
 import { BANNER_LAYOUT, DASHBOARD_DESC_LAYOUT } from '@/constant'
 import { callDashboardDesc } from '@/utils/helper'
 
-import { Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
+import { Row, Br, Space, SpaceGrow, Inline } from '@/widgets/Common'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import CheckLabel from '@/widgets/CheckLabel'
 
@@ -22,7 +22,6 @@ import {
   Block,
   Bar,
   Circle,
-  Row,
   Main,
   ListsWrapper,
   TagssWrapper,
