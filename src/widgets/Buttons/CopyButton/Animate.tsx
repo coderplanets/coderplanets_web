@@ -1,30 +1,20 @@
 import { FC, memo, useEffect, useState } from 'react'
 
 import { AnimateOnChange } from 'react-animation'
-import {
-  CopyedHint,
-  CopyIcon,
-  CopyedIcon,
-  CopyedText,
-} from '../styles/copy_button'
+import { CopyedHint, CopyIcon, CopyedText } from '../styles/copy_button'
 
 const CopyButton: FC = () => {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    if (done) setTimeout(() => setDone(false), 2000)
+    if (done) setTimeout(() => setDone(false), 3000)
   }, [done])
 
   return (
-    <AnimateOnChange
-      animationIn="popIn"
-      animationOut="bounceOut"
-      durationOut={50}
-    >
+    <AnimateOnChange animationIn="popIn" animationOut="fadeOut" durationOut={0}>
       {!done && <CopyIcon onClick={() => setDone(true)} />}
       {done && (
         <CopyedHint>
-          <CopyedIcon />
           <CopyedText>已复制</CopyedText>
         </CopyedHint>
       )}

@@ -81,6 +81,7 @@ export type TWidgetsSettings = {
   widgetsPrimaryColor: TColorName
   widgetsThreads: TThread[]
   widgetsSize: TSizeSML
+  widgetsType: TWidgetType
 }
 
 export type TTouched = {
@@ -116,5 +117,6 @@ export type TSettingField =
   | 'widgetsPrimaryColor'
   | 'widgetsThreads'
   | 'widgetsSize'
+  | 'widgetsType'
 
-export type TWidgets = string
+export type TWidgetType = 'sidebar' | 'modal' | 'popup' | 'iframe' | 'link'

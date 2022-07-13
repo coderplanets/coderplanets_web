@@ -25,7 +25,6 @@ export const TheColor = styled.div<{ color: TColorName }>`
 export const ThreadsWrapper = styled.div`
   ${css.flex('justify-between')};
   flex-wrap: wrap;
-  margin-bottom: 70px;
 
   border: 1px solid;
   border-color: ${theme('border')};

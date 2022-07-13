@@ -5,7 +5,9 @@ import Tabs from '@/widgets/Switcher/Tabs'
 import Button from '@/widgets/Buttons/Button'
 import { Radio } from '@/widgets/Switcher'
 
-import type { TWidgetsSettings } from '../spec'
+import type { TWidgetsSettings, TTouched } from '../spec'
+import { WIDGET_TYPES, WIDGET_TYPE } from '../constant'
+
 import Portal from '../Portal'
 import BaseSetting from './BaseSetting'
 import CodeArea from './CodeArea'
@@ -22,6 +24,7 @@ import {
   InputLabel,
   Inputer,
 } from '../styles/widgets'
+import { edit, onSave } from '../logic'
 
 export const TAB_ITEMS = [
   {
@@ -29,21 +32,30 @@ export const TAB_ITEMS = [
     raw: 'sidebar',
   },
   {
-    title: '弹框',
+    title: '居中模态框',
     raw: 'modal',
   },
   {
-    title: '内嵌',
+    title: '弹出提示',
+    raw: 'modal',
+  },
+  {
+    title: '页面内嵌',
     raw: 'iframe',
+  },
+  {
+    title: '链接',
+    raw: 'link',
   },
 ]
 
 type TProps = {
   settings: TWidgetsSettings
+  touched: TTouched
 }
 
-const Widgets: FC<TProps> = ({ settings }) => {
-  const { widgetsPrimaryColor, widgetsSize, widgetsThreads } = settings
+const Widgets: FC<TProps> = ({ settings, touched }) => {
+  const { widgetsType } = settings
 
   return (
     <Wrapper>
@@ -52,17 +64,21 @@ const Widgets: FC<TProps> = ({ settings }) => {
         desc="为您的主页添加社区，更新日志，看板等插件，让产品用户及时方便的了解最新动态。"
       />
 
-      <BaseSetting />
+      <BaseSetting settings={settings} touched={touched} />
       <TypeSelect>
         <TabWrapper>
           <Tabs
-            items={TAB_ITEMS}
+            items={WIDGET_TYPES}
             size="small"
-            activeKey="sidebar"
+            activeKey={widgetsType}
             bottomSpace={4}
+            onChange={(raw) => {
+              edit(raw, 'widgetsType')
+              onSave('widgetsType', true)
+            }}
           />
         </TabWrapper>
-        <Button size="small" space={8} top={8} right={2} ghost>
+        <Button size="small" space={8} top={-2} right={2} ghost>
           <BtnWrapper>
             <ViewIcon />
             预览

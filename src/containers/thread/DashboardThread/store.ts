@@ -37,9 +37,10 @@ import type {
   TSettingField,
   TAlias,
   TWidgetsSettings,
+  TWidgetType,
 } from './spec'
 
-import { TAB, SETTING_FIELD, BUILDIN_ALIAS } from './constant'
+import { TAB, SETTING_FIELD, BUILDIN_ALIAS, WIDGET_TYPE } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:DashboardThread')
@@ -83,11 +84,14 @@ const settingsModalFields = {
     THREAD.POST,
     THREAD.KANBAN,
     THREAD.CHANGELOG,
-    THREAD.HELP,
   ]),
   widgetsSize: T.optional(
     T.enumeration([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
     SIZE.MEDIUM,
+  ),
+  widgetsType: T.optional(
+    T.enumeration(values(WIDGET_TYPE)),
+    WIDGET_TYPE.SIDEBAR,
   ),
 }
 
@@ -244,8 +248,9 @@ const DashboardThread = T.model('DashboardThread', {
       return {
         saving: slf.saving,
         widgetsPrimaryColor: slf.widgetsPrimaryColor,
-        widgetsThreads: slf.widgetsThreads as TThread[],
+        widgetsThreads: toJS(slf.widgetsThreads) as TThread[],
         widgetsSize: slf.widgetsSize as TSizeSML,
+        widgetsType: slf.widgetsType as TWidgetType,
       }
     },
   }))

@@ -1,6 +1,6 @@
 import type { SnakeUpperCase } from '@/spec'
 
-import type { TTab, TSettingField } from './spec'
+import type { TTab, TSettingField, TWidgetType } from './spec'
 
 import { Icon } from './styles/side_menu'
 
@@ -37,6 +37,9 @@ export const SETTING_FIELD = {
   CHANGELOG_LAYOUT: 'changelogLayout',
   TAG: 'tag',
   ALIAS: 'alias',
+  WIDGETS_PRIMARY_COLOR: 'widgetsPrimaryColor',
+  WIDGETS_SIZE: 'widgetsSize',
+  WIDGETS_THREADS: 'widgetsThreads',
 } as Record<SnakeUpperCase<TSettingField>, TSettingField>
 
 export const MENU = {
@@ -140,5 +143,36 @@ export const BUILDIN_ALIAS = [
     name: '看板',
     original: '看板',
     suggestions: ['路线图', '规划', '蓝图'],
+  },
+]
+
+export const WIDGET_TYPE = {
+  SIDEBAR: 'sidebar',
+  MODAL: 'modal',
+  POPUP: 'popup',
+  IFRAME: 'iframe',
+  LINK: 'link',
+} as Record<Uppercase<TWidgetType>, TWidgetType>
+
+export const WIDGET_TYPES = [
+  {
+    title: '侧边栏',
+    raw: WIDGET_TYPE.SIDEBAR,
+  },
+  {
+    title: '居中模态框',
+    raw: WIDGET_TYPE.MODAL,
+  },
+  {
+    title: '弹出提示',
+    raw: WIDGET_TYPE.POPUP,
+  },
+  {
+    title: '页面内嵌',
+    raw: WIDGET_TYPE.IFRAME,
+  },
+  {
+    title: '链接',
+    raw: WIDGET_TYPE.LINK,
   },
 ]

@@ -62,7 +62,9 @@ const DashboardThreadContainer: FC<TProps> = ({
 
         {curTab === TAB.DOMAIN && <Domain />}
         {curTab === TAB.THIRD_PART && <ThirdPart />}
-        {curTab === TAB.WIDGETS && <Widgets settings={widgetsSettings} />}
+        {curTab === TAB.WIDGETS && (
+          <Widgets settings={widgetsSettings} touched={touched} />
+        )}
       </MainWrapper>
     </Wrapper>
   )
