@@ -6,7 +6,7 @@ import Button from '@/widgets/Buttons/Button'
 import { Radio } from '@/widgets/Switcher'
 
 import type { TWidgetsSettings, TTouched } from '../spec'
-import { WIDGET_TYPES, WIDGET_TYPE } from '../constant'
+import { WIDGET_TYPES } from '../constant'
 
 import Portal from '../Portal'
 import BaseSetting from './BaseSetting'
