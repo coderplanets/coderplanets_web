@@ -40,7 +40,14 @@ const DashboardThreadContainer: FC<TProps> = ({
   testid = 'dashboard-thread',
 }) => {
   useInit(store)
-  const { curTab, uiSettings, tagSettings, aliasSettings, touched } = store
+  const {
+    curTab,
+    uiSettings,
+    tagSettings,
+    aliasSettings,
+    widgetsSettings,
+    touched,
+  } = store
 
   return (
     <Wrapper testid={testid}>
@@ -55,7 +62,7 @@ const DashboardThreadContainer: FC<TProps> = ({
 
         {curTab === TAB.DOMAIN && <Domain />}
         {curTab === TAB.THIRD_PART && <ThirdPart />}
-        {curTab === TAB.WIDGETS && <Widgets />}
+        {curTab === TAB.WIDGETS && <Widgets settings={widgetsSettings} />}
       </MainWrapper>
     </Wrapper>
   )

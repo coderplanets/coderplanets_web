@@ -5,6 +5,7 @@ import Tabs from '@/widgets/Switcher/Tabs'
 import Button from '@/widgets/Buttons/Button'
 import { Radio } from '@/widgets/Switcher'
 
+import type { TWidgetsSettings } from '../spec'
 import Portal from '../Portal'
 import BaseSetting from './BaseSetting'
 import CodeArea from './CodeArea'
@@ -38,10 +39,12 @@ export const TAB_ITEMS = [
 ]
 
 type TProps = {
-  testid?: string
+  settings: TWidgetsSettings
 }
 
-const Widgets: FC<TProps> = ({ testid = 'widgets' }) => {
+const Widgets: FC<TProps> = ({ settings }) => {
+  const { widgetsPrimaryColor, widgetsSize, widgetsThreads } = settings
+
   return (
     <Wrapper>
       <Portal

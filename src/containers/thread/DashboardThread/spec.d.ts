@@ -9,6 +9,8 @@ import type {
   TBannerLayout,
   TBannerNotifyLayout,
   TTag,
+  TThread,
+  TSizeSML,
 } from '@/spec'
 
 type TMenuGroupName = 'BASIC' | 'ANALYSIS' | 'MANAGEMENT' | 'INTEGRATE'
@@ -51,7 +53,6 @@ export type TTagSettings = {
   tags: TTag[]
   editingTag: TTag
 }
-
 export type TAlias = {
   raw: string
   name: string
@@ -75,6 +76,12 @@ export type TUiSettings = {
   postLayout: TPostLayout
   changelogLayout: TChangelogLayout
 }
+export type TWidgetsSettings = {
+  saving: boolean
+  widgetsPrimaryColor: TColorName
+  widgetsThreads: TThread[]
+  widgetsSize: TSizeSML
+}
 
 export type TTouched = {
   primaryColor: boolean
@@ -86,8 +93,14 @@ export type TTouched = {
   changelogLayout: boolean
   alias: boolean
   tags: boolean
+
+  widgetsPrimaryColor: boolean
+  widgetsThreads: boolean
+  widgetsSize: boolean
+
   // sidebar
   ui: boolean
+  widgets: boolean
 }
 
 export type TSettingField =
@@ -100,3 +113,8 @@ export type TSettingField =
   | 'changelogLayout'
   | 'tag'
   | 'alias'
+  | 'widgetsPrimaryColor'
+  | 'widgetsThreads'
+  | 'widgetsSize'
+
+export type TWidgets = string

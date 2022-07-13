@@ -26,10 +26,10 @@ const ThreadSelector: FC = () => {
         </CatButton>
 
         <CatButton
-          ghost={thread !== THREAD.ROADMAP}
+          ghost={thread !== THREAD.KANBAN}
           size="small"
-          noBorder={thread !== THREAD.ROADMAP}
-          onClick={() => setThread(THREAD.ROADMAP)}
+          noBorder={thread !== THREAD.KANBAN}
+          onClick={() => setThread(THREAD.KANBAN)}
         >
           看板墙
         </CatButton>

@@ -21,7 +21,7 @@ export const Item = styled.div<TActive>`
     $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   background: ${({ $active }) =>
     $active ? theme('menuActive') : 'transparent'};
-  font-weight: ${({ $active }) => ($active ? 600 : 400)};
+  font-weight: ${({ $active }) => ($active ? 500 : 400)};
   width: 116px;
   padding: 2px 5px;
   padding-left: 30px;

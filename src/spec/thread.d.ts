@@ -7,8 +7,8 @@ export type TArticleThread =
   | 'radar'
   | 'works'
   // for groupher
-  | 'roadmap'
   | 'changelog'
+  | 'kanban'
   | 'help'
   | 'about'
 
