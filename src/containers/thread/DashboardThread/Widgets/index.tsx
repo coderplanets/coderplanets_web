@@ -26,29 +26,6 @@ import {
 } from '../styles/widgets'
 import { edit, onSave } from '../logic'
 
-export const TAB_ITEMS = [
-  {
-    title: '侧边栏',
-    raw: 'sidebar',
-  },
-  {
-    title: '居中模态框',
-    raw: 'modal',
-  },
-  {
-    title: '弹出提示',
-    raw: 'modal',
-  },
-  {
-    title: '页面内嵌',
-    raw: 'iframe',
-  },
-  {
-    title: '链接',
-    raw: 'link',
-  },
-]
-
 type TProps = {
   settings: TWidgetsSettings
   touched: TTouched
