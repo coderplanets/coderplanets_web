@@ -1,36 +1,33 @@
 import { FC, memo, useEffect, useState } from 'react'
 
-import { ICON } from '@/config'
-import IconButton from '@/widgets/Buttons/IconButton'
-
 import { AnimateOnChange } from 'react-animation'
-import { CopyedHintIcon } from '../styles/copy_button'
+import {
+  CopyedHint,
+  CopyIcon,
+  CopyedIcon,
+  CopyedText,
+} from '../styles/copy_button'
 
 const CopyButton: FC = () => {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    if (done) {
-      setTimeout(() => setDone(false), 2000)
-    }
+    if (done) setTimeout(() => setDone(false), 2000)
   }, [done])
 
   return (
     <AnimateOnChange
       animationIn="popIn"
       animationOut="bounceOut"
-      durationOut={100}
+      durationOut={50}
     >
-      {!done && (
-        <IconButton
-          path="article/clipboard.svg"
-          right={5}
-          onClick={() => {
-            setDone(true)
-          }}
-        />
+      {!done && <CopyIcon onClick={() => setDone(true)} />}
+      {done && (
+        <CopyedHint>
+          <CopyedIcon />
+          <CopyedText>已复制</CopyedText>
+        </CopyedHint>
       )}
-      {done && <CopyedHintIcon src={`${ICON}/shape/checked.svg`} />}
     </AnimateOnChange>
   )
 }

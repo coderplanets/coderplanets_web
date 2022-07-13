@@ -115,7 +115,7 @@ export const MENU = {
         raw: TAB.THIRD_PART,
       },
       {
-        title: '网站组件',
+        title: '网站插件',
         raw: TAB.WIDGETS,
       },
     ],

@@ -1,6 +1,6 @@
 import { FC, ReactNode, memo } from 'react'
 
-import type { TSizeTSM } from '@/spec'
+import type { TSizeTSM, TSpace } from '@/spec'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -21,7 +21,7 @@ type TProps = {
   loading?: boolean
   noBorder?: boolean
   disabled?: boolean
-}
+} & TSpace
 
 const Button: FC<TProps> = ({
   children = 'button',
@@ -34,6 +34,7 @@ const Button: FC<TProps> = ({
   loading = false,
   noBorder = false,
   disabled = false,
+  ...restProps
 }) => {
   if (loading) return <LavaLampLoading size="small" />
 
@@ -48,6 +49,7 @@ const Button: FC<TProps> = ({
           noBorder={noBorder}
           space={space}
           disabled={disabled}
+          {...restProps}
         >
           {children}
         </RedWrapper>
@@ -63,6 +65,7 @@ const Button: FC<TProps> = ({
           space={space}
           noBorder={noBorder}
           disabled={disabled}
+          {...restProps}
         >
           <ChildrenWrapper size={size} ghost={ghost} noBorder={noBorder}>
             {children}

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 
 import css, { theme } from '@/utils/css'
-import type { TSize, TButton } from '@/spec'
+import type { TSize, TButton, TSpace } from '@/spec'
 
 import {
   getColor,
@@ -13,7 +13,8 @@ import {
   getFontSize,
 } from './metircs/button'
 
-export const Wrapper = styled.button<TButton>`
+type TWrapper = TButton & TSpace
+export const Wrapper = styled.button<TWrapper>`
   ${css.flex('align-both')};
   -webkit-appearance: button;
   outline: none;
@@ -46,6 +47,11 @@ export const Wrapper = styled.button<TButton>`
     getBorderColor(noBorder, disabled)};
 
   opacity: ${({ noBorder }) => (noBorder ? '0.8' : 1)};
+
+  margin-top: ${({ top }) => `${top}px` || 0};
+  margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
+  margin-left: ${({ left }) => `${left}px` || 0};
+  margin-right: ${({ right }) => `${right}px` || 0};
 
   &::after {
     content: '';
