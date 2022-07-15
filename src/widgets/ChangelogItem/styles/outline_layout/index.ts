@@ -14,7 +14,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   cursor: pointer;
 `
 export const Main = styled.div`
-  width: 574px;
+  width: 550px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -41,6 +41,7 @@ export const Body = styled.div`
   ${css.lineClamp(1)};
   font-size: 14px;
   opacity: 0.65;
+  max-width: 500px;
 
   ${Wrapper}:hover & {
     opacity: 1;
@@ -67,7 +68,7 @@ export const Text = styled.div`
 export const Side = styled.div`
   ${css.flexColumn('align-end')};
   color: ${theme('thread.articleDigest')};
-  flex-grow: 1;
+  margin-top: -1px;
 `
 export const DateTime = styled.div`
   font-size: 12px;
@@ -81,7 +82,7 @@ export const TagsWrapper = styled.div`
   margin-right: 3px;
 `
 export const TagDot = styled.div<{ color: string }>`
-  ${css.circle(5)};
+  ${css.circle(6)};
   background-color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
   margin-left: 6px;
 `

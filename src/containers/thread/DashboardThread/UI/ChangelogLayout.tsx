@@ -61,8 +61,10 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
         }
       />
       <SelectWrapper>
-        <Layout onClick={() => edit(CHANGELOG_LAYOUT.FOLD, 'changelogLayout')}>
-          <Block $active={layout === CHANGELOG_LAYOUT.FOLD}>
+        <Layout
+          onClick={() => edit(CHANGELOG_LAYOUT.OUTLINE, 'changelogLayout')}
+        >
+          <Block $active={layout === CHANGELOG_LAYOUT.OUTLINE}>
             <Column>
               <Picture />
               <Br top={14} />
@@ -160,10 +162,10 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
               </MiniIntro>
             </MiniItem>
           </Block>
-          <LayoutTitle $active={layout === CHANGELOG_LAYOUT.FOLD}>
+          <LayoutTitle $active={layout === CHANGELOG_LAYOUT.OUTLINE}>
             <CheckLabel
               title="折叠历史发布"
-              $active={layout === CHANGELOG_LAYOUT.FOLD}
+              $active={layout === CHANGELOG_LAYOUT.OUTLINE}
               top={15}
               left={-15}
             />
@@ -171,9 +173,9 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
         </Layout>
         <Space right={40} />
         <Layout
-          onClick={() => edit(CHANGELOG_LAYOUT.NORMAL, 'changelogLayout')}
+          onClick={() => edit(CHANGELOG_LAYOUT.PREVIEW, 'changelogLayout')}
         >
-          <Block $active={layout === CHANGELOG_LAYOUT.NORMAL}>
+          <Block $active={layout === CHANGELOG_LAYOUT.PREVIEW}>
             <Column>
               <Picture small />
               <Br top={14} />
@@ -230,10 +232,10 @@ const ChangelogLayout: FC<TProps> = ({ layout, isTouched, saving }) => {
               <Bar long={12} thin />
             </Row>
           </Block>
-          <LayoutTitle $active={layout === CHANGELOG_LAYOUT.NORMAL}>
+          <LayoutTitle $active={layout === CHANGELOG_LAYOUT.PREVIEW}>
             <CheckLabel
               title="全部展开"
-              $active={layout === CHANGELOG_LAYOUT.NORMAL}
+              $active={layout === CHANGELOG_LAYOUT.PREVIEW}
               top={15}
               left={-15}
             />

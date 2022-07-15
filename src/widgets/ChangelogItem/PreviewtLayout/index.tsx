@@ -11,6 +11,7 @@ import { mockUsers } from '@/utils/mock'
 
 import { TAG_MODE } from '@/constant'
 
+import { SpaceGrow } from '@/widgets/Common'
 import DropdownButton from '@/widgets/Buttons/DropdownButton'
 import TagsList from '@/widgets/TagsList'
 import EmotionSelector from '@/widgets/EmotionSelector'
@@ -31,7 +32,7 @@ import {
   Publisher,
   Avatar,
   Username,
-} from '../styles/default_layout'
+} from '../styles/preview_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ChangelogItem:index')
@@ -40,7 +41,7 @@ type TProps = {
   testid?: string
 }
 
-const DefaultLayout: FC<TProps> = ({ testid = 'changelog-item' }) => {
+const PreviewLayout: FC<TProps> = ({ testid = 'changelog-item' }) => {
   const tags = [
     {
       title: 'Bug 修复',
@@ -120,18 +121,19 @@ const DefaultLayout: FC<TProps> = ({ testid = 'changelog-item' }) => {
             <CommentIcon />
             <Text>23</Text>
           </CommentWrapper>
+          <SpaceGrow />
+          <Publisher>
+            <Avatar src={publisher.avatar} />
+            <Username>{publisher.nickname}</Username>
+          </Publisher>
         </Footer>
       </Main>
       <Side>
         <DateTime>10天前</DateTime>
-        <Publisher>
-          <Avatar src={publisher.avatar} />
-          <Username>{publisher.nickname}</Username>
-        </Publisher>
-        <DropdownButton top={12}>获取</DropdownButton>
+        <DropdownButton top={5}>获取</DropdownButton>
       </Side>
     </Wrapper>
   )
 }
 
-export default memo(DefaultLayout)
+export default memo(PreviewLayout)

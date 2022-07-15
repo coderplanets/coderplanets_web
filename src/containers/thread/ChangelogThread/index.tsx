@@ -33,9 +33,9 @@ const ChangelogThreadContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <MainWrapper>
-        <ChangelogItem layout={globalLayout.changelog} />
+        <ChangelogItem layout={CHANGELOG_LAYOUT.PREVIEW} />
 
-        {globalLayout.changelog === CHANGELOG_LAYOUT.FOLD && (
+        {globalLayout.changelog === CHANGELOG_LAYOUT.OUTLINE && (
           <PreviousTitle>历史版本</PreviousTitle>
         )}
 

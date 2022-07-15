@@ -45,8 +45,8 @@ export const POST_LAYOUT = {
 } as Record<SnakeUpperCase<TPostLayout>, TPostLayout>
 
 export const CHANGELOG_LAYOUT = {
-  FOLD: 'fold',
-  NORMAL: 'normal',
+  PREVIEW: 'preview',
+  OUTLINE: 'outline',
 } as Record<SnakeUpperCase<TChangelogLayout>, TChangelogLayout>
 
 export const DASHBOARD_DESC_LAYOUT = {

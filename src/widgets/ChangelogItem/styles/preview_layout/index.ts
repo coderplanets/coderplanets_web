@@ -17,7 +17,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-bottom: 30px;
 `
 export const Main = styled.div`
-  width: 590px;
+  width: 550px;
   min-height: 220px;
   padding-bottom: 30px;
 `
@@ -29,7 +29,6 @@ export const Title = styled.div`
 `
 export const TagsWrapper = styled.div`
   margin-bottom: 10px;
-  margin-left: -2px;
 `
 export const Body = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -58,11 +57,10 @@ export const Side = styled.div`
   ${css.flexColumn('align-end')};
   color: ${theme('thread.articleDigest')};
   flex-grow: 1;
-  margin-top: 5px;
+  margin-top: 10px;
 `
 export const DateTime = styled.div`
   font-size: 14px;
-  margin-top: 3px;
   opacity: 0.8;
 `
 export const Version = styled.span`
@@ -74,12 +72,12 @@ export const Version = styled.span`
 `
 export const Publisher = styled.div`
   ${css.flex('align-center')};
-  margin-top: 5px;
+  margin-right: 4px;
 `
 export const Avatar = styled(Img)`
   ${css.circle(14)};
 `
 export const Username = styled.div`
-  font-size: 14px;
-  margin-left: 5px;
+  font-size: 13px;
+  margin-left: 7px;
 `

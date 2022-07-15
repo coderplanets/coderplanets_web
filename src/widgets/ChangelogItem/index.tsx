@@ -3,7 +3,7 @@ import { FC, memo, Fragment } from 'react'
 import type { TChangelogLayout } from '@/spec'
 import { CHANGELOG_LAYOUT } from '@/constant'
 
-import DefaultLayout from './DefaultLayout'
+import PreviewLayout from './PreviewtLayout'
 import OutlineLayout from './OutlineLayout'
 
 type TProps = {
@@ -13,8 +13,8 @@ type TProps = {
 const ChangelogItem: FC<TProps> = ({ layout }) => {
   return (
     <Fragment>
-      {layout === CHANGELOG_LAYOUT.NORMAL ? (
-        <DefaultLayout />
+      {layout === CHANGELOG_LAYOUT.PREVIEW ? (
+        <PreviewLayout />
       ) : (
         <OutlineLayout />
       )}
