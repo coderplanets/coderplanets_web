@@ -37,7 +37,7 @@ const DropdownButton: FC<TProps> = ({
     >
       <ButtonWrapper size="small" type="primary" ghost>
         <InnerBtnWrapper>
-          {children}
+          <>{children}</>
           <FilterIcon />
         </InnerBtnWrapper>
       </ButtonWrapper>
