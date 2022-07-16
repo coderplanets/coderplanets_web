@@ -29,7 +29,12 @@ const DropdownButton: FC<TProps> = ({
   ...restProps
 }) => {
   return (
-    <Wrapper withBorder={withBorder} size={size} {...restProps}>
+    <Wrapper
+      withBorder={withBorder}
+      size={size}
+      onClick={onClick}
+      {...restProps}
+    >
       <ButtonWrapper size="small" type="primary" ghost>
         <InnerBtnWrapper>
           {children}

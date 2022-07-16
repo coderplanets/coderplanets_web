@@ -7,7 +7,7 @@ import css, { theme } from '@/utils/css'
 import Button from '@/widgets/Buttons/Button'
 import ArrowSVG from '@/icons/ArrowSimple'
 
-type TWrapper = { withBorder: boolean } & TSpace & TSizeTS
+type TWrapper = { withBorder: boolean } & TSizeTS & TSpace
 
 export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
@@ -51,6 +51,7 @@ export const FilterIcon = styled(ArrowSVG)`
   ${css.size(14)};
   transform: rotate(-90deg);
   margin-left: 5px;
+
   ${InnerBtnWrapper}:hover & {
     fill: ${theme('thread.articleDigest')};
   }
