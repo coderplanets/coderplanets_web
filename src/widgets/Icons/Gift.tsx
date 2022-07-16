@@ -1,5 +1,6 @@
 import { memo, SVGProps } from 'react'
 
+// for bonus usage
 const SVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
