@@ -7,7 +7,7 @@ import css, { theme } from '@/utils/css'
 import Button from '@/widgets/Buttons/Button'
 import ArrowSVG from '@/icons/ArrowSimple'
 
-type TWrapper = { withBorder: boolean } & TSizeTS & TSpace
+type TWrapper = { withBorder: boolean; size: TSizeTS } & TSpace
 
 export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
