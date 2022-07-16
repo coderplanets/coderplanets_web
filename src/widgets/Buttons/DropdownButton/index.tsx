@@ -1,6 +1,8 @@
 import { FC, ReactNode, memo } from 'react'
 
-import type { TSpace } from '@/spec'
+import type { TSizeTS, TSpace } from '@/spec'
+import { SIZE } from '@/constant'
+
 import { buildLog } from '@/utils/logger'
 
 import {
@@ -14,16 +16,20 @@ const log = buildLog('C:DropdownButton')
 
 type TProps = {
   children: ReactNode
+  size?: TSizeTS
+  withBorder?: boolean
   onClick?: () => void
 } & TSpace
 
 const DropdownButton: FC<TProps> = ({
   children,
+  size = SIZE.SMALL,
+  withBorder = false,
   onClick = log,
   ...restProps
 }) => {
   return (
-    <Wrapper {...restProps}>
+    <Wrapper withBorder={withBorder} size={size} {...restProps}>
       <ButtonWrapper size="small" type="primary" ghost>
         <InnerBtnWrapper>
           {children}
