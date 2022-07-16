@@ -16,6 +16,7 @@ import TagsList from '@/widgets/TagsList'
 import CoverImage from '@/widgets/CoverImage'
 import EmotionSelector from '@/widgets/EmotionSelector'
 
+import { demoTags, demoEmotion } from '../constant'
 import BonusButton from './BonusButton'
 
 import {
@@ -41,56 +42,6 @@ type TProps = {
 }
 
 const PreviewLayout: FC<TProps> = ({ testid = 'changelog-item' }) => {
-  const tags = [
-    {
-      title: 'Bug 修复',
-      raw: 'fix',
-      color: 'red',
-    },
-    {
-      title: '新功能',
-      raw: 'feature',
-      color: 'blue',
-    },
-  ]
-
-  const emotion = {
-    beerCount: 2,
-    confusedCount: 0,
-    downvoteCount: 0,
-    heartCount: 0,
-    latestBeerUsers: [
-      {
-        login: 'porter172',
-        nickname: 'Immanuel172',
-        bio: null,
-        shortbio: null,
-        avatar: null,
-      },
-      {
-        login: 'cp_bot',
-        nickname: 'botman',
-        bio: null,
-        shortbio: null,
-        avatar: null,
-      },
-    ],
-    latestConfusedUsers: [],
-    latestDownvoteUsers: [],
-    latestHeartUsers: [],
-    latestPillUsers: [],
-    length: 2,
-    latestPopcornUsers: [],
-    pillCount: 0,
-    popcornCount: 0,
-    viewerHasBeered: false,
-    viewerHasConfuseded: false,
-    viewerHasDownvoteed: false,
-    viewerHasHearted: false,
-    viewerHasPilled: false,
-    viewerHasPopcorned: false,
-  }
-
   return (
     <Wrapper testid={testid}>
       <Main>
@@ -98,7 +49,7 @@ const PreviewLayout: FC<TProps> = ({ testid = 'changelog-item' }) => {
         <Title>帖子支持表情了</Title>
         <TagsWrapper>
           <TagsList
-            items={tags}
+            items={demoTags}
             left={3}
             mode={TAG_MODE.LABEL}
             size="small"
@@ -111,7 +62,7 @@ const PreviewLayout: FC<TProps> = ({ testid = 'changelog-item' }) => {
           （1450罪恶滔天啊！1450是九世恶人下凡！连孩子都不放过。
         </Body>
         <Footer>
-          <EmotionSelector emotions={emotion} isLegal />
+          <EmotionSelector emotions={demoEmotion} isLegal />
           <CommentWrapper>
             <CommentIcon />
             <Text>23</Text>
