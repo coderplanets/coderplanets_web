@@ -29,6 +29,7 @@ const DropdownButton: FC<TProps> = ({
   ...restProps
 }) => {
   return (
+    // @ts-ignore
     <Wrapper
       withBorder={withBorder}
       size={size}
