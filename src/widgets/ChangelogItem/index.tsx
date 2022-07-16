@@ -19,7 +19,7 @@ const ChangelogItem: FC<TProps> = ({ layout, showFullArticle = false }) => {
   return (
     <Fragment>
       {layout === CHANGELOG_LAYOUT.PREVIEW ? (
-        <PreviewLayout layout={layout} />
+        <PreviewLayout />
       ) : (
         <OutlineLayout />
       )}

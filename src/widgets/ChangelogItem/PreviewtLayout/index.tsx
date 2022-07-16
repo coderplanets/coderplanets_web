@@ -18,7 +18,7 @@ type TProps = {
   showFullArticle?: boolean
 }
 
-const PreviewLayout: FC<TProps> = ({ showFullArticle }) => {
+const PreviewLayout: FC<TProps> = ({ showFullArticle = false }) => {
   return (
     <Fragment>
       {showFullArticle ? <ArticleLayout /> : <DefaultLayout />}
