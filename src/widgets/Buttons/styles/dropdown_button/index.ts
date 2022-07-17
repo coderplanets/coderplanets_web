@@ -1,16 +1,25 @@
 import styled from 'styled-components'
 
-import type { TSpace } from '@/spec'
-import Button from '@/widgets/Buttons/Button'
+import type { TSizeTS, TSpace } from '@/spec'
+import { SIZE } from '@/constant'
 import css, { theme } from '@/utils/css'
 
+import Button from '@/widgets/Buttons/Button'
 import ArrowSVG from '@/icons/ArrowSimple'
 
-export const Wrapper = styled.div<TSpace>`
+type TWrapper = { withBorder: boolean; size: TSizeTS } & TSpace
+
+export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
-  margin-right: -12px;
-  font-size: 13px;
+
+  border: ${({ withBorder }) => (withBorder ? '1px solid' : 'none')};
+  border-color: ${({ withBorder }) =>
+    withBorder ? theme('lightText') : theme('transparent')};
+
+  border-radius: 10px;
+
+  transform: ${({ size }) => (size === SIZE.TINY ? 'scale(0.85)' : 'none')};
 
   margin-top: ${({ top }) => `${top}px`};
   margin-bottom: ${({ bottom }) => `${bottom}px`};
@@ -42,6 +51,7 @@ export const FilterIcon = styled(ArrowSVG)`
   ${css.size(14)};
   transform: rotate(-90deg);
   margin-left: 5px;
+
   ${InnerBtnWrapper}:hover & {
     fill: ${theme('thread.articleDigest')};
   }
