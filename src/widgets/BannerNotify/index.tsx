@@ -7,7 +7,7 @@
 import { FC, memo, Fragment } from 'react'
 
 import type { TMetric, TBannerNotifyLayout, TColorName } from '@/spec'
-import { BANNER_NOTIFY_LAYOUT } from '@/constant'
+import { BANNER_NOTIFY_LAYOUT, ANCHOR } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import {
@@ -39,7 +39,7 @@ const BannerNotify: FC<TProps> = ({
   bg,
 }) => {
   return (
-    <Wrapper testid={testid} bg={bg}>
+    <Wrapper testid={testid} bg={bg} id={ANCHOR.GLOBAL_HEADER_ID}>
       <InnerWrapper
         metric={metric}
         center={layout === BANNER_NOTIFY_LAYOUT.CENTER}
