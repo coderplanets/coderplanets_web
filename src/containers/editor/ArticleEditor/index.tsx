@@ -106,7 +106,10 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         </ContentWrapper>
         <div>
-          <CommunityBadgeSelector community={communityData} mode={mode} />
+          <CommunityBadgeSelector
+            community={communityData}
+            mode={mode as TEditMode}
+          />
 
           {mode === 'update' && meta && !meta.isLegal && (
             <IllegalWarning
