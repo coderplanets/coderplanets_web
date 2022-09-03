@@ -4,7 +4,7 @@ export type TView = string
 
 export type TSettingOption = {
   fontSize: string
-  animateType: 'fade' | 'bounce'
+  animateType: string
 }
 
 export type TInterval = '3s' | '5s' | '10s'
