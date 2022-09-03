@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import FakeBrowser from './FakeBrowser'
 
-import { TSetupInfoStatus, TCommunityType } from '../spec'
+import type { TSetupInfoStatus, TCommunityType } from '../spec'
 import { STEP } from '../constant'
 import { Wrapper } from '../styles/content/setup_domain'
 

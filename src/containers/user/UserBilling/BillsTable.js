@@ -46,8 +46,6 @@ const TableRow = ({ data }) => {
 }
 
 const BillsTable = ({ data }) => {
-  console.log('====> datasouce: ', data.entries)
-
   return (
     <Wrapper>
       {data ? (

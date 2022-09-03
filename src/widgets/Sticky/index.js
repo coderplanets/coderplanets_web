@@ -11,7 +11,10 @@ import React from 'react'
 import T from 'prop-types'
 import ResizeObserver from 'resize-observer-polyfill'
 
+import { buildLog } from '@/utils/logger'
 import { Global } from '@/utils/helper'
+
+const log = buildLog('c:Sticky')
 
 const getScrollParent = (node) => {
   let parent = node
@@ -64,7 +67,7 @@ try {
     Global.removeEventListener('testPassive', null, opts)
   }
 } catch (e) {
-  console.error(e)
+  log(e)
 }
 
 class StickyBox extends React.Component {
@@ -212,7 +215,7 @@ class StickyBox extends React.Component {
   handleScrollPaneResize = () => {
     this.viewPortHeight = this.scrollPane.offsetHeight
     if (process.env.NODE_ENV !== 'production' && this.viewPortHeight === 0) {
-      console.warn(
+      log(
         'react-sticky-box scroll pane has a height of 0. This seems odd. Please check this node:',
         this.scrollPane,
       )

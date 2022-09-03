@@ -6,17 +6,11 @@ import { Wrapper } from '../styles/sidebar'
 
 type TProps = {
   user: TUser
-  isSelfViewing?: boolean
   works: TPagedWorks
   editableCommunities: TPagedCommunities
 }
 
-const Sidebar: FC<TProps> = ({
-  user,
-  works,
-  editableCommunities,
-  isSelfViewing = false,
-}) => {
+const Sidebar: FC<TProps> = ({ user, works, editableCommunities }) => {
   return (
     <Wrapper>
       <UserBrief

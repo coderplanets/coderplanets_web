@@ -1,9 +1,6 @@
 import { FC, memo } from 'react'
 
-// import { ICON_CMD } from '@/config'
-// import { HCN } from '@/constant'
-
-import type { TCommunity, TID } from '@/spec'
+import type { TCommunity } from '@/spec'
 
 import { HCN } from '@/constant'
 import FollowButton from '@/widgets/Buttons/FollowButton'

@@ -4,10 +4,10 @@ import { FC, memo } from 'react'
 import FamePeopleGallery from './FamePeopleGallery'
 
 type TProps = {
-  type: 'developer' | 'famous'
+  //
 }
 
-const PeopleGallery: FC<TProps> = ({ type }) => {
+const PeopleGallery: FC<TProps> = () => {
   return <FamePeopleGallery />
   // switch (type) {
   //   case 'developer': {

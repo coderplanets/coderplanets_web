@@ -21,8 +21,6 @@ import { Wrapper } from '../styles/tag_setter'
 const log = buildLog('c:TagList:index')
 
 export type TProps = {
-  testid?: string
-  withSetter?: boolean
   view: TTagView
   tagsList: TTagsList
   onTagSelect: (tag: TTag, select: boolean) => void

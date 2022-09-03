@@ -14,7 +14,6 @@ import LinksCard from '@/widgets/LinksCard'
 
 import { Wrapper, ArrowIcon, ContentWrapper } from './styles'
 
-/* eslint-disable-next-line */
 const log = buildLog('c:FaqPeekList:index')
 
 const items = [
@@ -51,7 +50,7 @@ const FaqPeekList = ({ active }) => {
         <LinksCard
           title="安装使用"
           items={items}
-          onSelect={console.log}
+          onSelect={log}
           bottom={0}
           left={5}
           right={24}
@@ -60,7 +59,7 @@ const FaqPeekList = ({ active }) => {
         <LinksCard
           title="常见问题"
           items={items}
-          onSelect={console.log}
+          onSelect={log}
           bottom={0}
           left={5}
           right={24}

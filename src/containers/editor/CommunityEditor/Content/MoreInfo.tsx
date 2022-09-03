@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { TSetupInfoStatus } from '../spec'
+import type { TSetupInfoStatus } from '../spec'
 import {
   Wrapper,
   LineDivider,

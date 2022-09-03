@@ -38,7 +38,7 @@ const ArticleSticker = T.model('ArticleSticker', {
     },
     get bodyScrollDirection(): TScrollDirection {
       const root = getParent(self) as TRootStore
-      return root.globalLayout.bodyScrollDirection
+      return root.globalLayout.bodyScrollDirection as TScrollDirection
     },
     get isArticleDigestInViewport(): boolean {
       const root = getParent(self) as TRootStore

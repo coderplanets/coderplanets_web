@@ -4,7 +4,7 @@ import type { TArticle } from '@/spec'
 import { REPORT_TYPE } from '@/constant'
 import { ICON } from '@/config'
 
-import type { TREPORT_ITEM } from './spec'
+import type { TREPORT_ITEM, TView } from './spec'
 import { Wrapper, ReportIcon, Text, ContentTitle } from './styles/header'
 
 const getCustomTitle = (type: string): string => {
@@ -26,7 +26,7 @@ const getCustomTitle = (type: string): string => {
 
 type TProps = {
   type: string
-  view: 'main' | 'detail'
+  view: TView
   activeItem: TREPORT_ITEM
   article: TArticle
 }

@@ -31,7 +31,9 @@ const DataSolver = []
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      // TODO
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

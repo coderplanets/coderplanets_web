@@ -16,7 +16,9 @@ let store = null
 
 export const selectChange = ({ raw: activeRaw }) => store.mark({ activeRaw })
 
-export const previewUser = () => {}
+export const previewUser = () => {
+  // TODO
+}
 
 export const loadMailboxStates = () => {
   if (!store.isLogin) return false
@@ -55,7 +57,6 @@ const DataSolver = [
     match: asyncRes('mentions'),
     action: ({ mentions: pagedMentions }) => {
       markLoading(false)
-      console.log('pagedMentions: ', pagedMentions)
       store.mark({ pagedMentions })
       // loadMailboxStates()
     },
@@ -65,7 +66,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      // TODO
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

@@ -28,7 +28,6 @@ type TProps = {
   onAbout?: () => void
   items?: TItem[]
   intervalSec?: number
-  onClose?: () => void
 }
 
 const PromotionList: FC<TProps> = ({
@@ -36,7 +35,6 @@ const PromotionList: FC<TProps> = ({
   onAbout = log,
   items = fakeItems,
   intervalSec = 5000,
-  onClose = log,
 }) => {
   const [activeId, setActiveId] = useState<string>(items[0].id)
   const activeItemIndex = findIndex((item) => item.id === activeId, items)

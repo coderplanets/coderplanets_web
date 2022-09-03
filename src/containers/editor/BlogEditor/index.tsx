@@ -14,6 +14,7 @@ import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
 import { Br } from '@/widgets/Common'
 
+import type { TStep } from './spec'
 import Content from './Content'
 import Footer from './Footer'
 
@@ -71,7 +72,7 @@ const BlogEditorContainer: FC<TProps> = ({
           <ContentWrapper>
             <Content
               mode={mode}
-              step={step}
+              step={step as TStep}
               loading={loading}
               rss={rss}
               rssInfo={rssInfoData}

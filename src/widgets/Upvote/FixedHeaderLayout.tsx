@@ -6,7 +6,6 @@
 
 import { FC, memo } from 'react'
 
-import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import { Space } from '@/widgets/Common'

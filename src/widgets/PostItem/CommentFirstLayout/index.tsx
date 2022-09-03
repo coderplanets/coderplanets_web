@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TCommunity, TPost, TUser, TAccount, TC11N } from '@/spec'
+import type { TCommunity, TPost, TAccount, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { isMobile } from 'react-device-detect'
 
@@ -25,14 +25,12 @@ type TProps = {
   c11n: TC11N
   isMobilePreview: boolean
 
-  onUserSelect?: (obj: TUser) => void
   onAuthorSelect?: (obj: TAccount) => void
 }
 
 const PostItem: FC<TProps> = ({
   curCommunity,
   article,
-  onUserSelect = log,
   onAuthorSelect = log,
   isMobilePreview,
   c11n,
@@ -40,11 +38,7 @@ const PostItem: FC<TProps> = ({
   return (
     <Wrapper c11n={c11n}>
       {isMobile || isMobilePreview ? (
-        <MobileView
-          article={article}
-          curCommunity={curCommunity}
-          onAuthorSelect={onAuthorSelect}
-        />
+        <MobileView article={article} onAuthorSelect={onAuthorSelect} />
       ) : (
         <DesktopView article={article} curCommunity={curCommunity} />
       )}

@@ -28,9 +28,7 @@ const log = buildLog('c:Upvote:index')
 type TProps = {
   testid?: string
   count?: number
-  avatarsRowLimit?: number
   viewerHasUpvoted?: boolean
-  alias?: string // 觉得很赞(default), 觉得很酷(works), 学到了(blog), 感兴趣(meetup), 有意思(Radar)
   avatarList?: TUser[]
   onAction?: (viewerHasUpvoted: boolean) => void
 }
@@ -39,8 +37,6 @@ const Upvote: FC<TProps> = ({
   testid = 'upvote',
   count = 4,
   viewerHasUpvoted = false,
-  avatarsRowLimit = 3,
-  alias = '觉得很赞',
   onAction = log,
   avatarList,
 }) => {

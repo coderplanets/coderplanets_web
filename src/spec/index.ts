@@ -1,3 +1,6 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+
 import type { TRootStore as RootStoreType } from '@/stores/RootStore'
 
 import type { TArticle } from './article'

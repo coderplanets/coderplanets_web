@@ -8,7 +8,6 @@
 import { FC, memo } from 'react'
 import { TSizeSM } from '@/spec'
 
-import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -25,10 +24,8 @@ type TProps = {
   total?: number
   updatedAt?: string
   lock?: boolean
-  editable?: boolean
   size?: TSizeSM
   inactive?: boolean
-  onEdit?: () => void
   onSelect?: () => void
   onMenuClick?: (key: string) => void
 }
@@ -40,8 +37,6 @@ const Folder: FC<TProps> = ({
   updatedAt = '',
   lock = false,
   inactive = false,
-  editable = false,
-  onEdit = log,
   onSelect = log,
   onMenuClick = log,
 }) => {

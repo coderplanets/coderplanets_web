@@ -15,7 +15,7 @@ import { Global, plural } from '@/utils/helper'
 import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
 import { User } from '@/model'
 
-import { TSwipeOption, TArticleNavi, TExtraInfo } from './spec'
+import type { TSwipeOption, TArticleNavi, TExtraInfo } from './spec'
 import { ARTICLE_VIEWER_TYPES, ARTICLE_THREAD_CURD_TYPES } from './constant'
 import { SWIPE_THRESHOLD } from './styles/metrics'
 

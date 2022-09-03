@@ -23,9 +23,9 @@ export const notEmpty = compose(not, isEmpty)
 export const isEmptyValue = compose(isEmpty, trim)
 export const nilOrEmpty = either(isNil, isEmpty)
 
-export const hasValue: (v: any) => boolean = compose(not, nilOrEmpty)
+export const hasValue: (v: string) => boolean = compose(not, nilOrEmpty)
 
-export const isObject = (value: any): boolean => {
+export const isObject = (value: unknown): boolean => {
   const type = typeof value
   return value != null && (type === 'object' || type === 'function')
 }
@@ -37,7 +37,7 @@ export const isObject = (value: any): boolean => {
  * @return {Boolean}
  * @returns
  */
-export const isString = (value: any): boolean => {
+export const isString = (value: unknown): boolean => {
   if (typeof value === 'string' || value instanceof String) {
     return true
   }

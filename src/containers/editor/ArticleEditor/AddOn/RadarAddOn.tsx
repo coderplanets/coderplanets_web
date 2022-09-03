@@ -1,7 +1,6 @@
-import { FC, memo, useState, useEffect } from 'react'
+import { FC, memo, useState } from 'react'
 
 import { isURL } from '@/utils/validator'
-import Checker from '@/widgets/Checker'
 
 import type { TEditData } from '../spec'
 import {

@@ -4,7 +4,7 @@
 
 import { FC } from 'react'
 
-import type { TMetric } from '@/spec'
+import type { TMetric, TEditMode } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
@@ -98,7 +98,7 @@ const ArticleEditorContainer: FC<TProps> = ({
           )}
           <Footer
             thread={thread}
-            mode={mode}
+            mode={mode as TEditMode}
             tags={tagsData}
             community={communityData}
             editData={editData}
@@ -106,7 +106,10 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         </ContentWrapper>
         <div>
-          <CommunityBadgeSelector community={communityData} mode={mode} />
+          <CommunityBadgeSelector
+            community={communityData}
+            mode={mode as TEditMode}
+          />
 
           {mode === 'update' && meta && !meta.isLegal && (
             <IllegalWarning

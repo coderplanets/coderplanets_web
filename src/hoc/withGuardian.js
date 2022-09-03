@@ -39,7 +39,6 @@ const withGuardian = (WrappedComponent) => {
       super(props)
       const { passport, ownerId } = this.props
       const loginUser = BStore.get('user') || {}
-      console.log('TODO withGuardian loginUser -> ', loginUser)
       const accountPassports = loginUser.cmsPassport || {}
       let isValid = false
 

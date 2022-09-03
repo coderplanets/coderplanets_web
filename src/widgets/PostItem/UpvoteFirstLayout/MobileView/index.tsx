@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TPost, TCommunity, TAccount } from '@/spec'
+import type { TPost, TAccount } from '@/spec'
 
 import Header from './Header'
 import Body from './Body'
@@ -10,16 +10,15 @@ import { Wrapper } from '../../styles/upvote_fist_layout/mobile_view'
 
 type TProps = {
   article: TPost
-  curCommunity: TCommunity | null
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const MobileView: FC<TProps> = ({ article, curCommunity, onAuthorSelect }) => {
+const MobileView: FC<TProps> = ({ article, onAuthorSelect }) => {
   return (
     <Wrapper>
       <Header article={article} onAuthorSelect={onAuthorSelect} />
       <Body article={article} />
-      <Footer article={article} curCommunity={curCommunity} />
+      <Footer article={article} />
     </Wrapper>
   )
 }

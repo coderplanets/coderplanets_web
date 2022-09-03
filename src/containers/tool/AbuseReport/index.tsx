@@ -14,6 +14,7 @@ import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
 
+import type { TView } from './spec'
 import Header from './Header'
 import Footer from './Footer'
 import ReportContent from './ReportContent'
@@ -42,12 +43,16 @@ const AbuseReportContainer: FC<TProps> = ({
       <Wrapper testid={testid}>
         <Header
           type={type}
-          view={view}
+          view={view as TView}
           activeItem={activeItem}
           article={viewingArticle}
         />
-        <ReportContent view={view} items={itemsData} activeItem={activeItem} />
-        <Footer view={view} />
+        <ReportContent
+          view={view as TView}
+          items={itemsData}
+          activeItem={activeItem}
+        />
+        <Footer view={view as TView} />
       </Wrapper>
     )
   }
@@ -57,12 +62,16 @@ const AbuseReportContainer: FC<TProps> = ({
       <Wrapper testid={testid}>
         <Header
           type={type}
-          view={view}
+          view={view as TView}
           activeItem={activeItem}
           article={viewingArticle}
         />
-        <ReportContent view={view} items={itemsData} activeItem={activeItem} />
-        <Footer view={view} />
+        <ReportContent
+          view={view as TView}
+          items={itemsData}
+          activeItem={activeItem}
+        />
+        <Footer view={view as TView} />
       </Wrapper>
     </Modal>
   )

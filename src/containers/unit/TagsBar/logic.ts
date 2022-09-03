@@ -67,7 +67,6 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => {
-      console.log('收到 EVENT.COMMUNITY_CHANGE')
       loadTags()
       store.mark({ activeTag: null })
     },

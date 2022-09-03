@@ -1,9 +1,7 @@
 import { FC } from 'react'
 
-import type { TPost, TCommunity } from '@/spec'
+import type { TPost } from '@/spec'
 import { ARTICLE_CAT } from '@/constant'
-
-import { cutRest } from '@/utils/helper'
 
 import ArticleCatState from '@/widgets/ArticleCatState'
 import { Space } from '@/widgets/Common'
@@ -18,10 +16,9 @@ import {
 
 type TProps = {
   article: TPost
-  curCommunity: TCommunity
 }
 
-const Footer: FC<TProps> = ({ article, curCommunity }) => {
+const Footer: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <BodyDigest>{article.digest}</BodyDigest>

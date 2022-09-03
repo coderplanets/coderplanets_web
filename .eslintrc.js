@@ -10,6 +10,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     // see: https://stackoverflow.com/a/56696478/4050784
     'plugin:import/typescript',
+    'plugin:@next/next/recommended',
   ],
   // extends: ['@groupher/eslint-config-web'],
   settings: {
@@ -43,6 +44,7 @@ module.exports = {
     },
   },
   rules: {
+    'react/no-unknown-property': 0,
     'no-extra-boolean-cast': 0,
     'react/require-default-props': 0,
     '@typescript-eslint/no-var-requires': 0,

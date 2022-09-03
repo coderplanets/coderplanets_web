@@ -67,7 +67,6 @@ const Upvote: FC<TProps> = ({
           count={count}
           avatarsRowLimit={avatarsRowLimit}
           alias={alias}
-          viewerHasUpvoted={viewerHasUpvoted}
         />
       )}
     </Wrapper>

@@ -125,6 +125,7 @@ export class Advisor {
   relateSuggestions$ = (q) =>
     from(new Promise((resolve) => resolve(this.relateSuggestions(q))))
 
+  // eslint-disable-next-line class-methods-use-this
   specialSuggestions = (val) => {
     return {
       prefix: head(val),

@@ -20,7 +20,6 @@ import List from './List'
 const log = buildLog('c:TeamList:index')
 
 type TProps = {
-  testid?: string
   users: TUser[]
   withSetter?: boolean
   layout: TLayout
@@ -34,7 +33,6 @@ type TProps = {
 let Setter: FC<TSetter> = () => null
 
 const TeamList: FC<TProps> = ({
-  testid = 'user-list',
   users,
   withSetter = false,
   layout,

@@ -38,7 +38,7 @@ type TProps = {
 const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
   useInit(store, metric)
 
-  const { leftOffset, isLogin, curCommunity } = store
+  const { leftOffset, isLogin } = store
 
   useEffect(() => {
     if (isLogin) {
@@ -59,7 +59,7 @@ const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
     >
       <InnerWrapper>
         <RouterWrapper metric={metric}>
-          <Navigator community={curCommunity} metric={metric} />
+          <Navigator metric={metric} />
         </RouterWrapper>
         <Operations>
           {MailBox && <MailBox />}

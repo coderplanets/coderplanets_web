@@ -8,7 +8,6 @@
 
 import { FC, Fragment } from 'react'
 
-import type { TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
@@ -21,7 +20,7 @@ import { useInit } from './logic'
 const log = buildLog('C:ThreadSidebar')
 
 export type TBaseProps = {
-  activeTag?: TTag
+  //
 }
 
 export type TProps = { threadSidebar?: TStore } & TBaseProps

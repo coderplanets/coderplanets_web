@@ -11,7 +11,7 @@ import { markStates } from '@/utils/mobx'
 const SubscribeContent = T.model('SubscribeContent', {
   subscribeView: T.optional(T.enumeration(['default', 'detail']), 'default'),
 })
-  .views((self) => ({}))
+  // .views((self) => ({}))
   .actions((self) => ({
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

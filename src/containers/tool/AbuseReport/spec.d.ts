@@ -5,3 +5,5 @@ export type TREPORT_ITEM = {
   info?: string
   detail: string
 }
+
+export type TView = 'main' | 'detail'

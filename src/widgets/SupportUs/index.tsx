@@ -10,12 +10,13 @@ import QRCode from 'qrcode.react'
 
 import dynamic from 'next/dynamic'
 
+import { buildLog } from '@/utils/logger'
+import { openShareWindow, Global, checkout } from '@/utils/helper'
+import { METRIC, PAYMENT_USAGE } from '@/constant'
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
-import { METRIC, PAYMENT_USAGE } from '@/constant'
-import { openShareWindow, Global, checkout } from '@/utils/helper'
-import { Cashier } from '@/containers/dynamic'
 
+import { Cashier } from '@/containers/dynamic'
 import { Br } from '@/widgets/Common'
 import Tooltip from '@/widgets/Tooltip'
 
@@ -37,6 +38,8 @@ import {
   SocialWrapper,
   SocialIcon,
 } from './styles'
+
+const log = buildLog('c:Support')
 
 const BuyMeChuanChuan = dynamic(() => import('@/widgets/BuyMeChuanChuan'), {
   ssr: false,
@@ -107,7 +110,7 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
       {/*  @ts-ignore */}
       <BuyMeChuanChuan
         onClose={() => setShowChuan(false)}
-        onLogin={() => console.log('onLogin')}
+        onLogin={() => log('onLogin')}
         onPay={(amount) => {
           setShowChuan(false)
           checkout(amount, PAYMENT_USAGE.DONATE)
