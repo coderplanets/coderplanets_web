@@ -3,7 +3,7 @@ import type { TID } from '@/spec'
 export type TView = string
 
 export type TSettingOption = {
-  fontSize: '24px' | '27px'
+  fontSize: string
   animateType: 'fade' | 'bounce'
 }
 
