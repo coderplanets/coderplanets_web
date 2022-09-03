@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TBlogRSS, TBlog, TEditMode, TRSSAuthor } from '@/spec'
-import type { TValidState } from '../spec'
+import type { TValidState, TStep } from '../spec'
 
 import FeedList from './FeedList'
 import RSSInputer from './RSSInputer'
@@ -9,7 +9,7 @@ import AuthorInputer from './AuthorInputer'
 
 type TProps = {
   mode: TEditMode
-  step: 'STEP_1' | 'STEP_2' | 'STEP_3'
+  step: TStep
   rss: string
   loading: boolean
   rssInfo: TBlogRSS

@@ -7,10 +7,12 @@ type TProps = {
   onClick: () => void
 }
 const ReactSVG = dynamic(
+  // @ts-ignore
   () => import('react-svg').then((mod) => mod.ReactSVG),
   {
     ssr: false,
   },
 )
 
+// @ts-ignore
 export default ReactSVG as FC<TProps>

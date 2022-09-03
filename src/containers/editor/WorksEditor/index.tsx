@@ -6,7 +6,7 @@
 
 import { FC } from 'react'
 
-import type { TMetric } from '@/spec'
+import type { TEditMode, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
@@ -64,7 +64,7 @@ const WorksEditorContainer: FC<TProps> = ({
         <Preview step={step} works={previewData} />
         <StepsBar step={step} submitState={submitState} />
         <Content
-          mode={mode}
+          mode={mode as TEditMode}
           step={step}
           inputData={inputData}
           socialOptions={socialOptions}
@@ -73,7 +73,7 @@ const WorksEditorContainer: FC<TProps> = ({
         />
         {allowEdit && (
           <Footer
-            mode={mode}
+            mode={mode as TEditMode}
             step={step}
             inputData={inputData}
             submitState={submitState}

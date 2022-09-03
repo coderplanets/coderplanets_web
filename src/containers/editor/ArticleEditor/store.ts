@@ -15,6 +15,7 @@ import type {
   TArticleThread,
   TSubmitState,
   TAccount,
+  TEditMode,
 } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
 
@@ -156,17 +157,20 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get submitState(): TSubmitState {
       const slf = self as TStore
-      return pick(
+      const { mode } = slf
+
+      const basicStatus = pick(
         [
           'publishing',
           'publishDone',
           'isReady',
           'isArchived',
-          'mode',
           'isArticleAuthor',
         ],
         slf,
       )
+
+      return { ...basicStatus, mode: mode as TEditMode }
     },
   }))
   .actions((self) => ({

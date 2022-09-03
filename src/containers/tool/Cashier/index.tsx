@@ -4,12 +4,14 @@
  *
  */
 
-import { FC, memo } from 'react'
+import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
+
+import type { TContentView, TAmount, TSubContentView } from './spec'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
@@ -41,15 +43,15 @@ const CashierContainer: FC<TProps> = ({ cashier: store }) => {
     <Modal width="520px" show={show} showCloseBtn onClose={onClose}>
       <Wrapper>
         <Sidebar
-          sidebarView={sidebarView}
-          subContentView={subContentView}
+          sidebarView={sidebarView as TContentView}
+          subContentView={subContentView as TSubContentView}
           paymentMethod={paymentMethod}
-          amount={amount}
+          amount={amount as TAmount}
         />
         <Content
-          contentView={contentView}
-          subContentView={subContentView}
-          amount={amount}
+          contentView={contentView as TContentView}
+          subContentView={subContentView as TSubContentView}
+          amount={amount as TAmount}
           paymentMethod={paymentMethod}
           transferAccount={transferAccount}
         />
