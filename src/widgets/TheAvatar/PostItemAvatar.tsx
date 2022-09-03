@@ -1,17 +1,9 @@
 import { FC, memo } from 'react'
 
 import { TUser, TAccount } from '@/spec'
-import { ICON } from '@/config'
 import ImgFallback from '@/widgets/ImgFallback'
 
-import {
-  Wrapper,
-  InnerShadow,
-  QuoteShadow,
-  Avatar,
-  QuoteAvatar,
-  MaskIcon,
-} from './styles/post_item_avatar'
+import { Wrapper, Avatar } from './styles/post_item_avatar'
 
 type TProps = {
   user: TUser

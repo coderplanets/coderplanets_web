@@ -20,10 +20,8 @@ type IProps = {
   src: string
   alt?: string
   className?: string
-  loading?: boolean
   fallback?: ReactNode | null
   noLazy?: boolean
-  scrollPosition?: any
   // see https://www.npmjs.com/package/react-lazy-load-image-component
   visibleByDefault?: boolean
   onClick?: () => void
@@ -33,10 +31,8 @@ const Img: FC<IProps> = ({
   className = 'img-class',
   src,
   alt = 'img',
-  loading,
   fallback = null,
   noLazy = false,
-  scrollPosition = null,
   visibleByDefault = false,
   onClick = log,
 }) => {

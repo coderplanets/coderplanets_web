@@ -13,11 +13,9 @@ import Brand from '../Brand'
 import {
   Wrapper,
   SubDesc,
-  Divider,
   PublishBtnWrapper,
   InterviewsWrapper,
   SubscribeWrapper,
-  Footer,
 } from '../styles/right_sidebar/index'
 
 type TProps = {

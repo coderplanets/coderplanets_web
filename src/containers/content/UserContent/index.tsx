@@ -107,10 +107,10 @@ const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
   const {
     activeThread,
     viewingUser,
-    isSelfViewing,
     pagedWorksData,
     pagedEditableCommunitiesData,
     hasContentBg,
+    isSelfViewing,
   } = store
   const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
 
@@ -123,7 +123,6 @@ const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
         {!isMobile && (
           <Sidebar
             user={viewingUser}
-            isSelfViewing={isSelfViewing}
             works={pagedWorksData}
             editableCommunities={pagedEditableCommunitiesData}
           />

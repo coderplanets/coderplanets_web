@@ -6,10 +6,9 @@
 
 import { FC, useCallback, memo } from 'react'
 
-import type { TSizeSM, TTabItem } from '@/spec'
+import type { TTabItem } from '@/spec'
 import { isString } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
-import { SIZE } from '@/constant'
 
 import { Wrapper, TabItem } from '../styles/tabs/drawer_view'
 
@@ -28,12 +27,10 @@ type TProps = {
   items?: TTabItem[]
   onChange: () => void
   activeKey?: string
-  size: TSizeSM
   // slipHeight: '1px' | '2px'
 }
 
 const Tabs: FC<TProps> = ({
-  size = SIZE.MEDIUM,
   onChange = log,
   items = temItems,
   activeKey = '',

@@ -50,7 +50,6 @@ const PostItem: FC<TProps> = ({
         <UpvoteFirstLayout
           c11n={c11n}
           article={article}
-          curCommunity={curCommunity}
           onAuthorSelect={onAuthorSelect}
           isMobilePreview={isMobilePreview}
         />

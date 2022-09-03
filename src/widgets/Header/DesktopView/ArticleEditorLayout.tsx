@@ -18,12 +18,12 @@ import {
   MoreIcon,
 } from '../styles/desktop_view/article_editor_layout'
 
-const ArticleEditorHeader: FC<TProps> = ({ metric, community }) => {
+const ArticleEditorHeader: FC<TProps> = ({ metric }) => {
   return (
     <Wrapper id="whereCallShowDoraemon" testid="header" noBorder>
       <InnerWrapper>
         <RouterWrapper metric={metric}>
-          <Navigator community={community} metric={metric} />
+          <Navigator metric={metric} />
         </RouterWrapper>
         <Operations>
           <MoreIcon src={`${ICON}/shape/more-box.svg`} />

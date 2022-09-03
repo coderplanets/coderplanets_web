@@ -11,7 +11,7 @@ import { sortByIndex } from '@/utils/helper'
 import { markStates, toJS } from '@/utils/mobx'
 import { notEmpty } from '@/utils/validator'
 
-import { TCurActive } from './spec'
+import type { TCurActive } from './spec'
 
 const ModeLineMenu = T.model('ModeLineMenu', {
   searchCommunityValue: T.optional(T.string, ''),

@@ -44,6 +44,7 @@ module.exports = {
     },
   },
   rules: {
+    'react/no-unknown-property': 0,
     'no-extra-boolean-cast': 0,
     'react/require-default-props': 0,
     '@typescript-eslint/no-var-requires': 0,

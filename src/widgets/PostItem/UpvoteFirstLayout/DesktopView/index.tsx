@@ -2,7 +2,7 @@ import { FC, Fragment, memo, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
 import { EVENT } from '@/constant'
-import type { TCommunity, TPost } from '@/spec'
+import type { TPost } from '@/spec'
 
 import { send } from '@/utils/helper'
 
@@ -21,14 +21,13 @@ let ArticleReadLabel = null
 let ArticlePinLabel = null
 
 type TProps = {
-  curCommunity: TCommunity | null
   article: TPost
 
   // onUserSelect?: (obj: TUser) => void
   // onAuthorSelect?: (obj: TAccount) => void
 }
 
-const DigestView: FC<TProps> = ({ curCommunity, article }) => {
+const DigestView: FC<TProps> = ({ article }) => {
   const [loaded, setLoaded] = useState(false)
 
   // 如果同步渲染 Upvote, ArticleReadLabel, ArticlePinLabel 等组件会导致难以忍受的卡顿

@@ -2,10 +2,6 @@ import { FC, memo } from 'react'
 
 import type { TUser } from '@/spec'
 
-import { ICON } from '@/config'
-import { SpaceGrow } from '@/widgets/Common'
-import Tooltip from '@/widgets/Tooltip'
-
 import { Wrapper, Avatar, Intro, Name, Bio } from './styles/user_item'
 
 type TProps = {

@@ -82,7 +82,6 @@ const Upvote: FC<TProps> = ({
           count={count}
           avatarsRowLimit={avatarsRowLimit}
           alias={alias}
-          showCount={false}
         />
       </DescWrapper>
     </Wrapper>

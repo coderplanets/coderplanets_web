@@ -13,10 +13,10 @@ import { Wrapper, FilterWrapper } from './styles/filter_bar'
 // import { changeView } from './logic'
 
 type TProps = {
-  activeView?: string
+  // activeView?: string
 }
 
-const FilterBar: FC<TProps> = ({ activeView }) => {
+const FilterBar: FC<TProps> = () => {
   return (
     <Wrapper>
       <NoticeBar

@@ -49,11 +49,7 @@ const Setter: FC<TProps> = ({
     <>
       <Modal width="400px" show={show} showCloseBtn onClose={onClose}>
         <Wrapper>
-          <Header
-            view={view as TView}
-            goBack={() => setView('list')}
-            goSearch={() => setView('search')}
-          />
+          <Header view={view as TView} goSearch={() => setView('search')} />
           {view === 'search' && <SearchBox onSearch={onSearch} />}
           {view === 'list' && users.length === 0 && (
             <EmptyHint>当前没有成员，需要添加新成员吗？</EmptyHint>

@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TSelectOption } from '@/spec'
 import Select from '@/widgets/Select'
 
-import { TSocialInfo } from '../../spec'
+import type { TSocialInfo } from '../../spec'
 
 import {
   Wrapper,

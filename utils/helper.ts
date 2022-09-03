@@ -183,7 +183,7 @@ export const send = (msg: string, data = {}): void => {
 /**
  * shortcut for logout
  */
-export const logout = (type = ''): void => {
+export const logout = (): void => {
   send(EVENT.LOGOUT)
 }
 
@@ -362,6 +362,7 @@ export const errRescue = ({
 
 export const debounce = (fn, ms = 0) => {
   let timeoutId
+  // eslint-disable-next-line func-names
   return function (...args) {
     clearTimeout(timeoutId)
     timeoutId = setTimeout(() => fn.apply(this, args), ms)

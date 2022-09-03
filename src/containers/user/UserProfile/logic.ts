@@ -72,7 +72,6 @@ const DataSolver = [
   {
     match: asyncRes('user'),
     action: ({ user }) => {
-      console.log('got user: ', user)
       store.mark({ hasFollowedUser: user.viewerHasFollowed })
     },
   },

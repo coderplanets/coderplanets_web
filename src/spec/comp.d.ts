@@ -1,4 +1,4 @@
-import { TSize } from './size'
+import type { TSize } from './size'
 
 // @/widgets/button
 export type TButton = {

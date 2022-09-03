@@ -8,11 +8,7 @@ import { types as T, Instance } from 'mobx-state-tree'
 import { markStates } from '@/utils/mobx'
 
 const TrendingContent = T.model('TrendingContent', {})
-  .views((self) => ({
-    // get root() {
-    //   return getParent(self)
-    // },
-  }))
+  // .views((self) => ({}))
   .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)

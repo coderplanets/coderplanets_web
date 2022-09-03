@@ -56,7 +56,7 @@ const WorksContentContainer: FC<TProps> = ({
       <ContentWrapper>
         {showSidebar && (
           <LeftSidebarWrapper>
-            <FilterBar activeView={activeView} />
+            <FilterBar />
           </LeftSidebarWrapper>
         )}
         <MainContent>

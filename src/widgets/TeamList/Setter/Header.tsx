@@ -9,11 +9,10 @@ import type { TView } from '../spec'
 
 type TProps = {
   view: TView
-  goBack: () => void
   goSearch: () => void
 }
 
-const Header: FC<TProps> = ({ view, goBack, goSearch }) => {
+const Header: FC<TProps> = ({ view, goSearch }) => {
   return (
     <Wrapper>
       {view === 'list' && (

@@ -47,8 +47,7 @@ const CommunityHeaderContainer: FC<TProps> = ({
   // log('header metric: ', metric)
   useInit(store, metric)
 
-  const { leftOffset, accountInfo, isLogin, curCommunity, hasNoBottomBorder } =
-    store
+  const { leftOffset, accountInfo, isLogin, hasNoBottomBorder } = store
 
   useEffect(() => {
     if (isLogin) {
@@ -71,7 +70,7 @@ const CommunityHeaderContainer: FC<TProps> = ({
     >
       <InnerWrapper metric={metric}>
         <RouterWrapper>
-          <Navigator community={curCommunity} metric={metric} />
+          <Navigator metric={metric} />
         </RouterWrapper>
         {/* @ts-ignore */}
         <AddOns />

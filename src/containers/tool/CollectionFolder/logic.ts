@@ -174,8 +174,6 @@ const DataSolver = [
     action: () => {
       loadCategories()
       /* store.updateCategory(cat) */
-      const { id } = store.viewingArticle
-      const { thread } = store
       store.mark({ doing: false })
     },
   },
@@ -184,8 +182,6 @@ const DataSolver = [
     action: () => {
       loadCategories()
       /* store.updateCategory(cat) */
-      const { id } = store.viewingArticle
-      const { thread } = store
       store.mark({ doing: false })
     },
   },
@@ -202,8 +198,7 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      console.log('collection folder TODO')
+    action: () => {
       // store.changesetErr({ title: '已经存在了', msg: details[0].detail })
       markLoading(false)
     },
@@ -224,10 +219,6 @@ const ErrSolver = [
   },
 ]
 
-const load = (): void => {
-  return loadCategories()
-}
-
 // ###############################
 // init & uninit
 // ###############################
@@ -236,7 +227,6 @@ export const useInit = (_store: TStore, isMobile: boolean): void => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    // load()
 
     if (isMobile) {
       store.changeViewTo('setter')

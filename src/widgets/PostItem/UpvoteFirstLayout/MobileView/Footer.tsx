@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import type { TPost, TCommunity } from '@/spec'
+import type { TPost } from '@/spec'
 import { UPVOTE_LAYOUT, ARTICLE_CAT } from '@/constant'
 
 import { cutRest } from '@/utils/helper'
@@ -20,10 +20,9 @@ import {
 
 type TProps = {
   article: TPost
-  curCommunity: TCommunity
 }
 
-const Footer: FC<TProps> = ({ article, curCommunity }) => {
+const Footer: FC<TProps> = ({ article }) => {
   const { upvotesCount, meta, viewerHasUpvoted } = article
 
   return (

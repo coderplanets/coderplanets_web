@@ -57,7 +57,7 @@ const Content: FC<TProps> = ({ displayType }) => {
     case GUIDE.DEVELOPER: {
       DisplayContent = (
         <NormalListWrapper>
-          <PeopleGallery type="developer" />
+          <PeopleGallery />
           <br />
           <Footer />
           <br />
