@@ -21,11 +21,9 @@ import { Wrapper, EmptyHint } from '../styles/setter'
 const log = buildLog('c:TeamList:index')
 
 export type TProps = {
-  testid?: string
   show: boolean
   users: TUser[]
   searchedUsers: TUser[]
-  withSetter?: boolean
   onClose: () => void
   onSearch: (username: string) => void
   onAdd: (u: TUser) => void
