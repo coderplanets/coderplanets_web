@@ -1,5 +1,7 @@
 import { FC, useRef, memo } from 'react'
 
+import { buildLog } from '@/utils/logger'
+
 import {
   Wrapper,
   InputWrapper,
@@ -7,6 +9,8 @@ import {
   MaskNumer,
   InputBar,
 } from '../styles/home_cover/input_box'
+
+const log = buildLog('C:CoolGideContent')
 
 type TProps = {
   showMask?: boolean
@@ -24,8 +28,8 @@ const InputBox: FC<TProps> = ({
   value = '',
   placeholder = '',
   autoFocus = false,
-  onChange = console.log,
-  onBlur = console.log,
+  onChange = log,
+  onBlur = log,
   noRound = false,
 }) => {
   const ref = useRef(null)

@@ -14,7 +14,7 @@ import { nilOrEmpty } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Guardian:index')
+const log = buildLog('w:Guardian:index')
 
 const getDisplayName = (WrappedComp) =>
   WrappedComp.displayName || WrappedComp.name || 'Component'
@@ -57,8 +57,7 @@ const withGuardian = (WrappedComponent) => {
         isValid = !!path(checkPath, accountPassports)
       }
 
-      // this.state = { isValid }
-      this.state = { isValid: true }
+      this.state = { isValid }
     }
 
     renderWappedChild() {

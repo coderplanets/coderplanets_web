@@ -13,7 +13,7 @@ import { Wrapper, Icon, Block, Title } from './styles/source_selector'
 import { mockSource } from './mock'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:SourceSelector:index')
+const log = buildLog('w:SourceSelector:index')
 
 const SourceSelector: FC = () => {
   const items = mockSource()

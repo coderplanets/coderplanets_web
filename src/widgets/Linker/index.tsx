@@ -14,7 +14,7 @@ import InternalLink from './InternalLink'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Linker:index')
+const log = buildLog('w:Linker:index')
 
 type TProps = TSpace & {
   testid?: string

@@ -10,7 +10,7 @@ import { buildLog } from '@/utils/logger'
 import { PinIcon } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArticlePinLabel:index')
+const log = buildLog('w:ArticlePinLabel:index')
 
 export type TProps = {
   top?: number

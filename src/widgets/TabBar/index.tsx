@@ -12,7 +12,7 @@ import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TabBar:index')
+const log = buildLog('w:TabBar:index')
 
 const TabBar = (props) => {
   // const { view } = props

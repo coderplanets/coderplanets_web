@@ -16,7 +16,7 @@ import Collapse from './Collapse'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:FaqList:index')
+const log = buildLog('w:FaqList:index')
 
 const defaultArticles = [
   {

@@ -23,7 +23,7 @@ import {
 import { getSlipMargin } from '../styles/metric/tabs'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Tabs:index')
+const log = buildLog('w:Tabs:index')
 
 const temItems = [
   {

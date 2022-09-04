@@ -21,7 +21,7 @@ import MasonryGallery from './MasonryGallery'
 import { Wrapper } from '../styles/image_gallery'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ImageGallery:index')
+const log = buildLog('w:ImageGallery:index')
 
 const GALLERY_TYPES = [
   {

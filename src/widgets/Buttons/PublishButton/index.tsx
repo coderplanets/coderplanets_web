@@ -26,7 +26,7 @@ import { Wrapper, PubButton, MoreOption } from '../styles/publish_button'
 import { getTargetPage, getText } from './helper'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:PublishButton:index')
+const log = buildLog('w:PublishButton:index')
 
 type TProps = {
   thread?: TThread

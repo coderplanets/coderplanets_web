@@ -4,10 +4,7 @@
  *
  */
 
-import { FC, useState } from 'react'
-
-import type { TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
@@ -27,19 +24,15 @@ const log = buildLog('C:ArticleFooter')
 type TProps = {
   articleFooter?: TStore
   testid?: string
-  metric?: TMetric
 }
 
 const ArticleFooterContainer: FC<TProps> = ({
   articleFooter: store,
   testid = 'article-footer',
-  metric = METRIC.ARTICLE,
 }) => {
   useInit(store)
   const { viewingArticle } = store
   const { author, articleTags } = viewingArticle
-
-  const [cat, setCat] = useState('feature')
 
   return (
     <Wrapper testid={testid}>

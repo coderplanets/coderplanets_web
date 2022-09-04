@@ -68,7 +68,7 @@ const Footer: FC<TProps> = ({ title, onClick, onMenuClick, inactive }) => {
       <HintWrapper>
         {/* <LavaLampLoading size="small" /> */}
         {/* <Hint>已收入</Hint> */}
-        {/* <AddHint>已收入</AddHint> */}
+        <AddHint>已收入</AddHint>
       </HintWrapper>
     </Wrapper>
   )

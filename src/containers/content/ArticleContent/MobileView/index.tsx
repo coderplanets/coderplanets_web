@@ -5,7 +5,6 @@
  */
 
 import { FC } from 'react'
-import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'

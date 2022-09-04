@@ -20,7 +20,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Input:index')
+const log = buildLog('w:Input:index')
 
 type TProps = {
   testid?: string

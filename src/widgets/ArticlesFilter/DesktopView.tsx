@@ -24,7 +24,7 @@ import SelectedFilters from './SelectedFilters'
 import { Wrapper, MainFilterWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArticlesFilter:index')
+const log = buildLog('w:ArticlesFilter:index')
 
 type TProps = {
   activeFilter: TArticleFilter

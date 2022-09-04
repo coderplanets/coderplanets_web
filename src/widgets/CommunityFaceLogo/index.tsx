@@ -14,7 +14,7 @@ import { buildLog } from '@/utils/logger'
 import { Logo, HomeLogo } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CommunityFaceLogo:index')
+const log = buildLog('w:CommunityFaceLogo:index')
 
 type TProps = {
   noFill?: boolean

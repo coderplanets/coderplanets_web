@@ -27,12 +27,11 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CommunityStatesPad:index')
+const log = buildLog('w:CommunityStatesPad:index')
 
 type TProps = {
   community: TCommunity
   realtimeVisitors?: number
-  withoutFounding?: boolean
   onShowEditorList?: () => void
   onShowSubscriberList?: () => void
 }
@@ -42,7 +41,6 @@ const CommunityStatesPad: FC<TProps> = ({
   realtimeVisitors = 1,
   onShowEditorList = log,
   onShowSubscriberList = log,
-  withoutFounding = true,
 }) => {
   const { editorsCount, subscribersCount, contributesDigest, articlesCount } =
     community

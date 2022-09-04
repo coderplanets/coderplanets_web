@@ -79,7 +79,6 @@ const ArticleViewer = T.model('ArticleViewer', {
     syncArticle(item): void {
       const root = getParent(self) as TRootStore
       if (self.activeThread === THREAD.WORKS) {
-        console.log('TODO: syncArticle for WORKS ')
         return
       }
       root.articlesThread.updateArticle(item)

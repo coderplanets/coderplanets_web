@@ -10,7 +10,7 @@ import type { TEmotion, TEmotionType } from '@/spec'
 import { getEmotionName } from '../helper'
 import EmotionUnit from './EmotionUnit'
 /* eslint-disable-next-line */
-const log = buildLog('c:SelectedEmotions:index')
+const log = buildLog('w:SelectedEmotions:index')
 
 type TProps = {
   emotions: TEmotion[]

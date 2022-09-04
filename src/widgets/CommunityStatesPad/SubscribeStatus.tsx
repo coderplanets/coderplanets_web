@@ -16,7 +16,7 @@ import {
 } from './styles/subscribe_status'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CommunityStatesPad:SubscribeStatus')
+const log = buildLog('w:CommunityStatesPad:SubscribeStatus')
 
 type TProps = {
   count?: number

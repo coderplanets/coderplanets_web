@@ -15,7 +15,7 @@ import CommunityCard from '@/widgets/Cards/CommunityCard'
 import { Wrapper, Linker, Logo, MoreWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CommunityList:index')
+const log = buildLog('w:CommunityList:index')
 
 type TProps = {
   items: TCommunity[]

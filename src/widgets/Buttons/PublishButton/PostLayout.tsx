@@ -13,7 +13,7 @@ import { SpaceGrow } from '@/widgets/Common'
 import { Wrapper, Title, EditIcon } from '../styles/publish_button/post_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:PublishButton:index')
+const log = buildLog('w:PublishButton:index')
 
 type TProps = {
   text: string

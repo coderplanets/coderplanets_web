@@ -1,8 +1,9 @@
 import { FC } from 'react'
 
-import type { TProps as TButtonProps } from './index'
 import { SIZE } from '@/constant'
+import { buildLog } from '@/utils/logger'
 
+import type { TProps as TButtonProps } from './index'
 import {
   Wrapper,
   UpButton,
@@ -10,10 +11,12 @@ import {
   BottomButton,
 } from '../styles/or_button/vertical_button'
 
+const log = buildLog('w:VericalButton')
+
 type TProps = Omit<TButtonProps, 'direction'>
 
 const VerticalButton: FC<TProps> = ({
-  onClick = console.log,
+  onClick = log,
   size = SIZE.SMALL,
   activeKey,
   group = [

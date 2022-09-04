@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import DesktopView from './DesktopView'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArticlesFilter:index')
+const log = buildLog('w:ArticlesFilter:index')
 
 const ArticlesFilter = (props) => {
   return <Fragment>{!isMobile && <DesktopView {...props} />}</Fragment>

@@ -15,7 +15,7 @@ import { SIZE } from '@/constant'
 import { Wrapper, Icon, Text } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:IconText:index')
+const log = buildLog('w:IconText:index')
 
 type TProps = {
   iconSrc?: string | null

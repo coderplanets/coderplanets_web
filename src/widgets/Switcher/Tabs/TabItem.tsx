@@ -20,7 +20,7 @@ import {
 } from '../styles/tabs/tab_item'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Tabs:index')
+const log = buildLog('w:Tabs:index')
 
 type TProps = {
   mobileView?: boolean

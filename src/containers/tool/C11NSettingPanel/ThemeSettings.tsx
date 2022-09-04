@@ -9,7 +9,7 @@ import NoticeBar from '@/widgets/NoticeBar'
 import { Wrapper } from './styles/theme_settings'
 // import { changeTheme } from './logic'
 
-const log = buildLog('c:ThemeSettings')
+const log = buildLog('w:ThemeSettings')
 
 type TProps = {
   curTheme: TThemeName

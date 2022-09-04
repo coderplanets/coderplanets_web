@@ -26,7 +26,7 @@ import {
 } from '../styles/sponsor_gallery'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:SponsorGallery:index')
+const log = buildLog('w:SponsorGallery:index')
 
 const Patterns = dynamic(() => import('./Patterns'), {
   /* eslint-disable react/display-name */

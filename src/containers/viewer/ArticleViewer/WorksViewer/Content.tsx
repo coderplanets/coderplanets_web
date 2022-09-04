@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 import type { TWorks } from '@/spec'
-import { METRIC, WORKS_TAB } from '@/constant'
+import { WORKS_TAB } from '@/constant'
 
 import { classifyTechstack } from '@/utils/helper'
 
@@ -32,7 +32,7 @@ const Content: FC<TProps> = ({ article, tab }) => {
       return (
         <div>
           <ArticeBody document={article.document} />
-          <ArticleFooter metric={METRIC.WORKS_ARTICLE} />
+          <ArticleFooter />
         </div>
       )
     }

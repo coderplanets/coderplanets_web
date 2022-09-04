@@ -230,11 +230,9 @@ const CommentsStore = T.model('CommentsStore', {
     },
 
     updateMentionList(mentionArray): void {
-      console.log('TODO: updateMentionList')
       // const curMentionList = clone(self.mentionList)
       // const uniqList = concat(curMentionList, mentionArray)
       // const mentionList = map(mentionMapper, uniqList)
-
       // @ts-ignore
       // self.mentionList = uniq(concat(mentionList, self.participators))
     },

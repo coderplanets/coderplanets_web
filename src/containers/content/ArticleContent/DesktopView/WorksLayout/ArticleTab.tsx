@@ -37,7 +37,7 @@ const ArticleTab: FC<TProps> = ({ metric, article }) => {
       <MainWrapper metric={metric}>
         <ArticleWrapper ref={ref}>
           <ArtimentBody document={article.document} />
-          <ArticleFooter metric={metric} />
+          <ArticleFooter />
         </ArticleWrapper>
 
         <ViewportTracker

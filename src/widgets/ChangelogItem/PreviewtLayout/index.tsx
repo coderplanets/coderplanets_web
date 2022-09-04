@@ -12,7 +12,7 @@ import ArticleLayout from './ArticleLayout'
 import DefaultLayout from './DefaultLayout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ChangelogItem:index')
+const log = buildLog('w:ChangelogItem:index')
 
 type TProps = {
   showFullArticle?: boolean

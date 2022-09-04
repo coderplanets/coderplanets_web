@@ -13,7 +13,7 @@ import Work from './Work'
 import Avatar from './Avatar'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ImgFallback:index')
+const log = buildLog('w:ImgFallback:index')
 
 export type TAvatarProps = {
   testid?: string

@@ -13,7 +13,7 @@ import CardSelector from './CardSelector'
 import GallerySelector from './GallerySelector'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ThemeSelector:index')
+const log = buildLog('w:ThemeSelector:index')
 
 type TProps = {
   curTheme?: string

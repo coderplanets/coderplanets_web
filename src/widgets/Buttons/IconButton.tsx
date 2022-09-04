@@ -3,6 +3,7 @@ import { FC, memo, ReactNode } from 'react'
 import type { TSpace } from '@/spec'
 import { ICON } from '@/config'
 import { SVG } from '@/constant'
+import { buildLog } from '@/utils/logger'
 
 import Tooltip from '@/widgets/Tooltip'
 import {
@@ -13,6 +14,8 @@ import {
   getLocalIcon,
   HoverBg,
 } from './styles/icon_button'
+
+const log = buildLog('w:IconButton')
 
 export type TProps = {
   path?: string | null
@@ -35,7 +38,7 @@ const IconButton: FC<TProps> = ({
   hint = null,
   hintDelay = 500,
   hintPlacement = 'top',
-  onClick = console.log,
+  onClick = log,
   ...restProps
 }) => {
   let realIcon = null

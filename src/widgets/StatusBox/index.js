@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:StatusBox:index')
+const log = buildLog('w:StatusBox:index')
 
 const getDefaultMsg = (success, error) => {
   if (success) {

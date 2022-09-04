@@ -19,7 +19,7 @@ import {
 } from './styles/input_bar'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:SocialEditor:index')
+const log = buildLog('w:SocialEditor:index')
 
 type TProps = {
   social: TSocial

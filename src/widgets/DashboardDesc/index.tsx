@@ -15,7 +15,7 @@ import PostListExample from './PostListExample'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:DashboardDesc:index')
+const log = buildLog('w:DashboardDesc:index')
 
 type TProps = {
   testid?: string

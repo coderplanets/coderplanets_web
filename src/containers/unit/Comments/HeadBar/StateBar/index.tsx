@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TCommentsState } from '@/spec'
-
+import { buildLog } from '@/utils/logger'
 import { LineDivider } from '@/widgets/Common'
 import Button from '@/widgets/Buttons/Button'
 import { LavaLampLoading } from '@/widgets/Loading'
@@ -18,6 +17,8 @@ import {
   EditIcon,
 } from '../../styles/head_bar/state_bar'
 
+const log = buildLog('C:HeaderBar')
+
 type TProps = Pick<
   TBase,
   'mode' | 'apiMode' | 'isAllFolded' | 'loading' | 'basicState'
@@ -29,7 +30,7 @@ const StateBar: FC<TProps> = ({
   isAllFolded,
   loading,
   apiMode,
-  callEditor = console.log,
+  callEditor = log,
 }) => {
   return (
     <Wrapper>

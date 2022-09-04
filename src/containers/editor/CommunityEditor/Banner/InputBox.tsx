@@ -1,6 +1,8 @@
 import { FC, memo, useRef } from 'react'
 
 import type { TInput } from '@/spec'
+import { buildLog } from '@/utils/logger'
+
 import {
   Wrapper,
   InputWrapper,
@@ -8,6 +10,8 @@ import {
   MaskNumer,
   InputBar,
 } from '../styles/banner/input_box'
+
+const log = buildLog('C:CommunityEditor/InputBox')
 
 type TProps = {
   showMask?: boolean
@@ -22,7 +26,7 @@ const InputBox: FC<TProps> = ({
   placeholder = '',
   value = '',
   onChange,
-  onBlur = console.log,
+  onBlur = log,
 }) => {
   const ref = useRef(null)
 

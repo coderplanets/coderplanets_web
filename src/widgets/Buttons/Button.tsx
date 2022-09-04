@@ -8,7 +8,7 @@ import { LavaLampLoading } from '@/widgets/Loading'
 import { Wrapper, RedWrapper, ChildrenWrapper } from './styles/button'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Buttons:Button')
+const log = buildLog('w:Buttons:Button')
 
 type TProps = {
   children?: ReactNode

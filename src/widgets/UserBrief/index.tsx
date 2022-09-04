@@ -22,7 +22,7 @@ import Avatar from './Avatar'
 import { Wrapper, UserTitle, WomanIcon, ShortBio, Bio, Divider } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:UserBrief')
+const log = buildLog('w:UserBrief')
 
 type TProps = {
   user: TUser

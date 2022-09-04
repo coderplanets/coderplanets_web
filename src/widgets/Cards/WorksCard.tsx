@@ -43,7 +43,7 @@ import {
 } from './styles/works_card'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:WorksCard:index')
+const log = buildLog('w:WorksCard:index')
 
 type TProps = {
   testid?: string

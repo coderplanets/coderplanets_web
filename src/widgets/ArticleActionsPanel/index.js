@@ -19,7 +19,7 @@ import DeleteOption from './DeleteOption'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArticleActionsPanel:index')
+const log = buildLog('w:ArticleActionsPanel:index')
 
 const ArticleActionsPanel = ({
   data,

@@ -7,8 +7,6 @@
 import { FC, memo } from 'react'
 import { AnimateOnChange } from 'react-animation'
 
-import { buildLog } from '@/utils/logger'
-
 import type { TView, TDrinkItem, TSettingOption } from '../spec'
 import { VIEW } from '../constant'
 
@@ -19,9 +17,6 @@ import Publish from './Publish'
 import Content from './Content'
 
 import { Wrapper, SentenceWrapper, Sentence, Hint } from '../styles/body'
-
-/* eslint-disable-next-line */
-const log = buildLog('C:HaveADrinkContent')
 
 type TViewProps = {
   view: TView

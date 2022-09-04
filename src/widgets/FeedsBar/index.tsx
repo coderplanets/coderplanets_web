@@ -16,7 +16,7 @@ import List from './List'
 import { Wrapper, Header, FunctionIcon, Title } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:FeedsBar:index')
+const log = buildLog('w:FeedsBar:index')
 
 type TProps = {
   title: string

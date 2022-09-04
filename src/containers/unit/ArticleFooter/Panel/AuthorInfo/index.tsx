@@ -28,7 +28,7 @@ import {
 // import { onFollow, undoFollow } from '../logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:AuthorInfo:index')
+const log = buildLog('w:AuthorInfo:index')
 
 type TProps = {
   testid?: string

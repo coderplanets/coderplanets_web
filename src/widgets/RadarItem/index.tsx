@@ -17,7 +17,7 @@ import ArticlePinLabel from '@/widgets/ArticlePinLabel'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:RadarItem:index')
+const log = buildLog('w:RadarItem:index')
 
 type TProps = {
   entry: TRadar

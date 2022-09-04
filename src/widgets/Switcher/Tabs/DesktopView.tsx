@@ -18,7 +18,7 @@ import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'
 import { getSlipMargin } from '../styles/metric/tabs'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Tabs:index')
+const log = buildLog('w:Tabs:index')
 
 // const defaultItems2 = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
 const temItems = [

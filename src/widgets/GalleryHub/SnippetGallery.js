@@ -23,7 +23,7 @@ import {
 } from './styles/snippet_gallery'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:SnippetGallery:index')
+const log = buildLog('w:SnippetGallery:index')
 
 const tmpItems = [
   {

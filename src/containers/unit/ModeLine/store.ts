@@ -15,7 +15,7 @@ const ModeLine = T.model('ModeLine', {
   activeMenu: T.optional(T.enumeration([...values(TYPE.MM_TYPE), '']), ''),
   metric: T.optional(T.enumeration(values(METRIC)), METRIC.COMMUNITY),
 })
-  .views((self: any) => ({
+  .views((self) => ({
     get isMobile(): boolean {
       const root = getParent(self) as TRootStore
       return root.isMobile
@@ -32,8 +32,10 @@ const ModeLine = T.model('ModeLine', {
       return toJS(root.viewing)
     },
     get isTopBarVisiable(): boolean {
+      const slf = self as TStore
+
       const { isMobile, topBarVisiable, metric, isArticleDigestInViewport } =
-        self
+        slf
       const root = getParent(self) as TRootStore
       const { bodyScrollDirection } = root.globalLayout
 
@@ -56,25 +58,6 @@ const ModeLine = T.model('ModeLine', {
       return toJS(root.viewingArticle)
     },
     get leftOffset(): number | string {
-      const root = getParent(self) as TRootStore
-      const curSidebarPin = root.sidebar.pin
-      if (
-        (!curSidebarPin && !self.preSidebarPin && !self.fixed) ||
-        (!curSidebarPin && !self.preSidebarPin) ||
-        (curSidebarPin && !self.preSidebarPin && !self.fixed) ||
-        (curSidebarPin && self.preSidebarPin && self.fixed) ||
-        (curSidebarPin && self.preSidebarPin && !self.fixed) ||
-        (!curSidebarPin && self.preSidebarPin && !self.fixed)
-      ) {
-        return 0
-      }
-
-      // 特殊情况： 当 sidebar 打开时下滑页面， 需要一个 preSidebarPin 的中间状态
-      if (!curSidebarPin && self.preSidebarPin && self.fixed) {
-        return '-180px'
-      }
-
-      // isPin && !self.preSidebarPin && self.fixed
       return '180px'
     },
     get isMenuActive(): boolean {
@@ -85,7 +68,9 @@ const ModeLine = T.model('ModeLine', {
       return root.articleDigest.inViewport
     },
     get isCommunityBlockExpand(): boolean {
-      const { isArticleDigestInViewport } = self
+      const slf = self as TStore
+
+      const { isArticleDigestInViewport } = slf
 
       if (!isArticleDigestInViewport) return false
 

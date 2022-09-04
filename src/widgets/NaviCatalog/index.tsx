@@ -32,7 +32,7 @@ import {
 } from './helper'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NaviCatalog:index')
+const log = buildLog('w:NaviCatalog:index')
 
 type TProps = {
   title?: string

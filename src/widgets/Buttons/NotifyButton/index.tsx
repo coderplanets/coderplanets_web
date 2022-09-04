@@ -22,7 +22,7 @@ import {
 } from '../styles/notify_button'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NotifyButton:index')
+const log = buildLog('w:NotifyButton:index')
 
 type TProps = {
   testid?: string

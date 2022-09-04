@@ -10,13 +10,11 @@ import { markStates } from '@/utils/mobx'
 const JoinModal = T.model('JoinModal', {
   show: T.optional(T.boolean, false),
   activeGroup: T.optional(T.string, 'IN'),
-})
-  .views((self) => ({}))
-  .actions((self) => ({
-    mark(sobj) {
-      markStates(sobj, self)
-    },
-  }))
+}).actions((self) => ({
+  mark(sobj) {
+    markStates(sobj, self)
+  },
+}))
 
 export type TStore = Instance<typeof JoinModal>
 export default JoinModal

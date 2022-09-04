@@ -6,7 +6,6 @@ import { FC, memo, Fragment, useCallback, useState } from 'react'
 
 import type { TBlog, TBlogRSS } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { METRIC } from '@/constant'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
 import { ArticleContentLoading } from '@/widgets/Loading'
@@ -53,7 +52,7 @@ const BlogViewer: FC<TProps> = ({ article, loading, tab, blogRssInfo }) => {
             <Content article={article} blogRssInfo={blogRssInfo} tab={tab} />
           </BodyWrapper>
         )}
-        <ArticleFooter metric={METRIC.BLOG_ARTICLE} />
+        <ArticleFooter />
       </Wrapper>
     </Fragment>
   )

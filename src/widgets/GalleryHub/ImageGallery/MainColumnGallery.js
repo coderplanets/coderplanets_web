@@ -28,7 +28,7 @@ import {
 } from '../styles/image_gallery/main_column_gallery'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ImageGallery:index')
+const log = buildLog('w:ImageGallery:index')
 
 const MainColumnGallery = ({ items }) => {
   return (

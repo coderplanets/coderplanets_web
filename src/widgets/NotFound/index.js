@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NotFound:index')
+const log = buildLog('w:NotFound:index')
 
 const DefaultDesc = () => (
   <>

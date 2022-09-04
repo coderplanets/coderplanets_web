@@ -16,7 +16,7 @@ import ReadOnlyPanel from './ReadOnlyPanel'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Copyright:index')
+const log = buildLog('w:Copyright:index')
 
 const options = [
   {

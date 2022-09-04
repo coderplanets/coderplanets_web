@@ -22,7 +22,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:VerifiedSign:index')
+const log = buildLog('w:VerifiedSign:index')
 
 const PopContent = ({ communityTitle }) => {
   return (

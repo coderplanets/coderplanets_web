@@ -12,7 +12,7 @@ import type { TThemeMap } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TrendLine:index')
+const log = buildLog('w:TrendLine:index')
 
 type TProps = {
   data: number[]

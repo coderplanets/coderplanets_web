@@ -20,7 +20,7 @@ import { Wrapper, Label, HintIcon, TurboIcon, InputFile } from './styles'
 import { initOSSClient, handleUploadFile } from './helper'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:OSSUploader:index')
+const log = buildLog('w:OSSUploader:index')
 
 type TProps = {
   children: ReactNode

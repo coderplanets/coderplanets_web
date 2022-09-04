@@ -23,7 +23,7 @@ import ArticleList from './ArticleList'
 // import CommunityRecommends from './CommunityRecommends'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:PagedArticles:index')
+const log = buildLog('w:PagedArticles:index')
 
 export type TProps = {
   curCommunity?: TCommunity | null

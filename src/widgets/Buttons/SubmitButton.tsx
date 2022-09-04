@@ -8,7 +8,7 @@ import Button from './Button'
 import { DonwWrapper, DoneIcon, DoneHint } from './styles/submit_button'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Buttons:SubmitButton')
+const log = buildLog('w:Buttons:SubmitButton')
 
 type TProps = {
   submitState?: TSubmitState

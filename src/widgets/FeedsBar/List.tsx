@@ -24,7 +24,7 @@ import {
 } from './styles/list'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:FeedsBar:index')
+const log = buildLog('w:FeedsBar:index')
 
 const List: FC = () => {
   // list header(with lable) - 40px

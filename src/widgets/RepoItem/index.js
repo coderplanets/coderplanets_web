@@ -17,7 +17,7 @@ import { Wrapper, BodyDigest } from './styles'
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:RepoItem:index')
+const log = buildLog('w:RepoItem:index')
 
 const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>

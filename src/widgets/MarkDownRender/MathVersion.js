@@ -26,7 +26,7 @@ import { MENTION_USER_ADDR } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { PreviewerContainer } from './styles'
 
-const log = buildLog('c:MarkDownRender:index')
+const log = buildLog('w:MarkDownRender:index')
 
 // const latexPlugin = require('remarkable-katex')
 // const md = new Remarkable()

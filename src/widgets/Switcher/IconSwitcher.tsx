@@ -21,7 +21,7 @@ import {
 } from './styles/icon_selector'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:IconSwitcher:index')
+const log = buildLog('w:IconSwitcher:index')
 
 type TItem = {
   icon?: string

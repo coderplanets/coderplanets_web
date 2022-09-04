@@ -13,7 +13,7 @@ import type { TTabItem } from '../spec'
 import NormalView from './NormalView'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TabBar:index')
+const log = buildLog('w:TabBar:index')
 
 type TProps = {
   source: TTabItem[]

@@ -15,7 +15,7 @@ import Item from './Item'
 import { Wrapper, Header, Title, ListWrapper, MoreWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:LinksCard:index')
+const log = buildLog('w:LinksCard:index')
 
 const LinksCard = ({ testid, title, items, onSelect, left, right, bottom }) => {
   return (

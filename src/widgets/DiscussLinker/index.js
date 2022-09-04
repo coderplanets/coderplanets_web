@@ -24,7 +24,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:DiscussLinker:index')
+const log = buildLog('w:DiscussLinker:index')
 
 const DiscussLinker = ({ title, desc, addr }) => (
   <Wrapper>

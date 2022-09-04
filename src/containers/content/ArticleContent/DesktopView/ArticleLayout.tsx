@@ -68,7 +68,7 @@ const ArticleContentContainer: FC<TProps> = ({
               <Linker src={article.linkAddr} bottom={22} hint="原文:" />
             )}
             <ArtimentBody document={article.document} />
-            <ArticleFooter metric={metric} />
+            <ArticleFooter />
           </ArticleWrapper>
 
           <ViewportTracker

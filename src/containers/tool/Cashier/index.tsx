@@ -11,7 +11,6 @@ import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
 
-import type { TContentView, TAmount, TSubContentView } from './spec'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
@@ -43,15 +42,15 @@ const CashierContainer: FC<TProps> = ({ cashier: store }) => {
     <Modal width="520px" show={show} showCloseBtn onClose={onClose}>
       <Wrapper>
         <Sidebar
-          sidebarView={sidebarView as TContentView}
-          subContentView={subContentView as TSubContentView}
+          sidebarView={sidebarView}
+          subContentView={subContentView}
           paymentMethod={paymentMethod}
-          amount={amount as TAmount}
+          amount={amount}
         />
         <Content
-          contentView={contentView as TContentView}
-          subContentView={subContentView as TSubContentView}
-          amount={amount as TAmount}
+          contentView={contentView}
+          subContentView={subContentView}
+          amount={amount}
           paymentMethod={paymentMethod}
           transferAccount={transferAccount}
         />

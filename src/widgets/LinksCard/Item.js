@@ -13,7 +13,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, Title, Reaction, Icon, Count } from './styles/item'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:LinksCard:Item')
+const log = buildLog('w:LinksCard:Item')
 
 const Item = ({ item, onSelect }) => {
   return (

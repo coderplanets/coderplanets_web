@@ -15,7 +15,7 @@ import Tooltip from '@/widgets/Tooltip'
 import { Wrapper, DotWrapper, Dot, HookIcon } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ColorSelector:index')
+const log = buildLog('w:ColorSelector:index')
 
 type TProps = {
   activeColor?: TColorName | string

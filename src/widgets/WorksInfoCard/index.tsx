@@ -15,7 +15,7 @@ import Others from './Others'
 import { Wrapper, Row, Title, SlashSign, Divider } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:WorksInfoCard:index')
+const log = buildLog('w:WorksInfoCard:index')
 
 type TProps = {
   article: TWorks

@@ -19,7 +19,7 @@ import {
 } from './styles/upvote_btn'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Upvote:index')
+const log = buildLog('w:Upvote:index')
 
 type TProps = {
   type?: TUpvoteLayout

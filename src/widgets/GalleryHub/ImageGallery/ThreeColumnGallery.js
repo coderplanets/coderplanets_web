@@ -25,7 +25,7 @@ import {
 } from '../styles/image_gallery/three_column_gallery'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ImageGallery:index')
+const log = buildLog('w:ImageGallery:index')
 
 const ThreeColumnGallery = ({ items }) => {
   return (

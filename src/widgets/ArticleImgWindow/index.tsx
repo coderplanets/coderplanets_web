@@ -11,7 +11,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, Block } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArticleImgWindow:index')
+const log = buildLog('w:ArticleImgWindow:index')
 
 type TProps = {
   testid?: string

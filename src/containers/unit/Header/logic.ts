@@ -25,7 +25,9 @@ const sr71$ = new SR71({
 let store: TStore | undefined
 let sub$ = null
 
-export const previewAccount = (): void => console.log('TODO:  ')
+export const previewAccount = (): void => {
+  // TODO:
+}
 
 // to avoid page-cache in server
 export const checkSessionState = (): void => sr71$.query(S.sessionState, {})

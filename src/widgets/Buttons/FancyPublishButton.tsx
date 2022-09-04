@@ -19,7 +19,7 @@ import {
 } from './styles/fancy_publish_button'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:PublishButton:index')
+const log = buildLog('w:PublishButton:index')
 
 type TProps = {
   label?: string

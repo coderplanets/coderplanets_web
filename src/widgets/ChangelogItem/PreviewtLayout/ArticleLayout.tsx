@@ -33,7 +33,7 @@ import {
 } from '../styles/preview_layout/article_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ChangelogItem:index')
+const log = buildLog('w:ChangelogItem:index')
 
 type TProps = {
   testid?: string

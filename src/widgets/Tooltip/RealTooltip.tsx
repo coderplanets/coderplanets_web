@@ -29,7 +29,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Tooltip:index')
+const log = buildLog('w:Tooltip:index')
 
 const Tooltip: FC<TProps> = ({
   children,

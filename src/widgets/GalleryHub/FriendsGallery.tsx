@@ -24,7 +24,7 @@ import {
 } from './styles/friends_gallery'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:FriendsGallery:index')
+const log = buildLog('w:FriendsGallery:index')
 
 type TProps = {
   items: {

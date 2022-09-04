@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, Logo, Digest, Title, Desc } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NaviIntro:index')
+const log = buildLog('w:NaviIntro:index')
 
 const NaviIntro = ({ title, desc, iconSrc, testid }) => {
   return (

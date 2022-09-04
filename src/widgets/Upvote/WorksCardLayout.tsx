@@ -14,7 +14,7 @@ import UpvoteBtn from './UpvoteBtn'
 import { Wrapper, UpWrapper, CountWrapper } from './styles/works_card_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Upvote:index')
+const log = buildLog('w:Upvote:index')
 
 type TProps = {
   testid?: string

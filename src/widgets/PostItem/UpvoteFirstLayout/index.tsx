@@ -17,7 +17,7 @@ import MobileView from './MobileView'
 import { Wrapper } from '../styles/upvote_fist_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:PostItem:index')
+const log = buildLog('w:PostItem:index')
 
 type TProps = {
   article: TPost

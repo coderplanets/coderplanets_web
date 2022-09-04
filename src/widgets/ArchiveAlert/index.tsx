@@ -12,7 +12,7 @@ import NoticeBar from '@/widgets/NoticeBar'
 import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArchiveAlert:index')
+const log = buildLog('w:ArchiveAlert:index')
 
 type TProps = {
   date?: string

@@ -17,7 +17,7 @@ import Footer from './Footer'
 import { Wrapper, TabShape } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Folder:index')
+const log = buildLog('w:Folder:index')
 
 type TProps = {
   title?: string

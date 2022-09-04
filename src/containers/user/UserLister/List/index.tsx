@@ -18,7 +18,7 @@ import NormalLayout from './NormalLayout'
 import { onPageChange } from '../logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:UserList:index')
+const log = buildLog('w:UserList:index')
 
 type TProps = {
   type: string

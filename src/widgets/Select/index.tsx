@@ -17,7 +17,7 @@ import { Input, Option, IndicatorsContainer } from './components'
 import { Wrapper, getSelectStyles } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Select:index')
+const log = buildLog('w:Select:index')
 
 type TProps = {
   testid?: string
