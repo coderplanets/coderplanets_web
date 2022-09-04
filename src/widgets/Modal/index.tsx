@@ -49,7 +49,7 @@ const Modal: FC<TProps> = ({
     setVisibleOnPage(false)
     toggleGlobalBlur(false)
     onClose()
-  }, [])
+  }, [onClose])
 
   useShortcut('Escape', handleClose)
 

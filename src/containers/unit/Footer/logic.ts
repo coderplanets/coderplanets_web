@@ -6,7 +6,6 @@ import { EVENT } from '@/constant'
 import asyncSuit from '@/utils/async'
 import { send, Global, sessionChanged } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
-import uid from '@/utils/uid'
 import S from './schema'
 
 import type { TStore } from './store'
