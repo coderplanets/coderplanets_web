@@ -1,8 +1,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 
-import type { IziToast as TZiToast } from 'iziToast'
-
 import type { TRootStore as RootStoreType } from '@/stores/RootStore'
 
 import type { TArticle } from './article'
@@ -168,7 +166,3 @@ export type TRootStore = RootStoreType
 export type TViewing = TCommunity | TArticle
 
 export type TContainer = 'body' | 'drawer'
-
-export interface TWindow extends Window {
-  iziToast: TZiToast
-}
