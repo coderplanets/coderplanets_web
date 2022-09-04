@@ -13,7 +13,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, IconWrapper, CheckIcon, ChildWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Checker:index')
+const log = buildLog('w:Checker:index')
 
 type TProps = {
   children?: ReactNode | null

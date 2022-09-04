@@ -19,7 +19,7 @@ import { TYPE } from './constant'
 import { Wrapper, Main, UserName, AuthorTag, Timestamp, Why } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NoticeBar:index')
+const log = buildLog('w:NoticeBar:index')
 
 type TProps = {
   testid?: string

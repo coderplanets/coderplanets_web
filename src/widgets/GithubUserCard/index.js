@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:GithubUserCard:index')
+const log = buildLog('w:GithubUserCard:index')
 
 const GithubUserCard = ({ user }) => (
   <Wrapper>

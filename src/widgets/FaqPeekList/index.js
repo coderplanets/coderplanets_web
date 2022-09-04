@@ -14,7 +14,7 @@ import LinksCard from '@/widgets/LinksCard'
 
 import { Wrapper, ArrowIcon, ContentWrapper } from './styles'
 
-const log = buildLog('c:FaqPeekList:index')
+const log = buildLog('w:FaqPeekList:index')
 
 const items = [
   {

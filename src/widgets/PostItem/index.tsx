@@ -6,14 +6,7 @@
 
 import { FC, memo, Fragment } from 'react'
 
-import type {
-  TCommunity,
-  TPost,
-  TUser,
-  TAccount,
-  TC11N,
-  TPostLayout,
-} from '@/spec'
+import type { TCommunity, TPost, TAccount, TC11N, TPostLayout } from '@/spec'
 import { POST_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -22,7 +15,7 @@ import UpvoteFirstLayout from './UpvoteFirstLayout'
 // import ListView from './ListView'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:PostItem:index')
+const log = buildLog('w:PostItem:index')
 
 type TProps = {
   curCommunity: TCommunity | null
@@ -31,14 +24,12 @@ type TProps = {
   layout?: TPostLayout
   isMobilePreview?: boolean
 
-  onUserSelect?: (obj: TUser) => void
   onAuthorSelect?: (obj: TAccount) => void
 }
 
 const PostItem: FC<TProps> = ({
   curCommunity,
   article,
-  onUserSelect = log,
   onAuthorSelect = log,
   layout = POST_LAYOUT.UPVOTE_FIRST,
   isMobilePreview = false,

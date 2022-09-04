@@ -24,7 +24,7 @@ import {
 import ReactionNumbers from './ReactionNumbers'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ContentBanner:index')
+const log = buildLog('w:ContentBanner:index')
 
 // TODO: add a Loading effect
 const ContentBanner = ({ data, middleNode }) => {

@@ -11,17 +11,13 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, ImageWrapper, Image } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CoverImage:index')
+const log = buildLog('w:CoverImage:index')
 
 type TProps = {
   testid?: string
-  readonly?: boolean
 }
 
-const CoverImage: FC<TProps> = ({
-  testid = 'cover-image',
-  readonly = false,
-}) => {
+const CoverImage: FC<TProps> = ({ testid = 'cover-image' }) => {
   return (
     <Wrapper testid={testid}>
       <ImageWrapper>

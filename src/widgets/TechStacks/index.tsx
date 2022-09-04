@@ -18,7 +18,7 @@ import ReadOnlyRow from './ReadOnlyRow'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TechStack:index')
+const log = buildLog('w:TechStack:index')
 
 const FULL_TECHS = reduce(
   (acc, key) => ({ ...acc, [key]: [] }),

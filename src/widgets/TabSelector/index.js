@@ -18,7 +18,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TabSelector:index')
+const log = buildLog('w:TabSelector:index')
 
 const TabSelector = ({ source, activeRaw, onChange }) => (
   <Wrapper>

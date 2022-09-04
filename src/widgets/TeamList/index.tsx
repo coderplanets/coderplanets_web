@@ -17,7 +17,7 @@ import List from './List'
 // import { Wrapper, Avatar, SettingWrapper, SettingIcon } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TeamList:index')
+const log = buildLog('w:TeamList:index')
 
 type TProps = {
   users: TUser[]

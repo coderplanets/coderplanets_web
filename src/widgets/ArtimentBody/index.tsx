@@ -13,7 +13,7 @@ import { Br } from '@/widgets/Common'
 import { Wrapper, Body, HTML } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArtimentBody:index')
+const log = buildLog('w:ArtimentBody:index')
 
 type TProps = {
   testid?: string

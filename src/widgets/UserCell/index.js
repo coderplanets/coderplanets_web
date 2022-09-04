@@ -11,7 +11,7 @@ import { buildLog } from '@/utils/logger'
 import { UserCellWrapper, Avatar, UserInfo, NickName, Bio } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:UserCell:index')
+const log = buildLog('w:UserCell:index')
 
 const UserCell = ({ user }) => {
   return (

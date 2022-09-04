@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:SectionLabel:index')
+const log = buildLog('w:SectionLabel:index')
 
 const SectionLabel = ({ title, iconSrc, desc, node, addonNode }) => (
   <Wrapper>

@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, Content, LeftLine, RightLine } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:DivideText:index')
+const log = buildLog('w:DivideText:index')
 
 const DivideText = ({ testid, children }) => {
   return (

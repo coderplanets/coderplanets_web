@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ThreadSelector:index')
+const log = buildLog('w:ThreadSelector:index')
 
 const ThreadSelector = ({
   options,

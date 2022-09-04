@@ -27,7 +27,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:GithubRepoPage:index')
+const log = buildLog('w:GithubRepoPage:index')
 
 const GithubRepoPage = ({
   repo,

@@ -8,7 +8,7 @@ import ActiveView from './ActiveView'
 import { Wrapper, InnerWrapper } from '../styles/default_layout/index'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:DefaultLayout:index')
+const log = buildLog('w:DefaultLayout:index')
 
 const DefaultLayout = ({ testid, activeByDefault, title, desc }) => {
   const [active, setActive] = useState(activeByDefault)

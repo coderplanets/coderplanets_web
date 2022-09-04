@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:BannerNotify:index')
+const log = buildLog('w:BannerNotify:index')
 
 type TProps = {
   testid?: string

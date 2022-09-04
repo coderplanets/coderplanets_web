@@ -11,7 +11,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, Option, ActiveDot, Title, Desc } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:SettingMenu:index')
+const log = buildLog('w:SettingMenu:index')
 
 type TProps = {
   testid?: string

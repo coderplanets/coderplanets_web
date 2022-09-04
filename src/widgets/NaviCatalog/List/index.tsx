@@ -24,7 +24,7 @@ import {
 } from '../styles/list'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NaviCatalog:List')
+const log = buildLog('w:NaviCatalog:List')
 
 const renderRightIcon = (item, active, showItemTotal) => {
   if (showItemTotal && item.total) {

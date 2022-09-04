@@ -26,7 +26,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:EmptyThread:index')
+const log = buildLog('w:EmptyThread:index')
 
 type TProps = {
   thread: TThread

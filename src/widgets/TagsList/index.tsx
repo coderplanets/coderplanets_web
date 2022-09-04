@@ -25,7 +25,7 @@ import Setter from './Setter'
 import { Wrapper, Tag, DotSign, Title, More } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TagsList:index')
+const log = buildLog('w:TagsList:index')
 
 export type TProps = {
   items: TTag[]

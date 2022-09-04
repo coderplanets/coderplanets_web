@@ -15,7 +15,7 @@ import Panel from './Panel'
 import { Wrapper, SelectEmotionWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:EmotionSelector:index')
+const log = buildLog('w:EmotionSelector:index')
 
 type TProps = {
   testid?: string

@@ -18,7 +18,7 @@ import type { TTagsList, TTagView } from '../spec'
 import { Wrapper } from '../styles/tag_setter'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TagList:index')
+const log = buildLog('w:TagList:index')
 
 export type TProps = {
   view: TTagView

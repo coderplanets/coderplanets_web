@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:OauthHinter:index')
+const log = buildLog('w:OauthHinter:index')
 
 const OauthHinter: FC = () => {
   return (

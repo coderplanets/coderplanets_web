@@ -14,7 +14,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Buttons:ArrowButton')
+const log = buildLog('w:Buttons:ArrowButton')
 
 type TProps = {
   children?: ReactNode

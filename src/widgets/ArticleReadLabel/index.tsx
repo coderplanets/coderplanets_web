@@ -11,7 +11,7 @@ import { useAccount } from '@/hooks'
 import { ReadedLabel } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArticleReadLabel:index')
+const log = buildLog('w:ArticleReadLabel:index')
 
 export type TProps = {
   top?: number

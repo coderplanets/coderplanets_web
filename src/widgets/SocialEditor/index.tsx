@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:SocialEditor:index')
+const log = buildLog('w:SocialEditor:index')
 
 type TProps = {
   testid?: string

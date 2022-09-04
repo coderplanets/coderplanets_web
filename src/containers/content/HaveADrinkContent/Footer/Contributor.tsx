@@ -6,8 +6,6 @@
 
 import { FC, memo } from 'react'
 
-import { buildLog } from '@/utils/logger'
-
 import {
   Wrapper,
   Text,
@@ -15,10 +13,6 @@ import {
   TotalNum,
   TagText,
 } from '../styles/footer/contributor'
-// import { useInit } from './logic'
-
-/* eslint-disable-next-line */
-const log = buildLog('C:HaveADrinkContent')
 
 const IndexStatus: FC = () => {
   return (

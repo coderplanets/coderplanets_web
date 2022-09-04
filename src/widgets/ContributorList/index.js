@@ -17,7 +17,7 @@ import GithubUserCard from '@/widgets/GithubUserCard'
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ContributorList:index')
+const log = buildLog('w:ContributorList:index')
 
 const ContributorList = ({ users, readOnly, addContributor }) => (
   <Wrapper>

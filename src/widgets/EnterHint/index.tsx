@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, EnterIcon, Text } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:EnterHint:index')
+const log = buildLog('w:EnterHint:index')
 
 type TProps = {
   testid?: string

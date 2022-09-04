@@ -20,7 +20,7 @@ import Desktop from './Desktop'
 import { Wrapper, MediaWrapper } from '../styles/post_list_example'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:DashboardDesc:index')
+const log = buildLog('w:DashboardDesc:index')
 
 const switchItems = [
   {

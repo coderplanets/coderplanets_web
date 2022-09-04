@@ -12,7 +12,7 @@ import AbsoluteFmt from './AbsoluteFmt'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ReadableDate:index')
+const log = buildLog('w:ReadableDate:index')
 
 type TProps = {
   testid?: string

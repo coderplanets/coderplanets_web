@@ -49,7 +49,7 @@ export const RealAvatar = dynamic(() => import('./RealAvatar'), {
 })
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Facepile:index')
+const log = buildLog('w:Facepile:index')
 
 const validUser = compose(not, isNil)
 
@@ -75,7 +75,6 @@ export type TProps = {
   showMore?: boolean
   showTotalNumber?: boolean
   reverse?: boolean
-  scrollPosition?: any
   popCardPlacement?: 'top' | 'bottom'
   noLazyLoad?: boolean
 
@@ -94,8 +93,6 @@ const Facepile: FC<TProps> = ({
   showMore = true,
   showTotalNumber = false,
   reverse = false,
-  // see https://github.com/Aljullu/react-lazy-load-image-component/issues/42
-  scrollPosition = null,
   popCardPlacement = 'bottom',
 }) => {
   if (users.length === 0) {

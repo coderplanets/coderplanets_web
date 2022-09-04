@@ -18,7 +18,7 @@ import type { TView } from '../spec'
 import { Wrapper, EmptyHint } from '../styles/setter'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TeamList:index')
+const log = buildLog('w:TeamList:index')
 
 export type TProps = {
   show: boolean

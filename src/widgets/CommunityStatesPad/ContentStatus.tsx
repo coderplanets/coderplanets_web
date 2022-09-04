@@ -8,7 +8,7 @@ import TrendLine from '@/widgets/TrendLine'
 import { Wrapper, NumberItem, ActivitySpark } from './styles/content_status'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CommunityStatesPad:ContentStatus')
+const log = buildLog('w:CommunityStatesPad:ContentStatus')
 
 type TProps = {
   count: number

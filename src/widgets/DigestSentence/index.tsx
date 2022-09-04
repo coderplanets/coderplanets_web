@@ -27,7 +27,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:DigestSentence:index')
+const log = buildLog('w:DigestSentence:index')
 
 type TProps = {
   testid?: string

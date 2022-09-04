@@ -3,7 +3,7 @@ import { UPVOTE_LAYOUT } from '@/constant'
 
 import { theme } from '@/utils/css'
 
-export const getIconColor = ($active: boolean, count: number): string => {
+export const getIconColor = ($active: boolean): string => {
   if ($active) return theme('thread.articleTitle')
 
   return theme('thread.extraInfo')

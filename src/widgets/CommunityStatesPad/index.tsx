@@ -27,7 +27,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CommunityStatesPad:index')
+const log = buildLog('w:CommunityStatesPad:index')
 
 type TProps = {
   community: TCommunity

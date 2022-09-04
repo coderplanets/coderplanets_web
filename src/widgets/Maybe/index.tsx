@@ -8,7 +8,7 @@ import { isEmpty } from 'ramda'
 import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Maybe:index')
+const log = buildLog('w:Maybe:index')
 
 const MaybeLoading = ({ loading }) => {
   if (isEmpty(loading)) return <div />

@@ -22,7 +22,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:InlineCommunities:index')
+const log = buildLog('w:InlineCommunities:index')
 
 const FullList = ({ data }) => (
   <Wrapper>

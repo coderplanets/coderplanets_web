@@ -34,13 +34,13 @@ export const toggleSponsorHelper = (): void =>
 export const onLogin = (): void => store.authWarning({ hideToast: true })
 export const queryDoraemon = (data): void => send(EVENT.QUERY_DORAMON, { data })
 
-const getOnlineStatus = (): void => {
-  sr71$.query(S.onlineStatus, { freshkey: uid.gen() })
+// const getOnlineStatus = (): void => {
+//   sr71$.query(S.onlineStatus, { freshkey: uid.gen() })
 
-  setInterval(() => {
-    sr71$.query(S.onlineStatus, { freshkey: uid.gen() })
-  }, 10000)
-}
+//   setInterval(() => {
+//     sr71$.query(S.onlineStatus, { freshkey: uid.gen() })
+//   }, 10000)
+// }
 
 export const checkSessionState = (): void => sr71$.query(S.sessionState, {})
 

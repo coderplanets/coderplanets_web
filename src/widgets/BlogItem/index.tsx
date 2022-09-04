@@ -16,7 +16,7 @@ import MobileView from './MobileView'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:BlogItem:index')
+const log = buildLog('w:BlogItem:index')
 
 type TProps = {
   curCommunity?: TCommunity | null

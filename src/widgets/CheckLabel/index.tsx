@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, CheckIcon, Title } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CheckLabel:index')
+const log = buildLog('w:CheckLabel:index')
 
 type TProps = {
   testid?: string

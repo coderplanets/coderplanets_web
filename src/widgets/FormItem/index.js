@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:FormItem:index')
+const log = buildLog('w:FormItem:index')
 
 const FormContent = ({
   type,

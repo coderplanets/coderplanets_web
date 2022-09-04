@@ -27,7 +27,7 @@ import {
 } from './styles/comment_sticker'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CommentSticker:index')
+const log = buildLog('w:CommentSticker:index')
 
 type TProps = {
   show: boolean

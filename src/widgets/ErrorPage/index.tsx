@@ -34,7 +34,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ErrorPage:index')
+const log = buildLog('w:ErrorPage:index')
 
 export type TProps = {
   errorCode?: number // 400 | 500 | 404

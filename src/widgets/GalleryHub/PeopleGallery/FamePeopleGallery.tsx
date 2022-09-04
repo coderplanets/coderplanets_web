@@ -33,7 +33,7 @@ import {
 } from '../styles/people_gallery/fame_people_gallery'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ProductGallery:index')
+const log = buildLog('w:ProductGallery:index')
 
 type TProps = {
   items?: TGallery[]

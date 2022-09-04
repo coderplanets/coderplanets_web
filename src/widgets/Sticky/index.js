@@ -14,7 +14,7 @@ import ResizeObserver from 'resize-observer-polyfill'
 import { buildLog } from '@/utils/logger'
 import { Global } from '@/utils/helper'
 
-const log = buildLog('c:Sticky')
+const log = buildLog('w:Sticky')
 
 const getScrollParent = (node) => {
   let parent = node

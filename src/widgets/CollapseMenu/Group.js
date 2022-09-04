@@ -21,7 +21,7 @@ import {
 } from './styles/group'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CollapseMenu:Group')
+const log = buildLog('w:CollapseMenu:Group')
 
 const Group = ({
   title,

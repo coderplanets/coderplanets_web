@@ -1,6 +1,8 @@
 import { FC, memo, Fragment, ReactNode } from 'react'
 
 import type { TSpace } from '@/spec'
+import { buildLog } from '@/utils/logger'
+
 import { SpaceGrow } from '@/widgets/Common'
 import YesOrNoButtons from '@/widgets/Buttons/YesOrNoButtons'
 
@@ -15,6 +17,8 @@ import {
 } from './styles/saving_bar'
 
 import { rollbackEdit, onSave } from './logic'
+
+const log = buildLog('C:Dashboard/SavingBar')
 
 type TProps = {
   field: TSettingField
@@ -33,7 +37,7 @@ const SavingBar: FC<TProps> = ({
   children = null,
   isTouched = false,
   loading = false,
-  onCancel = console.log,
+  onCancel = log,
   ...restProps
 }) => {
   if (children !== null) {

@@ -14,7 +14,7 @@ import NormalImg from './NormalImg'
 import LazyLoadImg from './LazyLoadImg'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Img')
+const log = buildLog('w:Img')
 
 type IProps = {
   src: string

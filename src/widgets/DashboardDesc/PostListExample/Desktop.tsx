@@ -17,7 +17,7 @@ import PostItem from '@/widgets/PostItem'
 import { Title, SubTitle, Desc } from '../styles/post_list_example'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:DashboardDesc:index')
+const log = buildLog('w:DashboardDesc:index')
 
 type TProps = {
   articles: TPost[]

@@ -16,7 +16,7 @@ import {
 } from '../styles/publish_button/works_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:PublishButton:index')
+const log = buildLog('w:PublishButton:index')
 
 type TProps = {
   text: string

@@ -22,7 +22,7 @@ import {
 } from '../../styles/tabs/mobile_view/expand_view'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Tabs:index')
+const log = buildLog('w:Tabs:index')
 
 type TProps = {
   items: TTabItem[]

@@ -11,20 +11,22 @@ import type { TRootStore, TAccount } from '@/spec'
 import { PAYMENT_USAGE, PAYMENT_METHOD } from '@/constant'
 import { markStates } from '@/utils/mobx'
 
+import { AMOUNT, SIDEBAR_VIEW, SUBCONTENT_VIEW } from './constant'
+
 const Cashier = T.model('Cashier', {
   show: T.optional(T.boolean, false),
   transferAccount: T.optional(T.string, ''),
   sidebarView: T.optional(
-    T.enumeration('sideView', ['pay', 'question']),
-    'pay',
+    T.enumeration('sideView', values(SIDEBAR_VIEW)),
+    SIDEBAR_VIEW.PAY,
   ),
   contentView: T.optional(
-    T.enumeration('contentView', ['pay', 'question']),
-    'pay',
+    T.enumeration('contentView', values(SIDEBAR_VIEW)),
+    SIDEBAR_VIEW.PAY,
   ),
   subContentView: T.optional(
-    T.enumeration('subContentView', ['pay', 'confirm']),
-    'pay',
+    T.enumeration('subContentView', values(SUBCONTENT_VIEW)),
+    SUBCONTENT_VIEW.PAY,
   ),
   paymentMethod: T.optional(
     T.enumeration('paymentMethod', values(PAYMENT_METHOD)),
@@ -34,10 +36,7 @@ const Cashier = T.model('Cashier', {
     T.enumeration('paymentUsage', values(PAYMENT_USAGE)),
     PAYMENT_USAGE.SENIOR,
   ),
-  amount: T.optional(
-    T.enumeration('amount', ['10.24', '51.2', '102.4', '512', '1024']),
-    '10.24',
-  ),
+  amount: T.optional(T.enumeration('amount', values(AMOUNT)), AMOUNT['10.24']),
 })
   .views((self) => ({
     get accountInfo(): TAccount {

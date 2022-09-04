@@ -10,7 +10,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:DotDivider:index')
+const log = buildLog('w:DotDivider:index')
 
 export type TProps = {
   className?: string

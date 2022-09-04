@@ -36,7 +36,7 @@ import {
 } from '../styles/classic_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ClassicSidebar')
+const log = buildLog('w:ClassicSidebar')
 
 export type TProps = {
   showCommunityBadge: boolean

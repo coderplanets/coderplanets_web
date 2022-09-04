@@ -4,7 +4,7 @@
 
 import { merge, reject } from 'ramda'
 
-import type { TThemeMap, TToastOption } from '@/spec'
+import type { TWindow, TThemeMap, TToastOption } from '@/spec'
 import { DEFAULT_TOAST_OPTIONS } from '@/constant'
 
 import { Global } from './helper'
@@ -12,13 +12,13 @@ import { nilOrEmpty } from './validator'
 
 type TToastType = 'success' | 'error' | 'warn'
 
-const checkValid = () => (Global as any).iziToast || false
+const checkValid = () => (Global as TWindow).iziToast || false
 
 const doNotify = (options = {}): void => {
   if (!checkValid()) {
     return
   }
-  const { iziToast } = Global as any
+  const { iziToast } = Global as TWindow
   iziToast.show(merge(DEFAULT_TOAST_OPTIONS, reject(nilOrEmpty, options)))
 }
 

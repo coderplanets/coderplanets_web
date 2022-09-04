@@ -26,7 +26,7 @@ const RealTooltip = dynamic(() => import('./RealTooltip'), {
 })
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Tooltip:index')
+const log = buildLog('w:Tooltip:index')
 
 export type TProps = {
   children: ReactNode

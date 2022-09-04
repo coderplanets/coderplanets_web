@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ConstructingThread:index')
+const log = buildLog('w:ConstructingThread:index')
 
 const ISSUE_NUM = {
   group: '330',

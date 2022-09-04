@@ -10,7 +10,7 @@ import { MapWrapper, RealMap, NoticeWrapper, TheLink } from './styles'
 import G2 from 'g2'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:LocationMap')
+const log = buildLog('w:LocationMap')
 
 // see example at https://antv.vision/old-site/g2/demo/10-map/map-projection.html
 class LocationMap extends React.Component {

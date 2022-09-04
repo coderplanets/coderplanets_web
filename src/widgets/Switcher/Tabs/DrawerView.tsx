@@ -13,7 +13,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, TabItem } from '../styles/tabs/drawer_view'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Tabs:index')
+const log = buildLog('w:Tabs:index')
 
 const temItems = [
   {

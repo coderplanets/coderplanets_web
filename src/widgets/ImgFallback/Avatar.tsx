@@ -12,7 +12,7 @@ import type { TAvatarProps as TProps } from './index'
 import { Wrapper, Name } from './styles/avatar'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ImgFallback:Avatar')
+const log = buildLog('w:ImgFallback:Avatar')
 
 const Avatar: FC<TProps> = ({
   testid = 'avatar-fallback',

@@ -22,7 +22,7 @@ import {
 } from './styles/sticker_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Upvote:index')
+const log = buildLog('w:Upvote:index')
 
 type TProps = {
   testid?: string

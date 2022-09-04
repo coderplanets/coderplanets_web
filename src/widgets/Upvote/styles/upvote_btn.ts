@@ -162,7 +162,7 @@ export const IconWrapper = styled.div<{ type: TUpvoteLayout }>`
 `
 type TUpIcon = { type: TUpvoteLayout; count: number } & TActive
 export const UpIcon = styled(UpvoteIcon)<TUpIcon>`
-  fill: ${({ $active, count }) => getIconColor($active, count)};
+  fill: ${({ $active }) => getIconColor($active)};
 
   width: ${({ type }) => getIconSize(type)};
   height: ${({ type }) => getIconSize(type)};

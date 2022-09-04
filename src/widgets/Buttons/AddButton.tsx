@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, PlusIcon, Text } from './styles/add_button'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Buttons:AddButton')
+const log = buildLog('w:Buttons:AddButton')
 
 type TProps = {
   children?: ReactNode

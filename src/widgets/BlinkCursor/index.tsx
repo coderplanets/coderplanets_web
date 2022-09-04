@@ -12,7 +12,7 @@ import type { TSpace } from '@/spec'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:BlinkCursor:index')
+const log = buildLog('w:BlinkCursor:index')
 
 type TProps = {
   testid?: string

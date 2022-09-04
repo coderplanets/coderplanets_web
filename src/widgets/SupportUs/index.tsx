@@ -39,7 +39,7 @@ import {
   SocialIcon,
 } from './styles'
 
-const log = buildLog('c:Support')
+const log = buildLog('w:Support')
 
 const BuyMeChuanChuan = dynamic(() => import('@/widgets/BuyMeChuanChuan'), {
   ssr: false,

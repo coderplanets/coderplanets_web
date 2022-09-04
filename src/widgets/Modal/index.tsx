@@ -16,12 +16,11 @@ import ViewportTracker from '@/widgets/ViewportTracker'
 import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Modal:index')
+const log = buildLog('w:Modal:index')
 
 type TProps = {
   children: ReactNode
   show?: boolean
-  showBelt?: boolean
   width?: string
   showCloseBtn?: boolean
   mode?: 'default' | 'error'
@@ -34,7 +33,6 @@ type TProps = {
 const Modal: FC<TProps> = ({
   children,
   show = true,
-  showBelt = false,
   width = '600px',
   showCloseBtn = false,
   onClose = log,

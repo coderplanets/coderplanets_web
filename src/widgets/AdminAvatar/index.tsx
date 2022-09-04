@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, Avatar, BadgeWrapper, BadgeIcon } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:AdminAvatar:index')
+const log = buildLog('w:AdminAvatar:index')
 
 type TProps = {
   testid?: string

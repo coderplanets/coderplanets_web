@@ -19,7 +19,7 @@ const MAX_DISPLAY_COUNT = 5
 const TOTAL_TOGGLE_THROLD = 8 // 15
 
 /* eslint-disable-next-line */
-const log = buildLog('c:CollapseMenu:index')
+const log = buildLog('w:CollapseMenu:index')
 
 const defaultActiveItem = { id: 2 }
 const defaultItems = [

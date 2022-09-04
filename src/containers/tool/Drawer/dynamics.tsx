@@ -14,12 +14,6 @@ const CommonLoading = () => {
   )
 }
 
-// common style loading config
-const commonConfig = {
-  loading: () => <CommonLoading />,
-  ssr: false,
-}
-
 // editor style loading config
 // const editorConfig = {
 //   // @ts-ignore

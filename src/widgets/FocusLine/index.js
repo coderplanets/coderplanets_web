@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, Icon, TextWrapper, Text, Focus } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:FocusLine:index')
+const log = buildLog('w:FocusLine:index')
 
 const FocusLine = ({ iconSrc, before, focus, after }) => (
   <Wrapper>

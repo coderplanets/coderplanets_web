@@ -19,7 +19,7 @@ import {
 } from '../styles/list/edit_works_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:TeamList:index')
+const log = buildLog('w:TeamList:index')
 
 type TProps = {
   users: TUser[]

@@ -22,7 +22,6 @@ const log = buildLog('C:Share')
 
 type TProps = {
   share?: TStore
-  testid?: string
   size?: number
   offsetLeft?: string
 } & TSpace
@@ -31,7 +30,6 @@ let Panel = null
 
 const ShareContainer: FC<TProps> = ({
   share: store,
-  testid = 'share',
   offsetLeft = 'none',
   ...restProps
 }) => {

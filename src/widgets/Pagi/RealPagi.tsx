@@ -15,7 +15,7 @@ import Next from './Next'
 import { Wrapper, EmptyWrapper, BottomMsg } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Pagi:index')
+const log = buildLog('w:Pagi:index')
 
 const defaultMargin = {
   top: '0',

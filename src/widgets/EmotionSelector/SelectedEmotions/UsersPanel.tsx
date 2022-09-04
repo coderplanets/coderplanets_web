@@ -18,7 +18,7 @@ import {
 } from '../styles/selected_emotions/users_panel'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:UsersPanel:index')
+const log = buildLog('w:UsersPanel:index')
 
 type TProps = {
   name: TEmotionType

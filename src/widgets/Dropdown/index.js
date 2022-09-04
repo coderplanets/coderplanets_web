@@ -13,7 +13,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, IconWrapper, Icon } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Dropdown:index')
+const log = buildLog('w:Dropdown:index')
 
 const Dropdown = ({ children, size }) => {
   return (

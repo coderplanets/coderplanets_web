@@ -15,7 +15,7 @@ import Modal from '@/widgets/Modal'
 import { Wrapper, Logo, Header, Desc, FootLinker } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:GithubSyncWarning:index')
+const log = buildLog('w:GithubSyncWarning:index')
 
 const GithubSyncWarning = ({ show, onClose }) => (
   <Modal width="480px" show={show} onClose={onClose} showCloseBtn>

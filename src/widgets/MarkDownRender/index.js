@@ -19,7 +19,7 @@ import MarkDownStyle from '@/containers/layout/ThemePalette/MarkDownStyle'
 import { PreviewerContainer } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:MarkDownRender:index')
+const log = buildLog('w:MarkDownRender:index')
 
 // const md = new Remarkable()
 const md = new Remarkable('full', {

@@ -13,7 +13,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, LoadingIcon, LoadingText } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:SearchingLabel:index')
+const log = buildLog('w:SearchingLabel:index')
 
 const SearchingLabel = ({ iconSrc, text }) => (
   <Wrapper>

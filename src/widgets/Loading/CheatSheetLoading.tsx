@@ -7,7 +7,7 @@ import { buildLog } from '@/utils/logger'
 import { Wrapper, CheatsheetCard } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Loading:index')
+const log = buildLog('w:Loading:index')
 
 const LoadingBlock = ({ theme }) => (
   <CheatsheetCard>

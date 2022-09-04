@@ -17,7 +17,7 @@ import ArticlePinLabel from '@/widgets/ArticlePinLabel'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:JobItem:index')
+const log = buildLog('w:JobItem:index')
 
 type TProps = {
   entry: TJob
