@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 
-import type { IziToast } from 'iziToast/types'
+import type { IziToast } from 'iziToast'
 
 import type { TRootStore as RootStoreType } from '@/stores/RootStore'
 
