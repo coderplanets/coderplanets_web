@@ -1,9 +1,8 @@
 // const webpack = require('webpack')
 
 // next-plugins
-const withPlugins = require('next-compose-plugins')
-const withSourceMaps = require('@zeit/next-source-maps')()
-const withPWA = require('next-pwa')
+// const withPlugins = require('next-compose-plugins')
+// const withPWA = require('next-pwa')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -12,23 +11,19 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // next-plugins end
 
 // if move pwa config to witPlugins, it will not work
-const nextConfig = withPWA({
-  swcMinify: false,
-  productionBrowserSourceMaps: false,
-  pwa: {
-    dest: 'public',
-    disable: process.env.NODE_ENV !== 'production',
-    register: true,
-    // scope: '/cp',
-    sw: 'sw.js',
-  },
-  compiler: {
-    // ssr and displayName are configured by default
-    styledComponents: true,
-  },
+const nextConfig = {
+  swcMinify: true,
+  productionBrowserSourceMaps: true,
+  // pwa: {
+  //   dest: 'public',
+  //   disable: process.env.NODE_ENV !== 'production',
+  //   register: true,
+  //   // scope: '/cp',
+  //   sw: 'sw.js',
+  // },
   // experimental: {
   //   outputStandalone: true,
   // },
-})
+}
 
-module.exports = withPlugins([withBundleAnalyzer, withSourceMaps], nextConfig)
+module.exports = withBundleAnalyzer(nextConfig)
