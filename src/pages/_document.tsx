@@ -1,23 +1,51 @@
-import Document from 'next/document'
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-/* eslint-disable */
-// @ts-ignore
-export default class DocumentPage extends Document {
-  static async getInitialProps({ renderPage }) {
-    // const sheet = new ServerStyleSheet()
-    // const originalRenderPage = ctx.renderPage
-    const sheet = new ServerStyleSheet()
+/**
+ * see @link https://github.com/vercel/next.js/discussions/37911
+ */
+const DocumentPage = () => {
+  return (
+    <Html>
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
 
-    try {
-      const page = renderPage(
-        (App) => (props) => sheet.collectStyles(<App {...props} />),
-      )
-      const styleTags = sheet.getStyleElement()
-      return { ...page, styleTags }
-    } catch (e) {
-      sheet.seal()
-      throw e
+// This part I am not 100% sure but I guess, it's just JS/TS
+DocumentPage.getInitialProps = async (ctx: DocumentContext) => {
+  const sheet = new ServerStyleSheet()
+  const originalRenderPage = ctx.renderPage
+
+  try {
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
+      })
+
+    const initialProps = await Document.getInitialProps(ctx)
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {sheet.getStyleElement()}
+        </>
+      ),
     }
+  } finally {
+    sheet.seal()
   }
 }
+
+export default DocumentPage

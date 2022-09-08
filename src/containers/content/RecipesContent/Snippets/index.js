@@ -72,8 +72,8 @@ const Content = ({ galleryType }) => {
   )
 }
 
-Content.getInitialProps = async () => ({
-  namespacesRequired: [HCN],
-})
+// Content.getInitialProps = async () => ({
+//   namespacesRequired: [HCN],
+// })
 
 export default React.memo(Content)
