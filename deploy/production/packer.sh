@@ -15,7 +15,7 @@ mkdir "${PACKER_TMP_DIR}"
 
 echo "[Step 2/${TOTAL_STEPS}] cp files to ${PACKER_TMP_DIR} ..."
 cp -rf src server config public utils "${PACKER_TMP_DIR}"
-cp .env.production tsconfig.json .babelrc package.json package-lock.json next.config.js i18n.js "${PACKER_TMP_DIR}"
+cp .env.production tsconfig.json .babelrc package.json package-lock.json next.config.js i18n.js global.d.ts "${PACKER_TMP_DIR}"
 cp Makefile Makefile.include.mk "${PACKER_TMP_DIR}"
 
 echo "[Step 3/${TOTAL_STEPS}] creating ${ARCHIVE_NAME} ..."
