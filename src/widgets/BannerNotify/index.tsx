@@ -32,6 +32,9 @@ type TProps = {
   bg: TColorName
 }
 
+const DETAIL_TEXT =
+  '本站即将迁移到 Groupher.com, 为中小产品团队提供社区反馈服务，如果你对此有兴趣，欢迎加 v(mydearxym) 详聊。'
+
 const BannerNotify: FC<TProps> = ({
   testid = 'banner-notify',
   metric,
@@ -46,18 +49,20 @@ const BannerNotify: FC<TProps> = ({
       >
         <Row>
           <NotifyIcon />
-          <Desc>我们将在 10 月发布新的版本，敬请期待。</Desc>
+          <Desc>网站改版迁移中，服务暂不可用。</Desc>
         </Row>
 
         <Row>
           {layout === BANNER_NOTIFY_LAYOUT.DEFAULT ? (
             <Fragment>
-              <LinkBtn bg={bg}>查看详情</LinkBtn>
+              <LinkBtn onClick={() => alert(DETAIL_TEXT)} bg={bg}>
+                查看详情
+              </LinkBtn>
               <CrossIcon />
             </Fragment>
           ) : (
             <Fragment>
-              <LinkText>查看详情</LinkText>
+              <LinkText onClick={() => alert(DETAIL_TEXT)}>查看详情</LinkText>
               <ArrowIcon />
             </Fragment>
           )}
