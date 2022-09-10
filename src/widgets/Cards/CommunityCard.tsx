@@ -26,9 +26,7 @@ type TProps = {
   item: TCommunity
 }
 
-const CommunityCard: FC<TProps> = ({
-  item: { logo, title, raw, desc, subscribersCount },
-}) => {
+const CommunityCard: FC<TProps> = ({ item: { logo, title, raw, desc } }) => {
   return (
     <Wrapper key={raw}>
       <Header>

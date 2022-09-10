@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
 import type { TBlog } from '@/spec'
-import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils/route'
 
 import { Wrapper, TitleLink, LinkIcon, Title } from '../styles/mobile_view/body'
