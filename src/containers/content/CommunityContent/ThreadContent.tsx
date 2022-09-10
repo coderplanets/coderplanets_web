@@ -31,10 +31,7 @@ type TProps = {
 
 const ThreadContent: FC<TProps> = ({ thread }) => {
   switch (thread) {
-    // case THREAD.CPER: {
-    //   return <CperMapThread />
-    // }
-
+    // case THREAD.CPER:
     // case THREAD.MAP: {
     //   return <CperMapThread />
     // }
