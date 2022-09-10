@@ -1,5 +1,5 @@
 import { FC, memo } from 'react'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 
 import { ReadedLabel } from './styles'
 import type { TProps } from './index'

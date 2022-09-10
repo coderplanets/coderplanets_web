@@ -2,7 +2,6 @@ import { FC } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TBlog } from '@/spec'
-import { ICON } from '@/config'
 import { EVENT } from '@/constant'
 import { send } from '@/utils/helper'
 

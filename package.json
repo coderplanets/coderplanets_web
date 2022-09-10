@@ -76,7 +76,6 @@
     "next": "^12.2.5",
     "next-compose-plugins": "^2.2.0",
     "next-i18next": "4.4.1",
-    "next-offline": "4.0.6",
     "next-pwa": "^5.4.4",
     "nextjs-progressbar": "^0.0.14",
     "overlayscrollbars": "1.13.1",

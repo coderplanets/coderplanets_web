@@ -6,7 +6,7 @@ import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { nilOrEmpty } from '@/utils/validator'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 
 import { ReadedLabel } from './styles'
 

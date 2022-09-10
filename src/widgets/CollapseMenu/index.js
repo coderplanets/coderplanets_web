@@ -132,7 +132,7 @@ CollapseMenu.defaultProps = {
   maxDisplayCount: MAX_DISPLAY_COUNT,
   // if items count < than this, will not be folded in each group
   totalToggleThrold: TOTAL_TOGGLE_THROLD,
-  onSelect: console.log,
+  onSelect: log,
 }
 
 export default React.memo(CollapseMenu)

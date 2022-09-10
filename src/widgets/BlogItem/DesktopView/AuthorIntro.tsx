@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TUser } from '@/spec'
 
-import { Wrapper, Hint, Name, Intro } from '../styles/desktop_view/author_intro'
+import { Wrapper, Hint, Name } from '../styles/desktop_view/author_intro'
 
 type TProps = {
   author: TUser

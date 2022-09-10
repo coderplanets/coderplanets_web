@@ -326,11 +326,10 @@ const rootStore = T.model({
     },
 
     onAdsClose(): void {
-      const { isMemberOf } = self.account
-
-      if (isMemberOf('seniorMember') || isMemberOf('sponsorMember')) {
-        return console.log('do custom ads')
-      }
+      // const { isMemberOf } = self.account
+      // if (isMemberOf('seniorMember') || isMemberOf('sponsorMember')) {
+      //   return void
+      // }
     },
 
     mark(sobj): void {

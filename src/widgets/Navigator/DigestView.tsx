@@ -5,7 +5,6 @@ import type { TMetric } from '@/spec'
 import { changeToCommunity } from '@/utils/helper'
 
 import { METRIC } from '@/constant'
-// import useNetwork from 'react-use/lib/useNetwork'
 
 import {
   Breadcrumbs,

@@ -13,7 +13,7 @@ import { THREAD, HCN, SVG, PUBLISH_MODE } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { authWarn } from '@/utils/helper'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 
 import { MORE_MENU } from './constant'
 import IconButton from '../IconButton'

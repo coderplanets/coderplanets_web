@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TComment } from '@/spec'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 
 import { authWarn } from '@/utils/helper'
 

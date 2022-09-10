@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TThread, TArticleFilter } from '@/spec'
 import { THREAD } from '@/constant'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 
 import TimeFilter from './TimeFilter'
 import SortFilter from './SortFilter'

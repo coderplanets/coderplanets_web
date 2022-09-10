@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TUser } from '@/spec'
 import Link from 'next/link'
 
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 import FollowButton from '@/widgets/Buttons/FollowButton'
 
 import {

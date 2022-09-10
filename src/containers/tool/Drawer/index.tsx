@@ -8,7 +8,8 @@ import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
-import { useShortcut, useResize } from '@/hooks'
+import useResize from '@/hooks/useResize'
+import useShortcut from '@/hooks/useShortcut'
 
 import type { TStore } from './store'
 

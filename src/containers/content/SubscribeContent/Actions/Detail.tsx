@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 
-import useCopyToClipboard from 'react-use/lib/useCopyToClipboard'
+import useCopyToClipboard from '@/hooks/useClipboard'
 import EmailSubscriber from '@/widgets/EmailSubscriber'
 import { Br, SpaceGrow } from '@/widgets/Common'
 // TODO: extract to Email Subscriber

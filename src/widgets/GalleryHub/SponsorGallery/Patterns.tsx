@@ -1,7 +1,7 @@
 import { FC, memo, useCallback, useRef } from 'react'
 
 import { getRandomInt } from '@/utils/helper'
-import { useInterval } from '@/hooks'
+import useInterval from '@/hooks/useInterval'
 import 'css-doodle'
 
 import { Wrapper, Block } from '../styles/sponsor_gallery/patterns'

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { useSwipe } from '@/hooks'
+import useSwipe from '@/hooks/useSwipe'
 import { nilOrEmpty } from '@/utils/validator'
 
 import type { TSwipeOption } from '../spec'

@@ -2,7 +2,7 @@ import { FC, ReactNode, useEffect, useState, memo, useRef } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
-import { useSwipe } from '@/hooks'
+import useSwipe from '@/hooks/useSwipe'
 
 import type { TSwipeOption } from '../spec'
 import AddOn from '../AddOn'

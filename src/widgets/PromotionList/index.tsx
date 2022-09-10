@@ -9,7 +9,7 @@ import { findIndex } from 'ramda'
 import useHoverDirty from 'react-use/lib/useHoverDirty'
 
 import { buildLog } from '@/utils/logger'
-import { useInterval } from '@/hooks'
+import useInterval from '@/hooks/useInterval'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 

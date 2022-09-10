@@ -9,7 +9,7 @@ import { FC } from 'react'
 import { buildLog } from '@/utils/logger'
 import { bond } from '@/utils/mobx'
 
-import FollowButton from '@/widgets/Buttons/FollowButton'
+// import FollowButton from '@/widgets/Buttons/FollowButton'
 
 import { Wrapper, Title, Desc, BottomLine } from './styles'
 import type { TStore } from './store'
@@ -30,7 +30,7 @@ const CommunityJoinBadgeContainer: FC<TProps> = ({
   useInit(store)
 
   const { curCommunity } = store
-  const { title, desc, viewerHasSubscribed } = curCommunity
+  const { title, desc } = curCommunity
 
   return (
     <Wrapper testid={testid}>

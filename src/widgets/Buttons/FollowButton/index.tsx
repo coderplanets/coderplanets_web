@@ -6,7 +6,7 @@ import { FC, memo, useState, useCallback } from 'react'
 
 import type { TID, TSizeTSM } from '@/spec'
 import { SIZE } from '@/constant'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 
 import { buildLog } from '@/utils/logger'
 import { authWarn } from '@/utils/helper'
