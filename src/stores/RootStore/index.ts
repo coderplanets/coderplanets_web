@@ -32,13 +32,13 @@ import {
 
   // threads
   // ReposThreadStore,
-  CperMapThreadStore,
+  // CperMapThreadStore,
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
   // content
   CommunityContentStore,
-  ExploreContentStore,
+  // ExploreContentStore,
   CommunityEditorStore,
   UserContentStore,
   // footer
@@ -51,22 +51,21 @@ import {
   // toolbox
   DoraemonStore,
   DrawerStore,
-  SidebarStore,
+  // SidebarStore,
   // RepoEditorStore,
   AccountEditorStore,
   MailBoxStore,
   AvatarAdderStore,
   TagsBarStore,
   UserListerStore,
-  GirlVerifierStore,
-  CashierStore,
+  // CashierStore,
   // user page
   UserSettingsStore,
   UserBillingStore,
   //
-  MeetupsContentStore,
-  HaveADrinkContentStore,
-  CoolGuideContentStore,
+  // MeetupsContentStore,
+  // HaveADrinkContentStore,
+  // CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
   DashboardThreadStore,
@@ -77,9 +76,9 @@ import {
   KanbanThreadStore,
   FriendsContentStore,
   UserPublishedArticlesStore,
-  BlogEditorStore,
+  // BlogEditorStore,
   CommunityTagSetterStore,
-  CollectionFolderStore,
+  // CollectionFolderStore,
   ShareStore,
   ArticleContentStore,
   ArticleViewerStore,
@@ -91,17 +90,17 @@ import {
   ArticleEditorStore,
   WorksEditorStore,
   UserProfileStore,
-  MembershipContentStore,
+  // MembershipContentStore,
   ArticleFooterStore,
   ArticleStickerStore,
   ModeLineMenuStore,
   ModeLineStore,
-  SubscribeContentStore,
-  RecipesContentStore,
+  // SubscribeContentStore,
+  // RecipesContentStore,
   SponsorContentStore,
   JoinModalStore,
-  TrendingContentStore,
-  WorksContentStore,
+  // TrendingContentStore,
+  // WorksContentStore,
   C11NSettingPanelStore,
 } from '../index'
 
@@ -119,7 +118,7 @@ const rootStore = T.model({
 
   // toolbox
   // @ts-ignore TODO:
-  sidebar: T.optional(SidebarStore, { menuItems: [] }),
+  // sidebar: T.optional(SidebarStore, { menuItems: [] }),
   drawer: T.optional(DrawerStore, { visible: false }),
   doraemon: T.optional(DoraemonStore, {}),
   // repoEditor: T.optional(RepoEditorStore, {}),
@@ -144,7 +143,7 @@ const rootStore = T.model({
   // content
   communityContent: T.optional(CommunityContentStore, {}),
 
-  exploreContent: T.optional(ExploreContentStore, {}),
+  // exploreContent: T.optional(ExploreContentStore, {}),
   communityEditor: T.optional(CommunityEditorStore, {}),
   userContent: T.optional(UserContentStore, {}),
   // content end
@@ -153,12 +152,11 @@ const rootStore = T.model({
   footer: T.optional(FooterStore, {}),
   // threads
   // reposThread: T.optional(ReposThreadStore, {}),
-  cperMapThread: T.optional(CperMapThreadStore, {}),
+  // cperMapThread: T.optional(CperMapThreadStore, {}),
 
   tagsBar: T.optional(TagsBarStore, {}),
   userLister: T.optional(UserListerStore, {}),
-  girlVerifier: T.optional(GirlVerifierStore, {}),
-  cashier: T.optional(CashierStore, {}),
+  // cashier: T.optional(CashierStore, {}),
 
   // viewers (for drawer usage)
   mailsViewer: T.optional(MailsViewerStore, {}),
@@ -168,9 +166,9 @@ const rootStore = T.model({
   userSettings: T.optional(UserSettingsStore, {}),
 
   // have a drink
-  meetupsContent: T.optional(MeetupsContentStore, {}),
-  haveADrinkContent: T.optional(HaveADrinkContentStore, {}),
-  coolGuideContent: T.optional(CoolGuideContentStore, {}),
+  // meetupsContent: T.optional(MeetupsContentStore, {}),
+  // haveADrinkContent: T.optional(HaveADrinkContentStore, {}),
+  // coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
   dashboardThread: T.optional(DashboardThreadStore, {}),
@@ -181,9 +179,9 @@ const rootStore = T.model({
   kanbanThread: T.optional(KanbanThreadStore, {}),
   friendsContent: T.optional(FriendsContentStore, {}),
   userPublishedArticles: T.optional(UserPublishedArticlesStore, {}),
-  blogEditor: T.optional(BlogEditorStore, {}),
+  // blogEditor: T.optional(BlogEditorStore, {}),
   communityTagSetter: T.optional(CommunityTagSetterStore, {}),
-  collectionFolder: T.optional(CollectionFolderStore, {}),
+  // collectionFolder: T.optional(CollectionFolderStore, {}),
   share: T.optional(ShareStore, {}),
   articleContent: T.optional(ArticleContentStore, {}),
   articleViewer: T.optional(ArticleViewerStore, {}),
@@ -195,17 +193,17 @@ const rootStore = T.model({
   articleEditor: T.optional(ArticleEditorStore, {}),
   worksEditor: T.optional(WorksEditorStore, {}),
   userProfile: T.optional(UserProfileStore, {}),
-  membershipContent: T.optional(MembershipContentStore, {}),
+  // membershipContent: T.optional(MembershipContentStore, {}),
   articleFooter: T.optional(ArticleFooterStore, {}),
   articleSticker: T.optional(ArticleStickerStore, {}),
   modeLineMenu: T.optional(ModeLineMenuStore, {}),
   modeLine: T.optional(ModeLineStore, {}),
-  subscribeContent: T.optional(SubscribeContentStore, {}),
-  recipesContent: T.optional(RecipesContentStore, {}),
+  // subscribeContent: T.optional(SubscribeContentStore, {}),
+  // recipesContent: T.optional(RecipesContentStore, {}),
   sponsorContent: T.optional(SponsorContentStore, {}),
   joinModal: T.optional(JoinModalStore, {}),
-  trendingContent: T.optional(TrendingContentStore, {}),
-  worksContent: T.optional(WorksContentStore, {}),
+  // trendingContent: T.optional(TrendingContentStore, {}),
+  // worksContent: T.optional(WorksContentStore, {}),
   c11NSettingPanel: T.optional(C11NSettingPanelStore, {}),
 })
   .views((self) => ({
@@ -261,8 +259,8 @@ const rootStore = T.model({
       self.footer.sponsorHepler()
     },
     cashierHelper(opt): void {
-      self.footer.closeSponsor()
-      self.cashier.callCashier(opt)
+      // self.footer.closeSponsor()
+      // self.cashier.callCashier(opt)
     },
     toast(type, options: TToastOption = DEFAULT_TOAST_OPTIONS): void {
       const themeData = themeSkins[self.theme.curTheme]
@@ -294,9 +292,6 @@ const rootStore = T.model({
     changesetErr(options): void {
       // @ts-ignore TODO:
       self.toast('error', options)
-    },
-    callGirlVerifier(): void {
-      self.girlVerifier.show()
     },
     updateC11N(options): void {
       self.account.updateC11N(options)

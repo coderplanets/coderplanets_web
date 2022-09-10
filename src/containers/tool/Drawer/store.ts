@@ -138,10 +138,10 @@ const DrawerStore = T.model('DrawerStore', {
 
       let pagedArticles
       switch (slf.curThread) {
-        case THREAD.WORKS: {
-          pagedArticles = toJS(root.worksContent.pagedWorks)
-          break
-        }
+        // case THREAD.WORKS: {
+        // pagedArticles = toJS(root.worksContent.pagedWorks)
+        //   break
+        // }
 
         default: {
           pagedArticles = toJS(

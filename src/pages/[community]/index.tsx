@@ -60,7 +60,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params } = ctx
-  console.log('params: ', params)
 
   const thread = singular((params.thread as string) || THREAD.POST)
   const resp = await loader(params)

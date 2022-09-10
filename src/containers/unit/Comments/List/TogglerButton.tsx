@@ -1,6 +1,6 @@
 import { FC, memo, Fragment } from 'react'
 
-import { LavaLampLoading } from '@/widgets/Loading'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import { Wrapper, SlashSign, Text } from '../styles/list/toggler_button'
 

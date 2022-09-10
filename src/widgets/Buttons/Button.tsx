@@ -4,7 +4,7 @@ import type { TSizeTSM, TSpace } from '@/spec'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import { LavaLampLoading } from '@/widgets/Loading'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import { Wrapper, RedWrapper, ChildrenWrapper } from './styles/button'
 
 /* eslint-disable-next-line */

@@ -49,9 +49,6 @@ const UserBilling = T.model('UserBilling', {
     sponsorHepler() {
       self.root.sponsorHepler()
     },
-    callGirlVerifier() {
-      self.root.callGirlVerifier()
-    },
     cashierHelper(opt) {
       self.root.cashierHelper(opt)
     },

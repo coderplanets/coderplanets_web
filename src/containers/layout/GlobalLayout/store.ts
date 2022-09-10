@@ -45,8 +45,9 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
       return toJS(root.viewing.community)
     },
     get sidebarPin(): boolean {
-      const root = getParent(self) as TRootStore
-      return root.sidebar.pin
+      // const root = getParent(self) as TRootStore
+      // return root.sidebar.pin
+      return false
     },
     get wallpaper(): string {
       const root = getParent(self) as TRootStore

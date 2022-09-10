@@ -128,15 +128,17 @@ const ExploreContentStore = T.model('ExploreContentStore', {
     },
     addSubscribedCommunity(community: TCommunity): void {
       const root = getParent(self) as TRootStore
+      const slf = self as TStore
 
       root.account.addSubscribedCommunity(community)
-      root.exploreContent.toggleSubscribe(community)
+      slf.toggleSubscribe(community)
     },
     removeSubscribedCommunity(community: TCommunity): void {
       const root = getParent(self) as TRootStore
+      const slf = self as TStore
 
       root.account.removeSubscribedCommunity(community)
-      root.exploreContent.toggleSubscribe(community)
+      slf.toggleSubscribe(community)
     },
     markRoute(query): void {
       const root = getParent(self) as TRootStore

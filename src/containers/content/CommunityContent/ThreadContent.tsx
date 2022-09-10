@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import type { TThread } from '@/spec'
 import { THREAD } from '@/constant'
 
-import { LavaLampLoading } from '@/widgets/Loading'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import ArticlesThread from '@/containers//thread/ArticlesThread'
 import KanbanThread from '@/containers//thread/KanbanThread'

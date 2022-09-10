@@ -11,7 +11,7 @@ import type { TArticleFilter, TResState } from '@/spec'
 import { TYPE, THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import { LavaLampLoading } from '@/widgets/Loading'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import { SpaceGrow } from '@/widgets/Common'
 
 import SearchBox from './SearchBox'
