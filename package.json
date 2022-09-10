@@ -69,7 +69,6 @@
     "mastani-codehighlight": "0.0.7",
     "mobx": "^6.6.2",
     "mobx-react": "^7.5.3",
-    "mobx-react-lite": "^3.4.0",
     "mobx-state-tree": "^5.1.6",
     "module-alias": "^2.0.1",
     "nanoid": "^3.1.12",

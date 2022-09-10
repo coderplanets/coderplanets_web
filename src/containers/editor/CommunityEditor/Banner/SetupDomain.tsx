@@ -5,7 +5,7 @@ import { SIZE } from '@/constant'
 import { cutRest } from '@/utils/helper'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
-import { LavaLampLoading } from '@/widgets/Loading'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import InputBox from './InputBox'
 

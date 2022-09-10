@@ -6,7 +6,7 @@ import MenuButton from '@/widgets/Buttons/MenuButton'
 import Tooltip from '@/widgets/Tooltip'
 
 import DetailInfo from './DetailInfo'
-// import { LavaLampLoading } from '@/widgets/Loading'
+// import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import {
   Wrapper,
   Title,

@@ -5,7 +5,7 @@
  */
 
 import dynamic from 'next/dynamic'
-import { LavaLampLoading } from '@/widgets/Loading'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 export const RichEditor = dynamic(() => import('./RealEditor'), {
   /* eslint-disable react/display-name */

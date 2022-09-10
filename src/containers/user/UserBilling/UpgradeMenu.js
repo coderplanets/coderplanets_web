@@ -1,5 +1,4 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
 
 import SectionLabel from '@/widgets/SectionLabel'
 
@@ -12,10 +11,6 @@ import TipsForDeveloperPlan from './TipsForDeveloperPlan'
 
 import { PlanDivider } from './styles/upgrade_menu'
 
-export const GirlVerifier = dynamic(() =>
-  import('@/containers/tool/GirlVerifier'),
-)
-
 const labelText = (isSeniorMember) => {
   if (isSeniorMember) {
     return '您的资助已被用于 coderplanets.com 的发展中，感谢参与！'
@@ -25,7 +20,6 @@ const labelText = (isSeniorMember) => {
 
 const UpgradeMenu = ({ achievement }) => (
   <>
-    <GirlVerifier />
     <SectionLabel
       title="账单概况"
       iconSrc={`${ICON_CMD}/bill.svg`}

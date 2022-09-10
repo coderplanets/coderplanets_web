@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import dynamic from 'next/dynamic'
 
-import { LavaLampLoading } from '@/widgets/Loading'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 // import EditorLoading from '@/widgets/Loading/EditorLoading'
 
 import { LavaLoadingWrapper } from './styles'

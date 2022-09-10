@@ -89,13 +89,13 @@ const ExplorePage = (props) => {
   const store = useStore(props)
   const seoConfig = exploreSEO()
 
-  return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig} noSidebar>
-        <ExploreContent />
-      </GlobalLayout>
-    </Provider>
-  )
+  // return (
+  //   <Provider store={store}>
+  //     <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig} noSidebar>
+  //       <ExploreContent />
+  //     </GlobalLayout>
+  //   </Provider>
+  // )
 }
 
 export default ExplorePage

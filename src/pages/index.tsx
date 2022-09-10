@@ -9,7 +9,7 @@ import { exploreSEO } from '@/utils'
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import ExploreContent from '@/containers/content/ExploreContent'
+// import ExploreContent from '@/containers/content/ExploreContent'
 
 export const getServerSideProps = async (context) => {
   return {
@@ -27,7 +27,7 @@ const ExplorePage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig} noSidebar>
-        <ExploreContent />
+        {/* <ExploreContent /> */}
       </GlobalLayout>
     </Provider>
   )

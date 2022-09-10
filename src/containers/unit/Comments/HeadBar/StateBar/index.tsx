@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { buildLog } from '@/utils/logger'
 import { LineDivider } from '@/widgets/Common'
 import Button from '@/widgets/Buttons/Button'
-import { LavaLampLoading } from '@/widgets/Loading'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import Actions from './Actions'
 import type { TProps as TBase } from '../index'

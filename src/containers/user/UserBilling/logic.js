@@ -18,7 +18,6 @@ let sub$ = null
 let store = null
 
 export const sponsorHepler = () => store.sponsorHepler()
-export const girlVerifier = () => store.callGirlVerifier()
 
 export const seniorOnPay = () =>
   store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: '51.2' })

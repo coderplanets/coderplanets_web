@@ -10,8 +10,7 @@ import {
   contains,
 } from 'ramda'
 
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
+import { inject, observer } from 'mobx-react'
 import { toJS as toJSON } from 'mobx'
 
 import type { TEditValue } from '@/spec'
