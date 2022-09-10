@@ -10,7 +10,6 @@ import type { TArticleFilter, TResState } from '@/spec'
 
 import { TYPE, THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
-// import { useViewing } from '@/hooks'
 
 import { LavaLampLoading } from '@/widgets/Loading'
 import { SpaceGrow } from '@/widgets/Common'

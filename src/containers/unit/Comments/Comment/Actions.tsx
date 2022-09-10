@@ -2,7 +2,7 @@ import { FC, memo, useCallback } from 'react'
 
 import type { TComment } from '@/spec'
 import { ICON } from '@/config'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 import { buildLog } from '@/utils/logger'
 
 import { authWarn } from '@/utils/helper'

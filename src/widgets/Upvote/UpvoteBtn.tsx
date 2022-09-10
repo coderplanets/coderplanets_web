@@ -6,7 +6,7 @@
 
 import { FC, memo, useState, useCallback } from 'react'
 import { authWarn } from '@/utils/helper'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 
 import type { TUpvoteLayout } from '@/spec'
 import { buildLog } from '@/utils/logger'

@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { CopyToClipboardState } from 'react-use/lib/useCopyToClipboard'
+import type { TCopyToClipboardState } from '@/hooks/useClipboard'
+
 import { cutRest, toast } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 // import S from './service'
@@ -27,7 +28,7 @@ export const changeView = (view: string): void => {
  *
  * @param {*} { error, value }
  */
-export const notifyCopy = ({ error, value }: CopyToClipboardState): void => {
+export const notifyCopy = ({ error, value }: TCopyToClipboardState): void => {
   const toastTitle = !error ? '已复制到剪切板' : '复制到剪切板出错'
   const toastDesc = !error ? cutRest(value, 10) : error
 

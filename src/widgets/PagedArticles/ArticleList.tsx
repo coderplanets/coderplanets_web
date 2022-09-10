@@ -2,15 +2,15 @@
 
 import { Fragment, memo, FC } from 'react'
 
-import { THREAD, TYPE } from '@/constant'
+import { TYPE } from '@/constant'
 import type { TArticleEntries } from '@/spec'
 
 import PostItem from '@/widgets/PostItem'
-import JobItem from '@/widgets/JobItem'
-import BlogItem from '@/widgets/BlogItem'
-import RadarItem from '@/widgets/RadarItem'
+// import JobItem from '@/widgets/JobItem'
+// import BlogItem from '@/widgets/BlogItem'
+// import RadarItem from '@/widgets/RadarItem'
 
-import MasonryCards from '@/widgets/MasonryCards'
+// import MasonryCards from '@/widgets/MasonryCards'
 import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import { EmptyThread } from './dynamic'
 
@@ -41,37 +41,37 @@ const ArticleList: FC<TProps> = ({
   }
 
   switch (thread) {
-    case THREAD.JOB:
-      return (
-        <MasonryCards column={2}>
-          {entries.map((entry) => (
-            <JobItem key={entry.id} entry={entry} c11n={c11n} />
-          ))}
-        </MasonryCards>
-      )
+    // case THREAD.JOB:
+    //   return (
+    //     <MasonryCards column={2}>
+    //       {entries.map((entry) => (
+    //         <JobItem key={entry.id} entry={entry} c11n={c11n} />
+    //       ))}
+    //     </MasonryCards>
+    //   )
 
-    case THREAD.BLOG:
-      return (
-        <Fragment>
-          {entries.map((entry) => (
-            <BlogItem
-              key={entry.id}
-              entry={entry}
-              c11n={c11n}
-              curCommunity={curCommunity}
-            />
-          ))}
-        </Fragment>
-      )
+    // case THREAD.BLOG:
+    //   return (
+    //     <Fragment>
+    //       {entries.map((entry) => (
+    //         <BlogItem
+    //           key={entry.id}
+    //           entry={entry}
+    //           c11n={c11n}
+    //           curCommunity={curCommunity}
+    //         />
+    //       ))}
+    //     </Fragment>
+    //   )
 
-    case THREAD.RADAR:
-      return (
-        <MasonryCards column={2}>
-          {entries.map((entry) => (
-            <RadarItem key={entry.id} entry={entry} c11n={c11n} />
-          ))}
-        </MasonryCards>
-      )
+    // case THREAD.RADAR:
+    //   return (
+    //     <MasonryCards column={2}>
+    //       {entries.map((entry) => (
+    //         <RadarItem key={entry.id} entry={entry} c11n={c11n} />
+    //       ))}
+    //     </MasonryCards>
+    //   )
 
     default:
       // common post

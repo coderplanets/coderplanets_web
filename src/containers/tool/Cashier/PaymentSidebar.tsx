@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { PAYMENT_METHOD } from '@/constant'
-import { useAccount } from '@/hooks'
+import useAccount from '@/hooks/useAccount'
 
 import type { TProps as TContentProps } from './Content'
 import {
