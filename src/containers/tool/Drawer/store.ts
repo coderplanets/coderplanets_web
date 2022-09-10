@@ -7,7 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, contains, values, findIndex } from 'ramda'
 
 import type { TRootStore, TCommunity, TThread, TArticle, TWorks } from '@/spec'
-import { TYPE, ARTICLE_THREAD, THREAD, DASHBOARD_DESC_LAYOUT } from '@/constant'
+import { TYPE, ARTICLE_THREAD, DASHBOARD_DESC_LAYOUT } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
 import { lockPage, unlockPage } from '@/utils/dom'
