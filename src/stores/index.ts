@@ -85,7 +85,7 @@ export { default as KanbanThreadStore } from '@/containers/thread/KanbanThread/s
 export { default as FriendsContentStore } from '@/containers/content/FriendsContent/store'
 // export { default as BlogEditorStore } from '@/containers/editor/BlogEditor/store'
 export { default as CommunityTagSetterStore } from '@/containers/tool/CommunityTagSetter/store'
-// export { default as CollectionFolderStore } from '@/containers/tool/CollectionFolder/store'
+export { default as CollectionFolderStore } from '@/containers/tool/CollectionFolder/store'
 export { default as ShareStore } from '@/containers/tool/Share/store'
 export { default as ArticleContentStore } from '@/containers/content/ArticleContent/store'
 export { default as ArticleViewerStore } from '@/containers/viewer/ArticleViewer/store'

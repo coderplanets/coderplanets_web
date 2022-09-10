@@ -14,6 +14,11 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   swcMinify: true,
   productionBrowserSourceMaps: true,
+  compiler: {
+    removeConsole: {
+      exclude: ['error'],
+    },
+  },
   // pwa: {
   //   dest: 'public',
   //   disable: process.env.NODE_ENV !== 'production',
