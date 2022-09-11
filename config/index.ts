@@ -7,6 +7,8 @@ export { default as SEO } from './next_seo'
 
 export const DEFAULT_THEME = CONFIG.DEFAULT_THEME as TThemeName
 
+export { APP_VERSION } from './version'
+
 export const SITE_LOGO =
   'https://assets.coderplanets.com/icons/static/new-logo.jpg'
 
@@ -33,5 +35,4 @@ export const {
   ISSUE_ADDR,
   MENTION_USER_ADDR,
   EMAIL_SUPPORT,
-  BUILD_VERSION,
 } = CONFIG

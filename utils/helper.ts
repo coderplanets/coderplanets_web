@@ -61,7 +61,7 @@ type TSORTABLE_ITEMS = {
   logo?: string
 }[]
 
-export const Global: any = typeof window !== 'undefined' ? window : {}
+export const Global: TWindow = typeof window !== 'undefined' ? window : null
 
 // see https://github.com/ramda/ramda/issues/1361
 export const mapKeys = curry((fn, obj) => {

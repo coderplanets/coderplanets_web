@@ -12,13 +12,13 @@ import { nilOrEmpty } from './validator'
 
 type TToastType = 'success' | 'error' | 'warn'
 
-const checkValid = () => (Global as IWindow).iziToast || false
+const checkValid = () => (Global as TWindow).iziToast || false
 
 const doNotify = (options = {}): void => {
   if (!checkValid()) {
     return
   }
-  const { iziToast } = Global as IWindow
+  const { iziToast } = Global as TWindow
   iziToast.show(merge(DEFAULT_TOAST_OPTIONS, reject(nilOrEmpty, options)))
 }
 

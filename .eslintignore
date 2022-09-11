@@ -18,3 +18,4 @@ tsconfig.tsbuildinfo
 *.xml
 public/*
 Makefile
+config/version.ts

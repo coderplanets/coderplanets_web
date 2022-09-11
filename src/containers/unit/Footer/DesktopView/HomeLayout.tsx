@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap, TMetric, TOnlineStatus } from '@/spec'
-import { GITHUB, ABOUT_LINK, BUILD_VERSION } from '@/config'
+import { GITHUB, ABOUT_LINK, APP_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 import { siteBirthDay } from '@/utils/helper'
 
@@ -109,7 +109,7 @@ const HomeView: FC<TProps> = ({ metric, onlineStatus }) => {
             <Title>网站状态</Title>
             <Body>
               <Item as="span" normal>
-                版本: {BUILD_VERSION}
+                版本: {APP_VERSION}
               </Item>
               <Item as="span" normal>
                 年龄: {siteBirthDay('2019/02/01')}

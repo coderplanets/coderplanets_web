@@ -47,7 +47,7 @@ export const onLogout = (): void => {
   store.logout()
 
   setTimeout(() => {
-    Global.location.reload(false)
+    Global.location.reload()
   }, 2000)
 }
 

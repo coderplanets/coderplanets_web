@@ -1,11 +1,15 @@
 {
   "name": "coderplanets_web",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "license": "Apache License 2.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev next dev",
     "dev.boost": "next-boost",
     "ci": "cross-env NODE_ENV=ci node server",
+    "prebuild": "node -p \"'export const APP_VERSION = ' + JSON.stringify(require('./package.json').version)\" > config/version.ts",
+    "prebuild.ci": "npm run prebuild",
+    "prebuild.dev": "npm run prebuild",
+    "prebuild.prod": "npm run prebuild",
     "build": "next build",
     "build:clean": "run-s dist clean",
     "build.prod": "cross-env NODE_ENV=production next build",
