@@ -24,6 +24,7 @@ dep:
 dev: before_action
 	@$(JSON_CLI) -s '.[0] * .[1]' config/config.json config/config.dev.json > /tmp/config.json
 	@cp /tmp/config.json ./config/config.json
+	npm run update.version
 	npm run dev
 
 build:
