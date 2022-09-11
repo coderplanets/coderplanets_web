@@ -3,7 +3,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 
 import type { TMetric } from '@/spec'
-import { ICON, GITHUB, BUILD_VERSION, ABOUT_LINK } from '@/config'
+import { ICON, GITHUB, APP_VERSION, ABOUT_LINK } from '@/config'
 import { bond } from '@/utils/mobx'
 import { ROUTE } from '@/constant'
 
@@ -56,7 +56,7 @@ const FooterContainer: FC<TProps> = ({ footer: store, metric }) => {
         </Link>
       </SiteInfoWrapper>
       <VersionWrapper>
-        <Item>{BUILD_VERSION}</Item>
+        <Item>{APP_VERSION}</Item>
       </VersionWrapper>
     </Wrapper>
   )
