@@ -7,7 +7,9 @@ import {
 } from 'react'
 
 import type { TScrollDirection } from '@/spec'
+import { APP_VERSION } from '@/config'
 import { buildLog } from '@/utils/logger'
+import { Global } from '@/utils/helper'
 
 import type { TStore } from './store'
 
@@ -73,6 +75,14 @@ export const childrenWithProps = (
   })
 }
 
+/**
+ * set appVersion to window from package.json
+ * @link https://stackoverflow.com/a/67701490/4050784
+ */
+const initAppVersion = (): void => {
+  Global.appVersion = APP_VERSION || 'unknow'
+}
+
 // ###############################
 // init & uninit
 // ###############################
@@ -82,5 +92,6 @@ export const useInit = (_store: TStore, extra): void => {
 
     const { online, isMobile } = extra
     store.mark({ online, isMobile })
+    initAppVersion()
   }, [_store, extra])
 }
