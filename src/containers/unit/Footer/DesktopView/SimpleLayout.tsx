@@ -7,12 +7,15 @@ const SimpleLayout: FC = () => {
   return (
     <Wrapper>
       <Note>
-        由{' '}
-        <Link href="https://groupher.com" passHref>
-          <Addr>Groupher</Addr>
-        </Link>{' '}
+        由<Addr>Groupher</Addr>
         提供服务
       </Note>
+      <Note>
+        <Link href="http://beian.miit.gov.cn" passHref>
+          <Addr>蜀ICP备17043722号-4</Addr>
+        </Link>
+      </Note>
+      <br />
     </Wrapper>
   )
 }

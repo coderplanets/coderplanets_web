@@ -1,6 +1,6 @@
 {
   "name": "coderplanets_web",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "Apache License 2.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev next dev",
