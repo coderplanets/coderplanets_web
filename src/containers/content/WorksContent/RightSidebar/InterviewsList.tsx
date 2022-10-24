@@ -12,7 +12,7 @@ import {
   UpvoteIcon,
 } from '../styles/right_sidebar/interviews_list'
 
-// const icon = 'https://assets.coderplanets.com/works/market1.jpeg'
+// const icon = 'https://assets.groupher.com/works/market1.jpeg'
 
 const Interview: React.FC = () => {
   return (

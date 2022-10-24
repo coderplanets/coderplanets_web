@@ -193,7 +193,7 @@ export const mockDevelopers = (): TGallery[] => {
       nation: 'american',
       title: '姚期智',
       desc: '图灵奖首位的华人学者，主要研究计算理论及其在密码学和量子计算中的应用',
-      icon: 'https://assets.coderplanets.com/navi/fame-people/yao-qi-zhi.jpg',
+      icon: 'https://assets.groupher.com/navi/fame-people/yao-qi-zhi.jpg',
     },
     {
       id: '1',
@@ -201,7 +201,7 @@ export const mockDevelopers = (): TGallery[] => {
       nation: 'american',
       title: 'Charles P. Thacker',
       desc: '程序员，架构师，working at @Groupher',
-      icon: 'https://assets.coderplanets.com/navi/fame-people/yao-qi-zhi.jpg',
+      icon: 'https://assets.groupher.com/navi/fame-people/yao-qi-zhi.jpg',
     },
     {
       id: '2',
@@ -209,7 +209,7 @@ export const mockDevelopers = (): TGallery[] => {
       nation: 'american',
       title: 'Richard Matthew Stallman',
       desc: '最性感的开发者社区',
-      icon: 'https://assets.coderplanets.com/navi/fame-people/rms.png',
+      icon: 'https://assets.groupher.com/navi/fame-people/rms.png',
     },
     {
       id: '3',
@@ -217,7 +217,7 @@ export const mockDevelopers = (): TGallery[] => {
       nation: 'american',
       title: 'Richard Matthew Stallman',
       desc: '最性感的开发者社区',
-      icon: 'https://assets.coderplanets.com/navi/fame-people/rms.png',
+      icon: 'https://assets.groupher.com/navi/fame-people/rms.png',
     },
   ]
 }
