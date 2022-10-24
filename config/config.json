@@ -42,12 +42,12 @@
     "grey": 11
   },
   "//--- endpoint configs ---//": "",
-  "ASSETS_ENDPOINT": "https://assets.coderplanets.com",
-  "ICON": "https://assets.coderplanets.com/icons/static",
-  "ICON_BASE": "https://assets.coderplanets.com/icons",
-  "ICON_CMD": "https://assets.coderplanets.com/icons/cmd",
-  "DEFAULT_ICON": "https://assets.coderplanets.com/icons/cmd/cheatsheet.svg",
-  "DEFAULT_USER_AVATAR": "https://assets.coderplanets.com/icons/cmd/alien_user3.svg",
+  "ASSETS_ENDPOINT": "https://assets.groupher.com",
+  "ICON": "https://assets.groupher.com/icons/static",
+  "ICON_BASE": "https://assets.groupher.com/icons",
+  "ICON_CMD": "https://assets.groupher.com/icons/cmd",
+  "DEFAULT_ICON": "https://assets.groupher.com/icons/cmd/cheatsheet.svg",
+  "DEFAULT_USER_AVATAR": "https://assets.groupher.com/icons/cmd/alien_user3.svg",
   "GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql",
   "SITE_URL": "https://coderplanets.com",
   "SITE_URL_SHORT": "https://coderplanets.com",
@@ -58,7 +58,7 @@
   "MENTION_USER_ADDR": "https://coderplanets.com/users/",
   "//--- contact configs ---//": "",
   "EMAIL_SUPPORT": "coderplanets@outlook.com",
-  "// GRAPHQL_ENDPOINT": "https://api.coderplanets.com/graphiql",
+  "// GRAPHQL_ENDPOINT": "https://api.groupher.com/graphiql",
   "// 1000 * 60 * 10 = 10 mins": "",
   "SSR_CACHE_TIME": 60000
 }

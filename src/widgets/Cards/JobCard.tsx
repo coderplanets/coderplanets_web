@@ -58,7 +58,7 @@ const JobCard: FC<TProps> = ({
     id: '1',
     title: 'react',
     raw: 'react',
-    logo: 'https://assets.coderplanets.com/icons/static/new-logo.jpg',
+    logo: 'https://assets.groupher.com/icons/static/new-logo.jpg',
     desc: 'maybe the most popular UI framework for web, maybe the most popular UI framework for web',
     subscribersCount: 100,
   }

@@ -34,7 +34,7 @@ const items = [
     id: '2',
     title: '圣母百花大教堂',
     nation: 'italy',
-    imgSrc: 'https://assets.coderplanets.com/navi/arch/wns.jpg',
+    imgSrc: 'https://assets.groupher.com/navi/arch/wns.jpg',
   },
   {
     id: '3',
@@ -58,7 +58,7 @@ const items = [
     id: '6',
     title: '圣母百花大教堂',
     nation: 'italy',
-    imgSrc: 'https://assets.coderplanets.com/navi/arch/wqsqpsngny.jpeg',
+    imgSrc: 'https://assets.groupher.com/navi/arch/wqsqpsngny.jpeg',
   },
 ]
 

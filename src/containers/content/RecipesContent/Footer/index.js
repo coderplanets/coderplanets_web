@@ -17,8 +17,7 @@ import {
   Avatar,
 } from '../styles/footer'
 
-const FAKE_AVATAR =
-  'https://assets.coderplanets.com/icons/cmd/hot/hackernews.jpeg'
+const FAKE_AVATAR = 'https://assets.groupher.com/icons/cmd/hot/hackernews.jpeg'
 
 const Footer = () => {
   return (
