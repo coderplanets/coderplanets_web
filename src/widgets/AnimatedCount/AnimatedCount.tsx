@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { SIZE } from '@/constant'
 
-import { AnimateOnChange } from 'react-animation'
+import { AnimateOnChange } from '@groupher/react-animation'
 
 import type { TProps } from './index'
 import { Wrapper } from './styles'

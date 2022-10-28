@@ -1,5 +1,5 @@
 import { Fragment, memo, useEffect, useState } from 'react'
-import { AnimateOnChange } from 'react-animation'
+import { AnimateOnChange } from '@groupher/react-animation'
 
 import { SloganTextWrapper } from './styles/banner'
 

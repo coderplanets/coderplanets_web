@@ -1,6 +1,6 @@
 import { FC, memo, useEffect, useState } from 'react'
 
-import { AnimateOnChange } from 'react-animation'
+import { AnimateOnChange } from '@groupher/react-animation'
 import { CopyedHint, CopyIcon, CopyedText } from '../styles/copy_button'
 
 const CopyButton: FC = () => {

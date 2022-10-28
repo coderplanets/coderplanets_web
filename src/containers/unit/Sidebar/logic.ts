@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { arrayMove } from 'react-sortable-hoc'
+// import { arrayMove } from 'react-sortable-hoc'
 import { addIndex, map, reject, propEq, contains } from 'ramda'
 
 import type { TCommunity } from '@/spec'
@@ -60,11 +60,11 @@ export const sortBtnOnClick = (): void => {
 const mapIndexed = addIndex(map)
 
 export type TSortDone = { oldIndex: number; newIndex: number }
-export const onSortMenuEnd = ({ oldIndex, newIndex }: TSortDone): void => {
-  const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
-  setC11N(sortedCommunities)
-  store.onSortCommunities(sortedCommunities)
-}
+// export const onSortMenuEnd = ({ oldIndex, newIndex }: TSortDone): void => {
+//   const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
+//   setC11N(sortedCommunities)
+//   store.onSortCommunities(sortedCommunities)
+// }
 
 const setC11N = (sortedCommunities): void => {
   if (!store.isLogin) return store.authWarning()

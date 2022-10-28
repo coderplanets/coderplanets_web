@@ -5,7 +5,7 @@
  */
 
 import { FC, memo } from 'react'
-import { AnimateOnChange } from 'react-animation'
+import { AnimateOnChange } from '@groupher/react-animation'
 
 import type { TView, TDrinkItem, TSettingOption } from '../spec'
 import { VIEW } from '../constant'
