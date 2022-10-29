@@ -1,7 +1,6 @@
 /*
    this page is for /apply/community
  */
-import { Provider } from 'mobx-react'
 
 import { METRIC, ROUTE } from '@/constant'
 import { useStore } from '@/stores/init'
@@ -12,6 +11,7 @@ import {
   ssrBaseStates,
   refreshIfneed,
   ssrError,
+  log,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -36,7 +36,7 @@ export const getServerSideProps = async (context) => {
     const { sessionState } = resp
     refreshIfneed(sessionState, `/${ROUTE.APPLY_COMMUNITY}`, context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -48,19 +48,18 @@ export const getServerSideProps = async (context) => {
 }
 
 const ApplyCommunityPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
   const seoConfig = publishCommunitySEO()
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.COMMUNITY_EDITOR}
-        seoConfig={seoConfig}
-        noSidebar
-      >
-        <CommunityEditor />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout
+      metric={METRIC.COMMUNITY_EDITOR}
+      seoConfig={seoConfig}
+      noSidebar
+    >
+      <CommunityEditor />
+    </GlobalLayout>
   )
 }
 

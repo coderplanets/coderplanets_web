@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next'
-import { Provider } from 'mobx-react'
 
 import { METRIC } from '@/constant'
 
@@ -9,6 +8,7 @@ import {
   refreshIfneed,
   sponsorSEO,
   ssrError,
+  log,
 } from '@/utils'
 
 import { P } from '@/schemas'
@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     refreshIfneed(sessionState, '/sponsor', context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -46,15 +46,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const SponsorPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
   const seoConfig = sponsorSEO()
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.SPONSOR} seoConfig={seoConfig} noSidebar>
-        <SponsorContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.SPONSOR} seoConfig={seoConfig} noSidebar>
+      <SponsorContent />
+    </GlobalLayout>
   )
 }
 

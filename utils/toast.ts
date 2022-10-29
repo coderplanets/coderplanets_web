@@ -19,6 +19,7 @@ const doNotify = (options = {}): void => {
     return
   }
   const { iziToast } = Global as TWindow
+  // @ts-ignore
   iziToast.show(merge(DEFAULT_TOAST_OPTIONS, reject(nilOrEmpty, options)))
 }
 

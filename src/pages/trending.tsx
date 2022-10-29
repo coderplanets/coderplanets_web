@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next'
-import { Provider } from 'mobx-react'
 
 import { METRIC } from '@/constant'
 import { P } from '@/schemas'
@@ -10,6 +9,7 @@ import {
   refreshIfneed,
   trendingSEO,
   ssrError,
+  log,
 } from '@/utils'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import TrendingContent from '@/containers/content/TrendingContent'
@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     refreshIfneed(sessionState, '/trending', context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -45,16 +45,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const TrendingPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
 
   const seoConfig = trendingSEO()
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.TRENDING} seoConfig={seoConfig} noSidebar>
-        <TrendingContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.TRENDING} seoConfig={seoConfig} noSidebar>
+      <TrendingContent />
+    </GlobalLayout>
   )
 }
 

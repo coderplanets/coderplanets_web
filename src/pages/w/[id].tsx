@@ -1,10 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 // import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
-import { Provider } from 'mobx-react'
 
 import { ARTICLE_THREAD, METRIC } from '@/constant'
-import { articleSEO, makeGQClient } from '@/utils'
+import { articleSEO, makeGQClient, log } from '@/utils'
 
 import { useStore } from '@/stores/init'
 
@@ -31,11 +30,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  console.log('ctx: ', ctx)
+  log('ctx: ', ctx)
   const { params } = ctx
 
   const resp = await loader(params)
-  // console.log('resp: ', resp)
 
   return {
     props: {
@@ -49,7 +47,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 }
 
 const WorksArticlePage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
 
   const { isFallback } = useRouter()
   if (isFallback) return <LavaLampLoading top={20} left={30} />
@@ -60,16 +59,10 @@ const WorksArticlePage = (props) => {
   const seoConfig = articleSEO(ARTICLE_THREAD.WORKS, works)
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.WORKS_ARTICLE}
-        seoConfig={seoConfig}
-        noSidebar
-      >
-        <ArticleDigest />
-        <ArticleContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.WORKS_ARTICLE} seoConfig={seoConfig} noSidebar>
+      <ArticleDigest />
+      <ArticleContent />
+    </GlobalLayout>
   )
 }
 

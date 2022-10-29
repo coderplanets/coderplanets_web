@@ -1,5 +1,3 @@
-import { Provider } from 'mobx-react'
-
 import { METRIC } from '@/constant'
 
 import {
@@ -8,6 +6,7 @@ import {
   ssrFetchPrepare,
   refreshIfneed,
   drinkSEO,
+  log,
 } from '@/utils'
 import { P } from '@/schemas'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -32,7 +31,7 @@ export const getServerSideProps = async (context) => {
 
     refreshIfneed(sessionState, '/have-a-drink', context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -46,19 +45,15 @@ export const getServerSideProps = async (context) => {
 }
 
 const HaveADrinkPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
+
   const seoConfig = drinkSEO()
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.HAVE_A_DRINK}
-        seoConfig={seoConfig}
-        noSidebar
-      >
-        <HaveADrinkContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.HAVE_A_DRINK} seoConfig={seoConfig} noSidebar>
+      <HaveADrinkContent />
+    </GlobalLayout>
   )
 }
 
