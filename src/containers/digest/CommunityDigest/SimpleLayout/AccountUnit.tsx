@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 
+import Link from 'next/link'
 import { EVENT, THREAD } from '@/constant'
 import { send } from '@/utils/helper'
 
@@ -21,11 +22,14 @@ const AccountUnit: FC = () => {
         订阅
       </SubscribeButton>
 
-      <DashboardIcon
-        onClick={() =>
-          send(EVENT.COMMUNITY_THREAD_CHANGE, { data: THREAD.DASHBOARD })
-        }
-      />
+      <Link href="/home/dashboard">
+        <DashboardIcon
+          onClick={() => {
+            // send(EVENT.COMMUNITY_THREAD_CHANGE, { data: THREAD.DASHBOARD })
+          }}
+        />
+      </Link>
+
       <NotifyIcon />
       <Avatar src={`${mockUsers(1)[0].avatar}`} />
     </Wrapper>

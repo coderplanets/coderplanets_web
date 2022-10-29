@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2015",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -16,36 +20,89 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "@/containers/*": ["src/containers/*"],
-      "@/widgets/*": ["src/widgets/*"],
-      "@/services": ["src/services"],
-      "@/services/*": ["src/services/*"],
-      "@/constant": ["utils/constant"],
-      "@/hooks": ["src/hooks"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/hoc": ["src/hoc"],
-      "@/config": ["config"],
-      "@/stores/*": ["src/stores/*"],
-      "@/model": ["src/stores/Model"],
-      "@/model/*": ["src/stores/Model/*"],
-      "@/utils": ["utils"],
-      "@/utils/*": ["utils/*"],
-      "@/schemas": ["src/schemas"],
-      "@/spec": ["src/spec"],
-      "@/Img": ["src/widgets/Img"],
-      "@/SvgIcons/*": ["src/widgets/SvgIcons/*"],
-      "@/icons": ["src/widgets/Icons"],
-      "@/icons/*": ["src/widgets/Icons/*"],
-      "@/i18n": ["i18n"]
+      "@/containers/*": [
+        "src/containers/*"
+      ],
+      "@/widgets/*": [
+        "src/widgets/*"
+      ],
+      "@/services": [
+        "src/services"
+      ],
+      "@/services/*": [
+        "src/services/*"
+      ],
+      "@/constant": [
+        "utils/constant"
+      ],
+      "@/hooks": [
+        "src/hooks"
+      ],
+      "@/hooks/*": [
+        "src/hooks/*"
+      ],
+      "@/hoc": [
+        "src/hoc"
+      ],
+      "@/config": [
+        "config"
+      ],
+      "@/stores/*": [
+        "src/stores/*"
+      ],
+      "@/model": [
+        "src/stores/Model"
+      ],
+      "@/model/*": [
+        "src/stores/Model/*"
+      ],
+      "@/utils": [
+        "utils"
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ],
+      "@/schemas": [
+        "src/schemas"
+      ],
+      "@/spec": [
+        "src/spec"
+      ],
+      "@/Img": [
+        "src/widgets/Img"
+      ],
+      "@/SvgIcons/*": [
+        "src/widgets/SvgIcons/*"
+      ],
+      "@/icons": [
+        "src/widgets/Icons"
+      ],
+      "@/icons/*": [
+        "src/widgets/Icons/*"
+      ],
+      "@/i18n": [
+        "i18n"
+      ]
     },
     "plugins": [
       {
         "name": "typescript-styled-plugin",
         "validate": false
+      },
+      {
+        "name": "next"
       }
     ],
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/*.test.ts"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts"
+  ]
 }

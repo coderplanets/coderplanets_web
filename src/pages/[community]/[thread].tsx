@@ -1,4 +1,3 @@
-import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
 import { merge, toLower } from 'ramda'
 
@@ -124,20 +123,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const CommunityPage = (props) => {
-  const store = useStore(props)
-
-  const { viewing } = store
+  const { viewing } = props
   const { community, activeThread } = viewing
+  const store = useStore()
+
+  store.mark(props)
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.COMMUNITY}
-        seoConfig={communitySEO(community as TCommunity, activeThread)}
-      >
-        <CommunityContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout
+      metric={METRIC.COMMUNITY}
+      seoConfig={communitySEO(community as TCommunity, activeThread)}
+    >
+      <CommunityContent />
+    </GlobalLayout>
   )
 }
 

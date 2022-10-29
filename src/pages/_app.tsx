@@ -1,8 +1,12 @@
 import { useEffect } from 'react'
+import { Provider } from 'mobx-react'
 import Head from 'next/head'
 import Script from 'next/script'
 import { useRouter } from 'next/router'
 import GA from '@/utils/analytics'
+import { log } from '@/utils/logger'
+
+import { useStore } from '@/stores/init'
 
 /**
  * import default seo configuration
@@ -14,6 +18,7 @@ import GA from '@/utils/analytics'
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter()
+
   useEffect(() => {
     const handleRouteChange = (url) => {
       GA.pageview(url)
@@ -23,6 +28,14 @@ const App = ({ Component, pageProps }) => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
+
+  const initialState = {}
+
+  log('initialState: ', initialState)
+
+  const store = useStore()
+
+  log('## init store:6 ', store)
 
   return (
     <>
@@ -55,18 +68,15 @@ const App = ({ Component, pageProps }) => {
           data-async="true"
         />
       </Head>
-
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA.TRACKING_ID}`}
       />
-
       <Script
         strategy="afterInteractive"
         data-domain="coderplanets.com"
         src="https://plausible.io/js/plausible.js"
       />
-
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -78,13 +88,13 @@ const App = ({ Component, pageProps }) => {
           });
         `}
       </Script>
-
       <Script
         strategy="lazyOnload"
         src="https://cdn.staticfile.org/izitoast/1.4.0/js/iziToast.min.js"
       />
-
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   )
 }

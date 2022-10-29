@@ -19,6 +19,7 @@ const nextConfig = {
       exclude: ['error'],
     },
   },
+  // experimental: { appDir: true },
 
   // pwa: {
   //   dest: 'public',

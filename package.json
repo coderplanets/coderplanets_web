@@ -3,8 +3,8 @@
   "version": "1.0.13",
   "license": "Apache License 2.0",
   "scripts": {
-    "// dev": "cross-env NODE_ENV=dev next dev",
-    "dev": "cross-env NODE_ENV=dev next dev --turbo",
+    "dev": "next dev",
+    "dev2": "next dev --turbo",
     "ci": "cross-env NODE_ENV=ci node server",
     "update.version": "node -p \"'export const APP_VERSION = ' + JSON.stringify(require('./package.json').version)\" > config/version.ts",
     "build": "next build",
