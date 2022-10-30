@@ -19,8 +19,9 @@ const CommentLoading: FC = () => {
         height={60}
         width={400}
         speed={2}
-        primaryColor={theme.loading.basic}
-        secondaryColor={theme.loading.animate}
+        backgroundColor={theme.loading.basic}
+        // primaryColor={theme.loading.basic}
+        // secondaryColor={theme.loading.animate}
       >
         <rect x="35" y="6" rx="4" ry="4" width="117" height="5.25" />
         <rect x="37" y="20" rx="3" ry="3" width="85" height="5.25" />

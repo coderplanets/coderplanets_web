@@ -11,8 +11,6 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const responseTime = require('response-time')
 const mobxReact = require('mobx-react')
-// inspect graphql model
-const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
 // i18n setup
 // const nextI18NextMiddleware = require('next-i18next/middleware').default
 // const nextI18next = require('../i18n')
@@ -42,10 +40,6 @@ mobxReact.enableStaticRendering(true)
   // redirect all the www request to non-www addr
   server.use(redirectToNakedUrl)
   server.use(express.static('public'))
-  server.use(
-    '/model-graphs',
-    voyagerMiddleware({ endpointUrl: CONFIG.GRAPHQL_ENDPOINT }),
-  )
 
   // await nextI18next.initPromise
   // server.use(nextI18NextMiddleware(nextI18next))

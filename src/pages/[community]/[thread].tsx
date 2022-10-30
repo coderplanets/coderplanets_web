@@ -1,4 +1,3 @@
-import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
 import { merge, toLower } from 'ramda'
 
@@ -18,6 +17,7 @@ import {
   ssrRescue,
   communitySEO,
   singular,
+  log,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -82,13 +82,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   )
 
   const thread = singular((query.thread as string) || THREAD.POST)
-  console.log('page community, thread: ', thread)
 
   let resp
   try {
     resp = await loader(context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     if (ssrRescue.hasLoginError(e.response?.errors)) {
       // token 过期了，重新用匿名方式请求一次
       await loader(context, { tokenExpired: true })
@@ -124,20 +123,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const CommunityPage = (props) => {
-  const store = useStore(props)
-
-  const { viewing } = store
+  const { viewing } = props
   const { community, activeThread } = viewing
+  const store = useStore()
+  store.mark(props)
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.COMMUNITY}
-        seoConfig={communitySEO(community as TCommunity, activeThread)}
-      >
-        <CommunityContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout
+      metric={METRIC.COMMUNITY}
+      seoConfig={communitySEO(community as TCommunity, activeThread)}
+    >
+      <CommunityContent />
+    </GlobalLayout>
   )
 }
 

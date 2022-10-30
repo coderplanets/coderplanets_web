@@ -1,3 +1,4 @@
+// @
 /*
  * this is a wrapper for [react-select](https://react-select.com/)
  * see detail props in https://react-select.com/props
@@ -52,6 +53,7 @@ const Select: FC<TProps> = ({
         options={options}
         placeholder={placeholder}
         styles={styles}
+        // @ts-ignore
         components={{ IndicatorsContainer, Option, Input }}
         onChange={onChange}
         closeMenuOnSelect={closeMenuOnSelect}

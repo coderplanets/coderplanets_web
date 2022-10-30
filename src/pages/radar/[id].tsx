@@ -1,5 +1,3 @@
-import { Provider } from 'mobx-react'
-
 import { ARTICLE_THREAD, METRIC } from '@/constant'
 import {
   ssrBaseStates,
@@ -8,6 +6,7 @@ import {
   articleSEO,
   ssrGetParam,
   refreshIfneed,
+  log,
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
@@ -46,7 +45,7 @@ export const getServerSideProps = async (context) => {
     const { radar, sessionState } = resp
     refreshIfneed(sessionState, `/radar/${radar.id}`, context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -64,19 +63,19 @@ export const getServerSideProps = async (context) => {
 }
 
 const RadarPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
+
   const { viewing } = props
   const { radar } = viewing
 
   const seoConfig = articleSEO(ARTICLE_THREAD.RADAR, radar)
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.ARTICLE} seoConfig={seoConfig} noSidebar>
-        <ArticleDigest />
-        <ArticleContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.ARTICLE} seoConfig={seoConfig} noSidebar>
+      <ArticleDigest />
+      <ArticleContent />
+    </GlobalLayout>
   )
 }
 

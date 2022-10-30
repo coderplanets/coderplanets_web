@@ -19,6 +19,8 @@ const nextConfig = {
       exclude: ['error'],
     },
   },
+  // experimental: { appDir: true },
+
   // pwa: {
   //   dest: 'public',
   //   disable: process.env.NODE_ENV !== 'production',

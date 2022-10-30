@@ -1,5 +1,4 @@
 // import { GetServerSideProps } from 'next'
-import { Provider } from 'mobx-react'
 import { METRIC, THREAD } from '@/constant'
 
 import {
@@ -8,6 +7,7 @@ import {
   ssrBaseStates,
   refreshIfneed,
   ssrError,
+  log,
 } from '@/utils'
 
 import { useStore } from '@/stores/init'
@@ -33,7 +33,7 @@ export const getServerSideProps = async (context) => {
     const { sessionState } = resp
     refreshIfneed(sessionState, '/publish/blog', context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -45,19 +45,18 @@ export const getServerSideProps = async (context) => {
 }
 
 export const CreateBlogPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
   const seoConfig = articlePublishSEO(THREAD.BLOG)
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.ARTICLE_EDITOR}
-        seoConfig={seoConfig}
-        noSidebar
-      >
-        <BlogEditor />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout
+      metric={METRIC.ARTICLE_EDITOR}
+      seoConfig={seoConfig}
+      noSidebar
+    >
+      <BlogEditor />
+    </GlobalLayout>
   )
 }
 

@@ -1,8 +1,6 @@
 import { GetServerSideProps } from 'next'
-import { Provider } from 'mobx-react'
 
-import { SITE_URL } from '@/config'
-import { ROUTE, METRIC } from '@/constant'
+import { METRIC } from '@/constant'
 
 import {
   ssrBaseStates,
@@ -10,6 +8,7 @@ import {
   ssrFetchPrepare,
   ssrError,
   coolGuideSEO,
+  log,
 } from '@/utils'
 import { P } from '@/schemas'
 
@@ -35,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     refreshIfneed(sessionState, '/cool-guide', context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -49,15 +48,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const CoolGuidePage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
   const seoConfig = coolGuideSEO()
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.COOL_GUIDE} seoConfig={seoConfig} noSidebar>
-        <CoolGuideContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.COOL_GUIDE} seoConfig={seoConfig} noSidebar>
+      <CoolGuideContent />
+    </GlobalLayout>
   )
 }
 

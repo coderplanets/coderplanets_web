@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { Provider } from 'mobx-react'
 import { useRouter } from 'next/router'
 
 import { ARTICLE_THREAD, METRIC } from '@/constant'
@@ -33,7 +32,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params } = ctx
 
   const resp = await loader(params)
-  // console.log('resp: ', resp)
 
   return {
     props: {
@@ -47,7 +45,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 }
 
 const PostPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
 
   const { isFallback } = useRouter()
   if (isFallback) return <LavaLampLoading top={20} left={30} />
@@ -56,15 +55,12 @@ const PostPage = (props) => {
   const { post } = viewing
 
   const seoConfig = articleSEO(ARTICLE_THREAD.POST, post)
-  // console.log('## init store: ', store)
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.ARTICLE} seoConfig={seoConfig} noSidebar>
-        <ArticleDigest />
-        <ArticleContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.ARTICLE} seoConfig={seoConfig} noSidebar>
+      <ArticleDigest />
+      <ArticleContent />
+    </GlobalLayout>
   )
 }
 

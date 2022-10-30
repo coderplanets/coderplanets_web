@@ -19,6 +19,8 @@ import { P } from '@/schemas'
 
 import BStore from './bstore'
 
+export { log } from './logger'
+
 /*
  * check if current is on server side
  */

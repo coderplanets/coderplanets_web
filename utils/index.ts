@@ -8,7 +8,7 @@
 
 export { default as asyncSuit } from './async/index'
 
-export { buildLog } from './logger'
+export { buildLog, log } from './logger'
 
 export { default as uid } from './uid'
 

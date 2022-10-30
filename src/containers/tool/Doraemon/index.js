@@ -5,7 +5,7 @@
  */
 
 import { Fragment, useEffect } from 'react'
-import usePortal from 'react-useportal'
+import { Portal } from 'react-portal'
 
 import { toggleGlobalBlur } from '@/utils/dom'
 import { bond } from '@/utils/mobx'
@@ -22,7 +22,6 @@ import { useInit, hidePanel } from './logic'
 
 const DoraemonContainer = ({ doraemon: store }) => {
   useInit(store)
-  const { Portal } = usePortal()
 
   const {
     inputValue,

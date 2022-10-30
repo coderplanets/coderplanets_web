@@ -22,8 +22,9 @@ const LoadingItem = ({ theme }) => (
     height={70}
     width={500}
     speed={2}
-    primaryColor={theme.loading.basic}
-    secondaryColor={theme.loading.animate}
+    backgroundColor={theme.loading.basic}
+    // primaryColor={theme.loading.basic}
+    // secondaryColor={theme.loading.animate}
   >
     <rect x="38" y="5.58" rx="4" ry="4" width="195.55" height="8.69" />
     <rect x="38" y="19.93" rx="3" ry="3" width="130.05" height="5.36" />

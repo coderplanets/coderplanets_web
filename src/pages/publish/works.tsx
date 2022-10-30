@@ -2,7 +2,6 @@
    this page is for /create/works
  */
 import { GetServerSideProps } from 'next'
-import { Provider } from 'mobx-react'
 
 import { METRIC, THREAD } from '@/constant'
 import { useStore } from '@/stores/init'
@@ -13,6 +12,7 @@ import {
   ssrBaseStates,
   refreshIfneed,
   ssrError,
+  log,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -37,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     refreshIfneed(sessionState, '/publish/works', context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -49,19 +49,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const PublishWorksPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
+
   const seoConfig = articlePublishSEO(THREAD.WORKS)
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.WORKS_EDITOR}
-        seoConfig={seoConfig}
-        noSidebar
-      >
-        <WorksEditor />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.WORKS_EDITOR} seoConfig={seoConfig} noSidebar>
+      <WorksEditor />
+    </GlobalLayout>
   )
 }
 

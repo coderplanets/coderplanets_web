@@ -1,4 +1,3 @@
-import { Provider } from 'mobx-react'
 import { GetStaticProps } from 'next'
 import { merge, toLower } from 'ramda'
 
@@ -61,7 +60,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const resp = await loader()
 
   const { filter, community, pagedArticleTags } = resp
-  // console.log('iii got resp: ', resp)
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
   const initProps = merge(
@@ -88,20 +86,19 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 }
 
 const CommunityPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
 
   const { viewing } = store
   const { community, activeThread } = viewing
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.COMMUNITY}
-        seoConfig={communitySEO(community as TCommunity, activeThread)}
-      >
-        <CommunityContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout
+      metric={METRIC.COMMUNITY}
+      seoConfig={communitySEO(community as TCommunity, activeThread)}
+    >
+      <CommunityContent />
+    </GlobalLayout>
   )
 }
 

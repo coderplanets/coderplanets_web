@@ -1,7 +1,6 @@
 /*
    this page is for /user/xxx
  */
-import { Provider } from 'mobx-react'
 
 import { METRIC } from '@/constant'
 import {
@@ -11,6 +10,7 @@ import {
   ssrError,
   refreshIfneed,
   userSEO,
+  log,
 } from '@/utils'
 
 import { useStore } from '@/stores/init'
@@ -49,7 +49,7 @@ export const getServerSideProps = async (context) => {
     const { user, sessionState } = resp
     refreshIfneed(sessionState, `/user/${user.login}`, context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -68,7 +68,8 @@ export const getServerSideProps = async (context) => {
 }
 
 const UserPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
 
   const { viewing } = props
   const { user } = viewing
@@ -76,15 +77,13 @@ const UserPage = (props) => {
   const seoConfig = userSEO(user)
 
   return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.USER}
-        seoConfig={seoConfig}
-        noSidebar={!!user.login}
-      >
-        <UserContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout
+      metric={METRIC.USER}
+      seoConfig={seoConfig}
+      noSidebar={!!user.login}
+    >
+      <UserContent />
+    </GlobalLayout>
   )
 }
 

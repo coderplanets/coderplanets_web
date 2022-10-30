@@ -44,7 +44,7 @@ const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
 
       <ScrollBarStyle />
       {/* @ts-ignore */}
-      <NextNprogress
+      {/* <NextNprogress
         color={themeData.logoText}
         startPosition={0.3}
         stopDelayMs={200}
@@ -54,7 +54,7 @@ const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
           parent: `#${ANCHOR.GLOBAL_HEADER_ID}`,
         }}
         showOnShallow
-      />
+      /> */}
       <Fragment>{children}</Fragment>
       {/* @ts-ignore */}
       <CodeSyxHighlight />

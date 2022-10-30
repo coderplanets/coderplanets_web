@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next'
-import { Provider } from 'mobx-react'
 
 import { METRIC } from '@/constant'
 
@@ -9,6 +8,7 @@ import {
   refreshIfneed,
   supportUsSEO,
   ssrError,
+  log,
 } from '@/utils'
 
 import { P } from '@/schemas'
@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     refreshIfneed(sessionState, '/support-us', context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -46,16 +46,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const SupportUSPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
 
   const seoConfig = supportUsSEO()
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.SUPPORT_US} seoConfig={seoConfig} noSidebar>
-        <SupportUs />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.SUPPORT_US} seoConfig={seoConfig} noSidebar>
+      <SupportUs />
+    </GlobalLayout>
   )
 }
 

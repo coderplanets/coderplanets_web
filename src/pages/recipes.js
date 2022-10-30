@@ -1,5 +1,4 @@
 import React from 'react'
-import { Provider } from 'mobx-react'
 import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
@@ -60,7 +59,8 @@ export const getServerSideProps = async (props) => {
 }
 
 const RecipesPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
 
   const seoConfig = {
     url: `${SITE_URL}/${ROUTE.RECIPES}`,
@@ -69,11 +69,9 @@ const RecipesPage = (props) => {
   }
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.RECIPES} seoConfig={seoConfig} noSidebar>
-        <RecipesContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.RECIPES} seoConfig={seoConfig} noSidebar>
+      <RecipesContent />
+    </GlobalLayout>
   )
 }
 

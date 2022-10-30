@@ -1,5 +1,5 @@
 import React from 'react'
-import { AnimateOnChange } from 'react-animation'
+import { AnimateOnChange } from '@groupher/react-animation'
 
 import { SpaceGrow } from '@/widgets/Common'
 

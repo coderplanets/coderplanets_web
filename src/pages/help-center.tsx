@@ -1,4 +1,3 @@
-import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
 
 import { merge } from 'ramda'
@@ -104,7 +103,8 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
 }
 
 const HelpCenterPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
 
   const seoConfig = {
     url: `${SITE_URL}/${ROUTE.HELP_CENTER}`,
@@ -113,11 +113,9 @@ const HelpCenterPage = (props) => {
   }
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.HELP_CENTER} seoConfig={seoConfig} noSidebar>
-        <HelpCenterContent metric={METRIC.HELP_CENTER} />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.HELP_CENTER} seoConfig={seoConfig} noSidebar>
+      <HelpCenterContent metric={METRIC.HELP_CENTER} />
+    </GlobalLayout>
   )
 }
 

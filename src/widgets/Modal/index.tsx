@@ -5,7 +5,7 @@
  */
 
 import { FC, ReactNode, useEffect, useState, useCallback, memo } from 'react'
-import usePortal from 'react-useportal'
+import { Portal } from 'react-portal'
 
 import { toggleGlobalBlur } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
@@ -41,7 +41,6 @@ const Modal: FC<TProps> = ({
   offsetTop = '20%',
   offsetLeft = 'none',
 }) => {
-  const { Portal } = usePortal()
   // damn, i forgot why i set this state, fix LATER
   const [visibleOnPage, setVisibleOnPage] = useState(false)
 

@@ -15,8 +15,9 @@ const LoadingBlock = ({ theme }) => (
       height={200}
       width={280}
       speed={2}
-      primaryColor={theme.loading.basic}
-      secondaryColor={theme.loading.animate}
+      backgroundColor={theme.loading.basic}
+      // primaryColor={theme.loading.basic}
+      // secondaryColor={theme.loading.animate}
     >
       <rect x="0" y="0" rx="3" ry="3" width="70" height="10" />
       <rect x="80" y="0" rx="3" ry="3" width="100" height="10" />

@@ -1,7 +1,6 @@
 /*
    this page is for /explore
  */
-import { Provider } from 'mobx-react'
 import { METRIC } from '@/constant'
 
 import { exploreSEO } from '@/utils'
@@ -21,15 +20,14 @@ export const getServerSideProps = async (context) => {
 }
 
 const ExplorePage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
   const seoConfig = exploreSEO()
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig} noSidebar>
-        {/* <ExploreContent /> */}
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig} noSidebar>
+      {/* <ExploreContent /> */}
+    </GlobalLayout>
   )
 }
 

@@ -1,5 +1,5 @@
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { reject, propEq } from 'ramda'
 
 import type { TCommunity } from '@/spec'
@@ -7,12 +7,12 @@ import { HCN } from '@/constant'
 import NormalMenuList from './NormalMenuList'
 
 import { Wrapper } from '../styles/menu_list/index'
-import { onSortMenuEnd } from '../logic'
+// import { onSortMenuEnd } from '../logic'
 
-export const SortableMenuList = dynamic(() => import('./SortableMenuList'), {
-  /* eslint-disable react/display-name */
-  loading: () => <div>..</div>,
-})
+// export const SortableMenuList = dynamic(() => import('./SortableMenuList'), {
+//   /* eslint-disable react/display-name */
+//   loading: () => <div>..</div>,
+// })
 
 type TProps = {
   items: TCommunity[]
@@ -34,14 +34,15 @@ const MenuList: FC<TProps> = ({ items, pin, sortOptActive, activeRaw }) => {
         />
       ) : (
         // @ts-ignore
-        <SortableMenuList
-          communities={sortableCommunities}
-          sortOptActive={sortOptActive}
-          distance={5}
-          pin={pin}
-          activeRaw={activeRaw}
-          onSortEnd={onSortMenuEnd}
-        />
+        <div>SortableMenuList</div>
+        // <SortableMenuList
+        //   communities={sortableCommunities}
+        //   sortOptActive={sortOptActive}
+        //   distance={5}
+        //   pin={pin}
+        //   activeRaw={activeRaw}
+        //   onSortEnd={onSortMenuEnd}
+        // />
       )}
     </Wrapper>
   )

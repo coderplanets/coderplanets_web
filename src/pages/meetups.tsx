@@ -1,5 +1,3 @@
-import { Provider } from 'mobx-react'
-
 import { METRIC, THREAD } from '@/constant'
 
 import {
@@ -11,6 +9,7 @@ import {
   refreshIfneed,
   meetupsSEO,
   ssrError,
+  log,
 } from '@/utils'
 
 import { P } from '@/schemas'
@@ -45,7 +44,7 @@ export const getServerSideProps = async (context) => {
 
     refreshIfneed(sessionState, '/meetups', context)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
@@ -66,15 +65,14 @@ export const getServerSideProps = async (context) => {
 }
 
 const MeetupsPage = (props) => {
-  const store = useStore(props)
+  const store = useStore()
+  store.mark(props)
   const seoConfig = meetupsSEO()
 
   return (
-    <Provider store={store}>
-      <GlobalLayout metric={METRIC.MEETUPS} seoConfig={seoConfig} noSidebar>
-        <MeetupsContent />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout metric={METRIC.MEETUPS} seoConfig={seoConfig} noSidebar>
+      <MeetupsContent />
+    </GlobalLayout>
   )
 }
 
