@@ -134,7 +134,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "bundlewatch": "^0.2.7",
-    "commitizen": "3.1.2",
+    "commitizen": "4.2.5",
     "coveralls": "3.0.14",
     "cypress": "^8.1.0",
     "cz-conventional-changelog": "^3.0.0",
