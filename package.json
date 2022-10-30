@@ -127,7 +127,7 @@
     "@groupher/eslint-config-web": "2.0.9",
     "@next/eslint-plugin-next": "^12.2.5",
     "@types/jest": "^26.0.20",
-    "@types/mocha": "^8.2.1",
+    "@types/mocha": "^10.0.0",
     "@types/ramda": "^0.27.38",
     "@types/react": "^17.0.3",
     "@types/styled-components": "^5.1.8",
