@@ -35,8 +35,6 @@ const App = ({ Component, pageProps }) => {
 
   const store = useStore()
 
-  log('## init store:6 ', store)
-
   return (
     <>
       <Head>
