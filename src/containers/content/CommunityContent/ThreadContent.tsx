@@ -8,7 +8,7 @@ import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import ArticlesThread from '@/containers//thread/ArticlesThread'
 import KanbanThread from '@/containers//thread/KanbanThread'
-import ChangeThread from '@/containers//thread/ChangelogThread'
+import ChangeLogThread from '@/containers//thread/ChangelogThread'
 // import ReposThread from '@/containers/thread/ReposThread'
 // import CperMapThread from '@/containers/thread/CperMapThread'
 // import WipThread from './WipThread'
@@ -45,7 +45,7 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
     }
 
     case THREAD.CHANGELOG: {
-      return <ChangeThread />
+      return <ChangeLogThread />
     }
 
     case THREAD.HELP: {
