@@ -112,7 +112,7 @@
     "rxjs": "6.2.2",
     "sanitize-html": "^2.5.2",
     "scroll-into-view-if-needed": "1.5.0",
-    "sentry-testkit": "^2.1.0",
+    "sentry-testkit": "^5.0.3",
     "store": "^2.0.12",
     "stringz": "^2.0.0",
     "styled-components": "^5.3.5",
