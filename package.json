@@ -119,7 +119,7 @@
     "timeago-react": "^3.0.5",
     "tinykeys": "^1.0.6",
     "url": "^0.11.0",
-    "urql": "^2.0.4"
+    "urql": "^3.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
